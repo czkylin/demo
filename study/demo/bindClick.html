@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript" src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<body>
+  <h2>点击按钮load</h2>
+  <p>this is paragraph to load</p>
+  <input type="button" name="sub" value="load" id="sub"></input><br>
+  <a href="javascript:void(0)" onclick="aClick()">百度</a>
+  <div>
+    <ul>
+      <li>
+        <a id="a" href='javascript:void(0)'>1111111111111111</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)'>2222222222222222</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)'>33333333333333333</a>
+      </li>
+      <li>
+        <a href='javascript:void(0)'>444444444444444444</a>
+      </li>
+    </ul>
+  </div>
+<script>
+  $(function(){
+     $("#sub").click(function(){
+         $("p").load("test.txt",aClick());
+     });
+  })
+  function aClick () {
+      window.location = "http://www.baidu.com";
+  }
+  var a = document.getElementById('a')
+  a.addEventListener('click', function(e) {
+    console.log(e.target.parent);
+    console.log(e.target.parentElement);
+    console.log(e.target.parentNode);
+  })
+</script>
+</body>
+</html>

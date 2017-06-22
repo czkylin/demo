@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+  console.log('1---------------');
+  //基于已有对象扩充属性和方法
+  var object1 = new Object();
+  object1.name = 'wang';
+  object1.sayName = function(name){
+    this.name = name;
+    console.log(this.name);
+  }
+  object1.sayName('hao');
+  console.log(object1);
+
+  console.log('2---------------');
+  //工厂方式创建对象（无参数传递）
+  function createObject(){
+    var object = new Object();
+    object.name = 'wang';
+    object.age = '24';
+    object.getInfo = function(){
+      console.log(this.name + ' ' + this.age);
+    }
+    return object;
+  }
+  var obj2 = createObject();
+  obj2.getInfo();
+  console.log(obj2);
+
+  console.log('3.1---------------');
+  //工厂模式，传递参数，即改进方法
+  function createObject2(name, age){
+    var object = new Object();
+    object.name = name;
+    object.age = age;
+    object.getInfo = function(){
+      console.log(this.name + ' ' + this.age);
+    }
+    return object;
+  }
+  var object3 = createObject2('hao', '18');
+  object3.getInfo();
+  console.log(object3);
+
+  console.log('3.2---------------');
+  //工厂模式传递参数改进（让一个函数对象被多个对象所共享，而不是每个对象都拥有一个方法）
+  function createObject3(name, age) {
+    var obj = new Object();
+    obj.name = name;
+    obj.age = age;
+    obj.getInfo = getInfo;
+    return obj;
+  }
+  function getInfo() {
+    console.log(this.name + " " + this.age);
+  }
+  var object4 = createObject3('ran', '23');
+  object4.getInfo();
+  console.log(object4);
+
+  console.log('4---------------');
+  //使用构造函数方式创建对象
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.getInfo = function() {
+      console.log(this.name + ' ' + this.age);
+    }
+  }
+  var person = new Person('wang', '24')
+  person.getInfo();
+  console.log(person);
+
+  console.log('5.1---------------');
+  //原型prototype构建对象
+  function Person1(){}
+  Person1.prototype.name = 'wang';
+  Person1.prototype.age = '24';
+  Person1.prototype.getInfo = function() {
+    console.log(this.name + " " + this.age);
+  }
+  var person1 = new Person1();
+  person1.name = 'hao';
+  person1.getInfo();
+  console.log(person1);
+
+  console.log('5.2---------------');
+  /*弊端：如果使用原型方式创建对象，那么生成的所有对象会共享原型中的属性，
+     这样一个对象改变了该属性也会反应到其他对象当中。代码如下：*/
+  function Person2(){}
+  Person2.prototype.name = new Array();
+  Person2.prototype.age = '24';
+  Person2.prototype.getInfo = function(){
+    console.log(this.name + ' ' + this.age);
+  }
+  var person2 = new Person2();
+  var person3 = new Person2();
+  person2.name.push('wang');
+  person2.name.push('hao');
+  person2.age = '18';
+  person2.getInfo();
+  person3.getInfo();
+  console.log(person2);
+  console.log(person3);
+
+  console.log('5.3---------------');
+  /*改进：
+  使用原型+构造函数方式来定义对象，对象之间的属性互不干扰
+  各个对象之间共享同一个方法。
+  */
+  function Person3(){
+    this.name = new Array();
+    this.age = '24';
+  }
+  Person3.prototype.getInfo = function(){
+    console.log(this.name + ' ' + this.age);
+  }
+  var person4 = new Person3();
+  var person5 = new Person3();
+
+  person4.name.push('wang');
+  person4.age = '24';
+
+  person5.name.push('hao');
+
+  person4.getInfo();
+  person5.getInfo();
+  console.log(person4);
+  console.log(person5);
+
+  console.log('6---------------');
+  /*
+     说明：在构造函数中通过标识量让所有对象共享一个方法，而每个
+     对象拥有自己的属性。
+   */
+  function Person4(name, age){
+    this.name = name;
+    this.age = age;
+    if(typeof Person4.flag == 'undefined') {
+      Person4.prototype.getInfo = function() {
+        console.log(this.name + ' ' + this.age);
+      }
+      Person4.flag = true;
+    }
+  }
+  var person6 = new Person4('wang', '24');
+  var person7 = new Person4('hao', '18');
+
+  person6.getInfo();
+  person7.getInfo();
+
+  console.log(person6);
+  console.log(person7);
+
+</script>
+</html>

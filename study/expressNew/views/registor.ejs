@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title">
+  <title>registor</title>
+</head>
+<body>
+  <%- include header %>
+  <form class="" action="/users/registor" method="post">
+    用户名：<input type="text" name="username" value="">
+    密码：<input type="password" name="password" value="">
+    确认密码：<input type="password" name="confirmPwd" value="">
+    昵称：<input type="text" name="nickname" value="">
+    <input type="submit" name="submit" value="提交">
+  </form>
+</body>
+</html>

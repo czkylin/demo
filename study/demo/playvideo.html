@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{height:100%;position:relative}
+    #playvideo{width:80%;position:relative;margin:0 auto;background-color:#000;}
+    #playvideo embed,#playvideo video,#playvideo iframe,#playvideo object,#playvideo >div{width:100%;height:100%; background-color:#000;}
+  </style>
+
+</head>
+<body>
+  <!-- <div id="playvideo" typeid="iqiyi" sid="683219500" vid="15f9fbfceb4cc949ddd3f09d4d53fe7c"></div> -->
+  <!-- <div id="playvideo" typeid="qq" sid="m0508kcyba7"></div> -->
+  <!-- <div id="playvideo" typeid="sohu" sid="3770732"></div> -->
+  <!-- <div id="playvideo" typeid="youku" sid="XMjc5NjMyMjgxNg"></div> -->
+  <div id="playvideo"></div>
+  <div id="hide" videoUrl='http://player.youku.com/player.php/sid/XMjc1MDg3NjI5Ng==/v.swf' style="display: none;"></div>
+  <button id="play" type="button">播放</button>
+  <button id="pause" type="button" >暂停</button>
+  <button id="forward" type="button" >快进</button>
+  <button id="backward" type="button" >快退</button>
+
+
+<script type="text/javascript" src='./play.js'></script>
+<script type="text/javascript" src="./play-video.1.0.6.js"></script>
+<script type="text/javascript">
+  console.log(player);
+  console.log(p);
+  document.getElementById('forward').onclick = function() {
+    player.currentTime()
+  }
+  // function play() {
+  //   player.play();
+  // }
+  //
+  // function pause() {
+  //   player.pauseVideo();
+  // }
+
+</script>
+</body>
+</html>

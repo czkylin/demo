@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>register</title>
+  </head>
+  <body>
+    <%- include header %>
+    <form action='/users/register' method="post">
+      用户名：<input type="text" name="username" value="" />
+      密码：<input type="password" name="password" value="" />
+      确认密码：<input type="password" name="confirmPwd" value="" />
+      昵称：<input type="text" name="nickname" value="" />
+      <input type="submit" name="submit" value="提交">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title">
+  <title>List</title>
+</head>
+<body>
+  <%- include header %>
+  <input type="button" value="返回" onclick="location.href='./list'">
+  <table>
+    <tr>
+      <th>序号</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>标题</th>
+      <td><%- res.title %></td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td><%- res.content %></td>
+    </tr>
+  </table>
+</body>
+</html>

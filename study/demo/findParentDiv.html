@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div>
+  <p></p>
+  <div>
+    <p>
+      <ul>
+        <li id="a">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </p>
+  </div>
+</div>
+<script>
+//1.循环方法
+  function findParentDiv(node) {
+    var result = [];
+    while ( (node = node.parentNode, node) !== null ) {
+      if(node.nodeName.toUpperCase() === 'DIV') {
+        result.push(node);
+      }
+    }
+    return result;
+  }
+
+  var a = document.getElementById('a');
+  console.log(findParentDiv(a));
+//2.递归方法
+  function findParentDiv2(node, result) {
+    var result = result || [];
+    var parent = node.parentNode;
+    if(parent === null) {
+      return result;
+    } else {
+      return findParentDiv2( parent, ( (parent.nodeName.toUpperCase() ==='DIV') ? result.concat([parent]) : result ) );
+    }
+  }
+  console.log(a);
+  console.log(findParentDiv2(a));
+</script>
+</body>
+</html>

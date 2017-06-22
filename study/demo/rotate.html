@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  html,body{width: 100%; height: 100%;}
+  #test{width: 100%; height: 100%;}
+  #change{
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    background: red;
+    position: relative;
+    left: 200px;
+    top: 200px;
+    text-align: center;
+    border-radius: 50%;
+    animation: change 2s;
+    /*animation-direction:alternate; 下次倒序播放*/
+    animation-iteration-count:infinite;  /*无限播放*/
+  }
+  @keyframes change
+  {
+    0% {background: red; transform: rotate(0deg)}
+    25% {background: blue; transform: rotate(90deg)}
+    50% {background: yellow; transform: rotate(180deg)}
+    75% {background: pink; transform: rotate(270deg)}
+    100% {background: green; transform: rotate(360deg)}
+  }
+  </style>
+</head>
+<body>
+  <div id='test'><p id="change">
+    11111111111111
+  </p></div>
+</body>
+<script>
+</script>
+</html>

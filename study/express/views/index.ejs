@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <% if(!username) {%>
+    <input type="button" name="name" value="登录" onclick="location.href='/login' " />
+    <% }else{ %>
+      <span>欢迎：<%= username %></span>
+      <input type="button" name="name" value="注销" onclick="location.href='logout' " />
+      <input type="button" name="name" value="评论" onclick="location.href='comment' " />
+    <% } %>
+    <input type="button" value="注册" onclick="location.href = '/register' " />
+  </body>
+</html>

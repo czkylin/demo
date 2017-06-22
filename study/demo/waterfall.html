@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{padding: 0; margin: 0;}
+    html,body,#t{width: 100%; height: 100%;}
+    #t div{float: left;}
+    .w1{ width: 100px; height: 200px; background: #f00; }
+    .w2{ width: 300px; height: 400px; background: #ff0; }
+    .w3{ width: 300px; height: 300px; background: #f0f; }
+    .w4{ width: 400px; height: 400px; background: #0ff; }
+    .w5{ width: 400px; height: 400px; background: #0ff; }
+    .w6{ width: 400px; height: 400px; background: #0ff; }
+    .w7{ width: 400px; height: 400px; background: #0ff; }
+    .w8{ width: 400px; height: 400px; background: #0ff; }
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+  <div id='t'>
+    <div class="w1"></div>
+    <div class="w2"></div>
+    <div class="w3"></div>
+    <div class="w4"></div>
+    <div class="w5"></div>
+    <div class="w6"></div>
+    <div class="w7"></div>
+    <div class="w8"></div>
+  </div>
+<script>
+function loadImgLazy(node) {
+  var lazyNode = $('[node-type=imglazy]', node),
+  mobileHeight, lazyOffSetHeight, tempHeight, currentNodeTop, imgObject,
+  imgDataSrc, localUrl;
+
+  localUrl = location.href;
+  // 获取当前浏览器可视区域的高度
+  mobileHeight = $(window).height();
+
+  return function(co) {
+
+  var conf = {
+   'loadfirst': true,
+   'loadimg': true
+  };
+
+  for (var item in conf) {
+   if (item in co) {
+    conf.item = co.item;
+   }
+  }
+
+  var that = {};
+  var _this = {};
+  /**
+   * [replaceImgSrc 动态替换节点中的src]
+   * @param {[type]} tempObject [description]
+   * @return {[type]}   [description]
+   */
+  _this.replaceImgSrc = function(tempObject) {
+   var srcValue;
+
+   $.each(tempObject, function(i, item) {
+    imgObject = $(item).find('img[data-lazysrc]');
+    imgObject.each(function(i) {
+     imgDataSrc = $(this).attr('data-lazysrc');
+     srcValue = $(this).attr('src');
+     if (srcValue == '#') {
+      if (imgDataSrc) {
+       $(this).attr('src', imgDataSrc);
+       $(this).removeAttr('data-lazysrc');
+      }
+     }
+    });
+   });
+  };
+
+  /**
+   * 首屏判断屏幕上是否出现imglazy节点，有的话就加载图片
+   * @param {[type]} i) {     currentNodeTop [description]
+   * @return {[type]} [description]
+   */
+  _this.loadFirstScreen = function() {
+   if (conf.loadfirst) {
+    lazyNode.each(function(i) {
+     currentNodeTop = $(this).offset().top;
+     if (currentNodeTop < mobileHeight + 800) {
+      _this.replaceImgSrc($(this));
+     }
+    });
+   }
+  };
+
+  //当加载过首屏以后按照队列加载图片
+  _this.loadImg = function() {
+   if (conf.loadimg) {
+    $(window).on('scroll', function() {
+     var imgLazyList = $('[node-type=imglazy]', node);
+     for (var i = 0; i < 5; i++) {
+      _this.replaceImgSrc(imgLazyList.eq(i));
+     }
+    });
+   }
+  };
+
+  that = {
+   replaceImgSrc: _this.replaceImgSrc(),
+   mobileHeight: mobileHeight,
+   objIsEmpty: function(obj) {
+    for (var item in obj) {
+     return false;
+    }
+    return true;
+   },
+   destory: function() {
+    if (_this) {
+     $.each(_this, function(i, item) {
+      if (item && item.destory) {
+       item.destory();
+      }
+     });
+     _this = null;
+    }
+    $(window).off('scroll');
+   }
+  };
+  return that;
+  // };
+  }
+}
+var t = document.getElementById('t');
+loadImgLazy(t);
+</script>
+</body>
+</html>
