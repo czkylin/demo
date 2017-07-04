@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img id="uploadPreview" src="" alt="" style="width: 100%; height: 100%;">
+  <input id="uploadImage" type="file" value="上传" onchange="loadImageFile();">
+  <script type="text/javascript">
+  oFReader = new FileReader(),
+  rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+  function loadImageFile() {
+    if (document.getElementById("uploadImage").files.length === 0) { return; }
+    var oFile = document.getElementById("uploadImage").files[0];
+    console.log(document.getElementById("uploadImage").files);
+    if (!rFilter.test(oFile.type)) { alert("You must select a valid image file!"); return; }
+    oFReader.readAsDataURL(oFile);
+  }
+  oFReader.onload = function(oFREvent) {
+    console.log(oFREvent.target);
+    console.log(oFREvent.target.result);
+    document.getElementById("uploadPreview").src = oFREvent.target.result;
+  }
+
+  </script>
+</body>
+</html>

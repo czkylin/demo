@@ -13,8 +13,18 @@ import {
 import MovieList from './app/ComponentsIOS/MovieList';
 import ComingSoonList from './app/ComponentsIOS/ComingSoonList';
 import icons from './app/Assets/Icons';
+import Featured from './app/ComponentsIOS/Featured';
+import ComingSoon from './app/ComponentsIOS/ComingSoon';
 
 export default class MovieTalk extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tabBar: 'Featured'
+    }
+  }
+
   render() {
     return (
       <TabBarIOS
@@ -25,15 +35,26 @@ export default class MovieTalk extends Component {
         <TabBarIOS.Item
           title="正在热映"
           icon={{uri: icons.starActive, scale: 4.6}}
-          selected={true}
+          selected={this.state.tabBar === 'Featured'}
+          onPress= {() => {
+            this.setState({
+              tabBar: 'Featured'
+            })
+          }}
         >
-          <MovieList />
+          <Featured />
         </TabBarIOS.Item>
         <TabBarIOS.Item
           title="即将上映"
           icon={{uri: icons.calendar, scale: 4.6}}
+          selected={this.state.tabBar === 'ComingSoon'}
+          onPress = {() => {
+            this.setState({
+              tabBar: 'ComingSoon'
+            })
+          }}
         >
-          <ComingSoonList />
+          <ComingSoon />
         </TabBarIOS.Item>
       </TabBarIOS>
     );
