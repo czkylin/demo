@@ -1,21 +1,173 @@
-/**index.wxss**/
-.userinfo {
+page{
+  width: 100%;
+  font-size: 62.5%;
+}
+.container{
+  width: 100%;
+  background: rgb(240, 240, 240);
+}
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+swiper-item image{
+  width: 100%;
+  height: 100%;
+}
+.h2{
+  width: 100%;
+  height: 88rpx;
+  vertical-align: middle;
+  line-height: 88rpx;
+  border-top: 2rpx solid #ccc;
+  border-bottom: 2rpx solid #ccc;
+  background: #fff;
+}
+.h2 image{
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 10rpx 0 20rpx;
+  vertical-align: middle;
+}
+.h2 text{
+  vertical-align: middle;
+}
+.con{
+  width: 100%;
+  margin-bottom: 20rpx;
+  display: flex;
+  background: #fff;
+}
+.con1,.con2{
+  width: 100%;
+  height: 404rpx;
+  border-bottom: 2rpx solid #ccc;
+}
+.con1_left,.con2_left{
+  width: 50%;
+  height: 324rpx;
+  text-align: center;
+  padding-top: 80rpx;
+  border-right: 2rpx solid #ccc;
+}
+.con2_left{
+  border-right: 0;
+}
+.con1_left image{
+  width: 152rpx;
+  height: 130rpx;
+}
+.con2_left image{
+  width: 117rpx;
+  height: 117rpx;
+}
+.con1_right,.con2_right{
+  width: 50%;
+  height: 404rpx;
+  text-align: center;
+}
+.con2_right{
+  border-right: 2rpx solid #ccc;
+}
+.con1_rightTop,.con2_rightTop{
+  padding-top: 60rpx;
+  height: 142rpx;
+  display: flex;
+  border-bottom: 2rpx solid #ccc;
+}
+.rightContainer{
+  display: flex;
+  height: 202rpx;
+  margin: 0 auto;
+}
+.rightContainer image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.text{
+  margin-left: 40rpx;
+}
+.textCenter{
+  display: block;
+  text-align: center;
+  font-size: .8rem;
+  line-height: 44rpx;
+}
+.textCenter.small{
+  font-size: 28rpx;
+  color: #999;
+}
+.con1_rightBottom,.con2_rightBottom{
+  padding-top: 60rpx;
+  height: 142rpx;
+  display: flex;
+}
+.con3,.con4{
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+.con3 .h2{
+  border: 0;
+  padding-left: 30rpx;
+}
+.con3 .item{
+  display: flex;
+  flex-direction: row;
+}
+.con3 .item .doc{
+  width: 20%;
+  height: 280rpx;
+  text-align: center;
+}
+.con3 .doc image{
+  width: 120rpx;
+  height: 120rpx;
   border-radius: 50%;
+  border: 2rpx solid #ccc;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.con3 .text1{
+  font-size: 28rpx;
+  margin-top: 10rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.con3 .text2{
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.con4 .h3{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 30rpx;
+  background: url(../../images/index/jt1.png) no-repeat 90% center;
+  border-bottom: 0;
+}
+.con4 .section{
+  position: relative;
+  display: flex;
+  height: 172rpx;
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #ccc;
+  vertical-align: middle;
+}
+.con4 .text1{
+  display: absolute;
+}
+.con4 .text2{
+  display: absolute;
+  width: 100rpx;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.con4 .text3{
+  width: 100rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.con4 image{
+  position: absolute;
+  right: 10rpx;
+  width: 130rpx;
+  height: 130rpx;
+  vertical-align: middle;
 }

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>json城市</title>
+<script>
+/*	var obj={
+		"北京":["东城区","西城区","朝阳区","海淀区"],
+		"上海":["浦东区","宝山区","徐汇区"],
+		"天津":["塘沽区","南开区"],
+	}
+	window.onload= function(){
+		var s1= document.getElementById("s1");
+		var s2= document.getElementById("s2");
+		for(var i in obj){		//i的值为北京，上海，天津，遍历共执行3遍
+			s1.options.add(new Option(i , i));		//text, value 值都为i
+		}
+		s1.onchange= function(){
+			fn(this.value);
+		}
+		
+		fn(s1.value);
+		
+		function fn(v){			//v为城市名
+			s2.length= 0;
+			var arr= obj[v];
+			for(var i=0; i<arr.length; i++){
+				s2.options.add( new Option(arr[i], arr[i]));	
+			}
+		}		
+	}
+*/	
+	var obj= {
+		"北京":["东城区","西城区","朝阳区","海淀区"],
+		"上海":["浦东区","宝山区","徐汇区"],
+		"天津":["塘沽区","南开区"]	
+	}
+	window.onload=function(){
+		var s1= document.getElementById("s1");
+		var s2= document.getElementById("s2");
+		for(var i in obj){ 
+			s1.options.add(new Option(i , i)); 	
+		}
+		s1.onchange= function(){
+			fn(this.value);
+		}
+		
+		fn(s1.value);
+		
+		function fn(v){
+			s2.length= 0;
+			var arr= obj[v];
+			for(var i=0; i<arr.length; i++){
+				s2.option.add(new Option(arr[i], arr[i]));	
+			}	
+		}
+	}
+	
+	
+</script>
+</head>
+
+<body>
+	<select id="s1">
+    	
+    </select>
+	<select id="s2">
+    	
+    </select>
+</body>
+</html>

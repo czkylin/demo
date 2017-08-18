@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	#div{height:500px; width:800px; background:#ccc;}
+</style>
+<script>
+	window.onload= function(){
+		var oDiv= document.getElementById("div");
+		oDiv.onmouseover= function(){
+			oDiv.innerHTML= "雅蠛蝶";
+		};
+		oDiv.onmouseout= function(){
+			oDiv.innerHTML="再来嘛";
+		};
+		oDiv.onmousemove= function(){
+			var r=parseInt(Math.random()*256);
+			var g=parseInt(Math.random()*256);
+			var b=parseInt(Math.random()*256);
+			oDiv.style.background="rgba("+r+","+g+","+b+",1)";
+		}
+	}
+	/*function yiRu(){
+		oDiv.innerHTML= "雅蠛蝶";
+	}
+	function yiChu(){
+		oDiv.innerHTML= "再来嘛";
+	}*/
+</script>
+</head>
+
+<body>
+	<div id="div"></div>
+</body>
+</html>

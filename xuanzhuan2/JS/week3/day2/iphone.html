@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>iphoneUnlock</title>
+<style>
+	*{padding:0; margin:0;}
+	#box{width:426px; height:640px; background:url(iphoneUnlock/iphone.jpg); position:relative; margin:10px auto;}
+	#scroll{width:93px; height:62px; background:url(iphoneUnlock/unlock_btn.jpg); position:absolute; top:545px; left:36px;}
+</style>
+<script>
+	window.onload= function(){
+		var oBox= document.getElementById("box");
+		var oScroll= document.getElementById("scroll");
+		oScroll.onmousedown= function(evt){
+			var e= evt || window.event;
+			disX= e.offsetX;
+		
+			oScroll.onmousemove= function(evt){
+				var e= evt || window.event;
+				oScroll.style.left= e.clientX-disX+"px";
+				
+			}
+			oScroll.onmouseup= function(){
+				oScroll.onmousemove= null;
+			}	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="box">
+    	<div id="scroll"></div>
+    </div>
+</body>
+</html>

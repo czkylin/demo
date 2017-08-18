@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>瀑布流</title>
+<style>
+	img{width:350px;}
+	div{width:350px; border:1px solid gray; position:absolute; left:0px; top:0px;}
+</style>
+
+</head>
+
+<body>
+	
+</body>
+<script>
+	var json={
+		list:[
+			{src:"images/1.jpg",title:"苹果"},
+			{src:"images/2.jpg",title:"香蕉"},
+			{src:"images/3.jpg",title:"桃"},
+			{src:"images/4.jpg",title:"橘子"},
+			{src:"images/5.jpg",title:"梨"},
+			{src:"images/6.jpg",title:"1"},
+			{src:"images/7.jpg",title:"1"},
+			{src:"images/8.jpg",title:"1"},
+			{src:"images/9.jpg",title:"1"},
+			{src:"images/10.jpg",title:"1"},
+			{src:"images/11.jpg",title:"1"},
+			{src:"images/12.jpg",title:"1"},
+			{src:"images/13.jpg",title:"1"},
+			{src:"images/14.jpg",title:"1"},
+			{src:"images/15.jpg",title:"1"},
+			{src:"images/1.jpg",title:"1"},
+			{src:"images/2.jpg",title:"1"},
+			{src:"images/3.jpg",title:"1"},
+			{src:"images/4.jpg",title:"1"},
+			{src:"images/5.jpg",title:"1"},
+			{src:"images/6.jpg",title:"1"},
+			{src:"images/7.jpg",title:"1"},
+			{src:"images/8.jpg",title:"1"},
+			{src:"images/9.jpg",title:"1"},
+			{src:"images/10.jpg",title:"1"},
+			{src:"images/11.jpg",title:"1"},
+			{src:"images/12.jpg",title:"1"},
+			{src:"images/13.jpg",title:"1"},
+			{src:"images/14.jpg",title:"1"},
+			{src:"images/15.jpg",title:"1"},
+			{src:"images/1.jpg",title:"1"},
+			{src:"images/2.jpg",title:"1"},
+			{src:"images/3.jpg",title:"1"},
+			{src:"images/4.jpg",title:"1"},
+			{src:"images/5.jpg",title:"1"},
+			{src:"images/6.jpg",title:"1"},
+			{src:"images/7.jpg",title:"1"},
+			{src:"images/8.jpg",title:"1"},
+			{src:"images/9.jpg",title:"1"},
+			{src:"images/10.jpg",title:"1"},
+			{src:"images/11.jpg",title:"1"},
+			{src:"images/12.jpg",title:"1"},
+			{src:"images/13.jpg",title:"1"},
+			{src:"images/14.jpg",title:"1"},
+			{src:"images/15.jpg",title:"1"}
+		
+		]
+	}
+	
+	var body= document.body;
+	var arr= json.list;
+	
+	for(var i=0; i<arr.length; i++){
+		var obj= arr[i];
+		var div= document.createElement("div");
+		body.appendChild(div);	
+				
+		var img= document.createElement("img");
+		img.src= obj.src;
+		div.appendChild(img);
+		
+		
+		var p= document.createElement("p");
+		p.innerHTML= i+","+obj.title;
+		div.appendChild(p);			
+	}
+	
+	window.onload= function(){
+		pbl();pbl();		
+	}
+	
+	window.onresize= function(){
+		pbl();	
+	}
+	
+	//图片获取较慢，页面完全加载完之后再获取body，div宽度，否则图片加载未完成便获取。
+	function pbl(){		
+		var arrDiv= document.getElementsByTagName("div");		
+		var winWidth= document.documentElement.clientwidth || document.body.clientWidth;
+		var divWidth= arrDiv[0].offsetWidth;
+		var num= Math.floor(winWidth/divWidth);
+		//获取body宽度，div宽度，winWidth/divWidth便是图片数量，
+		/*
+			1.取出一行中所有图片的总宽度
+			2.页面宽度减去所有图片的总宽度等于留白的宽度
+			3.留白的宽度除以一行有几张图片数等于图片横向间距，数量+1是为了计算收尾图片对页面的间距
+		*/
+		//每张图片的间距
+		var dis= (winWidth-divWidth*num)/(num+1);	
+		
+		var posi=[];	//位置坐标
+		for(var i=0; i<num; i++){
+			//给每一个元素去赋值，值为一个对象，对象里含xy轴坐标
+			posi[i]={
+				x: (divWidth+dis)*i+dis,
+				y: 0
+			}
+		}
+		//循环所有图片，给每个图片设置下标
+		var space=20;
+		var index=0;
+		for(var i=0; i<arrDiv.length; i++){
+			var div= arrDiv[i];
+			index= getIndex();
+			var obj= posi[index];	//取出窗口坐标对象，该图片应该向哪个窗口中摆放
+			div.style.left= obj.x+"px";		//确定div的x轴坐标
+			div.style.top= obj.y+"px";
+			
+			posi[index].y+= div.offsetHeight+space;	//更新y轴，新图片的y轴要放在历史图片的下面
+			
+/*			index++;
+			if(index==num){
+				index=0;
+				console.log(posi);
+			}	
+*/	
+		}
+		
+		//求高度最小的窗口的下标
+		function getIndex(){
+			var min= posi[0].y;
+			var index=0;
+			for(var j=0; j<posi.length; j++){
+				if(min>posi[j].y){
+					min= posi[j].y;
+					index=j;	
+				}					
+			}
+			return index;
+		}
+		
+	}
+</script>
+</html>
+

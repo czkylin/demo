@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>定时放大缩小字体</title>
+<style>
+	*{padding:0; margin:0;}
+	#box{width:500px; height:500px; font-size:20px; background:red; color:#fff;}
+</style>
+<script>
+	window.onload= function(){
+		var box= document.getElementById("box");
+		var size= ["25px","30px","35px","40px","45px","100px"];
+		var color=["#f00","#0f0","#00f","#ff0","#f0f","#0ff"];
+		var i=0;
+		var n;
+		setInterval(function(){			
+
+			if(i==0){
+				n=1;
+			}else if(i==5){
+				n=-1;	
+			}
+			i+=n;
+			box.style.fontSize= size[i];
+			box.style.color= color[i];
+			
+				
+		},100)
+		
+	}
+	
+/*	window.onload = function() {
+			var box = document.getElementById("box");
+			var i = 1;
+			var fontTmp = 5;
+			setInterval(function() {
+				var colors = ["red", "yellow", "green", "black", "blue"];
+				box.style.color = colors[i++]; 
+				box.style.fontSize = numFromStr(box.style.fontSize) + fontTmp +"px";
+				if(i==colors.length) {
+					i = 0;
+					fontTmp *= -1;
+				}
+			}, 50)
+		}
+		function numFromStr(str) {
+			var index = str.indexOf("px");
+			var num = Number(str.substring(0, index));
+			return num;
+		}
+*/
+
+
+</script>
+</head>
+
+<body>
+	<div id="box">开车，飙车，我闭着眼~~~~</div>
+</body>
+</html>

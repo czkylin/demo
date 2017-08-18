@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    li{list-style: none;}
+    ul#list{width: 400px; height: 100%; border: 1px solid #ccc; margin: 0 auto;}
+    ul#list ul{display: none;}
+    li.lis h2{text-indent: 20px; font-size: 24px; background: url(./img/3/ico1.gif) no-repeat 5px center #f60;}
+    li.lis h2.active{background: url(./img/3/ico2.gif) no-repeat 5px center #f06;}
+    li.lis li{text-indent: 40px; height: 30px; line-height: 30px; border-bottom: 1px solid #ccc;}
+    li.lis li.hover{background: #06f;}
+  </style>
+</head>
+<body>
+  <ul id="list">
+    <li class="lis">
+      <h2>我的好友</h2>
+      <ul>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+        <li>1111</li>
+      </ul>
+    </li>
+    <li class="lis">
+      <h2>企业好友</h2>
+      <ul>
+        <li>2222</li>
+        <li>2222</li>
+        <li>2222</li>
+        <li>2222</li>
+      </ul>
+    </li>
+    <li class="lis">
+      <h2>黑名单</h2>
+      <ul>
+        <li>3333</li>
+        <li>3333</li>
+        <li>3333</li>
+        <li>3333</li>
+      </ul>
+    </li>
+  </ul>
+<script type="text/javascript">
+  var list = document.getElementById('list');
+  var arrH2 = document.getElementsByTagName('h2');
+  var lis = document.getElementsByClassName('lis');
+  var ul = list.getElementsByTagName('ul');
+  var ali = null;
+  var arrLi = [];
+  for(var i=0; i<arrH2.length; i++){
+    arrH2[i].index = i;
+    var ali = ul[arrH2[i].index].getElementsByTagName('li');
+    for(var j=0; j<ali.length; j++){
+      arrLi.push(ali[j]);
+    }
+    arrH2[i].onclick = function() {
+      for(i=0; i<arrH2.length; i++) {
+        if(i != this.index) {
+          ul[i].style.display = 'none';
+          arrH2[i].className = '';
+        }
+      }
+      if(this.className == 'active'){
+        this.className = '';
+        ul[this.index].style.display = 'none';
+      } else {
+        this.className = 'active';
+        ul[this.index].style.display = 'block';
+      }
+    }
+  }
+
+  for(var i=0; i<arrLi.length; i++) {
+    arrLi[i].onclick = function() {
+      for(var i=0; i<arrLi.length; i++) {
+        arrLi[i].className = '';
+      }
+      this.className = 'hover';
+    }
+  }
+</script>
+</body>
+</html>

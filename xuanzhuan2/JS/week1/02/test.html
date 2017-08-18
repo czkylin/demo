@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>	
+/*	alert(typeof 3>4);	
+	
+	
+	var a="A";
+	alert(a==" "|| a>='A'&&a>='Z' );
+	
+	var num = prompt("请输入一个数字：");
+	alert(num);
+*/	
+/*	var num = prompt("请输入年份：");
+	alert((num%4==0&&num%100!=0)||num%400==0);
+*/	
+/*	var a=3,b=5;
+	a>b ? alert(a) : alert(b);
+*/	
+/*	var num = prompt("请输入年份：");
+	((num%4==0 && num%100!=0) || num%400==0)?alert("闰年"):alert("平年");
+*/	
+/*	var num= prompt("请输入数字：");
+	num%2==0? alert("偶数"):alert("奇数");
+*/	
+/*	var num = prompt("请输入数字:");
+	num==0? alert("0") : num>0 ? alert("正数") :alert("负数");
+*/	
+/*	var num = prompt("请输入数字：");
+	num==0? alert("0") : num>0 ? alert("正数") :alert("负数");
+*/	
+/*	var a=1,b=2;
+	if(a>b){
+			alert(a);
+		}else{
+				alert(b);
+			}
+*/	
+/*	var a=1,b=2,c=3;
+	var t;
+	if(a<b){
+			t=a;
+			a=b;
+			b=t;
+		} 
+	if(){}
+	
+*/	
+/*	var num=prompt("请输入一个数：");
+	if(num>=0){
+			alert(num);
+		} else{
+				alert(-num);
+			}
+*/	
+/*	var num1=prompt("请输入第一个数：");
+	var fuhao=prompt("请输入符号");
+	var num2=prompt("请输入第二个数：");
+	if(fuhao=="+"){
+			alert(Number(num1)+Number(num2));
+		} else if(fuhao=="-"){
+				alert(num1-num2);
+		}
+		  else if(fuhao=="*"){
+					alert(num1*num2);
+		} else if(fuhao=="/"){
+			if(num2==0){
+				alert("除数不能为0");
+			} else{
+				alert(num1/num2);
+			}						
+		} else if(fuhao=="%"){
+			alert(num1%num2);
+		} else{
+			alert("请输入合法的符号！");
+		}
+*/	
+/*	var num1=prompt("请输入第一个数：");
+	var fuHao=prompt("请输入运算符号：");
+	var num2= prompt("请输入第二个数");
+	switch(fuHao){
+		case '+': alert(Number(num1)+Number(num2)); break;
+		case '-': alert(num1-num2); break;
+		case '*': alert(num1*num2); break;
+		case '/': num2==0? alert("除数不能为0") : alert(num1/num2); break;
+		case '%': alert(num1%num2); break;
+		default:alert("请输入正确的运算符");
+		}
+*/	
+	
+/*	var month=parseInt(prompt("请输入月份："));
+	switch(month){
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			alert("31天"); break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			alert("30天"); break;
+		case 2:
+			var year= parseInt((prompt("请输入年份：")));
+			(year%4==0&&year%100!=0)||year%400==0?alert("29天"):alert("28天"); break;
+		default: alert("请输入正确的月份！");
+		}
+*/		
+	// 计算某日(2016.3.1)是该年的第几天
+/*	var year= parseInt(prompt("请输入年份"));
+	var month= parseInt(prompt("请输入月份"));
+	var day= parseInt(prompt("请输入日期"));
+	
+	var days2= (year%4==0&&year%100!=0)||year%400==0? 29: 28;
+	var sum;		
+	switch(month){
+		case 1: sum=day; break;
+		case 2: sum=day+31; break;
+		case 3: sum=day+31+days2; break;
+		case 4: sum=day+31+days2+31; break;
+		case 5: sum=day+31+days2+31+30; break;
+		case 6: sum=day+31+days2+31+30+31; break;
+		case 7: sum=day+31+days2+31+30+31+30; break;
+		case 8: sum=day+31+days2+31+30+31+30+31; break;
+		case 9: sum=day+31+days2+31+30+31+30+31+31; break;
+		case 10: sum=day+31+days2+31+30+31+30+31+31+30; break;
+		case 11: sum=day+31+days2+31+30+31+30+31+31+30+31; break;
+		case 12: sum=day+31+days2+31+30+31+30+31+31+30+31+30; break;		
+		
+		}
+	alert("今天是第"+sum+"天");
+*/	
+	
+/*  计算某日(2016.3.1)是该年的第几天 
+	简便方法：
+	思路：利用switch语句不加break时自case语句运行至最后的特点，将每个月的天数逐个相加，并将顺序倒置
+	var year= parseInt(prompt("请输入年份"));
+	var month= parseInt(prompt("请输入月份"));
+	var day= parseInt(prompt("请输入日期"));
+	
+	var days2= (year%4==0&&year%100!=0)||year%400==0? 29: 28;
+	var sum=0;
+	switch(month){
+		case 12:sum+=30;
+		case 11:sum+=31;
+		case 10:sum+=30;
+		case 9:sum+=31;
+		case 8:sum+=31;
+		case 7:sum+=30;
+		case 6:sum+=31;
+		case 5:sum+=30;
+		case 4:sum+=31;
+		case 3:sum+=days2;
+		case 2:sum+=31;
+		case 1:sum+=day;		
+		}
+		alert("今天是第"+sum+"天");
+*/	
+
+
+	
+	
+	//作业题
+
+
+	//判断一个整数，属于哪个范围：大于0；小于0；等于0；
+	var iInt= prompt("请输入一个整数：");
+	if(iInt>0){
+		alert("该数大于0");
+	} else if(iInt==0) {
+		alert("该数等于0");
+	} else if(iInt<0) {
+		alert("该数小于0");
+	}
+	
+	//判断一个整数是偶数还是奇数
+	var iJiOu= prompt("请输入一个整数：");
+	iJiOu%2==0?alert("该数为偶数"):alert("该数为奇数");
+	
+	//（身高-体重）*2=体重，可以有10斤左右的浮动
+	var height= prompt("请输入身高：");
+	var weight= prompt("请输入体重：");
+	var t=(height-108)*2;
+	if(t-weight<=10&&t-weight>=-10){
+		alert("体重合适");
+	}else{
+		alert("体重不合适");	
+	}
+	
+	//计算圆面积
+	var r=prompt("请输入半径:");
+	var S=parseInt(3.141592654*r*r);
+	alert("圆的面积为："+S);
+	
+	
+	//求该年第几天
+	var year= parseInt(prompt("请输入年份："));
+	var month= parseInt(prompt("请输入月份："));
+	var date= parseInt(prompt("请输入日期："));
+	
+	var date2= (year%4==0&&year%100!=0)||year%400==0? 29 :28;
+	var sum=0;
+	switch(month){
+		case 12:sum+=30;
+		case 11:sum+=31;
+		case 10:sum+=30;
+		case 9:sum+=31;
+		case 8:sum+=31;
+		case 7:sum+=30;
+		case 6:sum+=31;
+		case 5:sum+=30;
+		case 4:sum+=31;
+		case 3:sum+=date2;
+		case 2:sum+=31;
+		case 1:sum+=date;		
+	}
+	alert("今天是第"+sum+"天");
+	
+	
+	
+	
+	
+	//6, 个人所得税的计算器 
+	//应缴个人所得税=（工资收入-3500）*税率 –速算扣除数
+	var salary = prompt("请输入你的薪资：");
+	var tax = 0;
+	salary1 = salary - 3500;
+	if (salary1 <= 0) {
+		tax = "没有税收";
+	} else if (salary1 <= 500){	
+		tax = salary1 * 0.05;
+	} else if (salary1 <= 2000){	
+		tax = salary1 * 0.15 - 25;
+	} else if (salary1 <= 5000){	
+		tax = salary1 * 0.20 - 125;
+	} else if (salary1 <= 20000){	
+		tax = salary1 * 0.25 - 375;
+	} else if (salary1 <= 40000){	
+		tax = salary1 * 0.25 - 1375;
+	} else if (salary1 <= 60000){	
+		tax = salary1 * 0.30 - 3375;
+	} else if (salary1 <= 80000){	
+		tax = salary1 * 0.35 - 6375;
+	} else if (salary1 <= 100000){	
+		tax = salary1 * 0.40 - 10375;
+	} else {
+		tax = salary1 * 0.45 - 15375;
+	}
+	alert(tax);
+
+	
+	
+	var sum=0;
+	var salary= parseInt(prompt("请输入月薪:"));
+	if(salary>0 && salary<500){		
+		sum= (salary-3500)* 0.05 -0;
+						
+	} else if(salary<=2000){		
+		sum= (salary-3500)*0.1-25;
+		
+	} else if(salary<=5000){		
+		sum= (salary-3500)*0.15-125;
+		
+	} else if(salary<=20000){
+		sum= (salary-3500)*0.2-375;
+		
+	} else if(salary<=40000){
+		sum= (salary-3500)*0.25-1375;
+		
+	} else if(salary<=60000){
+		sum= (salary-3500)*0.3-3375;
+		
+	} else if(salary<=80000){
+		sum= (salary-3500)*0.35-6375;
+		
+	} else if(salary<=100000){
+		sum= (salary-3500)*0.4-10375;
+		
+	} else{
+		sum= (salary-3500)*0.45-15375;
+	}
+	if(sum<0){
+		sum=0;	
+	}
+	alert("个人所得税为："+sum);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//石头剪刀布
+	var caiQuan1 = prompt("1请出剪刀、石头或布");
+	if(caiQuan1!="剪刀"&&caiQuan1!="石头"&&caiQuan1!="布"){
+		alert("1姿势不对！");
+		}
+	
+	var caiQuan2 = prompt("2请出剪刀、石头或布");
+	if(caiQuan2!="剪刀"&&caiQuan2!="石头"&&caiQuan2!="布"){
+		alert("2姿势不对！");
+		}	
+	if(caiQuan1=="剪刀" && caiQuan2=="剪刀"){
+		alert("平局");	
+	} else if(caiQuan1=="剪刀" && caiQuan2=="石头"){
+		alert("2赢了");
+	} else if(caiQuan1=="剪刀" && caiQuan2=="布"){
+		alert("1赢了");
+	} else if(caiQuan1=="石头" && caiQuan2=="剪刀"){
+		alert("1赢了");
+	} else if(caiQuan1=="石头" && caiQuan2=="石头"){
+		alert("平局");
+	} else if(caiQuan1=="石头" && caiQuan2=="布"){
+		alert("2赢了");
+	} else if(caiQuan1=="布" && caiQuan2=="剪刀"){
+		alert("2赢了");
+	} else if(caiQuan1=="布" && caiQuan2=="石头"){
+		alert("1赢了");
+	} else if(caiQuan1=="布" && caiQuan2=="布"){
+		alert("平局");
+	} 
+	
+	var user1= prompt("请出(石头)1(剪刀)2(布)3");
+	var user2= prompt("请出(石头)1(剪刀)2(布)3");
+	if(user1-user2==-1 || user1-user2==2){
+		alert("一胜");
+	} else if(user1-user2==0){
+		alert("平局");
+	} else {
+		alert("二胜");
+	}
+	
+	
+	
+	
+	
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>

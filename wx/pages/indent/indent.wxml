@@ -1,0 +1,10 @@
+<view class="container">
+    <navigator url="../detail/detail?id={{item.id}}" class="section" wx:for="{{result}}">
+        <image class="img" src="{{item.images.large}}"></image>
+        <view class="text">
+            <text class="p title">{{item.title}}</text>
+            <text class="p content">{{item.original_title}}({{item.year}})</text>
+            <text class="p grade">{{item.rating.average}}</text>
+        </view>
+    </navigator>
+</view>

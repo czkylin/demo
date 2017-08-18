@@ -1,25 +1,48 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/diagnosis/diagnosis",
+    "pages/indent/indent",
+    "pages/personal/personal",
+    "pages/detail/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#0ff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "肝保卡医联体",
+    "navigationBarTextStyle":"#ffffff"
   },
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "首页"
+      "text": "首页",
+      "iconPath":"./images/footer/index.png",
+      "selectedIconPath": "./images/footer/index2.png"
     },{
       "pagePath": "pages/logs/logs",
-      "text": "日志"
+      "text": "咨询",
+      "iconPath": "./images/footer/zixun.png",
+      "selectedIconPath": "./images/footer/zixun2.png"
+    },{
+      "pagePath": "pages/diagnosis/diagnosis",
+      "text": "阅片",
+      "iconPath": "./images/footer/yuepian.png",
+      "selectedIconPath": "./images/footer/yuepian2.png"
+    },{
+      "pagePath": "pages/indent/indent",
+      "text": "订单",
+      "iconPath": "./images/footer/dingdan.png",
+      "selectedIconPath": "./images/footer/dingdan2.png"
+    },{
+      "pagePath": "pages/personal/personal",
+      "text": "个人中心",
+      "iconPath": "./images/footer/geren.png",
+      "selectedIconPath": "./images/footer/geren2.png"
     }],
-    "backgroundColor": "#f0f",
+    "backgroundColor": "#f0f0f0",
     "color": "#000000",
-    "selectedColor": "#ffffff",
+    "selectedColor": "#ef4a65",
     "borderStyle": "white"
   },
   "networkTimeout": {

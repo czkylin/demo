@@ -1,0 +1,148 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Object</title>
+
+	<script type="text/javascript">
+
+		//基本数据类型: number, string, boolean, undefined
+		//引用数据类型: Array, Object, String, null, Date, Math...
+
+		//基本变量类型(存放数据) -> Array(存放一组数据) -> Object(存放数据, 包含功能)
+		
+		
+		//面向对象:
+   //传统 类      对象
+   //js   对象    实例
+		//电脑    我的mac, 你桌面上的那台电脑 
+		//变种人  万磁王, 美国队长, 冬兵
+		//人      我, 你
+
+		//对象: 可以将数据跟功能组织在一起(属性 + 方法)
+
+		//如: 一只锤子 
+		/*
+			对象: 锤子
+			实例: 我手上的锤子
+			锤子的属性: 重量, 宽度, 高度
+			锤子的功能: 锤钉子
+		*/
+
+//创建对象 
+//属性		
+		//1, 使用new
+		// var people = new Object();
+		// people.name = "张三"; //添加属性并赋值
+		// people.age = 22;
+		// alert(people);
+		// alert(people.name); //显示people的name属性值
+
+		//2, 可以省略new
+		// var box = Object();
+		// box.danWei = "毫克";
+		// box.weight = 30;
+	
+		//3, 使用字面量 
+		/*
+			数组的字面量: []
+			对象的字面量: {}
+		*/
+		// var person = {name: "张三", age:30};
+		// alert(person.name);
+		
+		// var person = {"name": "张三", "age":30};
+		// alert(person.name);
+		
+		//4, 使用字面量定义, 用传统赋值方式
+		// var person = {};
+		// person.name = "张三";
+		// person.age = 33;
+		// alert(person.name);
+		
+		//使用属性
+		// alert(person.name); //使用点语法获取属性的值
+		// alert(person["name"]); //使用中括号
+		//var nameTmp = "name";
+		//alert(person[nameTmp]);
+
+//方法
+		// var person = {
+		// 	name:"美国队长",
+		// 	age:120,
+
+		// 	//添加方法: run
+		// 	run:function(){
+		// 		alert("美国队长在跑步");
+		// 	}
+		// };
+		//调用方法
+		//person.run();
+
+		//删除对象属性
+		// alert(person);//object Object
+		// console.log(person);
+		// delete person.name;
+		//alert(person.name); 
+
+
+		//创建一个人的对象,添加属性  姓名 年龄 爱好 薪资期望
+		//并有一个打印自身信息的方法,输出上述信息
+		// var person = {
+		// 	name: "张三",
+		// 	age: 22, 
+		// 	like: "lol",
+		// 	salary: 10,
+		// 	printInfo:function() {
+		// 		alert("name:" + person.name + ", age:" + person.age + ", like:" + person.like + ", money:" + person.salary);
+		// 	}
+		// };
+		// person.printInfo();
+
+		//锤子
+		// var hammer = {
+		// 	weight: "1kg",
+		// 	height: "25cm",
+		// 	width: "10cm"
+		// };
+		//添加方法
+		// hammer.func = function() {
+		// 	alert("锤子可以锤钉子");
+		// }
+		// hammer.func();
+
+
+		//面向对象
+		//有一辆50km/h车,跑在一条1000km路上，问多少小时跑完？
+		//对象: 车 属性:speed 50km/h
+		//功能:跑在路上
+		//路 属性: length 1000km
+		//功能:被跑
+
+		//对象: 路
+		// var road = {
+		// 	length: 1000
+		// };
+
+		// //对象: 车
+		// var car = {
+		// 	speed: 50,
+		// 	runOnRoad:function(road){
+		// 		return road.length / car.speed;
+		// 	}
+		// };
+		// var duration = car.runOnRoad(road);
+		// alert(duration);
+
+		//【重点】 
+		//没有对象之前,我们只关心程序的数学逻辑
+		//有了对象之后,我们更加关心有几个对象,对象之间应该如何相互作用,得出结果,好处:更加容易将我们得生活逻辑直接映射到程序中(利于我们程序的设计和编写)
+
+		//面向对象的语言: C++ Java Object-C JavaScript
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

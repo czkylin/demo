@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      position: relative;
+      width: 321px;
+      height: 194px;
+      overflow: hidden;
+    }
+    .container2{
+      position: relative;
+      width: 321px;
+      height: 59px;
+      overflow: hidden;
+    }
+    #img{
+      position: absolute;
+      top: 34px;
+      /*transform: rotate(180deg);
+      transform-origin: 50% 194px;
+      animation: change 2s;
+      animation-fill-mode:forwards;*/
+    }
+    #img3{
+      position: absolute;
+      top: 0;
+      left: 43px;
+    }
+    #point{
+      position: absolute;
+      top: 187px;
+      left: 151px;
+    }
+    /*@keyframes change
+    {
+      0% {transform: rotate(180deg)}
+      50% {transform: rotate(270deg)}
+      100% {transform: rotate(360deg)}
+    }*/
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img id="img" src="./img/img2.png" alt="">
+  </div>
+  <div class="container2">
+    <img id="img3" src="./img/img3.png" alt="">
+  </div>
+  <!-- <img id="point" src="./img/point.png" alt=""> -->
+</body>
+<script type="text/javascript" src="../xuanzhuan/js/jquery.min.js"></script>
+<script type="text/javascript" src="../xuanzhuan/js/jquery.rotate.min.js"></script>
+<script type="text/javascript">
+var rotation = function (){
+
+   $("#img").rotate({
+
+      angle:180,
+
+      animateTo:360,
+
+      center: ['50%' , '194px'],
+
+      duration: 500,
+
+      easing: function (x,t,b,c,d){        // t: current time, b: begInnIng value, c: change In value, d: duration
+
+          return c*(t/d)+b;
+
+      }
+
+   });
+
+}
+
+rotation();
+
+var rotation2 = function (){
+
+   $("#img3").rotate({
+
+      angle:180,
+
+      animateTo:360,
+
+      center: ['50%' , '0'],
+
+      duration: 500,
+
+      easing: function (x,t,b,c,d){        // t: current time, b: begInnIng value, c: change In value, d: duration
+
+          return c*(t/d)+b;
+
+      }
+
+   });
+
+}
+
+rotation2();
+
+</script>
+</html>

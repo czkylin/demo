@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{padding:0; margin:0;}
+	#div{width:200px; height:30px; border:1px dashed #ccc; }
+	#progressBar{width:0; height:30px; background:red; }
+	#progressNum{width:200px;}
+</style>
+<script>
+	//显示当前时间（*年*月*日  星期*  *：*：*）
+/*	var d= new Date();
+	var year= d.getFullYear();
+	var month= d.getMonth()+1;
+	var day= d.getDate();
+	var week= d.getDay();
+	if(day==0){
+		day="日";
+	}
+	var hours= d.getHours();
+	var minutes= d.getMinutes();
+	var seconds= d.getSeconds();
+	document.write(year+"年"+month+"月"+day+"日"+"星期"+week+" "+hours+":"+minutes+":"+seconds);
+*/	
+
+
+
+
+
+	
+	//实现秒表功能，包含时、分、秒、毫秒、点击按钮1开始计时，点击按钮2结束计时
+/*	function start(){
+		var hours= document.getElementById("h");
+		var minutes= document.getElementById("min");
+		var seconds= document.getElementById("s");
+		var mseconds= document.getElementById("ms");
+		
+		var i=0;
+		var timer= setInterval(function(){			
+				i++;
+				mseconds.innerHTML= shou(parseInt(i%1000));
+				seconds.innerHTML= show(parseInt(i/1000%60));
+				minutes.innerHTML= show(parseInt(i/60000%60));
+				hours.innerHTML= show(parseInt(i/3600000%60));
+			},1)
+	}
+	function show(num){
+		if(num<10){
+			return "0"+num+":";	
+		}
+		return num+":";
+	}
+	function shou(num){
+		if(num<10){
+			return "000"+num;
+		} else if(num<100){
+			return "00"+num;
+		} else{
+			return "0"+num;
+		}
+	}
+	
+	function end(){
+		clearInderval(timer);
+	}
+*/	
+
+	
+/*	var date1= prompt("请输入日期");
+	var d1= new Date(date1);
+	
+	
+	var date2= prompt("请输入日期");
+	var d2= new Date(date2);
+	
+	
+	var n1= d1.getTime();
+	var n2= d2.getTime();
+	if(n1<n2){
+		var t=n1;
+		n1=n2;
+		n2=t;	
+	}
+	var day=(n1-n2)/86400000;
+	document.write(day);
+	
+	//方法2
+	function dayInterval(date1, date2) {
+		var time1 = date1.getTime();
+		var time2 = date2.getTime();
+		var timeInterval = Math.abs(time1-time2);
+		return timeInterval/(24*60*60*1000);
+	}
+	var date1 = new Date("2015-3-2");
+	var date2 = new Date("2015-1-8");
+	alert(dayInterval(date1, date2));
+
+	
+*/
+
+
+
+	window.onload = function() {
+		var progressBar = document.getElementById("progressBar");
+		var progressNum = document.getElementById("progressNum");
+		var i=0;
+		var timer = setInterval(function(){
+			i++;
+			progressNum.innerHTML = i;
+			progressBar.style.width = i+"%";
+			if(i==100) {
+				clearInterval(timer);
+			}
+		}, 50)
+	}
+
+
+
+
+
+
+
+
+</script>
+</head>
+	
+	
+	
+<!--<span id="h">00:</span><span id="min">00:</span><span id="s">00:</span><span id="ms">0000</span><button onclick="start()">开始</button><button onclick="end()">结束</button>
+
+-->
+
+	<div id="div">
+        <div id="progressBar">         
+        </div> 
+    </div>   
+		<span id="progressNum"></span>%
+    
+
+
+<body>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建一个带文本节点的元素节点</title>
+<script>
+	window.onload= function(){
+		var node1 = document.getElementById("p1");
+		var parentNode = node1.parentNode;
+		
+		var node2 = createNodeWithInfo("p","<strong>我要的爱~~~，出没在 漆黑一片的舞台</strong>");
+		parentNode.insertBefore(node2,node1);
+		var node3 = createNodeWithInfo("p","<strong>我要的爱~~~，出没在 漆黑一片的舞台</strong>");
+		insertAfter(node3,node1);
+			
+	}
+/*	function createNodeWithInfo(nodeName,nodeText){
+		var eleNode = document.createElement(nodeName);
+		var textNode = document.createTextNode(nodeText);
+		eleNode.appendChild(textNode);
+		return eleNode;
+	}
+*/	
+	//创建一个带文本节点的元素节点
+	function createNodeWithInfo(nodeName,nodeHtml){
+		var eleNode = document.createElement(nodeName);
+		eleNode.innerHTML= nodeHtml;
+		return eleNode;	
+	}
+	
+	//向后擦入节点
+	function insertAfter(newNode,node){
+		var parentNode = node.parentNode;
+		if(node== parentNode.lastChild){
+			parentNode.appendChild(newNode);
+		} else{
+			parentNode.insertBefore(newNode,node.nextSibling)
+		}
+	}
+	
+	
+	
+		// function insertAfter(newNode, node){
+		// 	//1,node节点的父节点
+		// 	var parentNode = node.parentNode;
+		// 	//2,判断node节点是否是最后一个节点
+		// 	if (node == parentNode.lastChild) {
+		// 		//如果是最后一个节点, 则直接插入到末尾
+		// 		parentNode.appendChild(newNode);
+		// 	} else{
+		// 		//如果不是最后一个节点, 则找到其下一个节点, 插入到下一个节点之前即可
+		// 		parentNode.insertBefore(newNode, node.nextSibling);
+		// 	}
+		// }
+
+</script>
+</head>
+
+<body>
+	<div id="box">
+    	<p id="p1">丑八怪~~~，能否别把灯打开</p>
+    </div>
+</body>
+</html>

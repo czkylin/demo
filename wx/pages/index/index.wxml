@@ -1,10 +1,95 @@
-<!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <swiper indicator-dots="true"
+    autoplay="true" interval="3000" duration="500" circular="true" indicator-active-color="#f0a901" class="swiper">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item class="swiperItem">
+        <image src="{{item}}" class="slide-image" style="width: 100%;"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="h2">
+    <image src="../../images/index/logo.png"></image>
+    <text>百倍爱心卡热销畅卖中...</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="con con1">
+    <view class="con1_left">
+      <image src="../../images/index/pic1.png"></image>
+      <text class="textCenter">百倍爱心卡</text>
+      <text class="textCenter small">开启慢病管理新模式</text>
+    </view>
+    <view class="con1_right">
+      <view class="con1_rightTop">
+        <view class="rightContainer">
+          <image src="../../images/index/pic2.png"></image>
+          <view class="text">
+            <text class="textCenter">爱心传递</text>
+            <text class="textCenter">共享健康</text>
+          </view>
+        </view>
+      </view>
+      <view class="con1_rightBottom">
+        <view class="rightContainer">
+          <image src="../../images/index/pic3.png"></image>
+          <view class="text">
+            <text class="textCenter">在线咨询</text>
+            <text class="textCenter">有问有答</text>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
+  <view class="con con2">
+    <view class="con2_right">
+      <view class="con2_rightTop">
+        <view class="rightContainer">
+          <image src="../../images/index/pic5.png"></image>
+          <view class="text">
+            <text class="textCenter">会诊基地</text>
+            <text class="textCenter">远程阅片</text>
+          </view>
+        </view>
+      </view>
+      <view class="con2_rightBottom">
+        <view class="rightContainer">
+          <image src="../../images/index/pic4.png"></image>
+          <view class="text">
+            <text class="textCenter">会诊中心</text>
+            <text class="textCenter">预约手术</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="con2_left">
+      <image src="../../images/index/pic6.png"></image>
+      <text class="textCenter">VIP心脑护照卡</text>
+      <text class="textCenter small">真实解决看病难</text>
+    </view>
+  </view>
+  <view class="con con3">
+    <text class="h2">推荐咨询专家</text>
+    <view class="item">
+      <block wx:for="{{doc}}">
+        <view class="doc">
+          <image src="{{item.img}}"></image>
+          <text class="text1 textCenter">{{item.name}}</text>
+          <text class="text2 textCenter">{{item.section}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="con con4">
+    <text class="h3">疾病百科</text>
+    <block wx:for="{{encyclopedia}}">
+      <view class="section">
+          <view class="title">
+            <text class="text1 textCenter">{{item.title}}</text>
+            <text class="text2">{{item.correlation}}</text>
+            <text class="text3">{{item.count}}阅读</text>
+          </view>
+          <image src="{{item.img}}" mode="aspectFill"></image>
+      </view>
+    </block>
+  </view>
+
+
 </view>

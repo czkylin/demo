@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>闭包</title>
+<script>
+	function a(){
+		var num=1;
+		return function(){
+			return num++;	
+		}	
+	}
+	var b=a();
+	alert(b() );
+	alert(b() );
+</script>
+</head>
+
+<body>
+</body>
+</html>

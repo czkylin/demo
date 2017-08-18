@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+/*	var str1= new String("abc");
+	var str2= new String("abc");
+	var str3= "abc";
+	var str4= "abc";
+	document.write((str1==str2)+"<br/>");
+	document.write((str2==str3)+"<br/>");
+	document.write((str3==str4)+"<br/>");
+
+
+	var object= new Object();
+	object.name= "张三";
+	object.age= 20;
+	object.hobby= "dnf";
+	object.salary= 10000;
+	object.dayin= function(){
+		return object.name+object.age+object.hobby+object.salary;
+	}
+	console.log(object.dayin());
+
+
+	var chuizi={};
+	chuizi.width=20;
+	chuizi.height=18;
+	chuizi.weight=50;
+	chuizi.yongChu= function(){
+		return "锤钉子";
+	}
+	console.log(chuizi.width+" "+chuizi.height+" "+chuizi.weight+chuizi.yongChu());
+
+
+
+	var car= {};
+	car.speed= 50;
+	car.runOnRoad= function(road){
+		return road.length/car.speed;
+	}
+	var road= {};
+	road.length= 1000;
+	console.log(car.runOnRoad(road));
+*/
+
+
+
+
+	//封装一个函数，可以输入的数值n（天数）显示n天后的时间
+	/*function mySetDate(date,n){
+		var year= date.getFullYear();
+		var month= date.getMonth()+1;
+		var day= date.getDate();
+		if(n!=0){
+			var theMonthDay= 31;//每个月的天数
+			if(n!=0){
+				var theMonthDay= 31;
+				if(month==2){
+					theMonthDay =(year%4==0&& year%100!=0) || year%400==0 ? 29:28;
+				} else if(month == 4|| month== 6|| month==9 ||month ==11){
+					theMonthDay==30;
+				}
+				//判断n天后的日期是否还在当前月份，如果是则只需要改变天，年月不用改
+				if(day+n<=theMonthDay){
+					day+=n;
+				} else{
+					month++;
+					n-=theMonthDay - day;
+					day=n;
+					if(month>12){
+						year++;
+						month=1;
+					}
+				}
+			}
+		}
+		var afterDay = new Date();
+		afterDay.setFullYear(year);
+		afterDay.setMonth(month-1);
+		afterDay.setDate(day);
+		return afterDay;
+
+	}
+	alert(mySetDate(new Date("2016-8-27"),700));
+*/
+
+
+/*	function mySetDate(date, n) {
+			date.setDate(date.getDate()+n);
+			return date;
+	}
+	alert(mySetDate(new Date("2016-12-27"), 7));
+*/
+/*	setInterval(function(){
+		document.write("老司机翻车啦，哇哈哈<br/>");
+	},1000)
+
+	var count=1;
+	document.write(count);
+	setInterval(function(){
+		document.write(count++);
+	},1000)
+*/
+
+/*
+	//自动运行函数，并自动取消
+	window.onload= function(){
+		var oDiv= document.getElementById("div");
+		var count= 1;
+		setInterval(function(){
+			if(count==3){
+				clearInterval(1);    //自动取消
+			}
+			count++;
+		},1000)
+	}
+*/
+
+
+</script>
+</head>
+
+<body>
+	<div id="div"></div>
+</body>
+</html>

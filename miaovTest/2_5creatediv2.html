@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>随机生成方块v型排列</title>
+<style>
+div { width:50px; height:50px; background:red; position:absolute; top:0; left:0; font-size:30px; text-align:center; line-height:50px; color:#fff; }
+section{ position: relative; }
+</style>
+
+</head>
+<body>
+	<button onclick="create()">生成v型</button>
+	<section></section>
+
+
+	<script>
+	// 来一个小V字形（小练习）``
+
+		var aDiv = document.getElementsByTagName('div');
+		var section = document.getElementsByTagName('section')[0];
+		var str = '';
+
+		for( var i=0; i<11; i++ ){
+			str += '<div>' + i + '</div>';
+		}
+		section.innerHTML = str;
+		var length = aDiv.length;
+		var half = Math.floor(length/2);
+
+		// console.log(j);
+		function create(){
+			var j = Math.floor((Math.random()*8));
+			if(j == 1){
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + (half- (i - half) )*50 + 'px';
+					}
+				}
+			} else if(j == 2){
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + (half- (i - half) )*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					}
+				}
+			} else if(j == 3){
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + (length-1)*50 - i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					}
+				}
+			} else if(j == 4){
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + (length-1)*50 - i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					}
+				}
+			} else if(j == 5){
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + half*50 - i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 - half*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					}
+				}
+			} else if(j == 6) {
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + half*50 + i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + (length-1)*50 - (i-half)*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 + 'px';
+					}
+				}
+			} else if(j == 7) {
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + half*50 - i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + i*50 - half*50 + 'px';
+					}
+				}
+			} else {
+				for( var i=0; i<length; i++ ){
+					if(i < half) {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + half*50 + i*50 + 'px';
+					} else {
+						// console.log(i);
+						aDiv[i].style.left = 10 + i*50 + 'px';
+						aDiv[i].style.top = 10 + (length-1)*50 - i*50 + half*50 + 'px';
+					}
+				}
+			}
+		}
+
+</script>
+</body>
+</html>

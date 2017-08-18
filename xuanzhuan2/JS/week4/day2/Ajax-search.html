@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax-search</title>
+<style>
+	#div1{border:1px solid #ccc; background:#ff0;}
+</style>
+<script src="Ajax.js"></script>
+<script>
+	function show(){
+		var word= document.getElementById("word").value;
+		var div1= document.getElementById("div1");
+		div1.innerHTML="";
+		if(word!=""){
+			var url="word.txt?t="+new Date().getTime();
+			ajax(url,function(str){
+				var arr=eval("("+str+")").list;
+				for(var i=0; i<arr.length; i++){
+					var obj= arr[i];
+					var a= obj.key.toUpperCase().indexOf(word.toUpperCase());
+					var b= obj.key.substring(a,a+word.length);
+					if(a>-1){
+						div1.innerHTML+=obj.key.replace(b,"<font color=red>"+b+"</font>")+"<br/>";	
+					}
+						
+				}	
+			});			
+		}		
+	}
+</script>
+</head>
+
+<body>
+<input id="word" type="text" onKeyUp="show()" />
+<div id="div1"></div>
+</body>
+</html>

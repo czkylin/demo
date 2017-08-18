@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>下拉菜单</title>
+<script>
+	window.onload= function(){
+		var sel1= document.getElementById("sel1");
+		sel1.options.add(new Option("text","value"));//添加新项
+		//sel1.options.length=1;                     //删除第一项之外的项
+		sel1.remove(1);								 //删除第一项
+		//sel1[1].selected= true;
+		sel1.selectedIndex= 2;
+	}
+</script>
+</head>
+
+<body>
+	<form>
+    	<select id="sel1">
+        	<option value="1">a</option>
+        	<option value="2">b</option>
+        	<option value="3">c</option>
+        </select>
+    </form>
+</body>
+</html>

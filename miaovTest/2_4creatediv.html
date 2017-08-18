@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>自动创建100方块</title>
+
+<style>
+div { width:50px; height:50px; background:red; position:absolute; top:0; left:0; font-size:30px; text-align:center; line-height:50px; color:#fff; }
+</style>
+
+<script>
+// 逢10 往下一行（小练习）
+window.onload = function (){
+	var aDiv = document.getElementsByTagName('div');
+  var str = '';
+
+	for( var i=0; i<100; i++ ){
+		 str += '<div>' + i + '</div>';
+	}
+  document.body.innerHTML = str;
+  var length = aDiv.length;
+  var half = Math.floor(length/2);
+
+  for( var i=0; i<length; i++ ) {
+    aDiv[i].style.left = 10 + i*60 - (Math.floor(i/10)*10*60) +'px';
+    aDiv[i].style.top = 10 + Math.floor(i/10)*60 + 'px';
+    if(Math.floor(i%4) == 0) {
+      aDiv[i].style.background = '#f00';
+    } else if(Math.floor(i%4) == 1) {
+      aDiv[i].style.background = '#0f0';
+    } else if(Math.floor(i%4) == 2) {
+      aDiv[i].style.background = '#00f';
+    } else {
+      aDiv[i].style.background ='#ff0';
+    }
+    console.log(Math.floor(i/10));
+    console.log(Math.floor(i%4));
+  }
+
+};
+</script>
+</head>
+
+<body>
+
+
+</body>
+</html>

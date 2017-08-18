@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动态添加页面内容</title>
+<script>
+	window.onload = function(){
+		
+	}
+	
+/*	function add(){
+		var reginfo = document.getElementById("reginfo");
+		var input1= reginfo.getElementsByTagName("input")[0];
+		var input2= reginfo.getElementsByTagName("input")[1];
+		var input3= reginfo.getElementsByTagName("input")[2];
+		var val1 = input1.value;
+		var val2 = input2.value;
+		var val3 = input3.value;
+		input1.value = "";
+		input2.value = "";
+		input3.value = "";
+		
+		var tr= document.createElement("tr");
+		var td1= document.createElement("td");
+		var td2= document.createElement("td");
+		var td3= document.createElement("td");
+		var td4= document.createElement("td");
+		td1.innerHTML= val1;
+		td2.innerHTML= val2;
+		td3.innerHTML= val3;
+		td4.innerHTML= "<a href='##' name='delete'>删除</a>";
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		tr.appendChild(td4);
+		tab.appendChild(tr);
+		
+		var del= td4.firstChild;
+		td4.onclick= function(){
+			tab.removeChild(tr);		
+		}
+	}
+*/	
+	function add(){
+		var reginfo= document.getElementById("reginfo");
+		var input =[];
+		var td=[];
+		var val=[];
+		for(var i=0; i<=2; i++){
+			input[i]= reginfo.getElementsByTagName("input")[i];			
+		}
+		for(var i=0; i<=2; i++){
+			val[i]= input[i].value;
+		}
+		for(var i=0; i<=2; i++){
+			input[i].value= "";
+		}
+		var tr= document.createElement("tr");
+		for(var i=0; i<=3; i++){
+			td[i]= document.createElement("td");
+			td[i].innerHTML= val[i];
+		}
+		td[3].innerHTML="<a href='##' name='delete'>删除</a>";
+		for(var i=0; i<=3; i++){
+			tr.appendChild(td[i]);
+		}
+		tab.appendChild(tr);
+		
+		var del= td[3].firChild;
+		td[3].onclick= function(){
+			tab.removeChild(tr);
+		}		
+/*		var input1= reginfo.getElementsByTegName("input")[0];
+		var input2= reginfo.getElementsByTegName("input")[1];
+		var input3= reginfo.getElementsByTegName("input")[2];
+*/		
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	function createNodeWithInfo(nodeName,nodeHTML){
+		var eleNode = document.createElement(nodeName);
+		eleNode.innerHTML= nodeHTML;
+		return eleNode;
+	}
+	
+
+
+</script>
+</head>
+
+<body>
+	<div id="reginfo">
+			ID: <input type="text" />
+			姓名:<input type="text" />
+			电话:<input type="text" />  
+			<button id="saveBtn" onclick="add()">保存</button>
+	</div>
+	<br>
+    <table id="tab" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Tel</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td>张三</td>
+            <td>135234234</td>
+            <td> <a href="##" name="delete">删除</a> </td>
+        </tr>
+        <tr>
+            <td>40</td>
+            <td>李四</td>
+            <td>14543423423</td>
+            <td> <a href="##" name="delete">删除</a> </td>
+        </tr>
+                
+    </table>
+
+</body>
+</html>

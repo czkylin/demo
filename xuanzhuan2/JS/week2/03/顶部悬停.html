@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>顶部悬停</title>
+<style>
+	*{padding:0; margin:0;}
+	body{height:3000px;}
+	div{width:100%; height:30px; background:#f00; position:absolute; top:500px;}
+</style>
+<script>
+	window.onscroll= function(){
+		var scrollTop= document.documentElement.scrollTop || document.body.scrollTop;
+		var box= document.getElementById("box");
+		if(box.style.top-scrollTop>=400 && box.style.top-scrollTop<=600){
+			box.style.position= "fixed";
+			box.style.top= "0px";
+		}
+		
+	}
+</script>
+</head>
+
+<body>
+	<div id="box"></div>
+</body>
+</html>

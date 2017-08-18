@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		*{padding: 0; margin: 0;}
+			body{
+				background-color: #666;
+			}
+			#box{
+				width: 426px;
+				height: 640px;
+				background: url(iphoneUnlock/iphone.jpg) no-repeat center;
+				margin-left: 360px;
+			}
+			#box .move{
+				width: 93px;
+				height: 62px;
+				position: absolute;
+				left: 396px;
+				top: 545px;
+				background: url(iphoneUnlock/unlock_btn.jpg) no-repeat center;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span class="move"></span>
+		</div>
+		<script type="text/javascript">
+			var x = 0, y = 0;
+			var box = document.getElementById('box');
+			var tag = document.getElementsByClassName('move')[0];
+			var lastX;
+			tag.onmousedown = function(evt){
+				var e = evt || window.event;
+				x = e.offsetX;
+				
+				document.onmousemove = function(evt){
+					var e = evt || window.event;
+					lastX = e.clientX-x;
+					if(lastX <= 396){
+						tag.style.left ='396px';
+					} else if(lastX >= 661){
+						/*tag.style.left = '661px';*/
+						var timer = setInterval(function(){
+							tag.style.display = 'none';
+							box.style.background = 'url(iphoneUnlock/iphone2.jpg) no-repeat center';
+						},200);
+						
+					} else{
+						tag.style.left = lastX+'px';
+					}
+				}
+				document.onmouseup = function(){
+					
+					if(lastX <= 530){
+						tag.style.left = '396px';
+					} else {
+						tag.style.left = '661px';
+						var timer = setInterval(function(){
+							tag.style.display = 'none';
+							box.style.background = 'url(iphoneUnlock/iphone2.jpg) no-repeat center';
+						},400);
+					}
+					
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+			}
+		</script>
+	</body>
+</html>

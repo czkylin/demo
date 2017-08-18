@@ -1,1 +1,8 @@
-{}
+{
+  "navigationBarTitleText": "肝保卡医联体",
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#ffffff",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

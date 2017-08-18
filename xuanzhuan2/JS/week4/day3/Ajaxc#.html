@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajaxc#</title>
+<script src="ajaxfun.js"></script>
+<script>
+	window.onload= function(){
+		var btn= document.getElementById("btn");
+		var ul1= document.getElementById("ul1");
+		var p=1;
+		btn.onclick= function(){
+			var url="http://10.17.152.166:8087/loadMore/index.aspx?p="+p++;
+			ajax.get(url, function(str){
+				var obj= eval("("+str+")");
+				var arr= obj.list;
+				for(var i=0; i<arr.length; i++){
+					var li= document.createElement("li");
+					li.innerHTML= arr[i].id;
+					ul1.appendChild(li);	
+				}
+			});
+		}
+	}
+</script>
+</head>
+
+<body>
+<ul id="ul1"></ul>
+<input id="btn" type="button" value="加载更多"/>
+</body>
+</html>

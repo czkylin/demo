@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>左右轮播</title>
+<style>
+	*{padding:0; margin:0;}
+	div{width:810px; height:320px; overflow:hidden; position:relative;}
+	li{list-style:none;}
+	ul{width:3240px; height:320px; left:0; position:absolute;}
+	ul>li{width:810px; height:320px;}
+	ol{position:absolute; bottom:0; right:0;}
+	ol>li{margin:0 3px; float:left; cursor:pointer; font-size:20px;}
+	.selected{ color:#f00;}	
+</style>
+<script src="startMove.js"></script>
+<script>
+	window.onload= function(){
+		var ul= document.getElementsByTagName("ul")[0];	
+		var ol= document.getElementsByTagName("ol")[0];
+			
+	}
+</script>
+</head>
+
+<body>
+	<div class="box">
+    	<ul>
+        	<li><img src="img/001.jpg"/></li>
+        	<li><img src="img/002.jpg"/></li>
+        	<li><img src="img/003.jpg"/></li>
+        	<li><img src="img/004.jpg"/></li>
+        </ul>
+        <ol>
+        	<li class="selected">●</li>
+        	<li>●</li>
+        	<li>●</li>
+        	<li>●</li>
+        </ol>
+    </div>
+    
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var objCB= document.getElementsByName("cb");
+		var quan= document.getElementById("quan");
+		var btn= document.getElementById("btn");
+		quan.onclick= function(){
+			var v= this.checked;
+			for(var i=0; i<objCB.length; i++){
+				objCB[i].checked=v;
+			}
+		}
+		btn.onclick= function(){
+			for(var i=0; i<objCB.length; i++){
+				objCB[i].checked= !objCB[i].checked;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+	<form>
+    	<input type="checkbox" name="cb"/>1
+    	<input type="checkbox" name="cb"/>2
+    	<input type="checkbox" name="cb"/>3
+    	<input type="checkbox" id="quan"/>全选<br/>
+        
+        <input type="button" id="btn"  value="反选"/>
+    </form>
+</body>
+</html>

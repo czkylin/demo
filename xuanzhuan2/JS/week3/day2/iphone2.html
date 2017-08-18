@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>iphone</title>
+<style type="text/css">
+*{padding:0;margin:0;}
+#iphone{background:url(iphoneUnlock/iphone2.jpg); height:640px; width:426px; margin-left:400px;}
+.suoping{background:url(iphoneUnlock/iphone.jpg); height:95px; width:426px; padding-top:545px;}
+#key{position:relative; margin-left:36px; height:62px; width:93px; background:url(iphoneUnlock/unlock_btn.jpg)}
+
+</style>
+<script>
+//268
+window.onload=function(){
+	var key=document.getElementById("key");
+	var suoping=document.getElementsByClassName("suoping")[0];
+	key.onmousedown=function(evt){
+		var e=evt||window.event;
+		var more=e.clientX
+		var n=0;
+		document.onmouseup=function(){
+			suoping.onmousemove=null;
+			key.style.left=0+"px";
+			
+		}
+			suoping.onmousemove=function(evt){
+				var e=evt||window.event;
+				n=e.clientX-more;
+				if(e.clientX-more<0||e.clientX-more>268){}
+				else{key.style.left=e.clientX-more+"px";}
+				
+						
+				if(n>=268){
+				suoping.style.display="none";
+			}	
+			}
+		}
+
+}
+</script>
+
+</head>
+
+<body>
+	<div id="iphone">
+    	<div class="suoping">
+        	<div id="key"></div>
+        </div>
+    </div>
+</body>
+</html>

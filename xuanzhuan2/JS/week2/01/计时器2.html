@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script>
+var s=1;
+var m=0;
+var h=0;
+function show(num){
+	if(num<10){
+		return "0"+num;
+		}
+		return num;
+	}
+var jishi=function(){setInterval(function(){
+	var divs=document.getElementById("divs");
+	if(s==60){
+		s=0;
+		m+=1;
+		divm.innerHTML=show(m);
+		}
+	if(m==60)
+	{
+		m=0
+		h+=1
+		divh.innerHTML=show(h)
+		}
+
+	divs.innerHTML=show(s++);
+	
+	},1000)
+ 
+}
+</script>
+<span id="divh">00</span>小时
+<span id="divm">00</span>分钟
+<span id="divs">00</span>秒
+<input type="button" onClick="jishi()" value="开始" />
+<input type="button" onClick="clearInterval(1)" value="结束" />
+</body>
+</html>

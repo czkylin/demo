@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件监听</title>
+<script>
+	window.onload= function(){
+		var myBtn1= document.getElementById("myBtn1");
+		myBtn1.addEventListener("click",function(){
+			alert("aaa");
+		});
+		
+		myBtn1.addEventListener("click",function(){
+			fun1(1);
+		});
+		function fun1(num){
+			alert(num);
+		}
+	}
+</script>
+</head>
+
+<body>
+	<button id="myBtn1">按钮</button>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>组合键案例</title>
+<style>
+	#box{width:200px; height:200px; background:#f00; position:absolute;}
+	#bottom{position: absolute; left: 500px; top: 500px;}
+</style>
+<script>
+	/*
+		1.有一个div块,如果我按下ctrl+c变换颜色  c  67
+		2.如果我按下ctrl + shift + r 重置颜色,回复初始颜色  r
+		3.如果我按下向上箭头 向上移动 同理 上下左右  38  40  37  39
+		4.如果我按下ctrl + 上下左右,走的步数变大
+	*/
+/*	keyCode
+	w 87
+	s 83
+	a 65
+	d 68
+*/
+
+	window.onload= function(){
+		var oBox= document.getElementById("box");
+		document.onkeydown= function(evt){
+			var e=evt||window.event;
+			var left=numFromStr(oBox.style.left);
+			var top=numFromStr(oBox.style.top);
+
+			var tmpNum= 20;
+
+			if(e.ctrlKey && e.keyCode== 67){
+				var r=parseInt(Math.random()*256);
+				var g=parseInt(Math.random()*256);
+				var b=parseInt(Math.random()*256);
+				box.style.background="rgba("+r+","+g+","+b+",1)";
+			}
+
+			if(e.ctrlKey && e.shiftKey && e.keyCode==82){
+				box.style.background="#f00"
+			}
+
+			if(e.keyCode==38){
+				box.style.top=top-tmpNum+"px";
+			}
+			if(e.keyCode==40){
+				box.style.top=top+tmpNum+"px";
+			}
+			if(e.keyCode==37){
+				box.style.left=left-tmpNum+"px";
+			}
+			if(e.keyCode==39){
+				box.style.left=left+tmpNum+"px";
+			}
+
+
+			if(e.ctrlKey && e.keyCode==38){
+				box.style.top=top-tmpNum*4+"px";
+			}
+			if(e.ctrlKey && e.keyCode==40){
+				box.style.top=top+tmpNum*4+"px";
+			}
+			if(e.ctrlKey && e.keyCode==37){
+				box.style.left=left-tmpNum*4+"px";
+			}
+			if(e.ctrlKey && e.keyCode==39){
+				box.style.left=left+tmpNum*4+"px";
+			}
+		}
+	}
+	function numFromStr(str) {
+		var index = str.indexOf("px");
+		var num = Number(str.substring(0, index));
+		return num;
+	}
+</script>
+</head>
+
+<body>
+	<div id="box"></div>
+	<div id="bottom">
+			1.有一个div块,如果我按下ctrl+c变换颜色  c  67 	<br>
+			2.如果我按下ctrl + shift + r 重置颜色,回复初始颜色  r  <br>
+			3.如果我按下向上箭头 向上移动 同理 上下左右  38  40  37  39  <br>
+			4.如果我按下ctrl + 上下左右,走的步数变大
+	</div>
+</body>
+</html>

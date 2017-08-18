@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>贪吃蛇</title>
+<style>
+	*{ padding:0; margin:0;}
+	li{ background:url(bg.png); width:200px; height:200px; list-style:none;}
+	div{ position:absolute; width:20px; height:20px; background:#f60;}
+	p{ position:absolute; width:20px; height:20px; background:#FC3;}
+</style>
+<script src="jquery-1.11.3.js"></script>
+<script>
+	$(function(){
+		var arr=[
+			{
+				x:20,
+				y:0
+			},
+			{
+				x:0,
+				y:0	
+			}
+		];
+		for(var i=0; i<arr.length; i++){
+			var obj= arr[i];
+			$("body").append("<div style='left:"+obj.x+"px; top:"+obj.y+"px;'></div>");	
+		}
+		
+		$(document).keyup(function(event){
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				
+		});
+		
+		createFoods();
+		function createFoods(){
+			var x,y,flag;
+			x= Math.floor( Math.random()* Math.floor($("li").width()/20) )*20;
+			y= Math.floor( Math.random()* Math.floor($("li").height()/20) )*20;
+			$("body").append("<p style='left:"+x+"px; top:"+y+"px;'></p>");	
+		}
+		
+		
+		
+		
+			
+	})
+</script>
+</head>
+
+<body>
+	<li></li>
+</body>
+</html>

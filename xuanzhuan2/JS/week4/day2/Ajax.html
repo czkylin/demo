@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax</title>
+<script>
+	function checkUserName(){
+		//打电话  			ajax
+		
+		var span1= document.getElementById("span1");
+		var username= document.getElementById("username");
+		//要有一个电话			有ajax对象（建立ajax对象）
+		var xhr;
+		if(window.XMLHttpRequest){
+			xhr= new XMLHttpRequest();	
+		} else{
+			xhr= new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		
+		//拨号				建立连接
+		//var url= "txt.txt";
+		var url="txt.txt?t="+new Date().getTime();	//ie6兼容
+		xhr.open("get", url, true);
+		
+		//说话				发送请求
+		xhr.send();
+		
+		//回应				进行相应
+	/*	xhr.onreadystatechange= function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				var str= xhr.responseText;
+				//alert(str);
+				var obj= eval( "(" + str + ")" );	//txt中为json
+				alert(typeof obj);
+				alert(obj.b);
+			}
+		}
+	*/	
+		xhr.onreadystatechange= function(){
+			if(xhr.readyState== 4 && xhr.status==200){
+				var str= xhr.responseText;
+				var arr= eval( "("+ str +")" ).list;
+				var txtUser= username.value;
+				var flag= false;		//为假时认为没有被占用
+				for(var i=0; i<arr.length; i++){
+					if(arr[i]== txtUser){
+						flag= true;
+						break;
+					}	
+				}
+/*				if(flag){
+					span1.innerHTML= "<font color=red>用户名已被占用</font>";
+				} else{
+					span1.innerHTML= "<font color=green>用户名可以使用</font>";
+				}	
+*/	
+				span1.innerHTML=(flag)?"<font color=red>用户名已被占用</font>":"<font color=green>用户名可以使用</font>";
+
+			}
+		}
+	}
+
+
+
+
+
+</script>
+</head>
+
+<body>
+	<input id="username" type="text" onblur="checkUserName()"/>
+    <span id="span1"></span>
+</body>
+</html>

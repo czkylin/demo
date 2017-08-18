@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>教师版</title>
+		<style>
+			#iphone{
+				width: 426px;
+				height: 640px;
+				background: url(iphoneUnlock/iphone.jpg);
+				margin: 10px auto;
+				position: relative;
+			}
+			#lock{
+				width: 358px;
+				height: 62px;
+				position: absolute;
+				left: 50%;
+				margin-left: -179px;
+				bottom: 33px;
+			}
+			#slide{
+				width: 93px;
+				height: 62px;
+				position: absolute;
+				background: url(iphoneUnlock/unlock_btn.jpg);
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var iphone = document.getElementById("iphone");
+				var lock = document.getElementById("lock");
+				var slide = document.getElementById("slide");
+
+				slide.onmousedown = function(evt) {
+					var e = evt || window.event;
+					var disX = e.offsetX;
+					lock.onmousemove = function(evt) {
+						var e = evt || window.event;
+						var x = e.clientX - disX - lock.offsetLeft - iphone.offsetLeft;
+						if(x<0) {
+							x=0;
+						} else if(x>lock.offsetWidth-slide.offsetWidth){
+							x=lock.offsetWidth-slide.offsetWidth;
+						}
+						slide.style.left = x + "px";
+					}
+					document.onmouseup = function() {
+						if(slide.offsetLeft<(lock.offsetWidth-slide.offsetWidth)/2) {
+							slide.style.left = 0;
+						} else {
+							slide.style.left = lock.offsetWidth-slide.offsetWidth + "px";
+						}
+						lock.onmousemove = null;
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="iphone">
+			<div id="lock">
+				<div id="slide">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

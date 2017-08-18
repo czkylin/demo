@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	#box{width:800px; height:500px; text-align:center; background:red; line-height:500px;}
+	
+</style>
+<script>
+	window.onload= function(){
+		var box=document.getElementById("box");
+		var color=["#f00","#0f0","#00f","#ff0","#f0f","#0ff","#fff","#000"];
+		var i=1;
+		var n=5;
+		setInterval(function(){
+			box.style.fontSize=numFromStr(box.style.fontSize)+n+"px";
+			box.style.color=color[i++];
+			if(i==7){
+				i=0;
+				n*=-1;
+			}			
+		},400)
+		
+		
+		function numFromStr(str) {
+				var index = str.indexOf("px");
+				var num = Number(str.substring(0, index));
+				return num;
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="box">
+    	开车，飙车，我闭着眼
+    </div>
+</body>
+</html>

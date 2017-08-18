@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<style>
+		*{padding: 0px; margin: 0px;}
+		#box1{width: 500px; height:500px; border: 1px solid #ccc; position: relative;}
+		#box2{width:50px; height:50px; background: #f00; position: absolute; left: 0;}
+		</style>
+		<script>
+			window.onload= function(){
+				var box1= document.getElementById("box1");
+				var box2= document.getElementById("box2");
+				var start= 0;
+				var end= 450;
+				var speed;
+				var timer= setInterval(function(){
+					start= parseInt(box2.style.left);
+					speed= (end-start)/6;
+					speed= Math.ceil(speed);
+					box2.style.left= start+speed+"px";
+					console.log(box2.style.left);
+					if(parseInt(box2.style.left==end)){
+						clearInterval(timer);
+					}
+				},100);
+			}			
+		</script>
+	</head>
+	
+	<body>
+		<div id="box1">
+			<div id="box2"></div>
+		</div>
+	</body>
+</html>

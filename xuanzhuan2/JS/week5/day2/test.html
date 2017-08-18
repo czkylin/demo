@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<style>
+	*{padding:0; margin:0;}
+	li{list-style:none;}
+	div{width:810px; height:320px; overflow:hidden; position:relative;}
+	div>ul{width:810px; height:320px; }
+	div>ul>li{width:810px; height:320px; position:absolute;}
+	div>ol{position:absolute; bottom:0; right:0;}
+	div>ol>li{ float:left; font-size:20px; padding-right:10px; cursor:pointer;}
+</style>
+<script src="startMove.js"></script>
+<script>
+	window.onload= function(){		
+		var ul=document.getElementsByTagName("ul");
+	}
+</script>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="img/001.jpg" /></li>
+            <li><img src="img/002.jpg" /></li>
+            <li><img src="img/003.jpg" /></li>
+            <li><img src="img/004.jpg" /></li>
+        </ul>
+        <ol>
+            <li class="selected">●</li>
+            <li>●</li>
+            <li>●</li>
+            <li>●</li>
+        </ol>
+    </div>
+</body>
+</html>

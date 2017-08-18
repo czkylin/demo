@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>map</title>
+<style>
+	ol{ list-style:none;}
+</style>
+<script src="jquery-1.11.3.js"></script>
+<script>
+	$(function(){
+		var str= $("input").map(function(){
+			return $(this).val();	
+		}).get().join(",");
+		console.log(str);
+		$("p").append(str);	
+	})
+	
+</script>
+</head>
+
+<body>
+	<p></p>
+	<input value="a"/>
+	<input value="b"/>
+	<input value="c"/>
+    
+</body>
+</html>

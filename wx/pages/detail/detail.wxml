@@ -1,0 +1,17 @@
+<view class="container">
+  <text>{{result.title}}</text>
+  <view>
+    <image src="{{result.images.large}}"></image>
+    <text>导演：</text>
+    <text wx:for="{{result.directors}}">{{item.name}}</text>
+    <text>主演：</text>
+    <text wx:for="{{result.casts}}">{{item.name}}</text>
+    <text>类型：</text>
+    <text wx:for="{{result.genres}}">{{item}}</text>
+    <text>制片国家/地区：</text>
+    <text wx:for="{{result.countries}}">{{item}}</text>
+    <text>又名：</text>
+    <text wx:for="{{result.aka}}">{{item}}</text>
+
+  </view>
+</view>

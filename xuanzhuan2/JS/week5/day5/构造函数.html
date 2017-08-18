@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>构造函数</title>
+<script>
+	function createObject(_name,_age){
+		var obj= new Object();
+		obj.name= _name;
+		obj.age= _age;
+		return obj;	
+	}
+	var obj1= createObject("张三","17");
+	var obj2= createObject("李四","18");
+	console.log(obj1.name);
+	console.log(obj2.age);
+	
+	function a(_height,_weight){
+		this.height= _height;
+		this.weight= _weight;
+		this.intro= function(){
+			console.log(this.height+","+this.weight);	
+		}	
+	}
+	var obj1= new a("180","130");
+	obj1.intro();
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		body {
+			background: #a1c1d1;
+			font: 12px "微软雅黑";
+		}
+		
+		.box {
+			width: 220px;
+			margin: 0 auto;
+			padding: 10px;
+			background: #ddeeff;
+			border: 1px solid #DDEEFF;
+			box-shadow: 0 0 10px 0 #888;
+			border-radius: 6px;
+		}
+	</style>
+	<script src="cookie.js"></script>
+	<script>
+		var username = getCookie("username");
+		var password = getCookie("password");
+		window.onload = function(){
+			var form = document.getElementsByTagName("form")[0];
+			var user = document.getElementById("username");
+			var pwd = document.getElementById("password");
+			user.value = username;
+			pwd.value = password;
+			form.onsubmit = check;
+		}
+		function check(){
+			var cb = document.getElementById("checkbox");
+			var username = document.getElementById("username");
+			var password = document.getElementById("password");
+			if(cb.checked){
+				setCookie("username", username.value, 10);
+				setCookie("password", password.value, 10);
+			}
+		}
+	</script>
+
+
+	</head>
+	<body>
+		<form action="" method="get">
+			<div class="box">
+				<label>账号</label>
+				<input type="text" id="username" class="input-text" />
+				<br /><br />
+				
+				<label>密码</label>
+				<input type="text" id="password" class="input-text" />
+				<br /> <br />
+				
+				<input type="checkbox" id="checkbox" class="checkbox" />
+				<label>10天内免登录</label>
+				<br /> <br />
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="submit" value="确定"/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="清空" />				
+			</div>
+		</form>
+		
+		<script>
+			
+			
+//			var userName = document.getElementById("username");
+//			
+//			var pwd = document.getElementById("password");
+//			
+//			var checked = document.getElementById("checkbox");
+//			var btn = document.getElementsByTagName("input")[3];
+//			pwd.value= getCookie("username");
+//			userName.value = getCookie("pwd");
+//			btn.onclick = function(){
+//				var val1= userName.value;
+//				var val2= pwd.value;
+//				setCookie("username", val1, 7 );
+//				setCookie("pwd", val2, 7 );
+//			}
+		</script>
+	</body>
+</html>

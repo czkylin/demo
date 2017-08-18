@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>作业</title>
+<script>
+	//写个函数计算所有传入参数相乘的结果（参数数量不定）
+	function cheng(){
+		var ji= 1;
+		var j= arguments.length;
+		for(i=0;i<j;i++){
+			ji= ji*arguments[i];
+		}
+		alert(ji);
+	}
+	cheng(1,2,3,4,5);
+	
+
+
+
+
+	//写个函数实现加减乘除运算
+	function jiSuanQi(num1,num2){
+		if(fuHao=="+"){
+			return Number(num1)+Number(num2);
+		} else if(fuHao=="-"){
+			return num1-num2;		
+		} else if(fuHao=="*"){
+			return num1*num2;		
+		} else if(fuHao=="/"){
+			if(num2==0){
+				alert("除数不能为0");
+				return "请重新输入！";
+			}else{
+				return num1/num2;		
+			}		
+		} else{
+			alert("请输入合法的字符!");
+		}
+		
+	}
+	var num1=prompt("请输入第一个数：");
+	var fuHao=prompt("请输入运算符号：");
+	var num2=prompt("请输入第二个数：");
+	alert(jiSuanQi(num1,num2));
+	
+
+	function jiSuanQi(num1,fuHao,num2){
+		if(fuHao=="+"){
+			return Number(num1)+Number(num2);
+		} else if(fuHao=="-"){
+			return num1-num2;		
+		} else if(fuHao=="*"){
+			return num1*num2;		
+		} else if(fuHao=="/"){
+			if(num2==0){
+				return ("除数不能为0");				
+			}else{
+				return num1/num2;		
+			}		
+		} else{
+			return ("请输入合法的字符!");
+		}
+		
+	}
+	function btnClick(){
+		var num1 = document.getElementById("num1").value;
+		var fuHao = document.getElementById("fuHao").value;	
+		var num2 = document.getElementById("num2").value;
+		
+		
+		document.getElementById("result").value=jiSuanQi(num1,fuHao,num2);
+	}
+
+
+
+
+
+
+	//n!
+	var n= prompt("请输入阶乘n的值：");
+	function jieCheng(n){
+		if(n==1){
+			return 1;
+		}		
+		return n*jieCheng(n-1);
+	}
+	alert(jieCheng(n));
+	
+	
+	//猴子一天吃桃子总数一半加一个，最后（第n（n<=10））成一个，求原来有多少个
+	var n=prompt("请输入天数");
+	function taoZi(n){
+		if(n==1){
+			return 1;	
+		}
+		return (taoZi(n-1)+1)*2;
+	}
+	alert(taoZi(n));
+	
+
+/*		function calculate(num1, fuHao, num2) {
+		switch(fuHao) {
+			case "+" : return (num1+num2);
+			case "-" : return (num1-num2);
+			case "*" : return (num1*num2);
+			case "/" : return num2==0? ("除数不能为0") : (num1/num2);
+			case "%" : return (num1%num2);
+			default: return ("请输入合法字符");
+		}
+		}
+		function btnClick() {
+			var num1 = Number(document.getElementById("num1").value);
+			var fuHao = document.getElementById("fuHao").value;
+			var num2 = Number(document.getElementById("num2").value);
+			document.getElementById("jieGuo").value = calculate(num1, fuHao, num2);
+		}
+*/
+
+	function jiSuanQi(num1,fuHao,num2){
+		if(fuHao=="+"){
+			return Number(num1)+Number(num2);
+		} else if(fuHao=="-"){
+			return num1-num2;		
+		} else if(fuHao=="*"){
+			return num1*num2;		
+		} else if(fuHao=="/"){
+			if(num2==0){
+				return ("除数不能为0");				
+			}else{
+				return num1/num2;		
+			}		
+		} else{
+			return ("请输入合法的字符!");
+		}		
+	}
+	
+	
+	function btnClick(){
+		var num1 = document.getElementById("num1").value;		
+		var num2 = document.getElementById("num2").value;
+		var fuHao = document.getElementById("fuHao").value;
+		
+		
+		document.getElementById("result").value=jiSuanQi(num1,fuHao,num2);
+	}
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+</script>
+</head>
+
+<body>
+<!--	
+	<input type="text" id="num1"/>
+	<input type="text" id="fuHao"/>
+	<input type="text" id="num2"/>
+	<input type="button" value="=" onclick="btnClick()"/>
+	<input type="text" id="result"/>
+-->
+	<input type="text" id="num1"/>
+	<select id="fuHao">
+    	<option value="+">+</option>
+    	<option value="-">-</option>
+    	<option value="*">*</option>
+    	<option value="/">/</option>
+    </select>
+	<input type="text" id="num2"/>
+	<input type="button" value="=" onclick="btnClick()"/>
+	<input type="text" id="result"/>
+
+</body>
+</html>

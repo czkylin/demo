@@ -432,6 +432,11 @@ var bgImgUrl = './images/flower3.png';
 				alert("亲，当前没有图片可以裁剪!");
 				return;
 			}
+			var bgImg = $("<img >").css({
+				"user-select": "none",
+				"pointer-events": "none"
+			});
+			bgImg.attr('src',bgImgUrl);
 			var local = loaclToLoacl($moveLayer, $clipView);
 			var scale = myScroll.scale;
 			var ctx = canvas.getContext("2d");
@@ -449,14 +454,12 @@ var bgImgUrl = './images/flower3.png';
 			ctx.rotate(curAngle * Math.PI / 180);
 
 			ctx.drawImage($img[0], 0, 0);
-			ctx.restore();
-			var bgImg = $("<img >").css({
-				"user-select": "none",
-				"pointer-events": "none"
-			});
-			bgImg.attr('src',bgImgUrl);
+
 			console.log(bgImg);
-			ctx.drawImage(bgImg[0], curX - local.x / scale, curY - local.y / scale);
+			ctx.drawImage(bgImg[0], 0, 0);
+
+			ctx.restore();
+
 
 			var dataURL = canvas.toDataURL(outputType, 1);
             imgsource =dataURL;
@@ -591,7 +594,7 @@ var bgImgUrl = './images/flower3.png';
 				"user-select": "none",
 				"pointer-events": "none"
 			});
-			console.log($img[0]);
+			console.log($img);
 			$img.load(imgLoad);
 			$img.attr("src", src); // 设置图片base64值
 		}

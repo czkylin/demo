@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>各种碰壁</title>
+<style>
+	*{padding:0; margin:0;}
+	#box{height:500px; width:800px; background:#ccc; margin:0 auto; position:relative;}
+	#box1{height:20px; width:20px; background:#f00; position:absolute; top:0; left:0;}
+	#box2{height:20px; width:20px; background:#0f0; position:absolute; top:20px; left:0;}
+</style>
+<script>
+	window.onload= function(){
+		var arrt=["0","812px"];
+		var arrl=["312px","1092px"];
+		var box1= document.getElementById("box1");
+		var box2= document.getElementById("box2");
+		var t=0, l=312;
+		var top1=box1.style.top;
+		var top2=box2.style.top;
+		var left1=box1.style.left;
+		var left2=box2.style.left;
+		setInterval(function(){
+						
+		},1000)
+	}
+	
+	
+	
+	
+/*	window.onload = function() {
+			var div1 = document.getElementById("div1");
+			var div2 = document.getElementById("div2");
+			var div3 = document.getElementById("div3");
+			var temX = 3;
+			var temY = 1;
+			var temYY = 10;
+			setInterval(function(){
+				//10px  10
+				if(numFromStr(div2.style.width)+numFromStr(div2.style.left) >= numFromStr(div1.style.width)) {
+					temX *= -1;
+				}
+				if(numFromStr(div2.style.left)<=0) {
+					temX *= -1;
+				}
+				if(numFromStr(div2.style.height)+numFromStr(div2.style.top) >= numFromStr(div1.style.height)) {
+					temY *= -1;
+				}
+				if(numFromStr(div2.style.top)<=0) {
+					temY *= -1;
+				}
+
+				if(numFromStr(div3.style.height)+numFromStr(div3.style.top) >= numFromStr(div1.style.height)) {
+					temYY *= -1;
+				}
+				if(numFromStr(div3.style.top)<=0) {
+					temYY *= -1;
+				}
+				div2.style.left = numFromStr(div2.style.left) + temX + "px";
+				div2.style.top = numFromStr(div2.style.top) + temY + "px";
+
+				div3.style.left = numFromStr(div3.style.left) + temX + "px";
+				div3.style.top = numFromStr(div3.style.top) + temYY + "px";
+			}, 50)
+		}
+
+		function numFromStr(str) {
+			var index = str.indexOf("px");
+			var num = Number(str.substring(0, index));
+			return num;
+		}
+*/</script>
+</head>
+
+<body>
+	<div id="box">
+    	<div id="box1"></div>
+    	<div id="box2"></div>
+    </div>
+</body>
+</html>

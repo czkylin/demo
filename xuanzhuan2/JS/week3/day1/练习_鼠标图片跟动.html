@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>练习_鼠标图片跟动</title>
+<script>
+	window.onload= function(){
+		var box= document.getElementById("box");
+		document.onmousemove= function(evt){
+			var e= evt||window.event;
+			box.style.left=e.clientX-50+"px";
+			box.style.top=e.clientY-50+"px";
+		}
+	}
+</script>
+</head>
+
+<body style="background:#000;">
+	<div id="box" style="width:100px; height:100px; background:url(girl.gif) center; position:absolute;"></div>
+</body>
+</html>

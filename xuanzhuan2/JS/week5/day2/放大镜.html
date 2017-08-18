@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>放大镜</title>
+<style>
+	#box1{ position:relative; width:400px; height:400px; float:left;}
+	#glass{ width:200px; height:200px; background:#fff; opacity:0.3; position:absolute; left:0; top:0;}
+	#box2{ width:400px; height:400px; overflow:hidden; position:relative; float:left;}
+	#img2{ position:absolute; left:0; top:0;}
+</style>
+<script>
+	window.onload= function(){
+		glass.style.display="none";
+		box2.style.display="none";
+		box1.onmousemove= function(event){
+			event= event|| window.event;
+			var x= event.clientX-box1.offsetLeft;
+			var y= event.clientY-box1.offsetTop;
+			x-=100;
+			y-=100;
+			if(x<=0)x=0;
+			if(y<=0)y=0;
+			if(x>=200)x=200;
+			if(y>=200)y=200;
+			glass.style.left= x+"px";
+			glass.style.top= y+"px";
+			img2.style.left= -2*x+"px";
+			img2.style.top= -2*y+"px";	
+		}
+		box1.onmouseover= function(){
+			glass.style.display="block";
+			box2.style.display="block";	
+		}
+		box1.onmouseout= function(){
+			glass.style.display="none";
+			box2.style.display="none";	
+		}	
+	}
+</script>
+</head>
+
+<body>
+	<div id="box1">
+    	<img src="0.jpg" width="400" height="400"/>
+        <div id="glass"></div>
+    </div>
+    <div id="box2">
+    	<img id="img2" src="0.jpg"/>
+    </div>
+</body>
+</html>

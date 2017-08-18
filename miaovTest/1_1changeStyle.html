@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS改变样式</title>
+  <style>
+    .change{width: 100px; height: 100px; background: #fff; border: 4px solid #ccc;}
+    .control{position: absolute; top: 400px; left: 500px; width: 400px; border: 3px solid #ccc; display: none;}
+    span{display: inline-block; width: 80px; height: 40px; text-align: center; line-height: 40px; background: #ccc; color: #fff; margin-right: 8px; cursor: pointer;}
+    span:hover{background: orange;}
+    .red{background: #f00;}
+    .yellow{background: orange;}
+    .blue{background: #00f;}
+  </style>
+</head>
+<body>
+  <h2>请为下面的div设置样式<button onclick="show()">点击设置</button></h2>
+  <div class="change"></div>
+  <div class="control">
+    <p id="p1">请选择背景色: <span class="red">红</span><span class="yellow">黄</span><span class="blue">蓝</span></p>
+    <p id="p2">请选择宽(px): <span>200</span><span>300</span><span>400</span></p>
+    <p id="p3">请选择高(px): <span>200</span><span>300</span><span>400</span></p>
+    <button onclick="restore()">恢复</button><button onclick="hide()">确定</button>
+  </div>
+  <script>
+    var change = document.getElementsByClassName('change')[0];
+    var control = document.getElementsByClassName('control')[0];
+    var p1 = document.getElementById('p1')
+    var p2 = document.getElementById('p2')
+    var p3 = document.getElementById('p3')
+    p1.addEventListener("click", function(e) {
+      if(e.target && e.target.nodeName == "SPAN") {
+        change.style.backgroundColor = e.target.className;
+      }
+    })
+    p2.addEventListener("click", function(e) {
+      if(e.target && e.target.nodeName == "SPAN") {
+        change.style.width = e.target.innerHTML + 'px';
+      }
+    })
+    p3.addEventListener("click", function(e) {
+      if(e.target && e.target.nodeName == "SPAN") {
+        change.style.height = e.target.innerHTML + 'px';
+      }
+    })
+
+    function restore() {
+      change.style.backgroundColor = '#fff';
+      change.style.width = 100 + 'px';
+      change.style.height = 100 + 'px';
+    }
+    function hide() {
+      control.style.display = 'none';
+    }
+    function show() {
+      control.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

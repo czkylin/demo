@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<script>
+	window.onload= function(){
+		var oText= document.getElementById("oText");
+		var oDiv= document.getElementById("oDiv");
+		var arr= ["Java","JAvaScript","PHP","JSP","ASP","ASP.NET","C#","VB","SQL"];
+		oText.onkeyup= function(){
+			oDiv.style.display="block";
+			oDiv.innerHTML="";
+			var str= oText.value;
+			for(var i=0; i<arr.length; i++){
+				var v= arr[i];
+				
+				var col1= v.split("/"+str+"/gi");	
+			}
+			
+			
+			
+			
+		}
+		
+		
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" id="oText"/>
+    <div id="oDiv"></div>
+</body>
+</html>

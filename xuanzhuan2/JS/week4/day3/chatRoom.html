@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>聊天室</title>
+<style>
+	#ul1{border:1px solid gray; width:1000px; height:300px; overflow:auto}
+	#oName{width:50px;}
+</style>
+<script src="ajaxfun.js"></script>
+<script>
+	window.onload= function(){
+		var ul1= document.getElementById("ul1");
+		var oName= document.getElementById("oName");
+		var oSay= document.getElementById("oSay");
+		var btn= document.getElementById("btn");
+		//写入内容
+		oSay.onkeydown= function(){
+			event=event || window.event;
+			if(event.keyCode==13){
+				btn.click();
+			}
+		}
+		btn.onclick= function(){
+			var strName= oName.value;
+			var strSay= oSay.value;
+			if(strName!="" && strSay!=""){
+				var url="http://10.17.152.166:8094/chat/index.aspx?ac=add&name="+strName+"&say="+strSay;
+				ajax.get(url,function(){
+					oSay.value="";
+				});
+			}
+		}
+		//显示内容
+		var IndexID=0;
+		read();
+		function read(){
+			var url="http://10.17.152.166:8093/chat/index.aspx?ac=read&indexID"+IndexID;
+			ajax.post(url,"",function(str){
+				var flag= ul1.scrollTop==ul1.scrollHeight-ul1.clientHeight;
+				var obj= eval("("+str+")");
+				var arr= obj.list;
+				IndexID= obj.indexID;
+				for(var i=0; i<arr.length; i++){
+					var o= arr[i];
+					var li= document.createElement("li");
+					li.innerHTML="<b>"+o.name+"</b><i>"+o.time+"</i><br/>"+o.say;
+					ul1.appendChild(li);	
+				}
+				if(flag){
+					ul1.scrollTop= ul1.scrollHeight;
+				}	
+				setTimeout(read, 500);
+				
+			})
+		}
+	}
+</script>
+</head>
+
+
+<body>
+	<ul id="ul1"></ul>
+    <input type="text" id="oName"/>说：
+    <input type="text" id="oSay"/>
+    <input type="button" id="btn" value="发言"/>
+</body>
+</html>

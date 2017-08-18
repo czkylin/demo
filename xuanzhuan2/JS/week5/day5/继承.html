@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>prototype原型</title>
+<script>
+/*	function P(_name){
+		this.name= _name;	
+	}
+	function C(_password){
+		this.password= _password;	
+	}
+	C.prototype= new P("u");
+	var c= new C("p");
+	alert(c.name);
+*/	
+	function P(_username,_age){
+		this.username= _username;
+		this.age= _age;
+	}
+	
+	function C(_username,_age,_password){
+		//P.call(this, _username, _age);
+		P.apply(this, [_username, _age]);
+		this.password = _password;	
+	}
+	
+	var c= new C("u", 30, "p");
+	alert(c.username+"," +c.age+","+c.password);
+	
+	String.prototype.tjsl= function(){
+		var str= this; 
+		var obj= {};
+		var arr= str.split("");
+		for(var i=0; i<arr.length; i++){
+			if(obj[arr[i]]==undefined){
+				obj[arr[i]]=1;	
+			} else{
+				obj[arr[i]]+=1;	
+			}	
+		}
+		return obj;	
+	}
+	console.log("abcdeabbc".tjsl());
+</script>
+</head>
+
+<body>
+</body>
+</html>

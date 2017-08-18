@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ajax-search</title>
+<style>
+	#div1{border:1px solid #ccc; background:#ff0; display:none;}
+</style>
+<script src="Ajax.js"></script>
+<script>
+	var arr;
+	var url= "word.txt?t="+new Date().getTime();	//数据
+	ajax(url, function(str){	//ajax
+		arr=eval("("+str+")").list;	//得到数组
+	})
+	function show(){
+		var word= document.getElementById("word").value;	//得到文本域中的值
+		var div1= document.getElementById("div1");	//得到提示菜单div
+		div1.innerHTML="";	//提示菜单清空内容，如果不做清空，数据将累加
+		if(word!=""){	//当文本域中的内容为空时
+			var reg= eval("/"+word+"/gi");			
+			for(var i=0; i<arr.length; i++){	//遍历
+				var obj= arr[i];	//得到对象
+				var txt= obj.key;	//指列表中具体的一项
+				var col= txt.match(reg); 	//根据正则去除匹配的结果
+				if(col){	//当数组存在时
+					for(var j=0; j<col.length; j++){
+						var s= col[j];	//指匹配出的结果
+						txt= txt.replace(s, "<font color=red>"+s+"</font>");	//txt指加红显示匹配的结果
+					}
+					console.log(txt);
+					txt="<div onclick=\"Change('"+obj.key+"')\">"+txt+"</div>";	//绑定单击事件
+					div1.innerHTML+=txt;	
+				}					
+			}
+			console.log(':-----------------------');	
+			if(div1.innerHTML!=""){
+				div1.style.display="block";
+			}	
+		} else{
+			div1.style.display="none";
+		}		
+	}
+	function Change(str){
+		document.getElementById("word").value=str;
+		document.getElementById("div1").style.display="none";
+	}
+</script>
+</head>
+
+<body>
+<input id="word" type="text" onKeyUp="show()" />
+<div id="div1"></div>
+</body>
+</html>

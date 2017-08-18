@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>面向对象</title>
+<style>
+	#div1{position:absolute; width:300px; height:300px; background:#ff0; cursor:move;}
+	#div2{position:absolute; width:200px; height:200px; background:#f0f; cursor:move; opacity:0.8;}
+	
+</style>
+</head>
+
+<body>
+	<div id="div1">
+    	程序有两种写法：
+        一：面向过程，根据需求，一步一步的去实现的过程，叫做面向过程
+        二：面向对象，只关注功能如何使用，而不去关注功能是怎么实现的
+   	</div>
+    <div id="div2"></div>
+</body>
+<script>
+	drag(div1);
+	drag(div2);
+	function drag(obj){
+		obj.onmousedown= function(event){
+			event= event|| window.event;
+			var x= event.clientX- obj.offsetLeft;
+			var y= event.clientY- obj.offsetTop;
+			document.onmousemove= function(event){
+				event= event|| window.event;
+				obj.style.left= event.clientX-x+"px";
+				obj.style.top= event.clientY-y+"px";	
+			}			
+			document.onmouseup= function(){
+				document.onmousemove= null;
+				document.onmouseup= null;	
+			}
+			return false;	
+		}	
+	}
+</script>
+</html>

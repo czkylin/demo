@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS创建元素模拟qq聊天</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    html,body{
+      width: 100%;
+      height: 100%;
+    }
+    body{
+      display: flex;
+      flex-direction: column;
+    }
+    .talk{
+      width: 100%;
+      flex: 1;
+      overflow-y: scroll;
+    }
+    .talk p{
+      width: 100%;
+      margin: .2rem 0 0 0;
+      overflow: hidden;
+    }
+    p span{
+      display: block;
+      float: left;
+      width: .66rem;
+      height: .66rem;
+    }
+    .talk div{
+      position: relative;
+      float: left;
+      width: auto;
+      max-width: 4.8rem;
+      font-style: normal;
+      font-size: .44rem;
+      border-radius: .1rem;
+      word-break: break-all;
+      margin-left: .4rem;
+      border: .01rem solid #ccc;
+      border-radius: .1rem;
+      background: green;
+      color: #fff;
+    }
+    .bot{
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: .2rem;
+      border-style: solid;
+      border-color: transparent green green transparent;
+      float: none;
+      left: -0.38rem;
+      top: .08rem;
+    }
+    .top{
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: .1rem .2rem;
+      border-style: solid;
+      border-color: transparent #ffffff #ffffff transparent;
+      left: -0.4rem;
+      top: .28rem;
+    }
+    .bot.right{
+      border-color: transparent transparent green green;
+      left: 4.76rem;
+      top: .04rem;
+    }
+    .top.right{
+      border-color: transparent transparent #ffffff #ffffff;
+      left: 4.81rem;
+      top: .26rem;
+    }
+    .icon{
+      float: right;
+    }
+    p div.sendText{
+      float: right;
+      margin-left: 0;
+      margin-right: .4rem;
+    }
+    .bottom{
+      display: flex;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: .88rem;
+      line-height: .88rem;
+      background: #f3f3f3;
+      font-size: .24rem;
+      align-items: center;
+    }
+    .bottom .img{
+      display: inline-block;
+      width: .66rem;
+      height: .66rem;
+      border: .01rem solid #ccc;
+      border-radius: .20rem;
+      background: url(./img/1.gif) no-repeat center;
+    }
+    .bottom input{
+      flex: 1;
+      height: .66rem;
+      margin: 0 .22rem;
+      border-radius: .1rem;
+    }
+    .bottom .text{
+      width: .66rem;
+    }
+  </style>
+  <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/750*100 + 'px';
+  </script>
+</head>
+<body>
+  <div class="talk"></div>
+  <div class="bottom">
+    <span class="img"></span>
+    <input type="text">
+    <span class="text">发送</span>
+  </div>
+<script>
+  var talk = document.getElementsByClassName('talk')[0];
+  var button = document.getElementsByClassName('text')[0];
+  var text = document.getElementsByTagName('input')[0];
+  var img = document.getElementsByClassName('img')[0];
+  function send() {
+    console.log('2');
+    var p = document.createElement('p');
+    var span = document.createElement('span');
+    var i = document.createElement('div');
+    var bot = document.createElement('span');
+    var top = document.createElement('span');
+    i.innerHTML = text.value;
+    // i.setAttribute('readonly','readonly');
+    span.style.background = getComputedStyle(img, false)['backgroundImage'];
+    span.style.backgroundPosition = 'center';
+    span.style.backgroundRepeat = 'no-repeat';
+    bot.setAttribute('class', 'bot');
+    top.setAttribute('class', 'top');
+    i.appendChild(bot);
+    i.appendChild(top);
+    p.appendChild(span);
+    p.appendChild(i);
+    talk.appendChild(p);
+    if(getComputedStyle(img, false)['backgroundImage'] == 'url("file:///F:/demo/miaovTest/img/2.gif")') {
+      span.setAttribute('class', 'icon');
+      i.setAttribute('class', 'sendText');
+      bot.setAttribute('class', 'bot right');
+      top.setAttribute('class', 'top right');
+    }
+  }
+  function changeImg() {
+    console.log(getComputedStyle(img, false)['backgroundImage']);
+    if(getComputedStyle(img, false)['backgroundImage'] == 'url("file:///F:/demo/miaovTest/img/1.gif")') {
+      img.style.background = 'url(./img/2.gif) no-repeat center';
+      console.log(img.style.backgroundImage);
+    } else {
+      console.log('1');
+      img.style['backgroundImage'] = 'url(./img/1.gif)';
+    }
+  }
+  button.addEventListener('click', function(e) {
+    console.log('1');
+    send();
+  })
+  text.addEventListener('keyup', function(e) {
+    console.log('12');
+    if(e.keyCode == 13 && text.value !== ''){
+      send();
+      text.value = '';
+    } else if(e.keyCode == 13 && text.value == '') {
+      alert('请输入内容！');
+      text.value = '';
+    }
+  })
+  img.addEventListener('click', function(e) {
+    changeImg();
+  })
+  // function getStyle(obj, attr) {
+  //   if(obj.currentStyle) {
+  //     return obj.currentStyle[attr];
+  //   } else {
+  //     return getComputedStyle(obj, false)[attr];
+  //   }
+  // }
+  // function css(obj, attr, value) {
+  //   if(arguments.length == 2) {
+  //     return getStyle(obj, attr);
+  //   } else {
+  //     if(arguments.length == 3) {
+  //       obj.style[attr] = value;
+  //     }
+  //   }
+  // }
+</script>
+</body>
+</html>

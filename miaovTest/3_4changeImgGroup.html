@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义属性切换图片</title>
+  <style>
+    *{padding: 0; margin: 0;}
+    html,body{width: 100%; height: 100%; background: #333;}
+    img{display: block; width: 100%; height: 500px;}
+    li{list-style: none;}
+    strong{font-weight: normal;}
+    div#container{position: relative; width: 1012px; height: 600px; margin: 0 auto;}
+    div#pic{position: relative; width: 391px; height: auto; margin: 10px; float: left;}
+    div#pic2{position: relative; width: 580px; height: auto; margin: 10px; float: left;}
+    .pic span{display: inline-block; width: 100%; text-align: center; background: #000; color: #fff;}
+    .pic p{display: block; text-align: center; background: #000; color: #fff;}
+    .pic ul{width: 100px; margin: 0 auto; margin-top: 5px;}
+    .pic li{position: relative; width: 20px; height: 20px; margin-right: 5px; background: #666; float: left; border-radius: 50%; cursor: pointer;}
+    .pic li.active{background: #f60;}
+    .left{position: absolute; left: -50px; top: 50%; width: 40px; height: 40px; background: #666; border-radius: 50%; z-index: 2; cursor: pointer;}
+    .right{position: absolute; right: -46px; top: 50%; width: 40px; height: 40px; background: #666; border-radius: 50%; z-index: 2; cursor: pointer;}
+    .left .bot{position: absolute; left: 2px; top: 10px; width: 0; height: 0; border-width: 10px; border-style: solid; border-color:transparent #fff transparent transparent; background: transparent;}
+    .left .top{position: absolute; left: 6px; top: 10px; width: 0; height: 0; border-width: 10px; border-style: solid; border-color:transparent #666 transparent transparent; background: transparent;}
+    .right .bot{position: absolute; right: 3px; top: 10px; width: 0; height: 0; border-width: 10px; border-style: solid; border-color:transparent transparent transparent #fff; background: transparent;}
+    .right .top{position: absolute; right: 7px; top: 10px; width: 0; height: 0; border-width: 10px; border-style: solid; border-color:transparent transparent transparent #666; background: transparent;}
+    .pic ul li div{position: absolute; left: -30px; top: -100px; width: 72px; height: 72px; padding: 4px; display: none; background: #fff;}
+    .pic ul li div.active{display: block;}
+    .pic ul li div img{display: block; width: 72px; height: 72px;}
+    .pic ul li div span.bot{position: absolute; left: 30px; bottom: -16px; width: 0; height: 0; border-width: 10px; border-style: solid; border-color: #fff transparent transparent; background: transparent;}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="left">
+      <span class="bot"></span>
+      <span class="top"></span>
+    </div>
+    <div class="right">
+      <span class="bot"></span>
+      <span class="top"></span>
+    </div>
+    <div id="pic" class="pic">
+      <span></span>
+      <img src="" alt="">
+      <p>第一组<strong></strong></p>
+      <ul></ul>
+    </div>
+    <div id="pic2" class="pic">
+      <span></span>
+      <img src="" alt="">
+      <p>第二组<strong></strong></p>
+      <ul></ul>
+    </div>
+  </div>
+<script type="text/javascript">
+  var pic = document.getElementById('pic');
+  var span = pic.getElementsByTagName('span')[0];
+  var img = pic.getElementsByTagName('img')[0];
+  var strong = pic.getElementsByTagName('strong')[0];
+
+  var pic2 = document.getElementById('pic2');
+  var span2 = pic2.getElementsByTagName('span')[0];
+  var img2 = pic2.getElementsByTagName('img')[0];
+  var strong2 = pic2.getElementsByTagName('strong')[0];
+
+  var left = document.getElementsByClassName('left')[0];
+  var right = document.getElementsByClassName('right')[0];
+
+  var url = ['./img/3/1.png', './img/3/2.png', './img/3/3.png', './img/3/4.png'];
+  var url2 = ['./img/3/1.jpg', './img/3/2.jpg', './img/3/3.jpg'];
+  var len = url.length;
+  var len2 = url2.length;
+
+  var index = 0;
+  var index2 = 0;
+  change(index, len, url, span, img, strong);
+  change(index2, len2, url2, span2, img2, strong2);
+
+  function count(index, len) {
+    index++;
+    if(index == len) {
+      index = 0;
+    }
+    return index;
+  }
+  function count2(index, len) {
+    index--;
+    if(index < 0) {
+      index = len-1;
+    }
+    return index;
+  }
+  function change(index, len, url, span, img, strong) {
+    span.innerHTML = parseInt(index)+1 +'/'+ len;
+    img.src = url[index];
+    strong.innerHTML = '第' + parseInt(parseInt(index)+1) +'张';
+  }
+  img.onclick = function() {
+    index = count(index, len);
+    change(index, len, url, span, img, strong);
+  }
+  img2.onclick = function() {
+    index2 = count(index2, len2);
+    change(index2, len2, url2, span2, img2, strong2);
+  }
+
+  left.onclick = function() {
+    index = count2(index, len);
+    change(index, len, url, span, img, strong);
+
+    index2 = count2(index2, len2);
+    change(index2, len2, url2, span2, img2, strong2);
+
+  }
+  right.onclick = function() {
+    index = count(index, len);
+    change(index, len, url, span, img, strong);
+
+    index2 = count(index2, len2);
+    change(index2, len2, url2, span2, img2, strong2);
+  }
+
+</script>
+</body>
+</html>

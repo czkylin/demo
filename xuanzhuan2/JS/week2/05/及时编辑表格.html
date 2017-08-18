@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+/*	window.onload= function(){
+		var oTds= document.getElementsByTagName("td");
+		for(var i=0; i<oTd.length; i++){
+			oTds.onclick= function(){
+				var str= this.innerHTML;
+				this.innerHTML= "";
+				var oInput= document.createElement("input");
+				oInput.type="text";
+				oInput.value= str;
+				this.appendChild(oInput);
+				oInput.focus();
+				oInput.onblur= function(){
+					var str1= this.value;
+					oTds[this.parentNode.index].innerHTML.innerHTML= str1;
+				}
+			}
+		}
+	}
+*/
+
+	window.onload= function(){
+		var oTd= document.getElementsByTagName("td");
+		for(var i=0; i<oTd.length; i++){
+			oTd[i].index=i;
+			oTd[i].onclick= function(){
+				
+				var str= this.innerHTML;
+				this.innerHTML="";
+				var oInput= document.createElement("input");
+				oInput.type="text";
+				oInput.value=str;
+				this.appendChild(oInput);
+				oInput.focus();
+				oInput.onblur= function(){
+					var str1= this.value;
+					oTds[this.parentNode.index].innerHTML.innerHTML= str1;
+				}
+			}
+		}
+	}
+
+/*	window.onload= function(){
+		var oTd= document.getElementsByTagName("td");
+		for(var i=0; i<oTd.length; i++){
+			
+		}
+	}
+*/
+</script>
+</head>
+
+<body>
+	<table border="1">
+        <tr>
+            <td>你好</td>
+            <td>我好</td>
+            <td>大家好</td>
+        </tr>
+	</table>
+
+</body>
+</html>

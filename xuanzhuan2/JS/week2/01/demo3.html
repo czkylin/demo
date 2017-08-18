@@ -1,0 +1,79 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>定时器</title>
+
+	<script type="text/javascript">
+
+		// 定时器
+		// 可按照指定的周期（以毫秒计）来调用函数或计算表达式
+		// setInterval(function(){}, 1000): 设置定时器
+		// clearInterval(timer); //取消某定时器
+		
+		/*
+			第一个参数: 被调用的方法
+			第二个参数: 调用时间间隔(单位:毫秒)
+			返回值: 分配的定时器ID
+		*/
+		
+		
+/*		var i=0;
+		var timer = setInterval(function() {
+			if(i==5) {
+				clearInterval(timer);//取消定时器
+			}
+			// document.write(i+++"<br/>");
+			//innerHTML: 修改标签内的文本内容
+			document.getElementById("div").innerHTML = i++;
+		},1000)		
+*/		
+		
+/*		window.onload=function(){
+			var oDiv=document.getElementById("div");
+			var count=0;
+			var s=setInterval(function(){
+			oDiv.innerHTML=++count;
+			if(count==3){
+				clearInterval(1);
+				}
+			},1000);
+		}
+*/
+
+		//秒表
+		//var timer;
+
+		function btnClick() {
+
+			//获取这三个标签
+			var hours = document.getElementById("box_hour");
+			var min = document.getElementById("box_min");
+			var sec = document.getElementById("box_sec");
+
+			var i = 0; //保存秒数
+			timer = setInterval( function() {
+				i++;
+				hours.innerHTML = showTime(parseInt(i / 3600) % 24);
+				min.innerHTML = showTime(parseInt(i / 60) % 60);//6000/60%60
+				sec.innerHTML = showTime(parseInt(i % 60));
+			}, 1000);
+		}
+
+		function showTime(num){
+			if (num < 10) {
+				return "0" + num;
+			}
+			return num;
+		}
+
+	</script>
+
+</head>
+<body>
+	<div id="div"></div>
+
+	<!-- 00时00分00秒 -->
+<!--	<span id="box_hour"> 00</span>时<span id="box_min"> 00</span>分<span id="box_sec"> 00</span>秒 
+	<button onClick="btnClick()">点我开始计时</button>
+--></body>
+</html>

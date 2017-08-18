@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{padding: 0; margin: 0;}
+    ul,li{list-style: none;}
+    #list{width: 350px; height: 680px; background: #f06; margin: 0 auto;}
+    .show{height: 40px; line-height: 40px; padding: 4px; border: 1px dashed #ccc;}
+  </style>
+</head>
+<body>
+  <ul id="list"></ul>
+<script type="text/javascript">
+  var objArr = [{
+    'title': '解密：关于地球与人类的一千零一问',
+    'img': './img/img1.png',
+    'text': '深度解读传奇事件任务，解读未知...'
+  },{
+    'title': '经典传奇：探索全世界中大历史事件',
+    'img': './img/img2.png',
+    'text': '深度解读传奇事件任务，解读未知...'
+  },{
+    'title': '眼界，展现普通人的曲折命运和动人...',
+    'img': './img/img3.png',
+    'text': '眼界，展现普通人的曲折命运和动人...'
+  },{
+    'title': '档案（BTV），惊人事件和传奇背后...',
+    'img': './img/4.jpg',
+    'text': '档案（BTV），惊人事件和传奇背后...'
+  }]
+  var list = document.getElementById('list');
+  for(var i=0; i<objArr.length; i++) {
+    fnShow(objArr[i]);
+  }
+  function fnShow(li){
+    list.innerHTML += '<li class="show">'+li.title+'</li>';
+    list.addEventListener('mouseover', function(e) {
+      if(e.target && e.target.nodeName == 'LI') {
+        console.log(li);
+        e.target.innerHTML = '<img src="'+li.img+'" style="width: 100%; height: auto;" /><p>'+li.text+'</p>'
+      }
+    })
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Date</title>
+
+	<script type="text/javascript">
+		/*
+			类型使用自 UTC（Coordinated Universal Time，国际协调时间）1970 年 1 月 1 日午夜（零时）开始经过的毫秒数来保存日期。Date 类型保存的日期能够精确到 1970 年 1 月 1 日或之后的 285616 年。
+		*/
+
+		//创建日期对象
+		//在调用 Date 构造方法而不传递参数的情况下，新建的对象自动获取当前的时间和日期。
+		// var d = new Date();
+		// alert(d);
+
+		//创建日期对象,并指定时间
+		/*
+			传入参数的格式: "2015/08/22", "2015-08-22", 或者是时间戳:14432342342
+		*/
+		// var d = new Date("2015/08/22");
+		// alert(d);
+
+		// var d = new Date("2015-08-20");
+		// alert(d);
+
+		// var d = new Date(1443423432343);
+		// alert(d);
+
+		//日期对象 格式化方法
+		
+		// toDateString() 方法可把 Date 对象的日期部分转换为字符串，并返回结果。
+		// alert(d.toDateString()); //Mon Sep 28 2015
+		// alert(typeof d.toDateString());//string
+
+		// toTimeString() 方法可把 Date 对象的时间部分转换为字符串，并返回结果。
+		// alert(d.toTimeString()); //14:57:12 GMT+0800 (CST)
+
+		//toLocaleDateString()根据本地时间把 Date 对象的日期部分转换为字符串，并返回结果。
+		// alert(d.toLocaleDateString()); //2015/9/28 
+
+		// toLocaleTimeString() 方法可根据本地时间把 Date 对象的时间部分转换为字符串，并返回结果。
+		// alert(d.toLocaleTimeString()); //下午2:57:12
+
+		// toUTCString() 方法可根据世界时 (UTC) 把 Date 对象转换为字符串，并返回结果。
+		// alert(d.toUTCString()); //Mon, 28 Sep 2015 06:57:12 GMT
+
+
+		// Date.parse():方法可解析一个日期时间字符串，并返回 1970/1/1 午夜距离该日期时间的毫秒数。
+		//转换格式默认支持2015-08-24或2015/08/24
+		// alert(Date.parse("2016-8-8")); //1443423432000
+		
+		var d = new Date();
+		
+		// getDate()从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+		// alert(d.getDate()); 
+		// d.setDate(14);
+		// alert(d);
+
+		// getDay()从 Date 对象返回一周中的某一天 (0 ~ 6)。注：从0开始 0是周日
+		// alert(d.getDay()); 
+		// 没有setDay()
+		
+		// getMonth()从 Date 对象返回月份 (0 ~ 11)。
+		// alert(d.getMonth()); 
+		// d.setMonth(12); //设置大于12的数会对12求余, 13 % 12 = 1(2月份) 对12求余加1
+		// alert(d);
+
+		// getFullYear()从 Date 对象以四位数字返回年份。2016
+		// alert(d.getFullYear()); 
+		// d.setFullYear(2018); 
+		// alert(d);
+
+
+		// getHours()返回 Date 对象的小时 (0 ~ 23)。
+		// alert(d.getHours()); 
+		// d.setHours(2); 
+		// alert(d);
+
+		// getMinutes()返回 Date 对象的分钟 (0 ~ 59)。
+		// alert(d.getMinutes()); 
+		// d.setMinutes(10);  
+		// alert(d);
+
+		// getSeconds()返回 Date 对象的秒数 (0 ~ 59)。
+		// alert(d.getSeconds()); 
+		// d.setSeconds(0); 
+		// alert(d);
+
+		// getTime()获取时间戳: 返回 1970 年 1 月 1 日至今的毫秒数。
+		// var time = d.getTime();  
+		// alert(time); //1463108144551
+		// d.setTime(1464108124553);  
+		// alert(d);
+
+		// toString()日期转字符串,输出日期对象，默认调用toString()方法
+		// var dd = d.toString();
+		// alert(dd);
+		// alert(typeof dd);
+
+
+		//封装一个函数，可以根据输入的数值n(天数)显示n天后的时间
+		//2016-8-8  7  15
+		//2016-8-27 7  2016-9-3  8-9月  3   7-（31-27）
+		//2016-12-27 7 2017-1-3  年+1  月一月份  7-（31-27）
+		//参数  函数体功能  返回值
+		// function mySetDate(n, date) {
+		// 	var year = date.getFullYear();
+		// 	var month = date.getMonth() + 1;
+		// 	var day = date.getDate();
+		// 	if(n != 0) {
+		// 		var theMonthDay = 31;//每个月的天数
+		// 		if(month == 2) {
+		// 			theMonthDay =(year%4==0 && year%100!=0) || year%400==0 ? 29 : 28;
+		// 		} else if(month == 4 || month==6 || month==9 || month==11){
+		// 			theMonthDay == 30
+		// 		}
+		// 		//判断n天后的日期是否还在当前月份, 如果是则只需要改变天, 年月不用改
+		// 		if(day+n<=theMonthDay) {
+		// 			day += n;
+		// 		} else {
+		// 			//否则, 进入下个月份继续计算
+		// 			month++;
+		// 			n -= theMonthDay - day;
+		// 			day = n;
+		// 			if(month > 12) {
+		// 				year++;
+		// 				month = 1;
+		// 			}
+		// 		}
+		// 	}
+
+		// 	//得到n天后的年月日的日期
+		// 	return year+"-"+month+"-"+day;
+		// }
+		// alert(mySetDate(7,new Date()));
+		// alert(mySetDate(7,new Date("2016-8-24")));
+		// alert(mySetDate(7,new Date("2016-8-29")));
+		// alert(mySetDate(7,new Date("2016-12-29")));
+		
+		// function mySetDate(date, n) {
+		// 	date.setDate(date.getDate()+n);
+		// 	return date;
+		// }
+		// alert(mySetDate(new Date("2016-12-31"), 7));
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>购物车</title>
+<style>
+	*{padding:0; margin:0;}
+	li{list-style:none;}
+	#box{ width:800px;}
+	#box>li{width:200px; float:left; text-align:center; padding-bottom:20px;}
+	img{ width:180px; height:150px; border:1px solid #ccc;}
+	#cart>li{ text-align:center; padding-bottom:20px;}
+	#div1{ position:fixed; right:0; top:0; bottom:0; width:300px; overflow:hidden; border-left:solid 1px #f00;}
+	#div1 ul{width:250px; height:100%; background:#ccc; position:absolute; right:-250px; top:0; overflow:auto;}
+	#div1 ol{width:50px; height:100%; background:#000; position:absolute; right:0; top:0;}
+	#div1 ol li{ color:#fff;}
+	#img1{ display:none; position:absolute; left:0; top:0;}
+	#ul1{ height:30px; line-height:30px; position:fixed; top:0; width:100%; background:#09C;}
+	#ul1 li{float:left; width:150px;}
+</style>
+<script src="startMove.js"></script>
+<script src="cookie.js"></script>
+<script src="ajax.js"></script>
+<script>
+	var arr; 
+	window.onload= function(){
+		var url="json.json?t="+new Date().getTime();
+		ajax.get(url,function(str){
+			var obj= eval("("+str+")");
+			arr=obj.list;
+	      /*var li;
+			var box= document.getElementById("box");
+			for(var i=0; i<arr.length; i++){
+				var o=arr[i];
+				li= document.createElement("li");
+				li.innerHTML="<img id='i"+o.id+"' src='images/"+o.img+"'/><br/>"+o.title+"<br/>￥"+o.price+"<br/><a href='javascript:addCart("+o.id+")'>添加到购物车</a>";
+				box.appendChild(li);	
+		    }*/	
+			showGoods(-1);
+			//第一步：在json中写数据分类
+			//第二步：显示商品分类
+			fenlei= obj.type;
+			var li= document.createElement("li");
+			li.innerHTML= "<a href='javascript:showGoods(-1)'>全部</a>";	
+			ul1.appendChild(li);
+			for(var i=0; i<fenlei.length; i++){
+				li= document.createElement("li");
+				li.innerHTML= "<a href='javascript:showGoods("+i+")'>"+fenlei[i]+"</a>";
+				ul1.appendChild(li);
+			}
+		});
+		showCart();
+		ol.onmouseover=cart.onmouseover= function(){
+			startMove(cart,{right:50});	
+		}
+		ol.onmouseout=cart.onmouseout= function(){
+			startMove(cart,{right:-250});		
+		}
+		li3.onclick= function(){
+			var str= document.cookie;
+			var arr= str.split("; ");
+			for(var i=0; i<arr.length; i++){
+				var col=arr[i].split("=");
+				if(/^g\d+$/.test(col[0])){
+					setCookie(col[0], "", -10);
+				}	
+			}
+			showCart();	
+		}		
+	}
+	//第三步：根据分类显示商品
+	function showGoods(type){
+		var li;
+		var box= document.getElementById("box");
+		box.innerHTML="";
+		for(var i=0; i<arr.length; i++){
+			var o=arr[i];
+			if(o.type==type || type==-1){
+				li= document.createElement("li");
+				li.innerHTML="<a href='show.html?id="+o.id+"'><img id='i"+o.id+"' src='images/"+o.img+"'/></a><br/>"+o.title+"<br/>￥"+o.price+"<br/><a href='javascript:addCart("+o.id+")'>添加到购物车</a>";
+				box.appendChild(li);
+			}
+		}
+	}
+	function addCart(id){
+/*		var obj= getGoods(id);
+		var str= "{'id':'"+obj.id+"', 'title':'"+obj.title+"', 'img':'"+obj.img+"', 'price':'"+obj.price+"'}";
+		setCookie("g"+id, str, 10);
+		showCart();
+*/		
+		var txt= getCookie("g"+id);
+		var obj,str,num;
+		if(txt==""){
+			obj= getGoods(id);
+			num=1;	
+		} else{
+			obj= eval("("+txt+")");
+			num= obj.num+1;			
+		}
+		str= "{'id':'"+obj.id+"', 'title':'"+obj.title+"', 'img':'"+obj.img+"', 'price':'"+obj.price+"','num':"+num+"}";	
+		setCookie("g"+id, str, 10);
+		//showCart();
+		
+		var img= document.getElementById("i"+id);
+		var img1= document.createElement("img");
+		document.body.appendChild(img1);
+		img1.style.position= "absolute";
+		img1.style.left= img.offsetLeft+"px";
+		img1.style.top= img.offsetTop+"px";
+		img1.style.width= img.offsetWidth+"px";
+		img1.style.height= img.offsetHeight+"px";
+		img1.style.border= "1px solid #00f";
+		img1.style.display= "block";
+		img1.src= img.src;
+		
+		startMove(img1, {
+			left:document.documentElement.clientWidth-li1.offsetWidth,
+			top:document.documentElement.scrollTop+li1.offsetTop,
+			width:10,
+			height:10
+		},function(){
+			//img1.style.display="none";
+			document.body.removeChild(img1);
+			showCart();
+		})
+	}
+	function getGoods(id){
+		for(var i=0; i<arr.length; i++){
+			var o=arr[i];
+			if(o.id==id){
+				return o;	
+			}	
+		}	
+	}
+	function delGoods(id){
+		var txt= getCookie("g"+id);
+		var obj= eval("("+txt+")");
+		obj.num--;
+		if(obj.num<=0){
+			setCookie("g"+id, "", -10);	
+		} else{
+			var str= "{'id':'"+obj.id+"', 'title':'"+obj.title+"', 'img':'"+obj.img+"', 'price':'"+obj.price+"','num':"+obj.num+"}";
+			setCookie("g"+id, str, 10);		
+		}
+		showCart();	
+	}
+	function showCart(){
+		var cart= document.getElementById("cart");
+		cart.innerHTML="";
+		var str= document.cookie;
+		//console.log(str);
+		var arr= str.split("; ");
+		//console.log(arr);
+		var count= 0;
+		var zongjia= 0;
+		for(var i=0; i<arr.length; i++){
+			var col=arr[i].split("=");
+			if(/^g\d+$/.test(col[0])){
+				var o= eval("("+decodeURIComponent(col[1])+")");
+				var li= document.createElement("li");
+				li.innerHTML="<img src='images/"+o.img+"' /><br/>"+o.title+"<br/>￥"+o.price+"<br/>数量："+o.num+"&nbsp;&nbsp;<a href='javascript:delGoods("+o.id+");'>删除</a><br/>总价：￥"+(o.price*o.num)+"<br/>";
+				cart.appendChild(li);
+				count+=o.num;
+				zongjia+=(o.price*o.num);	
+			}	
+		}
+		li1.innerHTML=count;
+		li2.innerHTML=zongjia;	
+	}
+</script>
+</head>
+
+<body>
+	<ul id="ul1"></ul>
+	<ul id="box"></ul>
+    <div id="div1">
+    	<ul id="cart"></ul>
+        <ol id="ol">
+        	<li id="li1">0</li>
+            <li id="li2">0</li>
+            <li id="li3">clear</li>
+        </ol>
+    </div>
+    <!--<img id="img1"/>-->
+</body>
+</html>
