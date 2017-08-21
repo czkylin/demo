@@ -1,0 +1,15 @@
+.content{
+  display: flex;
+}
+.content image{
+  display: block;
+  width: 300rpx;
+  height: 400rpx;
+}
+.content .info{
+  flex: 1;
+}
+.content .info .multiple{
+  display: inline-block;
+  margin-right: 10rpx;
+}
