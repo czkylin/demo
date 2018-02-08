@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>21</li>
+    <li>9</li>
+    <li>8</li>
+    <li>7</li>
+  </ul>
+<script type="text/javascript">
+  var ul = document.getElementsByTagName('ul')[0];
+  var li = ul.getElementsByTagName('li');
+  var index = 0;
+  var timer = null;
+  timer = setInterval(function(){
+    var num = li[index].innerHTML;
+    if(num > 0) {
+      num--;
+      li[index].innerHTML = num;
+    } else {
+      index++;
+    }
+    if(index == li.length){
+      clearInterval(timer);
+    }
+  },100)
+</script>
+</body>
+</html>

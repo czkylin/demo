@@ -1,7 +1,7 @@
 <view class="container">
   <swiper indicator-dots="true"
     autoplay="true" interval="3000" duration="500" circular="true" indicator-active-color="#f0a901" class="swiper">
-    <block wx:for="{{imgUrls}}">
+    <block wx:key="swiperImg" wx:for="{{imgUrls}}">
       <swiper-item class="swiperItem">
         <image src="{{item}}" class="slide-image" style="width: 100%;"/>
       </swiper-item>
@@ -68,7 +68,7 @@
   <view class="con con3">
     <text class="h2">推荐咨询专家</text>
     <view class="item">
-      <block wx:for="{{doc}}">
+      <block wx:key="docRecommend" wx:for="{{doc}}">
         <view class="doc">
           <image src="{{item.img}}"></image>
           <text class="text1 textCenter">{{item.name}}</text>
@@ -79,7 +79,7 @@
   </view>
   <view class="con con4">
     <text class="h3">疾病百科</text>
-    <block wx:for="{{encyclopedia}}">
+    <block wx:key="cyclop" wx:for="{{encyclopedia}}">
       <view class="section">
           <view class="title">
             <text class="text1 textCenter">{{item.title}}</text>

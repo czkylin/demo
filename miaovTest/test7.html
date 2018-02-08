@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>依次弹出元素的索引</title>
+<style>
+    *{ margin: 0px; padding: 0px;}
+    #div1{ margin-top: 50px;}
+    span{ border: 1px solid #333; padding: 10px;}
+</style>
+    <script>
+    window.onload=function(){
+        var oDiv=document.getElementById('div1');
+        var oInput=document.getElementById('txt');
+        var oBtn=document.getElementById('btn');
+
+        var Obj=null;
+        var index=0;
+        var timer=null;
+
+        oBtn.onclick=function(){
+            clearInterval(timer);
+            oDiv.innerHTML='';
+            Obj = oInput.value.split('');
+            console.log(Obj);
+            index = 0;
+            for(var i=0;i<Obj.length;i++){
+                oDiv.innerHTML+='<span>'+Obj[i]+'</span>';
+            }
+            var aSpan=oDiv.getElementsByTagName('span');
+            console.log(aSpan);
+            timer = setInterval(function(){
+              console.log(index);
+                var m=aSpan[index].innerHTML;
+                if(m>0){
+                    m--;
+                    aSpan[index].innerHTML=m;
+                }else{
+                    index++;
+                }
+                if(index == aSpan.length){
+                    clearInterval(timer);
+                }
+            },100)
+        }
+
+    }
+</script>
+</head>
+<body>
+<input type="text" id="txt" placeholder="请输入数字">
+<input type="button" id="btn" value="确定">
+<div id="div1"></div>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .div1{padding: 10px; margin: 10px; width: 100px; height: 100px; background: #f00; border: 10px solid #ccc;}
+    .div2{width: 100px; height: 100px; background: #0f0;}
+  </style>
+</head>
+<body style="height: 2000px;">
+  <div class="div1">123</div>
+  <span>222</span>
+  <div class="div2">333</div>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script>
+  console.log( $('.div1').width() );
+  console.log( $('.div1').innerWidth() );      //+padding
+  console.log( $('.div1').outerWidth() );      //+padding+border
+  console.log( $('.div1').outerWidth(true) );  //+padding+border+margin
+  // $('span').insertBefore('.div1');
+  // $('.div1').insertAfter('span');
+  $('div').appendTo($('span'));
+
+  $('.div1').on({
+    'click': function() {
+      console.log(123);
+    },
+    'mouseover': function() {
+      console.log(456);
+    }
+  })
+
+  $('.div2').on('click mouseover', function() {
+    console.log(123);
+    $('.div2').off('mouseover');
+  })
+
+  $(document).click(function() {
+    console.log($(window).scrollTop());
+  })
+</script>
+</body>
+</html>

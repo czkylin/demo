@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0; }
+    ul,li{list-style: none;}
+    li{height: 40px; width: 100%;}
+  </style>
+</head>
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <div class="div1">4</div>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $('ul').delegate('li', 'click', function(){
+    $(this).css('background', '#f00');
+    $('ul').undelegate();
+  })
+  $('.div1').on('show', function() {
+    alert(1);
+  })
+  $('.div1').trigger('show');
+
+  $('.div1').on('click',{name: 'hello'}, function(e){
+    console.log(e.data.name);
+    console.log(e.target);
+    console.log(e.type);
+  })
+</script>
+</body>
+</html>

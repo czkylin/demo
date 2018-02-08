@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>9_2.listDown</title>
+  <style media="screen">
+    *{padding: 0; margin: 0;}
+    ul,li{list-style: none;}
+    ul{box-sizing: border-box; width: 200px; height: 426px; background: #ccc; float: left; cursor: pointer;}
+    ul li{box-sizing: border-box; height: 106.5px; line-height: 106.5px; vertical-align: middle; border-bottom: 1px solid #aaa; text-align: center;}
+    #container{position: relative; float: left; box-sizing: border-box; height: 426px; width: 740px; border: 1px solid #aaa; border-left: 0;}
+    #container img{width: 100%; height: 100%; cursor: pointer;}
+    #container ol{position: absolute; left: 0; top: 395px; width: 100%; cursor: pointer;}
+    ol li{margin-right: 2px; float: left; width: 33%; height: 30px; line-height: 30px; background: rgba(0, 0, 0, 0.5); text-align: center; font-size: 12px; color: #fff;}
+    .show{display: block;}
+    .hide{display: none;}
+    .highLight{background: rgba(200, 0, 40, 0.5);}
+    .normal{background: rgba(0, 0, 0, 0.5);}
+    .white{background: #fff;}
+    .gray{background: #ccc;}
+  </style>
+</head>
+<body>
+  <div id="content">
+    <ul id="list">
+      <li index='0' class="white">最热团购</li>
+      <li index='1'>商城特惠</li>
+      <li index='2'>名品推荐</li>
+      <li index='3'>缤纷活动</li>
+    </ul>
+    <div id="container">
+      <img src="./img/multipleTabs/1.jpg" alt="">
+      <div class="bottom"></div>
+    </div>
+  </div>
+<script src="./js/5_4.js"></script>
+<!-- <script src="./js/5_4multipleTabs.js"></script> -->
+<script type="text/javascript">
+  var content = document.getElementById('content');
+  var list = document.getElementById('list');
+  var bottom = document.getElementsByClassName('bottom')[0];
+  var oli = list.getElementsByTagName('li');
+  //初始化
+  for(var i=0; i<arr.length; i++) {
+    var ol = document.createElement('ol');
+    ol.setAttribute('index', i);
+    var item = arr[i];
+    if(i == 0) {
+      ol.className = 'show';
+    } else{
+      ol.className = 'hide';
+    }
+    for(var j=0; j<item.length; j++) {
+      var li = document.createElement('li');
+      li.setAttribute('index', j);
+      li.innerHTML =  item[j].title;
+      ol.appendChild(li);
+      li.style.width = (735-item.length)/item.length +'px';
+      if(j==0) {
+        li.className = 'highLight';
+      }
+    }
+    bottom.appendChild(ol);
+  }
+
+  var ol = document.getElementsByTagName('ol');
+  var img = document.getElementsByTagName('img')[0];
+  var index = 0;
+  list.addEventListener('click', function(e) {
+    if(e.target && e.target.nodeName == 'LI') {
+      index = e.target.getAttribute('index');
+      for(var i=0; i<oli.length; i++) {
+        oli[i].className = 'gray';
+        ol[i].className = 'hide';
+      }
+      e.target.className = 'white';
+      ol[index].className = 'show';
+      ol[index].children[0].className = 'highLight';
+      img.src = arr[index][0].img;
+    }
+  })
+  bottom.addEventListener('mouseover', function(e) {
+    if(e.target && e.target.nodeName == 'LI' && e.target.parentNode.className =='show') {
+      var show = document.getElementsByClassName('show')[0];
+      var sindex = e.target.getAttribute('index');
+      for(var i=0; i<e.target.parentNode.children.length; i++) {
+        e.target.parentNode.children[i].className = 'normal';
+        e.target.className = 'highLight';
+      }
+      img.src = arr[index][sindex].img;
+    }
+  })
+
+  var timer = null;
+  var timer2 = null;
+  var i = 0;
+  var j = 0;
+  var direction = true;    //初始化方向，true时表示正序播放
+  autoPlay();
+  function autoPlay() {
+    direction = true;
+    timer = setInterval(function(){
+      init();
+      j++;
+      if(j == arr[i].length) {
+        i++;
+        index = i;
+        j=0;
+      }
+      if(i == arr.length) {
+        i = arr.length-1;
+        index = i;
+        j = arr[i].length-2;
+        clearInterval(timer);
+        autoPlay2();
+      }
+    }, 1000)
+  }
+
+  function autoPlay2() {
+    direction = false;
+    timer2 = setInterval(function() {
+      init();
+      console.log(i);
+      j--;
+      if(j < 0) {
+        i--;
+        if(i>=0){
+          j=arr[i].length-1;
+          index = i;
+        } else {
+          j=arr[0].length-1;
+        }
+      }
+      if(i < 0) {
+        i=0;
+        index = 0;
+        j=1;
+        clearInterval(timer2);
+        autoPlay();
+      }
+    },1000)
+  }
+
+  function clear() {
+    if(direction) {
+      clearInterval(timer);
+    } else {
+      clearInterval(timer2);
+    }
+  }
+
+  function play() {
+    if(direction) {
+      autoPlay();
+    } else {
+      autoPlay2();
+    }
+  }
+
+  function init() {
+    for(var m=0; m<oli.length; m++) {
+      oli[m].className = 'gray';
+      ol[m].className = 'hide';
+      for(var n=0; n<arr[m].length; n++) {
+        ol[m].children[n].className = 'normal';
+      }
+    }
+    oli[i].className = 'white';
+    ol[i].className = 'show';
+    ol[i].children[j].className = 'highLight';
+    img.src = arr[i][j].img;
+  }
+
+  content.onmouseover = clear;
+  content.onmouseout = play;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>14.常用正则</title>
+</head>
+<body>
+<script src="./verify.js" charset="utf-8"></script>
+<script type="text/javascript">
+  //匹配中文
+  var reg_cn = /^[\u4e00-\u9fa5]+$/;
+  console.log(reg_cn.test('周浩然'));
+  //行首尾空格
+  var reg_spa = /^\s*|\s*$/;
+  console.log(reg_spa.test(' asdf '));
+  //邮箱
+  var reg_email = /^\w+@[a-z0-9]+(\.[a-z]+){1,3}$/;
+  console.log(reg_email.test('a02958492@126.com'));
+  //网址
+  var reg_url = /[a-zA-Z]+:\/\/[^\s]*/;
+  console.log(reg_url.test('file:////F:/demo/miaovTest/regular/14.common.html'));
+  //qq号
+  var reg_qq = /^[1-9]\d{4,10}$/;
+  console.log(reg_qq.test('593459652'));
+  //邮政编码
+  var reg_postal = /^[1-9]\d{5}$/;
+  console.log(reg_postal.test('215478'));
+  //身份证
+  var reg_IDCard = /^[1-9]\d{14}$|^[1-9]\d{17}$|^[1-9]\d{16}x$/;
+  console.log(reg_IDCard.test('370826199307206890'));
+  //电话号码
+  var reg_phone = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
+  console.log(reg_phone.test('15001326125'));
+  console.log(reg.cn.test('周浩然'));
+</script>
+</body>
+</html>

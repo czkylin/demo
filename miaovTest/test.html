@@ -5,39 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .red{width: 100%; height: 3000px; background: red;}
+    .green{width: 500px; height: 500px; background: green; word-wrap: break-word; overflow: auto;}
+  </style>
 </head>
 <body>
-  <div id="inp">1111111111111111</div>
-<script type="text/javascript">
-function load (){
-
-  document.addEventListener('touchstart',touch, false);
-  document.addEventListener('touchmove',touch, false);
-  document.addEventListener('touchend',touch, false);
-
-  function touch (event){
-      var event = event || window.event;
-
-      console.log(event);
-
-      var oInp = document.getElementById("inp");
-
-      switch(event.type){
-          case "touchstart":
-              oInp.innerHTML = "Touch started (" + event.touches[0].clientX + "," + event.touches[0].clientY + ")";
-              break;
-          case "touchend":
-              oInp.innerHTML = "<br/>Touch end (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
-              break;
-          case "touchmove":
-              event.preventDefault();
-              oInp.innerHTML = "<br/>Touch moved (" + event. touches[0].clientX + "," + event.touches[0].clientY + ")";
-              break;
-      }
-
-  }
-}
-window.addEventListener('load',load, false);
-</script>
+  <div class="red">111111111
+    <div class="green">
+      <img src="./img/3/1.png" alt="">
+      <img src="./img/3/2.png" alt="">
+      <img src="./img/3/3.png" alt="">
+      <img src="./img/3/4.png" alt="">
+    </div>
+  </div>
 </body>
+<script type="text/javascript">
+function getStyle(obj,attr){    //获取非行间样式，obj是对象，attr是值
+    if(obj.currentStyle){   //针对ie获取非行间样式
+        return obj.currentStyle[attr];
+    }else{
+        return getComputedStyle(obj, false)[attr];   //针对非ie
+    };
+};
+function css(obj,attr,value){   //对象，样式，值。传2个参数的时候为获取样式，3个是设置样式
+    if(arguments.length == 2){  //arguments参数数组，当参数数组长度为2时表示获取css样式
+        return getStyle(obj,attr);  //返回对象的非行间样式用上面的getStyle函数
+    }else{
+        if(arguments.length == 3){  //当传三个参数的时候为设置对象的某个值
+            obj.style[attr] = value;
+        };
+    };
+};
+var red = document.getElementsByClassName('red')[0];
+console.log(getStyle(red, 'width'));
+css(red, 'width', '1200px');
+console.log(css(red, 'width'));
+</script>
 </html>

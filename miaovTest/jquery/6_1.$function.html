@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  var arr = ['a', 'b', 'c', 'd']
+  console.log($.inArray('b', arr));
+  // show();
+  function show(x, y){
+    console.log(x, y, this);
+  }
+  $(document).click( $.proxy(show, window)(3, 4) )
+  // $.proxy(show, document, 3, 4)();
+  // $.proxy(show, document)(3, 4);
+  // $.proxy(show, document, 3)(4);
+
+  // $(document).click( show )
+
+  // var miaov = $.noConflict();
+  // var $ = 10;
+  // miaov(document).click(function(){
+  //   alert(1);
+  // })
+
+  var str = '{"name": "czkylin", "age": "24"}';
+  alert($.parseJSON(str).name);
+
+  var oDiv = document.getElementsByTagName('div');
+  // oDiv.push();
+  $.makeArray(oDiv).push();
+
+</script>
+</body>
+</html>

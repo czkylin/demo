@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>09.获取元素中的值</title>
+</head>
+<body>
+  替换前<br />
+  <textarea name="name" rows="8" cols="80"></textarea><br />
+  替换后<br />
+  <textarea name="name" rows="8" cols="80"></textarea><br />
+  <input type="button" value="确定">
+<script type="text/javascript">
+// replace: 第二个参数可以是字符串，也可以是回调函数
+var str = "<h2>卡号：{$vo.CARD_NUMBER}<b>{$vo['TRADE_DATE']|Dtodiy='Y-m-d',###}</b></h2>";
+var oInput = document.getElementsByTagName('input')[0];
+oInput.onclick = function() {
+  var words = document.getElementsByTagName('textarea');
+  var reg = /<[^>]+>/g;
+  words[1].value = words[0].value.replace(reg, '');
+
+}
+</script>
+</body>
+</html>

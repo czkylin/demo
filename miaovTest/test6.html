@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test6</title>
+  <style>
+    img{float: left; clear: both}
+    div{width: 800px;}
+  </style>
+</head>
+<body>
+  <!-- <video src="./img/jjm.mp4" autoplay poster="posterimage.jpg"></video>
+  <video src="./img/jjm.avi" autoplay poster="posterimage.jpg"></video>
+  <video src="./img/video.mp4" autoplay poster="posterimage.jpg">
+  </video>-->
+  <div style="width: 800px;">
+    <p>
+      <img src="./img/1.jpg" alt="">
+      第i趟排序(i=1,2,3...n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；
+      第i趟排序(i=1,2,3...n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；
+    </p>
+  </div>
+  <script type="text/javascript">
+  // var json = {name: 'czkylin', age: '24'};
+  // console.log(json.name);
+  // console.log(json[name]);
+  // console.log(json['name']);
+  // for(var attr in json) {
+  //   console.log(attr);
+  //   console.log(json[attr]);
+  // }
+
+  // var arr = new Array(3);
+  // console.log(arr);
+  // alert(arr);
+
+  // var arr = [1, 4, 2, 5, 3, 45];
+  // arr.sort(function(a, b) {
+  //   return b-a;
+  // });
+  // console.log(arr);
+
+  // var arr = [1, 4, 2, 5, 3, 45];
+  // console.log(arr.reverse());
+
+  // var arr = [1, 4, 2, 5, 3, 45];
+  // var arr2 = {cat: 8};
+  // console.log(arr.concat(arr2));
+
+  // var arr = [1, 2, 3];
+  // console.log(arr.slice(1));
+  // console.log(arr);
+
+// getSortFun:function(order, sortBy){
+//              var ordAlpah = (order == 'asc') ? '>' : '<';
+//              var sortFun = new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
+//              return sortFun;
+//           }
+
+
+// var arr = [
+//     {name:'zopp',age:0},
+//     {name:'gpp',age:18},
+//     {name:'yjj',age:8}
+// ];
+//
+// function compare(property){
+//     return function(a,b){
+//         var value1 = a[property];
+//         var value2 = b[property];
+//         return a[property] - b[property];
+//     }
+// }
+// console.log(arr.sort(compare('age')))
+
+// var arr = [
+//   {name:'zopp',age:0},
+//   {name:'gpp',age:18},
+//   {name:'yjj',age:8}
+// ];
+// function sortB(order, sortBy){
+//   var ordAlpah = (order == 'asc') ? '>' : '<';
+//   var sortFun = new Function('a', 'b', 'return a.' + sortBy + ordAlpah + 'b.' + sortBy + '?1:-1');
+//   return sortFun;
+// }
+// console.log(arr.sort(sortB('', 'age')));
+
+// var arr = [
+//   {name:'zopp',age:0},
+//   {name:'gpp',age:18},
+//   {name:'yjj',age:8}
+// ];
+// function sortBy(attr,rev){
+//     //第二个参数没有传递 默认升序排列
+//     rev == 'undefined' ? rev = 1 : rev = -1;
+//     return function(a, b) {
+//       a = a[attr];
+//       b = b[attr];
+//       if(a<b) {
+//         return rev*-1
+//       } else{
+//         return rev*1;
+//       }
+//       // return 0;
+//     }
+//
+// }
+// console.log(arr.sort(sortBy('age')));
+
+// var arr = [2,3,5,4,9,7,8];
+// function quickSort(arr) {
+//   if(arr.length<=1) {return arr};
+//   var pivotIndex = Math.floor(arr.length/2);
+//   var pivot = arr.splice(pivotIndex, 1)[0];
+//   var left = [];
+//   var right = [];
+//   for(var i=0; i<arr.length; i++) {
+//     if(arr[i]<=pivot) {
+//       left.push(arr[i]);
+//     } else {
+//       right.push(arr[i]);
+//     }
+//   }
+//   return quickSort(left).concat([pivot], quickSort(right));
+// }
+//
+// console.log(quickSort());
+
+// var arr = [2,3,5,4,9,7,8];
+// function bubbleSort(arr) {
+//   var len = arr.length;
+//   for(var i=0; i<len; i++) {
+//     for(var j=0; j<len-1-i; j++) {
+//       if(arr[j]>arr[j+1]) {
+//         var temp = arr[j];
+//         arr[j] = arr[j+1];
+//         arr[j+1] = temp;
+//       }
+//     }
+//   }
+// }
+// bubbleSort(arr)
+// console.log(arr);
+
+// var arr=[1,2,3,4,5];
+// for(var i=0; i<arr.length; i++) {
+//   arr[i]=function(){
+//     alert(i)
+//   }
+// }
+// arr[3]();
+
+// var arr = [2,3,5,4,9,7,8];
+// function selectionSort(arr) {
+//     var len = arr.length;
+//     var minIndex, temp;
+//     for (var i = 0; i < len - 1; i++) {
+//         minIndex = i;
+//         for (var j = i + 1; j < len; j++) {
+//             if (arr[j] < arr[minIndex]) {     //寻找最小的数
+//                 minIndex = j;                 //将最小数的索引保存
+//             }
+//         }
+//         temp = arr[i];
+//         arr[i] = arr[minIndex];
+//         arr[minIndex] = temp;
+//     }
+//     return arr;
+// }
+// console.log(selectionSort(arr));
+
+// var example=[8,94,15,88,55,76,21,39];
+// function selectSort(arr){
+//     var len=arr.length;
+//     var minIndex,temp;
+//     console.time('选择排序耗时');
+//     for(i=0;i<len-1;i++){
+//         minIndex=i;
+//         for(j=i+1;j<len;j++){
+//             if(arr[j]<arr[minIndex]){
+//                 minIndex=j;
+//             }
+//         }
+//     temp=arr[i];
+//     arr[i]=arr[minIndex];
+//     arr[minIndex]=temp;
+//     }
+//     console.timeEnd('选择排序耗时');
+//     return arr;
+// }
+// console.log(selectSort(example));
+
+function insertionSort(arr){
+  //假设第0个元素是一个有序的数列，第1个以后的是无序的序列，
+  //所以从第1个元素开始将无序数列的元素插入到有序数列中
+  for(var i = 1; i < arr.length; i++){
+    //升序
+    if(arr[i] < arr[i-1]){
+      //取出无序数列中的第i个作为被插入元素
+      var guard = arr[i];
+      //记住有序数列的最后一个位置，并且将有序数列位置扩大一个
+      var j = i - 1;
+      arr[i] = arr[j];
+
+      //比大小，找到被插入元素所在的位置
+      while(j >= 0 && guard < arr[j]){
+        arr[j+1] = arr[j];
+        j--;
+      }
+
+      //插入
+      arr[j+1] = guard;
+    }
+  }
+}
+
+var arr = [10, 9, 8, 7, 6, 5];
+console.log('before: ' + arr);
+insertionSort(arr);
+console.log(' after: ' + arr);
+
+</script>
+</body>
+</html>

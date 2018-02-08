@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    .div1{width: 100px; height: 100px; background: #f00;}
+    .div2{position: absolute; top: 300px; left: 0; width: 100px; height: 100px; background: #0f0;}
+  </style>
+</head>
+<body>
+  <div class="div1"></div>
+  <div class="div2"></div>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $('.div1').click(function(){
+    //参数一：运动的属性和值
+    //参数二：运动时间
+    //参数三：运动方式（只有两种： swing：缓冲    linear：匀速）
+    //参数四：回调函数
+    $(this).animate({width: 300, height: 300}, 2000)
+    $('.div2').animate({left: 300}, 2000).delay(1000).animate({top: 500}, 2000)
+    // $('.div2').animate({width: 300, height: 300}, 2000, 'linear', function(){
+    // })
+    // $('.div2').animate({width: 300}, 2000).animate({height: 300}, 2000);
+  })
+  $('.div2').click(function(event) {
+    $('.div2').stop();        //默认只会阻止当前运动(链式操作中)
+    $('.div2').stop(true);    //阻止后续的运动
+    $('.div2').stop(true, true);    //阻止后续的运动，并立即停止到当前运动指定的目标点
+    $('.div2').finish();         //阻止后续的运动，并立即停止到最终的目标点
+  });
+
+</script>
+</body>
+</html>

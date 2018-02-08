@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>5_3modifyValue</title>
+  <style media="screen">
+    *{padding: 0; margin: 0;}
+    ul,li{list-style: none;}
+    ul{width: 375px; height: auto; margin: 0 auto; background: #fff;}
+    li{height: 30px; margin-top: 6px;}
+    i,strong{cursor: pointer; font-style: normal; font-weight: normal; margin-left: 10px;}
+    input{display: inline-block; border: 1px solid #ccc; height: 20px;}
+    img{cursor: pointer;}
+    .block{display: block;}
+    .hide{display: none;}
+  </style>
+</head>
+<body>
+  <ul>
+    <li>分类名称</li>
+    <li>
+      <div class="initial">
+        <span>miaov远程课堂</span>
+        <img src="./img/1.gif" title="点击编辑">
+      </div>
+    </li>
+    <li>
+      <div class="initial">
+        <span>miaov实体课程</span>
+        <img src="./img/1.gif" title="点击编辑">
+      </div>
+    </li>
+  </ul>
+</body>
+<script type="text/javascript">
+  var list = document.getElementsByTagName('li');
+  for(var i=0; i<list.length; i++) {
+    fn(list[i]);
+  }
+  function fn(li) {
+    li.addEventListener('click', function(e) {
+      if(e.target && e.target.nodeName == 'IMG') {
+        // console.log(list);
+        var eInput = document.createElement('input');
+        var i = document.createElement('i');
+        var strong = document.createElement('strong');
+        var div = document.createElement('div');
+        var span = li.getElementsByTagName('span')[0];
+        var initial = li.getElementsByClassName('initial')[0];
+        i.innerHTML = '保存';
+        strong.innerHTML = '取消';
+        initial.style.display = 'none';
+        var change = li.getElementsByClassName('change')[0];
+        if(li.children.length == 1) {
+          div.appendChild(eInput);
+          div.appendChild(i);
+          div.appendChild(strong);
+          div.className = 'change';
+          li.appendChild(div);
+        } else {
+          initial.style.display = 'none';
+          change.style.display = 'block';
+        }
+        i.onclick = function() {
+          // console.log(1);
+          var change = li.getElementsByClassName('change')[0];
+          initial.style.display = 'block';
+          change.style.display = 'none';
+          span.innerHTML = '' + eInput.value;
+          // console.log(span);
+          // console.log(span.innerHTML);
+        }
+        strong.onclick = function() {
+          var change = li.getElementsByClassName('change')[0];
+          // console.log(change);
+          change.style.display = 'none';
+          initial.style.display = 'block';
+        }
+      }
+    })
+  }
+</script>
+</html>

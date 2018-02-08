@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>08.字符类</title>
+</head>
+<body>
+<script type="text/javascript">
+// 字符类： 一组相似的元素 []中的整体代表一个字符，里边是或的关系
+// 如果^写在[]里边，则表示排除的意思
+var str = 'abc';
+var re = /a[bde]c/;
+var reg = /a[^z]c/;
+var reg1 = /a[a-z]c/;
+var reg2 = /a[a-z0-9A-Z]c/;
+var reg3 = /a[a-z0-9A-Z]+c/;
+console.log(re.test(str));
+console.log(reg.test(str));
+console.log(reg1.test(str));
+console.log(reg2.test(str));
+console.log(reg3.test(str));
+</script>
+</body>
+</html>

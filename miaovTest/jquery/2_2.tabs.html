@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{padding: 0; margin: 0;}
+    li{float: left; list-style: none;}
+    ol li{width: 200px; height: 40px; line-height: 40px; text-align: center;}
+    ol li.active{background: #f00;}
+    ul{clear: both;}
+    ul li{display: none; width: 600px; height: 400px; line-height: 400px; text-align: center; border: 1px solid #ccc;}
+    ul li.show{display: block;}
+  </style>
+</head>
+<body>
+  <ol>
+    <li class="active">1</li>
+    <li>2</li>
+    <li>3</li>
+  </ol>
+  <ul>
+    <li class="show">111</li>
+    <li>222</li>
+    <li>333</li>
+  </ul>
+
+</body>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $('ol').find('li').click(function(){
+    $('ol').find('li').attr('class', '');
+    $(this).attr('class', 'active');
+    $('ul').find('li').attr('class', '');
+    $('ul').find('li').eq( $(this).index() ).attr('class', 'show');
+  })
+</script>
+</html>

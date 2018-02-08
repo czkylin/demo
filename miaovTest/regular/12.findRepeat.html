@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>12.找出重复项及次数</title>
+</head>
+<body>
+<script type="text/javascript">
+var str = 'skj/xvisdfewr12sd4fgfgh543583gfh15874rsdfxv';
+var arr = str.split('');
+str = arr.sort().join('');
+console.log(str);
+var value = '';
+var index = 0;
+var re = /(\w)\1+/g;
+str.replace(re, function(main, sub1) {
+  console.log(main);
+  if(index<main.length) {
+    index = main.length;
+    value = main;
+  }
+})
+console.log('重复最懂的字符为：'+value+'次数为：'+index);
+</script>
+</body>
+</html>

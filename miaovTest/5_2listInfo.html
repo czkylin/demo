@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>listInfo</title>
   <style media="screen">
     *{padding: 0; margin: 0;}
-    ul,li{list-style: none;}
-    #list{width: 350px; height: 680px; background: #f06; margin: 0 auto;}
-    .show{height: 40px; line-height: 40px; padding: 4px; border: 1px dashed #ccc;}
+    ul,li{ list-style: none;}
+    #list{ width: 350px; height: auto; background: #f06; margin: 0 auto;}
+    li{ height: auto; line-height: 40px; padding: 4px; border: 1px dashed #ccc;}
+    img{ width: 100%; height: auto;}
+    .show{ display: block;}
+    .hide{ display: none;}
   </style>
 </head>
 <body>
@@ -17,15 +20,15 @@
 <script type="text/javascript">
   var objArr = [{
     'title': '解密：关于地球与人类的一千零一问',
-    'img': './img/img1.png',
+    'img': './img/1.jpg',
     'text': '深度解读传奇事件任务，解读未知...'
   },{
     'title': '经典传奇：探索全世界中大历史事件',
-    'img': './img/img2.png',
+    'img': './img/2.jpg',
     'text': '深度解读传奇事件任务，解读未知...'
   },{
     'title': '眼界，展现普通人的曲折命运和动人...',
-    'img': './img/img3.png',
+    'img': './img/3.jpg',
     'text': '眼界，展现普通人的曲折命运和动人...'
   },{
     'title': '档案（BTV），惊人事件和传奇背后...',
@@ -37,12 +40,23 @@
     fnShow(objArr[i]);
   }
   function fnShow(li){
-    list.innerHTML += '<li class="show">'+li.title+'</li>';
-    list.addEventListener('mouseover', function(e) {
-      if(e.target && e.target.nodeName == 'LI') {
-        console.log(li);
-        e.target.innerHTML = '<img src="'+li.img+'" style="width: 100%; height: auto;" /><p>'+li.text+'</p>'
-      }
+    var eLi = document.createElement('li');
+    var eSpan = document.createElement('span');
+    var eImg = document.createElement('img');
+    eSpan.innerHTML = li.title;
+    eLi.appendChild(eSpan);
+    list.appendChild(eLi);
+    eLi.addEventListener('mouseenter', function(e) {
+      console.log(1);
+      eSpan.innerHTML = li.text;
+      eImg.src = li.img;
+      eImg.className = 'show';
+      eLi.appendChild(eImg);
+    })
+    eLi.addEventListener('mouseleave', function(e) {
+      console.log(2);
+      eSpan.innerHTML = li.title;
+      eImg.className = 'hide';
     })
   }
 </script>

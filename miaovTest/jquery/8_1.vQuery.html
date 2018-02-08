@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{height: 40px; border-bottom: 1px solid #ccc;}
+    .div2{width: 200px; height: 200px; background: #f00;}
+  </style>
+</head>
+<body>
+  <div id="div1" title="hello">1234</div>
+  <div class="div1"></div>
+  <div class="div1"></div>
+  <div class="div1"></div>
+  <div class="div1"></div>
+  <div class="div2"></div>
+  <p></p>
+  <div class="div2"></div>
+<script src="./vquery.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(function(){
+  console.log(123);
+  var btn = true;
+  $('.div2').on('click', function(){
+    if(btn) {
+      $('p').hide();
+    } else {
+      $('p').show();
+    }
+    btn = !btn;
+  })
+})
+$(function(){
+  console.log(456);
+})
+$('#div1').html('aaa');
+$('.div1').html('bbb');
+$('p').html(111);
+console.log($('p').html());
+$('#div1').click(function() {
+  console.log(1);
+})
+$('#div1').mouseover(function() {
+  console.log(2);
+})
+var onOff = true;
+$('p').on('click', function() {
+  if(onOff){
+    $('.div1').hide();
+  } else {
+    $('.div1').show();
+  }
+  onOff = !onOff;
+})
+$('.div2').hover(function() {
+  $('.div2').css({'background': '#0f0'});
+}, function() {
+  $('.div2').css('background', '#f00');
+})
+console.log($('#div1').attr('title'));
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>7_1grade</title>
+  <style media="screen">
+    ul{list-style: none; width: 95px; height: 20px; margin: 0 auto;}
+    li{width: 9.5px; height: 20px; float: left; overflow: hidden; background: url(./img/grade/stars.png) no-repeat;}
+    /*li:nth-child(odd){background-position: -21px 0;}
+    li:nth-child(even){background-position: -11px 0;}*/
+    li:nth-child(odd){background-position: -38px 0;}
+    li:nth-child(even){background-position: -47px 0;}
+    li.initOdd{background-position: -38px 0;}
+    li.initEven{background-position: -47px 0;}
+    li.odd{background-position: -20px 0;}
+    li.even{background-position: -10px 0;}
+  </style>
+</head>
+<body>
+  <ul id="star">
+    <li index="0"></li>
+    <li index="1"></li>
+    <li index="2"></li>
+    <li index="3"></li>
+    <li index="4"></li>
+    <li index="5"></li>
+    <li index="6"></li>
+    <li index="7"></li>
+    <li index="8"></li>
+    <li index="9"></li>
+  </ul>
+<script type="text/javascript">
+  var star = document.getElementById('star');
+  var li = star.getElementsByTagName('li');
+  var onOff = 0;
+  star.addEventListener('mouseover', function(e) {
+    if(e.target && e.target.nodeName == 'LI') {
+      var index = e.target.getAttribute('index');
+      // console.log(index);
+      onOff = 1;
+      for(var i=0; i<index; i++) {
+        if(i%2 !=0) {
+          li[i].className = 'even';
+        } else {
+          li[i].className = 'odd';
+        }
+      }
+      if(index%2 != 0){
+        e.target.className = 'even';
+      } else {
+        e.target.className = 'odd';
+      }
+    }
+  })
+
+  star.addEventListener('click', function(e) {
+    if(e.target && e.target.nodeName == 'LI') {
+      var index = e.target.getAttribute('index');
+      onOff = 0;
+    }
+  })
+
+  star.onmouseout = function() {
+    if(onOff) {
+      // console.log(onOff);
+      for(var i=0; i<li.length; i++) {
+        if(i%2 !=0) {
+          li[i].className = 'initEven';
+        } else {
+          li[i].className = 'initOdd';
+        }
+      }
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    #div1{/**/position: relative; left: 200px; width: 400px; height: 400px; background: #f00; overflow: hidden;}
+    #div2{position: absolute; left: 200px; width: 200px; height: 200px; background: #0f0; margin: 100px;}
+    li{background: #00f; border-bottom: 1px solid #fff;}
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <div id="div2"></div>
+  </div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+// console.log( $('#div2').offset().left );
+// console.log( $('#div2').position().left );
+console.log($('div').size());
+$('li').each(function(i, elem) {
+   $(elem).html(i);
+})
+</script>
+</body>
+</html>

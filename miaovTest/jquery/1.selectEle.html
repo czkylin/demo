@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{width: 100%; height: 20px;}
+  </style>
+</head>
+<body>
+  <ul>
+    <li>111</li>
+    <li class="box">222</li>
+    <li class="box1">333</li>
+    <li title="box2">444</li>
+    <li>555</li>
+  </ul>
+  <div></div>
+  <div id="div1">123</div>
+  <div></div>
+  <div id='div2'></div>
+  <div></div>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script>
+$('li:first').css('backgroundColor', '#f00');
+$('li:last').css('backgroundColor', '#ff0');
+$('li:eq(2)').css('backgroundColor', '#f0f');
+
+$('div:odd').css('backgroundColor', '#fff');
+$('div:even').css('backgroundColor', '#000');
+
+$('li.box').css('background', '#0f0');
+$('li').filter('.box1').css('background', '#00f');
+$('li').filter('[title=box2]').css('background', '#82f198');
+
+$(function(){
+  $('#div1').click(function(){
+    alert($(this).html());
+  })
+})
+
+//链式操作
+$('#div2').html('456').css('border', '1px solid #0f0').click(function() {
+  alert($(this).html());
+});
+
+//取值
+console.log($('#div2').css('width'));
+
+console.log($('li').html());    //当取值为一组元素时，只会取到一组中的第一个（若想去全部需要用到循环）；
+                                //当赋值时是赋值一组中的所有
+
+</script>
+</body>
+</html>

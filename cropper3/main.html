@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery简单且功能强大的图片剪裁插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="dist/cropper.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<style>
+		html,body{height: 100%;}
+		.container{width: 100%; height: 100%; padding: 0;}
+		.top{position: relative; height: 80%;}
+		.img-container {
+	    min-height: 600px;
+	    max-height: none;
+	    margin-bottom: 0;
+		}
+		.bottom{position: fixed; bottom: 0; left: 0; height: 40px; }
+	</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row top">
+      <div class="col-md-9">
+        <!-- <h3 class="page-header">Demo:</h3> -->
+        <div class="img-container">
+          <img src="assets/img/picture.jpg" alt="Picture">
+        </div>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-9 docs-buttons">
+        <div class="btn-group">
+
+          <button class="btn btn-primary" data-method="rotate" data-option="-45" type="button" title="Rotate Left">
+            <span class="docs-tooltip" data-toggle="tooltip">
+              <span class="icon icon-rotate-left"></span>
+            </span>
+          </button>
+          <button class="btn btn-primary" data-method="rotate" data-option="45" type="button" title="Rotate Right">
+            <span class="docs-tooltip" data-toggle="tooltip">
+              <span class="icon icon-rotate-right"></span>
+            </span>
+          </button>
+        </div>
+
+				<div class="btn-group">
+          <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
+            <input class="sr-only" class="inputImage" id="inputImage" name="file" type="file" accept="image/*" capture="camera">
+            <span class="docs-tooltip" data-toggle="tooltip">
+              <span>拍照</span>
+            </span>
+          </label>
+        </div>
+
+				<!-- <div class="btn-group">
+          <label class="btn btn-primary btn-upload" for="inputImage1" title="Upload image file">
+            <input class="sr-only" class="inputImage" id="inputImage1" name="file" type="file" accept="image/*">
+            <span class="docs-tooltip" data-toggle="tooltip">
+              <span>我的相册</span>
+            </span>
+          </label>
+        </div> -->
+
+        <div class="btn-group btn-group-crop">
+          <button class="btn btn-primary" data-method="getCroppedCanvas" type="button">
+            <span class="docs-tooltip" data-toggle="tooltip">
+              选取
+            </span>
+          </button>
+          <!-- <button class="btn btn-primary" data-method="getCroppedCanvas" data-option="{ &quot;width&quot;: 160, &quot;height&quot;: 90 }" type="button">
+            <span class="docs-tooltip" data-toggle="tooltip" title="$().cropper(&quot;getCroppedCanvas&quot;, { &quot;width&quot;: 160, &quot;height&quot;: 90 })">
+              160 &times; 90
+            </span>
+          </button> -->
+        </div>
+
+        <!-- Show the cropped image in modal -->
+        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" type="button">Close</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.modal -->
+      </div><!-- /.docs-buttons -->
+    </div>
+  </div>
+  <!-- Alert -->
+
+	<script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="./dist/cropper.js"></script>
+  <script src="./js/main.js"></script>
+	<script type="text/javascript">
+	function getRoundedCanvas(sourceCanvas) {
+		var canvas = document.createElement('canvas');
+		var context = canvas.getContext('2d');
+		var width = sourceCanvas.width;
+		var height = sourceCanvas.height;
+
+		canvas.width = width;
+		canvas.height = height;
+		context.beginPath();
+		context.arc(width / 2, height / 2, Math.min(width, height) / 2, 0, 2 * Math.PI);
+		context.strokeStyle = 'rgba(0,0,0,0)';
+		context.stroke();
+		context.clip();
+		context.drawImage(sourceCanvas, 0, 0, width, height);
+
+		return canvas;
+	}
+
+	$(function () {
+		var $image = $('#image');
+		var $button = $('#button');
+		var $result = $('#result');
+		var croppable = false;
+
+		$image.cropper({
+			aspectRatio: 1,
+			viewMode: 1,
+			ready: function () {
+				croppable = true;
+			}
+		});
+
+		$button.on('click', function () {
+			var croppedCanvas;
+			var roundedCanvas;
+
+			if (!croppable) {
+				return;
+			}
+
+			// Crop
+			croppedCanvas = $image.cropper('getCroppedCanvas');
+
+			// Round
+			roundedCanvas = getRoundedCanvas(croppedCanvas);
+
+			// Show
+			$result.html('<img src="' + roundedCanvas.toDataURL() + '">');
+		});
+	});
+
+	</script>
+
+</body>
+</html>

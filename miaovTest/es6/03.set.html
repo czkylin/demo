@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03.数据结构Set</title>
+</head>
+<body>
+<script type="text/javascript">
+// 集合的基本概念：集合是由一组无序且唯一（即不能重复）的项组成
+// 这个数据结构使用了与有限集合相同的数学概念，应用在计算机的数据结构中
+// 特点： key和value相同，没有重复的value
+
+// es6提供了了数据结构set,他类似于数组，但是成员的值都是唯一的（无重复）
+
+// 1.如何创建一个Set
+const s = new Set([1, 2, 3]);
+console.log(s);    //Set(3) {1, 2, 3}
+
+// 2.Set类的属性
+console.log(s.size);   //3
+
+// 3.Set类的方法
+//（1）set.add(value) 添加一个数据，返回Set结构本身
+s.add('a').add('b').add('c');
+console.log(s);
+
+// (2) set.delete(value) 删除指定数据，返回布尔值
+// console.log(s.delete('a'));
+// console.log(s);
+// console.log(s.delete('a'));
+// console.log(s);
+
+// (3) set.has(value) 判断该值是否为Set的成员，返回一个布尔值
+// console.log(s.has('a'));  //false
+
+// (4) set.clear() 清除所有数据，没有返回值
+// s.clear();
+// console.log(s);
+
+// (5) keys() 返回键名的遍历器
+console.log(s.keys());
+
+// (6) values() 返回键值的遍历器
+console.log(s.values());
+
+// (7) entries() 返回键值对的遍历器
+console.log(s.entries());
+
+// (8) forEach() 使用回调函数遍历每个成员
+s.forEach(function(value, key, set) {
+  console.log(value + 'miaov');
+})
+console.log(s);
+
+//如何用Set数据结构给数组去重
+
+</script>
+</body>
+</html>

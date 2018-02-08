@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .scale{width: 600px; height: 400px; margin: 0 auto; background: rgba(17,188,203,0.6); border: 1px solid #ffffff;}
+    /*.scale{transition: transform .35s; transform: scale3d(1);}*/
+    /*.scale:hover{transition: transform .35s; transform: scale3d(1.5, 1, .5);}*/
+    .scale:hover{animation: pulse .85s infinite;}
+    @-webkit-keyframes pulse {
+        0% {
+            -webkit-transform: scale3d(1,1,1);
+            transform: scale3d(1,1,1)
+        }
+
+        50% {
+            -webkit-transform: scale3d(1.05,1.05,1.05);
+            transform: scale3d(1.05,1.05,1.05)
+        }
+
+        100% {
+            -webkit-transform: scale3d(1,1,1);
+            transform: scale3d(1,1,1)
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="scale">
+
+  </div>
+  <script type="text/javascript">
+  var str='abcdefg';
+  console.log(str.split('').reverse().join(''));
+  </script>
+</body>
+</html>

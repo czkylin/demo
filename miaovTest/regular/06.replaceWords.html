@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>06.replaceWords</title>
+</head>
+<body>
+  替换前<br />
+  <textarea name="name" rows="8" cols="80"></textarea><br />
+  替换后<br />
+  <textarea name="name" rows="8" cols="80"></textarea><br />
+  <input type="button" value="确定">
+<script type="text/javascript">
+// replace: 第二个参数可以是字符串，也可以是回调函数
+var str = 'ps4国行主机由于一些特殊的原因，主机最终选择了不锁区游戏但却锁服的限制，不过对于一些即想享受国服2年保修服务又能畅玩国外大作和登陆外服的玩家来说，这些限制简直就是反人类，以下就给大家分享一则由于玩家分享的解除锁服限制的教程。'
+var words = document.getElementsByTagName('textarea');
+var oInput = document.getElementsByTagName('input')[0];
+var reg = /ps4|享受|玩家|保修服务/g;
+oInput.onclick = function() {
+  words[1].value = words[0].value.replace(reg, function(str){
+    //函数的第一个参数，就是匹配成功的字符
+    console.log(str);
+    var result = '';
+    for(var i=0; i<str.length; i++) {
+      result += '*';
+    }
+    return result;
+  });
+}
+</script>
+</body>
+</html>

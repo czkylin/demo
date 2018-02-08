@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>9_2.doMoveTest</title>
+</head>
+<body>
+<script src="./js/main.js" charset="utf-8"></script>
+<script>
+var str = '';
+var oDiv = document.getElementsByTagName('div');
+var timer = null;
+var len = 20;
+var num = 0;
+var over = false;
+for(var i=0; i<len; i++) {
+  str+= '<div style="position: absolute; top: 20px; left: '+70*i+'px; width: 60px; height: 60px; background: #f00;"> </div>'
+}
+document.body.innerHTML = str;
+
+document.onclick =function () {
+  if(over) {
+    clearInterval(timer);
+    timer = setInterval(function() {
+      console.log(num);
+      doMove(oDiv[num], 'top', 24, 20);
+      num++;
+      if(num == len){
+        clearInterval(timer);
+        num = 0;
+        over = false;
+      }
+    },100)
+  } else {
+    clearInterval(timer);
+    timer = setInterval(function(){
+      doMove(oDiv[num], 'top', 24, 500)
+      num++;
+      if(num == len) {
+        clearInterval(timer);
+        console.log(2);
+        num = 0;
+        over = true;
+      }
+    }, 100)
+  }
+
+}
+</script>
+</body>
+</html>

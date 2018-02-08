@@ -138,7 +138,7 @@ swiper-item image{
   height: 100rpx;
   line-height: 100rpx;
   padding: 0 30rpx;
-  background: url(../../images/index/jt1.png) no-repeat 90% center;
+  background: url('../../images/index/jt1.png') no-repeat 90% center;
   border-bottom: 0;
 }
 .con4 .section{

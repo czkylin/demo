@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>13.量词与首位匹配</title>
+</head>
+<body>
+<script type="text/javascript">
+// 量词：{}
+// {4, 7}: 最少出现4次，最多出现7次
+// {4,}: 最少出现4次
+// {4}: 正好出现4次
+// +： {1,}
+// ?: {0, 1}
+// *: {0, }
+// ^: 正则的开始位置： 代表起始的意思
+// $: 正则的结束位置： 代表结束的意思
+
+//判断是不是qq号
+var reg = /^[1-9]\d{4,11}$/;
+var str = '593459652';
+console.log(reg.test(str));
+
+//去掉前后空格
+var str1 = ' hello ';
+function trim(str) {
+  var re = /^\s+|\s+$/g;
+  return str.replace(re, '');
+}
+console.log('('+trim(str1)+')');
+</script>
+</body>
+</html>

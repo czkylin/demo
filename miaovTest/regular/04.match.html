@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04.match</title>
+</head>
+<body>
+<script type="text/javascript">
+  // match: 正则匹配字符串，返回成功，就返回匹配成功的数组，不成功则返回null
+  // 字符串.match(正则)
+  // 正则默认匹配成功就会结束，不会继续匹配
+  // 量词： 匹配不确定的位置 + 至少出现一次
+  var str = 'klasu21asd5f741xc3v75g3hj21739bv';
+  var reg = /\d+/g;
+  console.log(str.match(reg));
+</script>
+</body>
+</html>

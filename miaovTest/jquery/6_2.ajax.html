@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $.ajax({
+    url: '/path/to/file',
+    type: 'default GET (Other values: POST)',
+    dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+    data: {param1: 'value1'}
+  })
+  .done(function() {
+    console.log("success");
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
+
+  $.get('/path/to/file?', function() {
+
+  })
+
+  $.post('/path/to/file',{'name': 'hello'}, function() {
+
+  })
+
+  $.getJSON('xxx.php?callback=?', function(data) {
+
+  })
+  $.getJSON('xxx.php?callback=show', function(data) {
+
+  })
+  show({})
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>9_1.doMoveTest</title>
+  <style>
+    .box{position: absolute; left: 20px; top: 40px; width: 80px; height: 80px; background: #f00;}
+  </style>
+</head>
+<body>
+  <input type="button" value="向前">
+  <div class="box"></div>
+<script src="./js/main.js" charset="utf-8"></script>
+<script>
+  var btn = document.getElementsByTagName('input')[0];
+  var box = document.getElementsByClassName('box')[0];
+  btn.onclick = function(){
+    doMove(box, 'left', 20, 600, function(){
+      doMove(box, 'top', 20, 600, function() {
+        doMove(box, 'left', 20, 20, function() {
+          doMove(box, 'top', 20, 40);
+        })
+      });
+    });
+
+  }
+  function doMove(obj, attr, dir, target, endFn) {
+    dir = parseInt(getStyle(obj, attr)) + dir > target ? -dir : dir;
+    clearInterval(obj.timer);
+    obj.timer = setInterval(function(){
+      var speed = parseInt(getStyle(obj, attr)) + dir;
+      if(speed > target && dir > 0 || speed < target && dir < 0) {
+        speed = target;
+      }
+      obj.style[attr] = speed + 'px';
+      if(speed == target) {
+        clearInterval(obj.timer);
+        // if(fn){
+        //   fn();
+        // }
+        endFn && endFn();
+      }
+    }, 20)
+  }
+</script>
+</body>
+</html>

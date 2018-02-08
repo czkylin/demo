@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>7_2invertSelection</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    div.box{ width: 600px; height: auto; margin: 0 auto;}
+    ul{list-style: none;}
+    ul li{width: 100%; height: 40px; border-bottom: 1px solid #fff;}
+    li:nth-child(odd){background: #f06;}
+    li:nth-child(even){background: #ccc;}
+    li.odd{background: #f06;}
+    li.even{background: #ccc;}
+    li.checked{background: #aaa;}
+    div.chose{display: inline-block; margin-right: 2px; width: 60px; height: 40px; line-height: 40px; margin: 0 auto; border-bottom: 1px solid #fff; cursor: pointer;}
+    div.bottom{background: #e0e0e0;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul>
+      <li index="0"><input type="checkbox" name="" value=""></li>
+      <li index="1"><input type="checkbox" name="" value=""></li>
+      <li index="2"><input type="checkbox" name="" value=""></li>
+      <li index="3"><input type="checkbox" name="" value=""></li>
+      <li index="4"><input type="checkbox" name="" value=""></li>
+      <li index="5"><input type="checkbox" name="" value=""></li>
+      <li index="6"><input type="checkbox" name="" value=""></li>
+      <li index="7"><input type="checkbox" name="" value=""></li>
+      <li index="8"><input type="checkbox" name="" value=""></li>
+      <li index="9"><input type="checkbox" name="" value=""></li>
+    </ul>
+    <div class="bottom">
+      <div class="chose"><input type="button" name="" value="反选"></div>
+      <div class="chose"><input type="checkbox" name="" value="">全选</div>
+    </div>
+  </div>
+<script type="text/javascript">
+  var ul = document.getElementsByTagName('ul')[0];
+  var chose = document.getElementsByClassName('chose');
+  var li = ul.getElementsByTagName('li');
+  var color;
+  ul.addEventListener('mouseover', function(e) {
+    if(e.target && e.target.nodeName == 'LI') {
+      color = e.target.style.background;
+      e.target.className = 'checked';
+    }
+  })
+  ul.addEventListener('mouseout', function(e) {
+    if(e.target && e.target.nodeName == 'LI') {
+      var index = e.target.getAttribute('index');
+      if(!e.target.children[0].checked) {
+        if(index%2 == 0) {
+          e.target.className = 'odd';
+        } else{
+          e.target.className = 'even';
+        }
+      }
+    }
+  })
+  ul.addEventListener('click', function(e) {
+    if(e.target && e.target.nodeName == 'LI') {
+      var index = e.target.getAttribute('index');
+      e.target.children[0].checked = !e.target.children[0].checked;
+    }
+  })
+  chose[0].addEventListener('click', function(e) {
+    for(var i=0; i<li.length; i++) {
+      li[i].children[0].checked = !li[i].children[0].checked;
+      changeColor(li[i], i);
+    }
+  })
+  chose[1].addEventListener('click', function(e) {
+    if(e.target && e.target.nodeName == 'DIV') {
+      e.target.children[0].checked = !e.target.children[0].checked;
+      if(e.target.children[0].checked){
+        for(var i=0; i<li.length; i++) {
+          li[i].children[0].checked = true;
+          li[i].className = 'checked';
+        }
+      } else {
+        for(var i=0; i<li.length; i++) {
+          li[i].children[0].checked = false;
+          // if(i%2 == 0) {
+          //   li[i].className = 'odd';
+          // } else{
+          //   li[i].className = 'even';
+          // }
+          changeColor(li[i], i);
+        }
+      }
+    }
+  })
+  function changeColor(node, num) {
+    console.log(1);
+    if(node.children[0].checked) {
+      console.log(2);
+      node.className = 'checked';
+    } else {
+      if(num%2 == 0) {
+        node.className = 'odd';
+      } else {
+        node.className = 'even';
+      }
+    }
+  }
+
+
+
+  // for()
+</script>
+</body>
+</html>

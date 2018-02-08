@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01.findNum</title>
+</head>
+<body>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  var str = 'alskdfuxc2787613574asdf543s8df1xz357a4sdf6832d1x4v74';
+  function findNum(str) {
+    var arr = [];
+    var tmp = '';
+    for(var i=0; i<str.length; i++) {
+      if( str.charAt(i)<='9' && str.charAt(i)>='0') {
+        tmp += str.charAt(i);
+      } else {
+        if(tmp) {
+          arr.push(tmp);
+          tmp = '';
+        }
+      }
+    }
+    if(tmp) {
+      arr.push(tmp);
+      tmp = '';
+    }
+    return arr;
+  }
+
+  function findNum1(str) {
+    return str.match(/\d+/g);
+  }
+
+  console.log(findNum(str));
+  console.log(findNum1(str));
+
+
+</script>
+</body>
+</html>

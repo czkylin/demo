@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>8_1setTimeoutNav</title>
+  <style>
+    *{padding: 0; margin: 0;}
+    ul,ol,li{list-style: none;}
+    li{float: left;}
+    ul{width: 800px; height: 44px; background: #f06; margin: 0 auto;}
+    ul li{box-sizing: border-box; width: 25%; height: 44px; line-height: 44px; border-right: 1px solid #fff; text-align: center;}
+    ul li:hover{background: #f69;}
+    ol{position: relative; margin-left: 200px;}
+    ol li{position: absolute; top: 6px; left: 10px; padding: 20px; height: 30px; line-height: 30px; text-align: center; background: #f00;}
+    ol li:nth-child(2){left: 330px;}
+    ol li:nth-child(3){left: 530px;}
+    ol li:nth-child(4){left: 730px;}
+  </style>
+</head>
+<body>
+  <ul>
+    <li index="0">首页</li>
+    <li index="1">关于我们</li>
+    <li index="2">作品</li>
+    <li index="3">博客</li>
+  </ul>
+  <ol>
+    <li index="0">
+        <span>最近更新</span>
+        <span>活动</span>
+        <span>报名试听</span>
+        <span>学院反馈</span>
+    </li>
+    <li index="1">
+        <span>1</span>
+        <span>1</span>
+        <span>1</span>
+        <span>1</span>
+    </li>
+    <li index="2">
+        <span>2</span>
+        <span>2</span>
+        <span>2</span>
+        <span>2</span>
+    </li>
+    <li index="3">
+        <span>3</span>
+        <span>3</span>
+        <span>3</span>
+        <span>3</span>
+    </li>
+   </ol>
+<script src="./js/main.js"></script>
+<script src="./js/8_1setTimeoutNav.js"></script>
+</body>
+</html>

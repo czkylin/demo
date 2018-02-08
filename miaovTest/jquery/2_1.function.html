@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{padding: 0; margin: 0;}
+  </style>
+</head>
+<body>
+  <div class="box">div1</div>
+  <p>123</p>
+  <strong></strong>
+  <div>div2</div>
+  <div><span class="test"></span>div3</div>
+  <div><h2>111</h2><h2>222</h2></div>
+  <h2>333</h2>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+// $()下的常用方法：
+// has() not() filter();
+// next() prev() find()
+// eq() index() attr()
+$('div').filter('.box').css('background', '#f00');
+$('div').not('.box').css('background', '#0f0');
+
+$('div').has('.test').css('background', '#00f');
+$('.box').next().css('background', '#ff0');
+$('div').find('h2').css('background', '#f0f');
+$('div').find('h2').eq(1).css('background', '#ff0');
+</script>
+</body>
+</html>

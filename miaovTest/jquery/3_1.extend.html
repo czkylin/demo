@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html,body{height: 100%; width: 100%;}
+    div{position: absolute; }
+    .div1{ top: 400px;}
+    .div2{transition: 1s; top: 0;}
+  </style>
+</head>
+<body>
+<div id="div1" class="div1">div1</div>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $(function(){
+    // $('.div1').css('top', '0');
+    $('.div1').addClass('div2');
+    var oDiv1 = document.getElementsByClassName('div1')[0];
+    oDiv1.addEventListener('click', function() {
+      console.log(1);
+      console.log(this);
+    })
+    oDiv1.addEventListener('click', function() {
+      console.log(2);
+    })
+  })
+
+  var Something = function(element) {
+    // |this| is a newly created object
+    this.name = 'Something Good';
+    this.onclick1 = function(event) {
+      console.log(this.name); // undefined, as |this| is the element
+    };
+    this.onclick2 = function(event) {
+      console.log(this.name); // 'Something Good', as |this| is bound to newly created object
+    };
+    element.addEventListener('click', this.onclick1, false);
+    element.addEventListener('click', this.onclick2.bind(this), false); // Trick
+  }
+  var s = new Something(document.body);
+
+  console.log(document.body);
+  // console.log($('#div1').get());
+  // console.log($('#div1').get(0).innerHTML);
+  // $('#div1').click(function(event) {
+  //   console.log(123);
+  // });
+  // var oDiv = $('#div1').detach();
+  // $('body').append( oDiv );
+  // console.log(document);
+
+  if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== "function") {
+      // closest thing possible to the ECMAScript 5 internal IsCallable function
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
+
+    var aArgs = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP = function () {},
+        fBound = function () {
+          return fToBind.apply(this instanceof fNOP && oThis ? this : oThis || window,
+                 aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };}
+</script>
+</body>
+</html>

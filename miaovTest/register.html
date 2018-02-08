@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./register.css">
+</head>
+<body>
+  <ul class="tab">
+    <li class="active">手机登录</li>
+    <li>手机注册</li>
+  </ul>
+  <div class="content1 content active">
+    <div class="bg"></div>
+    <ul>
+      <li><span class="phone">+86</span>| <input type="text" name="" value="" placeholder="输入手机号"></li>
+      <li><input type="text" name="" value="" placeholder="输入验证码"><span class="code">获取验证码</span></li>
+      <li><input type="text" name="" value="" placeholder="输入邀请码 即业务员编码"></li>
+    </ul>
+    <input type="submit" name="" value="登录" class="submit login">
+  </div>
+  <div class="content2 content">
+    <ul>
+      <li><input type="text" name="" value="" placeholder="手机验证码"></li>
+      <li><input type="text" name="" value="" placeholder="6-32位登录密码"><img src="./img/shengde/icon6.png" style="width: .35rem; height: auto;" alt=""></li>
+    </ul>
+    <input type="submit" name="" value="注册" class="submit">
+    <span>我已阅读并同意《用户服务协议》</span>
+  </div>
+<script>
+  document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/750*100 + 'px';
+</script>
+<script src="./js/jquery.min.js" charset="utf-8"></script>
+<script>
+  tabFn()
+  //切换控制函数
+  function tabFn(){
+    $('.tab > li').each(function(index){
+      $(this).click(function(){
+        $(this).addClass('active').siblings().removeClass('active')
+        $('.content').eq(index).addClass('active').siblings().removeClass('active')
+      })
+    })
+  }
+
+</script>
+</body>
+</html>

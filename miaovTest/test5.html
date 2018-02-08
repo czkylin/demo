@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{padding: 0; margin: 0;}
+    ul,li{list-style: none;}
+    .frame{width: 960px; height: 500px; margin: 0 auto; overflow: hidden; position: relative;}
+    #list{width: 1650px; height: 500px;}
+    #list li{width: 300px; height: 500px; background: #f00; margin-right: 30px; float: left; text-align: center; line-height: 500px; color: #fff;}
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <img src="" alt="" class="btn_left">
+    <img src="" alt="" class="btn_right">
+    <ul id="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+  <script src="./js/main.js" charset="utf-8"></script>
+<script type="text/javascript">
+  var list = document.getElementById('list');
+  var btn_left = document.getElementsByClassName('btn_left')[0];
+  var btn_right = document.getElementsByClassName('btn_right')[0];
+  var newLeft = -1050;
+  var hand = document.getElementById('hand');
+  var aLi = list.getElementsByTagName('li');
+  var timer = null;
+  var timer2 = null;
+  var card = document.getElementsByClassName('card')[0];
+  doMove(card, 'top', 15, 490);
+  clearInterval(timer2);
+  timer2 = setInterval(function() {
+    var opa = (Number(getStyle(card, 'opacity')));
+    opa += 0.1;
+    css(card, 'opacity', opa)
+    if(opa == 1) {
+      clearInterval(timer);
+    }
+  }, 100)
+  for(var i=0; i<aLi.length; i++) {
+    aLi[i].onmouseover = function() {
+      this.children[1].classList.add('show');
+    }
+    aLi[i].onmouseout = function(){
+      this.children[1].classList.remove('show');
+    }
+  }
+  btn_right.onclick = function() {
+    doMove(list, 'left', 35, newLeft-350, function() {
+      newLeft = parseInt(getStyle(list, 'left'));
+      if(newLeft == -2100) {
+        css(list, 'left', '-350px')
+        newLeft = -350;
+      }
+    });
+  }
+  btn_left.onclick = function() {
+    doMove(list, 'left', 35, newLeft+350, function() {
+      newLeft = parseInt(getStyle(list, 'left'));
+      if(newLeft == -350) {
+        css(list, 'left', '-2100px');
+        newLeft = -2100;
+      }
+    });
+  }
+
+</script>
+</body>
+</html>

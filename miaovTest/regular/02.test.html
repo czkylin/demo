@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02.test</title>
+</head>
+<body>
+<script src="../js/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  var re = /a/;    //正则不可为空
+  var reg = new RegExp('a');
+  //test
+  // search
+  // match
+  // replace
+
+  // test 正则匹配字符串，如果匹配成功就返回真，失败返回假
+  // 正则.test(字符串)
+  var str = 'abcdefg';
+  var re = /b/;
+  var reg = /bd/;
+  console.log(re.test(str));
+  console.log(reg.test(str));
+
+  var str1 = '315s74554217';
+  var re = /\D/;
+  if(re.test(str1)) {
+    console.log('不全是数字');
+  } else {
+    console.log('全是数字');
+  }
+
+  // \n   换行
+  // \s   空格
+  // \S   非空格
+  // \d   数字
+  // \D   非数字
+  // \w   字符    （字母， 数字， 下划线）
+  // \W   非字符
+
+</script>
+</body>
+</html>

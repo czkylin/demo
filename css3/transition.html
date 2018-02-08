@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{padding: 0; margin: 0;}
+    img{height: 380px; width: auto;}
+    .lineFrame{position: absolute; top: 0px; left: 100px; width: 380px; height: 380px;}
+    .lineFrame i{position: absolute; display: block;}
+    .lineFrame i:first-child{left: 0; top: 0; width: 0; background: #ffffff; height: 4px; z-index: 1;}
+    .lineFrame:hover i:first-child{width: 100%; transition: width .8s;}
+    .lineFrame i:nth-child(2){top: 0; right: 0; background: #5094d5; height: 4px; width: 0; z-index: 2;}
+    .lineFrame:hover i:nth-child(2){width: 21px; transition: width .1s; transition-delay: .6s;}
+    .lineFrame i:nth-child(3){bottom: 0; right: 0; background: #5094d5; height: 0; width: 4px; z-index: 2;}
+    .lineFrame:hover i:nth-child(3){height: 100%; transition: height .6s;}
+    .lineFrame i:nth-child(4){bottom: 0; right: 0; background: #5094d5; height: 4px; width: 0; z-index: 2;}
+    .lineFrame:hover i:nth-child(4){width: 100%; transition: width .6s;}
+    .lineFrame i:nth-child(5){bottom: 0; left: 0; background: #5094d5; height: 0; width: 4px; z-index: 3;}
+    .lineFrame:hover i:nth-child(5){height: 21px; transition: height .1s; transition-delay: .6s;}
+    .lineFrame i:nth-child(6){top: 0; left: 0; background: #ffffff; height: 0; width: 4px; z-index: 1;}
+    .lineFrame:hover i:nth-child(6){height: 100%; transition: height .8s;}
+  </style>
+</head>
+<body>
+  <img src="../miaovTest/img/1.jpg" alt="">
+  <div class="lineFrame">
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  </div>
+</body>
+</html>

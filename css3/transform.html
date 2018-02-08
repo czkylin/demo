@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>transform</title>
+  <style media="screen">
+  *{padding: 0; margin: 0;}
+  .infor_left{position: relative; margin: 0 auto; width: 680px; height: 300px; background: url('../miaovTest/img/1.jpg') no-repeat center; background-size: 100%; text-align: center; color: #ffffff; overflow: hidden;}
+  .infor_left:before,.infor_left:after{content: ''; position: absolute; top: 20px; left: 20px; width: 640px; height: 260px; box-sizing: border-box; z-index: 1;}
+  .infor_left:before{border-top: 1px solid #ffffff; border-bottom: 1px solid #ffffff; transform: scale(0,1); transition: opacity .35s, transform .35s;}
+  .infor_left:after{border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; transform: scale(1,0); transition: opacity .35s, transform .35s;}
+  .infor_left:hover:before,.infor_left:hover:after{transition: opacity .35s, transform .35s; opacity: 1; transform: scale(1);}
+  .infor_left p.title{margin-top: 120px; font-size: 30px;}
+  .infor_left p.desc{font-size: 16px;}
+  .infor_left a{position: absolute; left: 0; right: 0; bottom: 28px; margin: auto; display: inline-block; font-size: 12px; color: #ffffff; text-decoration: underline; z-index: 999;}
+  .infor_left p.desc,.infor_left a{opacity: 0; transition: opacity .35s, transform .35s; }
+  .infor_left:hover p.desc{transition: opacity .35s, transform .35s; opacity: 1; transform: translate3d(0, 16px, 0);}
+  .infor_left:hover a{transition: opacity .35s, transform .35s; opacity: 1; transform: translate3d(0, -16px, 0);}
+  .infor_left i{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+  .infor_left:hover i{background: linear-gradient(to bottom, rgba(17,188,203,0.1) 0%, rgba(17,188,203,0.5) 100%);}
+
+  </style>
+</head>
+<body>
+  <div class="infor_left fl">
+    <i></i>
+    <p class="title">圣康华</p>
+    <p class="desc">让所有人，无论贫穷富裕，都享有眼健康的权利。</p>
+    <a href="">详细了解圣康华 >></a>
+  </div>
+
+</body>
+<script type="text/javascript">
+/*
+       * 调用骑行服务
+       */
+      function AMapRiding(a,b){
+          var distance;
+          //加载骑行插件
+          AMap.service(["AMap.Riding"], function(){
+              // 构造 骑行 类
+              var riding= new AMap.Riding();
+              //根据起、终点坐标查询骑行路线
+              riding.search([{keyword:a,city:'北京'},{keyword:b}], function(status, result){
+                  // Math.round(number * 100) / 100四舍五入并保留两位小数
+                  distance = result.routes[0].distance;//距离
+                  // alert(distance)
+                  return distance;
+
+              });
+              console.log('2'+distance)
+          });
+          console.log('3'+distance)
+          // return distance;
+      }
+
+      // var AMap = {
+      //   Riding: {
+      //     search: function(a, b, endFn) {
+      //       return a+b;
+      //     }
+      //   },
+      //   service: function(str, endFn) {
+      //     if(str == 'AMap.Riding'){
+      //       endFn && endFn;
+      //     }
+      //   }
+      // }
+
+
+      // function AMapRiding(a, b) {
+      //   var distance;
+      //   return function() {
+      //     distance = a + b;
+      //     return distance;
+      //   }
+      // }
+      // console.log( AMapRiding(1, 2)() );
+
+      function foo(x) {
+        var tmp = 3;
+        return function (y) {
+          console.log(x + y + tmp);
+          x.memb = x.memb ? x.memb + 1 : 1;
+          console.log(x.memb);
+        }
+      }
+      var age = new Number(2);
+      var bar = foo(age); // bar 现在是一个引用了age的闭包
+      bar(10);
+      bar(10);
+      bar(10);
+
+</script>
+</html>
