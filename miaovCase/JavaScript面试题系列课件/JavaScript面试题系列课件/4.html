@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>限制条件补全代码</title>
+</head>
+<body>
+<script type="text/javascript">
+// a、b两个变量，不用第三个变量来切换两个变量值
+var a=5;
+var b=6;
+a = a + b;    //11 6
+b = a - b;    //11 5
+a = a - b;    //6  5
+console.log(a,b);
+
+var c='hello';
+var d='hi';
+c=[c,d];
+d=c[0];
+c=c[1];
+console.log(c,d);
+
+// 有一个数n=5,不用for循环，怎么返回[1,2,3,4,5]这样一个数组
+var n=5;
+function show(n) {
+  var arr = [];
+  return (function() {
+    arr.unshift(n);
+    n--;
+    if(n!=0) {
+      arguments.callee();
+    }
+    return arr;
+  })()
+}
+console.log(show(n));
+
+
+function show1(n) {
+  var arr = [];
+  arr.length = n+1;
+  var str = arr.join('a');
+  // console.log(str);
+  var arr2 = [];
+  str.replace(/a/g, function() {
+    arr2.unshift(n--);
+  })
+  return arr2;
+}
+console.log(show1(n));
+
+//一个数n，当n小于100就返回n，否则就返回100
+var n=50;
+function showTest(n) {
+  // if(n<100) {
+  //   return n;
+  // } else {
+  //   return 100;
+  // }
+
+  // return n<100 ? n : 100;
+
+  // switch (n<100) {
+  //   case true:
+  //   return n;
+  //   break;
+  //   default:
+  //   return 100;
+  // }
+
+  // return Math.min(n, 100);
+
+  // var arr = [n,100];
+  // arr.sort(function(n1, n2) {
+  //   return n1-n2;
+  // })
+  // return arr[0];
+
+  var m = '' + n;
+  for(var i=2; i<m.length && n>0; i++) {
+    return 100;
+  }
+  return n;
+}
+console.log(showTest(n));
+
+var ary = [12,23,24,42,1];
+var res = ary.forEach(function (item,index,input) {
+       input[index] = item*10;
+})
+console.log(res);//-->undefined;
+console.log(ary);//-->会对原来的数组产生改变；[120, 230, 240, 420, 10]
+
+var ary = [12,23,24,42,1];
+var res = ary.map(function (item,index,input) {
+    return item*10;
+})
+console.log(res);//-->[120,230,240,420,10];
+console.log(ary);//-->[12,23,24,42,1];
+
+var global = this;
+
+var sillyFunction = function (recursed) {
+    if (!recursed) { return arguments.callee(true); }
+    if (this !== global) {
+        console.log("This is: " + this);
+    } else {
+        console.log("This is the global");
+    }
+}
+
+sillyFunction();
+
+/**
+* forEach遍历数组
+* @param callback [function] 回调函数；
+* @param context [object] 上下文；
+*/
+Array.prototype.myForEach = function myForEach(callback,context){
+    context = context || window;
+    if('forEach' in Array.prototye) {
+        this.forEach(callback,context);
+        return;
+    }
+    //IE6-8下自己编写回调函数执行的逻辑
+    for(var i = 0,len = this.length; i < len;i++) {
+        callback && callback.call(context,this[i],i,this);
+    }
+}
+
+/**
+* map遍历数组
+* @param callback [function] 回调函数；
+* @param context [object] 上下文；
+*/
+Array.prototype.myMap = function myMap(callback,context){
+    context = context || window;
+    if('map' in Array.prototye) {
+        return this.map(callback,context);
+    }
+    //IE6-8下自己编写回调函数执行的逻辑
+    var newAry = [];
+    for(var i = 0,len = this.length; i < len;i++) {
+        if(typeof  callback === 'function') {
+            var val = callback.call(context,this[i],i,this);
+            newAry[newAry.length] = val;
+        }
+    }
+    return newAry;
+}
+
+// 用递归 来求 5 的阶乘
+// n! = n * (n-1)!
+
+// 定义一个函数，用于求 n 的阶乘
+function func(n)
+{
+    if (n == 1)
+    {
+        return 1;
+    }
+
+    // func(n-1) 因为传递的参数是 n-1,那么就是求 (n-1) 的阶乘
+    return n * func(n-1);
+}
+console.log(     func(5)   );
+
+//斐波拉契题(兔子生兔子题目)--从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子对数为多少
+// 产量分析：1， 1， 2， 3， 5， 8， 13， 21 。。。
+// 第n个月的兔子总数  =  第n-1个月的兔子总数 + 第n-2个月的兔子总数
+// 问题： 求任意月兔子的总数
+
+function funct( n )
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    return funct(n-1) + funct(n-2);
+}
+
+var a = funct(22);
+console.log(a);
+</script>
+</body>
+</html>

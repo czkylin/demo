@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>assign</title>
+</head>
+<body>
+<script type="text/javascript">
+var name = "zhangsan";
+var password = "1111111";
+var obj = {
+   name,
+   password,
+   arr:[1,2,3,4],
+   sayName(){
+      console.log(this.name);
+   }
+};
+console.log(obj);
+var obj1 = {
+   age:20,
+};
+
+var nObj = Object.assign({},obj,obj1);//花括号叫目标对象，后面的obj、obj1是源对象。
+//对象合并是指：将源对象里面的属性添加到目标对象中去，若两者的属性名有冲突，后面的将会覆盖前面的
+// console.log(nObj);
+// obj.sayName();//zhangsan
+// nObj.sayName();//zhangsan
+nObj.name = "lisi";
+nObj.sayName = function(){
+  console.log(this.name);
+};
+console.log(nObj);
+obj.sayName();//zhangsan
+nObj.sayName();//lisi
+nObj.arr[0] = 10;
+console.log(obj);//[10,2,3,4]
+console.log(nObj); //[10,2,3,4]
+//说明是浅拷贝，若要深拷贝，请考虑以前的方法（只是将源对象的引用给目标对象）
+//【注意】：当Object.assign()方法用于数组时：
+ var arr11 = Object.assign([1,2,3],[4,5]);
+ console.log(arr11);//[4,5,3]
+ //[说明]:对象是根据属性名来对应，数组是根据索引号来对应，相当于
+  var arr23 = {
+     0:1,
+     1:2,
+     2:3
+  };//相同的属性名有0、1，后面的覆盖前面的.
+
+
+var obj = { a:1, arr: [2,3] };
+var shallowObj = shallowCopy(obj);
+console.log(shallowObj);
+
+function shallowCopy(src) {
+  var dst = {};
+  for (var prop in src) {
+    if (src.hasOwnProperty(prop)) {
+      dst[prop] = src[prop];
+    }
+  }
+  return dst;
+}
+</script>
+</body>
+</html>

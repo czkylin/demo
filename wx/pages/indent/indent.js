@@ -6,9 +6,8 @@ Page({
     var that = this;
     wx.request({
       url: 'https://api.douban.com/v2/movie/in_theaters',
-      method: 'GET',
       header: {
-        'Content-Type': 'json'
+        'Content-Type': 'application/json'
       },
       success: function(res) {
         console.log(res.data);

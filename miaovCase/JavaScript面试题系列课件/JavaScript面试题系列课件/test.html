@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+</head>
+<body>
+<script type="text/javascript">
+(function() {
+  return typeof arguments;			//object    typeof 返回string number object boolean undefined function symbol（es6新增）
+})();
+
+var f = function g() {
+  return 23;
+}
+typeof g();											//error
+g();
+
+(function(x) {
+  delete x;				//delete 不能删除变量，参数， 只能删除对象下面的属性
+  return x;				//1
+})(1);
+
+var y = 1, x = y = typeof x;			//从右往左计算，typeof x 是 undefined ，是字符串类型
+x;		// 'undefined'
+
+(function f(f) {
+  return typeof f();
+})(function() {return 1;})			//Number
+
+var foo = {
+  bar: function() { return this.baz },
+  baz: 1
+}
+(function() {
+  return typeof arguments[0] ();
+})(foo.bar)			//undefined foo.bar一个整体当成是参数传入函数，this指向window
+
+typeof (f = foo.bar)();  //undefined
+// function test() {
+//   console.log(this);
+// }
+// test();		//window
+//
+// var arr = [1, 2, 3];
+// arr.test = test;
+// arr.test();		//[1, 2, 3]
+
+var f = (function f() {return 1;}, function g() {return 2;})();
+typeof f;    //number
+
+//分组选择符
+var a = (1, 2, 3);
+console.log(a);    //3, 最后一位
+
+var x = 1;
+if(function f() {}) { //false, null, {}, '', 0 返回假， 空函数返回真
+  x += typeof f;
+}
+x;    // '1undefined'
+
+var x = [typeof x, typeof y][1];
+typeof typeof x;    //string  无论x是什么，typeof返回值类型是string
+
+(function (foo) {
+  return typeof foo.bar;
+})( {foo: {bar: 1}} )      //undefined
+
+(function f() {
+  function f() {return 1;}
+  return f();
+  function f() {return 2;}
+})();      //2   函数声明预解析
+
+function f() {return f;}   // 这里返回f函数，把原来的函数覆盖掉了，new出来的就不再是对象了，而是f函数
+new f() instanceof f;    //  false 看前边的对象是不是构造函数构造出来的，是返回true
+
+with (function(x, undefined) {}) length;  //2
+
+function test (num1, num2, num3) {
+
+}
+console.log(test.length);  //3   函数的length是形参集合，arguments是实参集合
+</script>
+</body>
+</html>

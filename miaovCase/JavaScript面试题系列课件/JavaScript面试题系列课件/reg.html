@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>传统与正则</title>
+</head>
+<body>
+<script type="text/javascript">
+// border-bottom-color转成驼峰式
+var str = 'border-bottom-color';
+function test(str) {
+  var arr = str.split('-');    //[border, bottom, color]
+  for(var i=1; i<arr.length; i++) {
+    arr[i] = arr[i].charAt().toUpperCase() + arr[i].substring(1);  //[border, Bottom, Color]
+  }
+  return arr.join('');
+}
+
+function test1(str) {
+  var reg = /-(\w)/g;
+  return str.replace(reg, function($0, $1) {  // $0正则整体， $1正则的第一个子项
+    return $1.toUpperCase();
+  })
+}
+console.log(test(str));
+console.log(test1(str));
+
+//查找字符串中出现最多的字符和个数
+var str1 = 'asdfasdgdfgrtdsfzxcvsdfer';
+function check(str) {
+  var obj = {};
+  var num = 0;
+  var value = '';
+  for(var i=0; i<str.length; i++) {
+    if( !obj[ str[i] ] ) {
+      obj[ str[i] ] = [];
+    }
+    obj[str[i]].push(str[i]);
+  }
+  for(var attr in obj) {
+    if(num < obj[attr].length) {
+      num = obj[attr].length;
+      value = obj[attr][0];
+    }
+  }
+  return '最多的字符是：' + value + ',出现了' + num + '次'
+}
+console.log(check(str1));
+
+function check1(str) {
+  var arr = str.split('');
+  arr.sort();
+  str = arr.join('');
+
+  var reg = /(\w)\1+/g;
+  var num = 0;
+  var value = 0;
+  str.replace(reg, function($0, $1) {
+    // console.log($0);
+    if(num<$0.length) {
+      num = $0.length;
+      value = $1;
+    }
+  })
+  return '出现最多的字符是：' + value + ',出现了：' + num + '次';
+}
+console.log(check1(str1));
+
+//如何给字符串加千分符
+var str2 = '23568712349875321546';
+
+function add(str) {
+  var iNum = str.length%3;
+  var prev = '';
+  var arr = [];
+  var iNow = 0;
+  var tmp = '';
+  if(iNum != 0) {
+    prev = str.substring(0, iNum);
+    arr.push(prev);
+  }
+  str = str.substring(iNum);
+  for(var i=0; i<str.length; i++) {
+    iNow++;
+    tmp += str[i];
+    if(iNow==3 && tmp) {
+      arr.push(tmp);
+      tmp = '';
+      iNow = 0;
+    }
+  }
+  return arr.join(',');
+}
+console.log(add(str2));
+
+function add1(str) {
+  var reg = /(?=(?!\b)(\d{3})+$)/g;
+  return str.replace(reg, ',');
+}
+console.log(add1(str2));
+
+// (?=): 前向声明
+// (?!): 反前向声明
+var strt = 'abacad';
+var reg1 = /a(?=b)/g;
+var reg2 = /a(?!b)/g;
+strt1 = strt.replace(reg1, '*');
+strt2 = strt.replace(reg2, '*');
+console.log(strt1);    //*bacad
+console.log(strt2);    //ab*c*d
+
+</script>
+</body>
+</html>

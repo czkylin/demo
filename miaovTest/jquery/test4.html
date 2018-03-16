@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <script src="../js/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var end = $('#end');
+            $('#pili').change(function () {
+                var name = '';
+                var p = $(this).val();
+                if (p == '叶小钗') {
+                    name = '刀狂剑痴';
+                }
+                if (p == '一页书') {
+                    name = '百世经纶';
+                }
+                if (p == '素还真') {
+                    name = '清香白莲';
+                }
+
+                end.html(name + p);
+            });
+        });
+    </script>
+</head>
+<body>
+    <select id="pili">
+        <option value="叶小钗">叶小钗</option>
+        <option value="一页书">一页书</option>
+        <option value="素还真">素还真</option>
+    </select>
+    <div id="end"></div>
+</body>
+</html>

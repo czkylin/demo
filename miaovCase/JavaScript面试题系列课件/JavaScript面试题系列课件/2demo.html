@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+
+//2.当var不加的时候，会自动生成全局的变量（不建议这样写，最好把所有要定义的变量加上var）
+
+/*function aaa(){
+	a = 10;
+}
+
+aaa();
+
+alert(a);		//10 这里的a是可以取到的
+*/
+
+function aaa(){
+	var a = b = 10;
+}
+aaa();
+//alert(a);		//报错 取不到
+alert(b);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>
