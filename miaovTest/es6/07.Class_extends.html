@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>07.Class_extends</title>
+  <style media="screen">
+    canvas{
+      margin: 200px 0 0 200px;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"\></canvas>
+<script type="text/javascript">
+const canvas = document.querySelector('#canvas');
+const ctx = canvas.getContext('2d');
+
+const w = canvas.width = 600;
+const h = canvas.height = 400;
+
+class Ball {
+  constructor(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.color = `rgb( ${~~Ball.rpFn([55, 255])},
+    ${~~Ball.rpFn([55, 255])}, ${~~Ball.rpFn([55, 255])} )`;
+    return this;
+  }
+
+  render(ctx){
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(0, 0, this.r, 0, 2*Math.PI);
+    ctx.fill();
+    ctx.restore();
+    return this;
+  }
+
+  static rpFn(arr) {
+    let max = Math.max(...arr),
+        min = Math.min(...arr);
+    return Math.random() * (max-min) + min;
+  }
+}
+// const ball1 = new Ball(100, 100, 30).render(ctx);
+
+
+// const arr1 = [55, 255];
+// console.log( Math.random() * (Math.max(...arr1) - Math.min(...arr1)) );
+
+class SuperBall extends Ball {
+  constructor(x, y, r) {
+    // Ball.call(this, x, y, r);    //报错 this is not defined es6中class定义类不允许使用函数的方式进行调用
+    // console.log(this);              //在没调用super之前，子类是没有this的
+    super(x, y, r);                 //子类继承父类时当做函数来使用，调用父类的构造函数，继承父类的属性和静态方法
+    this.vy = SuperBall.rpFn([2, 4]);    //随机速度
+    this.g = SuperBall.rpFn([0.2, 0.4]);    //随机加速度
+    this.a = 0;
+    return this;
+  }
+  move(ctx) {
+    // super();                      //报错 super只能在constructor构造函数中当做函数使用
+    this.y += this.vy;
+    this.vy += this.g;
+    let current = this.vy * -0.75;
+
+    if(this.y + this.r >= ctx.canvas.height) {    //碰撞检测
+      this.y = ctx.canvas.height - this.r;
+      if(Math.abs(current - this.a) < 0.01) return false;    //如果反弹过小则归零（停止反弹）
+      this.a = this.vy *= -0.75;             //触底反弹
+    }
+
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    super.render(ctx);
+
+    return true;
+  }
+}
+
+// const ball1 = new SuperBall(100, 100, 30).render(ctx);
+
+let ball, timer;
+canvas.onclick = function(e) {
+  let x = e.offsetX, y = e.offsetY;
+
+  let r = ~~Ball.rpFn([25, 55]);
+
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);    //清除画布，每次只绘制一个小球
+  ball = new SuperBall(x, y, r).render(ctx);
+
+  ballMove();
+}
+
+function ballMove() {
+  timer = window.requestAnimationFrame(ballMove);    //接收动画帧的返回值
+  if(!ball.move(ctx)) {    //如果move返回值为false，清除动画帧
+    window.cancelAnimationFrame(timer);
+  }
+}
+
+//子类继承父类 使用 extends 关键字
+//为父类指定静态方法，使用static方法名字
+//super
+//在构造函数中可以当一个函数来使用，相当于调用父类的构造函数
+//在原型方法中，可以当一个对象来使用，相当于父类的原型对象，并且会自动绑定this到子类上
+</script>
+</body>
+</html>

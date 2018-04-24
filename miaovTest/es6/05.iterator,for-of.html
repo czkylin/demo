@@ -17,7 +17,7 @@
 // Iterator就是这样一种机制。它是一种接口，为各种不同的数据结构提供统一的访问机制。
 // 任何数据结构只要部署Iterator接口，就可以完成遍历操作，而且这种遍历操作是**依次**处理该数据结构的所有成员
 
-// Iterator遍历器的做用：
+// Iterator遍历器的作用：
 // - 为各种数据结构，提供一个统一的、简便的访问接口。
 // - 使得数据结构的成员能够按某种次序排列。
 // - ES6新增了遍历命令for...of循环，Iterator接口主要供for...of消费。
@@ -47,11 +47,79 @@ console.log(it.next());
  *  - 第二次调用指针对象的next方法，指针就指向数据结构的第二个成员。
  *  - 不断调用指针对象的next方法，直到它指向数据结构的结束位置。
  *
- * 每一次调用next方法，都会返回数据结构的当前成员的信息。具体来说，就是返回一个包含value和done两个属性的对象。其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。
+ * 每一次调用next方法，都会返回数据结构的当前成员的信息。
+   具体来说，就是返回一个包含value和done两个属性的对象。
+   其中，value属性是当前成员的值，done属性是一个布尔值，表示遍历是否结束。
  */
 
 // 2 凡是具有 Symbol.iterator 属性的数据结构都具有 Iterator 接口
 
+const arr1 = [1, 2, 3];
+const set = new Set(['a', 'b', 'c']);
+const map = new Map([['a', 1]]);
+const str = '123';
+
+const itArr = arr1[Symbol.iterator]();
+const itSet = set[Symbol.iterator]();
+const itMap = map[Symbol.iterator]();
+const itStr = str[Symbol.iterator]();
+
+console.log(itArr);
+console.log(itSet);
+console.log(itMap);
+console.log(itStr);
+
+// const obj = {'name': 'kylin', 'age': '25'};
+// const itObj = obj[Symbol.iterator]();
+// console.log(itObj);
+
+console.log(itArr.next());
+console.log(itArr.next());
+console.log(itArr.next());
+console.log(itArr.next());
+
+/**
+ * 3 具备iterator接口的数据结构都可以进行如下操作
+ *  - 解构赋值
+ *  - 扩展运算符
+ */
+let  [x, y] = set;
+console.log(x, y);
+
+let str1 = 'miaov';
+let arrStr = [...str1];
+console.log(arrStr);
+
+const arr2 = [{}, 1, 'a', 1, '1', 'a', 'b', []];
+console.log([...new Set(arr2)]);
+
+//4. for...of 循环
+const ofArr = [1, 2, 3, 4];
+for(let i of ofArr) {
+  console.log(i);
+}
+
+const m = new Map();
+m.set('a', 1).set('b', 2).set('c', 3);
+
+for(let data of m) {
+  console.log(data);
+}
+
+for(let [key, value] of m) {
+  console.log(key, value);
+}
+
+//如何给不具备iterator接口的数据结构部署一个iterator接口
+const d = {
+  '0': 'm',
+  '1': 'i',
+  '2': 'a',
+  '3': 'o',
+  '4': 'v',
+  length: 5
+}
+console.log(d);
 </script>
 </body>
 </html>

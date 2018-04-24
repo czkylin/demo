@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02.pie</title>
+  <style media="screen">
+    #main{width: 800px; height: 800px;}
+  </style>
+  <script src="../echarts.js" charset="utf-8"></script>
+  <script src="../../dist/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <div id="main"></div>
+<script type="text/javascript">
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+// 指定图表的配置项和数据
+var option = {
+     title: {
+         text: 'ECharts 入门示例'
+     },
+     tooltip: {},
+     legend: {
+         data:['价格']
+     },
+     series: [{
+         name: '价格',
+         type: 'pie',
+         data: [
+           {name: 'A', value: 5},
+           {name: 'B', value: 20},
+           {name: 'C', value: 36},
+           {name: 'D', value: 10},
+           {name: 'E', value: 10},
+           {name: 'F', value: 20}
+                ]
+     }]
+ };
+
+ // 使用刚指定的配置项和数据显示图表。
+ myChart.setOption(option);
+</script>
+</body>
+</html>

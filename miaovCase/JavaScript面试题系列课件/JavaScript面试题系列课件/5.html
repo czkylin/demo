@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>算法</title>
+</head>
+<body>
+<script type="text/javascript">
+//斐波拉契题(兔子生兔子题目)--从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问每个月的兔子对数为多少
+// 产量分析：1， 1， 2， 3， 5， 8， 13， 21 。。。
+// 第n个月的兔子总数  =  第n-1个月的兔子总数 + 第n-2个月的兔子总数
+// 问题： 求任意月兔子的总数
+
+//递归
+function funct( n )
+{
+  if (n == 0 || n == 1)
+  {
+      return 1;
+  }
+  return funct(n-1) + funct(n-2);
+}
+
+var a = funct(22);
+console.log(a);
+
+//迭代
+function calculate(n) {
+  var n1 = 1;
+  var n2 = 1;
+  var n3 = 0;
+  for (var i = 0; i < n-2; i++) {
+    n3 = n1 + n2;
+    n1 = n2;
+    n2 = n3;
+  }
+  return n3;
+}
+
+//数组排序
+
+//冒泡排序
+function newSort(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length-i; j++) {
+      if(arr[j] > arr[j+1]) {
+        var temp = 0;
+        temp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+console.log( newSort([2, 5, 6, 21, 4, 11]) );
+
+//选择排序
+function newSort1(arr) {
+  if(arr.length == 1) {
+    return arr;
+  }
+  var iMin = arr[0];
+  var iIndex = 0;
+  for(var i=0; i<arr.length; i++) {
+    if(arr[i] < iMin) {
+      iMin = arr[i];
+      iIndex = i;
+    }
+  }
+  var prev = arr.splice(iIndex, 1);
+  return prev.concat( newSort1(arr) );
+}
+console.log(newSort1( [2, 4, 7, 1 , 20, 12] ));
+
+//快速排序
+function quicksort(arr){
+	if(arr.length<=1){
+		return arr;
+	}
+	var midIndex=parseInt(arr.length/2);
+	var mid = arr[midIndex];
+	var left = [];
+	var right = [];
+	for(var i=0; i<arr.length; i++){
+		if(i==midIndex){
+			continue;
+		}
+		if(arr[i]<=mid){
+			left.push(arr[i]);
+		}else{
+			right.push(arr[i]);
+		}
+	}
+
+	return quicksort(left).concat(mid).concat(quicksort(right));
+}
+
+console.log(quicksort([2, 4, 7, 1 , 20, 12]));
+
+//数组去重
+function uniq(arr) {
+  var result = [ arr[0] ];
+  for(var i=1; i<arr.length; i++) {
+    if( toCon(arr[i]) ) {
+      result.push( arr[i] );
+    }
+  }
+  function toCon(val) {
+    for(var i=0; i<result.length; i++) {
+      if(result[i] == val) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return result;
+}
+console.log(uniq([1, 2, 2, 3, 1, 4, 6, 6, 9]));
+
+function uniq1(arr) {
+  var result = [];
+  var obj = {};
+  for(var i=0; i<arr.length; i++) {
+    if( !obj[arr[i]] ) {
+      result.push( arr[i] );
+      obj[ arr[i] ] = 1;
+    }
+  }
+  return result;
+}
+console.log(uniq1([1, 2, 2, 3, 1, 4, 6, 6, 9]));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03.选项卡</title>
+  <style>
+    #div1 div,#div2 div{width: 200px; height: 200px; border: 1px solid #ccc; display: none;}
+    .active{background: #f00;}
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <input class="active" type="button" name="" value="1">
+    <input type="button" name="" value="2">
+    <input type="button" name="" value="3">
+    <div style="display: block;">111</div>
+    <div>222</div>
+    <div>333</div>
+  </div>
+  <div id="div2">
+    <input class="active" type="button" name="" value="1">
+    <input type="button" name="" value="2">
+    <input type="button" name="" value="3">
+    <div style="display: block;">111</div>
+    <div>222</div>
+    <div>333</div>
+  </div>
+<script type="text/javascript">
+  // var oParent = document.getElementById('div1');
+  // var aInput = oParent.getElementsByTagName('input');
+  // var aDiv = oParent.getElementsByTagName('div');
+  // for(var i=0; i<aInput.length; i++) {
+  //   aInput[i].index = i;
+  //   aInput[i].onclick = function() {
+  //     for(var i=0; i<aInput.length; i++) {
+  //       aInput[i].className = '';
+  //       aDiv[i].style.display = 'none';
+  //     }
+  //     this.className = 'active';
+  //     aDiv[this.index].style.display = 'block';
+  //   }
+  // }
+
+  // var oParent, aInput, aDiv;
+  // oParent = document.getElementById('div1');
+  // aInput = oParent.getElementsByTagName('input');
+  // aDiv = oParent.getElementsByTagName('div');
+  // init();
+  // function init() {
+  //   for(var i=0; i<aInput.length; i++) {
+  //     aInput[i].index = i;
+  //     aInput[i].onclick = change;
+  //   }
+  // }
+  // function change() {
+  //   for(var i=0; i<aInput.length; i++) {
+  //     aInput[i].className = '';
+  //     aDiv[i].style.display = 'none';
+  //   }
+  //   this.className = 'active';
+  //   aDiv[this.index].style.display = 'block';
+  // }
+  function Tabs(uid) {
+    this.oParent = document.getElementById(uid);
+    this.aInput = this.oParent.getElementsByTagName('input');
+    this.aDiv = this.oParent.getElementsByTagName('div');
+    this.iNow = 0;
+  }
+  Tabs.prototype.init = function() {
+    var This = this;
+    for(var i=0; i<this.aInput.length; i++) {
+      this.aInput[i].index = i;
+      this.aInput[i].onclick = function() {
+        This.change(this);
+      }
+    }
+  }
+  Tabs.prototype.change = function(obj) {
+    for(var i=0; i<this.aInput.length; i++) {
+      this.aInput[i].className = '';
+      this.aDiv[i].style.display = 'none';
+    }
+    obj.className = 'active';
+    this.aDiv[obj.index].style.display = 'block';
+  }
+  Tabs.prototype.autoPlay = function() {
+    var This = this;
+    setInterval(function() {
+      if(This.iNow == This.aInput.length-1) {
+        This.iNow = 0;
+      } else {
+        This.iNow++;
+      }
+      for(var i=0; i<This.aInput.length; i++) {
+        This.aInput[i].className = '';
+        This.aDiv[i].style.display = 'none';
+      }
+      This.aInput[This.iNow].className = 'active';
+      This.aDiv[This.iNow].style.display = 'block';
+    }, 2000)
+  }
+  var tabs1 = new Tabs('div1');
+  tabs1.init();
+  tabs1.autoPlay();
+  var tabs = new Tabs('div2');
+  tabs.init();
+  tabs.autoPlay();
+
+  //this指向问题
+  // oDiv.onclick = function() {
+  //   //this: oDiv
+  // }
+  // oDiv.onclick = show;
+  // function show() {
+  //   //this: oDiv
+  // }
+  // oDiv.onclick = function() {
+  //   show();
+  // }
+  // function show() {
+  //   // this: window
+  // }
+</script>
+</body>
+</html>
