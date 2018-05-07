@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" name="" value="new1" onclick="window.open('new.html', '_blank')">
+  <input type="button" name="" value="new2" onclick="window.location = 'new.html'">
+  <input type="button" name="" value="new3" onclick="location.assign('new.html')">
+  <input type="button" name="" value="new4" onclick="location.href = 'new.html'">
+  <form class="" target="_blank" action="new.html" method="post">
+    <input type="submit" name="" value="new5">
+    <input type="text" name="" value="1">
+    <input type="text" name="" value="2">
+  </form>
+  <h1>
+    <script type="text/javascript">
+      document.write('<h1>hello</h1>')
+    </script>
+  </h1>
+<script type="text/javascript">
+  var obj = {
+    name: 'zhangsan',
+    show: function() {
+      console.log(this.name);
+    }
+  }
+  console.log(obj);
+  obj.show();
+
+  var arr = [1, 2, 3];
+  arr.unshift(0);
+  console.log(arr);
+
+  window.status = 'ccc';
+  console.log(window.status);
+
+  console.log(location);
+  console.log(open);
+  console.log(window.open);
+
+var str = '[{"id":"1","tagName":"apple"},{"id":"2","tagName":"orange"}]';
+var obj1 = JSON.parse(str);
+var str1 = JSON.stringify(obj1);
+console.log(obj1);
+console.log(str1);
+
+console.log(JSON);
+
+console.log(window);
+
+document.write('<h1>hello</h1>');
+
+// var form1 = document.getElementsByTagName('form');
+// for(var i=0; i<form1.length; i++) {
+//   if(form1.elements[i].type == 'text') {
+//     form1.elements[i].value = '';
+//   }
+// }
+
+var forms = document.forms;
+for(var i=0; i<forms.length; i++) {
+  for(var j=0; j<forms[i].elements.length; j++) {
+    if(forms[i].elements[j].type == 'text') {
+      forms[i].elements[j].value = '';
+    }
+  }
+}
+
+var phone = '010-82668155';
+console.log( isNaN(parseFloat(phone.substring(4))) );
+var reg = /^010-\d{8}$/;
+console.log(reg.test(phone));
+
+
+</script>
+</body>
+</html>
