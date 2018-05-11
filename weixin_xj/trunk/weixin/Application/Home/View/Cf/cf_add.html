@@ -1,0 +1,380 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>开处方</title>
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Expert/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body class="huise">
+<form method="post" name="consult" action="{:U('Cf/add_ok')}" onSubmit="return sub()">
+        <div class="txt">
+                <textarea placeholder="请输入处方描述内容！" name="consultContent" id="v_content"></textarea>
+        </div>
+        <div class="item both uploader">
+                <div class="g-image-upload-box">
+                        <div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+                                <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+                        </div>
+                </div>
+                <div style="margin:0 auto;"> <img src="/weixin/Public/Expert/images/cf/icon_img.jpg" id="pre_pic" style="width:100%;"> </div>
+                <img src="" id="pre_pic" width="100">
+                <div id="press_status"></div>
+                <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+                <div class="desc J_Showmeonfileuploaded"> <b>上传处方图片<br>
+                        病情资料</b> </div>
+        </div>
+        <div class="chanpin">
+                <h3>选择产品</h3>
+                
+                <!--<div class="search">
+
+			<input placeholder="输入产品名" type="text" name="name" id="name">
+
+			<input  onClick="search_list(document.all.name.value);" type="button" value="搜索"/>
+
+		</div>
+
+        -->
+                
+                <div class="ui-search">
+                        <div class="ui-searchtxt">
+                                <input class="left" placeholder="输入产品名" type="text" name="name" id="name"/>
+                        </div>
+                        <input class="right ui-btn-search" onClick="search_list(document.all.name.value);" type="button" value="搜索"/>
+                </div>
+                <ul id="plist">
+                </ul>
+                <ul id="list">
+                        <volist name='product_list' id='product' key="k">
+                                <li id="y_{$product.PRODUCT_ID}">
+                                        <label class="ui-icon-unchecked-s xz" for="week1_{$product.PRODUCT_ID}" ></label>
+                                        <input type="checkbox" name="product[]" id="week1_{$product.PRODUCT_ID}" onClick="checkproduct({$product.PRODUCT_ID})" value="{$product.PRODUCT_ID}" style="display:none;" />
+                                        <h3>{$product.TY_NAME} ￥{$product.PRODUCT_MONEY}</h3>
+                                        <label> <span class="jianshao"></span> <span class="num"><span>1</span></span> <span class="zengjia"></span>
+                                                <input name="num_{$product.PRODUCT_ID}" type="hidden" value="1">
+                                        </label>
+                                </li>
+                        </volist>
+                </ul>
+                <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+        </div>
+        <div id="current_name" style="display:none">{$name}</div>
+        <div id="current_pagenum" style="display:none">2</div>
+        <input type="hidden" name="member_id" value="{$member_id}"/>
+        <input type="hidden" name="consult_id" value="{$consult_id}"/>
+        <div class="tijiao">
+                <button class="ui-btn-purchase-blue">提交</button>
+        </div>
+</form>
+
+<!--Js库文件--> 
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/mobileFix.mini.js " type="text/javascript"></script> 
+
+<!--Exif.js 读取图像的元数据 --> 
+
+<script src="/weixin/Public/Common/js/exif.js " type="text/javascript"></script> 
+
+<!--lrz.min.js 压缩图片 --> 
+
+<script src="/weixin/Public/Expert/js/lrz.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script type="text/javascript">
+
+function checkproduct(id){  
+
+	var ids = "#"+"y_"+id; 
+
+	var week = "#"+"week1_"+id;
+
+	var y_id = "y_"+id;
+
+	$(week).attr('checked',true);
+
+	if($(week).is(':checked')){
+
+		var html = "<li id="+y_id+">"+$(ids).html()+"</li>";
+
+		$('#list').html('');
+
+		$('#plist').append(html);
+
+	}else{
+
+		$(ids).remove();
+
+		
+
+	}
+
+}
+
+function search_list(name)
+
+{ 
+
+	$('#current_name').text(encodeURI(name));
+
+	$('#current_pagenum').text('1');
+
+	$('#list').html('');
+
+	$('.ui-jiazai').children('a').text('加载更多');
+
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=cf_add_append&name='+$('#current_name').text()+'','#list');
+
+}
+
+
+
+function load_more()
+
+{
+
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=cf_add_append&name='+$('#current_name').text()+'','#list');
+
+}
+
+
+
+window.onbeforeunload   =   function()   { 
+
+//document.getElementById('#list li label  input').value = "1";
+
+
+
+$("#list li label input").val(1);
+
+} 
+
+/*购买药品数量*/
+
+$('.chanpin').delegate('ul#list li label .jianshao','click',function(){
+
+    var _this   = $(this),
+
+        $num    = _this.next().find('span').eq(0),
+
+        n       = $num.text(),
+
+        count   = parseInt(n)-1 > 0 ? parseInt(n)-1 : 1;
+
+		$num.text(count);
+
+		//alert(count)
+
+		$(this).siblings('input').attr("value",count);
+
+});
+
+$('.chanpin').delegate('ul#list li label .zengjia','click',function(){
+
+    var _this   = $(this),
+
+        $num    = _this.prev().find('span').eq(0), 
+
+        n       = $num.text(),
+
+        count   = parseInt(n)+1;
+
+    $num.text(count);
+
+	$(this).siblings('input').val(count);
+
+});
+
+$('.chanpin').delegate('ul#plist li label .jianshao','click',function(){
+
+    var _this   = $(this),
+
+        $num    = _this.next().find('span').eq(0),
+
+        n       = $num.text(),
+
+        count   = parseInt(n)-1 > 0 ? parseInt(n)-1 : 1;
+
+        $num.text(count);
+
+		$(this).siblings('input').attr("value",count);
+
+});
+
+$('.chanpin').delegate('ul#plist li label .zengjia','click',function(){
+
+    var _this   = $(this),
+
+        $num    = _this.prev().find('span').eq(0), 
+
+        n       = $num.text(),
+
+        count   = parseInt(n)+1;
+
+       $num.text(count);
+
+	   $(this).siblings('input').val(count);
+
+
+
+});
+
+
+
+/*药品选择*/
+
+
+
+$('#list').delegate('li .xz','click',function()
+
+{
+
+	var yaopin = $(this), k = $(this).siblings(".xuanze").length;
+
+	if(yaopin.hasClass("xuanze"))
+
+	{
+
+		yaopin.removeClass("xuanze")
+
+	}
+
+	else
+
+	{
+
+		yaopin.addClass("xuanze")
+
+	}
+
+})
+
+
+
+/*点击传图片，图片显示，文字消失*/
+
+$(".g-image-upload-box").click(function(){
+
+	$("#pre_pic").show();
+
+	$(".J_Showmeonfileuploaded").hide();
+
+})
+
+
+
+
+
+function sub()
+
+{
+
+	var sendBox = $("#v_content").val();
+
+	var imgbase64 = $("#imgbase64").val();
+
+	if(sendBox == "")
+
+	{
+
+		alert("请输入处方描述内容！");
+
+		return false;
+
+	}
+
+	if(imgbase64=="")
+
+	{
+
+		alert("请上传处方图片！");
+
+		return false;
+
+	}
+
+
+
+	var val = $('input:checkbox[name="product[]"]:checked').size(); 
+
+	if(val == 0)
+
+	{
+
+		alert('推荐药品不能为空请选择,请填写!');
+
+		return false;
+
+	}
+
+}
+
+
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+
+{
+
+	lrz(input_file.files[0], {
+
+		width:500,
+
+		before: function() {
+
+			document.querySelector(press_status).innerHTML="压缩处理开始，请稍后...";
+
+		},
+
+		fail: function(err) {
+
+			document.querySelector(press_status).innerHTML=err;
+
+		},
+
+		always: function() {
+
+			document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+
+		},
+
+		done: function (results) {
+
+			
+
+			document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+
+			document.querySelector(pre_pic).src=results.base64;//展示预览图片
+
+		}
+
+	});
+
+}
+
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

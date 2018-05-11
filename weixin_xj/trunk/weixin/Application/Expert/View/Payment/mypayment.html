@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>我的收入</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/mypayment.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<div class="header">
+		<ul class="clear">
+			<li class="fl">
+                <div class="income">
+                    <a href="javascript:;" class="ins">
+                        <span>{$jifen_date}</span>
+                    </a>月收入
+                    <em>
+                    </em>
+                </div>
+			</li>
+			<li class="fr danwei">单位：元</li>
+		</ul>
+		<div class="price">
+			<p>
+				<i><strong><?php echo sprintf("%.2f",$doc_money['total_money']);?></strong><b>***</b></i>
+				<span class="kan"></span>
+			</p>
+			<a href="{:U('Expert/Payment/band_card_list')}&jifen_date={$jifen_date}" class="link">查看明细</a>
+		</div>
+		<p class="total">累计收入：<span><?php echo sprintf("%.2f",$doc_money['all_money']);?></span>元</p>
+	</div>
+	<div class="improve">
+		<p class="title">累计数据<a href="/weixin/Application/Expert/View/Payment/zengjiasr.html">如何增加收入？</a></p>
+		<ul class="clear">
+			<li>
+				<p>问诊总数</p>
+				<span>{$wz_sum}</span>
+			</li>
+			<li>
+				<p>电子处方</p>
+				<span>{$cf_sum}</span>
+			</li>
+			<li>
+				<p>阅片</p>
+				<span>{$yp_sum}</span>
+			</li>
+		</ul>
+		<ol>
+			<!-- <li>
+				<a href="{:U('Expert/Payment/money_detail')}&order_id={$sr_list.ORDER_ID}">
+					<p class="type">处方</p>
+					<p class="time">{$sr_list.CF_DATE}</p>
+					<div class="mingxi">
+					<if condition="$sr_list['CF_MONEY'] neq ''">
+						<span>+{$sr_list.CF_MONEY}</span><br>
+						<b>{$cf_money}</b>
+					</if>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="{:U('Expert/Consult/consult_details')}&consult_id={$sr_list.CONSULT_ID}">
+					<p class="type">咨询</p>
+					<p class="time">{$sr_list.CONSULT_DATE}</p>
+					<div class="mingxi">
+					<if condition="$sr_list['CONSULT_NUM'] neq ''">
+						<span>+{$sr_list.CONSULT_NUM}</span><br>
+					</if>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<p class="type">转出到银行卡</p>
+					<p class="time">{$sr_list.TX_DATE}</p>
+					<div class="mingxi">
+					<if condition="$sr_list['TX_MONEY'] neq ''">
+						<span>+{$sr_list.TX_MONEY}</span><br>
+						<b>{$sr_list.TOTAL_TX}</b>
+					</if>
+					</div>
+				</a>
+			</li> -->
+		</ol>
+	</div>
+	<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/touch.js"></script>
+	<script>
+		//隐藏或开启钱数
+		var onOff = true;
+        //自动填充月份 
+        var myTime = new Date();
+        var myYear = myTime.getFullYear();
+        var myMons = myTime.getMonth()+1;
+        var str = "";
+        for( var i=myMons; i>6;i-- ){
+           //str +="<li>"+ i +"月排行</li>";
+            $('.income em').append('<i>'+myYear+'-'+i+'</i>')
+        }
+
+		$('.kan').on('touchend',function(){
+
+			if( onOff ){
+				$(".price").find("strong").hide();
+				$(".price").find("b").show();
+				$(".kan").css("background-image","url(/weixin/Public/Expert/images/payment/guan.png)");
+				$(".kan").css("background-size","19px");	
+			}else{
+				$(".price").find("strong").show();
+				$(".price").find("b").hide();
+				$(".kan").css("background-image","url(/weixin/Public/Expert/images/payment/kai.png)");
+				$(".kan").css("background-size","16px");
+			}
+			onOff = !onOff;
+				
+		})
+        $('.ins').click(function(e){
+            var e = e || window.even;
+            e.stopPropagation();
+            $(this).next().css({
+                'visibility': 'visible',
+                'opacity': 1
+            });
+            $(this).next().show();
+        });
+        $('.income em').each(function(){
+            $(this).find('i').click(function(){
+                $('.ins span').html($(this).html());
+                checksel();
+            })
+        });
+        /*document.body.addEventListener('touchend',function(ev){
+            if(ev.target.className != 'ins'){
+                $('.ins').next().css({
+                    'visibility': 'hidden',
+                    'opacity': 0
+                });
+            }
+        })*/
+        
+        function checksel()
+		{
+			var data = $('.ins span').html();
+			location.href="/weixin/index.php?m=Expert&c=Payment&a=mypayment&jifen_date="+data;
+		}
+	</script>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

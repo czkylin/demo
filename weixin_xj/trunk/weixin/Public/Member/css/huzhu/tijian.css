@@ -1,0 +1,76 @@
+/*common css*/
+body{font-size: 0.6rem;}
+*{padding: 0; margin: 0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{text-decoration: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+i{font-style: normal;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{display: block; content: ""; clear: both;}
+.green{color: #17b56c !important;}
+.red{color: #e93e3d !important;}
+/*header*/
+header{width: 100%; height:1.3rem; line-height: 1.3rem; text-align: center; font-size: 0.5rem; color: #333; border-bottom: 1px solid #cccccc;}
+/*main*/
+.main{padding: 30px 3.2% 15px; border-bottom: 1px solid #e7e7e7;}
+.main .con{float: left; display: block; width: 50%;}
+@media screen and (max-width: 320px){
+	.main .con{
+		width: 45%;
+	}
+}
+.main .shengao{padding-left: 5%;}
+.main .shengao img{width: 46%; float: left; display: block;}
+.main .shengao span{margin-left: 5%; float: left; display: block; height: 100%; width: 10%; border-top: 1px solid #333333; border-bottom: 1px solid #333333; background: url(/weixin/Public/Member/images/user/shengaobg.png) no-repeat center; background-size: contain;}
+.main .shengao span i{z-index: 1; position: relative; line-height: 30px; display: block; width: 100%; height: 30px; background: #fff;font-size: 12px; color: #333;}
+.main .shengao span b{}
+.main .tizhong{width: 46%; padding-left: 5%; text-align: center;}
+.main .tizhong span{display: block; font-size: 14px;}
+.main .tizhong img{width: 40%;}
+.des-list{float: right; display: block; width: 50%;}
+@media screen and (max-width: 320px){
+	.des-list{
+		width: 55%;
+	}
+}
+.des-list .cankao{font-size: 14px; color: #333; position: relative; top: -0.2rem;}
+.des-list ul{}
+.des-list ul li{height: 0.9rem; margin-bottom: 0.1rem;}
+.des-list ul li span{margin-top: 6%; height: 0.45rem; float: left; width: 12px; height: 12px; border-radius: 12px;}
+.des-list ul li span.fei{background: #ee5c55;}
+.des-list ul li span.zc{background: #10ca6e;}
+.des-list .des{float: left; height: 0.9rem; margin-left: 4%;}
+.des-list .des p{ height: 0.45rem; font-size: 12px; color: #999999; line-height: 0.45rem;}
+.des-list .des b{display: block;font-size: 12px; color: #333;  height: 0.45rem; line-height: 0.45rem; font-weight: normal;}
+/*summary*/
+.summary{padding: 14px 3.2% 0; border-bottom: 1px solid #e7e7e7;}
+.summary .title{height: 0.8rem; line-height: 0.8rem; font-size: 0.37rem; color: #333; padding-left: 1rem; margin-bottom: 0.25rem; background: url(/weixin/Public/Member/images/user/icon_hz.png) no-repeat left center; background-size: 0.7rem;}
+.summary .title a{ float: right; display: block; width: 0.8rem; height: 0.8rem; background: url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat center; background-size: 0.22rem; transform:rotateZ(90deg); -webkit-transform:rotateZ(90deg);}
+.summary .title.active a{transform:rotateZ(0deg); -webkit-transform:rotateZ(0deg);}
+.summary .content{padding: 0.13rem 0.15rem; background: #e7e7e7; line-height: 0.64rem; font-size: 0.34rem; color: #666; border-radius: 4px; margin-bottom: 14px;}
+/*options*/
+.options{}
+.options .title{padding: 0.35rem 3.2%; font-size: 0.37rem; color: #333; height: 0.8rem; line-height: 0.8rem; border-bottom: 1px solid #e7e7e7;}
+.options .title span{float: left; width: 1rem; height: 0.8rem; background: url(/weixin/Public/Member/images/user/icon_qb.png) no-repeat left center; background-size: 0.7rem;}
+.options .list{padding-left: 3.2%; margin-bottom: 1rem;}
+.options .list li{height: 1.3rem; border-bottom: 1px solid #e7e7e7; padding-left: 1rem; padding-right: 0.32rem;}
+.options .list li:nth-of-type(1){background: url(/weixin/Public/Member/images/user/icon_xt.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(2){background: url(/weixin/Public/Member/images/user/icon_xy.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(3){background: url(/weixin/Public/Member/images/user/icon_xya.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(4){background: url(/weixin/Public/Member/images/user/icon_xl.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(5){background: url(/weixin/Public/Member/images/user/icon_sg.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(6){background: url(/weixin/Public/Member/images/user/icon_ncg.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(7){background: url(/weixin/Public/Member/images/user/icon_tw.jpg) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list li:nth-of-type(8){background: url(/weixin/Public/Member/images/user/icon_ml.png) no-repeat 0.17rem center; background-size: 0.42rem;}
+.options .list .name{display: block; height: 1.3rem; line-height: 1.3rem; font-size: 0.35rem; color: #333;}
+.options .list .des{display: block;}
+.options .list .des .num{display: block; height: 1.3rem; margin-right: 0.44rem; padding-left: 0.2rem;}
+.options .list .des a.num{line-height: 1.3rem; font-size: 0.32rem; color: #999;}
+.options .list .des .col{display: block; width: 0.55rem; height: 0.8rem; font-size: 0.32rem; color: #fff; text-align: center; padding: 0.25rem 0;}
+.options .list .des .col.normal{ background: #0fbca1;}
+.options .list .des .col.low{background: #ff8f20;} 
+.options .list .des .col.high{background: #e93e3d;}
+.options .list .des .num span{display: block; line-height: 1.3rem; font-size: 0.32rem; color: #999;}
+.options .list .des .num b{font-weight: normal; display: block; font-size: 0.34rem; color: #333; height:0.65rem; line-height: 0.8rem; text-align: center;}
+.options .list .des .num i{display: block; font-size: 0.32rem; color: #999; height:0.65rem; line-height: 0.65rem; text-align: center;}

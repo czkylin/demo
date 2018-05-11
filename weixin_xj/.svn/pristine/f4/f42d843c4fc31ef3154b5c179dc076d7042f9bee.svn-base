@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>列表页</title>
+<link href="../common/base.css" rel="stylesheet" type="text/css">
+<link href="../commonBtn/btn.css" rel="stylesheet" type="text/css">
+<link href="form.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form>
+    <label>姓名：<input  type="text" placeholder="请输入您的姓名"  ></label>
+    <label>身份证：<input  type="text" placeholder="请输入您的身份证号码"  ></label>
+    <input type="submit" class="ui-btn-purchase-blue" value="确定">
+    <label>旧密码：<input  type="text" placeholder="旧密码"  ></label>
+    <label>新密码：<input  type="text" placeholder="新密码"  ></label>
+    <label>确认密码：<input  type="text" placeholder="确认密码"  ></label>
+    <input type="submit" value="确认修改" class="ui-btn-purchase-blue">
+    <label>姓名：<input  type="text" placeholder="请输入您的真实姓名"  ></label>
+    <label>就诊时间：<input  type="text" placeholder="请输入您的就诊时间"  ></label>
+    <label class="ui-textarea">病情阐述：<textarea  type="textarea" placeholder="请详细阐述您的病情"  ></textarea></label>
+    <input type="submit" value="确认修改" class="ui-btn-purchase-blue">
+</form>
+</body>
+</html>

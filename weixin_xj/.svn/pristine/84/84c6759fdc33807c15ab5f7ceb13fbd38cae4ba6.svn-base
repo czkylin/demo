@@ -1,0 +1,112 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<style>
+    section:nth-child(2){position:relative;}
+    .join{position:absolute;top:0;left:0;width:100%;height:100%; margin-bottom: 44px;}
+    .link{position: fixed; left: 0; bottom: 0; z-index: 10; width: 100%; display: block; height: 44px; line-height: 44px; text-align: center; overflow:hidden; color: #fff; font-size: 16px;}
+    .link_1{ width:37%; height:44px; line-height:44px; display:block; float:left;  background: #ff8400;}
+    .link_2{ width:63%; height:44px; line-height:44px;display:block; float:left;  background: #bf1b20; color:#fff;}
+</style>
+<title><?php echo base64_decode(I("get.user_name",""));?>让最亲的人拥有“1+3”健康管理</title>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';    
+</script>
+    <script>
+
+        function set_log(act){
+        var type = "{$type}"+"_blood";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+        wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '<?php echo base64_decode(I("get.user_name",""));?>让最亲的人拥有“1+3”健康管理';
+        var wx_share_desc = '“1+3”百倍爱心卡健康管理您的身体，百倍爱心卡+3套智能设备，身体健康数据实时掌控，帮助您为最亲的人健康管理';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/join/icon.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=join_1280&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                     set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=join_1280&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+    </script>
+</head>
+<body>
+    <section>
+        <img src="/weixin/Public/Member/images/huzhu/join/img1.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/huzhu/join/img2.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/huzhu/join/img3.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/huzhu/join/img4.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/huzhu/join/img5.jpg" width="100%" />
+    </section>
+    <section>
+        <img src="/weixin/Public/Member/images/huzhu/join/img6.jpg" width="100%" />
+        <div class="join center">
+            <div class="text-center">
+                <img src="/weixin/Public/Member/images/huzhu/join/join.png" width="50%" />
+                <if condition="$footer neq 'hide'">
+                <a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=join_1280'));?>&sale_type={:C("SALE_TYPE_2")}&user_name={:I('get.user_name','')}"><img src="/weixin/Public/Member/images/huzhu/join/btn.png" width="50%" /></a>
+                </if>
+            </div>
+        </div>
+    </section>
+    <div class="link">
+        <if condition="$footer neq 'hide'">
+            <span class="link_1">¥1380.00</span>
+            <a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=join_1280'));?>&sale_type={:C("SALE_TYPE_2")}&user_name={:I('get.user_name','')}" class="link_2">立即购买</a>
+        <else />
+        </if>  
+    </div>
+    <!-- CNZZ统计代码 -->
+    <!--<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>-->
+    <!-- CNZZ统计代码  百倍爱心卡498健康套装 单独统计-->
+    <!--<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1261123499).'" width="0" height="0"/>';?></div>-->
+</body>
+</html>

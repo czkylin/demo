@@ -1,0 +1,11 @@
+.cLeft{width:9rem;}
+.clearfix:after{content: ''; display: block; clear: both;}
+section.unit header h2{font-weight: bold; width: 100%;}
+.ctxt{width: 8.6rem; padding: 0 0.2rem;}
+.go{border: 1px solid #ff647c; border-radius: 6px;}
+.ui-icon-arrow{color: #ff647c;}
+.ctxt p{line-height:20px; padding-bottom: 5px;}
+section .ctxt strong{float: left; width: 2.6rem;}
+.ctxt em{float: left; width: 6rem;}
+.ui-jiazai{height: 30px; text-align: center; line-height: 30px; margin-bottom: 30px;}
+.ui-jiazai a{color: #999;}

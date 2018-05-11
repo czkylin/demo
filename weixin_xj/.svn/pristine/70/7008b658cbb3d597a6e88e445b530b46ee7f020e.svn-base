@@ -1,0 +1,65 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--公用样式调用-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/portal.minv2.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Home/css/hos_list.min.css" type="text/css" rel="stylesheet"/>
+
+<!-- title -->
+
+<title>医院详情</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c">
+<div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+        <div class="experts" style="position:relative;">
+                <div class="xq1">
+                        <div class="detal_shoushu"> <span class="img"> <img src="{$hos.HOS_PIC}"  alt="{$hos.HOS_NAME}" class="g-left expert-img"/> </span> <span class="meta">
+                                <div class="name_dj"> <strong class="mingcheng">{$hos.HOS_NAME}</strong> <i>{$hos.LEVEL_NAME}</i> </div>
+                                <div class="juti_info"><span style="float:right;"></span> </div>
+                                </span> </div>
+                </div>
+                <div class="nav_tit3">
+                        <h2>医院详情</h2>
+                </div>
+                <div class="hos_jianjie">
+                        <p>地址：{$hos.HOS_ADDRESS}</p>
+                        <p>电话：{$hos.HOS_PHONE}</p>
+                        <div class="jianjie_con">简介：{$hos.HOS_DESC}</div>
+                </div>
+                <div class="clear"></div>
+                
+                <!--<div class="nav_tit2">
+
+			<h2>开通服务</h2>
+
+		</div>
+
+		
+
+		<div class="kt_service hos_del_fuwu"><a href="#" class="service">远程阅片</a><a href="#" class="service">现场阅片</a><a href="#" class="service">预约手术</a><a href="#" class="service weikaitong">OCT</a></div>--> 
+                
+        </div>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+
+<title>家庭医生</title>
+</head>
+<body>
+<div style="display: none;" id="flag">{$flag}</div>
+<div style="display: none;" id="vip_flag">{$vip_flag}</div>
+
+<script>
+	$(function(){  
+	    var flag = $("#flag").text();
+	    var vip_flag = $("#vip_flag").text();
+	    if(vip_flag == "ok")
+	    {
+	        // alert(flag);
+	        location.href="{:U('Jtys/expert_list')}";
+	        return false;
+	    }else if(vip_flag == "00028" || vip_flag == "00024"){
+	    	alert(flag);
+	        location.href="{:U('Jtys/consult_introduce')}";
+	        return false;
+	    }else{
+	    	alert(flag);
+	        location.href="{:U('User/user_info')}";
+	        return false;
+	    }
+	});  
+</script>
+
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

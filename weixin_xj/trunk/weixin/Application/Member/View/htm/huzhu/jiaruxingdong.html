@@ -1,0 +1,426 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>加入互助行动</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/insurance.min.css">
+</head>
+<body ontouchstart="">
+<div class="content top bottom mod-insurance-apply">
+        <div class="qsc-list-group info-center">
+                <div class="insurance-item"> <strong>已有互助保障资金</strong> <span> <span>45,226,811元</span> </span> </div>
+                <div class="insurance-item"> <strong>已加入会员</strong> <span> <span>4,174,623人</span> </span> </div>
+                <div class="insurance-item"> <strong>救助均摊资金</strong> <span> <span>0.08元</span> </span> </div>
+        </div>
+        <div class="info-block "> 已加入被保障人信息 <a href="wodebaozhang.html">查看更多保障<i class="list-arrow"></i></a> </div>
+        <div class="qsc-list-group observed-members ">
+                <div class="insurance-item"> <a href="huiyuanxinxi.html" class="link-member">
+                        <div class="observed-card">
+                                <div>张春艳</div>
+                                <span class="pull-right"> <small>No.004172579</small> <span> 观察期 <i class="list-arrow"></i> </span> </span> </div>
+                        </a> </div>
+        </div>
+        <div class="info-block"> 添加被保障人信息(可一次支付多人) </div>
+        <div class="qsc-list-group add-observed-members">
+                <div class="insurance-item insurance-item-bottom">
+                        <div class="scroll">
+                        	<div class="box_table">
+                                <table class="add-observed-card" data-hash="">
+                                        <tbody>
+                                                <tr>
+                                                        <td>姓名</td>
+                                                        <td class="weak">曾衡</td>
+                                                        <td></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>身份证</td>
+                                                        <td class="weak">1101**********3719</td>
+                                                        <td></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                                <div class="wait-for-pay">待支付</div>
+                                </div>
+                                <div class="box_table">
+                                <table class="add-observed-card" data-hash="">
+                                        <tbody>
+                                                <tr>
+                                                        <td>姓名</td>
+                                                        <td class="weak">曾衡</td>
+                                                        <td></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>身份证</td>
+                                                        <td class="weak">1101**********3719</td>
+                                                        <td></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                                <div class="wait-for-pay">待支付</div>
+                                </div>
+                                <div class="box_table">
+                                <table class="add-observed-card" data-hash="">
+                                        <tbody>
+                                                <tr>
+                                                        <td>姓名</td>
+                                                        <td class="weak">曾衡</td>
+                                                        <td></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>身份证</td>
+                                                        <td class="weak">1101**********3719</td>
+                                                        <td></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                                <div class="wait-for-pay">待支付</div>
+                                </div>
+                                <div class="box_table">
+                                <table class="add-observed-card" data-hash="">
+                                        <tbody>
+                                                <tr>
+                                                        <td>姓名</td>
+                                                        <td class="weak">曾衡</td>
+                                                        <td></td>
+                                                </tr>
+                                                <tr>
+                                                        <td>身份证</td>
+                                                        <td class="weak">1101**********3719</td>
+                                                        <td></td>
+                                                </tr>
+                                        </tbody>
+                                </table>
+                                <div class="wait-for-pay">待支付</div>
+                                </div>
+                        </div>
+                        <a href="jiankanggaozhi.html" class="btn btn-add " id="add_aided_person"><i class="icon icon-add tianjia_icon"></i><em>添加一名被保障人</em></a> </div>
+        </div>
+        <footer class="qsc-bar bar-fixed bar-support ">
+                <p class="user-agreement"> <i class="icon icon-checkbox-sm"></i> <span>我承诺加入会员身体健康,无癌症或其他重大疾病史,并同意<span class="text-success convention">《互助公约》</span>条款及<span class="text-success" id="link-health">《健康承诺》</span></span> </p>
+                <!-- <button class="btn btn-block" id="wechat-charge">微信充值 <span id="fee">3</span> 元</button> -->
+                <button class="btn btn-block btn-success" id="wechat-charge">微信充值 <span id="fee">3</span> 元</button>
+        </footer>
+</div>
+<div class="qsc-modal" id="add_aided_person_modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog middle middle-max">
+                <div class="modal-content clearfix">
+                        <form action="" class="horizontal">
+                                <div class="modal-header"> <a href="javascript:void(0);" class="close-modal" data-dismiss="modal"><i class="icon-close_modal"></i></a> <small>以下信息是您获取保障的重要凭证,一旦填写将不能修改</small> </div>
+                                <div class="modal-body">
+                                        <input type="text" name="name" class="form-control" placeholder="请输入真实姓名">
+                                        <input type="text" name="id" class="form-control" placeholder="请输入身份证号码">
+                                </div>
+                                <div class="modal-footer"> <a href="" class="btn btn-primary btn-lg" id="save_aided_person">保存信息</a> </div>
+                        </form>
+                </div>
+        </div>
+</div>
+<div class="qsc-modal dialog" id="modalPayStatus" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog middle">
+                <div class="modal-content">
+                        <div class="modal-header"> 支付结果 </div>
+                        <div class="modal-body"> 您的支付是否成功? </div>
+                        <div class="modal-footer clearfix">
+                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">支付失败</button>
+                                <a href="" class="btn btn-primary btn-lg active" id="payStatusSuccess">支付成功</a> </div>
+                </div>
+        </div>
+</div>
+<div class="qsc-modal" id="modal-health" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog middle middle-max">
+                <div class="modal-content clearfix">
+                        <div class="modal-header text-center"> 加入微爱大病互助行动健康承诺 </div>
+                        <div class="modal-body">
+                                <p>本人自愿参加由北京轻松筹网络科技有限公司发起的“微爱大病互助行动”项目，在此向轻松筹及参与本项目的会员就本人在加入本项目时的健康状况作如下承诺：</p>
+                                <p>一、本人已确认未曾或者现在正患有下列症状或疾病，如有，本人放弃申请互助保障金。</p>
+                                <p>1.  咯血、 肺结核、肺部肿瘤</p>
+                                <p>2.  先天性心脏病、风湿性心脏病、冠心病、心绞痛、其它严重心脏血管疾病</p>
+                                <p>3.  肝硬化、腹水、</p>
+                                <p>4.  尿毒症、肾功衰竭、</p>
+                                <p>5.  瘫痪、中风、癫痫</p>
+                                <p>6.  先天缺陷</p>
+                                <p>7.  恶性肿瘤、血液病</p>
+                                <p>8.  视力、听力、言语严重失常</p>
+                                <p>9.  任何与艾滋病有关的疾病</p>
+                                <p>二、本人已确认 2 年内未曾或者现在正患有下列症状或疾病，如有，本人自愿将观察期变更为 2 周年。</p>
+                                <p>1.  咯痰（一年中超过三个月）、呼吸困难、胸腔积液、气胸、其它呼吸系统疾病；</p>
+                                <p>2.  呼吸困难、心肌炎、高血压、高血脂症、动脉硬化或其它严重心脏血管</p>
+                                <p>3.  吞咽困难、肝脾肿大或严重消化系统疾病</p>
+                                <p>4.  尿路畸形；</p>
+                                <p>5.  意识障碍、晕厥、感觉及运动异常、其它脑部疾病；</p>
+                                <p>6.  性格异常、定向力障碍、精神抑郁、精神状态异常或其它精神疾病</p>
+                                <p>7.  先天缺陷、四肢残缺、</p>
+                                <p>8.  脓肿、囊肿或不明原因的肿块；</p>
+                                <p>9.  不明原因的皮下出血点、鼻衄</p>
+                                <p>10. 性病</p>
+                                <p>三、本人已确认 5 年内未曾/正患有下列症状或疾病，如果曾有，自本人自愿将观察期变更为 2 周年。</p>
+                                <p>1.  严重异常检查结果，如验血、验便、心电图、X 光、穿刺、造影、核磁共振、CT、B 超等；</p>
+                                <p>2.  曾为制止酗酒或因酒精中毒而接受医生治疗或者使用成瘾药物、过量尼古丁或曾接受戒毒治疗。</p>
+                                <p>四、下列条目仅适用于女性行动会员，如果目前正有下列症状或疾病，本人自愿将观察期变更为 2 周年。</p>
+                                <p>1.  正在怀孕，有乳房肿块、溃疡、疼痛、血性溢乳或乳房周围淋巴结肿大、疼痛等不适感觉或异常发现；</p>
+                                <p>2.  阴道不规则流血、白带异常、下腹痛等不适感觉或异常发现。</p>
+                                <p>如本人违反本承诺，则自愿放弃获得帮助；如造成北京轻松筹网络科技有限公司及其他行动会员损失的，本人自愿承担赔偿责任。</p>
+                        </div>
+                        <div class="modal-footer"> <a href="javascript:void(0);" class="btn btn-primary btn-lg" data-dismiss="modal">已阅读并同意</a> </div>
+                </div>
+        </div>
+</div>
+<div class="qsc-modal" id="convention" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog middle middle-max">
+                <div class="modal-content clearfix">
+                        <div class="modal-header text-center"> 微爱大病互助行动公约 </div>
+                        <div class="modal-body">
+                                <h4 class="text-center">第一章 前言</h4>
+                                <p>2015年的政府工作报告中，李克强总理提到了“加强重特大疾病医疗救助，全面实施临时救助制度，让遇到急难特困的群众求助有门、受助及时。”可见医疗救助在保障公民的生存权、健康公平权领域起着不可替代的作用。 </p>
+                                <p>本项目就是根据该社会背景设立的，我们希望可以缓解当前医疗救助事业存在的诸多问题，使病患获得医疗上的经济援助，获得救治机会，重拾生活信心。 </p>
+                                <h4 class="text-center">第二章 释义</h4>
+                                <p>“微爱大病互助行动”是北京轻松筹网络科技有限公司（以下简称“轻松筹”）与符合本项目要求的会员共同发起的重大疾病互助项目（以下简称“本项目”）。 </p>
+                                <p>《微爱大病互助行动公约》（以下简称“本公约”）为需参与本项目的全体会员（以下简称“您”）共同遵守的规则。 </p>
+                                <p>您在确认加入本项目前请仔细阅读本公约，在您确认参与后即默认您已充分理解本公约的全部内容，并同意认真遵守本公约的权利义务。 </p>
+                                <p>会员：是平台会员与行动会员的统称。 </p>
+                                <p>平台会员：是指具有完全民事权利能力和民事行为能力，在轻松筹完成注册流程的个人和团体。 </p>
+                                <p>行动会员：是指符合本项目参与条件并确认参与本项目的平台会员。 </p>
+                                <p>互助申请人：是指发生本项目约定的救助情形，需要获得其他会员救助的行动会员本人或其法定继承人。 </p>
+                                <p>保障金账户：行动会员向轻松筹定向充值资金所存放的其在本项目的个人账户，充值后行动会员仅享有查看和继续充值的权利。 </p>
+                                <h4 class="text-center">第三章 公约效力</h4>
+                                <p>1、平台会员符合本项目参与条件，确认参与并完成充值后即成为行动会员，本公约对所有会员均有法律效力。 </p>
+                                <p>2、北京轻松筹网络科技有限公司（以下简称“轻松筹”）提供相关技术服务，行动会员同时默认接受轻松筹旗下运营平台（以下简称“轻松筹平台”）内其他协议规则的约束。 </p>
+                                <p>3、轻松筹有权根据实际情况随时修订本公约，并通过轻松筹运营平台进行公示。变更后的条款公示后，即发生法律效力。您若对变更后的条款有任何异议，请及时退出该项目。如您继续使用本项目提供的服务，则表示您同意并接受新条款的约束。 </p>
+                                <p>4、&nbsp;如您对本公约有任何疑问，应向轻松筹咨询。您不应以未阅读或不接受本公约的内容为由，主张本公约无效或要求撤销本公约。 </p>
+                                <p>5、本项目属于创新型项目，可能会受到国家法律法规及政策的影响，导致本项目不能继续提供相应的服务，您成为行动会员时即表明您已充分了解本项目存在的风险，如因此使您遭受损失，您同意自行承担，轻松筹不承担任何责任。 </p>
+                                <h4 class="text-center">第四章 参与标准</h4>
+                                <p>6、行动会员加入条件： </p>
+                                <p>（1）18-50周岁自然人； </p>
+                                <p>（2）加入本项目之时身体健康，无重大疾病史及相关症状就诊纪录，无慢性病史； </p>
+                                <p>（3）无条件向本项目充值10元； </p>
+                                <p>（4）认同并承诺遵守本公约。 </p>
+                                <p>7、行动会员退出条件 </p>
+                                <p>（1）受到一次救助的行动会员，自动退出； </p>
+                                <p>（2）年满51周岁，自动退出； </p>
+                                <p>（3）个人保障金帐户余额不足3元，保障中断；在60日内未补足的，自动退出； </p>
+                                <p>（4）本公约所规定的其他情况。 </p>
+                                <h4 class="text-center">第五章 互助内容</h4>
+                                <p>8、行动会员年龄为18-39周岁，加入本项目180天后初次发生并被医院的专科医生确诊为本项目约定的重大疾病（30种），本项目下的其他行动会员会为其发起互助；该确诊行动会员将获得最高互助金额为30万元。 </p>
+                                <p>9、行动会员年龄为40-50周岁，加入本项目360天后初次发生并被医院的专科医生确诊为本项目约定的重大疾病（30种），本项目下的其他行动会员会为其发起互助；该确诊行动会员将获得最高互助金额为15万元。 </p>
+                                <p>10、行动会员资格存续期间，如其罹患本项目约定的30种重大疾病，其他行动会员有义务进行均摊式互助。每人单次均摊基准上限为3元，轻松筹将从其他行动会员保障金账户进行扣除。 </p>
+                                <p>11、本项目中“重大疾病（30种）”是指《重大疾病保险的疾病定义使用规范》中规定的25种疾病及2015年9月4日后增加的5种疾病（严重多发性硬化、严重I型糖尿病、恶性葡萄胎（女性）、系统性红斑狼疮（女性）、严重原发性心肌病）。 </p>
+                                <h4 class="text-center">第六章 会员的权利义务</h4>
+                                <p>12、您有权查阅本项目公布的互助事件及活动信息。 </p>
+                                <p>13、您有权参与本项目存续过程中发生的各种互助事件或活动。 </p>
+                                <p>14、您有义务向轻松筹提供真实准确的身份信息。 </p>
+                                <p>15、您有义务保证不在项目运行过程中发布包含诈骗、非法、色情、淫秽、暴力等违反国家法律法规、政策的内容，不发表含有攻击性、侮辱性的言论。 </p>
+                                <p>16、行动会员有权在需要时获得其他行动会员的互助，也有义务根据互助事件向其他行动会员提供互助。 </p>
+                                <p>17、您可获得本项目提供的信息、资料、咨询和服务，查看您本人参与互助事件的记录，了解您所参与的互助事件情况，并对该互助事件提出质疑。 </p>
+                                <p>18、一旦出现互助申请人通过提供虚假资料和信息而获得互助的情形，您有权委托轻松筹向互助申请人进行追偿。 </p>
+                                <p>19、您对本项目有批评权、建议权和监督权。 </p>
+                                <p>20、您应确保您在参与本项目时留下的注册信息、联系方式、银行卡信息是真实准确的，否则您将无法获得帮助。 </p>
+                                <p>21、行动会员应及时关注本项目的互助事件信息，自行了解互助流程，认真履行义务；不能以未收到本项目的通知为由要求轻松筹承担任何责任。 </p>
+                                <p>22、一旦加入本项目，即视为您授权轻松筹在相关行动会员符合互助条件时，向其提供相应的金额以用于互助事宜。 </p>
+                                <p>23、行动会员应及时关注个人保障金账户的资金情况，保证账户有足够余额（不低于3元）确保您能及时享受互助权利，正常履行互助义务。 </p>
+                                <p>24、您应妥善保管在轻松筹平台上注册的用户名和密码，凡使用您的用户名和密码登陆轻松筹平台进行的一切操作，均视为您本人的行为，一切责任由您本人承担。 </p>
+                                <p>25、申请互助的行动会员有义务就互助事件提供真实完整的资料，否则将被取消获得互助的资格。 </p>
+                                <p>26、您同意轻松筹可单方面判断并决定，如果您违反本公约或轻松筹平台的规则，出现损害本项目和其他会员的行为，轻松筹可随时终止您的密码、账号或某些服务的使用，并可将您在轻松筹平台中留存的任何内容加以移除或删除，同时对您终止部分或全部服务。 </p>
+                                <p>27、您了解并同意轻松筹在发现任何不适宜内容时，无需进行事先通知，可立即关闭或删除您的账户及其账户中所有相关信息及文件，并暂时或永久禁止您继续使用前述文件或账户。 </p>
+                                <p>28、您的账户因以上所述原因被终止使用或因停止运作等原因被关闭时，您无权要求轻松筹退回个人保障金账户中显示的现金余额，也无权要求平台会员或其他行动会员在您未来发生互助事件时对您发起互助。 </p>
+                                <h4 class="text-center">第七章 轻松筹权利义务</h4>
+                                <p>29、轻松筹不保证任何行动会员都能获得互助保障。 </p>
+                                <p>30、轻松筹有权制定各项互助条款并协助行动会员互助。 </p>
+                                <p>31、轻松筹或其指定第三方有权对行动会员的互助申请进行审核，并最终决定申请会员是否可以获得互助。 </p>
+                                <p>32、轻松筹对行动会员充值的资金进行管理。 </p>
+                                <p>33、在行动会员符合互助条件时，轻松筹在其他行动会员个人保障金账户里代为扣款并将互助资金划拨给互助申请人。 </p>
+                                <p>34、在出现互助申请人通过提供虚假资料和信息而获得互助的情形时，轻松筹有义务代全体行动会员向互助申请人追偿；但若未能全额追偿，轻松筹无出资垫付的义务。 </p>
+                                <p>35、轻松筹因客观或政策原因无法继续运作本项目，或行动会员数量低于一定数量（20万人）时，有权终止本项目。在此情形下，轻松筹将根据保障金账户中的余额，在扣除基本的账户管理费用后退还至行动会员绑定的银行账户。 </p>
+                                <p>36、轻松筹为本项目提供技术服务，该服务可能会受到各个环节不稳定因素的影响。因此服务存在不可抗力、计算机病毒或黑客攻击、系统不稳定、会员所在地点以及其他任何技术、互联网络、通信线路原因等造成的服务中断或不能满足行动会员要求的风险，轻松筹不作任何担保。对因此导致会员损失，轻松筹不承担任何责任。 </p>
+                                <p>37、如轻松筹平台的系统发生故障影响服务的正常运行，轻松筹会在第一时间进行修复处理。但会员因此而产生的间接损失，轻松筹不承担责任。此外，轻松筹保留不经事先通知为维修保养、升级或其他目的暂停服务任何部分的权利。 </p>
+                                <p>38、参与本项目的行动会员之间除互助事件之外引发的任何纠纷轻松筹将不负责任。 </p>
+                                <p>39、会员公然侮辱他人或者捏造事实诽谤他人或的，或者进行其他恶意攻击的，轻松筹有权不为该会员提供服务并有权追偿会员给造成的损失。</p>
+                                <h4 class="text-center">第八章 资金</h4>
+                                <p>40、轻松筹将为本项目提供独立账户，通过轻松筹平台对会员充值资金使用情况进行公示，由北京微爱公益基金会对充值资金进行监管，并委托安永华明会计师事务所为本项目制作年度审计报告。 </p>
+                                <p>41、会员向本项目充值时，收取充值金额的2%作为项目管理费用。 </p>
+                                <p>42、会员充值资金仅用于本项目救助及因救助产生的相关费用和在充值资金所产生的孳息不足以支付为本项目提供必要服务的第三方收取的服务费用（包括但不限于法律顾问服务费、救助情况审核服务费、审计服务费、项目资金监管服务费、信息服务费用等）时，支付给第三方的费用。 </p>
+                                <p>43、会员充值资金所产生的孳息轻松筹将用于以下用途： </p>
+                                <p>（1）支付联系会员的的通讯费用 </p>
+                                <p>（2）支付会员充值、向会员划拨款项及资金托管产生的相关费用 </p>
+                                <p>（3）支付事件调查、审核的费用 </p>
+                                <p>（4）支付会员监督产生的费用（如公证费、监督会员差旅费等） </p>
+                                <h4 class="text-center">第九章 终止和退出</h4>
+                                <p>44、以下任一情形出现，本项目即终止: </p>
+                                <p>（1）本项目参与人数少于20万人的； </p>
+                                <p>（2）不可抗力、政策因素致本项目终止的。 </p>
+                                <p>45、以下任一情形出现，您即退出本项目: </p>
+                                <p>（1）您违反了国家法律法规、政策、本公约或轻松筹平台发布的各类规则，轻松筹平台终止为您提供服务的； </p>
+                                <p>（2）您本人不同意接受本公约约定或轻松筹平台发布的各类规则的； </p>
+                                <p>（3）您不符合本公约规定的参与资格的。 </p>
+                                <p>46、本公约终止或您退出本公约，不影响您受本公约约束时所做的行为应承担的义务和责任。 </p>
+                                <p>47 本公约的解释权归轻松筹所有。 </p>
+                        </div>
+                        <div class="modal-footer"> <a href="javascript:void(0);" class="btn btn-primary btn-lg" data-dismiss="modal">已阅读并同意</a> </div>
+                </div>
+        </div>
+</div>
+<script type="text/template" id="J_observed_card_tpl">
+    <table class="add-observed-card active" data-hash="" >
+        <tbody>
+        <tr>
+            <td>姓名</td>
+            <td class="weak">${Name}</td>
+            <td class="wait-for-pay">待支付</td>
+        </tr>
+        <tr>
+            <td>身份证</td>
+            <td class="weak">${CertNo}</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</script>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script>
+<!--<script src="/weixin/Public/Member/js/huzhu/insurance.min.js"></script> 
+--><script>
+
+
+
+
+    var redirect = function(url) {
+        var dom = window.document.createElement('form');
+
+        var parts = url.split('?');
+        var action = parts[0];
+        var query = parts[1];
+
+        var paramArray = [];
+        if (query) {
+            paramArray = query.split('&');
+        }
+
+        dom.setAttribute('method', 'get');
+        dom.setAttribute('action', action);
+        dom.style.display = 'none';
+        dom.style.visibility = 'hidden';
+
+        var e, kv, k, v;
+        for (var i = 0; i < paramArray.length; i++) {
+            kv = paramArray[i].split('=');
+            k = kv[0];
+            v = kv[1] || '';
+            e = window.document.createElement('input');
+
+            e.setAttribute('type', 'hidden');
+            e.setAttribute('name', decodeURIComponent(k));
+            e.setAttribute('value', decodeURIComponent(v));
+
+            dom.appendChild(e);
+        }
+
+        window.document.body.appendChild(dom);
+        dom.submit();
+    };
+
+    $(function(){
+        
+        var isAPP = navigator.userAgent.indexOf('qsc_custom') !== -1
+        $('.link-member').on('click',function(){
+            var member = $(this).attr('data-member');
+            if(!isAPP) {
+                window.location = GlobalObj.host+'/member/'+member+'?insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5';
+            } else {
+                if (GlobalObj.isNewAppPolicy) {
+                    window.location = 'qsc://qsc.policy/do/jump?url='+
+                            encodeURIComponent(GlobalObj.host+'/member/'+member+'?insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5');
+                } else {
+                    window.location = 'qsc-social://qsc.policy/jump?url='+
+                            encodeURIComponent(GlobalObj.host+'/member/'+member+'?insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5');
+                }
+            }
+        });
+				
+		$('.convention').on('click', function(){
+            $('#convention').show();
+        });
+		$('.modal-footer').on('click', function(){
+            $('#convention').hide();
+        });
+		
+		$('#link-health').on('click', function(){
+            $('#modal-health').show();
+        });
+		$('.modal-footer').on('click', function(){
+            $('#modal-health').hide();
+        });
+		
+    });
+    
+    /*//保障人信息点击交互和总价的计算
+    (function(){
+        //初始化
+        //设置默认选中的长度
+        var num = $('.add-observed-card').length;
+        //设置单价
+        var price = parseFloat($('#fee').html());
+        //初始，全部选中，计算出总价
+        $('#fee').html(num * price);
+        
+        $('.add-observed-card').each(function(){
+            //开始每个都加上选中状态
+            $(this).addClass('active');
+            $(this).attr('onOff','true');
+            $(".btn-block").addClass('btn-success');
+
+            $(this).on('click',function(){
+                if($(this).attr('onOff') != 'true'){
+                    $(this).addClass('active');
+                    $(this).attr('onOff','true');
+                    num ++;  
+                }else{
+                    $(this).removeClass('active');
+                    $(this).attr('onOff','false');
+                    num --; 
+                }
+
+                $('.add-observed-card').each(function(){
+                    if( $(this).attr('onOff') == 'true' ){
+                        $(".btn-block").addClass('btn-success');
+                        return false;
+                    }else{
+                        $(".btn-block").removeClass('btn-success');
+                    }
+                })
+                //计算出每次的总价
+                $('#fee').html(num * price);
+
+            })
+        })
+    })()*/
+
+        //保障人信息点击交互和总价的计算
+        (function(){
+                //初始化
+                //第一个选中状态
+                $('.add-observed-card').eq(0).addClass('active');
+                //点击，每次只能选中一个
+                $('.add-observed-card').each(function(){
+                        $(this).on('click',function(){
+                                $('.add-observed-card').each(function(){
+                                        $(this).removeClass('active');
+                                });
+
+                                $(this).addClass('active');
+                        })
+                                
+                });
+
+                //点击支付按钮
+                $('#wechat-charge').on('click',function(){
+                        window.location.href="https://baidu.com"
+                })
+        })()
+</script>
+</body>
+</html>

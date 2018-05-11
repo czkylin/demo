@@ -1,0 +1,264 @@
+/*common*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+:focus {
+	outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+li {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clear:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+/*heaer*/
+.header{
+	padding: 0 2.5%;
+	width: 95%;
+	height: 10rem;
+	background: url(/weixin/Public/Expert/images/payment/header-bg.jpg) no-repeat;
+	background-size: 100%;
+}
+.header ul{
+	padding-top: 0.64rem;
+	margin-bottom: 1.8rem;
+}
+.header ul li{
+	font-size: 0.64rem;
+	color: #fff;
+}
+.header ul li.danwei{
+	font-size: 0.55rem;
+	opacity: 0.8;
+}
+.price{
+	font-size: 2.8rem;
+	text-align: center;
+	margin-bottom: 1.2rem;
+}
+.price p{
+	display: inline-block;
+	position: relative;
+	color: #fff;
+	margin-bottom: 0.4rem;
+}
+.price p i{
+	font-style: normal;
+}
+.price p i b{
+	display: none;
+}
+.price p .kan{
+	position: absolute;
+	right: -25px;
+	top: 5px;
+	width: 19px;
+	height: 11px;
+	background: url(/weixin/Public/Expert/images/payment/kai.png) no-repeat center;
+	background-size: 16px;
+}
+.price .link{
+	display: block;
+	width: 4rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.4rem;
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 0.4rem;
+	margin: 0 auto;
+}
+.header .total{
+	font-size: 0.7rem;
+	text-align: center;
+	color: #fff;
+}
+/*improve*/
+.improve{
+	
+}
+.improve .title{
+	padding-left: 10%;
+	height: 1.28rem;
+	background: url(/weixin/Public/Expert/images/payment/improve-icon.png) no-repeat 4% center;
+	background-size: 18px;
+	font-size: 0.6rem;
+	line-height: 1.28rem;
+	font-weight: 600;
+	position: relative;
+}
+.improve .title a{
+	position: absolute;
+	right: 2.5%;
+	top: 0;	
+	color: #199cee;
+}
+.improve ul{
+	background:#f6f6f6;
+	padding: 1.28rem 0;
+}
+.improve ul li{
+	float:left;
+	width: 33%;
+	height: 1.28rem;
+	padding-top: 1.28rem;
+}
+.improve ul li:nth-of-type(1){
+	background: url(/weixin/Public/Expert/images/payment/improve-icon1.png) no-repeat top center;
+	background-size: 16px;
+}
+.improve ul li:nth-of-type(2){
+	background: url(/weixin/Public/Expert/images/payment/improve-icon2.png) no-repeat top center;
+	background-size: 20px;
+	border-left: 1px solid #cbcbcb;
+	border-right: 1px solid #cbcbcb;
+}
+.improve ul li:nth-of-type(3){
+	background: url(/weixin/Public/Expert/images/payment/improve-icon3.png) no-repeat top center;
+	background-size: 22px;
+}
+.improve ul li p{
+	text-align: center;
+	font-size: 0.6rem;
+}
+.improve ul li span{
+	text-align: center;
+	display: block;
+	font-size: 0.6rem;
+	color: #666;
+}
+.improve ol{
+	background:#f6f6f6;
+}
+.improve ol li{
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+	background:#fff url(/weixin/Public/Expert/images/payment/sanjiao.png) no-repeat 97% center;
+	background-size: 8px;
+	position: relative;
+}
+.improve ol li .type{
+	color: #333;
+	font-size: 0.64rem;
+	margin-bottom: 0.4rem;
+}
+.improve ol li .time{
+	font-size: 0.512rem;
+	color: #999;
+}
+.improve ol li .mingxi{
+	position: absolute;
+	right: 10%;
+	top: 2px;
+}
+.improve ol li .mingxi span{
+	font-size: 0.6rem;
+	color: #333;
+}
+.improve ol li .mingxi b{
+	font-size: 0.512rem;
+	color: #999;
+}
+.income{position:relative;}
+.income a{display:inline-block;border:1px solid #fff;color:#fff;border-radius:6px;padding:0 15px 0 10px;position:relative;height:24px;line-height:24px;}
+.income a:before{position:absolute;right:3px;top:50%;border-left:3px solid transparent;border-right:4px solid transparent;border-top:6px solid #fff;margin-top:-3px;content:'';}
+.income a:after{position:absolute;right:3px;top:50%;border-left:3px solid transparent;border-right:4px solid transparent;border-top:6px solid #ff5c4b;margin-top:-5px;content:'';}
+.income em{position:absolute;left:0;top:0;font-style:normal;text-align:center;background:#fff;color:#333;border-radius:4px;visibility:hidden;opacity:0;transition:.3s;-webkit-transition:.3s;-webkit-transform:translate3d(0,40px,0);transform:translate3d(0,40px,0);}
+.income em:before{position:absolute;right:10px;top:-8px;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:8px solid #fff;content:'';}
+.income i{font-style:normal;display:block;line-height:30px;padding:0 10px;}

@@ -1,0 +1,27 @@
+<volist name="member_list" id="data">
+    <dl>
+        <a href="{:U('Expert/Member/member_detail',array('jsondate'=>$data['jsondate'],'pd'=>'1'))}">
+            <dt>
+                <span>
+                <if condition="$data['Sign'] eq 1">
+                    <b></b>
+                </if>
+                    <if condition="($data['MEMBER_SEX'] eq '未填写') && ($data['MEMBER_PIC'] eq '')">
+                        <img src="/weixin/Public/Expert/images/yonghu/girl.png" width="60" height="60"/>
+                    <elseif condition="($data['MEMBER_SEX'] eq '男') && ($data['MEMBER_PIC'] eq '')" />
+                        <img src="/weixin/Public/Expert/images/yonghu/boy.png" width="60" height="60"/>
+                    <elseif condition="($data['MEMBER_SEX'] eq '女') && ($data['MEMBER_PIC'] eq '')" />
+                        <img src="/weixin/Public/Expert/images/yonghu/girl.png" width="60" height="60"/>
+                    <else />
+                        <img src="{$data['MEMBER_PIC']}" width="60" height="60" />
+                    </if>
+                </span>
+            </dt>
+            <dd>
+                <h2>{$data['MEMBER_NAME']}</h2>
+                <p>检测时间：{$data['CheckDate']}</p>
+            </dd>
+            <br clear="all" />
+        </a>
+    </dl>∮
+</volist>

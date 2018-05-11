@@ -1,0 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html,body{
+	height: 100%;
+	overflow: hidden;
+	background-color: #fff;
+}
+.wrapper,.swiper-container{
+	height: 100%;
+}
+.page1{
+	background: url(/weixin/Public/Member/images/huzhu/heart_health/bg1.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+.page1 .p1-title{
+	display: block;
+	width: 47%;
+	margin: 0 auto;
+}
+
+.page2 .p2-title{
+	margin: 60px auto 30px;
+	color: #010101;
+	text-align: center;
+}
+.p2-title h3{
+	font-size: 20px;
+}
+.p2-title p{
+	font-size: 12px;
+	line-height: 24px;
+}
+.page2 .p2-des{
+	display: block;
+	margin: 20px auto 40px;
+	width: 88%;
+}
+.page2 .p2-pic{
+	width: 100%;
+}
+.page3{
+	background: url(/weixin/Public/Member/images/huzhu/heart_health/bg3.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+.page3 .p3-title{
+	font-size: 20px;
+	text-align: center;
+	margin: 60px 0 35px 0;
+}
+.page3 .p3-des{
+	display: block;
+	width: 70%;
+	margin: 0 auto;
+}
+.page4 .p4-title{
+	font-size: 20px;
+	text-align: center;
+	margin: 20px 0;
+}
+.page4 .p4-des{
+	display: block;
+	width: 87%;
+	margin: 0 auto;
+}
+.page5 .p5-title{
+	font-size: 20px;
+	text-align: center;
+	margin: 65px 0 50px 0;
+}
+.p5-des-wrapper{
+	width: 100%;
+	text-align: center;
+}
+.p5-des-wrapper img{
+	width: 31%;
+}
+.page6 .p6-title{
+	font-size: 20px;
+	text-align: center;
+	margin: 25px 0 20px 0;
+}
+.p6-des-wrapper{
+	width: 100%;
+}
+.p6-des-wrapper img{
+	width: 100%;
+}
+.page7 {
+	position:relative;
+}
+.page7 .p7-pic{
+	width: 100%;
+}
+.page7 .link{
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 10;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	background-color: #62b6e4;
+}
+

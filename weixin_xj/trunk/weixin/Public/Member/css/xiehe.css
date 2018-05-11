@@ -1,0 +1,38 @@
+*{margin: 0; padding: 0;}
+.w960{width: 960px; height: 100%; margin: 0 auto; overflow: hidden;}
+header,header img{width: 100%; height: auto;}
+header{overflow: hidden;}
+header img{display: block;}
+.con1{height: 500px; background: #f2f2f2; overflow: hidden;}
+.con1 dl{box-sizing: border-box; padding: 74px 0 0 60px; overflow: hidden;}
+.con1 dl dt{float: left;}
+.con1 dl dd{float: right; margin-top: 8px;}
+.con1 dl dd h2{margin: 0; font-size: 30px; line-height: 56px; text-align: left;}
+.con1 dl dd p{font-size: 16px; line-height: 28px;}
+.con1 dl dd p strong{color: #2b898f;}
+.con2{height: 884px; overflow: hidden;}
+h2{margin: 54px auto 0; line-height: 70px; font-size: 24px; text-align: center;}
+h2 i{font-style: normal; padding: 20px 0; border-bottom: 3px solid #49c3bb;}
+.con2 p,.con3 .w960>p{margin-top: 28px; line-height: 28px; text-indent: 38px; font-size: 16px;}
+.con2 img.ensure{margin-top: 24px;}
+.con2 .swiper-container{margin: 60px 0 0 14px; width: 960px; height: 300px;}
+.con2 .swiper-wrapper{width: 960px;}
+.swiper-pagination{position: absolute; bottom: 76px;}
+.swiper-pagination span{position: relative; display: inline-block; margin-right: 6px; width: 10px; height: 10px; border-radius: 50%; background: #c8c8c8; opacity: 1; cursor: pointer;}
+.swiper-pagination span.swiper-pagination-bullet-active{background: #49c3bb;}
+.tel{width: 100%; height: 40px; background: #999999; line-height: 40px; text-align: center; font-size: 20px; color: #fff;}
+.con3{height: 980px; background: #49c3bb;}
+.con3 h2{color: #fff;}
+.con3 h2 i{border-color: #fff;}
+.con3 .w960>p{margin-bottom: 34px; color: #fff;}
+.con3 .content{position: relative; box-sizing: border-box; padding: 10px 20px 0; margin-left: 12px; width: 230px; height: 600px; background: #fff; float: left;}
+.con3 .content.first{margin-left: 0;}
+.con3 h3{line-height: 62px; font-size: 22px; color: #49c3bb;}
+.con3 .content p{line-height: 26px; font-size: 16px;}
+.con3 .content img{position: absolute; bottom: 60px;}
+.con4{height: 596px;}
+.con4 h2{color: #49c3bb;}
+.con4 .swiper-container1{margin-top: 48px; height: 354px;}
+.con4 .swiper-pagination1{bottom: 0;}
+.con5{height: 580px; background: #f2f2f2;}
+.con5 .w960{padding: 44px 0 0 23px; box-sizing: border-box;}

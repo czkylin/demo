@@ -1,0 +1,26 @@
+body{background:#fff;font-size:16px;}
+body,html,article,section{height:100%;}
+.swiper-wrapper{transition-timing-function: linear;}
+section{overflow:hidden;}
+section ul{height:1200%;background:url(/weixin/Public/Member/images/art/bg.jpg) no-repeat;background-size:100% 100%;}
+section li{height:100%;}
+section li{position:relative;}
+section li .bg{position:absolute;top:50%;left:50%;height:100%;transform:translate(-50%,-50%) rotate(90deg);-webkit-transform:translate(-50%,-50%) rotate(90deg);}
+section li img{position:absolute;left:0;bottom:0;}
+section li:nth-child(2) img{bottom:0;}
+section li:nth-child(3) img{bottom:5rem;}
+section li:nth-child(4) img{bottom:0;}
+section li:last-child p{width:8rem;height:2rem;transform:rotate(90deg);-webkit-transform:rotate(90deg);}
+section li:last-child img{position:static;}
+.bird{width:200px;height:200px;position:fixed;left:-1rem;top:1.5rem;transform:rotate(90deg);-webkit-transform:rotate(90deg);z-index:100;}
+.alert{position:absolute;top:100px;left:100px;height:100px;width:100px;background:red;}
+.sign{position:fixed;top:50%;right:0;margin-top:-150px;width:300px;height:300px;transform:translate3d(300px,0,0);-webkit-transform:translate3d(300px,0,0);transition:.5s;-webkit-transition:.5s;z-index:200;}
+.down{transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);}
+.sign p{background:url(/weixin/Public/Member/images/art/one.png) no-repeat center 0;width:300px;height:300px;background-size:180px;transform:rotate(90deg);-webkit-transform:rotate(90deg);position:relative;}
+.sign:nth-of-type(2) p{background:url(/weixin/Public/Member/images/art/two.png) no-repeat center 0;background-size:180px;}
+.sign:nth-of-type(3) p{background:url(/weixin/Public/Member/images/art/three.png) no-repeat center 0;background-size:180px;}
+.sign:nth-of-type(4) p{background:url(/weixin/Public/Member/images/art/four.png) no-repeat center 0;background-size:180px;}
+.links{position:absolute;width:100%;left:0;bottom:1rem;z-index:200;}
+.links a{font-size:12px;margin:0 .5rem;color:#b72a2a;}
+.links a:nth-child(2){color:#666;}
+.music{position:fixed;bottom:20px;right:20px;width:30px;height:30px;}

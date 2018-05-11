@@ -1,0 +1,22 @@
+<volist name="jf_list" id="jf">
+		<li>
+			<div class="pic fl"><span class="fs14">{$jf['CREATE_DATE']}</span></div>
+			<section class="fr">
+				<div class="tw fs14">
+					<a href="#">
+						<if condition="$jf['JIFEN_PIC'] neq ''">
+						<img src="{$jf['JIFEN_PIC']}"/>
+						</if>
+						积分名称：{$jf['JIFEN_NAME']}<br>
+						积分值：{$jf['JIFEN_VALUE']}<br>
+						积分倍数：{$jf['JIFEN_MULTI']}<br>
+						积分总分：{$jf['JIFEN_SUM']}<br>
+						积分描述：{$jf['JIFEN_DESC']}
+						<div class="clear"></div>
+					</a>
+				</div>
+				<div class="time fs16 tar"><span class="fc2587c6">{$jf['CHECK_FLAG']}</span><!--<a {$str} class="fc2587c6" href="">删除</a>--></div>
+			</section>
+			<div class="clear"></div>
+		</li>∮
+</volist>

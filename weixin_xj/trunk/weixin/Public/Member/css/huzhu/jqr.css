@@ -1,0 +1,68 @@
+.new_bb{ width: 100%;}
+.top_img{  position: relative; text-align: center; color: #FFFFFF;}
+.top_img span{ position: absolute; bottom: 15px;  font-size: 14px; right: 20px; }
+.top_img h2{ width: 100%;  position: absolute; top:80px; left:0; text-align:center;font-size: 40px; padding-bottom: 20px;}
+.top_img p{ width: 100%;text-align:center; position: absolute; top:135px; left:0;font-size: 18px;}
+.yz_con{ font-size: 14px;}
+.bx_info{padding: 20px 15px 10px; display: flex; -webkit-display: flex; flex-wrap:wrap;justify-content: space-between;}
+.bx_info span{ display: block; width: 50%;  line-height: 30px; color: #333333;}
+.bx_info span:nth-of-type(odd){color: #666666;}
+.bx_info span:nth-of-type(even){ text-align: right;}
+.bx_info a{ color: #0e8fe9; font-size: 12px; line-height: 30px;}
+.bz_years,.sx_date{ line-height: 40px; color: #333333;  display: flex; -webkit-display: flex; justify-content: space-between;padding: 0px 15px;  border: 1px solid #cacaca; border-left: 0px; border-right: 0px;}
+.sx_date{ border: 0px;}
+.h10px{ height: 10px; background: #eee;}
+.bzr_name{ padding: 0px 15px; line-height: 40px; overflow: hidden;}
+.name_l{ float: left; width: 70%;}
+.onOff {
+    float: right;
+    width: 40px;
+    height: 25px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 6px;
+}
+.onOff span{ position: absolute;
+    left: 0;
+    width: 80px;
+    height: 23px;
+    background: url(/weixin/Public/Member/images/huzhu/share_icon/onOff.png) no-repeat;
+    background-size: 100% 100%;
+    display: block;}
+.benren{ font-size: 14px;}
+.br_jieshi{ line-height: 40px; background: #eee; color: #999999; padding-left: 15px;}
+.yz_liucheng{line-height: 40px;padding:0px 15px; display: flex; -webkit-display: flex; justify-content: space-between;
+}
+.yz_liucheng a{ color: #333333;}
+.yz_liucheng i{ width: 10px; height: 18px; margin-top: 11px;transition: 0.5s;
+    -webkit-transition: 0.5s;}
+.yz_liucheng i.rotate{
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+.yz_liucheng i img{ width: 100%;}
+.xs_fuwu{ font-size: 14px;border-bottom: 1px solid #ececec;}
+.xs_fuwu span{ font-size: 18px; }
+.fuwu_list{ padding: 0px 15px 10px; color: #666666;}
+.fuwu_list li{ line-height: 26px;}
+.jscp{ line-height: 40px; padding: 0px 15px;}
+.other_people{  font-size: 14px;border-bottom: 1px solid #cacaca; display: none;}
+.br_name{line-height: 40px;padding:0px 15px; display: flex; -webkit-display: flex; justify-content: space-between;
+ border-top: 1px solid #cacaca;}
+.br_name input{ padding: 0px; text-align: right; font-size: 14px; outline: none; border: 0;}
+.chose_people{padding:0px 15px;border-top: 1px solid #cacaca;}
+.cp_top{ line-height: 40px;display: flex; -webkit-display: flex; justify-content: space-between;}
+.cp_top .i{    background: url(/weixin/Public/Member/images/huzhu/jqr/jiantou.png) no-repeat right center;
+    background-size: 10px 16px; padding-right: 15px; }
+.cp_top .bottom_jt{
+    background-image: url(/weixin/Public/Member/images/huzhu/jqr/bottom.png);
+    background-size: 16px 10px;padding-right: 20px;
+}
+.cp_bot{ padding-bottom: 15px; display: none; overflow: hidden;}
+.chose_radio{  margin-right: 10px; float: left; width: 80px; height: 40px; position: relative;}
+.chose_radio input{width: 80px; height: 40px; opacity: 0; position: absolute; z-index: 5;}
+.chose_radio span{ width: 80px; height: 40px; display: block; text-align: center; line-height: 40px;
+    border-radius: 50px; border: 1px solid #dedede;
+ }
+.chosed span{  border: 1px solid #e7f4fc; background: #e7f4fc; color: #0e8fe9;}
+

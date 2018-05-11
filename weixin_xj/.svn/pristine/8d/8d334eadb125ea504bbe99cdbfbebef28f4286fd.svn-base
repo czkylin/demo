@@ -1,0 +1,105 @@
+
+<html class="ui-mobile">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta http-equiv="cache-control" content="public">
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="share-title" content="">
+
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--CSS当前页面文件-->
+
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+
+<!-- title -->
+
+<title>腕上私语，动静随心，DUDO Watch智能手环</title>
+<style>
+.img{ width:100%; height:auto;}
+.img img{ display:block; width:100%; height:auto;}
+.goumai{ width:100%; height:48px; background:#26272b; margin-top:20px; }
+.goumai span,.goumai a{ width:49%; height:100%; float:left;color:#fff; display:block; text-align:center; line-height:48px; font-size:16px;}
+.goumai i{ float:left; height:30px; margin-top:9px; width:1px; background:#fff;}
+</style>
+</head>
+
+<body>
+<div class="img">
+	<img src="/weixin/Public/Member/images/hf_shouhuan/img1.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img2.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img3.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img4.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img5.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img6.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img7.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img8.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img9.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img10.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img11.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img12.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img13.jpg" >
+    <img src="/weixin/Public/Member/images/hf_shouhuan/img14.jpg" >
+    <div class="goumai">
+    	<span>¥199</span>
+         <i></i>
+        <a href="">立即购买</a>
+    </div>
+</div>
+<script type="text/javascript">
+    //微信分享
+    wx.config({
+        debug: false
+        , appId: '<?php echo $appId;?>'
+        , timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+        nonceStr: '<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>', // 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+var wx_share_title = '腕上私语，动静随心，DUDO Watch智能手环';
+var wx_share_desc = '一键健康体检；心率监测；血氧监测；血压监测；疲劳指数；睡眠监测';
+var wx_share_imgUrl = "http://wx-tumourorg.yk2020.com/weixin/Public/Member/images/huzhu/insurancecard/fuqinjie.jpg";
+wx.ready(function () {
+    wx.onMenuShareTimeline({
+        title: wx_share_title
+        , desc: wx_share_desc
+        , link: 'http://wx-tumourorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=fuqinjie&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name=' + encodeURIComponent("{:I('get.user_name','')}")
+        , imgUrl: wx_share_imgUrl
+        , success: function () {
+            set_log('朋友圈');
+        }
+        , cancel: function () {}
+    });
+    wx.onMenuShareAppMessage({
+        title: wx_share_title
+        , desc: wx_share_desc
+        , link: 'http://wx-tumourorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=fuqinjie&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name=' + encodeURIComponent("{:I('get.user_name','')}")
+        , imgUrl: wx_share_imgUrl
+        , success: function () {
+            set_log('微信');
+        }
+        , cancel: function () {}
+    });
+}); 
+</script>
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="百倍爱心卡" />
+	<meta name="description" content="给健康100分的呵护，百倍爱心卡健康保障计划。是您保障心血管健康的上上之选。" />
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/share_8.css">
+	<title>百倍爱心卡</title>
+	<script>
+		document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 15 + "px";
+	</script>
+</head>
+<body> 
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide page page1">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p1-title.png" alt="百倍爱心卡，最高可享10万元医疗援助，只需200元" class="title">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p1-img.png" class="img">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p1-pen.png" class="bg1">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p1-book.png" class="bg2">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page page2">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p2-title.png" alt="百倍爱心卡" class="title">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p2-con.png" alt="百倍爱心卡正式会员，以上手术在会员定点机构医保或新农合报销比例后，自费承担比例部分由专项基金援助一次，最高援助10万元" class="con">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p2-img.png" class="img">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p2-book.png" class="bg1">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page page3">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p2-title.png" alt="百倍爱心卡" class="title">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p3-con.png" alt="最高可享受10万元的援助基金，七大优质服务" class="con">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p3-img.png" alt="" class="img">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page page4">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p4-con1.png" alt="中国人民健康保险3万元保障" class="con1">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p4-con2.png" alt="北京三大基金会爱心援助" class="con2">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p4-img.png" alt="" class="img">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page page5">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p2-title.png" alt="百倍爱心卡" class="title">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p5-con.png" alt="加入流程" class="con">
+	        	<img src="/weixin/Public/Member/images/huzhu/share_8/p5-erweima.png" class="erweima">
+	        	<p>了解详情</p>
+	        	<p><span></span>健康热线：<a href="tel:400-656-2020">400-656-2020</a></p>
+	        </div>
+	    </div>    
+	</div>
+	<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_yf" class="link">查看详情</a>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		document.addEventListener('touchstart',function(ev){
+			ev.preventDefault();
+		})
+		var a = document.getElementsByTagName('a');
+		for( var i=0;i<a.length;i++ ){
+			a[i].addEventListener('touchstart',function(ev){
+				ev.stopPropagation();
+			})
+		}
+			
+		var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		    height : window.innerHeight,
+		    //Swiper初始化了	
+		    onInit: function(swiper){
+		      //alert(swiper.activeIndex);提示Swiper的当前索引
+		      $(".page").eq(swiper.activeIndex).addClass("animate");
+		    },
+		    //Swiper切换结束后触发
+		    onSlideChangeEnd: function(swiper){
+		      $(".page").removeClass('animate');
+		      $(".page").eq(swiper.activeIndex).addClass('animate');
+		    }
+		})  
+
+		//微信分享
+		wx.config({
+		    debug: false,
+		    appId: '<?php echo $appId;?>',
+		    timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+		    nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+		    signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+		    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		var wx_share_title = '';
+		var wx_share_desc = '';
+		var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_8/icon.png";
+
+		wx.ready(function() {
+		    wx.onMenuShareTimeline({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_8',
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+
+		        },
+		        cancel: function() {}
+		    });
+		    wx.onMenuShareAppMessage({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_8',
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+
+		        },
+		        cancel: function() {}
+		    });
+		});
+	</script>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+<!-- CNZZ统计代码  百倍爱心宣四单独统计-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260919743).'" width="0" height="0"/>';?></div>
+</body>
+</html>

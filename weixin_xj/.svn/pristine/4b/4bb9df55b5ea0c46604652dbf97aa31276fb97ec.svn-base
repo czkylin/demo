@@ -1,0 +1,86 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/hos_list.min.css" type="text/css" rel="stylesheet"/>
+<title>个人中心首页</title>
+</head>
+
+<body>
+<div class="gp GJ_Gp gp-profile g-items gp-profile_index" style="padding-bottom: 60px; ">
+        <div class="top"> <img src="{$headimgurl}"  alt="您的形象"/>
+                <h2>{$nickname}</h2>
+                <nav> <a href="zixun_list.php?dopost=list" class="zx"> <span>我的咨询</span> </a> <a href="#" class="yy" onClick="showmsg()"> <span>预约挂号</span> </a> 
+                        
+                        <!-- <a href="own_guanzhu.php" class="gz">
+
+ 				<span>我的关注</span>
+
+ 			</a> --> 
+                        
+                        <a href="#" class="gz" onClick="showmsg()"> <span>我的关注</span> </a> </nav>
+        </div>
+        <ul>
+                
+                <!-- <li class="link link-ico">
+
+			<a class="g-arrow-r bingli" href="zixun_bingli.php?dopost=list">
+
+				<label class="nowidth">我的病历</label>
+
+			</a>
+
+		</li>  -->
+                
+                <li class="link link-ico"> <a class="g-arrow-r bingli" href="#" onClick="showmsg()">
+                        <label class="nowidth">我的病历</label>
+                        </a> </li>
+                <li class="link link-ico"> <a class="g-arrow-r jiahao" href="#" onClick="showmsg()" >
+                        <label class="nowidth">我的挂号</label>
+                        </a> </li>
+        </ul>
+        <ul>
+                <li class="link link-ico"> <a class="g-arrow-r shezhi" href="{:U('Member/User/user_info')}"> <i class="icon-sz"></i>
+                        <label class="nowidth">账户设置</label>
+                        </a> </li>
+                <li class="link link-ico"> <a class="g-arrow-r about_us" href="{:U('Member/User/about_us')}"> <i class="icon-sz"></i>
+                        <label class="nowidth">关于我们</label>
+                        </a> </li>
+                <li class="link link-ico"> <a class="g-arrow-r order" href="{:U('Member/Order/order_list')}"> <i class="icon-sz"></i>
+                        <label class="nowidth">我的订单</label>
+                        </a> </li>
+        </ul>
+</div>
+
+<!--通底的引用开始--> 
+
+<include file="Public:footer_fd" /> 
+<script>
+
+	var over_footer = '5';
+
+</script> 
+
+<!--通底的引用结束--> 
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

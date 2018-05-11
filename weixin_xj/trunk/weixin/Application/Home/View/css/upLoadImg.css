@@ -1,0 +1,24 @@
+/*上传头像*/
+
+body { margin: 0; padding: 0; background-color: #e5e5e5; font-family: "微软雅黑"; }
+ul, li, h1, h2, h3, h4, sapn, dl, dd, dr, dt, i, em { list-style: none; margin: 0; padding: 0; font-style: normal; text-decoration: none; }
+.g-list { border-top: 1px solid #e3e3e3; border-bottom: 1px solid #e3e3e3; background: #fff }
+.g-list .item { display: block; height: 47px; padding-left: 10px; line-height: 47px; border-bottom: 1px solid #e3e3e3; position: relative; color: #333; overflow: hidden; padding-top: 10px; padding-right: 10px; }
+.g-list .item.both { padding-right: 10px; }
+.g-list .item { display: block; height: 47px; line-height: 47px; border-bottom: 1px solid #e3e3e3; position: relative; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: #fff; }
+textarea { border: 0; height: 90px; outline: 0 none; resize: none; width: 100%; box-shadow: none; }
+.gp-quankezixun-zixun .item.content textarea { line-height: 140%; border: 0; font-family:"微软雅黑"; box-shadow: none; font-size: 102%; }
+.gp-quankezixun-zixun .item.uploader { height: auto; padding: 10px 0; position: relative; background:#fff; }
+.g-image-upload-box { width: 57px; }
+.g-image-upload-box .preview.small, .g-image-upload-box .upload-btn.small { border-style: dashed; height: 45px; width: 45px; margin-left:10px; }
+.g-image-upload-box .upload-btn { background-image: url(../images/gongzuoshi/+.gif); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; }
+.g-image-upload-box .preview, .g-image-upload-box .upload-btn { border: 1px solid #e3e3e3; color: #bdbdbd; display: inline-block; height: 65px; margin-right: 10px; overflow: hidden; position: relative; width: 65px; }
+.g-image-upload-box .preview.small .file-input, .g-image-upload-box .upload-btn.small .file-input { font-size: 4.5rem; height: 45px; width: 45px; }
+.g-image-upload-box .file-input { font-size: 6.5rem; height: 64px; opacity: 0; position: absolute; right: 0; top: 0; width: 65px; z-index: 99; }
+.gp-quankezixun-zixun .item.uploader .desc { color: #999; font-family:"微软雅黑"; font-size: 90%; left: 60px; line-height: 140%; position: absolute; top: 10px; margin-left:10px; }
+.gp-quankezixun-zixun .item.uploader .desc h3 { padding-bottom: 5px; font-size: 85%; line-height: 200%; margin: 0; padding: 0; }
+.g-btn-padding { background: #fff; width: 100%; text-align:center; padding: 10px 0; border-top: 1px solid #e3e3e3; margin-top: 30px; display: -moz-box; display: -webkit-box; display: box; }
+.g-btn-padding.fixed { margin-top: 0; position: fixed; bottom: 0; }
+.gbt-pri { color: #fff; background-color: #517ac0; }
+.g-btn-padding .gbn { font-family:"微软雅黑"; display: block; margin: 0 5%; border:0; line-height: 40px; height: 40px;  padding: 0 10px; text-align: center; font-size: 16px; border-radius: 3px; width:90%;  }
+.g-btn-padding .gbn:hover { text-decoration: none; color: #fff; }

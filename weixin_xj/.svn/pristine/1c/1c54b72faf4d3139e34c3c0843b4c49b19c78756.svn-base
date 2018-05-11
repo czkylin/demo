@@ -1,0 +1,72 @@
+/*common css*/
+.clear:after{display: block; content: ""; clear: both;}
+.clear{ clear: both; }
+i{font-style: normal;}
+/*main 正常  0fbca1  偏高e93e3d   偏低ff8f20 */
+.header{width: 100%;}
+.header img{ width: 100%;}
+.position{ position: relative; }
+.position_a{ position: absolute; }
+.con{padding: 10px 3.2%; border-bottom: 1px solid #e7e7e7; }
+.con h2{background: url(/weixin/Public/Member/images/user/icon_xt.jpg) no-repeat 5px center; background-size: 18px;  padding-left: 35px; height: 40px; line-height: 40px; font-size: 15px;}
+.con p{padding-left: 30px; line-height: 20px; font-size: 12px; color: #999;}
+.con h2.tit1{background: url(/weixin/Public/Member/images/user/icon_xt.jpg) no-repeat 5px center; color: #d70000; background-size: 18px; }
+div,span{ -webkit-box-sizing: border-box; box-sizing: border-box; }
+.detail li{ padding-left:15px; padding-right: 15px;}
+.detail li a{display: block; border-bottom: 1px solid #e7e7e7; }
+.detail li p{ line-height: 1.2em; color: #999; font-size: 1em; white-space:nowrap;}
+.detail li p.left{width:20%;}
+.detail li p b{ line-height: 1.8em; color: #666; font-size: 1.2em; font-weight: 700; white-space:nowrap;}
+.detail li .box{ height: 100%; height: 4em;width:40%;}
+.detail li .other{width:50%;}
+.detail li .box p{ line-height: 3em; font-size: 1.2em; height: 100%; }
+.detail li .canshu{ display:inline-block; position: absolute; right: 0; top: 0; bottom: 0; width: 2em; color: #fff; padding:0.6em 0.2em; line-height: 1.4em; background-color:#0fbca1;  text-align: center; }
+.detail li .canshu.color_gj{ background-color: #e93e3d; }
+.detail li .canshu.color_ts{ background-color: #ff8f20; }
+.detail li .canshu.color_zs{background-color: #a10050;}
+
+.detail.detail_xy li .box{ margin-left: 1em; }
+.detail.detail_xy li .box p{ line-height: 1.2em; font-size: 1.2em; height: 2em; font-size: 1em; text-align: center; }
+.detail.detail_xy li .box p b{ color:#ff8f20; font-size: 1.1em;  }
+
+.detail.detail_xya li .box p{ line-height: 1.2em;height: 2em; font-size: 0.9em; text-align: center; margin-left:-30px;}
+.detail.detail_xya li .box p b{ color:#18bea4; font-size: 1.1em;}
+
+
+
+.detail.detail_xl li .box{ margin-left: 1em; }
+.detail.detail_xl li .box p{ line-height: 1.2em; font-size: 1.2em; height: 2em; font-size: 1em; text-align: center; }
+.detail.detail_xl li .box p b{ color:#d1485f; font-size: 1.1em;  }
+
+.detail.detail_tw li .box p{ color:#f0a900; }
+
+.detail.detail_sg li .box{ margin-left: 1em; }
+.detail.detail_sg li .box.box1{ padding-right: 1em;width:20% }
+.detail.detail_sg li .box.box1:last-child{ width:27% }
+.detail.detail_sg li .box p{ line-height: 1.2em;  color:#17b56c; font-size: 1.2em; height: 2em; font-size: 1em; text-align: center; }
+.detail.detail_sg li .box p b{ font-weight: 600; color: #333; }
+
+.detail_ncg{ padding-left: 5em; position: relative; border-top: 1px; }
+.detail_ncg .sidebar{ position: absolute; left: 15px; }
+.detail_ncg li{ height: auto; }
+.detail_ncg ol{ padding-top: 1em; }
+.detail_ncg ol li{ border:0; width: 33.33%; padding-left:1em; padding-bottom: 1em;  height: 6em; display: inline-block; float: left;  -webkit-box-sizing: border-box; box-sizing: border-box; }
+.detail_ncg ol li .box{ width: 100%; height: 100%; border-radius: 6px; padding: 0.5em 0.5em;  background-color: #2cbcbc; }
+.detail_ncg ol li .box p{ text-align: center; color: #fff; font-size:.8em; height: auto; line-height: 1.5em; white-space:nowrap;}
+.detail_ncg ol li .box p span{}
+.detail_ncg ol li .box.color_jg{ background-color: #fab875; }
+.detail_ncg ol li .box.color_ts{ background-color: #ea4847; }
+.detail_ncg >li>a{display: block; padding-right: 8%; }
+
+.con h2.tit2{background: url(/weixin/Public/Member/images/user/icon_xy.jpg) no-repeat 5px center; color: #f6b187; background-size: 18px; }
+.con h2.tit3 {background: url(/weixin/Public/Member/images/user/icon_xya.jpg) no-repeat 5px center; color: #19bda4; background-size: 18px; }
+.con h2.tit4{background: url(/weixin/Public/Member/images/user/icon_xl.jpg) no-repeat 5px center; color: #d1475e; background-size: 18px; }
+.con h2.tit5{background: url(/weixin/Public/Member/images/user/icon_sg.jpg) no-repeat 5px center; color: #15b56b; background-size: 18px; }
+.con h2.tit6{background: url(/weixin/Public/Member/images/user/icon_ncg.jpg) no-repeat 5px center; color: #2cbcbc; background-size: 18px; }
+.con h2.tit7{background: url(/weixin/Public/Member/images/user/icon_tw.jpg) no-repeat 5px center; color: #f0a900; background-size: 18px; }
+.con .chart{min-height: 50px;}
+.niao{padding-left: 30px;}
+.niao li{width: 20%; margin: 0 3.33% 10px 0; background: #2cbcbc; color: #fff; float: left; border-radius: 3px;}
+.niao li span,.niao li i{display: block; text-align: center; height: 25px; line-height: 25px; font-size: 12px;}
+.niao li b{font-weight: normal; display: block; height: 50px; line-height: 50px; font-size: 16px; text-align: center;}
+.niao li:nth-of-type(4n){margin: 0 0 10px 0;}

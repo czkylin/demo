@@ -1,0 +1,110 @@
+@charset "utf-8";
+button, input[type=button], input[type=file], input[type=submit] { cursor: pointer; -webkit-appearance: none }
+
+/* 竖屏 */
+@media screen and (orientation:portrait) {
+.ui-mobile, .ui-mobile .ui-page { min-height: 420px }
+}
+
+/* 横屏 */
+@media screen and (orientation:landscape) {
+.ui-mobile, .ui-mobile .ui-page { min-height: 300px }
+}
+body { font-family: "微软雅黑", Arial, Helvetica, sans-serif; color: #000; margin: 0; color: #fff; font-size: 14px; background:#f0eff5; }
+* { margin: 0; padding: 0 }
+ul, li, h1, h2, h3, h4, sapn, dl, dd, dr, dt, i, em, p, img { list-style: none; margin: 0; padding: 0; font-style: normal; text-decoration: none; font-weight: 100; }
+a { text-decoration: none; color: #333; }
+a:hover { text-decoration: none; }
+.ui-content { border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px }
+.pad_top { padding-top: 0; }
+dl, dt, dd { padding: 0; margin: 0; }
+h1, h2, h3, h4 { margin: 0; padding: 0; }
+.ffw { font-family: "微软雅黑" }
+.ffa { font-family: Arial, Helvetica, sans-serif }
+.ffs { font-family: "宋体"; }
+.fl { float: left }
+.fr { float: right }
+.pr { position: relative }
+.pa { position: absolute }
+.pf { position: fixed; }
+.tac { text-align: center; }
+.tal { text-align: left }
+.tar { text-align: right }
+.fwb { font-weight: bold }
+.fw1 { font-weight: 100 }
+.fs14 { font-size: 14px; }
+.fs16 { font-size: 16px }
+.fs18 { font-size: 18px }
+.fs20 { font-size: 20px; }
+.fs22 { font-size: 22px; }
+.fs24 { font-size: 24px; }
+.fs26 { font-size: 26px; }
+.fs30 { font-size: 30px; }
+.fs32 { font-size: 32px; }
+.fs34 { font-size: 34px; }
+.fs36 { font-size: 36px; }
+.fs38 { font-size: 38px; }
+.fs40 { font-size: 40px; }
+.bgcf { background: #fff }
+.tid { text-indent: -9999px; height: 0px; margin: 0; }
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt65 { margin-top: 65px; }
+.mb10 { margin-bottom: 10px; }
+.mar40 { margin-top: 40px; }
+.ptb95 { padding: 95px 0; }
+.fcf { color: #fff }
+.fc2587c6 { color: #2587c6; }
+.fc687fa8 { color: #687fa8; }
+.dpn { display: none }
+.clear { width: 0; height: 0; padding: 0; clear: both }
+header, section, footer, aside, article, figure { display: block;}
+.clearfix{content:''; display: block; clear:both;}
+/*当屏幕宽度小于1540时读取的样式*/
+@media screen and (max-width:1540px) {
+}
+/*排行榜*/
+.header { width: 100%; color: #fff; font-weight: normal; padding: 1rem 0; background: #ff647c; position: relative; }
+.header a.icon { left: .1rem; top: .13rem; }
+.header a { width: 20px; height: 20px; color: #fff; position: absolute; left: .5rem; top: .5rem; font-size: 30px; }
+.header h2 { width: 100%; color: #fff; font-size: 24px; text-align: center; }
+.PaiHang{ background:#fbfbfb;}
+.headPaiHang{ width:130px; margin:0 auto; padding:10px 0;}
+.champion{ background:url(/weixin/Public/Expert/images/fenXiang/guanjun.png) no-repeat; width:70px; height:78px; position:relative; margin:0 auto;}
+.champion img{ width:60px; height:60px; border-radius:50%; margin:15px 0 0 2px;}
+.champion .one_img{ position:absolute; right:0; bottom:0; width:30px; height:30px;}
+.name_bot span{ color:#333; font-size:14px; text-align:center; display:block; height:30px; line-height:30px;}
+.name_bot p{ color:#666666; font-size:.8rem; text-align:center; line-height:1.2rem;}
+.name_bot b{ color:#ff7f35; font-size:20px; text-align:center; display:block; height: 30px;}
+.oneself{ margin-bottom:10px; border-top: 1px solid #eee;}
+
+.Tab_CaiDan { width: 100%; height: 40px; }
+.Tab_CaiDan a { width: 50%; display: block; border: 1px solid #006633; -webkit-box-sizing: border-box; box-sizing: border-box; float: left; height: 38px; line-height: 38px; text-align: center; color: #333333; font-size: 14px; }
+.Tab_CaiDan a:last-child { border-left: 0; }
+.Tab_CaiDan .curr { background: #006633; color: #fff; }
+.hot li { position: relative; width: 100%; border-bottom: 1px solid #eee; padding: 10px 0; background:#fff; }
+.hot .ww { width: 35px; left: 0px; top: 18px; text-align: center; color: #999; font-size: 22px; }
+.hot .ww img { display: block; width: 25px; height: 25px; margin: 0 auto; }
+.hot .touxiang { width: 35px; height: 35px; left: 40px; top: 10px; }
+.hot .touxiang a img { width: 40px; height: 40px; border-radius: 50%; }
+.hot .huoyuedu { width: 100%; height: 40px; padding-left: 85px; padding-right: 10px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.hot .huoyuedu .title { width: 100%; height: 22px; font-size: 16px; color: #333; }
+.hot .huoyuedu .title span, .hot .huoyuedu .title a { display: inline-block; }
+.hot .huoyuedu .title span { font-size: 14px; height: 22px; line-height: 22px; margin-top:10px; }
+.oneself .huoyuedu .title span { font-size: 14px; height: 20px; line-height: 20px; margin-top:0; }
+.hot .huoyuedu .title span b { font-size: 12px; height: 20px; line-height: 20px; color: #999999; font-weight: normal; }
+.hot .huoyuedu .title span.fr { color: #ff7f35; font-size: 20px; margin-top: 10px; }
+.hot .huoyuedu .title a { margin-left: 10px; font-size: 12px; height: 22px; line-height: 22px; color: #999; width: 52%; margin-top: 10px; overflow:hidden; }
+@media screen and (min-width: 375px) {
+.hot .huoyuedu .title a { margin-left: 10px; font-size: 12px; height: 22px; line-height: 22px; color: #999; width: 62%; margin-top: 10px;overflow:hidden; }
+} 
+@media screen and (min-width: 400px) {
+.hot .huoyuedu .title a { margin-left: 10px; font-size: 12px; height: 22px; line-height: 22px; color: #999; width: 68%; margin-top: 10px;overflow:hidden; }
+} 
+.hot .huoyuedu div.pr { width: 100%; height: 8px; background: #dbdbdb; margin-top: 10px; border-radius: 6px; }
+.hot .huoyuedu div.pr .pa { left: 0; height: 8px; top: 0; z-index: 3; background: #ffde5d; border-radius: 6px; }
+.gslmLabel .labelCon { width: 91%; height: 43px; float: left; overflow-x: scroll; overflow-y: hidden; }
+.gslmLabel .labelCon a { height: 30px; line-height: 30px; float: left; margin-right: 10px; margin-top: 5px; color: #333; padding: 0 5px; }
+.gslmLabel .labelCon a.curr { background: #006633; color: #fff; }
+.foot_logo { position:fixed; bottom: 0; left: 0; background: #f5f5f5; height: 60px; width: 100%; }
+.foot_logo span { width: 200px; margin: 12px auto; display: block; }

@@ -1,0 +1,38 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+<link type="text/css" rel="stylesheet" href="../../../../../Public/Expert/css/gerenzhongxin/gerenzhongxin.css" />
+<script type="text/javascript" src="../js/jquery.js"></script>
+<title>个人中心-积分规则</title>
+</head>
+<body style="background:#fff;">
+<div style="height:3%; background:#ededed;"></div>
+<div class="gp GJ_Gp gp-profile g-items gp-profile_index">  
+	  <div class="jfgz">
+      		<p>积分奖励规则：</p>
+            <ul class="gz_list">
+            	<li>1）每日签到5/次，累计签到达20天/月额外奖励50分。</li>
+                <li class="gz_bg">2）内容转发2分/次，每天每个ID最多获得5次转发积分，即做多10积分
+				</li>
+                <li>3）学术贡献50-200，以学术投稿形式获得积分奖励，
+                包括病例/论文/课程
+				</li>
+            </ul>
+      </div>
+</div>  
+<!--<footer>
+<a class="shouye">微首页</a>
+<a class="zixun">咨询</a>
+<a class="yuepian">阅片</a>
+<a class="dingdan">订单</a>
+<a class="geren2">个人中心</a>
+</footer>-->
+
+</body>
+</html>

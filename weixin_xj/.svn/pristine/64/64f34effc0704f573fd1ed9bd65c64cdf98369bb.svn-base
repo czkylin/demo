@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/wd_bingli.css">
+<title>病例管理</title>
+</head>
+<body>
+	<div class="tit">
+		<img src="/weixin/Public/Member/images/user/bingli-tit.jpg" alt="">
+	</div>
+	<ul class="list">
+		<volist name="data" id="data">
+			<li>
+				<a href="javascript:;" class="clear">
+					<div class="date fl">
+						<p>{$data.CREATE_DATE|substr=5,5}</p>
+						<span>{$data.CREATE_DATE|substr=0,4}</span>
+					</div>
+					<div class="process fl"></div>
+					<div class="con fl">
+						<p class="hos">{$data.CASE_TITLE}</p>
+						<p class="des">
+							<if condition="$data['CASE_DESC'] eq ''">暂无
+								<else />{$data.CASE_DESC}
+							</if>
+						</p>
+					</div>
+					<div class="img-wrap fl">
+						<div class="mask"></div>
+						<if condition="$data['CASE_PIC'] eq ''">
+							<else /><img src="{$data.CASE_PIC}" alt="">
+							</if>
+						<span></span>
+					</div>
+				</a>
+			</li>
+		</volist>
+	</ul>
+	<div class="chakan">
+		<img src="" alt="">
+		<span></span>
+	</div>
+	<if condition="!$record_id || $data['error_code'] eq 'no'">
+			<a class="jianli" id="cj" href="javascript:void;">创建病例记录</a>
+	<else />
+		<a href="{:U('Member/User/bingli_add',array('record_id'=>$record_id))}" class="jianli">新建病例</a>
+	</if>
+	<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+	<script>
+		//图片放大
+		$(".img-wrap").each(function(){
+			var _this = this;
+			$(this).find("span").on('touchend',function(){
+				var src = $(_this).find('img').attr("src");
+				$('.chakan').css({width:$(window).width(),height:$(window).height()}).show();
+				$('.chakan').find("img").attr('src',src);
+			})
+		});
+		//关闭
+		$(".chakan span").on('touchend',function(){
+			$('.chakan').find("img").attr('src','');
+			$('.chakan').hide();
+		})
+	</script>
+</body>
+</html>

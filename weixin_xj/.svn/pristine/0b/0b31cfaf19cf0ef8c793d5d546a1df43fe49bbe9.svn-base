@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* CSS Document */
+html { width:100%; height: 100%; overflow: hidden; }
+body { color: #000; margin: 0; padding: 0;width:100%; height: 100%; overflow: hidden;  }
+.swiper-container { width: 100%; height: 100%; background:url(/weixin/Public/Member/images/zhuanti/duanwujie/bg.jpg) no-repeat; background-size:cover; }
+@-webkit-keyframes move {
+ 0% {
+ -webkit-transform:translateX(10px);
+ transform:translateX(10px);
+}
+ 50% {
+ -webkit-transform:translateX(0px);
+ transform:translateX(0px);
+}
+ 100% {
+ -webkit-transform:translateX(10px);
+ transform:translateX(10px);
+}
+}
+@keyframes move {
+ 0% {
+ -webkit-transform:translateX(10px);
+ transform:translateX(10px);
+}
+ 50% {
+ -webkit-transform:translateX(0px);
+ transform:translateX(0px);
+}
+ 100% {
+ -webkit-transform:translateX(10px);
+ transform:translateX(10px);
+}
+}
+@-webkit-keyframes rotate{
+		0%{
+			-webkit-transform:rotate(0);
+		}
+		100%{
+			-webkit-transform:rotate(360deg);
+		}
+	}
+	@keyframes rotate{
+		0%{
+			transform:rotate(0);
+		}
+		100%{
+			transform:rotate(360deg);
+		}
+	}
+	@-webkit-keyframes quan{
+		0%{
+			-webkit-transform:rotate(0);
+		}
+		100%{
+			-webkit-transform:rotate(360deg);
+		}
+	}
+	@keyframes quan{
+		0%{
+			transform:rotate(0);
+		}
+		100%{
+			transform:rotate(360deg);
+		}
+	}
+.swiper-slide { position: relative; }
+.page1{ background:url(/weixin/Public/Member/images/zhuanti/duanwujie/img1.jpg) no-repeat; width:100%; height:100%; background-size:cover;}
+.swiper-slide .duobao{ position:absolute; bottom:13%; right:0;}
+.swiper-slide .duobao a{ width:80px; height:86px; display:block;}
+
+.page2 .zi{ position:absolute; bottom:19%; right:26%; width:45%; }
+.page2 .zi img{width:100%;}
+.swiper-wrapper .page5 .tupian{ width: 6.2rem; height: 5.5rem; margin-left: 1.5rem; margin-top: 2.65rem;}
+.swiper-wrapper .page6 .tupian{ width: 6.2rem; height: 5.5rem; margin-left: 1.5rem; margin-top: 2.65rem;}
+.swiper-wrapper .page7 .tupian{ width: 6.2rem; height: 5.5rem; margin-left: 1.5rem; margin-top: 2.65rem;}
+#quan{ background:url(/weixin/Public/Member/images/zhuanti/duanwujie/quan.png) no-repeat; width:6rem; height:6rem; background-size:6rem; position:absolute; top:15%; left:18%; border-radius:50%; }
+.quan{-webkit-animation: rotate 5s infinite linear; animation: rotate 5s infinite linear;}
+.swiper-wrapper .tupian{ width: 5.5rem; height: 5.5rem; margin-left: 2.05rem; margin-top: 2.65rem;}
+
+.page3 .zi{ position:absolute; bottom:23%; right:26%; width:45%; }
+.page3 .zi img{width:100%;}
+
+.page4 .zi{ position:absolute; bottom:23%; right:14%; width:73%; }
+.page4 .zi img{width:100%;}
+
+.page5 .tit_4,.page6 .tit_4,.page7 .tit_4{ position:absolute; top:8%; right:14%; width:73%; }
+
+.page5 .zi{ position:absolute; bottom:18%; right:14%; width:73%; }
+.page7 .zi{ position:absolute; bottom:15%; right:14%; width:73%; }
+.page6 .zi{ position:absolute; bottom:22%; right:14%; width:73%; }
+.page5 .zi img,.page6 .zi img,.page7 .zi img{width:100%;}
+
+.page5 .bottn,.page6 .bottn,.page7 .bottn{ width:40%; height:40px; text-align:center;  position:absolute; bottom:9%; left:30%; background:#3aaf18; border-radius:5px;}
+.page5 .bottn a,.page6 .bottn a,.page7 .bottn a{ color:#fff; font-size:14px; line-height:40px; display:block; text-decoration:none; font-family:'微软雅黑';}
+
+.page8 .zi{ position:absolute; bottom:20%; right:21%; width:60%; }
+.page8 .zi img{width:100%;}
+.page9 .zi{ position:absolute; bottom:9%; right:13%; width:75%; }
+.page9 .zi img{width:100%;}
+
+.page10 .zi{ position:absolute; bottom:19%; right:17%; width:70%; }
+.page10 .zi img{width:100%;}
+.page10 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+
+.page11 .zi{ position:absolute; bottom:19%; right:14%; width:70%; }
+.page11 .zi img{width:100%;}
+.page11 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.page12 .zi{ position:absolute; bottom:19%; right:14%; width:70%; }
+.page12 .zi img{width:100%;}
+.page12 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.page13 .zi{ position:absolute; bottom:12%; right:16%; width:70%; }
+.page13 .zi img{width:100%;}
+.page13 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.page14 .zi{ position:absolute; bottom:19%; right:14%; width:70%; }
+.page14 .zi img{width:100%;}
+.page14 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.page15 .zi{ position:absolute; bottom:19%; right:14%; width:70%; }
+.page15 .zi img{width:100%;}
+.page15 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.page16 .zi{ position:absolute; bottom:19%; right:14%; width:70%; }
+.page16 .zi img{width:100%;}
+.page16 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.page17 .zi{ position:absolute; bottom:19%; right:14%; width:70%; }
+.page17 .zi img{width:100%;}
+.page17 .fuwu{ position:absolute; top:8%; right:25%; width:50%; }
+.bottom{ position:fixed; bottom:0; left:0; width:100%; z-index: 999;}
+.bottom .zixun{ width:50%; float:left; background:#3aaf18; height:40px; line-height:40px; color:#fff; font-size:14px; text-align:center; display:block; text-decoration:none;}
+.bottom .goumai{ width:50%; float:left; background:#ee8b21; height:40px; line-height:40px; color:#fff; font-size:14px; text-align:center; display:block; text-decoration:none;}
+
+
+.arrow { -webkit-animation: move 1s linear infinite; position: absolute; height: 20px; display: block; width: 100%; right: -43%; bottom: 50%; background: url(/weixin/Public/Member/images/zhuanti/duanwujie/arrow.png) no-repeat center; }
+.jiaru { position: absolute; height: 60px; display: block; width: 50%; left: 25%; bottom: 10%; background: url(/weixin/Public/Member/images/zhuanti/muqinjie/jiaru.png) no-repeat center; background-size: 70%; }
+
+.music{position:fixed;right:.3rem;top:.3rem;width:30px;height:30px;z-index:1000000;border-radius:30px;background: url(../../images/zhuanti/duanwujie/music.png) no-repeat;background-size:cover;text-align:center;}
+.music img{vertical-align:top;}
+.rotate { -webkit-animation: rotate 1s infinite linear; animation: rotate 1s infinite linear; }
+
+
+
+.yun1 { height: 50%; width: 100%; background:url(/weixin/Public/Member/images/zhuanti/duanwujie/yun1.png) no-repeat; -webkit-animation: cloud 20s linear infinite; -o-animation: cloud 40s linear infinite; position:fixed; bottom:0; left:0; }
+@-webkit-keyframes cloud {
+from {
+background-position:0% 0%
+}
+to {
+background-position:50% 50%
+}
+}
+@keyframes cloud {
+from {
+background-position:0% 0%
+}
+to {
+background-position:50% 50%
+}
+}

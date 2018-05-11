@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>申请提现</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/take.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+    <form action="{:U('Huzhu/take_ok')}" method="POST"> 
+        <section class="unit">
+                <h2>申请人姓名<i>(与身份证姓名一致)</i>：</h2>
+                <div class="price box">
+                    <input type="text" name="real_name" id="real_name"/>
+                </div>
+
+                <h2>提现金额</h2>
+                <div class="price box">
+                    <strong>￥</strong>
+                    <input type="tel" name="money" id="money"/>
+                </div>
+           <p><em>可提现余额<span><if condition="!$result['balance_money']">0<else />{$result['balance_money']}</if></span>元,单次最低提现<span>50</span>元,最高提现<span>200</span>元。</em><a href="{:U('Huzhu/record')}" class="record">提现记录</a></p>
+        </section> 
+        <section class="unit">
+           <p class="text-center"><em style="color:red">温馨提示：提现功能仅针对公司外部人员开放，公司员工提成以工资形式发放，本月只能申请上月提成。</em><br/>因微信支付原因，到账时间可能有延迟</p>
+           <a href="javascript:;" onclick="SendForm()" class="confirm text-center">确认提取</a>
+        </section> 
+    </form>
+    <div style="display: none;" id="HasReflect">{$result['balance_money']}</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/Common/js/jquery.min.js"></script>
+<script type="text/javascript">
+    
+    function SendForm() 
+    {
+        if(CheckPost()) 
+        {
+            $("form").submit();
+        }
+    }
+
+    function CheckPost()
+    {   
+        var money = $.trim($('#money').val());
+        var HasReflect = $.trim($('#HasReflect').text());
+        var real_name = $('#real_name').val();
+
+        var reg1=/^(\d\.[0])?$/i;
+        var reg2=/^(\d\.[0]{2})?$/i;
+
+        if(real_name== '')
+        {
+            alert('请输入申请人姓名！');
+            $("#real_name").focus();
+            return false;
+        }
+        
+        if(money == '')
+        {
+            alert('请输入提现金额！');
+            $("#money").focus();
+            return false;
+        }
+
+        if(!isMoney(money) || money==0 || reg1.test(money) || reg2.test(money))
+        {
+            alert('请输入正确提现金额！');
+            $("#money").focus();
+            return false; 
+        }
+
+        if(money < 50)
+        {
+            alert('提现金额不能小于50元！');
+            $("#money").focus();
+            return false;
+        }
+
+        if(money > 200)
+        {
+            alert('提现金额不能超过200元！');
+            $("#money").focus();
+            return false;
+        }
+        console.log(typeof money);
+        console.log(typeof HasReflect);
+        if(Number(money) > Number(HasReflect))
+        {
+            alert('提现金额不足！');
+            $("#money").focus();
+            return false;
+        }
+
+        return true;
+    }
+
+
+    //检验金额
+    function isMoney(str)
+    {   
+        var reg=/^([1-9]\d*|0)(\.\d{1,2})?$/i;
+        if(reg.test(str))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    
+</script>
+</html>

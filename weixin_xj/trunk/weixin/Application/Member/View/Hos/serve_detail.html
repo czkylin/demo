@@ -1,0 +1,193 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+<!--CSS当前页面文件-->
+
+<!-- <link href="/weixin/Public/Member/css/portal.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/hos_list.min.css" type="text/css" rel="stylesheet"/> -->
+<link rel="stylesheet" href="/weixin/Public/Member/css/yuepian/changgui.css">
+
+<!-- title -->
+<title>服务详情</title>
+<!--meta-->
+</head>
+<body>
+<div class="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="/weixin/Public/Member/images/yuepian/{$topphoto}1.{$topphotos}" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/weixin/Public/Member/images/yuepian/{$topphoto}2.{$topphotos}" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/weixin/Public/Member/images/yuepian/{$topphoto}3.{$topphotos}" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<div class="title">
+    <h1>{$hos.SERVE_NAME}</h1>
+    <div>￥<b>{$hos.SERVE_MONEY}</b></div>
+    <p>{$hos.SERVE_CONTENT}</p>
+    <!-- <span>月销量10</span> -->
+</div>
+<h2>
+    <if condition="($hos.SERVE_ID eq 24) OR ($hos.SERVE_ID eq 26) ">会诊<elseif condition="($hos.SERVE_ID eq 25) OR ($hos.SERVE_ID eq 29) "/>阅片<elseif condition="($hos.SERVE_ID eq 27) "/>体检<elseif condition="($hos.SERVE_ID eq 28) "/>手术</if>医院
+</h2>
+<div class="hos">
+    <div class="hos-main clear">
+        <img src="{$hos.HOS_PIC}" alt="{$hos.HOS_NAME}">
+        <div class="con">
+            <h3>{$hos.HOS_NAME}</h3>
+            <span>{$hos.LEVEL_NAME}</span>
+            <i>{$hos.HOS_ADDRESS}</i>
+        </div>
+    </div>
+    
+    <if condition="$hos.HOS_DESC eq '' ">
+        <p>暂无数据</p>
+    <else />
+        <div class="text">{$hos.HOS_DESC|htmlspecialchars_decode}</div>
+        <a href="javascript:;" class="xiangqing">详情>></a>
+    </if>
+    
+</div>
+<h2>使用流程</h2>
+<ul class="liucheng">
+    <li><span>1</span>选择医院、选择日期、立即购买</li>
+    <li><span>2</span>微信支付、订单支付成功通知、点击查看订单二维码</li>
+    <li><span>3</span>到医院进行<if condition="($hos.SERVE_ID eq 24) OR ($hos.SERVE_ID eq 26) ">会诊<elseif condition="($hos.SERVE_ID eq 25) OR ($hos.SERVE_ID eq 29) "/>阅片<elseif condition="($hos.SERVE_ID eq 27) "/>体检<elseif condition="($hos.SERVE_ID eq 28) "/>手术</if></li>
+</ul>
+<h2>选择日期</h2>
+<form action="/weixin/index.php?m=Member&c=Hos&a=serve_buy" id="tform" method="post">
+    <!-- 选择日期 -->
+    <ul class="riqi clear">
+        <volist name="date_list" id="date1" empty="暂时没有数据">
+            <li <if condition="$key eq 0 "> class="active" </if>>{$date1}</li>
+        </volist>
+    </ul>
+    <!-- 选择专家 -->
+    <if condition="$hos.SERVE_ID eq 4 ">
+        <h2>选择专家</h2>
+        <div class="zhuanjia">
+            <select name="expert_id" id="expselect">
+                <option value="">请选择专家</option>
+                <volist name="exp_list" id="v" empty="暂时没有数据">
+                        <option value="{$v.EXPERT_ID}">{$v.EXPERT_NAME}</option>
+                </volist>
+            </select>
+            <p>请选择专家</p>
+        </div>
+    </if>
+    <div class="btn clear">
+        <input type='hidden' name='serve_id' value="{$hos.SERVE_ID}">
+        <input type='hidden' name='serve_name' value="{$hos.SERVE_NAME}">
+        <input type='hidden' name='hos_id' value="{$hos.HOS_ID}">
+        <input type='hidden' name='serve_money' value="{$hos.SERVE_MONEY}">
+        <input type='hidden' name='money' id="money" value="{$hos.SERVE_MONEY}">
+        <input type="hidden" name="order_date" id="curr_date" value="">
+        <a href="tel:4006562020" class="tel"></a>
+        <a href="javascript:void(0)" onclick="document.getElementById('tform').submit();return false" class="link">立即购买</a>
+    </div>
+</form>
+<!--通底的引用开始--> 
+
+<include file="Public:footer_fd" /> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<!-- <script src="/weixin/Public/Member/js/list.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Member/js/top.min.js" type="text/javascript"></script>  -->
+<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+<script type="text/javascript">//每个医生的服务价格放在这个数组里
+
+var mySwiper = new Swiper ('.swiper-container', {
+    loop: true,
+    height:300,
+    // 如果需要分页器
+    pagination: '.swiper-pagination'
+})        
+
+//日期切换
+var curr_date = "";
+$("#curr_date").val($('.riqi li').eq(0).html());
+$(".riqi li").each(function(){
+    $(this).on("touchend",function(){
+        $(this).addClass("active").siblings().removeClass("active");
+        $("#curr_date").val($(this).html());
+    });
+})
+
+//点击详情展开
+var onOff = true;
+$(".xiangqing").on("touchend",function(){
+    if(onOff){
+        $(".text").css("height","auto");
+        $(this).html("收起");
+    }else{
+        $(".text").css("height","40px");
+        $(this).html("详情>>");
+    }
+    onOff = !onOff;    
+});
+
+//选择专家
+
+(function(){
+
+	var priceObj  ={$array_price}; 
+
+	$('#expselect').on('change', function(){ 
+
+        var    _this = $(this), 
+
+                value = _this.val(), 
+
+                priceStr = '请选择专家'; 
+
+        if(value != '0'){ 
+
+                priceStr = '专家服务费'+priceObj[value]+'元';
+
+                $("#money").val(priceObj[value]);
+
+        } 
+
+        _this.next().show().text(priceStr); 
+
+    }); 
+
+})();
+
+</script> 
+<script>
+
+	/*var over_footer = '3';
+
+	function gobuy(){
+
+		alert("暂未开通此服务");
+	}*/
+</script>
+
+<!--通底的引用结束--> 
+
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

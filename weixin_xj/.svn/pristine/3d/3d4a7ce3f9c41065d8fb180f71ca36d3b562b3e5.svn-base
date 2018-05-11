@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+.line { border-top: 1px solid #e5e5e5; }
+.left { float: left; }
+.right { float: right; }
+.pad_top { padding-top: 0; }
+.mainCon { border-top: 7.5px solid #ebebeb; }
+.Tab_CaiDan { width: 100%; height: 40px; }
+.Tab_CaiDan a { width: 50%; display: block; border: 1px solid #ff647c; -webkit-box-sizing: border-box; box-sizing: border-box; float: left; height: 38px; line-height: 38px; text-align: center; color: #333333; font-size: 14px; }
+.Tab_CaiDan a:last-child { border-left: 0; }
+.Tab_CaiDan .curr { background: #ff647c; color: #fff; }
+.gslmLabel .labelCon { width: 91%; height: 48px; float: left; overflow-x: scroll; overflow-y: hidden; }
+.gslmLabel .labelCon a{height: 30px; line-height: 30px; float: left;   margin-right: 10px;  margin-top: 8px; padding:0 5px; color: #333; }
+.gslmLabel .labelCon a.curr { background: #ff647c; color: #fff; }
+/*指南解读视频详情*/
+.videoInfo h2 {  line-height: 20px; font-size:16px;}
+.date {  padding: 0px 15px 10px; }
+.date span { }
+.date span {  }
+.ui-icon-video { color: #999; font-size: 12px; line-height: 20px; height: 20px; }
+.videoInfo .title_h2 { border-left: 2px solid #339966; padding: 0 0 0 13px; float: left; display: block; width: 100%; height: 14px; line-height: 14px; margin-top: 15px; }
+.geShengLianMeng_list .geShengLianMeng_list { width: 100%; }
+.geShengLianMeng_list li { position: relative; border-bottom: 1px solid #cacdcc; padding: 15px 0; }
+.geShengLianMeng_list li a.pic { display: block; position: absolute; width: 100px; height: 80px; overflow:hidden; margin-top:5px;}
+.geShengLianMeng_list li a img { width: 100%; height: auto; }
+.geShengLianMeng_list li:las t-child { border-bottom: none; }
+.geShengLianMeng_list li .lm_right { padding-left:108px; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.geShengLianMeng_list li .lm_right h2 { font-size: 16px; font-weight: normal; float:none; height: 48px; line-height: 24px; text-overflow: ellipsis; overflow: hidden; width: 100%; padding: 0; }
+.geShengLianMeng_list li .lm_right h2 a { color: #060606; }
+.geShengLianMeng_list li .lm_right .sponsor { margin-top: 10px; height: 20px; margin-right: 10px; }
+/*指南解读视频列表*/
+.listTop { position:relative; margin-top:6px; height:180px;}
+.listTop img { width: 100%; height:180px;}
+.listTop a{ position:absolute; bottom:0; left:0; background:#000; opacity:0.7; color:#fff; display:inline-block; line-height:40px; width:100%; text-align:center;}
+.video_list{ width:100%; height:auto; overflow:hidden; margin-bottom:20px;}
+.video_list dl{ float:left; width:50%; border-left:4px solid #fff;border-right:4px solid #fff; margin-top:14px;-webkit-box-sizing: border-box; box-sizing: border-box;}
+.video_list dl:nth-child(even){border-right:4px solid #fff;border-left:4px solid #fff;margin-top:14px;width:50%;}
+.video_list dl dt{ width:100%; height:auto; overflow:hidden;}
+.video_list dl dt img{ width:100%; height:auto; }
+.video_list dl dd{ line-height:20px; margin-top:3px; display:inline-block; float:left; color:#999;}
+.video_list dl dd a{ color:#3b3b3b;}
+.video_list dl dd.hei_40{max-height:40px; height:40px; overflow:hidden; width:100%; }
+.video_list dl dd.ui-icon-video{ color:#999; float:right; padding-right:5px;}
+.videoList a{ color:#999;}
+.gslmLabel{ height:40px; overflow:hidden;}
+.disno{ display:none;}
+
+
+
+
+
+
+
+
+
+

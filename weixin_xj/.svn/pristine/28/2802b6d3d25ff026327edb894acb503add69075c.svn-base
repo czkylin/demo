@@ -1,0 +1,14 @@
+<volist name="consult_list" id="consult">
+        <li> <a href="/weixin/index.php?m=Member&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID']}">
+                <div class="zixun_left"> <span> <img src="{$consult['SMALL_PIC']}" width="60" height="60">
+                        <if condition="$consult['REP_FALG'] eq '已回复'"> <b></b>
+                                <else/>
+                        </if>
+                        </span> </div>
+                <div class="zixun_right">
+                        <h3>{$consult['EXPERT_NAME']}</h3>
+                        <div class="right_center"><span>{$consult['CONSULT_DATE']}</span><b>{$consult['REP_FALG']}</b></div>
+                        <p>{$consult['CONSULT_CONTENT']}</p>
+                </div>
+                </a> </li>
+        ∮ </volist>

@@ -1,0 +1,83 @@
+<volist name='card_info' id='v'>
+     <li class="clear" >
+          <div class="date">
+               <p><?php echo substr($v['TRANDATE'],5,5);?></p>
+               <span><?php echo substr($v['TRANDATE'],11,5);?></span>
+          </div>
+          <!-- 会根据实际情况再做判断 -->
+          <if condition="$v['ONLINE'] eq '0' ">
+          <img src="/weixin/Public/Member/images/user/online.png" alt="">
+          <else/>
+          <img src="/weixin/Public/Member/images/user/pos.png" alt="">
+          </if>
+          <div class="price">
+               <p>
+           <switch name="v['TRANTYPE']" >
+               <case value="1">-<!-- 消费 --></case>
+               <case value="2"><!-- 退货 --></case>
+               <case value="3"><!-- 撤销 --></case>
+               <case value="27">-<!-- 转账 --></case>
+               <case value="31"><!-- 预授权完成 --></case>
+               <case value="32"><!-- 预授权撤销 --></case>
+               <case value="23">+<!-- 充值 --></case>
+               <case value="24"><!-- 撤销 --></case>
+               <case value="36"><!-- 售卡 --></case>
+               <case value="37">+<!-- 充值 --></case>
+               <case value="38"><!-- 充值撤销 --></case>
+               <case value="50"><!-- 充次 --></case>
+               <case value="51"><!-- 充次撤销 --></case>
+               <case value="202">+<!-- 充值 --></case>
+               <case value="203"><!-- 充值撤销 --></case>
+               <case value="204"><!-- 售卡 --></case>
+               <case value="206">-</case>
+               <case value="207"><!-- 撤销 --></case>
+               <case value="208"><!-- 退货 --></case>
+               <case value="220">+<!-- app会员卡充值 --></case>
+               <case value="56">+<!-- 充值 --></case>
+               <case value="48">-<!-- 消费 --></case>
+               <case value="49"><!-- 消费撤销 --></case>
+               <case value="61"><!-- 银行卡给会员卡充值 --></case>
+               <case value="62"><!-- 补送 --></case>
+               <case value="63"><!-- 银行卡给商户账户充值 --></case>
+               <case value="64"><!-- 会员售卡（单卡） --></case>
+               <default /> 
+           </switch>
+           {$v.TRANAMT}
+           </p>
+               <span>
+           <if condition="$v['ONLINE'] eq '0'">线上<else/>线下</if>
+           -
+           <switch name="v['TRANTYPE']" >
+               <case value="1">消费</case>
+               <case value="2">退货</case>
+               <case value="3">撤销</case>
+               <case value="27">转账</case>
+               <case value="31">预授权完成</case>
+               <case value="32">预授权撤销</case>
+               <case value="23">充值</case>
+               <case value="24">撤销</case>
+               <case value="36">售卡</case>
+               <case value="37">充值</case>
+               <case value="38">充值撤销</case>
+               <case value="50">充次</case>
+               <case value="51">充次撤销</case>
+               <case value="202">充值</case>
+               <case value="203">充值撤销</case>
+               <case value="204">售卡</case>
+               <case value="206">消费</case>
+               <case value="207">撤销</case>
+               <case value="208">退货</case>
+               <case value="220">app会员卡充值</case>
+               <case value="56">充值</case>
+               <case value="48">消费</case>
+               <case value="49">消费撤销</case>
+               <case value="61">银行卡给会员卡充值</case>
+               <case value="62">补送</case>
+               <case value="63">银行卡给商户账户充值</case>
+               <case value="64">会员售卡（单卡）</case>
+               <default /> 
+           </switch>
+           </span>
+          </div>
+     </li>∮
+</volist>

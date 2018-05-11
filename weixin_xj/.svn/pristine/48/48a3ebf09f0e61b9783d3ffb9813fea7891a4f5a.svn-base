@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>表格</title>
+<link href="table.css" rel="stylesheet" type="text/css">
+</head>
+    <body ontouchstart>
+       
+        <section class="ui-container">
+
+
+
+
+<section id="table">
+    <div class="demo-item">
+        <p class="demo-desc">默认</p>
+        <div class="demo-block">
+            <table class="ui-table ui-border-tb">
+                <thead>
+                <tr><th>已购买</th><th>状态</th><th>会员到期时间</th></tr>
+                </thead>
+                <tbody>
+                <tr><td>2014257777</td><td>使用中</td><td>2016-02-06</td></tr>
+                <tr><td>2014257777</td><td>待付款</td><td><a href="#">付款</a></td></tr>
+                <tr><td>2014257777</td><td>待付款</td><td><a href="#">付款</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div><br>
+    <div class="demo-item">
+        <p class="demo-desc">全框</p>
+        <div class="demo-block">
+            <table class="ui-table ui-border">
+                <thead>
+                <tr><th>已购买</th><th>状态</th><th>会员到期时间</th></tr>
+                </thead>
+                <tbody>
+                <tr><td>2014257777</td><td>使用中</td><td>2016-02-06</td></tr>
+                <tr><td>2014257777</td><td>待付款</td><td><a href="#">付款</a></td></tr>
+                <tr><td>2014257777</td><td>待付款</td><td><a href="#">付款</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+        </section><!-- /.ui-container-->
+        <script>
+        $('.ui-list li,.ui-tiled li').click(function(){
+            if($(this).data('href')){
+                location.href= $(this).data('href');
+            }
+        });
+        $('.ui-header .ui-btn').click(function(){
+            location.href= 'index.html';
+        });
+        </script>
+    </body>
+</html>

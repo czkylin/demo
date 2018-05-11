@@ -1,0 +1,23 @@
+<volist name="case_list" id="case">
+	<li>
+		<div class="date fl">
+			<p>{$data.CREATE_DATE|substr=5,5}</p>
+			<span>{$data.CREATE_DATE|substr=0,4}</span>
+		</div>
+		<div class="process fl"></div>
+		<div class="con fl">
+			<p class="hos">{$data.CASE_TITLE}</p>
+			<p class="des">
+				<if condition="$data['CASE_DESC'] eq ''">暂无
+					<else />{$data.CASE_DESC}
+				</if>
+			</p>
+		</div>
+		<div class="img-wrap fl">
+			<div class="mask"></div>
+			<p style="width: 100%; margin:0 auto;" id="img"><img src="{$data.CASE_PIC}" class="piece_lstw3-img" alt=""></p>
+			
+			<span></span>
+		</div>
+	</li>∮
+</volist>

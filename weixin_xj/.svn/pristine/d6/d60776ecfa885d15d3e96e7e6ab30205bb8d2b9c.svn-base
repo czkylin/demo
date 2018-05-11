@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-血压
+</title>
+</head>
+<body>
+<!--血压-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="xueya">
+		<div class="con">
+			<h2 class="tit3">血压</h2>
+			<p>心室收缩，血液从心室流入动脉，此时血液对动脉的压力最高，称为收缩压。心室舒张，动脉血管弹性回缩，血液仍慢慢继续向前流动，但血压下降，此时的压力称为舒张压。</p>
+			<p>成人收缩压：90~139（mmHg）     成人舒张压：60~89（mmHg）     成人脉搏：60~100次/分 </p>
+		</div>
+		<ul class="detail detail_xya">
+			<volist name="jk_info" id="jk">
+				<li class="clear">
+					<if condition="$tj_type eq 2">
+						<a href="javascript:;" class="clear">
+							<p class="left"><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+							<div class="left" style="width:80%;">
+								<div class="left position other box shousuoya">
+									<p><b>收缩压</b><br><span>{$jk.SYSTOLIC}mmHg</span></p>
+									<span class="canshu">正常</span>
+								</div>
+								<div class="left position other box shuzhangya">
+									<p><b>舒张压</b><br><span>{$jk.DIASTOLIC}mmHg</span></p>
+									<span class="canshu">正常</span>
+								</div>
+							</div>
+						</a>
+					<else />
+						<a href="javascript:;" class="clear">
+							<p class="left"><b>{$jk.MEASURE_DATE|Dtodiy="m-d",###}</b><br>{$jk.MEASURE_DATE|Dtodiy="H:i",###}</p>
+							<div class="left" style="width:80%;">
+								
+								<div class="left position other box shousuoya">
+									<p><b>收缩压</b><br><span>{$jk.SYSTOLIC}mmHg</span></p>
+									<span class="canshu">正常</span>
+								</div>
+								<div class="left position other box maibo">
+									<p><b>脉搏</b><br><span>{$jk.PULSE}次/分</span></p>
+									<span class="canshu">正常</span>
+								</div>
+								<div class="left position other box shuzhangya">
+									<p><b>舒张压</b><br><span>{$jk.DIASTOLIC}mmHg</span></p>
+									<span class="canshu">正常</span>
+								</div>
+							</div>
+						</a>
+					</if>
+				</li>
+			</volist>
+			<!-- <li>
+				<div class="right position box shuzhangya">
+					<p><b>舒张压</b><br><span>65mmHg</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<div class="right position box shousuoya">
+					<p><b>收缩压</b><br><span>55mmHg</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box shuzhangya">
+					<p><b>舒张压</b><br><span>90mmHg</span></p>
+					<span class="canshu">过慢</span>
+				</div>
+				<div class="right position box shousuoya">
+					<p><b>收缩压</b><br><span>95mmHg</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box shuzhangya">
+					<p><b>舒张压</b><br><span>55mmHg</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<div class="right position box shousuoya">
+					<p><b>收缩压</b><br><span>140mmHg</span></p>
+					<span class="canshu">过快</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<div id="imei_type" style="display:none">{$imei_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+//血压，动态设置
+function fn(){
+	//舒张压
+	$(".shuzhangya").each(function(){
+		var shuzhi = parseInt($(this).find("p").find("span").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=89){
+			$canshu.html("偏高").addClass("color_gj");
+		}else if( shuzhi <= 60 ){
+			$canshu.html("偏低").addClass("color_ts");
+		}else{
+			$canshu.html("正常");
+		}
+	})
+	//收缩压
+	$(".shousuoya").each(function(){
+		var shuzhi = parseInt($(this).find("p").find("span").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=139){
+			$canshu.html("偏高").addClass("color_gj");
+		}else if( shuzhi <= 90 ){
+			$canshu.html("偏低").addClass("color_ts");
+		}else{
+			$canshu.html("正常");
+		}
+	})
+	//脉搏
+	$(".maibo").each(function(){
+		var shuzhi = parseInt($(this).find("p").find("span").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=100){
+			$canshu.html("过快").addClass("color_gj");
+		}else if( shuzhi <= 60 ){
+			$canshu.html("过慢").addClass("color_ts");
+		}else{
+			$canshu.html("正常");
+		}
+	})
+}
+$(function(){
+	fn();
+});
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+    var imei_type = $("#imei_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&is_all={:I("is_all",'')}&tj_type='+tj_type+'&imei_type='+imei_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

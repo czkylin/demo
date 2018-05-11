@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>健康档案</title>
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/dangan.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<!-- <ul id="control" class="clear">
+		<li>健康档案</li>
+	</ul>
+	
+	<div id="box">
+		<ul class="content" id="content1">
+			<li class="clear">
+				<a href="{:U('Member/User/wanbiao')}" class="clear">
+					<span>腕表档案</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Member/User/jiankang')}" class="clear">
+					<span>一体机档案</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Member/User/my_bingli')}" class="clear">
+					<span>病例档案</span>
+					<b>></b>
+				</a>
+			</li>
+		</ul> 
+		
+	</div>-->
+<!-- {$member_info.MEMBER_PIC} -->
+<div class="xinxi">
+	<div class="des">
+		<div class="touxiang">
+			<div  style=" background: url({$member_info.MEMBER_PIC}) no-repeat; background-size: 100% 100% ;"><img src="/weixin/Public/Common/images/1px.png" alt=""></div>
+		</div>
+		<p class="name">{$member_info.MEMBER_NAME}</p>
+	</div>
+	<ul class="list">
+		<li>
+			<a href="javscript:;">
+				<span>出生日期</span>
+				<if condition="!$member_info.BIRTH_DAY">
+					<i>暂无</i>
+				<else />
+					<i>{$member_info.BIRTH_DAY}</i>
+				</if>
+			</a>
+		</li>
+		<li>
+			<a href="javscript:;">
+				<span>性别</span>
+				<i>{$member_info.MEMBER_SEX}</i>
+			</a>
+		</li>
+		<!-- <li>
+			<a href="javscript:;">
+				<span>血型</span>
+				<i>AB</i>
+			</a>
+		</li> -->
+		<li class="jiantou">
+			<a href="javscript:;">
+				<span>更多健康档案</span>
+				<i class="jiantou active"><!-- <img src="/weixin/Public/Member/images/user/jiantou1.png" alt=""> --></i>
+			</a>
+		</li>
+	</ul>
+	<div class="more-list">
+		<ul class="more clear">
+			<li class="fl">
+				<a href="{:U('Member/User/dangan_yitiji')}">
+					<img src="/weixin/Public/Member/images/user/yiti.jpg" alt="">
+				</a>
+			</li>
+			<li class="fr">
+				<a href="{:U('Member/User/dangan_expert')}">
+					<img src="/weixin/Public/Member/images/user/biao.jpg" alt="">
+				</a>
+			</li>
+
+            <li class="fl">
+				<a href="{:U('Member/User/dangan_xueyaguanli')}">
+					<img src="/weixin/Public/Member/images/user/xueya.jpg" alt="">
+				</a>
+			</li>
+			
+			<li class="fr">
+				<a href="{:U('Member/User/dangan_jiqi')}">
+					<img src="/weixin/Public/Member/images/user/jiqi.jpg" alt="">
+				</a>
+			</li>
+            <li class="fl">
+				<a href="{:U('Member/User/dangan_damai')}">
+					<img src="/weixin/Public/Member/images/user/damai.jpg" alt="">
+				</a>
+			</li>
+			
+			<!-- <li class="fr">
+				<a href="{:U('Member/User/dangan_shouji')}">
+					<img src="/weixin/Public/Member/images/user/shouji.jpg" alt="">
+				</a>
+			</li> -->
+
+			<li class="fr">
+				<a href="{:U('Member/User/wd_bingli')}">
+					<img src="/weixin/Public/Member/images/user/bingli.jpg" alt="">
+				</a>
+			</li>
+			<li class="fl">
+				<a href="javascript:;">
+					<img src="/weixin/Public/Member/images/user/more.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+
+		<ul class="con">
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>0,'is_all'=>1))}"><span>血糖</span><i class="hui">
+				<if condition="!empty($member_ytj[0]['GLUCOSE'])">
+					{$member_ytj.0.GLUCOSE|round=1}
+				</if></i></a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>1,'is_all'=>1))}"><span>血氧</span><i class="hui">{$member_ytj.0.BLOODOXYGEN|default=""}</i></a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>8,'is_all'=>1))}"><span>血压</span><i class="hui">
+					{$member_ytj.0.BLOODPRESSURE|default=""}
+				</i></a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>3,'is_all'=>1))}"><span>心率</span><i class="hui"></i></a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>4,'is_all'=>1))}"><span>身高、体重</span><i class="hui">{$member_ytj.0.HEIGHTWEIGHT|default=""}</i></a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>5,'is_all'=>1))}"><span>尿常规</span><i class="hui"></i></a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>6,'is_all'=>1))}"><span>体温</span><i class="hui">
+				<if condition="!empty($member_ytj[0]['TEMPERATURE'])">
+					{$member_ytj.0.TEMPERATURE|round=1}
+				</if></i></a>
+			</li>
+            <li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>10,'is_all'=>1))}"><span>计步统计</span><i class="hui">
+					{$member_ytj.0.STEPCOUNT}</i></a>
+			</li>
+            <li>
+				<a href="{:U('Member/User/shuimian_jc')}"><span>睡眠监测</span><i class="hui">
+				<if condition="!empty($member_ytj[0]['TEMPERATURE'])">
+					<!-- {$member_ytj.0.TEMPERATURE|round=1} -->
+				</if></i></a>
+			</li>
+           <!--  <li>
+				<a href="{:U('Member/User/dangan_detail',array('tj_type'=>9))}"><span>腕表定位</span><i class="hui">
+				<if condition="!empty($member_ytj[0]['TEMPERATURE'])">
+					待定
+				</if></i></a>
+			</li> -->
+
+		</ul>
+	</div>	
+</div>
+
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/zepto.js"></script>
+<script>
+	var onOff = false; 
+	$('.jiantou').on("touchend",function(){
+		if( onOff ){
+			$(this).addClass("active");
+			$('.more-list').slideDown();
+		}else{
+			$(this).removeClass("active");
+			$('.more-list').slideUp();
+		}
+		onOff = !onOff;	
+	})
+</script>	
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>{$data['0']['SECT_TITLE']}</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/photoswipe.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/head.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/default-skin.css">
+    <!--<style>
+        header.dDetail{border-bottom-width:0px;background: #ff647c;font-size:14px;position:relative;color:#fff;padding:.2rem 0;}
+        #img {
+          width: 100%;
+        }
+        #img a{display:block;width:100%;}
+        #img img {
+          width: 100%;
+          height: auto;
+        }
+        #img figure {
+          display: block;
+          width: 100%;
+        }
+    </style>-->
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+</head>
+<body>
+    <header class="header">
+        <a href="javascript:history.go(-1);" class="icon">&#xf614;</a>
+        <h2>{$data['0']['SECT_TITLE']}</h2>
+        <i></i>
+        <!--<span>{$data['0']['SECT_ID']|DeleteHtml=###|msubstr=0,3,'utf-8',false}人在学习</span>-->
+    </header>
+    <div class="dContent">
+        <div class="sec">
+            <h2>课程简介：</h2>
+            <p>{$data['0']['SECT_DESC']}</p>
+        </div>
+    </div>
+    <div class="dContent">
+        <div class="sec">
+            <h2>课程内容：</h2>
+            <div id="img">{$data[0]['SECT_CONTENT']|htmlspecialchars_decode|Strimgurl='/upload','http://weixin.yk2020.com/upload',###}</div>
+        </div>
+    </div>    
+    <div id="code">
+        <div class="statement">
+            <h2 class="text-center">声明</h2>
+            <p>本文所涉及的资料部分来源于网络，本网转载涉及版权等问题，请作者与我们联系，我们将在第一时间删除。</p>
+        </div>
+        <img src="/weixin/Public/Expert/images/zhengcejiedu/twoCode.png" alt="">
+        <p class="text-center">擦亮您心灵的视窗 开启那一瞬间豁然的绽放全国眼科远程医疗联盟 医者，一生</p>
+        <p class="text-center">阅读数{$data['0']['PIONT_NUM']}</p>
+        <a href="javascript:;" id="top">返回顶部</a>
+    </div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+            <!-- Background of PhotoSwipe. 
+                         It's a separate element, as animating opacity is faster than rgba(). -->
+            <div class="pswp__bg"></div>
+
+            <!-- Slides wrapper with overflow:hidden. -->
+            <div class="pswp__scroll-wrap">
+
+                <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+                <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+
+                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                <div class="pswp__ui pswp__ui--hidden">
+
+                    <div class="pswp__top-bar">
+
+                        <!--  Controls are self-explanatory. Order can be changed. -->
+
+                        <div class="pswp__counter"></div>
+
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                        <!--<button class="pswp__button pswp__button--share" title="Share"></button>-->
+
+                        <!--<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>-->
+
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                        <!-- element will get class pswp__preloader--active when preloader is running -->
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                    </button>
+
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                    </button>
+
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script>
+window.onload = function(){
+    var oI = document.getElementsByTagName('i')[0];
+        var onOff = true;    
+        oI.onclick = function(){
+            if(onOff){
+                this.className = 'active';
+            }else{
+                this.className = '';
+            }
+            onOff = !onOff;
+        }
+
+        var oImg = document.getElementById('img');
+        var img = oImg.getElementsByTagName('img'); 
+        var arrImg = []; 
+
+
+        for(var i=0;i<img.length;i++){
+            var jImg = {};
+            jImg.src = img[i].getAttribute('src');
+            jImg.w = img[i].offsetWidth;
+            jImg.h = img[i].offsetHeight;
+            arrImg.push(jImg);
+        }
+        var html = '';
+        arrImg.forEach(function(value,index){
+            html += '<figure itemprop="associatedMedia"><a href="'+value.src+'" data-size="'+value.w+'x'+value.h+'"><img src="'+value.src+'"></a></figure>';
+        });
+        oImg.innerHTML = html;
+}
+
+$('#top').click(function(){
+    $('html,body').animate({scrollTop:0});
+});
+</script>
+<script src="/weixin/Public/Expert/js/photoswipe.min.js"></script>
+<script src="/weixin/Public/Expert/js/photoswipe-ui-default.min.js"></script>
+<script src="/weixin/Public/Expert/js/photo.js"></script>
+</html>

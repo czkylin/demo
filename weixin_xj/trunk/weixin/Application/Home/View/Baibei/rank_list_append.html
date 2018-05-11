@@ -1,0 +1,41 @@
+<volist name="list" id="rank">
+    <li>
+        <div class="ww pos_a"> 
+            {$rank['ROWNUMS']}
+        </div>
+        <div class="touxiang pos_a">
+            <a href="javascript:;">
+            <if condition="empty($rank_list[HEADIMGURL])">
+                <img src="/weixin/Application/Home/View/images/dtdoctor.png" />
+            <else />
+                <img src="{$rank_list['HEADIMGURL']}">
+            </if></a>
+        </div>
+        <div class="huoyuedu">
+            <div class="title">
+                <div class=" title-des">
+                     <div> 
+                        <if condition="!$rank['REAL_NAME']">
+                            <span>{$rank['LINK_MOBILE']|substr=0,3}****{$rank['LINK_MOBILE']|substr=-4}</span>
+                        <else />
+                            <span>{$rank['REAL_NAME']}</span>
+                        </if>
+                        <span class="huadong_hos">{$rank['CENTER_NAME']}<if condition="$rank['DepartName']">-</if>{$rank['DEPART_NAME']}</span> 
+                    </div>
+                    <p style="color:#333;">
+                        公司名称：{$rank['COMPANY_NAME']|default="暂无"}
+                    </p>
+                    <p style="color:#333;">
+                        售卡收入：{$rank['TOTAL_MONEY']}元
+                    </p>
+                    <p style="color:#333;">
+                       直接销售 (线上：{$rank['ONLINEUP']}张,线下：{$rank['ONLINEDOWN']}张)
+                    </p> 
+                    <p style="color:#333;">
+                        间接销售 ({$rank['SECONDNUMS']}张<!-- ,{$rank['THREEENUMS']}张 -->)
+                    </p>    
+                </div>                              
+            </div>
+        </div>
+    </li>∮
+</volist>

@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+.lianMengZJ .englishCon,.englishCon{ text-indent:0em;}
+.head{height:60px; background:#ff647c; overflow: hidden; }
+.head img{ width:90%; margin:12px 5%;}
+.lianMengZJ h1{  background:url(/weixin/Public/Expert/images/lianMengZhiJia/titleH1Bg.png) no-repeat left;  height:40px; line-height:12px; padding:0 10px 0 46px; display:inline-block; margin:10px 0;}
+.lianMengZJ p{ line-height:25px; text-indent:2em;}
+.lianMengZJ img{ width:100%; height:auto; margin-bottom:15px;}
+
+.zhuanjia{}
+.zhuanjia h2{ display:inline-block; border-bottom:2px solid #01824b; color:#333333; font-size:18px; font-weight:normal;}
+
+.zhuanjia ul{ box-sizing:border-box; margin-top:20px; overflow:hidden;}
+.zhuanjia ul li{ width:29%; margin-right:5%; float:left; margin-bottom:20px;}
+
+.zhuanjia ul li img{ width:85px; height:85px; border-radius:50%;}
+.zhuanjia ul li h2{ border:0; display:block; text-align:center; font-size:16px;}
+.zhuanjia ul li span{ text-align:center; display:block; color:#666666; line-height:24px;}
+.zhuanjia ul li:nth-of-type(3n+0){ margin-right:0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

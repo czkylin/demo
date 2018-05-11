@@ -1,0 +1,28 @@
+<volist name="list" id="list">
+<div class="hezuoBox">
+	<a class="toHos" href="/weixin/index.php?m=Member&c=Chain&a=chain_detail&hos_id={$list['HOS_ID']}"></a>
+	<h2>{$list['HOS_NAME']}</h2>
+	<div class="hezuoHos">
+		<img src="{$list['HOS_PIC']}" alt="{$list['HOS_NAME']}">
+		<p>等级：{$list['LEVEL_NAME']}</p>
+		<p>类型：{$list['TYPE_NAME']}</p>
+		<p>地址：{$list['PROVINCE_NAME']}-{$list['CITY_NAME']}{$list['DISTRICT_NAME']}</p>
+	</div>
+	<ul class="hezuoBoxList">
+	<volist name="list['HOS_XY']" id="xy">				
+   		<if condition="$xy['HAVE_YW'] eq 0">
+        <li>{$xy['YEWU_NAME']}<span class="ktyw{$xy['YEWU_ID']}  "></span></li>
+        </if>
+        <if condition="$xy['HAVE_YW'] eq 1 && $xy['SIGN1_FLAG'] eq 0 && $xy['SIGN2_FLAG'] eq 0 ">
+        <li>{$xy['YEWU_NAME']}<span class="ktyw{$xy['YEWU_ID']} on "></span></li>
+        </if>
+        <if condition="$xy['HAVE_YW'] eq 1 && $xy['SIGN1_FLAG'] eq 1 && $xy['SIGN2_FLAG'] eq 1">
+        <li>{$xy['YEWU_NAME']}<span class="ktyw{$xy['YEWU_ID']} onHong "></span></li>
+        </if>
+        <if condition="$xy['HAVE_YW'] eq 1 && $xy['SIGN1_FLAG'] eq 1 && $xy['SIGN2_FLAG'] eq 0 ">
+        <li>{$xy['YEWU_NAME']}<span class="ktyw{$xy['YEWU_ID']} onCheng "></span></li>
+        </if>
+	</volist>
+	</ul>
+</div>∮
+</volist>

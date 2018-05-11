@@ -1,0 +1,458 @@
+<html class="ui-mobile">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <!--公用样式调用-->
+    <!--分享页面样式调用-->
+
+<script src="/weixin/Public/Common/js/ichart.min.js"></script>
+   <style type="text/css">
+   #canvasDiv{ font-size: 14px; }
+   </style>
+    <title>首页</title>
+</head>
+
+<body>
+<script type="text/javascript">
+	 			$(function(){
+				var data = [
+				         	{
+				         		
+				         		value:[45,52,54,74,90],
+				         		color:'#9082bd'
+				         	},
+				         	{
+				         		
+				         		value:[60,80,105,125,108],
+				         		color:'#f2914a'
+				         	}
+				         ];
+				var chart = new iChart.ColumnMulti2D({
+						render : 'canvasDiv1',
+						data: data,
+						labels:["11日","12日","13日","14日","15日"],
+						title : '血氧',
+						subtitle : '',						
+						width : 320,
+						height : 400,
+						background_color : '#ffffff',
+						
+						coordinate:{
+							scale:[{
+								 position:'left',	
+								 start_scale:0,
+								 end_scale:140,
+								 scale_space:20
+							}],
+							width:260,
+							height:260
+						}
+				});
+				chart.draw();
+			});
+			
+</script>
+<div id='canvasDiv1'></div>   
+
+
+<script type="text/javascript">
+			$(function(){
+				var flow=[7.6,11.9,7.3,6.5,6.1,3.8];
+				var data = [
+				         	{
+				         		value:flow,
+				         		color:'#16a6a0',
+				         		line_width:2
+				         	}
+				         ];
+				
+				var line = new iChart.LineBasic2D({
+					render : 'canvasDiv2',
+					data: data,					
+					
+					//align:'center',
+					title : '血糖',
+					subtitle : '餐前血糖在3.9-6.1是正常，餐后小于7.8是正常',
+					
+					width : 300,
+					height : 400,
+					sub_option:{
+						smooth : true,//平滑曲线
+						point_size:10
+					},
+					
+					
+					legend : {
+						enable : false
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#62bce9'
+					},
+					coordinate:{
+						width:250,
+						height:260,
+
+
+						axis : {
+							color : '#c0d0e0',
+							width : [0, 0, 1, 0]
+						},
+						scale : [{
+							position : 'left',
+							start_scale : 0,
+							end_scale : 15,
+							scale_space : 5,
+							scale_enable : false,
+							label : {
+								fontsize:11,
+								fontweight:600,
+								color : '#666666'
+							}
+						},{
+							position : 'left',
+							start_scale : 0,
+							end_scale : 15,
+							scale_space : 5,
+							scale_enable : false,
+							label : {
+								fontsize:11,
+								fontweight:600,
+								color : '#666666'
+							}
+						}]
+					}
+
+				});
+			//开始画图
+			line.draw();
+		});
+</script>
+<div id='canvasDiv2'></div> 
+
+
+<script type="text/javascript">
+			$(function(){
+				var gy=[94,90,85,93,90,75],dy=[82,80,75,80,75,60];
+				
+				var data = [
+				         	{
+				         		name : '高压',
+				         		value:gy,
+				         		color:'#a2e1d8',
+				         		line_width:2
+				         	},
+				         	{
+				         		name : '低压',
+				         		value:dy,
+				         		color:'#01917a',
+				         		line_width:2
+				         	}
+				         ];
+		         
+				//创建x轴标签文本   
+				var date = new Date()
+				date.setDate(date.getDate()-6);
+				var labels = [];
+				for(var i=0;i<6;i++){
+					date.setDate(date.getDate()+1);
+					labels.push(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+				}
+				
+				var chart = new iChart.LineBasic2D({
+					render : 'canvasDiv3',
+					data: data,
+					align:'center',
+					title : '血压',
+					subtitle : '舒张压<85mmHg',
+					width : 300,
+					height : 400,
+					background_color:'#FEFEFE',
+					
+
+					sub_option:{
+						smooth : true,//平滑曲线
+						point_size:10
+					},
+					
+					
+					
+					coordinate:{
+						width:240,
+						height:240,
+
+						axis:{
+							color:'#dcdcdc',
+							width:0
+						},
+						
+
+
+						scale : [{
+							position : 'left',
+							start_scale : 85,
+							end_scale : 100,
+							scale_space : 15,
+							scale_enable : false,
+							
+						},{
+							position : 'left',
+							start_scale : 85,
+							end_scale : 100,
+							scale_space : 15,
+							scale_enable : false,							
+						}]
+
+
+
+					}
+				});
+			
+			//开始画图
+			chart.draw();
+		});
+
+				
+</script>
+<div id='canvasDiv3'></div> 
+
+<script type="text/javascript">
+			$(function(){
+				var flow=[34,38,36,36.2,38.5,36];
+				var data = [
+				         	{
+				         		value:flow,
+				         		color:'#16a6a0',
+				         		line_width:2
+				         	}
+				         ];
+				
+				var line = new iChart.LineBasic2D({
+					render : 'canvasDiv4',
+					data: data,					
+					
+					//align:'center',
+					title : '体温',
+					subtitle : '',
+					
+					width : 300,
+					height : 400,
+					sub_option:{
+						smooth : true,//平滑曲线
+						point_size:10
+					},
+					
+					/*tip:{
+						enable:true,
+						shadow:true
+					},*/
+					legend : {
+						enable : false
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#62bce9'
+					},
+					coordinate:{
+						width:250,
+						height:260,
+
+
+					axis : {
+						color : '#c0d0e0',
+						width : [0, 0, 1, 0]
+					},
+					scale : [{
+						position : 'left',
+						start_scale : 30,
+						end_scale : 45,
+						scale_space : 5,
+						scale_enable : false,
+						label : {
+							fontsize:11,
+							fontweight:600,
+							color : '#666666'
+						}
+					},{
+						position : 'left',
+						start_scale : 30,
+						end_scale : 45,
+						scale_space : 5,
+						scale_enable : false,
+						label : {
+							fontsize:11,
+							fontweight:600,
+							color : '#666666'
+						}
+					}]
+					}
+				});
+			//开始画图
+			line.draw();
+		});
+				
+</script>
+<div id='canvasDiv4'></div> 
+
+<script type="text/javascript">
+			$(function(){
+				var flow=[175,174,176,175,176,175];
+				var data = [
+				         	{
+				         		value:flow,
+				         		color:'#05b061',
+				         		line_width:2
+				         	}
+				         ];
+				
+				var line = new iChart.LineBasic2D({
+					render : 'canvasDiv5',
+					data: data,					
+					
+					//align:'center',
+					title : '身高',
+					subtitle : '',
+					width : 300,
+					height : 260,
+					sub_option:{
+						smooth : true,//平滑曲线
+						point_size:10
+					},
+					
+					/*tip:{
+						enable:true,
+						shadow:true
+					},*/    // 提示内容
+					legend : {
+						enable : false
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#62bce9'
+					},
+					coordinate:{
+						width:230,
+						height:160,
+						axis : {
+							color : '#c0d0e0',
+							width : [0, 0, 1, 0]
+						},
+						scale : [{
+							position : 'left',
+							start_scale :170,
+							end_scale : 180,
+							scale_space : 5,
+							scale_enable : false,
+							label : {
+								fontsize:11,
+								fontweight:600,
+								color : '#666666'
+							}
+						},{
+							position : 'left',
+							start_scale : 170,
+							end_scale : 180,
+							scale_space : 5,
+							scale_enable : false,
+							label : {
+								fontsize:11,
+								fontweight:600,
+								color : '#666666'
+							}
+						}]
+					}
+				});
+			//开始画图
+			line.draw();
+		});
+				
+</script>
+<div id='canvasDiv5'></div> 
+
+<script type="text/javascript">
+			$(function(){
+				var flow=[160,158,167,165,168,162];
+				var data = [
+				         	{
+				         		value:flow,
+				         		color:'#05b061',
+				         		line_width:2
+				         	}
+				         ];
+				
+				var line = new iChart.LineBasic2D({
+					render : 'canvasDiv6',
+					data: data,					
+					
+					//align:'center',
+					title : '体重（斤）',
+					subtitle : '',
+					
+					width : 300,
+					height : 260,
+					sub_option:{
+						smooth : true,//平滑曲线
+						point_size:10
+					},
+					
+					/*tip:{
+						enable:true,
+						shadow:true
+					},*/   // 提示内容
+					legend : {
+						enable : false
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#05b061'
+					},
+					coordinate:{
+						width:230,
+						height:160,
+
+
+					axis : {
+						color : '#c0d0e0',
+						width : [0, 0, 1, 0]
+					},
+					scale : [{
+						position : 'left',
+						start_scale : 150,
+						end_scale : 170,
+						scale_space : 5,
+						scale_enable : false,
+						label : {
+							fontsize:11,
+							fontweight:600,
+							color : '#666666'
+						}
+					},{
+						position : 'left',
+						start_scale : 150,
+						end_scale : 170,
+						scale_space : 5,
+						scale_enable : false,
+						label : {
+							fontsize:11,
+							fontweight:600,
+							color : '#666666'
+						}
+					}]
+					}
+				});
+			//开始画图
+			line.draw();
+		});
+				
+</script>
+<div id='canvasDiv6'></div> 
+
+<div style="width:100%; height:200px;"></div>
+
+</body>
+</html>

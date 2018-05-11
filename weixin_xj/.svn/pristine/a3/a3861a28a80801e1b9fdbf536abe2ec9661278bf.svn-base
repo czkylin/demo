@@ -1,0 +1,18 @@
+body{background:#fff;font-size:16px;}
+.art{padding:.5rem;}
+.unit p{text-align:justify;text-justify:inter-word;text-indent:2em;line-height:30px;}
+.unit ul{padding-top:30px;}
+.unit li{border:1px solid #ccc;width:3.4rem;margin-right:0.4rem;box-sizing:border-box;-webkit-box-sizing:border-box;position:relative;}
+.unit li:last-child{margin-right:0;}
+.unit li:before{position:absolute;right:1px;bottom:1px;content:'';background:url(/weixin/Public/Member/images/pro/search.png) no-repeat;background-size:18px 18px;width:18px;height:18px;}
+.mask{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);transition:.5s;-webkit-transition:.5s;visibility:hidden;opacity:0;}
+.mask.active{visibility:visible;opacity:1;}
+.swiper-container{width:100%;overflow:visible;}
+.swiper-wrapper{width:100%;margin:0 auto;}
+.swiper-button-prev{left:0;background-image:url(/weixin/Public/Member/images/pro/arrow.png);transform:rotateY(180deg);-webkit-transform:rotateY(180deg);}
+.swiper-button-next{right:0;background-image:url(/weixin/Public/Member/images/pro/arrow.png);}
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{opacity:0;}
+.swiper-container i{position:absolute;right:10%;top:-40px;width:30px;height:30px;border-radius:30px;border:1px solid #fff;z-index:1000;}
+.swiper-container i:before,.swiper-container i:after{content:'';position:absolute;left:50%;top:50%;width:20px;height:1px;margin-top:-1px;margin-left:-10px;border-top:1px solid #fff;}
+.swiper-container i:before{transform:rotate(45deg);-webkit-transform:rotate(45deg);}
+.swiper-container i:after{transform:rotate(-45deg);-webkit-transform:rotate(-45deg);}

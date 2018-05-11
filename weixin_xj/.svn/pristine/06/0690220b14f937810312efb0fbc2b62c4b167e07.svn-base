@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>审核状态</title>
+    <!--CSS库文件-->
+    <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <!--CSS当前页面文件-->
+    <link href="/weixin/Public/Expert/css/user/zhuce.css" type="text/css" rel="stylesheet" />
+    <style>
+        html,body{width:100%;height:100%;}
+    section{width:100%;height:100%;display:box;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;}  
+        .hContent{width:90%;margin:0 auto;padding:1rem 0}
+        .hContent a{display:block;color:#fff;background:#ff7f35;width:60%;margin:25px auto 0;line-height:40px;height:40px;border-radius:2px;font-size:16px;}
+    </style>
+</head>
+
+<body class="shenhebg">
+    <section>
+        <div class="shenhezhong">
+            <p class="center"><img src="/weixin/Public/Expert/images/zhengcejiedu/eshen.jpg" width="50%"></p>
+            <h1 class="center" style="margin-top:20px;">审核中...</h1>
+            <h2 class="center">{$user_info['EXPERT_NAME']} 您好！</h2>
+            <h2 class="center">{$user_info['HOS_NAME']}</h2>
+            <h2 class="center">{$user_info['LINK_MOBILE']}</h2>
+            <p class="center">您好！您的开通电子处方功能已申请，
+                <br>请您耐心等耐,客服人员会与您联系</p>
+            <div class="hContent"><a href="{:U('Expert/User/mywork_house')}" class="center">个人中心</a></div>
+        </div>
+    </section>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>    
+</body>
+
+</html>

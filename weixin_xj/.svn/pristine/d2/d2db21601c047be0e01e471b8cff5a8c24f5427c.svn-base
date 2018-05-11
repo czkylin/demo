@@ -1,0 +1,94 @@
+@charset "utf-8";
+.dengluCon label input, body { font-family: "微软雅黑" }
+body { margin: 0; padding: 0; background-color: #e5e5e5 }
+dd, dl, dr, dt, em, h1, h2, h3, h4, i, li, sapn, ul { list-style: none; margin: 0; padding: 0; font-style: normal; text-decoration: none }
+input[type=button], input[type=submit], input[type=file], button { cursor: pointer; -webkit-appearance: none; } 
+a, a:hover { text-decoration: none }
+.left { float: left }
+.right { float: right }
+.clear { clear: both }
+.bangding_top { width: 100%; height: 140px }
+.touxiang, .touxiang img { width: 80px; height: 80px; border-radius: 50% }
+.touxiang { margin: 0 auto; padding-top: 20px }
+.dengluInfo, .touxiang p { text-align: center; line-height: 30px; width: 100% }
+.touxiang p { height: 30px; overflow: hidden; margin-top: 10px; color: #fff; font-size: 20px }
+.bangding_bot { margin-top: 25px }
+.dengluInfo { height: 40px; padding-top: 220px; background: url(../images/gongzuoshi/dengluLogo.jpg) center 50px no-repeat; background-size: 120px; color: #999 }
+.dengluInfo p { margin: 0 }
+.dengluCon { width: 80%; margin: 0 auto }
+.dengluCon label { padding-left: 43px; background: url(../images/yonghu/ico1.png) 13px center no-repeat #f7f7f7; background-size: 16px; display: block; min-height: 60px; margin-bottom: 0 }
+.dengluCon .dengluName { margin-bottom: 2px }
+.dengluCon .dengluName input { float: left; display: block; width: 10em; width: 45%; padding-left: 10px; margin-right: 5px; background: #f7f7f7 }
+.dengluCon .dengluMa a { background-color: #6cb937; color: #fff; display: block; float: left; margin: 15px 0 0 5px; padding: 10px; font-size: 12px }
+.dengluCon .dengluPass { background-image: url(../images/yonghu/ico3.png); margin-bottom: 2px }
+.dengluCon .dengluMa { background-image: url(../images/yonghu/ico2.png); padding-bottom: 0; margin-bottom: 2px }
+.dengluCon label.xieyi { text-align: center; line-height: 30px; height: 30px; width: 100%; vertical-align: middle; background: 0 0; padding-left: 0; margin-top: 0; display: block }
+.dengluCon label.xieyi input { background-image: none; margin: 17px 0 0; line-height: 30px; width: 8%; float: left }
+.dengluCon label.xieyi .xieyi_con { margin: 0 auto; width: 67%; display: block; overflow: hidden; height: 50px }
+.dengluCon label.xieyi b { font-weight: 400; color: #666; margin-left: 10px; font-size: 12px; line-height: 30px; height: 25px; display: block; float: left; margin-top: 12px; overflow: hidden }
+.dengluCon .dengluMa input { float: left }
+.dengluCon .dengluMa img { float: left; margin: 10px 0 0 5px; width: 80px }
+.dengluCon label input { box-shadow: none; background: #f7f7f7; border: 0; color: #999; height: 25px; padding: 0 0 0 10px; line-height: 25px; margin: 18px 0; width: 55%; font-size: 14px }
+.dengluCon .yishengDL { display: block; text-align: center; height: 35px; line-height: 35px; color: #fff; background-color: #517ac0; margin-top: 50px; font-size: 16px; border-radius: 5px }
+.dengluCon span { color: #999; font-size: 10px; float: right; line-height: 30px }
+
+.bangding_bot .sub_kuang { line-height:20px; padding:10px 0; border-radius:3px; border: 0; text-align: center; width: 100%; color: #fff; margin-top:10px; margin-bottom:1.5rem; background: #6fba2b; font-size:14px;}
+.dengluCon2 label { padding-left: 0; background: #f7f7f7; background-size: 23px; display: block; min-height: 60px; margin-bottom: 0; border-radius: 0 0 8px 8px }
+.dengluCon2 .dengluName2 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; border-radius: 8px 0 0 }
+.dengluCon2 .dengluName2 b img { margin: 17px 0 0 19px; width: 19px; height: 25px }
+.dengluCon2 .dengluName2 { margin-bottom: 2px; border-radius: 8px 8px 0 0 }
+.dengluCon2 .dengluName2 input { float: left; display: block; width: 10em; width: 45%; padding-left: 10px; margin-right: 5px; background: #f7f7f7; color: #ccc }
+.dengluCon2 .dengluPass { background-image: none; margin-bottom: 2px; border-radius: 0 0 8px 8px }
+.dengluCon2 .dengluPass2 input { background: url(../images/yonghu/ico4.png) right no-repeat }
+.dengluCon2 .dengluPass b, .dengluCon2 .dengluPass2 b { display: block; background: #d9d9d9; float: left; border-radius: 0 0 0 8px }
+.dengluCon2 .dengluPass2 b { width: 60px; height: 60px }
+.dengluCon2 .dengluPass2 b img { margin: 17px 0 0 19px; width: 19px; height: 20px }
+.dengluCon2 .dengluPass b { width: 60px; height: 60px }
+.dengluCon2 .dengluPass b img { margin: 17px 0 0 19px; width: 19px; height: 20px }
+.dengluCon2 .yishengDL2 { display: block; text-align: center; height: 35px; line-height: 35px; color: #fff; background-color: #6abd43; margin-top: 50px; font-size: 16px; border-radius: 5px }
+.wangji a { color: #999; font-size: 14px; float: right }
+.dengluCon2 .dengluMa2 { background-image: none; padding-bottom: 0; margin-bottom: 0; border-radius: 0 0 8px 8px }
+.dengluCon2 .dengluMa2 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; border-radius: 0 0 0 8px }
+.dengluCon2 .dengluMa2 b img { margin: 19px 0 0 19px; width: 19px; height: 20px }
+.dengluCon2 .dengluPass3 { background-image: none; margin-bottom: 2px }
+.dengluCon2 .dengluPass3 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px }
+.dengluCon2 .dengluPass3 b img { margin: 18px 0 0 19px; width: 19px; height: 20px }
+.dengluCon .dengluMa2 input { width: 46%; float: left }
+.dengluCon .dengluMa2 a { background-color: #6cb937; color: #fff; display: block; float: left; margin: 15px 0 0 5px; padding: 10px; font-size: 12px }
+.bangdingcg h2, .bangdingcg p { color: #666; font-family: "微软雅黑" }
+.bangdingcg { margin-top: 50px; text-align: center }
+.bangdingcg img { width: 30%; margin: 0 auto }
+.bangdingcg h2 { font-size: 18px; font-weight: 400; margin-top: 30px }
+.bangdingcg p { font-size: 16px; width: 65%; margin: 30px auto 0; line-height: 30px }
+.bangdingcg b, .bangdingcg em a { width: 100%; font-size: 18px; line-height: 30px; font-family: "微软雅黑" }
+.bangdingcg b { color: #333; display: block; font-weight: 400 }
+.bangdingcg em a { color: #517ac0 }
+.dengluCon .yzmName input {
+	box-shadow:none;
+	background-color:rgba(255,255,255,0.1);
+	border:0;
+	color:#999;
+	height:25px;
+	padding:0 0 0 10px;
+	line-height:25px;
+	margin:18px 0;
+	margin-right:5px;
+	width:45%;
+	font-size:14px
+}
+
+.dengluCon .yzmName {
+	padding-left:43px;
+	background:url(../images/yonghu/ico1.png) 13px center no-repeat #f7f7f7;
+	background-size:16px;
+	display:block;
+	min-height:60px;
+	margin-bottom:0
+}
+
+.dengluCon .yzmName {
+	margin-bottom:2px
+}
+.dengluCon .yzmName span {
+	padding:15px 10px 10px 0;
+}

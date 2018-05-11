@@ -1,0 +1,9 @@
+<volist name="union_list" id="union" >
+    <li> <a href="{:U('Union/union_info',array('union_id'=>$union['UNION_ID']))}" class="pic">
+    <img src="{$union['UNION_PIC']}"></a>
+            <div class="lm_right">
+                    <h2><a href="{:U('Union/union_info',array('union_id'=>$union['UNION_ID']))}" >{$union['UNION_NAME']}</a></h2>
+                    <p class="sponsor"><span>{$union['PROVINCE_NAME']}</span><span class="right">成立时间：{$union['UNION_DATE']|Dtodiy='Y.m.d',###}</span></p>
+            </div>
+    </li>∮
+</volist>

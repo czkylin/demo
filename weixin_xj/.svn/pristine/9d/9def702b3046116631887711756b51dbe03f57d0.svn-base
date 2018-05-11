@@ -1,0 +1,12 @@
+
+<volist name="jifen_list" id="jifen">
+	<li>
+        <p>{$jifen['JIFEN_NAME']}</p>
+        <div style="width: 120px">
+        	<span>+{$jifen['JIFEN_NUM']}分</span>
+            <i>{$jifen['CREATE_DATE']}</i>
+        </div>
+        <br clear="all" />
+    </li>∮
+</volist>
+

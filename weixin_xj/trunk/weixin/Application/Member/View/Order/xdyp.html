@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>心电阅片</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Expert/css/xdyp.css">    
+</head>
+<body>
+<div class="page-group">
+    <form action="{:U('Order/xdyp_add')}" method="POST">
+        <div class="page page-current">
+            <input type="hidden" name="d_openid" value="{$d_openid}" />
+            <input type="hidden" name="package" id="package" value="" />
+            <!-- <div class="address address1">
+                <span>所  在  地  区：</span>
+                <input type="text" id='city-picker' name="ad1" placeholder="请选择"/>   
+            </div> -->
+            <div class="address">
+                <span>详细站点名称：</span>
+                <input type="text" name="ad2" id="ad2" placeholder="请按乡(镇)、村的格式填写(25字以内)"/>
+            </div> 
+            <h3>
+                心电阅片包月套餐
+            </h3> 
+            <ul class="list">
+                <li class="active" data-type= "0">
+                    150/月
+                </li>
+                <li data-type= "1">
+                    400/三个月
+                </li>
+            </ul> 
+            <input type="button" value="提交" class="sub" id="sub">  
+        </div>
+    </form>
+</div>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="//g.alicdn.com/msui/sm/0.6.2/js/sm-city-picker.min.js" charset="utf-8"></script>
+<script>
+    // $("#city-picker").cityPicker({
+    //     toolbarTemplate: '<header class="bar bar-nav">\
+    //     <button class="button button-link pull-right close-picker">确定</button>\
+    //     <h1 class="title">所在地区</h1>\
+    //     </header>'
+    // });
+
+    function fnType (){
+        var type = 1;
+        $('.list li').each(function(index,item){
+            if( $(item).hasClass('active') ){
+                type = $(this).data('type');
+            }
+        })
+        return type;
+    }
+    
+    var type = fnType ();
+    $("#package").attr("value",type);
+
+    $('.list li').each(function(){
+        $(this).click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            type = fnType ();
+            $("#package").attr("value",type);
+        })
+    })
+
+    function check_form(ad2)
+    {
+
+        if(!ad2)
+        {
+            alert('请填写详细站点名称');
+            $("#ad2").focus();
+            return false;
+        }
+        if(ad2.length > 25)
+        {
+            alert('站点名称需在25字以内');
+            $("#ad2").focus();
+            return false;
+        }
+        return true;
+    }
+
+
+
+    $("#sub").click(function(){
+
+        var ad2 = $("#ad2").val();
+
+        console.log(ad2.length);
+
+        if(check_form(ad2))
+        {
+            $("form").submit();
+        }
+
+    });
+</script>
+</body>
+</html>

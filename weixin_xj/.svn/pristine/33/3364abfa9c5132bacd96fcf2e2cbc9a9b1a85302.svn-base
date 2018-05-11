@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-血糖</title>
+</head>
+<body>
+<!--血糖-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="xuetang">
+		<div class="con">
+			<h2 class="tit1">血糖</h2>
+			<p>血液中的葡萄糖称为血糖。体内各组织细胞活动所需的能量大部分来自葡萄糖，所以血糖必须保持一定的水平才能维持体内各器官和组织的需要。正常人在清晨空腹血糖为3.9～6.1毫摩尔/升</p>
+		</div>
+		<ul class="detail detail_xt">
+			<volist name="jk_info" id="jk">
+				<li>
+					<a href="javascript:;" class="clear">
+						<div class="right position box xuetangzhi">
+							<p>{$jk.GLUCOSE|round=1}mmol</p>
+							<span class="canshu">正常</span>
+						</div>
+						<p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						<div class="clear"></div>
+					</a>	
+				</li> 
+			</volist>
+			<!-- <li>
+				<div class="right position box xuetangzhi">
+					<p>110.1mmol</p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box xuetangzhi">
+					<p>177.1mmol</p>
+					<span class="canshu">偏高</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box xuetangzhi">
+					<p>70.1mmol</p>
+					<span class="canshu">偏低</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box xuetangzhi">
+					<p>80.1mmol</p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+	//血糖，动态设置
+	function fn(){
+		$(".xuetangzhi").each(function(){
+			var $xuetangzhi = $(this).find("p");
+			var shuzhi = parseFloat($xuetangzhi.html());
+			var $canshu = $(this).find("span");
+			if(shuzhi >= 6.1){
+				$canshu.html("偏高").addClass("color_gj");
+			}else if(shuzhi <= 3.9){
+				$canshu.html("偏低").addClass("color_ts");
+			}else{
+				$canshu.html("正常");
+			}
+		})	
+	}
+
+	$(function(){
+		fn();
+	})
+	var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&tj_type='+tj_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

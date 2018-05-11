@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ margin:0; padding:0;}
+p,ul,li{ margin:0; padding:0;}
+.main{ padding:0 15px; margin-top:20px;}
+.main p{ display:block; width:100%; overflow:hidden; line-height:24px; margin-bottom:10px;}
+.main p span{ float:left; display:block; font-size:14px; color:#333; width:3.5rem;}
+.main p b{ font-weight:normal; float:left;font-size:14px; color:#666; width:11rem;}
+.main  img{ width:80%; margin-left:10%;}
+
+
+.main2{ padding:0 15px; margin-top:20px;}
+.main2 p{ display:block; width:100%; overflow:hidden; line-height:24px; font-size:12px; color:#333;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

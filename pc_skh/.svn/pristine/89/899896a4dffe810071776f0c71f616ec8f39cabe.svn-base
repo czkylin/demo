@@ -1,0 +1,19 @@
+$('#list .tab_nav').hover(function(event) {
+  $(this).removeClass('on');
+  var This = $(this);
+  setTimeout(function() {
+    This.addClass('on');
+  }, 2)
+  $(this).children('.tab_con').addClass('show');
+},function(){
+  $(this).removeClass('on');
+  $(this).children('.tab_con').removeClass('show');
+});
+$('.search').focus(function() {
+  $('.search_box').css('borderColor', '#077478');
+  $('.searchButton').css({'borderColor': '#077478', 'background': '#077478 url(/Public/Common/images/search2.png) no-repeat center'});
+})
+$('.search').blur(function() {
+  $('.search_box').css('borderColor', '#dddddd');
+  $('.searchButton').css({'borderColor': '#dddddd', 'background': 'url(/Public/Common/images/search.png) no-repeat center'});
+})

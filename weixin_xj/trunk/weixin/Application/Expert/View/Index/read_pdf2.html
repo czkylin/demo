@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+<title>Online View PDF</title>  
+
+<script type="text/javascript" src="/weixin/Public/Common/js/pdfobject.js"></script>
+ 
+</head>  
+   
+<body>  
+<script type="text/javascript">
+
+      window.onload = function (){
+        var myPDF = new PDFObject({ url: "http://yun.yk2020.com/upload/sect_pdf/2018.pdf" }).embed();
+      };
+
+</script>
+<div id="pdf" style=" height:500px"></div>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>  
+</html>  

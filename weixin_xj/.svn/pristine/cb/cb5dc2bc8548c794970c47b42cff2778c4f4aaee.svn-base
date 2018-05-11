@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="全民健康狂欢季，6.17-6.23部分产品买一送一，健康go go go">
+<meta name="keywords" content="健康放肆购，好礼送不停">
+<title>主会场</title>
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/zhc_style.css">
+<script type="text/javascript">
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+</script>
+</head>
+
+<body>
+	<div id="loutinav">
+		<ul>
+			<li class="active">百倍爱心卡</li>
+			<li>肺保卡</li>
+			<li>女性无忧卡</li>
+			<li>百倍眼保卡</li>
+		</ul>
+	</div>
+	<!-- 返回顶部 -->
+	<div id="top">
+		<img src="/weixin/Public/Member/images/zhc/top.png">
+	</div>
+	<!--楼层内容开始-->
+	<div id="main">
+		<div class="louti louti0"></div>
+		<div class="louti louti1">
+			<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_init&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				
+				<img src="/weixin/Public/Member/images/zhc/zhc-f1-img01.png">
+			</a>
+			<a href="http://wx-tumourorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=sell1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f1-img02.png">
+			</a>
+			<a href="http://weixin-fk.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=wy&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				
+				<img src="/weixin/Public/Member/images/zhc/zhc-f1-img03.png">
+			</a>
+			<a href="http://weixin-yk.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=yanbao&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f1-img04.png">
+			</a>
+		</div>
+		<div class="louti louti2">
+			<div class="f-title">
+				<img src="/weixin/Public/Member/images/zhc/bbaxk-title.png">
+			</div>
+			<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_init&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				
+				<img src="/weixin/Public/Member/images/zhc/zhc-f2-img01.jpg">
+			</a>
+			<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_1280_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f2-img02.jpg">
+			</a>
+			<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_jqr_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}" style="margin-right:0;">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f2-img03.jpg">
+			</a>
+			<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=blood&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}" style="margin-right:0;width:9.32rem;">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f2-img04.jpg" style="width:9.32rem;margin-right:0;">
+			</a>
+			<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_9900_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}" style="margin-right:0;width:4.82rem;">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f2-img05.png" style="width:4.82rem;margin-right:0;">
+			</a>
+		</div>
+		<div class="louti louti3">
+			<div class="f-title">
+				<img src="/weixin/Public/Member/images/zhc/fbk-title.png">
+			</div>
+			<a href="http://wx-tumourorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=sell1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f3-img01.jpg">
+			</a>
+			<a href="http://wx-tumourorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=gongyi&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f3-img02.jpg">
+			</a>
+		</div>
+		<div class="louti louti4">
+			<div class="f-title">
+				<img src="/weixin/Public/Member/images/zhc/wyk-title.png">
+			</div>
+			<a href="http://weixin-fk.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=wy&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				
+				<img src="/weixin/Public/Member/images/zhc/zhc-f4-img01.jpg">
+			</a>
+			<a href="http://weixin-fk.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=fk_main&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f4-img02.jpg">
+			</a>
+		</div>
+		<div class="louti louti5">
+			<div class="f-title">
+				<img src="/weixin/Public/Member/images/zhc/ybk-title.png">
+			</div>
+			<a href="http://weixin-yk.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=yanbao&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f5-img01.jpg">
+			</a>
+			<a href="http://www.aiyanwang.org/WeChat/patients/views/loveCard_5.aspx">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f5-img02.jpg">
+			</a>
+			<a href="http://www.aiyanwang.org/WeChat/patients/views/loveCard_7.aspx">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f5-img03.jpg">
+			</a>
+			<a href="http://www.aiyanwang.org/WeChat/patients/views/loveCard_6.aspx">
+				<img src="/weixin/Public/Member/images/zhc/zhc-f5-img04.jpg">
+			</a>
+		</div>
+		
+	</div>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Member/js/zhc.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		//微信分享
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '健康放肆购，好礼送不停';
+        var wx_share_desc = '全民健康狂欢季，6.17-6.23部分产品买一送一，健康go go go';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/zhc/icon.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=zhuhuichang&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name='+encodeURIComponent("{$user_info.user_name}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=zhuhuichang&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name='+encodeURIComponent("{$user_info.user_name}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+	<!-- CNZZ统计代码 -->
+	<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+	<!-- CNZZ统计代码  主会场独统计-->
+	<div style="height:0px;overflow:hidden;"><script src="https://s19.cnzz.com/z_stat.php?id=1262019692&web_id=1262019692" language="JavaScript"></script></div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link href="../../../../Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="../../../../Public/Common/css/commonLabel/label.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="../../../../Public/Expert/css/college/paiHangBang.css" type="text/css" rel="stylesheet"/>
+<!-- title -->
+<title>排行榜-诊疗专家</title>
+</head>
+<body>
+<header class="ui-header"> <i class="ui-icon-return" onClick="history.back()"></i> </header>
+<div class="Tab_CaiDan"> <a href="#" >诊疗专家排名</a> <a href="#" class="curr">诊疗专家</a>
+        <div class="clear"></div>
+</div>
+<div class="gslmLabel">
+        <div style=" width:15px; height:10px; float:left;"></div>
+        <div style=" " class="labelCon">
+                <div style=" width:700px;"> <a href="#" class="ui-label-s">病毒性肝病</a> <a class="ui-label-s curr">酒精性肝病</a> <a class="ui-label-s">药物性肝病</a> <a class="ui-label-s">毒物性肝病</a> <a class="ui-label-s">新陈代谢异常性肝病</a><a class="ui-label-s">脂肪性肝病</a> </div>
+        </div>
+        <div class="clear"></div>`
+        <div style=" width:15px; height:10px; float:left;"></div>
+</div>
+<div class="pad_15 pad_top">
+        <ul class="zhuanJia_list">
+                <li> <a href="#" class="pic"><img src="/weixin/Public/Expert/images/geShengLianMeng/img1.jpg"></a>
+                        <div class="lm_right"> <strong class="mingcheng">黄颖</strong><i class="new_time">2016.02.03</i><i>北京同仁医院</i> <span>白内障中心/主任医师</span>
+                                <p>简介：青光眼、角膜病、白内障及眼底病白内障及眼内障及眼及.....</p>
+                        </div>
+                </li>
+                <li> <a href="#" class="pic"><img src="/weixin/Public/Expert/images/geShengLianMeng/img1.jpg"></a>
+                        <div class="lm_right"> <strong class="mingcheng">黄颖</strong> <i>北京同仁医院</i> <span>白内障中心/主任医师</span>
+                                <p>简介：青光眼、角膜病、白内障及眼底病白内障及眼内障及眼及.....</p>
+                        </div>
+                </li>
+                <li> <a href="#" class="pic"><img src="/weixin/Public/Expert/images/geShengLianMeng/img1.jpg"></a>
+                        <div class="lm_right"> <strong class="mingcheng">黄颖</strong> <i>北京同仁医院</i> <span>白内障中心/主任医师</span>
+                                <p>简介：青光眼、角膜病、白内障及眼底病白内障及眼内障及眼及.....</p>
+                        </div>
+                </li>
+                <li> <a href="#" class="pic"><img src="/weixin/Public/Expert/images/geShengLianMeng/img1.jpg"></a>
+                        <div class="lm_right"> <strong class="mingcheng">黄颖</strong> <i>北京同仁医院</i> <span>白内障中心/主任医师</span>
+                                <p>简介：青光眼、角膜病、白内障及眼底病白内障及眼内障及眼及.....</p>
+                        </div>
+                </li>
+                <li> <a href="#" class="pic"><img src="/weixin/Public/Expert/images/geShengLianMeng/img1.jpg"></a>
+                        <div class="lm_right"> <strong class="mingcheng">黄颖</strong> <i>北京同仁医院</i> <span>白内障中心/主任医师</span>
+                                <p>简介：青光眼、角膜病、白内障及眼底病白内障及眼内障及眼及.....</p>
+                        </div>
+                </li>
+        </ul>
+</div>
+<div class="ui-jiazai tac"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+<div id="current_pagenum" style="display:none">2</div>
+<div style="height:80px;"></div>
+<!--底部 开始-->
+<div class="footer"> <a href=""><span class="ui-icon-home2"></span>
+        <h2>微首页</h2>
+        </a> <a href=""><span class="ui-icon-horn"></span>
+        <h2>活动通知</h2>
+        </a> <a href=""><span class="ui-icon-unscramble"></span>
+        <h2>指南解读</h2>
+        </a> <a href=""><span class="ui-icon-book"></span>
+        <h2>期刊杂志</h2>
+        </a> </div>
+<!--底部 结束--> 
+<script>
+	var shouye = $("#over_footer .over_footer_shouye"), 
+		zixun = $("#over_footer .over_footer_huanzhe"),
+		yuepian = $("#over_footer .over_footer_pengyou"), 
+		dingdan_dd = $("#over_footer .over_footer_dingdan_dd"), 
+		geren = $("#over_footer .over_footer_geren");
+	$(function(){
+		if(over_footer==1){
+			shouye.removeClass("over_footer_shouye").addClass("over_footer_shouye_on");
+		};
+		if(over_footer==2){
+			zixun.removeClass("over_footer_huanzhe").addClass("over_footer_huanzhe_on");
+		};
+		if(over_footer==3){
+			yuepian.removeClass("over_footer_pengyou").addClass("over_footer_pengyou_on");
+		};
+		if(over_footer==4){
+			dingdan_dd.removeClass("over_footer_dingdan_dd").addClass("over_footer_dingdan_dd_on");
+		};
+		if(over_footer==5){
+			geren.removeClass("over_footer_geren").addClass("over_footer_geren_on");
+		}
+	}) 
+</script> 
+<script src="/weixin/Public/Expert/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script> 
+<script>
+
+var over_footer = '3';
+
+function load_more()
+
+{
+
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Doc&a=doc_list_append','#doc-list');
+
+}
+
+</script>
+<include file="Public:tj" /></body>
+</html>

@@ -1,0 +1,209 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+* {
+    -webkit-font-smoothing: antialiased;
+}
+html,body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+body {
+    background: #f5f6f9;
+    font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+img{ border:0;}
+div {
+    display: block;
+}
+.insurance-mod-invite {
+    position: relative;
+    text-align: center;
+	background:url(../../images/huzhu/xiazai.png) no-repeat;
+    background-size: cover;
+    font-size: 12px;
+    margin: 15px;
+}
+.invite-info {
+    padding: 40px 0 15px;
+}
+.invite-info img {
+    border-radius: 100%;
+    border: 5px solid #e4e4e4;
+    height: 75px;
+    width: 75px;
+}
+.invite-info p {
+    color: #6d6d6d;
+    margin: 1px 0;
+}
+.insurance-mod-invite .diamond {
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #000;
+    position: relative;
+    margin: auto;
+}
+.insurance-mod-invite .diamond:after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-top-color: #000;
+}
+.invite-insurance {
+    border: 1px dotted #b7b7b7;
+    width: 90%;
+    position: relative;
+    padding: 10px 0;
+    margin: 30px auto;
+    text-align: center;
+    display: table;
+}
+.invite-insurance .headline {
+    position: absolute;
+    top: -12px;
+    left: 31%;
+    background-color: #fff;
+    color: #43ac43;
+    font-size: 15px;
+}
+.invite-insurance .invite-img {
+    max-width: 100%;
+    padding: 5px 2px;
+    margin-top: 4px;
+}
+.invite-insurance .invite-content {
+    display: table-cell;
+    text-align: left;
+    vertical-align: middle;
+}
+.invite-insurance .invite-content p {
+    margin: 4px 0 0;
+    font-size: 13px;
+}
+.invite-record {
+    padding: 5px 0 30px;
+    margin: 60px auto;
+}
+.invite-envelope {
+    text-align: center;
+    position: relative;
+}
+.invite-envelope .invite-bg1 {
+    z-index: -1;
+    position: absolute;
+    bottom: -60px;
+}
+.invite-envelope .invite-bg2 {
+    z-index: 2;
+    position: absolute;
+    bottom: -55px;
+}
+footer.qsc-bar {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display: table;
+    height: 49px;
+    position: relative;
+}
+.qsc-bar.bar-fixed {
+    position: fixed !important;
+    right: 0;
+    left: 0;
+    z-index: 10;
+}
+
+footer.qsc-bar .bar-item {
+    display: table-cell;
+    width: 20%;
+    text-align: center;
+    vertical-align: middle;
+    height: inherit;
+    color: #999;
+    position: relative;
+    font-size: 11px;
+}
+.guarantee-bar .bar-item.active {
+    font-size: 18px;
+    color: #fff !important;
+    background: #43ac43;
+    font-weight: 600;
+    width: 40%;
+}
+
+footer a span {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-right: 1px solid #e5e5e8;
+}
+.invite-bar span {
+    font-size: 16px;
+    line-height: 35px;
+}
+footer a:last-of-type span {
+    border: none;
+}
+footer.bar-fixed {
+    bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

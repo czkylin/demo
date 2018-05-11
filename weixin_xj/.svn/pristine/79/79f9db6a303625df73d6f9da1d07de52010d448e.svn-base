@@ -1,0 +1,148 @@
+<volist name="jk_info" id="jk">
+    <li class="clear">
+        <switch name="tj_type">
+            <case value="0">
+                <a href="javascript:;" class="clear">
+                    <div class="right position box xuetangzhi">
+                        <p>{$jk.GLUCOSE|round=1}mmol</p>
+                        <span class="canshu">正常</span>
+                    </div>
+                    <p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    <div class="clear"></div>
+                </a>    
+            </case>
+            <case value="1">
+                <a href="javascript:;" class="clear">
+                    <div class="right position box dongmaizhi">
+                        <p><b>动脉血</b><br><span>{$jk.OXYGEN}%</span></p>
+                        <span class="canshu">正常</span>
+                    </div>
+                    <div class="right position box maibozhi">
+                        <p><b>脉搏</b><br><span>{$jk.PULSERATE}/分</span></p>
+                        <span class="canshu">过快</span>
+                    </div>
+                    <p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    <div class="clear"></div>
+                </a>
+            </case>
+            <case value="2">
+                <a href="javascript:;" class="clear">
+                    <p class="left"><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    <div class="left" style="width:80%;">
+                        <div class="left position other box shousuoya">
+                            <p><b>收缩压</b><br><span>{$jk.SYSTOLIC}mmHg</span></p>
+                            <span class="canshu">正常</span>
+                        </div>
+                        <div class="left position other box shuzhangya">
+                            <p><b>舒张压</b><br><span>{$jk.DIASTOLIC}mmHg</span></p>
+                            <span class="canshu">过慢</span>
+                        </div>
+                    </div>
+                </a>
+            </case>
+            <case value="3">
+                <a href="javascript:;" class="clear">
+                    <div class="right position box xinlvzhi">
+                        <p><b>心率</b><br><span>{$jk.HR}/分</span></p>
+                        <span class="canshu">过快</span>
+                    </div>
+                    <p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    <div class="clear"></div>
+                </a>
+            </case>
+            <case value="4">
+                <a href="javascript:;" class="clear">
+                    <p class="left tms"><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    <div class="left position box box1 shengao">
+                        <p><b>身高</b><br><span>{$jk.HEIGHT}cm</span></p>
+                    </div>
+                    <div class="left position box box1 tizhong">
+                        <p><b>体重</b><br><span>{$jk.WEIGHT}KG</span></p>
+                    </div>
+                    <div class="left position box box1 BMI">
+                        <p><b>BMI</b><br><span>0/span></p>
+                        <span class="canshu">正常</span>
+                    </div>
+                </a>
+            </case>
+            <case value="5">
+                <a href="javascript:;" class="clear">
+                    <div class="sidebar">
+                        <p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    </div>
+                    <ol>
+                        <li><div class="box ndy"><p>尿胆原<br><span>{$jk.URO}</span><br><i></i></p></div></li>
+                        <li><div class="box qx"><p>潜血<br><span>{$jk.BLD}</span><br><i></i></p></div></li>
+                        <li><div class="box dhs"><p>胆红素<br><span>{$jk.BIL}</span><br><i></i></p></div></li>
+                        <li><div class="box tt"><p>酮体<br><span>{$jk.KET}</span><br><i></i></p></div></li>
+                        <li><div class="box ptt"><p>葡萄糖<br><span>{$jk.GLU}</span><br><i></i></p></div></li>
+                        <li><div class="box dbz"><p>蛋白质<br><span>{$jk.PRO}</span><br><i></i></p></div></li>
+                        <li><div class="box ph"><p>PH<br><span>{$jk.PH}</span><br><i></i></p></div></li>
+                        <li><div class="box xsy"><p>亚硝酸盐<br><span>{$jk.NIT}</span><br><i></i></p></div></li>
+                        <li><div class="box bxb"><p>白细胞<br><span>{$jk.WBC}</span><br><i></i></p></div></li>
+                        <li><div class="box bz"><p>比重<br><span>{$jk.SG}</span><br><i></i></p></div></li>
+                        <li><div class="box wss"><p>维生素C<br><span>{$jk.VC}</span><br><i></i></p></div></li>
+                        <div class="clear"></div>
+                    </ol>
+                </a>
+            </case>
+            <case value="6">
+                <a href="javascript:;" class="clear">
+                    <div class="right position box tiwenzhi">
+                        <p>{$jk.TEMPERATURE|round=1}°C</p>
+                        <span class="canshu">高烧</span>
+                    </div>
+                    <p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+                    <div class="clear"></div>
+                </a>
+            </case>
+            <case value="7">
+                <a href="javascript:;" class="clear">
+                    <div class="right position box xuetangzhi">
+                        <p>{$jk.GLUCOSE|round=1}mmol</p>
+                        <span class="canshu">正常</span>
+                    </div>
+                    <p><b>{$jk.MEASURE_DATE|Dtodiy="m-d",###}</b><br>{$jk.MEASURE_DATE|Dtodiy="H:i",###}</p>
+                    <div class="clear"></div>
+                </a>
+            </case>
+            <case value="8">
+                <a href="javascript:;" class="clear">
+                    <p class="left"><b>{$jk.MEASURE_DATE|Dtodiy="m-d",###}</b><br>{$jk.MEASURE_DATE|Dtodiy="H:i",###}</p>
+                    <div class="left" style="width:80%;">
+                        <div class="left position other box shousuoya">
+                            <p><b>收缩压</b><br><span>{$jk.SYSTOLIC}mmHg</span></p>
+                            <span class="canshu">正常</span>
+                        </div>
+                        <div class="left position other box maibo">
+                            <p><b>脉搏</b><br><span>{$jk.PULSE}次/分</span></p>
+                            <span class="canshu">正常</span>
+                        </div>
+                        <div class="left position other box shuzhangya">
+                            <p><b>舒张压</b><br><span>{$jk.DIASTOLIC}mmHg</span></p>
+                            <span class="canshu">正常</span>
+                        </div>
+                    </div>
+                </a>
+            </case>
+            <case value="10">
+                <div class="riji">
+                        <span>{$jk.MEASURE_DATE|Dtodiy="m-d",###} </span>
+                        <i>{$jk.MEASURE_DATE|Dtodiy="H:i",###}</i>
+                    </div>
+                    <div class="f_right">
+                        <span>卡路里</span>
+                        <i>{$jk.CALORIES}J</i>
+                    </div>
+                    <div class="f_right">
+                        <span>距离</span>
+                        <i>{$jk.DISTANCE}m</i>
+                    </div>
+                    <div class="f_right">
+                        <span>步数</span>
+                        <i>{$jk.STEPCOUNT}步</i>
+                    </div>
+            </case>
+        </switch>
+    </li>∮
+</volist>

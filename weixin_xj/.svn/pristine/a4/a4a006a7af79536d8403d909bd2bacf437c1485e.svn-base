@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/weixin/Public/Member/css/print/print.css">
+		<title>收货单</title>
+        <style type="text/css">
+            p {
+                text-align: justify;
+/*                font-size: 14px;*/
+            }
+        </style>
+	</head>
+
+	<body>
+		<div class="container" id="divPrint">
+			<div class="head clearfix">
+			    <div class="fl">
+			        <p class="logo text-center"><img src="/weixin/Public/Member/images/print/logo.png" width="100%" alt=""></p>
+			        <p class="size0 text-center">为全民健康服务</p>
+			    </div>
+			    <div class="fr">
+			        <div class="fl">
+			            <p><strong>保障人：</strong>李伟</p>
+			            <p><strong>订购日期：</strong>2016-11-15&nbsp;在线支付</p>
+			            <p><strong>付款方式：</strong>支付宝快捷支付</p>
+			        </div>
+			        <div class="fl">
+			            <p><strong>发货码：</strong><span style="visibility:hidden;">432103664698</span></p>
+			        </div>
+			    </div>
+			</div>
+			<div class="content">
+			    <table>
+			        <tbody>
+			            <tr>
+			                <th class="text-left">商品编码</th>
+			                <th class="text-left">商品名</th>
+			                <th>单价</th>
+			                <th>数量</th>
+			                <th>金额</th>
+			            </tr>
+			            <tr>
+			                <td>14411</td>
+			                <td>百倍爱心卡1280套餐</td>
+			                <td class="text-center">1280.00</td>
+			                <td class="text-center">1</td>
+			                <td class="text-center">1280.00</td>
+			            </tr>
+			            <tr class="last">
+			                <td colspan="2"></td>
+			                <td colspan="2">
+			                    <p class="text-center"><span>运费：</span><span class="text-right">0.00元</span></p>
+			                    <p class="text-center"><span>优惠：</span><span class="text-right">-0.00元</span></p>
+			                </td>
+			                <td>
+			                    <p class="text-center"><span>订单金额：</span><span class="text-right">1280.00元</span></p>
+			                    <p class="text-center"><span>合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计：</span><span class="text-right">1280.00元</span></p>
+			                </td>
+			            </tr>
+			        </tbody>
+			    </table>
+			    <p>未认证电子发票，包装中将不提供纸质发票。电子发票更加环保，与纸质发票具有相同法律效力。</p>
+			    <p>如果您想了解我们的自助退换货政策/流程或需要联系远程客服中心，请点击网站首页“服务支持”进行查看。退换货可在网上申请，维修可在授权药店办理。</p>
+			</div>
+			<div class="footer">
+			    <ul>
+			        <li class="first"><strong>7天退货保障  15天换货承诺  500余家售后服务点</strong></li>
+			        <li class="center clearfix">
+			            <p class="fl"><strong>客服热线：</strong><em>400-656-2020</em></p>
+			            <p class="fl"><strong>工作时间：</strong><em>8:30-17:30</em><em>周一至周五</em></p>
+			        </li>
+			        <li class="last"><img src="/weixin/Public/Member/images/print/love.jpg" width="300px" alt=""></li>
+			    </ul>
+			</div>
+		</div>
+		<p class="print text-right"><a href="javascript:printme()" target="_self">打印</a></p>
+
+		<script type="text/javascript">
+			var global_Html = "";
+			function printme() {
+				global_Html = document.body.innerHTML;
+				document.body.innerHTML = document.getElementById('divPrint').innerHTML;　　　　　　　　　　　　　　
+				window.print();
+				window.setTimeout(function() {
+					document.body.innerHTML = global_Html;
+				}, 800);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <!--公用样式调用-->
+    <link href="/weixin/Public/Common/css/common/basic.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/commonIcon/icon.css">
+    <!--分享页面样式调用-->
+    <link rel="stylesheet" href="/weixin/Public/Member/css/subject/sub.min.css">
+    <title>什么情况下可以做心脏支架手术？</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <h2 class="text-center clear"><a class="ui-icon-return" href="javascript:history.go(-1)"></a>什么情况下可以做心脏支架手术？</h2>
+    </header>
+    <article>
+        <section class="t2i">
+            <h2>什么情况下可以做心脏支架手术</h2>
+            <small>来自 微信</small>
+            <p>在没有心脏支架手术以前，冠心病患者想要解除病痛的唯一有效方法就是冠状动脉搭桥术。这种手术相对于其他外科手术来说，可以说是一种极为复杂、昂贵的的手术。自从有了心脏支架手术，大部分冠心病患者再也无需开胸，仅仅通过从外周动脉插入的一根导管，就可以轻松把支架送到狭窄的冠状动脉解决问题。接下来，小编将跟大家讲述什么情况下可以做心脏支架手术。</p>
+            <img src="/weixin/Public/Member/images/subject/pic1.jpg" width="100%" />
+            <p>心脏支架手术主要是针对冠心病心肌缺血的治疗，实施心脏支架手术的指征有以下几种情况，首先，如患者有心肌梗死、心力衰竭、心肌缺血或坏死等高危状况，需及时进行血管疏通植入支架；其次，患者有胸闷胸痛、严重心绞痛等症状，为改善患者生活质量，可选择植入支架；另外，如患者血管堵塞、狭窄程度超过75%，即可采取支架手术治疗。</p>
+            <img src="/weixin/Public/Member/images/subject/pic2.jpg"  width="100%"/>
+            <h2>什么情况下可以做心脏支架手术</h2>
+            <h2>情况一、心肌梗死</h2>
+            <p>俗话说得好，时间就是心肌，时间就是生命。心脏支架手术最强的指征是心肌梗死，心肌梗死则会把血管完全堵死，当血管完全堵死后心肌细胞坏死，即便患者能够存活下来，将来以后也会发生心力衰竭，因此，尽早的将血管打开进行心脏支架手术至关重要。</p>
+            <h2>情况二、心绞痛</h2>
+            <p>中到重度稳定性心绞痛或不稳定性心绞痛药物不理想者，通常适合做心脏支架手术，该类患者多数有单支或多支冠脉病变，心脏支架手术成功率高，风险小，术后心绞痛症状缓解明显，提高患者的生活质量。</p>
+            <h2>情况三、心肌缺血</h2>
+            <p>经心脏病专家检查证实有显著心肌缺血的高危患者，如冠脉造影有严重病变，可考虑选择心脏支架手术，术后成功率高，致残、致死率低。</p>
+            <h2>情况四、心力衰竭</h2>
+            <p>心力衰竭的患者是否可放支架，应根据患者的具体病情而定。心力衰竭是各种心脏疾病的终末期表现，冠心病患者如果已有心力衰竭，病情进展比较严重，必须及时去医院明确诊断后接受系统治疗，最好在心力衰竭得到控制后进行冠脉造影，再考虑是否进行心脏支架手术治疗。</p>
+            <h2>情况五、血管狭窄程度超过75%</h2>
+            <p>血管狭窄程度超过75%心脏专家建议要做心脏支架手术，要知道狭窄大于75%是很严重的，应立刻到医院请心血管科医生诊治，考虑血运重建，以改善血流动力学。</p>
+            <img src="/weixin/Public/Member/images/subject/pic3.jpg" width="100%" />
+            <h2>人活活血管，血管有多强，寿命有多长！</h2>
+            <p>俗话说得好，“血管年轻人不老”。人的血管就像自来水管，糟糕的生活方式会让管道结垢、变窄，甚至渐渐堵塞，无法供应全身的营养和氧气需求。保养血管并非难事，让我们从生活的点点滴滴做起。</p>
+        </section>
+    </article>
+</body>
+</html>

@@ -1,0 +1,201 @@
+body{
+	background: #fff;
+}
+/*add*/
+#add{
+	padding: 0.3rem 0.48rem;
+	background: #fff;
+}
+.add{
+	padding-left: 1rem;
+	font-size: 0.6rem;
+	color: #333;
+	background: url(/weixin/Public/Member/images/nurse/icon/add1.png) no-repeat left center;
+	background-size: 0.52rem;
+}
+.add-more{
+	padding-left: 1rem;
+	font-size: 0.6rem;
+}
+.add-more span{
+	float: left;
+	color: #333;
+	display: block;
+	height: 1rem;
+	line-height: 1rem;
+}
+.add-more div{
+	float: left;
+	position: relative;
+	display: block;
+	height: 1rem;
+	line-height: 1rem;
+}
+.add-more div input{
+	min-width: 8rem;
+	position: relative;
+	z-index: 2;
+	background:none;
+	border:none;
+	border-bottom: 1px solid #e7e7e7;
+	outline: none;
+	line-height: 1rem;
+	color: #333;
+}
+.add-more div i{
+	font-style: normal;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	height: 1rem;
+	color: #999999;
+	z-index: 1;
+}
+.line{
+	width: 100%;
+	height: 4px;
+	background: url(/weixin/Public/Member/images/nurse/icon/line.jpg) repeat-x; 
+	border-bottom: 0.4rem solid #e7e7e7;
+}
+/*time*/
+#time{
+	padding: 0 0.48rem;
+	background: #fff;
+	height: 1.7rem;
+	line-height: 1.7rem;
+	position: relative;
+	font-size: 0.6rem;
+	border-bottom: 0.4rem solid #e7e7e7;
+}
+#time i{
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 0.2rem;
+	height: 1.7rem;
+	background: #ff7a8f;
+}
+#time span{
+	float: left;
+	display: block;
+	width: 1rem;
+	height: 1.7rem;
+	background: url(/weixin/Public/Member/images/nurse/icon/time.png) no-repeat left center;
+	background-size: 0.56rem;
+}
+#time strong{
+	float: left;
+	color: #333;
+}
+#time a{
+	float: right;
+	color: #ef4a65;
+}
+#time b{
+	float: right;
+	display: block;
+	width: 0.5rem;
+	height: 1.7rem;
+	background: url(/weixin/Public/Member/images/nurse/icon/arrow.png) no-repeat right center;
+	background-size: 0.3rem;
+}
+/*service*/
+#service{
+	background: #fff;
+	border-bottom: 0.4rem solid #e7e7e7;
+}
+#service p{
+	padding: 0 0.48rem;
+	line-height: 1.7rem;
+	color: #333;
+	font-size: 0.6rem;
+}
+#service p i{
+	font-size: 0.4rem;
+	color: #666;
+	font-style: normal;
+}
+/*info*/
+#info{
+	background: #fff;
+	margin-bottom: 2.4rem;
+}
+#info a{
+	color: #333;
+	display: block;
+	height: 1.7rem;
+	line-height: 1.7rem;
+	padding: 0 0.48rem;
+	border-bottom: 1px solid #e7e7e7;
+	font-size: 0.6rem;
+	background: url(/weixin/Public/Member/images/nurse/icon/arrow.png) no-repeat 14.22rem center;
+	background-size: 0.3rem;
+}
+#info a span{
+	float: right;
+	margin-right: 0.5rem;
+	color: #ef4a65;
+	font-size: 0.6rem;
+}
+#info .content{
+	padding: 0 0.48rem 1rem;
+}
+#info .content h3{
+	height: 1.6rem;
+	line-height: 1.6rem;
+	font-weight: normal;
+	color: #333;
+	font-size: 0.6rem;
+}
+#info .content .txt{
+	width: 100%;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	background: #f5f5f5;
+	position: relative;
+	min-height: 4rem;
+}
+#info .content .txt textarea{
+	display: block;
+	width: 90%;
+	min-height: 4rem;
+	border: none;
+	background: none;
+	margin: 0 auto;
+	font-size: 0.5rem;
+	color: #333;
+	line-height: 1rem;
+	resize:none;
+	outline: none;
+}
+#info .content .txt span{
+	position: absolute;
+	left: 5%;
+	top: 0;
+	display: block;
+	line-height: 1rem;
+	font-size: 0.5rem; 
+	color: #666666;
+}
+/*footer*/
+.footer{
+	padding: 0 0.48rem;
+}
+.footer p{
+	font-size: 0.48rem;
+	color: #999;
+	margin-bottom: 0.5rem;
+}
+.footer a{
+	display: block;
+	width: 100%;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	text-align: center;
+	background: #ef4a65;
+	color: #fff;
+	font-size: 0.6rem;
+	border-radius: 0.12rem;
+}

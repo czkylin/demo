@@ -1,0 +1,432 @@
+body, body.data { color: #333 }
+body.apply, body.bind, body.job, body.mine, html { height: 100% }
+.more, .ops .agree, .text-center { text-align: center }
+.lTxt p:nth-child(1), .oList li, .swiper-slide dt { text-overflow: ellipsis; white-space: nowrap }
+* { margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; vertical-align: baseline }
+body { font-family: "microsoft Yahei" }
+body.apply { background: url(/weixin/Public/Expert/images/zhengcejiedu/apply.jpg) center 0 repeat-y; background-size: cover }
+body.bind { background: url(/weixin/Public/Expert/images/zhengcejiedu/bindPhone.jpg) center 0 repeat-y; background-size: cover }
+body.data, body.job { background: #ebebeb }
+li { list-style: none }
+a { text-decoration: none }
+img { border: none; vertical-align: middle }
+input, textarea { outline: 0; box-shadow: none; -webkit-appearance: none; border-radius: 0 }
+input[type=checkbox] { -webkit-appearance: checkbox }
+.ops section li input, input[type=date] { -webkit-appearance: none }
+::-webkit-input-placeholder {
+color:#ccc
+}
+::-webkit-inner-spin-button {
+visibility:hidden;
+-webkit-appearance:none
+}
+::-webkit-calendar-picker-indicator {
+border:1px solid #ccc;
+border-radius:2px;
+box-shadow:inset 0 1px #fff, 0 1px #eee;
+background-color:#eee;
+background-image:-webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+color:#666
+}
+.icon { font-family: wxfont!important; font-size: 30px; font-style: normal; -webkit-font-smoothing: antialiased; -webkit-text-stroke-width: .2px; -moz-osx-font-smoothing: grayscale }
+header { width: 100%; background: #fff; border-bottom: .2rem solid #ebebeb }
+.hContent { width: 100%; margin: 0 auto; padding: .05rem 0 }
+.hContent h2 { color: #333; font-size: 18px; font-weight: 400; height: 30px; line-height: 30px; margin-bottom: .05rem }
+.hContent p, .list strong, .ops, .page section.grade h1 { font-size: 16px }
+.hContent p { color: #666; text-indent: 2em; line-height: 24px }
+.hContent a, .hContent button { display: block; color: #fff; background: #ff647c; width: 100%; font-size: 20px; line-height: 50px; height: 50px; border-radius: 2px; box-shadow: none; -webkit-appearance: none; border-width: 0 }
+.hContent button:disabled { color: #ccc }
+.hContent a.nomargin { margin-top: 0 }
+.ops { width: 90%; margin: 0 auto 50px; color: #fff; padding-bottom: 50px }
+.page { width: 100% }
+.page section { width: 2.8rem; height: .65rem; margin: 0 auto; display: box; display: -webkit-box; padding: .2rem 0; overflow: hidden; border-bottom: 1px dotted #d7d7d7; position: relative }
+.mt { margin-top: 40px }
+.page section.grade, .page section.swiper-wrapper { border-bottom: 0; padding: 0; display: block; width: 100%; height: auto }
+.page section.grade h1 { width: 100%; margin-top: .16rem; text-indent: 1em }
+.page section.swiper-wrapper { margin-bottom: 50px; display: box; display: -webkit-box; overflow: visible }
+.page section.grade i { display: inline-block; border-left: 2px solid #64bbff; height: 14px; margin-right: .05rem; vertical-align: baseline }
+.form span img, .head section img, .headImg img, .list img, .ops section h3 em, .page section.grade em { vertical-align: top }
+.page section.grade em { display: inline-block; font-style: normal; text-indent: 0; margin-top: -.02rem }
+.page section a { position: absolute; top: 0; left: 0; width: 100%; height: 100% }
+.head section, .list { position: relative; overflow: hidden }
+.list { margin-top: .1rem; width: 3rem; width: 100%; height: 1.3rem; background: url(/weixin/Public/Expert/images/zhengcejiedu/logo.png) center center no-repeat; background-size: 39px }
+.list img { width: 100% }
+.list a { background: rgba(0,0,0,.5); color: #fff; display: box; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center }
+.list div { width: 90% }
+.list span, .list strong { color: #fff; width: 100%; display: block; font-weight: 400; margin: .05rem 0 }
+.list span { font-size: 12px }
+.text { width: 1.8rem; height: auto }
+.img { width: 1rem; height: .65rem; overflow: hidden; background: url(/weixin/Public/Expert/images/zhengcejiedu/logo.png) center center no-repeat #e8e8e8; background-size: 39px }
+.img img { width: 100%; display: box; display: -webkit-box }
+.text h2 { font-size: 16px; font-weight: 400; line-height: 20px; width: 90%; height: 40px; overflow: hidden }
+.text p { display: box; display: -webkit-box; margin-top: .2rem }
+.text em, .text strong { font-size: 12px; font-weight: 400; font-style: normal; color: #666; margin-right: 1em; display: block }
+.more { width: 100%; color: #efefef; height: .4rem; line-height: .4rem; font-size: 16px }
+.page nav li, .section p, .swiper-slide h3 { line-height: 40px }
+.head h1 { font-size: 18px; padding: .16rem 0; font-weight: 400 }
+.head section { width: 100%; width: 3rem; height: 1.3rem }
+.head section video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; transition: .5s; -webkit-transition: .5s }
+.head section img { width: 100% }
+.page nav { height: 40px }
+.page nav ol { width: 100%; display: box; display: -webkit-box }
+.page nav li { width: 50%; font-size: 16px; background: #dcdcdc; height: 40px; transition: .5s; -webkit-transition: .5s }
+.page nav li.swiper-pagination-bullet-active { color: #fff; background: #ff647c }
+.swiper-slide dt { position: relative; font-size: 16px; padding: .14rem 20% .14rem 0; border-bottom: 1px solid #c9c9c9; overflow: hidden; width: 80% }
+.swiper-slide dt:after, .swiper-slide dt:before { position: absolute; right: 0; top: 50%; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top-width: 0 }
+.swiper-slide dt:before { border-bottom: 8px solid #666; content: ''; margin-top: -4px }
+.swiper-slide dt:after { border-bottom: 8px solid #fff; content: ''; margin-top: -2px }
+.swiper-slide dt.active:after, .swiper-slide dt.active:before { position: absolute; right: 0; top: 50%; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom-width: 0; content: '' }
+.swiper-slide dt.active:before { border-top: 8px solid #666; margin-top: -2px }
+.swiper-slide dt.active:after { border-top: 8px solid #fff; margin-top: -4px }
+.mask, .nav { top: 0 }
+.swiper-slide dl { width: 90%; margin: 0 auto }
+.swiper-slide li a { font-size: 15px; color: #666; position: static; padding: .1rem 0; border-bottom: 1px dotted #d7d7d7; width: 100%; display: block }
+.dWrap, .nav { position: fixed; left: 0; z-index: 10 }
+.swiper-slide header { border-width: 0 }
+.swiper-slide h3 { background: #ebebeb; font-size: 16px; text-indent: 1em; height: 40px; font-weight: 400 }
+.section { font-size: 15px; color: #666; background: #fff; width: 90%; margin: 0 auto }
+.section footer p, .section p.lh { line-height: 20px; margin: .1rem 0 }
+.section header { padding: .2rem 0; border-bottom: 1px solid #c9c9c9; display: box; display: -webkit-box }
+#s10 .ss, #s11 .ss, #s12 .ss, #s9 .ss, .hd { border-width: 0 }
+.dialog, .hd { display: box }
+.hd { background: 0 0; display: -webkit-box; -webkit-box-pack: center; -webkit-box-align: center; height: 1.5rem }
+.section footer p { height: auto; text-indent: 2em }
+.sPic { border-radius: .5rem; width: .5rem; height: .5rem; overflow: hidden }
+.dWrap, .dl, .nav, .sPic img { width: 100% }
+.sTxt { margin-left: .2rem; padding: .05rem 0 }
+.sTxt p { font-size: 18px; color: #333; font-weight: 700; height: 24px; line-height: 24px }
+.sTxt em, .sTxt small, .sTxt span { font-size: 14px; font-weight: 400; font-style: normal; color: #666 }
+.sTxt small { margin-left: .06rem }
+.sTxt span { margin-left: .14rem }
+.dWrap { bottom: 0; opacity: 0; transform: translate3d(0, 100%, 0); -webkit-transform: translate3d(0, 100%, 0); transition: .5s; -webkit-transition: .5s; background: #fff; height: 2rem }
+.dl { overflow: hidden }
+#s1, #s3 { width: 1rem }
+.dialog { display: -webkit-box; height: 1.6rem; position: relative }
+.line, .mask { position: absolute; left: 0 }
+.dialog .swiper-container { margin: 0 }
+#s1 { margin-left: .3rem }
+#s2 { width: .4rem }
+#s3 { margin-right: .3rem }
+#s0, #s4, #s5, #s6, #s8 { height: 1.36rem; background: #eee }
+#s7 { height: .6rem; background: #eee }
+#s0 .swiper-wrapper, #s4 .swiper-wrapper, #s5 .swiper-wrapper, #s6 .swiper-wrapper, #s7 .swiper-wrapper, #s8 .swiper-wrapper { width: 90%; padding: 0 5% }
+#s10 .swiper-wrapper, #s11 .swiper-wrapper, #s12 .swiper-wrapper, #s9 .swiper-wrapper { padding: 0; width: 100% }
+.dialog .swiper-slide, .ss { display: box; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center; color: #333; transition: .2s; -webkit-transition: .2s; font-size: 18px }
+.ss { border-bottom: 1px dotted #d3d3d3 }
+.slideActive { font-weight: 700; font-size: 22px; color: #333 }
+.dl h2, .ops section h2, .ops section h3, .ops section strong { font-weight: 400 }
+.mask { width: 100%; height: 100%; background: -webkit-gradient(linear, 0 100%, 0 0, from(#fff), color-stop(.48, rgba(245,245,245,0)), color-stop(.52, rgba(255,255,255,0)), to(#fff)); z-index: 1 }
+.line { top: .64rem; width: 100%; height: .32rem; border-top: 1px solid #c6c6c6; border-bottom: 1px solid #c6c6c6 }
+.dl h2 { font-size: 16px; width: 100%; height: .4rem; line-height: .4rem }
+.ops section { margin-top: .1rem }
+.ops section ul { border-top: 1px solid #fff; border-bottom: 1px solid #fff }
+.ops section li { padding: .1rem 0; text-indent: 10px; font-size: 16px; border-bottom: 1px dotted #fff; position: relative }
+.ops section li:last-child { border-bottom-width: 0 }
+.ops section li a { position: absolute; top: 0; left: 0; width: 100%; height: 100% }
+.ops section li input { background: 0 0; border: none; color: #fff; width: 60% }
+.ops section h2 { margin: .2rem 0 .1rem; font-size: 16px }
+.ops section h3 { margin: .1rem 0; font-size: 15px }
+.ops section h3 em { display: inline-block; font-style: normal; text-indent: 0; margin-top: -.02rem }
+.ops section h3 i { display: inline-block; border-left: 2px solid #64bbff; height: 14px; margin-right: .05rem; vertical-align: baseline }
+.check, .ops label { vertical-align: middle }
+.ops section p.lt { font-size: 14px; color: #ccc }
+.bindP { height: 100% }
+.bindP.toTop { transform: translate3d(0, -100px, 0); -webkit-transform: translate3d(0, -100px, 0) }
+.bindP section { width: 90%; margin: 0 auto }
+.check { border: 1px solid #64bbff; height: 14px; line-height: 20px; width: 14px; display: block }
+.agreement { margin: .2rem auto }
+.ops label { position: relative; height: 16px; overflow: hidden; display: inline-block; margin-right: .05rem; margin-bottom: 4px }
+.ops label input { position: absolute; top: -100px; left: -100px }
+.ops label input:checked~i { background: #ff647c }
+.ops label span { vertical-align: bottom; height: 12px; line-height: 12px; font-size: 14px; display: block; margin-left: .1rem; margin-top: .02rem }
+.ops .agree { background: #ff7f35; display: block; width: 60%; height: 34px; line-height: 34px; margin: 0 auto; color: #fff; border-radius: 2px }
+.return { transform: translate3d(0, 0, 0); -webkit-transform: translate3d(0, 0, 0); opacity: 1 }
+.ok { width: 100%; background: #fff; display: box; display: -webkit-box }
+.ok a { font-size: 16px; height: .4rem; line-height: .4rem; display: block; text-align: left; color: #666; width: 1.4rem }
+.ok a:nth-child(1) { padding-left: .1rem }
+.ok a:nth-child(2) { color: #64bbff; text-align: right; padding-right: .1rem }
+#city, #hosiptal, #nn, #position, #province, #type { height: 1.35rem }
+#bir { height: 1.6rem }
+#ns { height: .9rem }
+#nn { height: .6rem }
+#zc { height: 1.65rem }
+#w1, #w2 { height: 1.8rem }
+#wend, #wstart { display: box; display: -webkit-box; height: 1.5rem }
+#w1 .swiper-container, #w2 .swiper-container { width: 50%; margin: 0 }
+.dl ul { width: 90%; height: .96rem; padding: 0 5%; background: #eee; overflow: auto }
+.dl li { border-bottom: 1px dotted #d3d3d3; font-size: 18px; height: 40px; line-height: 40px }
+.explain, .opacity { width: 100%; height: 100%; left: 0 }
+#w1 .swiper-slide, #w2 .swiper-slide { display: box; display: -webkit-box; -webkit-box-pack: center; -webkit-box-align: center }
+.dl li:last-child { border-bottom-width: 0 }
+.opacity { position: fixed; top: 0; background: rgba(0,0,0,0); visibility: hidden; transition: .2s; -webkit-transition: .2s }
+.opacity.show { visibility: visible; background: rgba(0,0,0,.4) }
+.explain { background: #fff; visibility: hidden; position: absolute; top: -100%; padding: 0; opacity: 0; z-index: 10; transition: .5s; -webkit-transition: .5s }
+.explain h2 { font-size: 18px; text-align: center; height: 60px; line-height: 60px; font-weight: 700 }
+.explain h3 { font-size: 16px; line-height: 60px }
+.explain p { font-size: 14px; color: #666; padding-bottom: 10px }
+.explain a, .form a, .form input, .form span { color: #fff; display: block }
+.explain a { font-size: 16px; background: #ff7f35; height: 40px; line-height: 40px; width: 60%; margin: .2rem auto }
+.explain article { position: relative; width: 100%; height: 100% }
+.explain .article { width: 90%; height: 70%; overflow: auto; margin: 0 auto }
+.form a, .form span, .headPic, .lImg, .oList li, .picImg, .sTop { overflow: hidden }
+.explain i { position: absolute; left: .15rem; top: 21px; border-radius: .2rem; width: .2rem; height: .2rem; border: 1px solid #333 }
+.explain i:after, .explain i:before { position: absolute; left: 50%; top: 50%; width: .1rem; height: 2px; background: #333; content: ''; transform: rotate(45deg); -webkit-transform: rotate(45deg); margin-left: -.05rem; margin-top: -1px }
+.explain i:after { transform: rotate(-45deg); -webkit-transform: rotate(-45deg) }
+.move { transform: translate3d(0, 100%, 0); -webkit-transform: translate3d(0, 100%, 0); visibility: visible; opacity: 1 }
+.headPic { width: .8rem; height: .8rem; position: relative; border-radius: .8rem }
+.headPic img { position: absolute; top: 0; left: 0; width: 100% }
+.form { padding-bottom: 20px }
+.form .fList { border: 1px solid #fff }
+.form input { background: 0 0; font-size: 14px; border-width: 0; padding: 5%; width: 60% }
+.form input[type=number] { width: 90% }
+.form a, .form span { width: 30%; height: 100%; font-size: 16px; text-align: center; background: rgba(255,255,255,.6) }
+.form span img { width: 100% }
+.form label { display: box; display: -webkit-box; height: .4rem; line-height: .4rem; border-bottom: 1px dotted #bac1c2 }
+.form label:last-child { border-bottom-width: 0 }
+.form a.go { height: 34px; line-height: 34px; background: #ff7f35; width: 70%; margin: 40px auto 0; border-radius: 2px }
+.header { display: box; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center; background: #ebebeb; padding: .2rem 0 }
+.header .search { display: box; display: -webkit-box }
+.header i { display: block; width: .16rem; height: 100%; background: url(/weixin/Public/Expert/images/zhengcejiedu/icon_search.png) .06rem center no-repeat #fff; background-size: .16rem .16rem; padding-left: .1rem }
+.header a, .header input { height: 30px; display: block }
+.header a { border: 1px solid #ccc; border-right-width: 0; border-radius: 2px 0 0 2px }
+.header input { width: 200px; border: 1px solid #ccc; border-left-width: 0; border-radius: 0 2px 2px 0 }
+.order section { background: #fff; border-bottom: .18rem solid #ebebeb }
+.order section.iList { border-width: 0 }
+.order section h2 { font-size: 18px; height: 50px; line-height: 50px; font-weight: 400 }
+.myPic h2, .oList li { font-size: 16px; height: 40px; line-height: 40px }
+.iList ul{border-bottom:#dddddd solid 1px; }
+.iList ul:first-child{border-top:#dddddd solid 1px; }
+
+.iList li{ border-right:#dddddd solid 1px;   }
+
+.oList strong { color: #666; font-weight: 400 }
+.myPic { background: -webkit-linear-gradient(top, #f8a1c7 0%, #d62c77 10%, #e968a1 100%);  padding-top: .15rem ; padding-bottom: 0.22rem;  }
+
+.myPic h2 { color: #fff; font-weight: 400; text-align:left; position: absolute; top: 0.15rem; left: 0.75rem; line-height: 0.2rem;}
+
+nav.head_top{ position:absolute; left:0.66rem; top:0.55rem;}
+.headImg, .headImg img { height: .5rem; border-radius: .5rem; width: .5rem }
+.headImg {margin: 0 0.15rem; position: relative }
+.headImg i { position: absolute; top: .76rem; height: .15rem; margin-left: -.25rem; font-size: 12px; font-style: normal; text-align: center; line-height: .15rem; display: block; color: #fff; border-radius: 10px; width: .5rem }
+.myPic a, .myPic a.ques { position: relative }
+.headImg i.ino { background: #ffcc00; left: 50% }
+.headImg i.sus { color: #6c6; right: -.2rem; top: 0; font-size: 30px }
+.myPic ol { display: box; display: -webkit-box; padding: .05rem 0 .05rem }
+.myPic a, .myPic strong { height: 24px; line-height: 24px; display: block; text-align: center }
+.myPic li { margin-right:10px; }
+.myPic a { font-size: 14px; color: #fff }
+.myPic a.ques i.icon { position: absolute; top: -.1rem; right: .2rem; font-size: 20px; color: #ffa36e }
+.myPic a.setting { position: absolute; right: .1rem; top: .1rem; font-size: 24px }
+.myPic strong { font-size: 16px; font-weight: 500 }
+#lList h2, .dContent h2, .dataList h2, .sBottom h2, .statement h2, .telPhone, header.dDetail h2, section.login h2 { font-weight: 400 }
+.footer { position: fixed; bottom: 0; left: 0; width: 100% }
+.footer li a, .pwd { position: relative }
+.footer nav { border-top: 1px solid #ccc; background: #fff }
+.footer ul { display: box; display: -webkit-box }
+.footer li { width: 25%; display: box; display: -webkit-box; -webkit-box-pack: center; -webkit-box-align: center }
+.footer li a { display: block; width: 100%; height: .4rem; color: #333; padding: .05rem 0 }
+.footer li i, .footer li span { display: block; width: 100%; text-align: center }
+.footer i.ih { margin-left: 0 }
+.footer li i { height: .2rem }
+.footer li span { font-size: 14px; height: .2rem; line-height: .28rem }
+section.login { width: 90%; margin: 0 auto }
+section.login h1 { font-size: 20px; padding-bottom: .1rem }
+section.login form { padding-top: .08rem }
+section.login input { border: .01rem solid #ccc; display: block; width: 2.48rem; height: .19rem; line-height: .19rem; padding: .1rem; font-size: 20px; color: #666; letter-spacing: 2px }
+
+.br span { color: #ff7f35; font-size: 16px; display: block; height: 100%; margin-left: .1rem }
+.pwd i { position: absolute; top: 45%; right: 10px; width: 30px; height: 30px; margin-top: -8px; z-index: 2; color: #999; font-size: 26px }
+.pwd i.active { color: #333 }
+.pwd input[type=text] { display: none }
+section.login label { display: box; display: -webkit-box }
+section.login label input { width: 20px; height: 20px }
+section.login .phone input { border: .01rem solid #ccc; display: block; width: 2.25rem; height: .19rem; line-height: .19rem; padding: .1rem; font-size: 16px; color: #666; border-radius:2px;}
+section.login .message input { border-radius:2px; border: .01rem solid #ccc; display: block; width: 1.25rem; height: .19rem; line-height: .19rem; padding: .1rem; font-size: 16px; color: #666;}
+section.login label span { font-size: 16px; display: block; margin-left: 10px; margin-top: -4px; color: #666 }
+.forget { width: 50%; display: box; display: -webkit-box; text-align: center; margin: 0 auto }
+.forget a { color: #ff7f35; font-size: 16px; display: block; width: 100%; text-align: center }
+.forget a:nth-child(2) { margin-left: 10px }
+section.login .verify { display: box; display: -webkit-box; margin-top:0.1rem; }
+section.login .nember { display: box; display:inherit;}
+section.login .box_login p{ font-size:0.1rem; color:#0066c0; text-align:center; margin-top: 16px;}
+
+section.login .nember input { border-radius:2px; width:1.27rem; position:relative; z-index:999; }
+section.login .verify strong { width: .89rem; display: block; background: #ff647c; color: #fff; font-size: 16px; margin-left: .1rem; line-height: .20rem; height: .20rem; padding: .1rem 0; text-align: center; font-weight: 400; border-radius: 2px }
+section.login .verify em { display: block; width:30%; height: 100%; height: .39rem ;border: .01rem solid #ccc; border-left:none;}
+section.login .verify em img { vertical-align: top; width: 100%; height: 100% }
+.order li, .order li a { width: 1rem; height: 1rem }
+.chengG em { display: block; font-size: 100px; text-align: center; color: #22ac38 }
+.chengG em.icol { color: red }
+.telPhone { color: #ff7f35 }
+.order { padding-bottom: .5rem }
+.order ul { display: box; display: -webkit-box }
+.order li { text-align: center ;box-sizing: border-box;}
+.order li .hint{ position:absolute; top:0.1rem; right:0.12rem; width:20px; height:20px; font-weight:normal; z-index:99;}
+.order li .hint a{ font-size:12px; color:#fff; display:block; border-radius:50%; width:20px; height:20px; line-height:20px; background:#ff393a;}
+.order li .hint_state{ position:absolute; top:0.2rem; right:0.3rem; width:10px; height:10px; font-weight:normal; z-index:99; background:#ff393a; border-radius:50%;}
+.order li.current i, .order li.current span { color: #ccc }
+.order li a { color: #666; display: block; display: box; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center }
+.order li i { display: block; height: 40px; font-size: 40px; margin: 0 auto; position: relative }
+.order li i em { position: absolute; top: -.09rem; right: -.14rem; background: url(/weixin/Public/Expert/images/zhengcejiedu/ing.png) 0 -.12rem no-repeat; width: .3rem; height: .2rem; background-size: .3rem .24rem }
+.order li span { font-size: 16px; display: block; text-align: center; font-style: normal }
+.footer li.active i, .footer li.active span { color: #64bbff }
+.dataList h2 { font-size: 16px; height: 50px; line-height: 50px; position: relative }
+.dataList h2 a { position: absolute; right: .2rem; top: 0; color: #3f3f3f }
+.dataList section { background: #fff; font-size: 16px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; margin-bottom: 20px }
+.dataList section ul { width: 90%; margin: 0 auto }
+.dataList section li { height: 40px; line-height: 40px; border-bottom: 1px dotted #d7d7d7; display: box; display: -webkit-box; position: relative }
+.dataList section li:last-child { border-bottom-width: 0 }
+.dataList section li p { width: 50% }
+.dataList section li span { color: #666 }
+.dataList section li input { width: 50%; height: 100%; border-width: 0; display: block; font-size: 14px }
+
+.dataList section li em { height: 100%; border-width: 0; font-size: 14px; font-style:normal;}
+.dataList section li em a{ color:#333; position:inherit; font-size:14px;}
+.dataList section li a.icon { position: absolute; top: 0; right: 0; color: #ccc }
+.dataList section.band { width: 100%; margin-bottom: 0 }
+.dataList section.band h2 { font-size: 18px }
+.or, .user, .user a { font-size: 16px }
+.dataList section.band ul { display: box; display: -webkit-box; width: 100% }
+.dataList section.band li { border-width: 0; width: 1rem; display: block; height: auto; padding: 20px 0; position: relative }
+.confirm p, .menu, .sBottom span:before { border-bottom: 1px solid #ccc }
+.dataList section.band a, .dataList section.band span { display: block; text-align: center; width: 100%; height: 30px }
+.dataList section.band span { color: #999 }
+.dataList section.band a.wx { background: url(/weixin/Public/Expert/images/zhengcejiedu/wx.png) no-repeat; background-size: 30px; width: 30px; margin: 10px auto 0 }
+.dataList section.band a.qq { background: url(/weixin/Public/Expert/images/zhengcejiedu/qq.png) no-repeat; background-size: 30px; width: 30px; margin: 10px auto 0 }
+.dataList section.band a.wb { background: url(/weixin/Public/Expert/images/zhengcejiedu/wb.png) no-repeat; background-size: 30px; width: 30px; margin: 10px auto 0 }
+.dataList section.band a.wx.old { background-image: url(/weixin/Public/Expert/images/zhengcejiedu/wx-old.png) }
+.dataList section.band a.qq.old { background-image: url(/weixin/Public/Expert/images/zhengcejiedu/qq-old.png) }
+.dataList section.band a.wb.old { background-image: url(/weixin/Public/Expert/images/zhengcejiedu/wb-old.png) }
+.dataList section.band i { position: absolute; left: .1rem; top: 0; font-size: 16px; height: 20px; line-height: 20px; color: #999; font-style: normal; display: none }
+.dataList section.band i.bShow, .picImg { display: block }
+.picImg { width: .4rem; height: .4rem; border-radius: .4rem }
+.aside, .or, .picImg img { width: 100% }
+#imgChanged { display: box; display: -webkit-box; padding: 10px; position: relative }
+.changed { position: absolute; right: .2rem; top: 50%; display: block; height: 20px; line-height: 20px; margin-top: -10px; color: #64bbff }
+.aside { position: fixed; bottom: 0; left: 0 }
+.or { position: relative; text-align: center; height: .2rem; line-height: .2rem }
+.or:after, .or:before { position: absolute; top: .1rem; height: .1rem; content: ''; width: 45%; border-top: 1px solid #333 }
+.or:before { left: 0 }
+.or:after { right: 0 }
+.user { display: box; display: -webkit-box; width: 100% }
+.user p { width: 50% }
+.user a { text-align: left; display: inline-block; width: 1rem; margin: 0 .2rem; color: #333; height: 40px }
+.user p:nth-of-type(1) a { padding-left: .1rem; position: relative }
+.user p:nth-of-type(1) a:before { position: absolute; left: 0; top: .03rem; content: ''; width: .1rem; height: .1rem; background: url(/weixin/Public/Expert/images/zhengcejiedu/fork.png) no-repeat; background-size: cover }
+.have, .menu { width: 100%; font-size: 16px }
+.have a { color: #ff7f35 }
+.menu { position: fixed; top: 0; left: 0; padding: 20px 0; background: #fff; z-index: 3 }
+.menu ul { display: box; display: -webkit-box }
+.menu li i, .menu li span { display: block }
+.menu li { width: 50%; height: 60px; box-sizing: border-box; -webkit-box-sizing: border-box; position: relative }
+.menu li a { position: absolute; top: 0; left: 0; width: 100%; height: 100% }
+.menu li i { background: url(/weixin/Public/Expert/images/zhengcejiedu/class.png) no-repeat; width: .2rem; height: .2rem; background-size: 100% 200%; margin: 0 auto }
+.menu li span { padding-top: 10px }
+.menu li:nth-child(2) { border-left: 1px solid #ccc }
+.menu li:nth-child(2) i { background-position: 0 -.2rem }
+#lList { width: 100%; font-size: 16px; padding: 101px 0 0 }
+#lList h2 { font-size: 16px; text-indent: .05rem; padding: .1rem 0; color: #999 }
+#lList section { border-bottom: 1px solid #f0f0f0; position: relative }
+#lList section a { position: absolute; top: 0; left: 0; width: 100%; height: 100% }
+#lList section:nth-last-of-type { border-bottom-width: 0 }
+#lList .lt { padding: .1rem .05rem; display: box; display: -webkit-box; position: relative; height: .56rem }
+#lList .lt strong { position: absolute; top: .1rem; left: .05rem; color: #fff; width: .3rem; height: .16rem; line-height: .16rem; background: #bd0911; text-align: center; font-size: 12px }
+.lTxt i:before, .sBottom span:before { left: 0; content: '' }
+.lImg, .lTxt { height: .56rem }
+.lTxt em, .user p:nth-of-type(2), .user p:nth-of-type(2) a { text-align: right }
+.lImg { width: 1rem; background: url(/weixin/Public/Expert/images/zhengcejiedu/logo.png) center center no-repeat; background-size: 30% }
+.lImg img { width: 100% }
+.lTxt { padding: 0 .05rem; width: 1.8rem }
+.lTxt p:nth-child(1) { overflow: hidden; width: 1.8rem; height: .28rem }
+.lTxt p:nth-child(2) { display: box; display: -webkit-box; height: .14rem; padding-top: .14rem }
+.lTxt em, .lTxt i { font-style: normal; display: block; width: 50%; vertical-align: bottom }
+.lTxt em { color: #999 }
+.lTxt i { color: #ccc; text-indent: .14rem; position: relative; font-size: 14px }
+.lTxt i:before { width: .1rem; height: .1rem; position: absolute; top: .02rem; background: url(/weixin/Public/Expert/images/zhengcejiedu/men.png) no-repeat; background-size: cover }
+.contxt-list, .sBottom span { position: relative }
+#load { width: 100%; font-size: 16px; display: block; height: 40px; line-height: 40px; padding-bottom: .5rem; color: #ccc }
+#top, .confirm a, .sBottom span, header.dDetail h2 { text-align: center }
+.guide-list { padding: 15px 10px 0 }
+.guide-list li { width: 47%; margin-bottom: 15px }
+.contxt-list .img img, .guide-list li img { width: 100% }
+.contxt-list li { padding: 5px 10px 10px; background: #fff; margin-bottom: 11px }
+.contxt-list li h3 { padding-left: 10px; font-size: 13px; line-height: 26px; color: #000 }
+.contxt-list li p { color: #ccc; margin-bottom: 15px }
+.contxt-list .img { display: block; border: 1px solid #ccc }
+#line, #line .swiper-slide, #line .swiper-wrapper { height: 100% }
+#line .swiper-wrapper { transition: .5s; -webkit-transition: .5s }
+#line .swiper-slide { transform: scale3d(.8, .8, .8); -webkit-transform: scale3d(.8, .8, .8); transition: .5s; -webkit-transition: .5s; background: #ebebeb; display: box; display: -webkit-box; -webkit-box-pack: center; -webkit-box-align: center }
+#line .swiper-slide.sActive { transform: scale3d(1, 1, 1); -webkit-transform: scale3d(1, 1, 1) }
+#line .unit { background: #fff; width: 90%; height: 90%; border-radius: 8px }
+.sTop { border-radius: 8px 8px 0 0; height: 2rem; background: #ebebeb }
+.sTop img { width: 100%; vertical-align: top }
+.sBottom { border-radius: 0 0 8px 8px; height: 50%; background: #fff }
+.sBottom h2 { font-size: 18px; background: #fff; height: 60px; line-height: 60px; margin-bottom: .8rem }
+.dContent h2, .dContent p { font-size: 16px; margin-bottom: 30px }
+.sBottom span { height: 80px; line-height: 80px }
+#pos_video, header.dDetail a, header.dDetail i, header.dDetail span { position: absolute }
+.sBottom span:before { position: absolute; bottom: -30px; width: 100% }
+.sBottom p { color: #666; font-size: 16px }
+header.dDetail h2 { width: 100% }
+header.dDetail a { top: .2rem; left: .1rem; color: #fff }
+header.dDetail span { top: .44rem; left: 0; width: 100%; text-align: center }
+header.dDetail i { top: .24rem; right: .1rem; width: .2rem; height: .17rem; background: url(/weixin/Public/Expert/images/zhengcejiedu/collect.png) no-repeat; background-size: 100% 200%; transition: .5s; -webkit-transition: .5s }
+header.dDetail i.active { background-position: 0 -.17rem }
+.dContent { padding-bottom: 10px }
+.dContent .sec { width: 90%; margin: 40px auto }
+.dContent p { line-height: 24px; margin-top: 10px; color: #666 }
+.dContent img { width: 100%; margin-bottom: 30px; display: block }
+.dContent section:nth-of-type(1) p { font-size: 14px }
+
+#vList a.active { color: #64bbff }
+#pos_video { top: 0; left: 0; width: 100%; height: 100% }
+.star { color: #ef0909; font-style: normal }
+#code { padding-bottom: 20px }
+#code img { width: 80%; vertical-align: top; margin: .2rem auto; display: block }
+.confirm { width: 100%; height: .3rem; position: relative }
+.confirm p { width: 100%; font-size: 16px; height: 100%; line-height: 100%; box-sizing: border-box; -webkit-box-sizing: border-box; display: box; display: -webkit-box; -webkit-box-pack: center; -webkit-box-align: center }
+.confirm a { font-size: 16px; color: #333; position: absolute; right: 0; top: 0; width: .4rem; height: .3rem; line-height: .3rem }
+#code p:nth-child(3), #top { color: #9d9d9d; margin: 0 auto }
+#birs { height: 40px; line-height: 40px }
+.statement { background: #f2f2f2; font-size: 14px; width: 90%; margin: 0 auto; padding: .1rem 0 }
+.statement h2 { font-size: 16px }
+#code p:nth-child(3), #code p:nth-child(4) { font-size: 14px; width: 90%; padding-bottom: .2rem }
+.statement p { width: 90%; margin: 10px auto 0 }
+#code p:nth-child(4) { color: #333; margin: 0 auto }
+#top { width: 60%; border: 1px solid #333; border-radius: 50px; font-size: 16px; display: block; padding: .05rem 0 }
+.ts { width: 100%; font-size: 14px; position: fixed; bottom: 20px; left: 50%; margin-left: -1.4rem }
+.ts span { color: #0066c0 }
+.agrees { width: 100%; height: 20px; display: box; display: -webkit-box; -webkit-box-align: center; -webkit-box-pack: center }
+.agrees div { height: 100%; display: box; display: -webkit-box }
+.agrees input, .agrees span { display: block; vertical-align: middle }
+.agrees input { margin-right: 10px; height: 18px; margin-top: 2px; background: #fff }
+.agrees span { font-size: 16px; height: 20px; line-height: 20px; color: #999 }
+.login_logo { height: 60px; border-bottom: 1px solid #d4d4d4; background: -webkit-linear-gradient(top, #fff, #eee); background: linear-gradient(to bottom, #fff, #eee); display: block; }
+.login_logo span { display: block; width: 100%; background: url(/weixin/Public/Expert/images/zhuce/logo.png) no-repeat center; height: 60px; text-align:right; line-height:0.4rem; font-size:0.12rem;}
+.login_logo span a{ color:#0066c0; padding-right:0.15rem; }
+.yuedu p { font-size: 14px; text-align:center;}
+.yuedu p a{color: #0066c0;}
+section.login .yuedu{ height:30px; line-height:30px;}
+section.login .yuedu input { float: left; margin-top:9px; background:#fff; width: 14px; height: 14px;}
+
+.box_login{ background:#fff; border:1px solid #dddddd; border-radius:0.05rem; padding:0.1rem; margin-bottom:0.1rem; margin-top:0.1rem;}
+.box_login .verify em{ width:100%;}
+/*医生二维码zj*/
+.f_l{ float:left;}
+.f_r{ float:right;}
+.yard_back{ padding:2rem;}
+.yard_con{ background:#fff; border-radius:3px; border:1px solid #e1e1e1;width:100%;}
+.yare_top{ }
+.top_pic img{ width:100%; height:auto;}
+.intro{ padding:20px; overflow:hidden; box-sizing:border-box; }
+.intro h2{ margin:0; font-weight:normal;}
+.intro span{ line-height:1.5rem; color:#333;}
+.intro p{ color:#666;}
+.intro .f_l{ width:100%;position:relative; padding-right:90px; box-sizing:border-box;}
+.intro .f_l img{ width:80px; height:80px;position:absolute; right:0; top:0;}
+.p_con{ margin-top:15px; font-size:14px; color:#888;}
+
+/*眼科个人中心 页面广告  李伟 20160613*/
+.index_banner{ margin:0.1rem 0; height: 0.63rem; border:#dddddd 1px solid; border-left:none; border-right:none;overflow:hidden;}
+
+.myIndex{ background:#f5f5f9;}

@@ -1,0 +1,109 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+use Think\Log;
+class IndexController extends Controller
+{
+	public function index()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//推荐医生
+		$url = C("PATH_URL")."/interface/yc_member/expert_tj_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"yw_id"=>C('YW_ID')
+		);
+		$json = json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		$this->assign('index_tjys',$data);// 赋值数据集
+		//获取患者详细信息
+		$url = C("PATH_URL")."/interface/yc_member/get_sale_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$user_info = json_decode(post_json($url,$json),true);
+
+		if($user_info['user_name']){
+			$user_info['real_name'] = $user_info['user_name'];
+			$user_info['user_name'] = base64_encode($user_info['user_name']);
+		}
+		
+		$this->assign('user_info',$user_info);
+		
+		$this->assign("csstime",time());
+		$this->display();
+	}
+
+	//快速办理
+	public function index_ksbl()
+	{
+		$this->display();
+	}
+
+	//热门问题
+	public function index_rmwt()
+	{
+		$this->display();
+	}
+
+	public function set_log()
+	{
+		$log=new Log();
+		$type = I("post.type") ? I("post.type") : 'Member';
+		$openid = I("post.openid") ? I("post.openid") : '0';
+		$link_mobile = I("post.link_mobile") ? I("post.link_mobile") : '0';
+		$url_path = I("post.url_path") ? I("post.url_path") : '点别人分享~';
+		$act = I("post.act");
+		
+		$log->write($type."{openid:$openid,link_mobile:$link_mobile,url_path:$url_path,act:$act}","WXSHARE","","./Application/Runtime/Logs/wx_share".date('Y-m-d').'.log');
+	}
+
+	public function set_log_get()
+	{
+		$log=new Log();
+		$type = I("get.type") ? I("get.type") : 'Member';
+		$openid = I("get.openid") ? I("get.openid") : '0';
+		$link_mobile = I("get.link_mobile") ? I("get.link_mobile") : '0';
+		$url_path = I("get.url_path") ? I("get.url_path") : '点别人分享~';
+		$act = I("get.act");
+		
+		$log->write($type."{openid:$openid,link_mobile:$link_mobile,url_path:$url_path,act:$act}","WXSHARE","","./Application/Runtime/Logs/wx_share".date('Y-m-d').'.log');
+	}
+
+
+	//dingding
+	public function dingding()
+	{
+		$this->display();
+	}
+
+	//医院地图
+	public function hos_map()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取医院地图列表
+		$url = C("PATH_URL")."/interface/yc_member/hos_map.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$hos_list =json_decode(post_json($url,$json),true); 
+		$this->ajaxReturn($hos_list);
+	}
+}

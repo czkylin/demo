@@ -1,0 +1,23 @@
+<volist name="baoxiao" id="baoxiao" empty="">
+	<ul class="order-list">
+		<li>
+			<h2>预借金额：</h2><i class="">{$baoxiao['MONEY_ADVANCE']}</i>
+		</li>
+		<li>
+			<h2>退回金额：</h2><i class="">{$baoxiao['MONEY_RETURN']}</i>
+		</li>
+		<li>
+			<h2>补领金额：</h2><i class="">{$baoxiao['MONEY_REPLACE']}</i>
+		</li>
+		<li>
+			<h2>总计报销金额：</h2><i class="">{$baoxiao['MONEY_SUM']}</i>
+		</li>
+		<li>
+			<h2>单据张数：</h2><i class="">{$baoxiao['ER_COUNT']}</i>
+		</li>
+		<li class="shenhe">
+			<h2>操作</h2>
+			<a href="/weixin/index.php?m=Home&c=Jixiao&a=baoxiao_info&expense_id={$baoxiao['EXPENSE_ID']}">查看详情</a>
+		</li>
+	</ul>∮
+</volist>

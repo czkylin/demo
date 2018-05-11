@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/share_9.css">
+	<title>百倍爱心卡健康管理套装</title>
+	<script type="text/javascript">
+		(function(){
+			var html = document.documentElement;
+			html.style.fontSize = html.clientWidth / 15 + "px";
+		})()
+	</script>
+</head>
+
+<body>
+	<section>
+	    <img src="/weixin/Public/Member/images/shangcheng/pic1.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic2.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic3.png" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic4.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic5.png" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic6.png" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic7.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic8.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/shangcheng/pic9.jpg" width="100%" />
+	</section>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">	
+
+		$(".p2-btn").click(function(){ 
+			$('.page2-pop').show();
+			var mySwiper = new Swiper ('.swiper-container', {
+				pagination : '.swiper-pagination',
+			    direction: 'horizontal',
+			    autoplay: 5000,
+			    loop:true
+			})
+		})
+		$(".p3-btn").click(function(){ 
+			$('.page3 > h2').hide();
+			$('.page3 > p').hide();
+			$('.page3 > a').hide();
+			$('.p3-con').show();
+		})
+		$(".p4-btn").click(function(){ 
+			$('.p4-pop').show()
+		})
+		$(".p5-btn").click(function(){ 
+			$(this).hide();
+			$('.p5-img').hide();
+			$('.p5-pop').show().addClass('animate');
+		})
+		
+	</script>
+</body>
+</html>

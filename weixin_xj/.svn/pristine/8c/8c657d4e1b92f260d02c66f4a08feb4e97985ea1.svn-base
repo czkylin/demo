@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>广告</title>
+<script src="jquery-1.12.1.min.js"></script>
+<style type="text/css">
+body { width: 100%; height: 100%; margin: 0; padding: 0; }
+.gb { width: 100%; position: fixed; top: 0; left: 0; z-index: 9999; display: none; }
+.gb img { width: 100%; }
+.gb .close { position: fixed; right: 0; top: 0; font-size: 20px; z-index: 99999; }
+.gb2 { width: 100%; height: 50%; overflow: hidden; }
+.gb2 img { width: 100%; height: auto; }
+.small { width: 200px; height: 50px; margin: 0 auto; z-index: 9999; display: none; }
+.small img { width: 100%; height: 100%; }
+.conment { width: 100%; height: 800px; background: #000 }
+</style>
+</head>
+<body>
+<div class="gb">
+               <input type="button" class="close" value="5s  关闭" />
+               <img src="tayle.jpg"/> </div>
+<div class="gb2"> <img src="tayle.jpg"/> </div>
+<div class="small"> <img src="tayle.jpg"/> </div>
+<div class="conment">dasfafa</div>
+<script type="text/javascript">
+	$(function(){
+		
+		$('body').css('height',$(window).height()+'px');
+		$('.bg2').css('height',$(window).height()/2+'px');
+		$('.bg2 img').css('height',$(window).height()/2+'px');
+		
+		$('.close').click(function(){
+			$('.gb').hide();
+		});<br>
+
+		setInterval(s,1000);
+		setTimeout(bg_slideUp,3000);
+		setTimeout(small,5000);
+		
+		var i=5;
+		function s(){
+			if(i>0){
+			i--;
+			}else{
+			bg_hide();	
+			}
+		$('.close').val(i+'s   关闭');
+		}
+			
+		function bg_hide(){
+			$('.gb').hide();
+		}
+		function bg_slideUp(){
+		
+			$(".gb2").animate({'height':'0'},2000);
+		}
+		
+		function small(){
+			$('.small').slideDown();
+		}
+	}) 
+</script>
+</body>
+</html>

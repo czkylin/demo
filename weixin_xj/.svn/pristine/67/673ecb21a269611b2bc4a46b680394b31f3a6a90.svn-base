@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>服务详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <img src="/weixin/Public/Member/images/eight/detail.jpg" width="100%" />
+    </header>
+    <section class="explain">
+        <h2>患者信息</h2>
+        <ul>
+            <li class="box">
+                <span>姓名</span>
+                <input type="text" />
+            </li>
+            <li class="sex box">
+                <span>性别</span>
+                <label for="fmale"><input type="radio" id="fmale" name="sex" checked /><i></i>男</label>
+                <label for="male"><input type="radio" id="male" name="sex" /><i></i>女</label>
+            </li>
+            <li class="box">
+                <span>年龄</span>
+                <input type="tel" />
+            </li>
+            <li class="box">
+                <span>手机</span>
+                <input type="tel" />
+            </li>
+        </ul>
+    </section>
+    <section class="explain bt">
+        <h2>选择日期</h2>
+        <div class="date clear" id="date">
+            <span class="fl active">08月25日</span>
+            <span class="fl">08月26日</span>
+            <span class="fl">08月27日</span>
+            <span class="fl">08月28日</span>
+            <span class="fl">08月29日</span>
+            <span class="fl">08月30日</span>
+            <span class="fl">08月31日</span>
+        </div>
+    </section>
+    <div class="yy2" style="position:static;">
+        <a href="#" class="text-center ok">确定</a>
+    </div>
+</body>
+<script>
+    var $span = document.getElementById('date').getElementsByTagName('span'),
+        arr = [];
+    for(var i=0;i<$span.length;i++){
+        arr.push($span[i]);
+    }
+    
+    arr.forEach(function(v,i){
+        v.onclick = function(){
+            for(var j=0;j<$span.length;j++){
+                $span[j].className = 'fl';
+            }
+            this.className = 'fl active';
+        }
+    })
+</script>
+</html>

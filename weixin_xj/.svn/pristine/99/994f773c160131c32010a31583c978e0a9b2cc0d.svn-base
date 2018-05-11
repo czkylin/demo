@@ -1,0 +1,30 @@
+<volist name="jk_info" id="jk" empty="">
+    <section class="unit">
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <if condition="$tj_type eq 7">
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>血糖(mmol/L)：{$jk.GLUCOSE}</p>
+                        <p><span>检测时间：{$jk.MEASURE_DATE|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <elseif condition="$tj_type eq 8"/>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>收缩压(mmHg)：{$jk.SYSTOLIC}</p>
+                        <p>舒张压(mmHg)：{$jk.DIASTOLIC}</p>
+                        <p>脉搏：{$jk.PULSE}</p>
+                        <p><span>检测时间：{$jk.MEASURE_DATE|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <else />
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>心率(bpm)：{$jk.HEART_RATE}</p>
+                        <p><span>检测时间：{$jk.MEASURE_DATE|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                </if>
+            </div>
+        </div>
+    </section>∮
+</volist>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-体温</title>
+</head>
+<body>
+<!--体温-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="tiwen">
+		<div class="con">
+			<h2 class="tit7">体温</h2>
+			<p>人的体温是指人身体内部的温度。由于身体内部的温度不容易测量，所以临床上常以口腔、腋窝和直肠的温度来代表体温。正常人的口腔温度为36.7～37.7℃（平均为37.2℃），腋窝温度为36.0～37.4℃（平均为36.8℃），直肠温度为36.9～37.9℃（平均为37.5℃）。其中直肠温度最接近人体内部的温度，但测量不方便，因此大多采用腋下和口腔测量。</p>
+		</div>
+		<ul class="detail detail_tw">
+			<volist name="jk_info" id="jk">
+				<li>
+					<a href="javascript:;" class="clear">
+						<div class="right position box tiwenzhi">
+							<p>{$jk.TEMPERATURE|round=1}°C</p>
+							<span class="canshu">高烧</span>
+						</div>
+						<p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						<div class="clear"></div>
+					</a>
+				</li>
+			</volist>
+			<!-- <li>
+				<div class="right position box tiwenzhi">
+					<p>36C°</p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box tiwenzhi">
+					<p>40C°</p>
+					<span class="canshu">高烧</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box tiwenzhi">
+					<p>38.5C°</p>
+					<span class="canshu">低烧</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box tiwenzhi">
+					<p>37C°</p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+//体温，动态设置
+$(function(){
+	fn();
+})
+function fn(){
+	$(".tiwenzhi").each(function(){
+		var shuzhi = parseFloat($(this).find("p").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=38.5){
+			$canshu.html("高烧").addClass("color_zs");
+		}else if( shuzhi >= 37.3 && shuzhi<38.5){
+			$canshu.html("低烧").addClass("color_gj");
+		}else if( shuzhi >36  && shuzhi < 37.3 ){
+			$canshu.html("正常");
+		}else{
+			$canshu.html("异常").addClass("color_ts");
+		}
+	})
+}
+
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&tj_type='+tj_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

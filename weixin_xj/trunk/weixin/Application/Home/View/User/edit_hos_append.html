@@ -1,0 +1,7 @@
+<volist name='hos_list' id='hos' key="k">
+    <li id="y_{$hos['HOS_ID']}">
+            <label class="ui-icon-unchecked-s xz" for="week1_{$hos['HOS_ID']}" ></label>
+            <input type="checkbox" name="column_value" id="week1_{$hos['HOS_ID']}" onClick="checkproduct({$hos['HOS_ID']})" value="{$hos['HOS_ID']}" style="display:none;" />
+              <h3>{$hos['HOS_NAME']}</h3>
+    </li>∮
+</volist>

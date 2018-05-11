@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/cart.css">
+<style>
+    .nav a{width:2.4rem;} 
+    .money:first-of-type{margin-bottom:0;}
+</style>
+<title>确认订单</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 12 + "px";
+</script>
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><strong>支付方式</strong><i class="red">在线支付（支持微信支付）</i></li>
+            <li><strong>配送方式</strong><i>快速配送</i></li>
+        </ul>
+    </nav>
+    <article class="art">
+        <h2>商品</h2>
+        <volist name='list' id='listt'>
+            <section class="box">
+                <div class="img"><img src="{$listt.COMMODITY_COVER}" width="100%" /></div>
+                <div class="txts text-center center">{$listt.COMMODITY_NAME}</div>
+                <div class="count text-center center">{$listt.COMMODITY_MONEY}x{$listt.ORDER_NUM}</div>
+                <div class="price text-center center"><?php echo $listt['COMMODITY_MONEY']*$listt['ORDER_NUM'];?>元</div>
+            </section>
+        </volist>
+    </article>
+    <div class="money fixed text-right">
+        <span><strong>总价：</strong><i>￥{$pay_money}元</i></span>
+        <a href="javascript:void(0);" class="calcs" id="calcs">提交订单</a>
+    </div>
+    <a href="{:U("Car/listCar")}" class="cart"><i id="cnum"></i></a>
+     <form id="subinfo" method="post" action="{:U("Car/goPay")}">
+        <input type="hidden" name="item_id" id="item_id" value="{$item_id}">
+        <input type="hidden" name="cart_id" value="{$cart_id}">
+        <input type="hidden" name="pay_money" value="{$pay_money}">    
+        <input type="hidden" name="from_flag" value="0">
+        <input type="hidden" name="subject" value="{$subject}">
+    </form>
+</body>
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script>
+$(function(){
+    var item_id = $("#item_id").val();
+    $.post('{:U("Car/getNumcar")}',{'item_id':item_id},function(ret){
+        $("#cnum").html(ret.num);
+        if(ret.flag){
+            window.location.href="/weixin/index.php?m=Member&c=Car&a=listCar";
+        }
+    });
+});
+$("#calcs").click(function(){
+    $("#subinfo").submit();
+});
+</script>
+</html>

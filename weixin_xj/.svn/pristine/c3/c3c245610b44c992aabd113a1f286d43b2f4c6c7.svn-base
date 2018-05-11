@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+</script>	
+<title>联盟产品</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/yuanchengchanpin/yuanchengchanpin.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/footer.min.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+<style>
+.footer li a{height:2.1rem;padding:.3rem 0;}  
+.page{padding-bottom:2.7rem;}
+</style>
+</head>
+<body>
+	<div class="page">
+		<ul class="product-list">
+			<li class="pb15">
+				<h3>加加明</h3>
+				<div class="cp cp1">
+				    <a href="{:U('Expert/Product/jjm')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp1-title1">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp1-title1.png" alt="">
+					</div>
+					<div class="cp1-title2">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp1-title2.png" alt="">
+					</div>
+					<div class="cp1-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+			</li>
+			<li>
+				<h3>眼药水</h3>
+				<div class="cp cp2">
+				    <a href="{:U('Expert/Product/yy4')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp2-title1">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp2-title1.png" alt="">
+					</div>
+					<div class="cp2-title2">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp2-title2.png" alt="">
+					</div>
+					<div class="cp2-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+				
+				<div class="cp cp3">
+				    <a href="{:U('Expert/Product/yy6')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp3-title">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp3-title.png" alt="">
+					</div>
+					<div class="cp3-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+
+				<div class="cp cp4">
+				    <a href="{:U('Expert/Product/yy5')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp4-title">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp4-title.png" alt="">
+					</div>
+					<div class="cp4-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+
+				<div class="cp cp5">
+				    <a href="{:U('Expert/Product/yy3')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp5-title1">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp5-title1.png" alt="">
+					</div>
+					<div class="cp5-title2">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp5-title2.png" alt="">
+					</div>
+					<div class="cp5-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+				
+				<div class="cp cp6">
+				    <a href="{:U('Expert/Product/yy2')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp6-title">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp6-title.png" alt="">
+					</div>
+					<div class="cp6-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+
+				<div class="cp cp7">
+				    <a href="{:U('Expert/Product/yy1')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+					<div class="cp7-title">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/cp7-title.png" alt="">
+					</div>
+					<div class="cp7-link">
+						<img src="/weixin/Public/Expert/images/yuanchengchanpin/link.png" alt="">
+					</div>
+				</div>
+                
+                <div class="cp cp8">
+				    <a href="{:U('Expert/Product/yy7')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+				</div>
+                
+                <div class="cp cp9">
+				    <a href="{:U('Expert/Product/yy8')}" style="position:absolute;top:0;left:0;width:100%;height:100%;"></a>
+				</div>
+			</li>
+		</ul>
+		<div class="about-us">
+			<h3>联系方式</h3>
+			<p>
+				联系电话：400-656-2020<br>
+				邮箱：qgykycyllm@163.com<br>
+				网址：www.yk2020.com
+			</p>
+			<img src="/weixin/Public/Expert/images/yuanchengchanpin/ma.jpg" alt="">
+		</div>
+	</div>
+	<include file="Public:footer_kc" />
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

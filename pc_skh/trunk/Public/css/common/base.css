@@ -1,0 +1,25 @@
+@charset "utf-8";
+html {-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;font-smoothing:antialiased;}
+blockquote,body,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,pre,td,textarea,th,ul {margin:0;padding:0}
+table {border-collapse:collapse;border-spacing:0}
+fieldset,img {border:0}
+address,b,caption,cite,code,dfn,em,i,strong,th,var {font-style:normal;font-weight:400}
+dl,ol,ul {list-style-type:none}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:400}
+a {text-decoration:none;}
+a:hover {color:#fff;text-decoration:none;-webkit-tap-highlight-color:rgba(255,0,0,0);outline:0;outline:none;blr:expression(this.onFocus=this.blur())}
+sup {vertical-align:text-top}
+sub {vertical-align:text-bottom}
+textarea {resize:none}
+img {vertical-align:middle}
+button,input[type=submit],input[type=text],input[type=button],select {-webkit-appearance:none;border-radius:0;-webkit-tap-highlight-color:rgba(255,0,0,0);outline:0;outline:0;blr:expression(this.onFocus=this.blur())}
+body {color:#333;background:#fff;font-family:"Microsoft Yahei",Arial,Helvetica,sans-serif;}
+.fl {float:left}
+.fr {float:right}
+.clear:after {content:".";display:block;height:0;clear:both;visibility:hidden;line-height:0;font-size:0;}
+.show {display:block;}
+.hide {display:none;}
+.tc {text-align:center;}
+.tr {text-align:right;}
+.pos_fixed {position:fixed;}
+.pos_absolute {position:absolute;}

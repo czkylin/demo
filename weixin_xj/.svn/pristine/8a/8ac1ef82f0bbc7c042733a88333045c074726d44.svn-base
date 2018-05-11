@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Common/css/common/mobi-reset.css">
+<title>等待接单</title>
+<style>
+	body,html{
+		height: 100%;
+	}
+	#map{
+		height: 100%;
+		width: 100%;
+		position: relative;
+	}
+	#map img{
+		width: 100%;
+		height: 100%;
+	}
+	a.link{	
+		position: absolute;
+		bottom: 1rem;
+		left: 0.5rem;
+		display: block;
+		width: 14rem;
+		height: 1.6rem;
+		line-height: 1.6rem;
+		text-align: center;
+		background: #ef4a65;
+		color: #fff;
+		font-size: 0.6rem;
+		border-radius: 0.12rem;
+	}
+</style>
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+</head>
+<body>
+	<!-- 地图 -->
+	<section id="map">
+		<!-- <img src="/weixin/Public/Member/images/nurse/map1.jpg"> -->
+		<div id="milkMap" style="height: 100%; width: 100%;"></div>
+		<!-- 按钮 -->
+		<a href="{:U('Nurse/order_close')}&ORDERID={:I('get.ORDERID')}" class="link">取消订单</a>
+	</section>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E92b910c02cf961811f738039a2025d7"></script>
+	<script type="text/javascript">
+		var map = new BMap.Map("milkMap");
+		var point = new BMap.Point(116.300325,39.88079);
+		map.centerAndZoom(point,15);
+		map.addOverlay(new BMap.Marker(point));
+
+		var geolocation = new BMap.Geolocation();
+		geolocation.getCurrentPosition(function(r){
+			console.log(r);
+			if(this.getStatus() == BMAP_STATUS_SUCCESS){
+				map.clearOverlays();    //清除地图上所有覆盖物
+				var mk = new BMap.Marker(r.point);
+				map.addOverlay(mk);
+				map.panTo(r.point);
+				map.centerAndZoom(r.point,15);
+			}
+			else {
+				alert('failed'+this.getStatus());
+			}        
+		},{enableHighAccuracy: true})
+		
+
+	</script>
+</body>
+</html>

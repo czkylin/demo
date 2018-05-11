@@ -1,0 +1,212 @@
+<html class="ui-mobile">
+
+<head>
+    <link rel="stylesheet" href="/weixin/Public/Member/css/xinjie/portal.min.css" type="text/css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/xinjie/shoushuzhuyuan.min.css" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>预约手术住院</title>
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="rgb(240, 240, 240);">
+    <div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+        <div class="shoushu">
+            <div class="similar-item ele_p">预约手术住院</div>
+            <div class="det_read_p bak_none" style="padding-bottom:0;">
+                <p>手术住院是为外地患者提供的绿色就医通道服务。患者可通过电话或网络预约，客服人员接到预约后记录患者信息、预约医院、手术等，与医院沟通，确定住院时间及相关事项并及时通知患者。</p>
+            </div>
+        </div>
+        <div data-role="content" class="ui-content ui-content-padding" role="main">
+            <div class="det_read_con">
+                <div class="expert">
+                <form class="dengluCon">
+                     <div class="sInfo">
+                        <section>
+                            <span>姓名</span>
+                            <input type="text" id="name" placeholder="请填写您的姓名" value="{$member_name}" class="in_biaodan"/>
+                        </section>
+                        <div id="na" style="text-align:center;color:red;font-size=6"></div>
+                        <section>
+                            <span>手机号</span>
+                            <input type="text" id="phone" placeholder="请填写您的手机号" value="{$member_mobile}" class="in_biaodan"/>
+                        </section>
+                        <div id="ph" style="text-align:center;color:red;font-size=6"></div>
+                    </div>
+                    <input type="hidden" id="from_flag" value="{$from_flag}"/>
+                </form>
+                    <br>
+                    <br>
+                    <div class="booking_button"><a href="javascript:void(0)" onClick="sub()">在线申请</a></div>
+                    <div class="ele_con">
+                        <div class="ele_top">
+                            <h2>贴心服务</h2>
+                            <p>远程心界就医顾问帮您轻松看名医</p>
+                        </div>
+                        <div class="ele_bottom"> <img src="/weixin/Public/Member/images/xj/axgw.jpg"> <img src="/weixin/Public/Member/images/xj/fxgw.jpg"> <img src="/weixin/Public/Member/images/xj/txgw.jpg"> </div>
+                        <div class="clear"></div>
+                        <div class="ele_top">
+                            <h2>安全保障</h2>
+                            <p>具有业内最全项术前检查，其中3项目(蓝色部分)检查在国内其它医院很少拥有，通过术前检查可以最大限度排除不安全因素。</p>
+                        </div>
+                        <div class="ele_bottom_jiancha"> <img src="/weixin/Public/Member/images/xj/jiancha.jpg"> </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="similar-items">
+                        <div class="similar-item liucheng">流程-预约手术</div>
+                        <ul class="box">
+                            <li>
+                                <div class="similar-item similar-item_white">1选择医院</div>
+                                <p class="similar-item similar-item_white son" style=" display:none; background:#f0f0f0;">选择您想要预约的医院</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">2填写预约手术申请表</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">输入疾病及个人信息，提交表单</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">3客服联系</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">客服收到预约手术申请后会在第一时间与您沟通手术相关事宜</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">4安排患者进行术前检查</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">为患者安排术前相关检查</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">5安排手术时间</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">根据术前检查结果，合理安排手术时间</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">6择日进行手术</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">在选定的时间进行手术</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">7术后跟踪保障</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">术后专业人员进行术后的跟踪随访</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="similar-items">
+                        <div class="similar-item liucheng">流程-预约住院</div>
+                        <ul class="box">
+                            <li>
+                                <div class="similar-item similar-item_white">1选择医院</div>
+                                <p class="similar-item similar-item_white son" style=" display:none; background:#f0f0f0;">选择您想要预约的医院</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">2填写预约住院申请表</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">输入疾病及个人信息，提交表单</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">3客服联系</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">客服收到预约住院申请后会在第一时间与您沟通住院相关事宜</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">4安排患者进行术前检查</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">为患者安排术前相关检查</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">5安排住院时间</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">根据术前检查结果，合理安排住院时间</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">6择日住院</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">在选定的时间办理入院手续</p>
+                            </li>
+                            <li>
+                                <div class="similar-item similar-item_white">7院后康复跟踪</div>
+                                <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">出院后专业人员进行跟踪随访</p>
+                            </li>
+                        </ul>
+                    </div>
+                   
+        <div class="hide">
+            <script src="http://s95.cnzz.com/z_stat.php?id=1253891981&web_id=1253891981" language="JavaScript"></script>
+            <script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.box>li').click(function () {
+            $(this).siblings().children('p').slideUp();
+            $(this).children('p').slideToggle();
+        })
+    })
+
+    function sub()
+    {
+        var name = $("#name").val();
+
+        var phone = $("#phone").val();
+
+        var from_flag = $("#from_flag").val();
+
+       var mobileRule = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/; 
+
+        if(name=="")
+        {
+            $("#na").html("姓名不能为空");
+            return false;
+
+        }
+
+        $("#na").html("");
+
+        if(phone=="")
+        {
+            $("#ph").html("电话号码不能为空");
+            return false;
+
+        }
+        $("#ph").html("");
+
+        if(!mobileRule.test(phone))
+
+        {
+            $("#ph").html("请正确填写电话号码");
+            return false;
+        }
+        $("#ph").html("");
+        $.ajax({
+
+            type: "POST",
+
+            url: "{:U('Operation/operation_add')}",
+
+            data: "name="+name+"&phone="+phone+"&from_flag="+from_flag,
+
+            success: function(msg)
+
+            {
+
+               if(msg=="ok")
+               {
+
+                    location.href = "/weixin/index.php?m=Member&c=Operation&a=operation_list&flag=3";
+
+                }
+                else
+                {
+
+                    alert('提交失败');
+
+                }
+
+            }
+
+        });
+    }
+</script>
+            
+</div>
+</div>
+<div class="ui-loading-screen" style="display: none;"></div>
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span>
+    <h1>载入中...</h1>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>服务详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <img src="/weixin/Public/Member/images/eight/detail.jpg" width="100%" />
+    </header>
+    <section class="explain">
+        <h2>患者信息</h2>
+        <ul>
+            <li class="box">
+                <span>姓名</span>
+                <input type="text" name="member_name" id="member_name" value="{$user_info['MEMBER_NAME']}" disabled="disabled" />
+            </li>
+            <li class="sex box">
+                <span>性别</span>
+                <label for="fmale"><input type="radio" id="fmale" name="member_sex" checked value="0" /><i></i>{$user_info['MEMBER_SEX']}</label>
+            </li>
+            <!-- <li class="box">
+                <span>年龄</span>
+                <input type="tel" name="member_age" id="member_age" value="{$user_info['MEMBER_AGE']}" disabled="disabled"/>
+            </li> -->
+            <li class="box">
+                <span>手机</span>
+                <input type="tel" name="member_mobile" id="member_mobile" value="{$user_info['MEMBER_MOBILE']}" disabled="disabled"/>
+            </li>
+        </ul>
+        <form id="form" style="display: none;">
+            <input type="hidden" name="yuyue_date" id="yuyue_date" value=""/>
+            <
+            <input type="hidden" name="serve_id" id="serve_id" value="{$serve_id}">
+            <input type="hidden" name="expert_id" id="expert_id" value="{$expert_id}">
+
+            <input type="hidden" name="card_number" id="card_number" value="{$user_info['VIP_CARD_NUMBER']}">
+
+            <input type="hidden" name="serve_name" id="serve_name" value="{$serve_name}">
+        </form>
+    </section>
+    <section class="explain bt">
+        <h2>选择日期</h2>
+        <div class="date clear" id="date">
+
+            <volist name="date_list" id="date" empty="暂时没有数据">
+                <span class="fl" <if condition="$key eq 0"> class="fl active" </if>>{$date}</span>
+            </volist>
+
+            <!-- <span class="fl active">08月25日</span>
+            <span class="fl">08月26日</span>
+            <span class="fl">08月27日</span>
+            <span class="fl">08月28日</span>
+            <span class="fl">08月29日</span>
+            <span class="fl">08月30日</span>
+            <span class="fl">08月31日</span> -->
+        </div>
+    </section>
+    <div class="yy2" style="position:static;">
+        <a href="javascript:;" class="text-center ok" id="ok">确定</a>
+    </div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+    var $span = document.getElementById('date').getElementsByTagName('span'),
+        arr = [];
+    for(var i=0;i<$span.length;i++){
+        arr.push($span[i]);
+    }
+    
+    arr.forEach(function(v,i){
+        v.onclick = function(){
+            for(var j=0;j<$span.length;j++){
+                $span[j].className = 'fl';
+            }
+            this.className = 'fl active';
+        }
+    })
+
+    $(".fl").each(function(){
+
+        $(this).click(function(){
+            var date = $(this).text();
+
+            $("#yuyue_date").val(date);
+
+            var date = $("#yuyue_date").val();
+
+        })
+
+
+    });
+
+    $("#ok").click(function(){
+
+        var date = $("#yuyue_date").val();
+        if(date == '')
+        {
+            alert("请选择日期！");
+            return false;
+        }
+
+        var card_number = $("#card_number").val();
+        var serve_name = $("#serve_name").val();
+        var str_data = $("#form").serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "{:U('User/fuwu_yuyue_add')}",
+            async: true,
+            data: str_data,
+            success: function(msg)
+            {
+                switch (msg)
+                {
+                    case 'ok':
+                        location.href="{:U('User/submit')}&serve_name="+serve_name+"&yuyue_date="+date;
+                        return;
+                        break;
+                    case '00025':
+                        alert("您绑定大专家但还未审核！");
+                         location.href="{:U('User/fuwu_list')}&card_number="+card_number;
+                        return;
+                        break;
+                    case '00035':
+                        alert("您还未绑定大专家！");
+                        location.href="{:U('User/fuwu_list')}&card_number="+card_number;
+                        return;
+                        break;
+                    case '00036':
+                        alert("此天已预约服务");
+                        location.href="{:U('User/fuwu_list')}&card_number="+card_number;
+                        return;
+                        break;
+                    case '00037':
+                        alert("预约次数已满");
+                        location.href="{:U('User/fuwu_list')}&card_number="+card_number;
+                        return;
+                        break;
+                    case 'no':
+                        alert("您的预约次数已用完！");
+                        location.href="{:U('User/fuwu_list')}&card_number="+card_number;
+                        return;
+                        break;
+                    default:
+                        alert("系统繁忙，请稍后再试！");
+                        return;
+                        break;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) 
+            {   
+                alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+            }
+        });
+
+
+        // location.href="{:U('User/submit')}";
+
+    });
+
+
+    //检验手机
+    function isMobile(str)
+    {
+        var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+        if(reg.test(str))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+</script>
+</html>

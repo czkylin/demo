@@ -1,0 +1,26 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!DOCTYPE html>
+<!-- title -->
+<title>引导</title>
+<style>
+body { margin: 0; padding: 0;}
+.yindao img{ width:100%; height:auto;}
+</style>
+<!--meta-->
+</head>
+<body>
+	<div class="yindao" style=" position:relative;">
+    <img src="/weixin/Public/Expert/images/user/yd.jpg">
+    </div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

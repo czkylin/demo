@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/share_9.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/share_9.css"> -->
+	<title>2017，<?php echo base64_decode(I("get.user_name",""));?>邀您一起开启慢性病管理！</title>
+	<script type="text/javascript">
+		(function(){
+			var html = document.documentElement;
+			html.style.fontSize = html.clientWidth / 15 + "px";
+		})()
+	</script>
+	<style>
+		.link_1{background-color: #a4f1fb; color: #0f4d80;}
+		.link_2{background-color: #0f4d80}
+	</style>
+</head>
+<body>
+	<section>
+	    <img src="/weixin/Public/Member/images/newbaibei/pic1.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic2.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic3.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic4.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic5.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic6.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic7.jpg" width="100%" />
+	    <img src="/weixin/Public/Member/images/newbaibei/pic8.jpg" width="100%" />
+	</section>
+	<div class="link">
+    	<span class="link_1">¥1380.00</span>
+    	<a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_1280_new'));?>&sale_type={:C("SALE_TYPE_2")}&user_name={:I('get.user_name','')}" class="link_2">立即购买</a>	
+    </div>
+    <!-- <div class="link">
+    	<span class="link_1">¥1280.00</span>
+    	<a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_1280_new'));?>&sale_type={:C("SALE_TYPE_2")}&user_name={:I('get.user_name','')}" class="link_2">立即购买</a>	
+    </div> -->
+    <!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+    <!-- CNZZ统计代码  百倍爱心卡1280健康管理套装 单独统计-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1261123488).'" width="0" height="0"/>';?></div>
+    
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">	
+		function set_log(act){
+	        var type = "{$type}"+"_share_1280_new";
+	        var link_mobile = '{:I("get.link_mobile","")}';
+	        var openid = "{$homeid}";
+	        var path = "{$path}";
+	        $.ajax(
+	                {
+	                    type: "post",
+	                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+	                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+	                    dataType: "json",
+	                    success: function(data)
+	                    {
+	                        console.log('set_log:success');
+	                    }
+	            });
+	    }
+		$(".p2-btn").click(function(){ 
+			$('.page2-pop').show();
+			var mySwiper = new Swiper ('.swiper-container', {
+				pagination : '.swiper-pagination',
+			    direction: 'horizontal',
+			    autoplay: 5000,
+			    loop:true
+			})
+		})
+		$(".p3-btn").click(function(){ 
+			$('.page3 > h2').hide();
+			$('.page3 > p').hide();
+			$('.page3 > a').hide();
+			$('.p3-con').show();
+		})
+		$(".p4-btn").click(function(){ 
+			$('.p4-pop').show()
+		})
+		$(".p5-btn").click(function(){ 
+			$(this).hide();
+			$('.p5-img').hide();
+			$('.p5-pop').show().addClass('animate');
+		})
+		//微信分享
+		wx.config({
+		    debug: false,
+		    appId: '<?php echo $appId;?>',
+		    timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+		    nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+		    signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+		    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		var wx_share_title = '2017，<?php echo base64_decode(I("get.user_name",""));?>邀您一起开启慢性病管理！';
+		var wx_share_desc = ' 健康检查，紧急呼救，智能定位，数据传输，远程查看，你需要的全都有！只有你想不到的，没有我们做不到的！';
+		var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/newbaibei/fx.jpg";
+
+		wx.ready(function() {
+		    wx.onMenuShareTimeline({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_1280_new&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+		        	 set_log('朋友圈');
+		        },
+		        cancel: function() {}
+		    });
+		    wx.onMenuShareAppMessage({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_1280_new&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+		        	set_log('微信');
+		        },
+		        cancel: function() {}
+		    });
+		});
+	</script>
+</body>
+</html>

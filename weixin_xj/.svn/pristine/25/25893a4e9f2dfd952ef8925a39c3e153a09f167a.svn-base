@@ -1,0 +1,11 @@
+<volist name="act_list" id="vo"> 
+	<li>
+		<h3>{$vo.ACT_TITLE}</h3>
+		 <p><span>
+            <?php echo date("Y-m-d",strtotime($vo['ACT_START_DATE']));?>
+         </span></p>
+		<a href="index.php?m=Expert&c=Jd&a=jd_info&record_id={$vo.RECORD_ID}&type_id={$type_id}">
+		    <img src="{$vo.ACT_PIC}" alt="">
+		</a>
+     </li>∮
+</volist>     

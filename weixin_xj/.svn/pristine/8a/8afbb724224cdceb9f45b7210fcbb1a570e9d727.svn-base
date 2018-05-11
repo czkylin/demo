@@ -1,0 +1,162 @@
+View文件夹下说明
+
+医生端  Expert
+------------------------------------------------
+Cf	处方
+	cf_add			开处方
+	cf_add_append		药品列表加载更多
+——————————————————————————
+Consult	咨询
+	consult_list		咨询列表
+	consult_list_append 	咨询列表加载更多
+	consult_details		咨询详情（对话框）
+————————————————————————————
+Doc	医生
+	doc_list		医生排行榜列表
+	doc_list_append		医生排行榜列表加载更多
+————————————————————————————
+Hos	医院
+	hos_list		医院列表
+	hos_list_append		医院列表加载更多
+	hos_detail		医院详情
+————————————————————————————	
+Index	医生工作室首页
+	index			医生工作室首页
+———————————————————————————————
+Member	我的患者
+	member_list		患者列表
+	member_list_append	患者列表加载更多
+————————————————————————————
+Order	订单
+	money_list		收入列表
+	money_list_append	列表加载更多
+	money_sum		总收入
+	order_details		订单明细
+	order_list		订单列表
+	order_list_append	列表加载更多
+----------------------------------------------------------
+Share	医生分享	
+	share_list		分享列表
+	share_list_append	分享列表加载更多
+	share_info		分享详情页
+	my_share_list		我的分享列表
+	my_share_list_append	加载更多
+	add_info		添加分享内容
+	error			错误页面
+	success			成功页面
+------------------------------------------------------------	
+User	个人中心
+	band_success		绑定手机（入口）
+	band_phone		填写手机
+	band_name		完善信息（入口）
+	province_list		选择地区、医院
+	dep_list		选择科室名称
+	expert_rank		选择职称
+	dep_name		修改科室
+	expert_zhic		修改职称
+	expert_skill		添加擅长
+	expert_desc		添加简介
+	expert_sex		选择性别
+	edit_face		编辑头像
+-----------------------------------------------------
+Public	统一底部浮动			
+------------------------------------------------------
+
+
+患者端 Member
+------------------------------------------------------
+Cf	处方
+	cf_detail		处方详情
+	cf_detail_append	详情内药店列表加载更多
+	cf_list			处方列表
+	cf_list_append		处方列表加载更多
+——————————————————————————
+Consult	咨询
+	consult_list		咨询列表
+	consult_list_append 	咨询列表加载更多
+	consult_add_index	提交问题
+	consult_details		咨询详情（对话框）
+————————————————————————————
+Doc	医生
+	doc_index		在线咨询首页
+	doc_detail		医生工作室首页
+	doc_desc		医生简介
+	doc_consult		咨询医生
+	doc_list		医生列表
+	doc_list_append		医生列表加载更多
+————————————————————————————
+Hos	医院
+	hos_list		医院列表
+	hos_list_append		医院列表加载更多
+	hos_dlist		医院列表第二模板
+	hos_search		搜索医院
+	hos_detail		医院详情页
+	jiaotong		交通线路
+	ry_list			医院荣誉
+	doc_list		医生列表
+	doc_list_append		医生列表加载更多
+	serve_list		开通服务
+	serve_detail		服务详情
+————————————————————————————
+Ill	微信疾病关键字互动
+	answer			内容页
+	ill			内容页
+————————————————————————————
+Index	微官网首页
+	index			入口
+	index_ksbl		快速办理
+	index_rmwt		帮助中心
+————————————————————————————
+Jf	积分
+	jf_list			积分列表
+	jf_list_append		加载更多
+	add_info		申请积分
+	success			完成
+	error			失败
+————————————————————————————
+Jixiao	绩效
+	jx_list			绩效列表
+	jx_list_append		加载更多
+	add_info		上传位置
+	success			完成
+	error			失败
+————————————————————————————
+Member	我发展的会员
+	member_list		会员列表
+	member_list_append	加载更多
+————————————————————————————
+Operation	集善手术申请
+		operation_index			专题入口
+		operation_info			专题详情
+		operation_list			手术申请记录列表
+		operation_list_list_append	加载更多
+		operation_detail		手术记录明细
+————————————————————————————
+Order	订单
+	order_list			订单列表
+	order_list_append		加载更多
+	hos_order_detail		购买医院服务订单详情
+	order_detail			购买咨询订单详情
+————————————————————————————
+User	个人中心
+	band_success		绑定手机（入口）
+	band_phone		填写手机
+	band_name		完善信息（入口）
+	member_index		个人首页	
+	sex_update		选择性别
+	user_info		账户设置（基本资料）
+	about_us		关于我们
+-----------------------------------------------------
+Yd	药店
+	yd_list			药店列表
+	yd_list_append		加载更多
+	yd_product_list		药店入口
+	yd_product_list_append	加载更多
+	search_product_list	搜索药店、宝贝
+	product_content		药品详情
+	cart_list		购物车	
+-----------------------------------------------------
+Public	统一底部浮动			
+------------------------------------------------------
+
+	

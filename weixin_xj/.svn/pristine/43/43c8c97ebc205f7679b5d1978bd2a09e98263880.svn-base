@@ -1,0 +1,128 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="cache-control" content="public">
+	<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/msg.css">
+	<title>留言板</title>
+	<script>
+		(function(){
+			var html = document.documentElement;
+			html.style.fontSize = html.clientWidth / 15 + "px";
+		})()
+	</script>
+</head>
+<body>
+	<div class="msg">
+		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=father" class="back"></a>
+		<div class="msg-wrap">
+			<div class="leavemsg">
+				<form action="{:U('Member/Huzhu/msg_do')}" method="post">
+					<h2>留言板</h2>
+					<ul>
+						<li>
+							<span>您的称呼：</span>
+							<input type="text" name='from_name' class="from_name">
+						</li>
+						<li>
+							<span>父亲的称呼：</span>
+							<input type="text" name='to_name' class="to_name">
+						</li>
+						<li>
+							<span>父亲的电话：</span>
+							<input type="number" name='to_mobile' class="to_mobile">
+						</li>
+					</ul>
+					<div class="tx">
+						<span>想要对父亲说的话：</span>
+						<textarea minlength="10" name='leave_message' class="leave_message" placeholder="文字不能少于10字"></textarea>
+					</div>
+					<input type="submit" value="爱父亲" class="sub">
+				</form>	
+			</div>
+		</div>	
+	</div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+	$('.sub').click(function(){
+
+		if( test() ){
+
+			alert('留言成功，我们会以最快的速度帮您传递心意！')
+
+		}else{
+
+			return false
+		}
+
+	})
+
+	//判断是否填入信息
+	function test(){
+		var from_name = $.trim($('.from_name').val());
+		var to_name = $.trim($('.to_name').val());
+		var to_mobile = $.trim($('.to_mobile').val());
+		var leave_message = $.trim($('.leave_message').val());
+		var tel = /^1(3|4|5|7|8)[0-9]\d{8}$/;
+		var iName =  /^[\u4e00-\u9fa5]{2,20}$/;
+		
+		//姓名判断
+		if( from_name.length == 0 ){
+			alert('您的姓名不能为空！')
+			$('.from_name').focus()
+			return false;
+		}
+
+		if( !iName.test(from_name) ){
+			alert('请填写正确的姓名！')
+			$('.from_name').focus()
+			return false;
+		}
+
+		if( to_name.length == 0 ){
+			alert('您的父亲的姓名不能为空！')
+			$('.to_name').focus()
+			return false;
+		}
+
+		if( !iName.test(to_name) ){
+			alert('请填写正确的姓名！')
+			$('.to_name').focus()
+			return false;
+		}
+
+		//电话判断
+		if( to_mobile.length == 0 ){
+			alert('您的父亲的手机号不能为空！')
+			$('.to_mobile').focus()
+			return false;
+		}
+
+		if( !tel.test(to_mobile) ){
+			alert('请输入正确的手机号')
+			$('.to_mobile').focus()
+			return false;
+		}
+
+		//流言判断
+		if( leave_message.length == 0 ){
+			alert('您的留言文字不能为空！')
+			$('.leave_message').focus()
+			return false;
+		}	
+
+		if( leave_message.length < 10 ){
+			alert('留言文字不能少于10字！')
+			$('.leave_message').focus()
+			return false;
+		}
+
+		return true
+	}
+</script>
+</html>

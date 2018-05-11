@@ -1,0 +1,25 @@
+/*!
+*  加载更多 部分 线样式
+    21501120  书写   李伟  
+	感谢：郑洁  乔亚运     
+*/
+ 
+ 
+
+/*加载更多*/
+.ui-jiazai { width: 100%; margin-bottom: 60px;}
+.ui-jiazai a { height: 60px; text-align: center; line-height: 60px; color: #CDCBCB; display: block; font-size: 14px; }
+.loading{height:60px;line-height:60px;text-align:center;margin-bottom:60px;}
+.loading i{display:inline-block;width:16px;height:16px;border-radius:16px;background:#ef4a65;animation:move 1s infinite;-webkit-animation:move 1s infinite;margin:22px 5px;}
+.loading i:nth-child(2){animation-delay:1s;-webkit-animation-delay:.2s;}
+.loading i:nth-child(3){animation-delay:2s;-webkit-animation-delay:.3s;}
+@keyframes move{
+    50%{
+        transform:scale3d(0,0,0);
+    }
+}
+@-webkit-keyframes move{
+    50%{
+        -webkit-transform:scale3d(0,0,0);
+    }
+}

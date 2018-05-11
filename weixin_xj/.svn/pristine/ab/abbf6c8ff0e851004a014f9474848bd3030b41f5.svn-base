@@ -1,0 +1,28 @@
+<volist name="member_list" id="member">
+
+<li>
+			<dl style="height:82px;">
+				<dt style="margin-top:0;">
+					<img src="{$member['HEADIMGURL']}" />
+				</dt>
+				<dd>
+					<span class="name">
+					<!-- 患者姓名: -->
+                        患者姓名: {$member['MEMBER_NAME']}
+						
+						
+					</span>
+					<br>
+					<span class="add"> 
+                    昵称：{$member['NICKNAME']}
+					</span>
+					<br>
+					<span class="time">
+						<!-- 推荐时间： -->
+						推荐时间：{$member['TJ_DATE']}
+					</span>
+				</dd>
+			</dl>
+		</li>∮
+
+</volist>

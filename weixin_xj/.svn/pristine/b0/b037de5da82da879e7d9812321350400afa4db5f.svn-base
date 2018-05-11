@@ -1,0 +1,185 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+ font-family: 'wxfont';
+ src:  url('/weixin/Public/Common/css/commonFont/iconfont-full.woff') format('woff'),
+        url('iconfont-full.ttf') format('truetype'),
+        url('iconfont-full.fcp') format('fcp'),
+        url('iconfont-full.otf') format('otf');
+} 
+.icon{
+    font-family:"wxfont" !important;
+    font-size:30px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+body { margin: 0; padding: 0; background-color: #e5e5e5; font-family: "微软雅黑"; }
+ul, li, h1, h2, h3, sapn, dl, dd, dr, dt { list-style: none; margin: 0; padding: 0; font-style: normal; text-decoration: none; }
+a { text-decoration: none; font-size: 14px; color: #333; }
+a:hover { text-decoration: none; }
+span { color: #999999; }
+p { margin: 0; padding: 0; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+.bgChui { background-color: #e5e5e5; }
+.colorHui { color: #a2a2a2; }
+.colorHuang { color: #ff9600; }
+.padLR60 { padding-left: 60px; padding-right: 60px; }
+.lanse { color: #3399ff; }
+.header { height: 40px; background-color: #2b7ce5; }
+.header h1 { font-size: 18px; font-family: "微软雅黑"; font-weight: normal; color: #fff; text-align: center; line-height: 40px; margin: 0; }
+.header1{padding:18px 0; background: #ff647c;}
+.header1 h2{font-size: 16px; color: #fff; font-weight: normal; text-align: center;}
+/*账号设置*/
+.header { background-color: #2b7ce5; height: 40px; left: 0; right: 0; top: 0; }
+.header h1 { color: #fff; font-family: "微软雅黑"; font-size: 18px; font-weight: normal; line-height: 40px; margin: 0; text-align: center; }
+.g-items ul { background: none repeat scroll 0 0 #fff; box-shadow: 0 2px 4px #e3e3e3; margin-bottom: 10px; }
+.g-items li { border-bottom: 1px solid #e3e3e3; color: #999; line-height: 35px; padding: 10px 15px; }
+.gp-profile .avatar label { line-height: 20px; }
+.g-items li label { color: #333; display: inline-block; font-size: 14px; width: 56px; }
+.g-items li .jiantou { display: inline-block; float: right; width: 100px; }
+.g-items li .jiantou a { float: right; width: 50px; text-align: right; }
+.gp-profile .avatar a.upload-btn { display: inline-block; float: right; height: 50px; padding: 0; position: relative; width: 50px; }
+.gp-profile .reg-time { margin-top: 30px; text-align: center; }
+.gp-profile .reg-time span { background: none repeat scroll 0 0 #ddd; border-radius: 10px; color: #aaa; display: inline-block; font-size: 16px; line-height: 24px; padding: 5px 10px; }
+.g-items li a .yirenz { line-height: 35px; }
+.tuichu { margin: 0px 15px; margin-top: 60px; height: 35px; }
+.tuichu a { display: block; background: #ff647c; border-radius: 3px; color: #fff; line-height: 35px; text-align: center; font-size: 16px; }
+/*已经实名认证与未实名*/
+
+.gp-profile-auth .done { font-size: 90%; padding: 20px 0; text-align: center; }
+.g-items ul { background: #fff; box-shadow: 0 2px 4px #e3e3e3; margin-bottom: 10px; }
+.g-items li { border-bottom: 1px solid #e3e3e3; overflow: hidden; color: #999; font-family: "微软雅黑"; line-height: 35px; padding: 15px 15px; }
+.g-items li label { color: #333; display: inline-block; font-size: 1.4rem; width: 56px; }
+.g-items li span.right { color: #999; float: right; margin-right: 30px; height: 20px; line-height: 20px; }
+.g-items li .weism { line-height: 20px; margin-bottom: 0; float: left; height: 20px; border: 0; font-size: 14px; box-shadow: none; font-family: "微软雅黑"; width: 69%; }
+/*个人中心首页bagin*/
+body { background: #ededed; color: #666; line-height: 20px; }
+.gp-profile .top { height: 260px; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url(../../images/user/bg3.jpg); margin-bottom: 10px; position: relative; text-align: center; color: #fff; font-size: 1.2rem; }
+.gp-profile .top img { width: 70px; height: 70px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; border: 3px solid #fff; margin-top: 35px; }
+.gp-profile .top h2 { font-size: 20px; margin: 10px 0; }
+.gp-profile .top nav { height: 70px; line-height: 70px; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; }
+.gp-profile .top span { width: 33.3%; height: 70px; text-align: center; color: #fff; display: block; float: left; font-size: 14px; }
+.gp-profile .top span.yszc { width: 24%; }
+.gp-profile .top span.ssyy { width: 48%; }
+.gp-profile .top span.dqjf { width: 28%; }
+.g-items ul { background: #fff; margin-top: 0; -webkit-box-shadow: 0 2px 4px #e3e3e3; -moz-box-shadow: 0 2px 4px #e3e3e3; box-shadow: 0 2px 4px #e3e3e3; margin-bottom: 10px; margin-left: 0; padding-left: 0; }
+.g-items li { border-bottom: 1px solid #e3e3e3; overflow: hidden; list-style: none; line-height: 20px; font-family: "微软雅黑"; padding: 15px 15px; color: #999; }
+.g-items li a { padding-left: 10px; }
+.g-items li.link { padding: 0; }
+.gp-profile li.link-ico a { padding-left: 45px; }
+.g-items li.link a { display: block; font-size: 14px; padding: 15px 15px; color: #333; background: url(../../images/user/huanzhe.png) no-repeat right 10px center; background-size: 10px 16px; line-height: 30px; height: 30px; }
+.g-items li.link a.duquzt:visited { color: #999; }
+.g-items ul.xiaoxi_li { box-shadow: none; }
+.g-items li.link a p { float: left; display: block; }
+.g-items li.link a span { float: right; display: block; font-size: 14px; text-align: left; padding-right: 10px; }
+.g-items li.link a span.weidu_xinxi { color: #ffa200; }
+.g-items li label { color: #333; display: block; float: left; line-height: 20px; font-size: 14px; width: 61px; padding-left: 10px; margin-bottom: 0; }
+.g-items li label.nowidth { width: auto; }
+.g-arrow-d:after, .g-arrow-f:after, .g-arrow-r:after, .g-arrow-s:after, .g-arrow-u:after { content: ""; position: absolute; height: 15px; width: 15px; background-repeat: no-repeat; background-size: 95px 435px; background-position: -58.5px -216px; right: 15px; top: 50%; margin-top: -8px; }
+.gp-profile .top nav a i { width: 22px; height: 22px; font-style: normal; position: absolute; left: 55%; top: 0; background: #ff0000; border-radius: 50%; line-height: 22px; text-align: center; font-family: Helvetica, Arial, sans-serif; }
+/*曹兰梅的底部*/
+/*#gf { height: 50px; background: #f5f5f5; border-top: 1px solid #fff; left: 0; right: 0; bottom: -1px; padding-bottom: 1px; width: 100%; position: fixed; z-index: 50; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-shadow: 0 -1px 3px rgba(0,0,0,.12); }
+.g-grid-c { overflow: hidden; }
+.g-block { margin: 0; padding: 0; border: 0; float: left; min-height: 1px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+#gf a { height: 20px; padding-top: 28px; position: relative; color: #666; font-size: 13px; text-align: center; }
+.g-grid-c .g-block { width: 33.3%; }
+#gf a i { background-size: cover; position: absolute; left: 50%; top: 4px; height: 25px; width: 30px; margin-left: -15px; }
+#gf a i img { width: 100%; height: 100%; }
+#gf a{ position:relative;}
+#gf a span {width:22px; height:22px; font-style:normal; position:absolute; left:55%; top:0; background:#C70003; border-radius:50%; 
+line-height:22px; text-align:center; color:#fff;  }
+#gf a .wy { }
+#gf a.on { color: #2da1f7; }
+#gf a.on .my { }*/
+
+/*曹结束底部*/
+
+/*我的咨询*/
+.wdzixun_ul { overflow: hidden; line-height: 30px; }
+.wdzixun_ul li { margin-bottom: 10px; background: #fff; padding: 15px; }
+.wdzixun_ul li a { display: block; overflow: hidden; }
+.zixun_left { float: left; width: 26%; }
+.zixun_left span { position: relative; display: block; z-index: 10; margin: 5px 0 0 5px; }
+.zixun_left span b { position: absolute; top: -5px; left: -5px; width: 15px; height: 14px; border-radius: 50%; background: #ff0000; z-index: 999; display: inline-block; }
+.zixun_right { float: left; width: 72%; font-size: 14px; }
+.zixun_right h3 { display: block; color: 333333; line-height: 30px; border-bottom: 1px solid #aaaaaa; font-weight: normal; font-size: 14px; }
+.zixun_right .right_center { display: block; overflow: hidden; }
+.zixun_right .right_center span { float: left; line-height: 30px; font-size: 12px; }
+.zixun_right .right_center b { float: right; line-height: 30px; color: #3366cc; font-weight: normal; font-size: 12px; }
+.zixun_right .right_center i { float: right; line-height: 30px; color: #999999; font-weight: normal; font-size: 12px; font-style: normal; }
+.zixun_right p { color: #bcbcbc; padding-bottom: 5px; }
+.wdzixun_ul li .weipj { color: #999999; padding-top: 10px; font-size: 12px; }
+.wdzixun_ul li .weipj .wei_left { background: url(/weixin/Public/Expert/images/expert/images/gerenzhongxin/youjiantou.jpg) no-repeat center right; }
+/*我的预约挂号*/
+.wdzixun_ul li .wodeyy { }
+.wdzixun_ul li .wodeyy h3 { display: block; color: 333333; line-height: 30px; border-bottom: 1px solid #bcbcbc; font-weight: normal; font-size: 14px; }
+.wdzixun_ul li .wodeyy h3 span { color: 666666; line-height: 30px; font-size: 12px; margin-left: 20px; }
+.wodeyy_bot { overflow: hidden; }
+.wodeyy .wode_bot_left p { color: #666666; line-height: 30px; }
+.wodeyy .wode_bot_left p span { color: #666666; }
+.wodeyy_bot .wode_bot_right a { display: block; background: #ff647c; line-height: 35px; text-align: center; padding: 0 30px; color: #fff; border-radius: 3px; margin-top: 10px; }
+.gp-my-orders .how p { color: #bdbdbd; font-size: 1.0rem; padding: 20px 10px; text-align: center; }
+.gp-my-orders .how dl { color: #333; padding: 20px 0 32px 40px; }
+.gp-my-orders .how dt { padding-bottom: 14px; }
+.gp-my-orders .how dd { line-height: 16px; padding-bottom: 12px; }
+.gbt-pri { background-color: #ff647c; color: #fff; }
+.gbn { border-radius: 3px; display: block; font-size: 16px; height: 35px; letter-spacing: 2px; line-height: 35px; margin: 0 15px; text-align: center; }
+.gp-my-orders .wu { width: 30%; margin-left: 34%; margin-top: 50px; }
+/*我的关注内容页*/
+.guanzhu { margin-top: 10px; }
+.guanzhu ul { margin: 0; padding: 0; }
+.guanzhu ul li { height: auto; padding: 15px 20px; margin-bottom: 24px; background: #fff; }
+.guanzhu ul li dl { overflow: hidden; }
+.guanzhu ul li dl dt { width: 28%; height: auto; float: left; }
+.guanzhu ul li dl dt img { width: 100%; height: auto; }
+.guanzhu ul li dl dd { float: left; width: 64%; color: #333; position: relative; margin-left: 8%; }
+.guanzhu ul li dl dd span { padding: 5px 10px; font-size: 84%; border-radius: 3px; background: #ccc; color: #fff; position: absolute; right: 0; top: 0; }
+.guanzhu ul li dl dd h2 { font-size: 110%; margin: 0; margin-bottom: 10px; line-height: 24px; font-weight: normal; }
+.guanzhu ul li dl dd p { font-size: 94%; line-height: 25px; }
+.guanzhu ul li dl dd span.cur_on { padding: 5px 10px; font-size: 84%; border-radius: 3px; background: #03A710; color: #fff; position: absolute; right: 0; top: 0; }
+/*加载更多*/
+
+.jiazai a { background: #f3f3f3; color: #bfbfbf; font-size: 14px; text-align: center; height: 30px; line-height: 30px; display: block; margin: 10px; }
+.jiazai_after a { background: none; color: #bfbfbf; font-size: 14px; text-align: center; height: 30px; line-height: 30px; display: block; margin: 10px; }
+/*底栏内容*/
+footer { background-color: #f5f5f5; bottom: 0; color: #666; height: 65px; left: 0; position: fixed; right: 0; width: 100%; }
+footer a { background: rgba(0, 0, 0, 0) url("../images/gongzuoshi/shouye01.gif") no-repeat scroll center 10px / 30px auto; display: inline-block; float: left; font-size: 12px; line-height: 20px; padding-top: 40px; position: relative; text-align: center; width: 33%; }
+/*个人中心会员证书*/
+.bfryzs { width: auto; background: #fff; padding: 30px 20px; text-align: center; }
+.bfryzs p { font-size: 16px; line-height: 30px; color: #000; text-align: left; margin-bottom: 5%; }
+.bfryzs img { width: 100%; height: auto; }
+/*-----个人中心积分规则-----*/
+.jfgz { width: auto; padding: 0 10px; background: #fff; }
+.jfgz p { font-size: 18px; color: #333; line-height: 60px; height: 60px; }
+.jfgz .gz_list { height: auto; box-shadow: none; border-radius: 0; background: #f3f3f3; border: 1px solid #e5e5e5; }
+.jfgz .gz_list li { line-height: 20px; padding: 10 5px; color: #333; font-size: 14px; }
+.jfgz .gz_list li.gz_bg { background: #fff; }
+/*-----个人中心积分明细-----*/
+.jfgz_href { height: 30px; line-height: 30px; font-size: 12px; display: block; text-align: left; background: #ffa924; color: #fff; padding-left: 10px; }
+.wdjfmx { padding: 0 10px; }
+.wdjfmx .jf_list { box-shadow: none; border: 0; }
+.wdjfmx .jf_list li { padding: 5px 0; border-bottom: 1px solid #e5e5e5; position: relative; margin-bottom: 8px;}
+.wdjfmx .jf_list li p { display: block; float: left; line-height: 24px; width: 65%; overflow: hidden; margin: 0; font-size: 14px; color: #333; }
+.wdjfmx .jf_list li div { float: right; width: 35%; position: absolute; right: 0; top: 25px;}
+.wdjfmx .jf_list li div span { width: 100%; text-align: center; display: block; height: 20px; line-height: 20px; font-size: 16px; color: #ff657d; text-align: right;}
+.wdjfmx .jf_list li div i { font-style: normal; font-size: 12px; text-align: right; display: block; color: #999999; }
+.ui-jiazai { text-align: center; line-height: 24px; }
+.ui-jiazai a { display: block; font-size: 14px; color: #999; }
+/*-----我的上传-----*/
+.sc_h { padding-top: 15px; }
+.sc_h input { font-size: 12px; width: 100%; box-shadow: none;font-family: "微软雅黑"; border-radius: 3px; padding: 5px; border: 1px solid #e5e5e5; color: #333; line-height: 24px; outline: none; }
+.content { height: 170px; }
+.content textarea { width: 100%; height: 150px; box-shadow: none; font-family: "微软雅黑";font-size: 12px; border-radius: 3px; margin-top: 15px; border-color: #e7e7e7; resize: none; outline: none; padding: 5px; }
+.item { display: block; height: 47px; line-height: 47px; position: relative; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: #fff; }
+.uploader { height: auto; padding: 10px 0; position: relative; background: #fff; }
+.g-image-upload-box { width: 57px; height: 57px; }
+.upload-btn.small { border-style: dashed; height: 50px; width: 50px; border: 1px dashed #e7e7e7; background-image: url(../../images/user/sc.jpg); background-position: center center; background-repeat: no-repeat; background-size: 50% auto; position: relative; }
+.g-image-upload-box .upload-btn.small .file-input { font-size: 4.5rem; height: 45px; width: 45px; }
+.g-image-upload-box .file-input { font-size: 6.5rem; height: 64px; opacity: 0; position: absolute; right: 0; top: 0; width: 65px; z-index: 99; }
+.item.uploader .desc { font-family: "微软雅黑"; font-size: 90%; left: 60px; line-height: 140%; position: absolute; top: 28px; }
+.item.uploader .desc p { color: #000; }
+.ui-btn-purchase-blue { background: #06be04; margin-top:0px; border: 0; font-size: 14px; font-family: "微软雅黑"; }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/photoswipe.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/default-skin.css">
+
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/wd_bingli.css">
+<title>患者病例</title>
+</head>
+<body>
+	<div class="tit">
+		<img src="/weixin/Public/Member/images/user/bingli-tit.jpg" alt="">
+	</div>
+    <if condition="empty($case_list[0]) || $case_list['error_code'] eq 'no'">
+        <div style=" text-align: center;"> 
+        	<br>
+            <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+            <i style=" line-height: 30px;">暂无数据</i>
+        </div>
+    <else />
+    	<ul class="list" id="bl-list">
+    			<volist name="case_list" id="data">
+    				<li>
+    					<a href="javascript:;" class="clear">
+    						<div class="date fl">
+    							<p>{$data.CREATE_DATE|substr=5,5}</p>
+    							<span>{$data.CREATE_DATE|substr=0,4}</span>
+    						</div>
+    						<div class="process fl"></div>
+    						<div class="con fl">
+    							<p class="hos">{$data.CASE_TITLE}</p>
+    							<p class="des">
+    								<if condition="$data['CASE_DESC'] eq ''">暂无
+    									<else />{$data.CASE_DESC}
+    								</if>
+    							</p>
+    						</div>
+    						<div class="img-wrap fl">
+    							<div class="mask"></div>
+    							<p style="width: 100%; margin:0 auto;" id="img"><img src="{$data.CASE_PIC}" class="piece_lstw3-img" alt=""></p>
+    							
+    							<span></span>
+    						</div>
+    					</a>
+    				</li>
+    			</volist>
+    		
+    	</ul>
+        <div class="chakan">
+            <img src="" alt="">
+            <span>关闭</span>
+        </div>
+
+    	<div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more('#bl-list');">加载更多</a></div>
+    	<div id="current_pagenum" style="display:none">2</div>
+    </if>
+	<if condition="!$member_id || $case_list['error_code'] eq 'no'">
+			<a class="jianli" id="cj" style="background: #CDCBCB" href="javascript:;">新建病例</a>
+	<else />
+		<a href="{:U('Expert/Member/bingli_add',array('record_id'=>$member_id))}" class="jianli">新建病例</a>
+	</if>
+
+
+<!--Js库文件--> 
+	<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+	<script>
+		$("#cj").click(function(){
+			alert("请先添加自己为家庭成员！");
+		});
+
+		var onOff = true;
+
+		window.onload = function(){
+		    window.onscroll();
+		}
+		window.onscroll = function(){
+		    load_more('#bl-list');
+		}
+		function load_more(obj)
+		{	
+			if(!onOff) return;
+		    if($(obj).height() <= $(document).scrollTop() + $(window).height()){
+		        onOff = !onOff;
+                console.log($(obj).height());
+			loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=wd_bingli_append&member_id={$member_id}','#bl-list',function(){
+		                    $(".jianli").css({'left':0,"bottom":0})
+		                });
+			}
+		}
+	
+	
+	
+	$(".piece_lstw3-img").click(function(){
+    var iSrc = $(this).attr("src");
+    $('.img-scale img').attr("src",iSrc);
+    $(".img-scale").height($("body").height()).show();
+});
+/*$('.img-scale span').click(function(){
+    $(".img-scale").hide();
+});
+    */
+
+    //图片放大
+        $(".img-wrap").each(function(){
+            var _this = this;
+            $(this).on('touchend',function(){
+                var src = $(_this).find('img').attr("src");
+                $('.chakan').css({width:$(window).width(),height:$(window).height()}).show();
+                $('.chakan').find("img").attr('src',src);
+            })
+        });
+        //关闭
+        $(".chakan span").on('touchend',function(){
+            $('.chakan').find("img").attr('src','');
+            $('.chakan').hide();
+        });
+	</script>
+<script src="/weixin/Public/Member/js/photoswipe.min.js"></script>
+<script src="/weixin/Public/Member/js/photoswipe-ui-default.min.js"></script>
+<script src="/weixin/Public/Member/js/photo.js"></script>
+</body>
+</html>

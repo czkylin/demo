@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Cropper</title>
+  <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+  <link rel="stylesheet" href="/weixin/Public/Member/css/cropper.css">
+  <style>
+      .container{height:80%;}  
+    img {
+      max-width: 100%;
+    }
+      .cropper-view-box{background:url(/weixin/Public/Member/images/crop/border1.png) no-repeat;background-size:100% 100%;}
+      .cropper-view-box img{position:relative;z-index:-1;}
+  </style>
+  <script>
+  document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';  
+  </script>
+</head>
+<body>
+   <article>
+       <section><a href="javascript:;"></a></section>
+       <section>
+            <div class="container">
+                <div id="pic" class="pic">
+                  <img id="image" src="/weixin/Public/Member/images/crop/demo.jpg" alt="Picture">
+                </div>
+                <!--<a href="javascript:;" id="download" download="1.jpg">下载</a>-->
+            </div>
+            <footer class="text-center">
+                <a href="javascript:;"><label for="inputImage">上传图片</label></a>
+                <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*" capture="camera" multiple />
+                <a href="javascript:;" id="crop">确认合成</a>
+            </footer>
+       </section>
+       <section>
+            <div class="container">
+                <div id="result" class="result"></div>
+            </div>
+            <footer class="text-center">
+                <a href="javascript:;"><label for="inputImage">重新上传</label></a>
+                <a href="javascript:;">确认下载</a>
+            </footer>
+       </section>
+   </article>
+    <img src="/weixin/Public/Member/images/crop/border1.png" id="flower" style="display:none;" />
+  <!-- Scripts -->
+  <script src="/weixin/Public/Common/js/jquery.min.js"></script>
+  <script src="/weixin/Public/Member/js/cropper.min.js"></script>
+  <script>
+      //console.log($('#pic').height())
+        $('#image').cropper({
+            viewMode: 1,
+            dragMode: 'move',
+            autoCropArea: 1,
+            restore: false,
+            guides: false,
+            highlight: false,
+            cropBoxMovable: false,
+            cropBoxResizable: false
+        });
+        var image = document.getElementById('pic').getElementsByTagName('img').item(0);
+        var inputImage = document.getElementById('inputImage');
+        var uploadedImageURL;
+        var uploadedImageType = 'image/jpeg';
+        var croppedCanvas;
+        var roundedCanvas;
+        inputImage.onchange = function () {
+            var files = this.files;
+            var file;
+
+            file = files[0];
+
+            if (/^image\/\w+/.test(file.type)) {
+              uploadedImageType = file.type;
+
+              if (uploadedImageURL) {
+                URL.revokeObjectURL(uploadedImageURL);
+              }
+
+              image.src = uploadedImageURL = URL.createObjectURL(file);
+              $('#image').cropper('destroy');
+              $('#image').cropper({
+                viewMode: 1,
+                dragMode: 'move',
+                autoCropArea: 1,
+                restore: false,
+                guides: false,
+                highlight: false,
+                cropBoxMovable: false,
+                cropBoxResizable: false
+              });
+              inputImage.value = null;
+                if($('section:nth-child(2)').css('display') == 'none'){
+                    $('section:nth-child(2)').show();
+                }
+                console.log($('#image').cropper('getImageData'))
+            } else {
+              window.alert('Please choose an image file.');
+            }
+          }
+          $('#crop').click(function(){   
+                croppedCanvas = $('#image').cropper('getCroppedCanvas');
+                $('#result').html('<img src="' + getCanvas(croppedCanvas).toDataURL() + '">');
+                $(this).parents('section').fadeOut(); //$('#download').attr('href',croppedCanvas.toDataURL(uploadedImageType));
+          });
+         /*$('#download').click(function(){
+             var type = 'jpg';
+             download(type);
+         });*/
+      
+        $('section:first-child a').click(function(){
+            $(this).parents('section').fadeOut();
+        })  
+      
+         //图片下载操作,指定图片类型
+        function download(type) {
+            //设置保存图片的类型
+            var imgdata = $('#result img').attr('src');
+            //var imgdata = croppedCanvas.toDataURL(type);
+            //将mime-type改为image/octet-stream,强制让浏览器下载
+            var fixtype = function (type) {
+                type = type.toLocaleLowerCase().replace(/jpg/i, 'jpeg');
+                var r = type.match(/png|jpeg|bmp|gif/)[0];
+                return 'image/' + r;
+            }
+            imgdata = imgdata.replace(fixtype(type), 'image/octet-stream')
+            //将图片保存到本地
+            var saveFile = function (data, filename) {
+                var link = document.createElement('a');
+                link.href = data;
+                link.download = filename;
+                var event = document.createEvent('MouseEvents');
+                event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                link.dispatchEvent(event);
+            }
+            var filename = new Date().toLocaleDateString() + '.' + type;
+            saveFile(imgdata, filename);
+        }
+      
+        function getCanvas(sourceCanvas) {
+          var canvas = document.createElement('canvas');
+          var context = canvas.getContext('2d');
+          var width = $('#pic').width();
+          var height = $('#pic').height();
+          var img = document.getElementById('flower');
+            
+          canvas.width = width;
+          canvas.height = height;
+          context.drawImage(sourceCanvas, 0, 0, width, height);
+          context.drawImage(img, 0, 0, width, height);
+
+          return canvas;
+        }
+  </script>
+</body>
+</html>

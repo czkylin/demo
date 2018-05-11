@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>二次转诊</title>
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/referral.css">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/pickout.min.css">
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	<form action="" name="">
+		<ul class="referral">
+			<li>
+				<p>姓名：<em>张章</em></p>
+			</li>
+			<li>
+				<p>电话：<em>13612345678</em></p>
+			</li>
+			<li>
+				<p>身份证号：<em>132114567891234587</em></p>
+			</li>
+		</ul>
+		<ul class="referralInfo">
+			<li class="file-box">
+				<span>证件照片</span>
+				<a href="javascript:;" class="file-btn" onclick="fileInput.click()"><em></em><i>上传图片</i></a>
+				<input type="file" id="fileInput">
+				<em id="myImg"></em>
+			</li>
+			<li>
+				<span>转诊医院</span>
+				<select name="hospital" id="hospital" class="hospital pickout" placeholder="选择一个医院">
+					<option value="bj" selected="selected">北京医院</option>
+					<option value="bj">北京中医院</option>
+					<option value="gz">广州医院</option>
+					<option value="dl">大理医院</option>
+				</select>
+			</li>
+			<li>
+				<span>转诊理由</span>
+				<textarea class="area" name="argument" maxlength="30" placeholder="30字以内"></textarea>
+			</li>
+			<li>
+				<input type="submit" value="确认提交" class="re-btn">
+			</li>
+		</ul>
+	</form>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Member/js/pickout.min.js"></script>
+	<script src="/weixin/Public/Member/js/verify.js"></script>
+	<script src="/weixin/Public/Member/js/referral.js"></script>
+	<script src="/weixin/Public/Member/js/upFile.js"></script>
+	<script>
+		pickout.to({
+			el:'.hospital', 
+			search: true
+		});
+
+		$('#idNum').bind('input propertychange', function() {
+			IdentityCodeValid($('#idNum').val());
+		});
+</script>
+</body>
+</html>

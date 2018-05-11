@@ -1,0 +1,237 @@
+@r:50rem;
+/*commom*/
+*{margin: 0; padding: 0;}
+input,a,button{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+input,button{-webkit-appearance: none; border-radius: 0; outline: none; background: none; padding: 0; border: none; }
+body{-webkit-user-select:none; font-family: Helvetica; -webkit-text-adjust:100%;}
+li{list-style: none;}
+img{vertical-align: top;}
+a{text-decoration: none;}
+.clear:after{content: ''; display: block; clear: both;}
+.fl{float: left;}
+.fr{float: right;}
+i,em{font-style: normal;}
+/*main*/
+header{
+	img{
+		width: 100%;
+	}
+}
+section:nth-of-type(1){
+	border-bottom: 20/@r solid #e7e7e7;
+}
+.base-info{
+	padding: 30/@r 24/@r;
+	position: relative;
+	h2{
+		font-size: 26/@r;
+		color: #333;
+		margin-bottom: 20/@r;
+	}
+	p{
+		font-size: 24/@r;
+		line-height: 40/@r;
+		color: #999;
+		display: -webkit-box;
+		-webkit-box-orient:vertical;
+		-webkit-line-clamp:3;
+		overflow: hidden;
+	}
+	span{
+		position: absolute;
+		right: 28/@r;
+		bottom: 0;
+		width: 24/@r;
+		height: 24/@r;
+		background: url(/weixin/Public/Member/images/icon/down.png) no-repeat;
+		background-size: 24/@r;
+	}
+	span.up{
+		-webkit-transform:rotateZ(-180deg);
+		transform:rotateZ(-180deg);
+	}
+}
+.add{
+	padding: 0 24/@r 30/@r;
+	h2{
+		font-size: 26/@r;
+		color: #333;
+		margin-bottom: 20/@r;
+	}
+	a{
+		display: block;
+		height: 26/@r;
+		line-height: 26/@r;
+		padding-left: 26/@r;
+		padding-right: 26/@r;
+		font-size: 24/@r;
+		color: #999;
+		background: url(/weixin/Public/Member/images/icon/address.png) no-repeat left center; 
+		background-size: 20/@r;
+		position: relative;
+		span{
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 26/@r;
+			width: 26/@r;
+			background: url(/weixin/Public/Member/images/icon/down.png) no-repeat center;
+			background-size: 20/@r;
+			-webkit-transform:rotateZ(-90deg);
+			transform:rotateZ(-90deg);
+		}
+	}
+}
+.yy-title{
+	padding: 28/@r 24/@r;
+	font-size: 26/@r;
+	color: #333;
+}
+#doc-list{
+	p{
+		height: 24px;
+	    line-height: 24px;
+	    color: #333;
+	    font-size: 12px;
+	}
+	li{
+		display: block;
+	    background: #fff;
+	    border-radius: 0 0 4px 4px;
+	    color: #333;
+	    line-height: 20px;
+	    position: relative;
+	    clear: both;
+	    border-bottom: 1px solid #e7e7e7;
+	}
+	li>a{
+		display: block;
+	    background: #f5f5f5;
+	    border-radius: 0 0 4px 4px;
+	    padding: 10px 24/@r;
+	    color: #333;
+	    line-height: 20px;
+	    position: relative;
+	    overflow: hidden;
+	}
+	.img{
+		text-align: center;
+	    display: block;
+	    line-height: 46px;
+	    overflow: hidden;
+	    width: 58px;
+	    height: 58px;
+	    border-radius: 60px;
+	    border: 1px solid #ccc;
+	    margin-top: 10/@r;
+	}
+	span.img img{
+		border-radius: 50px;
+    	border: #e7e7e7 1px solid;
+    	width: 100%;
+	}
+	.docImg{
+		width: 25%;
+		i{
+			width: 60px;
+		    display: block;
+		    height: 9.719px;
+		    margin-top: 5px;
+		    background: url(/weixin/Public/Member/images/icon/xing.png) no-repeat;
+		    background-size: 60px;
+		    position: relative;
+		    b{
+		    	height: 14px;
+			    position: absolute;
+			    left: 0;
+			    top: 0;
+			    overflow: hidden;
+		    }
+		    img{
+		    	border-width: 0;
+    			width: 60px;
+		    }
+		}
+	}
+	.meta {
+		display: block;
+	    font-size: 12px;
+	    width: 75%;
+	    .name_dj{
+	    	overflow: hidden;
+	    	.mingcheng{
+	    		font-size: 14px;
+			    float: left;
+			    overflow: hidden;
+			    color: #333;
+    			font-weight: 400;
+    			height: 24px;
+    			width: 100%;
+    			display: inline-block;
+    			em{
+    				display: block;
+				    background: #000;
+				    color: #333;
+				    line-height: 20px;
+				    width: 20px;
+				    float: left;
+    			}
+    			em.zc{
+    				background: none;
+				    width: auto;
+				    margin-right: 10px;
+				    font-size: 12px;
+    			}
+    			em.count {
+    				float: right;
+				    background: none;
+				    width: auto;
+				    font-size: 12px;
+    			}
+	    	}
+	    }
+	    p.desc{
+	    	display: -webkit-box;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    -webkit-box-orient: vertical;
+		    -webkit-line-clamp: 2;
+		    padding: 0;
+		    height: auto;
+		    min-height: 40px;
+	    }
+	}
+	.kt_service{
+		overflow: hidden;
+	    text-align: right;
+	    padding: 10px 24/@r;
+	    a{
+	    	background: #fff;
+	    	display: block;
+		    -webkit-border-radius: 4px;
+		    -moz-border-radius: 4px;
+		    border-radius: 0 0 4px 4px;
+		    padding: 10px;
+		    margin-bottom: 10px;
+		    color: #333;
+		    line-height: 20px;
+		    position: relative;
+		    overflow: hidden;
+	    }
+	    a.service {
+	    	display: inline-block;
+		    padding: 3px 6px;
+		    text-align: center;
+		    color: #ef4a65;
+		    font-size: 12px;
+		    border: 1px solid #ef4a65;
+		    width: 48PX;
+		    border-radius: 3px;
+		    margin: 5px 3px 0 0;
+	    }
+	    a.weikaitong{
+	    	border: 1px solid #e7e7e7;
+    		color: #999;
+	    }
+	}
+}

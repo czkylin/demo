@@ -1,0 +1,94 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Expert/css/footer/footer_v2.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/css.css" type="text/css" rel="stylesheet"/>
+
+<!--css-->
+
+<link rel="stylesheet" href="/weixin/Application/Expert/View/css/css.css" type="text/css">
+<link rel="stylesheet" href="/weixin/Application/Expert/View/css/footer_v2.css" type="text/css">
+
+<!-- title -->
+
+<title>外勤信息列表</title>
+<style>
+.list_sec li div.pic span.fs14 {
+	width: 55px;
+}
+.list_sec li div.pic {
+	width: 25%;
+}
+</style>
+
+<!--meta-->
+
+</head>
+
+<body>
+<header class="header">
+  <div class="bottom bottom2 pr">
+    <dl class="pa tar">
+      <dd> <img src="{$user_info['HEADIMGURL']}"/> </dd>
+      <dt>{$user_info['NICKNAME']}</dt>
+    </dl>
+  </div>
+</header>
+<div class="content mt65">
+  <ul class="list_fir list_sec" id="jx-list" >
+    <li class="myself">
+      <div class="pic fl fs30">今天</div>
+      <section class="fr"> <a class="sc_pic" href="/weixin/index.php?m=Home&c=jixiao&a=add_info&tj_type=jx_list"><img src="/weixin/Application/Expert/View/images/icon3.png"/></a> </section>
+      <div class="clear"></div>
+    </li>
+    <volist name="jx_list" id="jx" empty="暂无数据">
+      <li>
+        <div class="pic fl"><span class="fs14">{$jx['CREATE_DATE']|Dtodiy='m月d日',###}</span></div>
+        <section class="fr">
+          <div class="tw fs14"> <a > 状   态：{$jx['CHECK_FLAG']}<br>
+            外勤类型：{$jx['TYPE_NAME']}<br>
+            录入时间：{$jx['CREATE_DATE']|Dtodiy='Y.m.d H:i:s',###}<br>
+            得 分 值：{$jx['JIFEN_VALUE']}分<br>
+            外勤地址：{$jx['WAIQIN_ADDRESS']}
+            <div class="clear"></div>
+            </a> </div>
+          <div class="time fs16 tar"></div>
+        </section>
+        <div class="clear"></div>
+      </li>
+    </volist>
+  </ul>
+</div>
+<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+<div id="current_pagenum" style="display:none">2</div>
+<include file="Public:footer_fd" /> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script> 
+<script>
+
+	function load_more()
+
+	{
+
+		loadmore('#current_pagenum','/weixin/index.php?m=Home&c=Jixiao&a=jx_list_append','#jx-list');
+
+	}
+
+</script>
+<!--cnzz统计代码添加日期：2016.06.16  李伟添加 --> <div style="height:0px;overflow:hidden;">
+<?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259579504).'" width="0" height="0"/>';?>
+</div></body>
+</html>

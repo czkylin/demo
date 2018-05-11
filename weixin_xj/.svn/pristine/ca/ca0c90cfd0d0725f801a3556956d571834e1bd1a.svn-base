@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <style>
+        body{background:#fff;font-size:16px;color:#666;}
+        header,section{border-bottom:10px solid #e7e7e7;}
+        section:last-child{border-bottom-width:0;}
+        header p{line-height:40px;font-size:20px;color:#333;}
+        header ul{padding-left:.5rem;}
+        header li{border-bottom:1px solid #e7e7e7;height:44px;line-height:44px;}
+        input.times{height:30px;line-height:30px;border-width:0;background:none;outline:none;font-size:10px;display:inline-block;width:3rem;color:#666;font-weight:normal;padding-left:10px;margin-top:1px;-webkit-appearance:none;vertical-align:middle;}
+        header span{display:block;width:3.5rem;}
+        header a{display:block;width:11rem;margin:14px auto;line-height:44px;background:#eb5376;color:#fff;border-radius:3px;}
+        .unit p{line-height:32px;text-align:center;width:3rem;border-right:1px solid #e7e7e7;border-bottom:1px solid #e7e7e7;box-sizing:border-box;-webkit-box-sizing:border-box;font-size:14px;}
+        .unit p:nth-child(2){width:3rem;}
+        .unit p:nth-child(3){width:6rem;}
+        .unit p:last-child{border-right-width:0;}
+        .unit p span{color:#666;font-size:10px;}
+        .unit p strong{width:3rem;display:inline-block;position:relative;}
+        .unit p strong:before{position:absolute;right:.3rem;top:.4rem;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid #eb5376;content:'';}
+        .unit p.weight{color:#333;}
+        .unit p.count{color:#eb5376;}
+        .mask{position: fixed;bottom:0;left:0;width:100%;height:40px;line-height:40px;background:#fff;text-align:center;transform:translate3d(0,40px,0);-webkit-transform:translate3d(0,40px,0);transition:.5s;-webkit-transition:.5s;background: #ff8000;color:#fff;}
+        .rise{transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);}
+        section h2{font-size:16px;font-weight:normal;line-height:40px;color:#333;padding:0 0.5rem;}
+        section h2 i{background:url(/weixin/Public/Home/images/icons/icon.png) no-repeat;background-size:100% 200%;width:20px;height:20px;display:inline-block;vertical-align:middle;margin-right:10px;}
+        section h2 i.anysis{background-position:0 -20px;}
+        section p strong{color:#333;font-size:12px;font-weight:normal;}
+        .dt span{position:relative;}
+        .dt span:before{position:absolute;right:-8px;top:.2rem;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid #eb5376;content:'';}
+        section ol{width:9rem;padding:0 1.5rem 1rem;font-size:10px;color:#333;}
+        section ol li{width:2.25rem;line-height:22px}
+        section ol li i{width:.3rem;height:.3rem;border-radius:50%;display:inline-block;margin-right:.1rem;background:#ff8080;}
+        section ol li:nth-child(2) i{background:#ffd180;}
+        section ol li:nth-child(3) i{background:#fffd52;}
+        section ol li:nth-child(4) i{background:#4cf463;}
+        section ol li:nth-child(5) i{background:#00c3c1;}
+        section ol li:nth-child(6) i{background:#80c2ff;}
+        section ol li:nth-child(7) i{background:#d180ff;}
+    </style>
+    <link rel="stylesheet" href="/weixin/Public/Home/css/normalize3.0.2.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/mobiscroll.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/mobiscroll_date.css">
+    <title>经营回款收入</title>
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+   <header>
+       <p class="text-center">经营回款收入</p>
+   </header>
+    <section>
+        <div class="unit box">
+            <p class="weight center">项目</p>
+            <p class="weight">
+                <b>累计统计</b><br>
+                <span>{$home_date|Dtodiy='m月d日',###}-{$date_end|Dtodiy='m月d日',###}</span>    
+            </p>
+            <p class="weight clear">
+                <strong class="fl dt">开始日期<input type="button" name="start" readonly id="start" class="times" value="{$date_start}" /></strong>
+                <strong class="fl dt">结束日期<input type="button" name="end" readonly value="{$date_end}" id="end" class="times" /></strong>
+            </p>
+        </div>
+        <div class="unit box">
+            <p>HMO预售</p>
+            <p>{$result['HMOYS']}</p>
+            <p id="hmoys">{$res['HMOYS']}</p>
+        </div>
+        <div class="unit box">
+            <p>HMO销售</p>
+            <p>{$result['HMOXS']}</p>
+            <p id="hmoxs">{$res['HMOXS']}</p>
+        </div>
+        <div class="unit box">
+            <p>心电阅片</p>
+            <p>{$result['YP']}</p>
+            <p id="yp">{$res['YP']}</p>
+        </div>
+        <div class="unit box">
+            <p>手术</p>
+            <p>{$result['SHOUSHU']}</p>
+            <p id="ss">{$res['SHOUSHU']}</p>
+        </div>
+        <div class="unit box">
+            <p>耗材</p>
+            <p>{$result['HC']}</p>
+            <p id="hc">{$res['HC']}</p>
+        </div>
+        <div class="unit box">
+            <p>慧科药品</p>
+            <p>{$result['HKYP']}</p>
+            <p id="hkyp">{$res['HKYP']}</p>
+        </div>
+        <div class="unit box">
+            <p>慧科设备</p>
+            <p>{$result['HKSB']}</p>
+            <p id="hksb">{$res['HKSB']}</p>
+        </div>
+        <div class="unit box">
+            <p class="count">合计</p>
+            <p class="count">{$result['COUNT']}</p>
+            <p class="count" id="count">{$res['COUNT']}</p>
+        </div>
+    </section>
+    <section>
+        <h2><i></i>折线统计</h2>
+        <p class="text-center">
+            <strong class="dt"><span>开始日期</span><input type="button" class="times" readonly name="st" value="{$date_start}" id="st" /></strong>
+            <strong class="dt"><span>结束日期</span><input type="button" class="times" readonly name="ed" value="{$date_end}" id="ed" /></strong>
+        </p>
+        <div id="v1" style="width:100%;height:300%;"></div>
+        <ol class="clear">
+            <li class="fl"><i></i>HMO预售</li>
+            <li class="fl"><i></i>HMO销售</li>
+            <li class="fl"><i></i>心电阅片</li>
+            <li class="fl"><i></i>手术</li>
+            <li class="fl"><i></i>耗材</li>
+            <li class="fl"><i></i>慧科药品</li>
+            <li class="fl"><i></i>慧科设备</li>
+        </ol>
+    </section>
+    <section>
+        <h2><i class="anysis"></i>环比分析</h2>
+        <p class="text-center">
+            <strong class="dt"><span>开始日期</span><input type="button" class="times" readonly name="begin" value="{$home_date|Dtodiy='Y-m',###}" id="begin" /></strong>
+            <strong class="dt"><span>结束日期</span><input type="button" class="times" readonly name="finish" value="{$date_end|Dtodiy='Y-m',###}" id="finish" /></strong>
+        </p>
+        <div id="v2" style="width:100%;height:300%;"></div>
+    </section>
+    <div id="mask" class="mask">加载中...</div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Home/js/mobiscroll_date.js" charset="gb2312"></script>
+<script src="/weixin/Public/Home/js/mobiscroll.js"></script>
+<script src="/weixin/Public/Member/js/echarts.min.js"></script>
+<script>
+    var currYear = (new Date()).getFullYear();
+    var currMonth = (new Date()).getMonth();
+    var currDate = (new Date()).getDate();
+    $('.dt').click(function(){
+        $(this).find('input').focus();
+    });
+    
+    $("#start").mobiscroll().date({ 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "今天",
+        dayText: '日', 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-1, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onSelect: function(valueText){
+            if($('#start').val() > $('#end').val()){
+                var v = valueText;
+                $('#start').val($('#end').val());
+                $('#end').val(v);
+            }
+            $('#mask').addClass('rise');
+            $.ajax({
+                type: "POST",
+                url: "{:U('Home/BaoZ/income_search')}",
+                async: true,
+                data: {'start_time':$('#start').val(),'end_time':$('#end').val()},
+                success: function(msg)
+                {   
+                    $("#hmoys").text(msg.HMOYS);
+                    $("#hmoxs").text(msg.HMOXS);
+                    $("#yp").text(msg.YP);
+                    $("#ss").text(msg.SHOUSHU);
+                    $("#hc").text(msg.HC);
+                    $("#hkyp").text(msg.HKYP);
+                    $("#hksb").text(msg.HKSB);
+                    $("#count").text(msg.COUNT);
+                    $('#mask').removeClass('rise');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                    // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+        }
+    });
+    var old1 = '',old2 = '';
+    //折线开始时间
+    $("#st").mobiscroll().date({ 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "今天",
+        dayText: '日', 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-1, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onBeforeShow: function(){
+             old1 = $("#st").val(); 
+        },
+        onSelect: function(valueText){
+            if(Math.abs(Date.parse($('#ed').val())-Date.parse($('#st').val()))>604800000){
+                alert('请选择7天以内的范围');
+                $('#st').val(old1);
+                return false;
+            }
+            if($('#st').val() > $('#ed').val()){
+                v = valueText;
+                $('#st').val($('#ed').val());
+                $('#ed').val(v);
+            }
+            $('#mask').addClass('rise');
+            $.ajax({
+                type: "POST",
+                url: "{:U('Home/BaoZ/income_search_day')}",
+                async: true,
+                data: {'start_time':$('#st').val(),'end_time':$('#ed').val()},
+                success: function(msg)
+                {   
+                    console.log(msg);
+                    var data0 = [];
+                    var data1 = [];
+                    var data2 = [];
+                    var data3 = [];
+                    var data4 = [];
+                    var data5 = [];
+                    var data6 = [];
+
+                    for (var i = 0; i < msg.length; i++) 
+                    { 
+                        var date = msg[i]['DAY'];
+                        var name = i+4;
+                        data0.push({name:name,value:[date,msg[i]['HMOYS']]});
+                        data1.push({name:name,value:[date,msg[i]['HMOXS']]});
+                        data2.push({name:name,value:[date,msg[i]['YP']]});
+                        data3.push({name:name,value:[date,msg[i]['SHOUSHU']]});
+                        data4.push({name:name,value:[date,msg[i]['HC']]});
+                        data5.push({name:name,value:[date,msg[i]['HKYP']]});
+                        data6.push({name:name,value:[date,msg[i]['HKSB']]});
+                    }
+                    myChart1.setOption({
+                        series: [{
+                            data: data0
+                        },{
+                            data: data1
+                        },{
+                            data: data2
+                        },{
+                            data: data3
+                        },{
+                            data: data4
+                        },{
+                            data: data5
+                        },{
+                            data: data6
+                        }]
+                    }); 
+                    
+                    $('#mask').removeClass('rise');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                    // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+            
+        }
+    });
+    $("#begin").mobiscroll().date({
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "本月",
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm',
+        dateOrder: 'yyyymm', 
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-1, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onSelect: function(valueText)
+        {
+            if($('#begin').val() > $('#finish').val()){
+                var v = valueText;
+                $('#begin').val($('#finish').val());
+                $('#finish').val(v);
+            }
+            $('#mask').addClass('rise');
+            $.ajax({
+                type: "POST",
+                url: "{:U('Home/BaoZ/income_search_month')}",
+                async: true,
+                data: {'start_time':$('#begin').val(),'end_time':$('#finish').val()},
+                success: function(msg)
+                {   
+                    var arrData = [];
+                    var data = [];
+                    for (var i = 0; i < msg.length; i++) 
+                    {
+                        arrData.push(msg[i].totalMoney);
+                        data.push(msg[i].month);
+                    }
+                    console.log(arrData);
+                    
+                    myChart2.setOption({
+                        series: [{
+                            data: arrData
+                        }]
+                    });
+                    $('#mask').removeClass('rise');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                    // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+        }
+    });
+    $("#end").mobiscroll().date({ 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "今天",
+        dayText: '日', 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-1, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onSelect: function(valueText){
+            if($('#start').val() > $('#end').val()){
+                var v = valueText;
+                $('#end').val($('#start').val());
+                $('#start').val(v);
+            }
+            $('#mask').addClass('rise');
+            $.ajax({
+                type: "POST",
+                url: "{:U('Home/BaoZ/income_search')}",
+                async: true,
+                data: {'start_time':$('#start').val(),'end_time':$('#end').val()},
+                success: function(msg)
+                {   
+                    $("#hmoys").text(msg.HMOYS);
+                    $("#hmoxs").text(msg.HMOXS);
+                    $("#yp").text(msg.YP);
+                    $("#ss").text(msg.SHOUSHU);
+                    $("#hc").text(msg.HC);
+                    $("#hkyp").text(msg.HKYP);
+                    $("#hksb").text(msg.HKSB);
+                    $("#count").text(msg.COUNT);
+                    $('#mask').removeClass('rise');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                    // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+        }
+    });
+    //折线结束时间
+    $("#ed").mobiscroll().date({ 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "今天",
+        dayText: '日', 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-1, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onBeforeShow: function(){
+             old2 = $("#ed").val();
+        },
+        onSelect: function(valueText){
+            if(Math.abs(Date.parse($('#ed').val())-Date.parse($('#st').val()))>518400000){
+                alert('请选择7天以内的范围');
+                $('#ed').val(old2);
+                return false;
+            }
+            if($('#st').val() > $('#ed').val()){
+                var v = valueText;
+                $('#ed').val($('#st').val());
+                $('#st').val(v);
+            }
+            $('#mask').addClass('rise');
+            $.ajax({
+                type: "POST",
+                url: "{:U('Home/BaoZ/income_search_day')}",
+                async: true,
+                data: {'start_time':$('#st').val(),'end_time':$('#ed').val()},
+                success: function(msg)
+                {   
+                    console.log(msg);
+                    var data0 = [];
+                    var data1 = [];
+                    var data2 = [];
+                    var data3 = [];
+                    var data4 = [];
+                    var data5 = [];
+                    var data6 = [];
+                    // var data7 = [];
+                    // alert(msg.length);
+                    for (var i = 0; i < msg.length; i++) 
+                    { 
+                        var date = msg[i]['DAY'];
+                        var name = i+4;
+                        data0.push({name:name,value:[date,msg[i]['HMOYS']]});
+                        data1.push({name:name,value:[date,msg[i]['HMOXS']]});
+                        data2.push({name:name,value:[date,msg[i]['YP']]});
+                        data3.push({name:name,value:[date,msg[i]['SHOUSHU']]});
+                        data4.push({name:name,value:[date,msg[i]['HC']]});
+                        data5.push({name:name,value:[date,msg[i]['HKYP']]});
+                        data6.push({name:name,value:[date,msg[i]['HKSB']]});
+                    }
+                    myChart1.setOption({
+                        series: [{
+                            data: data0
+                        },{
+                            data: data1
+                        },{
+                            data: data2
+                        },{
+                            data: data3
+                        },{
+                            data: data4
+                        },{
+                            data: data5
+                        },{
+                            data: data6
+                        }]
+                    }); 
+                    $('#mask').removeClass('rise');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                    // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+        }
+    });
+    $("#finish").mobiscroll().date({ 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "本月", 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+        dateFormat: 'yyyy-mm',
+        dateOrder: 'yyyymm',
+        lang: 'zh',
+        showNow: true,
+		startYear: currYear-1, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onSelect: function(valueText){
+            if($('#begin').val() > $('#finish').val()){
+                var v = valueText;
+                $('#finish').val($('#begin').val());
+                $('#begin').val(v);
+            }
+            $('#mask').addClass('rise');
+            $.ajax({
+                type: "POST",
+                url: "{:U('Home/BaoZ/income_search_month')}",
+                async: true,
+                data: {'start_time':$('#begin').val(),'end_time':$('#finish').val()},
+                success: function(msg)
+                {   
+                    var arrData = [];
+                    var data = [];
+                    for (var i = 0; i < msg.length; i++) 
+                    {
+                        arrData.push(msg[i].totalMoney);
+                        data.push(msg[i].month);
+                    }
+                    console.log(arrData);
+                    
+                    myChart2.setOption({
+                        series: [{
+                            data: arrData
+                        }],
+                        xAxis: {
+                            type : 'category',
+                            data : data
+                        }
+                    });
+                    $('#mask').removeClass('rise');
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                    // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+        }
+    });
+    //echart
+    var myChart1 = echarts.init(document.getElementById('v1'));
+    var myChart2 = echarts.init(document.getElementById('v2'));
+    //七个的数据
+    //
+    $.ajax({
+        type: "POST",
+        url: "{:U('Home/BaoZ/income_search_day')}",
+        async: true,
+        data: {'start_time':$('#st').val(),'end_time':$('#ed').val()},
+        success: function(msg)
+        {
+            console.log(msg);
+            var data0 = [];
+            var data1 = [];
+            var data2 = [];
+            var data3 = [];
+            var data4 = [];
+            var data5 = [];
+            var data6 = [];
+
+            for (var i = 0; i < msg.length; i++) 
+            { 
+                var date = msg[i]['DAY'];
+                var name = i+4;
+                data0.push({name:name,value:[date,msg[i]['HMOYS']]});
+                data1.push({name:name,value:[date,msg[i]['HMOXS']]});
+                data2.push({name:name,value:[date,msg[i]['YP']]});
+                data3.push({name:name,value:[date,msg[i]['SHOUSHU']]});
+                data4.push({name:name,value:[date,msg[i]['HC']]});
+                data5.push({name:name,value:[date,msg[i]['HKYP']]});
+                data6.push({name:name,value:[date,msg[i]['HKSB']]});
+            }
+            
+            option = {
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function (params) {
+                        params = params[0];
+                        return params.value[0] + ' : ' + params.value[1];
+                    },
+                    axisPointer: {
+                        animation: false
+                    }
+                },
+                xAxis: {
+                    type: 'time',
+                    splitLine: {
+                        show: false
+                    }
+                    /*data: ["2017/1/1","2017/2/1","2017/3/1","2017/4/1","2017/5/1","2017/6/1","2017/7/1","2017/8/1"]*/
+                },
+                yAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0],
+                    splitLine: {
+                        show: false
+                    }
+                },
+                grid: { 
+                    // 控制图的大小，调整下面这些值就可以，
+                    //width: $('#main').width()/1.4,
+                    left: '15%',
+                    right: '15%',
+                    top: '20'
+                },
+                series: [{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#ff8080'],
+                    data: data0
+                },{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#ffd180'],
+                    data: data1
+                },{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#fffd52'],
+                    data: data2
+                },{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#4cf463'],
+                    data: data3
+                },{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#00c3c1'],
+                    data: data4
+                },{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#80c2ff'],
+                    data: data5
+                },{
+                    name: '模拟数据',
+                    type: 'line',
+                    showSymbol: false,
+                    hoverAnimation: false,
+                    color: ['#d180ff'],
+                    data: data6
+                }]
+            };
+            myChart1.setOption(option);
+            // $('#mask').removeClass('rise');
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) 
+        {   
+            alert("网络不稳定,请稍后再试或者重新刷新页面！");
+            // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+        }
+
+    });
+    //七个数据结束
+    
+    
+    
+    
+    //柱形图数据
+    //
+    $.ajax({
+        type: "POST",
+        url: "{:U('Home/BaoZ/income_search_month')}",
+        async: true,
+        data: {'start_time':$('#begin').val(),'end_time':$('#finish').val()},
+        success: function(msg)
+        {
+            console.log(msg);
+            var arrData = [];
+            var data = [];
+            for (var i = 0; i < msg.length; i++) 
+            {
+                arrData.push(msg[i].totalMoney);
+                data.push(msg[i].month);
+            }
+            console.log(arrData);
+            var dataShadow = [];
+            option1 = {
+                xAxis: {
+                    type : 'category',
+                    data : data
+                },
+                yAxis: {
+                },
+                tooltip: {},
+                grid: { 
+                    // 控制图的大小，调整下面这些值就可以，
+                    //width: $('#main').width()/1.4,
+                    left: '30%',
+                    right: '20%',
+                    top: '20'
+                },
+                series: [
+                    {
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        {offset: 0, color: '#83bff6'},
+                                        {offset: 0.5, color: '#188df0'},
+                                        {offset: 1, color: '#188df0'}
+                                    ]
+                                )
+                            },
+                            emphasis: {
+                                color: new echarts.graphic.LinearGradient(
+                                    0, 0, 0, 1,
+                                    [
+                                        {offset: 0, color: '#2378f7'},
+                                        {offset: 0.7, color: '#2378f7'},
+                                        {offset: 1, color: '#83bff6'}
+                                    ]
+                                )
+                            }
+                        },
+                        data: arrData
+                    }
+                ]
+            };
+            myChart2.setOption(option1);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) 
+        {   
+            alert("网络不稳定,请稍后再试或者重新刷新页面！");
+            // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+        }
+    });
+    
+
+</script>
+</html>

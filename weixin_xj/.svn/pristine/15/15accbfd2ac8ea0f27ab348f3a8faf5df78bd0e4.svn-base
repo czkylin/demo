@@ -1,0 +1,363 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/zhuanjia.min.css" type="text/css" rel="stylesheet"/>
+<title>医生咨询</title>
+<style type="text/css">
+.endzx { width: 30px; height: 30px; font-size: 12px; color: #fff; background-color: #ff647c; border-radius: 30px; position: fixed; bottom: 65px; right: 10px; text-align: center; padding: 10px; }
+.pingjialist { width: 84%; display: block; border: 1px solid #ccc; padding: 10px 3%; position: fixed; bottom: 120px; left: 5%; background-color: #fff; box-shadow: 0 0 10px 5px rgba(0,0,0,0.1); display: none; }
+.pingjialist p { height: 50px; font-size: 20px; text-align: center; line-height: 50px; color: #333; border-bottom: 1px dashed #333; margin-bottom: 10px; }
+.pingjialist ul { height: 30px; margin-bottom: 10px; }
+.pingjialist ul li { height: 30px; width: 30%; float: left; line-height: 30px; font-size: 14px; color: #333; margin: 0 2px; text-align: center; border: 1px solid #e7e7e7; }
+.pingjialist ul li.active { color: #ff647c; border: 1px solid #ff647c; }
+.pingjialist ul li input { display: none; }
+.pingjialist textarea { border: 1px solid #999; font-size: 12px; color: #333; line-height: 20px; text-indent: 1em; margin-bottom: 10px; }
+.pingjialist .sub { width: 70%; display: block; height: 30px; line-height: 30px; text-align: center; background-color: #ff647c; color: #fff; border: none; margin: 0 auto 10px; border-radius: 6px; }
+.msg-doctor .doctor-portait img, .msg-doctor .huanzhe-portait img{ border-radius: 22px; overflow: hidden; }
+.liaotian{ position: relative; padding-bottom: 20px; }
+.msg-doctor .piece_lstw2,.msg-doctor .piece_lstw3{ border-radius: 30px; padding: 10px;  background-color: #eceff1;}
+.msg-doctor .piece_lstw3{ background-color: #ff7a8f; }
+.msg-doctor .piece_lstw3 p{ color: #fff;  }
+.liaotian .textC p{ margin: 0; padding: 0 10px; }
+.liaotian .textC p img{ width: auto; max-width: 100%; margin: 0; }
+.online{height: 40px; line-height: 40px; font-size: 16px; background: #fff; text-align: center;}
+.online strong{font-weight: normal; color: #333333;}
+.online i{display: inline-block; width: 10px; height: 10px; margin: 0 5px;}
+.green{background: #00cc66;}
+.gry{background: #ccc;}
+.online span{color: #333333;}
+</style>
+</head>
+<script>
+
+       /* var position_option = {
+                enableHighAccuracy: true,
+                maximumAge: 30000,
+                timeout: 20000
+            };
+
+        navigator.geolocation.getCurrentPosition(getPositionSuccess, getPositionError, position_option);
+        function getPositionSuccess( position ){
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                $("#lat").val(lat);
+                $("#lng").val(lng);
+        }
+        function getPositionError(error) {
+            switch (error.code) {
+                case error.TIMEOUT:
+                    alert("连接超时，请重试");
+                    break;
+                case error.PERMISSION_DENIED:
+                    alert("您拒绝了使用位置共享服务，查询已取消");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("获取位置信息失败");
+                    break;
+            }
+        }*/
+
+</script>
+
+<body style=" background-color:#d0d6e0;" onLoad="window.scrollTo(0,document.body.scrollHeight);">
+<div class="zixuncon">
+        <div class="online">
+            <p><strong>家庭医生--李伟</strong><i class="green"></i><span>在线/不在线</span></p>
+        </div>
+        <div class="zixuntop">
+                <h3> 赵晓楠 <i> 女 </i> <span>20岁</span><b></b>                   
+                        
+                       
+                </h3>
+                <p>问题：你好 </p>
+                <if condition="$tdata.CONSULT_IMG neq '' ">
+                        <p><img src="/weixin/public/expert/images/zhengcejiedu/qq.png"/></p>
+                </if>
+        </div>
+        <volist name='data' id='v'>
+                <div class="zixunbot">
+                        <div class="date">{$v.REPLY_DATE}</div>
+                        <div class="msg-doctor">
+                                <div class="liaotian">
+                                        
+                                        <div class="piece_lstw2"> 
+                                                <div class="textC">                                                               
+                                                        <p>超显示你有个卵巢囊肿</p>                                                              
+                                                </div>                                                       
+                                        </div>
+                                        <div class="doctor-portait"> 
+                                            <a href="javascript:void(0)"> 
+                                                <img src="/weixin/public/expert/images/yonghu/boy.png">                                            
+                                            </a> 
+                                        </div>  
+                                                                          
+                                </div>
+
+                                <div class="liaotian">                           
+                                                
+                                        <!-- 患者 start -->
+                                        
+                                        <div class="huanzhe-portait"> <a href="javascript:void(0)"> <img src="/weixin/public/expert/images/yonghu/girl.png"> </a> </div>
+                                        <div class="piece_lstw3"> 
+                                                <div class="textC">                                                               
+                                                        <p>超显示你有个卵巢囊肿</p>
+                                                </div>                                                       
+                                        </div>                                                
+                                        <!-- 患者 end -->                             
+                                </div>
+                                <div class="liaotian">
+                                        
+                                        <div class="piece_lstw2"> 
+                                                <div class="textC">                                                               
+                                                        <p>超显示你有个卵巢囊肿超显示你有个卵巢囊肿超显示你有个卵巢囊肿超显示你有个卵巢囊肿超显示你有个卵巢囊肿</p>                                                              
+                                                </div>                                                       
+                                        </div>
+                                        <div class="doctor-portait"> 
+                                            <a href="javascript:void(0)"> 
+                                                <img src="/weixin/public/expert/images/yonghu/boy.png"><!-- {$v.USER_PIC} -->                                                
+                                            </a> 
+                                        </div>  
+                                                                          
+                                </div>
+                                
+                                <div class="liaotian">                           
+                                                
+                                        <!-- 患者 start -->
+                                        
+                                        <div class="huanzhe-portait"> <a href="javascript:void(0)"> <img src="/weixin/public/expert/images/yonghu/girl.png"> </a> </div>
+                                        <div class="piece_lstw3" style="padding:0;"> 
+                                                <div class="textC" style="padding:0; margin:0;">                                                               
+                                                        <p style="padding:0; margin:0;"><img src="/weixin/public/expert/images/zhengcejiedu/img.jpg" style="padding:0; margin:0; width:100%; border-radius:10px; "></p>
+                                                </div>                                                       
+                                        </div>                                                
+                                        <!-- 患者 end -->                             
+                                </div>
+
+                                <div class="liaotian">                           
+                                                
+                                        <!-- 患者 start -->
+                                        
+                                        <div class="huanzhe-portait"> <a href="javascript:void(0)"> <img src="/weixin/public/expert/images/yonghu/bg.jpg"> </a> </div>
+                                        <div class="piece_lstw3" style="padding:0; "> 
+                                                <div class="textC" style="padding:0; margin:0;">                                                               
+                                                        <p style="padding:0; margin:0;"><img src="/weixin/public/expert/images/zhengcejiedu/img.jpg"  style="padding:0; margin:0; width:100%; border-radius:10px; "></p>
+                                                </div>                                                       
+                                        </div>                                                
+                                        <!-- 患者 end -->                             
+                                </div>
+
+                        </div>
+                </div>
+        </volist>
+        <a name="bottom"></a>
+        <div class="zixunbot" style="margin-bottom:50px;"></div>
+        <form method="post" action="/weixin/index.php?m=Member&c=Consult&a=consult_response" onSubmit="return sub()">
+                <div class="input-controller J_Input_Ctrl" al-show="(status.code==0|| status.code==1)&amp;&amp; myself &amp;&amp; asknum&gt;0">
+                        <div class="item both uploader">
+                                <div class="g-image-upload-box">
+                                        <div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+                                                <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+                                        </div>
+                                </div>
+                                <img src="" id="pre_pic" width="200" style="display:none">
+                                <div id="press_status"></div>
+                                <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+                                <div class="desc J_Showmeonfileuploaded" style="display:none">
+                                        <h3>上传图片资料</h3>
+                                        <p>病症部位，检查报告或者其他病情资料</p>
+                                </div>
+                        </div>
+                        <input type="text" al-keyup="inputText($event)" name="consultContent" id="sendBox" placeholder="请输入内容" al-value="textMsg" class="nofixed text-input">
+                        <input type="hidden" id="consult_id" name="consult_id" value="{$consult_id}">
+                        <input type="hidden" name="lat" id="lat" />
+                        <input type="hidden" name="lng" id="lng"/>
+                        <input type="submit" value="发送"  class="gbn gbt-pri"  />
+                </div>
+        </form>
+        <div class="endzx">结束<br>
+                咨询</div>
+        <div class="pingjialist">
+                <p>欢迎您对我的服务评价</p>
+                <form >
+                        <ul class="pllist" >
+                                <li>
+                                        <label for="fcmy">非常满意</label>
+                                        <input type="radio" value="1" id="fcmy"/>
+                                </li>
+                                <li class="active">
+                                        <label for="my">满意</label>
+                                        <input type="radio" value="0" id="my"/>
+                                </li>
+                                <li>
+                                        <label for="bmy">不满意</label>
+                                        <input type="radio" value="2" id="bmy"/>
+                                </li>
+                        </ul>
+                        <textarea placeholder="请填入内容" id="desc"></textarea>
+                        <input type="button" value="提交" class="sub" onclick="pj_tj()"/>
+                        <input type="hidden" name="consult_id" id="con_id" value="{$consult_id}"/>
+                        <input type="hidden" name="expert_id" id="eid" value="{$expert_id}"/>
+                </form>
+        </div>
+</div>
+
+<!--Js库文件--> 
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Member/js/jquery.form.min.js " type="text/javascript"></script> 
+<script type="text/javascript" src="/weixin/Application/Member/View/js/mobileFix.mini.js?v=8d13c59"></script> 
+<script type="text/javascript" src="/weixin/Application/Member/View/js/exif.js?v=c65d9ea"></script> 
+<script type="text/javascript" src="/weixin/Application/Member/View/js/lrz.min.js?v=b542f0a"></script> 
+<script>
+
+function sub()
+
+{
+
+	var sendBox = $("#sendBox").val();
+
+	if(sendBox=="")
+
+	{
+
+		alert("请输入内容！");
+
+		return false;
+
+	}
+
+}
+
+
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+
+{
+
+	lrz(input_file.files[0], 
+
+	{
+
+		width:200,
+
+		before: function()
+
+		{
+
+			document.querySelector(press_status).innerHTML="";
+
+		},
+
+		fail: function(err)
+
+		{
+
+			document.querySelector(press_status).innerHTML=err;
+
+		},
+
+		always: function()
+
+		{
+
+			document.querySelector(press_status).innerHTML="";
+
+		},
+
+		done: function (results)
+
+		{
+
+			
+
+			document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+
+			document.querySelector(pre_pic).src=results.base64;//展示预览图片
+
+		}
+
+	});
+
+}
+
+//tab
+var iNum = 1;
+$(".pingjialist li").each(function( index ){
+	$(this).click(function(){
+		$(".pingjialist li").each(function(){
+			$(this).removeClass('active');
+		})
+		$(this).addClass('active');
+		iNum = index;
+	})
+});
+
+$(".endzx").click(function(){
+	$(".pingjialist").show();
+})
+//评论提交
+function pj_tj()
+{
+	  var desc = $("#desc").val();
+	  var pj_flag = $(".pllist li").eq(iNum).find('input').val();
+	  var expert_id = $("#eid").val();
+	  var consult_id = $("#con_id").val();
+	 // alert(consult_id);false;
+	 if(pj_flag=="")
+	  {
+		 	alert("请输入评价服务！");
+			return false;
+	  }
+	  if(desc=="")
+	  {
+		 	alert("请输入评价内容内容！");
+			return false;
+	  }
+	  else
+	  {
+			$.ajax({
+			type: "POST",
+			url: "/weixin/index.php?m=Member&c=Consult&a=pl_ok",
+			data: {"desc":desc,"pj_flag":pj_flag,"expert_id":expert_id,"consult_id":consult_id},
+			success: function(msg)
+			{
+
+				switch (msg) {
+                    case '1': //注册成功
+                       alert('已经评论过');
+                        location.href="/weixin/index.php?m=Member&c=Consult&a=consult_details";
+                        break;
+                        break;
+                    case 'ok': //已经注册过
+                        location.href="/weixin/index.php?m=Member&c=Consult&a=consult_details";
+                        break;
+                    default: //错误！请直接发送资料到公众号 
+                       alert('评论失败');
+                        return false;
+                        break;
+                    }
+
+			}
+		});
+	  
+	 }
+}
+</script> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

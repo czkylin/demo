@@ -1,0 +1,650 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<meta content="页面关键字" name="keywords">
+<meta content="页面描述" name="description">
+<title>北京圣康华</title>
+<!-- 公共样式部分 -->
+<link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+<!-- 当前样式部分 -->
+<link rel="stylesheet" href="/Public/Common/css/swiper.min.css">
+<link rel="stylesheet" href="/Public/css/index.css">
+</head>
+<body>
+    <!-- 头部start -->
+    <include file="Public:header"/>
+    <!-- 头部end -->
+
+    <div class="banner">
+      <div class="swiper-container8 swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide1"><img src="/Public/images/index/banner.png" alt=""></div>
+            <div class="swiper-slide swiper-slide1"><img src="/Public/images/index/banner2.png" alt=""></div>
+            <div class="swiper-slide swiper-slide1"><img src="/Public/images/index/banner.png" alt=""></div>
+            <div class="swiper-slide swiper-slide1"><img src="/Public/images/index/banner.png" alt=""></div>
+        </div>
+        <div class="swiper-pagination swiper-pagination8"></div>
+        <div class="w1200">
+          <div class="swiper-button-prev swiper-button-prev8"></div>
+          <div class="swiper-button-next swiper-button-next8"></div>
+        </div>
+      </div>
+    </div>
+    <div class="con1 con">
+      <div class="w1200">
+        <h2>
+          <p class="title">圣康华专家团</p>
+          <p class="desc">SEKWA EXPERT TEAM</p>
+        </h2>
+        <ul class="tab">
+          <li index="0" class="active">特需专家<i></i></li>
+          <li index="1">会诊专家<i></i></li>
+          <li index="2">糖网专家<i></i></li>
+          <li index="3">白内障专家<i></i></li>
+          <li index="4">眼底病专家<i></i></li>
+          <li index="5">眼视光专家<i></i></li>
+          <li index="6">眼整形专家<i></i></li>
+        </ul>
+
+
+        <div class="swiper-container0 swiper-container1 swiper-container active">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-no-swiping">
+                <volist name="txdocList" id="txdoc">
+                  <dl>
+                    <dt><img src="/Public/images/index/img1.png" alt=""></dt>
+                    <dd>
+                      <p class="title">{$txdoc['ACT_LECTOR']}</p>
+                      <p class="desc">{$txdoc['ACT_TITLE']}</p>
+                      <p class="text">{$txdoc['ACT_ADDRESS']}</p>
+                      <a href="">预约专家</a>
+                    </dd>
+                  </dl>
+                </volist>
+              </div>
+              <div class="swiper-slide swiper-no-swiping">
+                <dl>
+                  <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                  <dd>
+                    <p class="title">刘毅</p>
+                    <p class="desc">主任医师</p>
+                    <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                  <dd>
+                    <p class="title">马凯</p>
+                    <p class="desc">主任医师、教授、硕士研究生导师</p>
+                    <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                  <dd>
+                    <p class="title">于伟泓</p>
+                    <p class="desc">眼科博士，副主任医师、副教授、硕士生导师</p>
+                    <p class="text">专业特长：各种眼底疾病如黄斑疾病、糖尿病视网膜病变、视网膜脱离等的激光和手术治疗。</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+              </div>
+              <div class="swiper-slide swiper-no-swiping">
+                <dl>
+                  <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                  <dd>
+                    <p class="title">张永鹏</p>
+                    <p class="desc">副主任医师、独立执业医师</p>
+                    <p class="text">专业特长：眼底病。</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+              </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev1"></div>
+          <div class="swiper-button-next0 swiper-button-next1"></div>
+          <div class="swiper-pagination1 swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container0 swiper-container2 swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                <dd>
+                  <p class="title">张亚琳</p>
+                  <p class="desc">副主任医师；眼底病与眼科影像诊断中心主任</p>
+                  <p class="text">专业特长：综合眼科、眼底病内科、眼底病激光治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                <dd>
+                  <p class="title">郭晓文</p>
+                  <p class="desc">主任医师；白内障中心主任</p>
+                  <p class="text">专业特长：综合眼科、白内障。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img1.png" alt=""></dt>
+                <dd>
+                  <p class="title">刘宁朴</p>
+                  <p class="desc">主任医师、教授、博士生导师</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img3.png" alt=""></dt>
+                <dd>
+                  <p class="title">刘熙朴</p>
+                  <p class="desc">医学博士、主任医师、教授、研究员、博士生导师</p>
+                  <p class="text">专业特长：白内障、青光眼</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                <dd>
+                  <p class="title">陆文秀</p>
+                  <p class="desc">主任医师；眼视光与功能视觉专业首席专家</p>
+                  <p class="text"></p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img1.png" alt=""></dt>
+                <dd>
+                  <p class="title">孟晓丽</p>
+                  <p class="desc">主治医师；眼视光与功能视觉医疗中心行政主任</p>
+                  <p class="text">专业特长：小儿眼科；能视觉医疗</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                <dd>
+                  <p class="title">谭晓东</p>
+                  <p class="desc">副主任医师；远程眼科会诊中心行政主任</p>
+                  <p class="text"></p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev2"></div>
+          <div class="swiper-button-next0 swiper-button-next2"></div>
+          <div class="swiper-pagination2 swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container0 swiper-container3 swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img7.png" alt=""></dt>
+                <dd>
+                  <p class="title">董方田</p>
+                  <p class="desc">主任医师、教授、博士生导师</p>
+                  <p class="text">专业特长：眼科疑难病诊治、玻璃体视网膜手术、黄斑病变手术、眼底病激光治疗</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img1.png" alt=""></dt>
+                <dd>
+                  <p class="title">刘宁朴</p>
+                  <p class="desc">主任医师、教授、博士生导师；眼底病专业首席专家</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                <dd>
+                  <p class="title">刘毅</p>
+                  <p class="desc">主任医师</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                <dd>
+                  <p class="title">马凯</p>
+                  <p class="desc">主任医师</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">宋茹</p>
+                  <p class="desc">主治医师</p>
+                  <p class="text">专业特长：常见眼科疾病诊疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">尹令妥</p>
+                  <p class="desc">副主任医师</p>
+                  <p class="text">专业特长：常见眼科疾病诊疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">于伟泓</p>
+                  <p class="desc">副主任医师</p>
+                  <p class="text">专业特长：各种眼底疾病如黄斑疾病、糖尿病视网膜病变、视网膜脱离等的激光和手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                <dd>
+                  <p class="title">张亚琳</p>
+                  <p class="desc">副主任医师；眼底病与眼科影像诊断中心主任</p>
+                  <p class="text">专业特长：综合眼科、眼底病内科、眼底病激光治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev3"></div>
+          <div class="swiper-button-next0 swiper-button-next3"></div>
+          <div class="swiper-pagination3 swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container0 swiper-container4 swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-no-swiping">
+                <dl>
+                  <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                  <dd>
+                    <p class="title">郭晓文</p>
+                    <p class="desc">主任医师；白内障中心主任</p>
+                    <p class="text"></p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt><img src="/Public/images/index/img3.png" alt=""></dt>
+                  <dd>
+                    <p class="title">刘熙朴</p>
+                    <p class="desc">主任医师、教授、博士生导师，青光眼白内障专业首席专家</p>
+                    <p class="text">专业特长：白内障、青光眼</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                  <dd>
+                    <p class="title">唐坤</p>
+                    <p class="desc">主治医师</p>
+                    <p class="text">专业特长：综合眼科、白内障。</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+              </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev4"></div>
+          <div class="swiper-button-next0 swiper-button-next4"></div>
+          <div class="swiper-pagination4 swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container0 swiper-container5 swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img7.png" alt=""></dt>
+                <dd>
+                  <p class="title">董方田</p>
+                  <p class="desc">主任医师、教授、博士生导师</p>
+                  <p class="text">专业特长：眼科疑难病诊治、玻璃体视网膜手术、黄斑病变手术、眼底病激光治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img2.png" alt=""></dt>
+                <dd>
+                  <p class="title">姜利斌</p>
+                  <p class="desc">主任医师</p>
+                  <p class="text">专业特长：眼底疾病，神经眼科，眼肿瘤。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img1.png" alt=""></dt>
+                <dd>
+                  <p class="title">刘宁朴</p>
+                  <p class="desc">主任医师、教授、博士生导师；眼底病专业首席专家</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                <dd>
+                  <p class="title">刘毅</p>
+                  <p class="desc">主任医师</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img7.png" alt=""></dt>
+                <dd>
+                  <p class="title">马凯</p>
+                  <p class="desc">主任医师</p>
+                  <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img7.png" alt=""></dt>
+                <dd>
+                  <p class="title">宋茹</p>
+                  <p class="desc">主治医师</p>
+                  <p class="text">专业特长：常见眼科疾病诊疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img7.png" alt=""></dt>
+                <dd>
+                  <p class="title">尹令妥</p>
+                  <p class="desc">副主任医师</p>
+                  <p class="text">专业特长：常见眼科疾病诊疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img7.png" alt=""></dt>
+                <dd>
+                  <p class="title">于伟泓</p>
+                  <p class="desc">副主任医师</p>
+                  <p class="text">专业特长：各种眼底疾病如黄斑疾病、糖尿病视网膜病变、视网膜脱离等的激光和手术治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img5.png" alt=""></dt>
+                <dd>
+                  <p class="title">张亚琳</p>
+                  <p class="desc">副主任医师；眼底病与眼科影像诊断中心主任</p>
+                  <p class="text">专业特长：综合眼科、眼底病内科、眼底病激光治疗。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">张永鹏</p>
+                  <p class="desc">副主任医师</p>
+                  <p class="text">专业特长：眼底病。</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev5"></div>
+          <div class="swiper-button-next0 swiper-button-next5"></div>
+          <div class="swiper-pagination5 swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container0 swiper-container6 swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">陆文秀</p>
+                  <p class="desc">主任医师；眼视光与功能视觉专业首席专家</p>
+                  <p class="text">专业特长：小儿眼科；能视觉医疗</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">孟晓丽</p>
+                  <p class="desc">主治医师；执行主任</p>
+                  <p class="text"></p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+              <dl>
+                <dt><img src="/Public/images/index/img6.png" alt=""></dt>
+                <dd>
+                  <p class="title">邹燕红</p>
+                  <p class="desc">主任医师、副教授、硕士研究生导师</p>
+                  <p class="text">专业领域：白内障、青光眼、视觉医疗</p>
+                  <a href="">预约专家</a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev6"></div>
+          <div class="swiper-button-next0 swiper-button-next6"></div>
+          <div class="swiper-pagination6 swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-container0 swiper-container7 swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide swiper-no-swiping">
+                <dl>
+                  <dt><img src="/Public/images/index/img4.png" alt=""></dt>
+                  <dd>
+                    <p class="title">刘毅</p>
+                    <p class="desc">主任医师</p>
+                    <p class="text">专业特长：擅长视网膜脱离、玻璃体出血、糖尿病视网膜病变等视网膜玻璃体疾病的显微手术治疗。</p>
+                    <a href="">预约专家</a>
+                  </dd>
+                </dl>
+              </div>
+          </div>
+          <div class="swiper-button-prev0 swiper-button-prev7"></div>
+          <div class="swiper-button-next0 swiper-button-next7"></div>
+          <div class="swiper-pagination7 swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="con2 con">
+      <div class="w1200">
+        <h2>
+          <p class="title">专业服务</p>
+          <p class="desc">PROFESSIONAL SERVICE</p>
+        </h2>
+        <div class="picContent">
+          <img src="/Public/images/index/icon1.png" alt="">
+          <i></i>
+          <p class="title">眼科影像诊断服务中心</p>
+          <p class="text">利用远程眼科远程阅片系统，将患者的医学影像资料上传给远程中心专家及医疗机构，专家根据患者提供的影像资料进行病情分析，对病情做出初步判断，为进一步确定治疗方案提供重要依据。</p>
+        </div>
+        <div class="picContent">
+          <img src="/Public/images/index/icon2.png" alt="">
+          <i></i>
+          <p class="title">远程眼科会诊中心</p>
+          <p class="text">面向医疗机构和眼科医生服务，以远程会诊会议的方式为临床医生提供远程会诊帮助。能够有效实现医联体的基层首诊、优质专家资源下沉到基层，使基层医生有了向专家学习交流的机会，也有效地推动和实现了为更多患者提供方便快捷的双向转诊服务。</p>
+        </div>
+        <div class="picContent">
+          <img src="/Public/images/index/icon3.png" alt="">
+          <i></i>
+          <p class="title">糖尿病眼病远程医疗服务中心</p>
+          <p class="text">糖尿病眼病远程医疗服务中心是糖尿病眼病医疗中心面向医疗机构服务的独立第三方专业服务单位，可以为客户医疗机构提供有关糖尿病视网膜病变（DR）临床诊疗工作的专业技术培训服务、远程影像诊断服务、远程激光治疗方案定制服务及质控管理服务。</p>
+        </div>
+        <div class="picContent">
+          <img src="/Public/images/index/icon4.png" alt="">
+          <i></i>
+          <p class="title">视觉医疗质控管理服务中心</p>
+          <p class="text">视觉康复科是一个国际合作项目，是北京地区的主要视觉康复服务机构之一。中心采用国际先进的视觉康复理念，将眼科医疗与视觉康复融为一体，为视觉障碍患者提供现代先进的视觉康复服务。</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="con3 con">
+      <div class="w1200">
+        <h2>
+          <p class="title">就诊服务</p>
+          <p class="desc">CONSULTATION SERVICE</p>
+        </h2>
+        <div class="service">
+          <div class="top">
+            <p class="desc">Diabetic Retinopathy</p>
+            <p class="title">糖网</p>
+            <i></i>
+            <a href="/Member/Service/minSug">查看详情</a>
+          </div>
+          <ul class="bottom">
+              <volist name="twList" id="twList" offset="0" length="3">
+                <a href="{:U('Focus/newsDetail',array('artid'=>$twList['RECORD_ID']))}"><li><i></i>{$twList['ACT_TITLE']}</li></a>
+              </volist>
+          </ul>
+        </div>
+        <div class="service">
+          <div class="top">
+            <p class="desc">Cataract</p>
+            <p class="title">白内障</p>
+            <i></i>
+            <a href="/Member/Service/cataract">查看详情</a>
+          </div>
+          <ul class="bottom">
+            <volist name="bnzList" id="bnzList" offset="0" length="3">
+              <a href="{:U('Focus/newsDetail',array('artid'=>$bnzList['RECORD_ID']))}"><li><i></i>{$bnzList['ACT_TITLE']}</li></a>
+            </volist>
+          </ul>
+        </div>
+        <div class="service">
+          <div class="top">
+            <p class="desc">Ophthalmology & Optometry</p>
+            <p class="title">眼视光</p>
+            <i></i>
+            <a href="">查看详情</a>
+          </div>
+          <ul class="bottom">
+            <volist name="ysgList" id="ysgList" offset="0" length="3">
+              <a href="{:U('Focus/newsDetail',array('artid'=>$ysgList['RECORD_ID']))}"><li><i></i>{$ysgList['ACT_TITLE']}</li></a>
+            </volist>
+          </ul>
+        </div>
+        <div class="service">
+          <div class="top">
+            <p class="desc">Fundus</p>
+            <p class="title">眼底病</p>
+            <i></i>
+            <a href="">查看详情</a>
+          </div>
+          <ul class="bottom">
+            <volist name="ydbList" id="ydbList" offset="0" length="3">
+              <a href="{:U('Focus/newsDetail',array('artid'=>$ydbList['RECORD_ID']))}"><li><i></i>{$ydbList['ACT_TITLE']}</li></a>
+            </volist>
+          </ul>
+        </div>
+        <!-- <div class="service">
+          <div class="top">
+            <p class="desc">Eye Reshaping</p>
+            <p class="title">眼整形</p>
+            <i></i>
+            <a href="">查看详情</a>
+          </div>
+          <ul class="bottom">
+            <a href=""><li><i></i>眼科医生说：这个眼病可能所有人都逃不开</li></a>
+            <a href=""><li><i></i>眼科医生说：这个眼病可能所有人都逃不开</li></a>
+            <a href=""><li><i></i>眼科医生说：这个眼病可能所有人都逃不开</li></a>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="con4 con">
+      <div class="w1200">
+        <h2>
+          <p class="title">聚焦圣康华</p>
+          <p class="desc">SEKWA INFORMATION</p>
+        </h2>
+        <div class="infor_left fl">
+          <i></i>
+          <p class="title">圣康华</p>
+          <p class="desc">让所有人，无论贫穷富裕，都享有眼健康的权利。</p>
+          <a href="/Member/Focus/intro">详细了解圣康华 >></a>
+        </div>
+        <div class="infor_right fr">
+          <dl>
+            <dt><img src="/Public/images/index/pic11.jpg" alt=""></dt>
+            <dd>
+              <p class="title">{$hdList[0]['ACT_TITLE']|DeleteHtml=###|msubstr=0,15,'utf-8',false}...</p>
+              <p class="desc">{$hdList[0]['ACT_DESC']|htmlspecialchars_decode|DeleteHtml=###|msubstr=0,43,'utf-8',false}...</p>
+            </dd>
+          </dl>
+          <ul>
+            <volist name="hdList" id="hdList" offset="0" length="6">
+              <a href="{:U('Focus/newsDetail',array('artid'=>$hdList['RECORD_ID']))}"><li><i></i>{$hdList['ACT_TITLE']}</li></a>
+            </volist>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="con5 con">
+      <div class="w1200">
+        <h2>
+          <p class="title">先进设备</p>
+          <p class="desc">ADVANCED EQUIPMENT</p>
+        </h2>
+        <ul>
+          <li>
+            <img src="/Public/images/index/pic16.jpg" alt="">
+            <p class="title">ATLAS角膜地形图</p>
+          </li>
+          <li>
+            <img src="/Public/images/index/pic13.jpg" alt="">
+            <p class="title">光学相干性断层扫描仪</p>
+          </li>
+          <li>
+            <img src="/Public/images/index/pic14.jpg" alt="">
+            <p class="title">超广角散瞳眼底照相机 </p>
+          </li>
+          <li>
+            <img src="/Public/images/index/pic17.jpg" alt="">
+            <p class="title">BX900裂隙灯</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 底部start -->
+      <include file="Public:footer"/>
+    <!-- 底部end -->
+    <!-- 公共js部分 -->
+    <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+    <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+    <!-- 当前js部分 -->
+    <script src="/Public/Common/js/swiper.min.js" charset="utf-8"></script>
+    <script src="/Public/js/index.js" charset="utf-8"></script>
+</body>
+</html>

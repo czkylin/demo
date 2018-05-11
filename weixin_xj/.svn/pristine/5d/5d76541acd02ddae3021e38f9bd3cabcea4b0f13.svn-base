@@ -1,0 +1,11 @@
+<volist name="act_list" id="vo" empty="$empty">
+<li>
+    <div class="li_left"> <a href='index.php?m=Member&c=Jd&a=jd_info&record_id={$vo.RECORD_ID}&type_id={$type_id}' class='preview'><img src='{$vo.ACT_PIC}'  /></a><span><img src='/weixin_yanke_css_js/images/daoyi_image/NEW.png'/></span> </div>
+    <div class="li_right">
+      <h2><a href="index.php?m=Member&c=Jd&a=jd_info&record_id={$vo.RECORD_ID}&type_id={$type_id}" class="title">{$vo.ACT_TITLE}</a></h2>
+      <p>{$vo.ACT_DESC|DeleteHtml=###|msubstr=0,30,'utf-8',false}...</p>
+      <div class="time">
+        <span>{$vo.ACT_START_DATE}</span> </div>
+    </div>
+  </li>∮
+</volist>        

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+<title>排行榜</title>
+</head>
+<body>
+<!--底部 开始-->
+<div class="footer">
+        <a href=""><span class="ui-icon-home2"></span><h2>微首页</h2></a>
+        <a href=""><span class="ui-icon-horn"></span><h2>活动通知</h2></a>
+        <a href=""><span class="ui-icon-unscramble"></span><h2>指南解读</h2></a>
+        <a href=""><span class="ui-icon-book"></span><h2>期刊杂志</h2></a>
+</div>
+<!--底部 结束-->
+<include file="Public:tj" /></body>
+</html>

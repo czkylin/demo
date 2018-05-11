@@ -1,0 +1,75 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/footer.min.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/head.css">
+<title>我的家庭医生</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body id="myhousepos">
+<header class="header">
+    <a href="index.php?m=Expert&c=User&a=mywork_house" class="icon">&#xf62b;</a>
+    <h2>我的家庭医生</h2>
+</header>
+<div class="wode_hz">
+	<ul id="member_list">
+		<volist name="expert_list" id="data" empty="$empty">
+		<a href="/weixin/index.php?m=Member&c=Consult&a=consult_list&expert_id={$data['EXPERT_ID']}">
+		<li>
+			<dl>
+				<dt>
+					<if condition="$data['EXPERT_SEX'] eq '未填写'" >
+               			<img src="/weixin/Public/Expert/images/yonghu/girl.png" />
+                	<elseif condition="$data['EXPERT_SEX'] eq '男'"/>
+                		<img src="/weixin/Public/Expert/images/yonghu/boy.png" />
+                	<elseif condition="$data['EXPERT_SEX'] eq '女'" />
+                		<img src="/weixin/Public/Expert/images/yonghu/girl.png" />
+               	 	<else />
+						<img src="{$data['SMALL_PIC']}" />
+					</if>
+				</dt>
+				<dd>
+					<p><span>专家姓名:</span>{$data['EXPERT_NAME']}</p>
+					<p><span>专家性别：</span>{$data['EXPERT_SEX']}</p>
+					<a href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id={$data['EXPERT_ID']}" class="zixun1">我要咨询</a>
+					<a href="/weixin/index.php?m=Member&c=Consult&a=consult_list&expert_id={$data['EXPERT_ID']}" class="zixun2">我的咨询</a>
+				</dd>
+			</dl>
+		</li>
+		</a>
+		</volist>
+	</ul>
+</div>
+<!-- <div class="ui-jiazai">
+	<a href="javascript:void(0);" onClick="load_more();">加载更多</a>
+</div> -->
+<div id="current_pagenum" style="display:none">2</div>
+<include file="Public:footer_bottom" />
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+<script>
+	var over_footer = '2';
+	function load_more()
+	{
+		loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Member&a=member_list_append','#member_list');
+	}
+</script>
+<!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->     
+     <div style="height:0px;overflow:hidden;">
+         <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?>
+     </div>
+</body>
+</html>

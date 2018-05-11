@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>转诊详情</title>
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/referral.css">
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	
+	<ul class="referral user-info">
+		<li class="re-title">基本信息</li>
+		<li>
+			<p>患者姓名：<em>{$referral_info['PERSON_NAME']}</em></p>
+		</li>
+		<li>
+			<p>患者电话：<em>{$referral_info['PERSON_MOBILE']}</em></p>
+		</li>
+		<li>
+			<p>患者身份证号：<em>{$referral_info['PERSON_IDCARD']}</em></p>
+		</li>
+		<!-- <li>
+			<p class="cardImg">证件照片：<em><img src="{$referral_info['PERSON_IDCARD_PIC']}"></em></p>
+		</li> -->
+	</ul>
+	<!-- <ul class="referral user-info">
+		<li class="re-title">转诊信息</li>
+		<li>
+			<p>转诊医院：<em>{$referral_info['HOS_NAME']}</em></p>
+		</li>
+		<li>
+			<p>转诊描述：<em>{$referral_info['REFERRAL_DESC']}</em></p>
+		</li>
+	</ul> -->
+	<ul class="referral">
+		<li class="re-title">转诊结果</li>
+		<if condition="$referral_info['REFERRAL_STATUS'] eq '0'">
+			<li>
+				<p>审核结果：
+					<em class="re_await">待审</em>
+				</p>
+			</li>
+		<elseif condition="$referral_info['REFERRAL_STATUS'] eq '1'"/>
+			<li>
+				<p>审核结果：<em class="re_pass">通过</em></p>
+			</li>
+			<li>
+				<p>审核医生：<em>{$referral_info['EXPERT_NAME']}</em></p>
+			</li>
+			<li>
+				<p>审核建议：<em>{$referral_info['EXPERT_DESC']}</em></p>
+			</li>
+			<li>
+				<p>审核日期： <em>{$referral_info['REFERRAL_DATE']}</em></p>
+			</li>
+		<else />
+			<li>
+				<p>审核结果：<em class="re_fail">拒绝</em></p>
+			</li>
+			<li>
+				<p>审核医生：<em>{$referral_info['EXPERT_NAME']}</em></p>
+			</li>
+			<li>
+				<p>审核建议：<em>{$referral_info['EXPERT_DESC']}</em></p>
+			</li>
+			<li>
+				<p>审核日期： <em>{$referral_info['REFERRAL_DATE']}</em></p>
+			</li>
+			<!-- <a class="re-btn" href="{:U('Referral/referral_second',array('referral_id'=>$referral_info['REFERRAL_ID']))}">二次提交</a> -->
+		</if>
+
+	</ul>
+	<!-- <p style="padding: 1em 2em; text-align: center; margin: 1em 0;"><a href="{:U('Referral/zhuanzhen_list')}" style="color: #333;  font-size: 1.2em; border-radius: 0.8em; border:1px solid green; padding: 0.5em;">查看记录</a></p> -->
+	<div class="bigImg">
+		<div class="bg1"></div>
+	</div>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Member/js/referral.js"></script>
+</body>
+</html>

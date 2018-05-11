@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Expert/css/footer/footer.css" type="text/css" rel="stylesheet"/>
+<!--CSS当前页面文件-->
+<link href="../../../../Public/Expert/css/index/weiGuanWang.css" type="text/css" rel="stylesheet"/>
+<!-- title -->
+<title>微官网</title>
+<!--meta-->
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="background:rgb(240, 240, 240);" >
+<header class="ui-header"> <i class="ui-icon-return" onClick="history.back()"></i> </header>
+<hr>
+<div  id="gp-experts"  class="ui-page ui-body-c ui-page-active" style="min-height: 480px;position:inherit;">
+        <div data-role="content" class="ui-content" role="main">
+                <div class="experts">
+                        <div class="scroll relative">
+                                <div class="scroll_box" id="scroll_img">
+                                        <ul class="scroll_wrap">
+                                                <li><a href="http://weixin-yk.yk2020.com/self.php"><img src="/weixin/Public/Expert/images/weiGuanWang/banner1.jpg" width="100%" /></a></li>
+                                                <li><a href="{:U('Member/Hos/hos_list','serve_id=3')}"><img src="/weixin/Public/Expert/images/weiGuanWang/banner1.jpg" width="100%" /></a></li>
+                                                <li><a href="{:U('Member/Hos/hos_list','serve_id=1')}"><img src="/weixin/Public/Expert/images/weiGuanWang/banner1.jpg" width="100%" /></a></li>
+                                                <li><a href="{:U('Member/Doc/doc_list','free_flag=0')}"><img src="/weixin/Public/Expert/images/weiGuanWang/banner1.jpg" width="100%" /></a></li>
+                                        </ul>
+                                </div>
+                                <ul class="scroll_position" id="scroll_position">
+                                        <li class="on"><a href="javascript:void(0);">1</a></li>
+                                        <li><a href="javascript:void(0);">2</a></li>
+                                        <li><a href="javascript:void(0);">3</a></li>
+                                        <li><a href="javascript:void(0);">4</a></li>
+                                </ul>
+                        </div>
+                        <div class="indexNav mainCon"> <a href="" class="indexHome"><span></span>联盟之家</a> <a class="indexGslm"><span></span>各省联盟</a> <a class="indexHdtz"><span></span>活动通知</a> <a class="indexGycs"><span></span>公益慈善</a> <a class="indexZnjd"><span></span>指南解读</a> <a class="indexZjjz"><span></span>专家讲座</a> <a class="indexBltl"><span></span>病例讨论</a> <a class="indexXsdt"><span></span>学术动态</a> <a class="indexQkzz"><span></span>期刊杂志</a> <a class="indePhb"><span></span>排行榜</a> </div>
+                        
+                        <div class="clear"></div>
+                </div>
+        </div>
+</div>
+<div class="footer">
+        <a href=""><span class="ui-icon-home2"></span><h2>微首页</h2></a>
+        <a href=""><span class="ui-icon-horn"></span><h2>活动通知</h2></a>
+        <a href=""><span class="ui-icon-unscramble"></span><h2>指南解读</h2></a>
+        <a href=""><span class="ui-icon-book"></span><h2>期刊杂志</h2></a>
+</div>
+<!--通底的引用开始--> 
+<include file="Public:footer_fd" /> 
+<!--通底的引用结束--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Expert/js/hhSwipe.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Expert/js/gundong.js" type="text/javascript"></script> 
+<script>
+var over_footer = '1';
+</script>
+<include file="Public:tj" /></body>
+</html>

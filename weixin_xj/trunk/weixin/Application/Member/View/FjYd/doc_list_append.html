@@ -1,0 +1,36 @@
+<volist name="expert_list" id="doc">
+  <li>
+      <a class="yylist_a" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id={$doc['EXPERT_ID']}"> 
+          <div class="docImg fl">
+            <span class="img"><img src="{$doc.SMALL_PIC}" class="g-left expert-img"/></span>
+              <?php    
+
+      $my=intval($doc['MY_NUM']); 
+      $hy=intval($doc['HY_NUM']);  
+      $cp=intval($doc['CP_NUM']); 
+      $sum = ($my*8+$hy*10+$cp*4)*60/(($my+$hy+$cp)*10);
+      $sum1 = round($sum,0);
+                  if($sum1 == 0)
+                  {
+                      $sum1 = 60;
+                  } 
+                  echo "<i><b style='width:".$sum1."px;'>
+                  <img src='/weixin/Public/Member/images/icon/start.png' /></b></i>";
+      ?>                                                   
+        </div> 
+          <span class="meta fl">
+              <div class="name_dj"> 
+                  <strong class="mingcheng"><em class="zc">{$doc.EXPERT_NAME}</em><em class="zc">{$doc.EXPERT_RANK}</em><em class="count">浏览量：{$doc.POINT_NUM}</em></strong> 
+                  <strong class="mingcheng"><em class="zc">{$doc.HOS_NAME}</em><em class="zc">{$doc.EXPERT_ROLE}</em></strong> 
+              </div>
+              <p class="desc">擅长：{$doc.EXPERT_SKILL|default="暂无"}</p>
+          </span> 
+      </a>
+                          
+      <div class="kt_service">
+          <a class="service" style=" margin:0 0 0 10px" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id={$doc['EXPERT_ID']}">在线咨询</a>
+          <a class="service weikaitong" style=" margin:0 0 0 10px" href="javascript:;">视频咨询</a>
+        <a href="javascript:void(0)" class="service weikaitong" style=" margin:0 0 0 10px">语音电话</a>
+      </div>
+  </li>∮
+</volist>

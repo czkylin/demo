@@ -1,0 +1,14 @@
+<volist name="member_list" id="member">
+<li>
+	<dl>
+		<dt>
+			<img src="{$member['MEMBER_PIC']}" />
+		</dt>
+		<dd>
+			<span>会员姓名:</span>{$member['MEMBER_NAME']}
+			<br><span>昵称：</span>{$member['NICKNAME']}
+			<br><span>推荐时间：</span>{$member['TJ_DATE']}
+		</dd>
+	</dl>
+</li>∮
+</volist>

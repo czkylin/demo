@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>预约详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <section class="unit center">
+        <div class="submit">
+            <em><strong></strong></em>
+            <br>
+            <p class="text-center">取消成功</p>
+        </div>
+    </section> 
+    <section class="unit">
+        <p class="txts"><span>预约服务：</span>{$serve_name}</p>
+        <p class="txts"><span>会诊时间：</span>{$yuyue_date|Dtodiy='Y-m-d',###}</p>
+    </section> 
+    <section class="explain" style="padding-bottom:100px;">
+        <h2>注意事项</h2>
+        <p class="lis">1、请按照约定的时间接受服务</p>
+        <p class="lis">2、按照客服与您沟通的进行就诊前准备工作</p>
+        <p class="lis">3、就诊前一天保持良好的睡眠</p>
+    </section>  
+    <div class="btns text-center">
+        <a href="tel:tel:4006562020" class="text-center" style="width:90%">联系客服</a>
+    </div>
+</body>
+</html>

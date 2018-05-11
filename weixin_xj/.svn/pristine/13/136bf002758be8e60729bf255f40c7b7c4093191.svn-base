@@ -1,0 +1,45 @@
+body { width: 100%; background:#f4ebeb; }
+img{ padding:0; margin:0;}
+.top_card img{ width:100%; margin-bottom:10px;}
+.sp_con{ overflow:hidden;}
+.sp_con ul{ width:100%; overflow:hidden;}
+.sp_con ul li{ float:left; width:31.65%; margin-right:2.5%; margin-bottom:10px;}
+.sp_con ul li img{ width:100%;}
+.sp_con ul li:nth-child(3){ margin-right:0;}
+.sp_con ul li:nth-child(6){ margin-right:0;}
+.mx_cp img{ width:94%; margin-bottom:10px;}
+.mx_cp .tit{ margin:10px 0 20px;}
+.cp_con{ width:94%; margin:0 auto;}
+.cp_con ul{ width:100%; overflow:hidden;}
+.cp_con ul li{ float:left; width:33.3%;}
+.cp_con ul li img{ width:100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

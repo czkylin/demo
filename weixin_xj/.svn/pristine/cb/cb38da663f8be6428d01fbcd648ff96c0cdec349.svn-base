@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>转诊列表</title>
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/referral.css">
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	<ul class="referral referralList">
+		<li>
+			<p>您共有<i>3</i>条转诊记录</p>
+		</li>
+		<li>
+			<a href="referral_await.html">
+				<span class="await">待审</span>
+				<p>患者姓名：<em>张章</em></p>
+				<p>转诊医院：<em>北京医院</em></p>
+				<p>提交日期：<em>2017-08-10 09:57:54</em> </p>
+			</a>
+		</li>
+		<li>
+			<a href="referral_pass.html">
+				<span class="pass">通过</span>
+				<p>患者姓名：<em>张章</em></p>
+				<p>转诊医院：<em>北京医院</em></p>
+				<p>提交日期：<em>2017-08-10 09:57:54</em> </p>
+			</a>
+		</li>
+		<li>
+			<a href="referral_fail.html">
+				<span class="fail">拒绝</span>
+				<p>患者姓名：<em>张章</em></p>
+				<p>转诊医院：<em>北京医院</em></p>
+				<p>提交日期：<em>2017-08-10 09:57:54</em> </p>
+			</a>
+		</li>
+	</ul>
+</body>
+</html>

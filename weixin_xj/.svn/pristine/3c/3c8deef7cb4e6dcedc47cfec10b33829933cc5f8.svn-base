@@ -1,0 +1,15 @@
+<volist name="fuwu_jilu" id="data">
+	<dl>
+			<dd style="width:100%; float:none; min-height:105px;">
+				<h2>预约服务</h2>
+	            <div style="border-top:1px solid #e7e7e7; border-bottom:1px solid #e7e7e7; padding:5px 0;">
+	                <p>预约项目：{$data['SERVE_NAME']}</p>
+	                <p>预约时间：{$data['CREATE_DATE']}</p>
+	                <p>预约人：{$data['MEMBER_NAME']}</p>
+	            </div>
+	            <div style="text-align:right; padding:5px 0;"><a id="fq" href="javascript:;" style="display:inline-block;  border:1px solid #ffc473; color:#ffc473; font-size:12px; padding:3px 6px; border-radius:3px;">发起视频</a></div>
+			</dd>
+			<br clear="all" />
+		</a>
+	</dl>∮
+</volist>

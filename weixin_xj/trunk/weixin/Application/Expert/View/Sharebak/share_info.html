@@ -1,0 +1,71 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="share-title" content="">
+		<!--公用样式调用-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+		<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonLabel/label.css" type="text/css" rel="stylesheet" >
+		<!--分享页面样式调用-->		
+		<link href="/weixin/Public/Expert/css/fenXiang/fenXiang.css" type="text/css" rel="stylesheet"/>
+		<!-- title -->
+		<title>分享详细内容</title>
+		<!--meta-->
+	</head>
+	<body>
+		<div class="content mt20" style=" margin-bottom:50px;">
+			<div class="article_info">
+				<div class="time fs16 tar">{$share.share_date}</div>
+				<p class="fs16">{$share.share_content}<img src="{$share.share_pic}" /></p>
+				<section>
+					<div class="time fs16">
+						<a class="fr fc687fa8">
+							<img style="display:none" src="img/icon6.png"/>
+						</a>阅读{$share.read_num}&nbsp;&nbsp;&nbsp;&nbsp;
+						<a class="fc687fa8" href="javascript:void(0);" onClick="dz({$share.record_id});">
+							<img src="/weixin/Application/Expert/View/images/icon4.png"/>
+						</a>
+						<div id="z_conut">{$expert_str}</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<include file="Public:footer_fd" />
+		<!--公用js调用-->
+		<script src="/weixin/Public/Expert/js/jquery.min.js" type="text/javascript"></script>
+		<script>
+			var over_footer = '3';
+			function dz(record_id)
+			{
+				$.ajax({
+					url : "/weixin/index.php?m=Expert&c=Share&a=dz_add",
+					data:{"record_id":record_id},
+					type: "get",
+					async: true,
+					dataType: "json",
+					success:function(data)
+					{
+						if (data != "")
+						{
+							$("#z_conut").html(data);
+						}
+					},
+					cache: false,
+					timeout: 5000,
+					error: function(XMLHttpRequest, textStatus, errorThrown)
+					{
+						alert("数据加载失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

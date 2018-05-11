@@ -1,0 +1,44 @@
+/*common css*/
+*{margin: 0; padding: 0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0); text-decoration: none;}
+i{font-style: normal;}
+/*myAccount*/
+.kainfo{padding: 0 3.2%;}
+h2.title{padding: 0 3.2%; height: 35px; background: #efefef; line-height: 35px; color: #333; font-size: 16px;}
+h2.title a{float: right; height: 35px; line-height: 35px; color: #6b6b6b; font-size: 13px; font-weight: normal;}
+.kainfo .ka{margin: 8px 0; position: relative;}
+.kainfo .ka img{width: 100%;}
+.kainfo .ka p{position: absolute; left: 18.5%; bottom:18%; color: #dfeaf2; font-size: 12px;}
+.kainfo .ka h3{position: absolute; left:18.5%; top: 12.5%; color: #dfeaf2; font-size: 14px;}
+.kainfo .ka span{position: absolute; left: 18.5%; top: 40.625%;color: #dfeaf2; font-size: 12px;}
+.kainfo .ka.vip h3,.kainfo .ka.vip p,.kainfo .ka.vip div{color: #333;}
+.kainfo .ka div{position: absolute; left: 0; top: 37.5%; display: block; width: 100%; text-align: center;color: #dfeaf2; font-size: 12px;}
+.kainfo .ka div a{text-decoration: underline; color: #0093ff;}
+.kainfo ul{}
+.kainfo ul li{padding-left: 10%;}
+.kainfo ul li div,.kainfo ul li a{display: block; height: 40px; font-size: 14px; line-height: 40px; border-bottom: 1px solid #e7e7e7;}
+.kainfo ul li a{}
+.kainfo ul li span{float: left; color: #333;}
+.kainfo ul li i{float: right; color: #999999;}
+.kainfo ul li.name{background: url(/weixin/Public/Member/images/user/name.png) no-repeat 0 center; background-size: 23px;}
+.kainfo ul li.tel{background: url(/weixin/Public/Member/images/user/tel.png) no-repeat 0 center; background-size: 23px;}
+.kainfo ul li.shenfenzheng{background: url(/weixin/Public/Member/images/user/shenfen.png) no-repeat 0 center; background-size: 23px;}
+.kainfo ul li.date{background: url(/weixin/Public/Member/images/user/ka.png) no-repeat 0 center; background-size: 23px;}
+.kainfo ul li.account{ background: url(/weixin/Public/Member/images/user/account.png) no-repeat 0 center; background-size: 23px;}
+.kainfo ul li.ls{ background: url(/weixin/Public/Member/images/user/jy.png) no-repeat 0 center; background-size: 23px;}
+.kainfo ul li div.noborder,.kainfo ul li a.noborder{border-bottom: none;}
+/*myAccount_detail*/
+.detial{}
+.detial .ka{width: 100%; position: relative;}
+.detial .ka img{width: 100%;}
+.detial .ka p{position: absolute; left: 18.5%; bottom:18%; color: #dfeaf2; font-size: 12px;}
+.detial .ka h3{position: absolute; left:18.5%; top: 12.5%; color: #dfeaf2; font-size: 14px;}
+.detial .ka span{position: absolute; left: 18.5%; top: 40.625%;color: #dfeaf2; font-size: 12px;}
+.ka-detail{}
+.ka-detial li{padding: 0 3.2%; display: block; height: 40px; font-size: 14px; line-height: 40px; border-bottom: 1px solid #e7e7e7;}
+.ka-detial li span{float: left; font-weight: 400;}
+.ka-detial li i{ float: right; color: #999999;}
+.ka-detial li a{display: block; height: 40px; width: 100%; color: #333; background: url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat right center; background-size: 8px;}
+ .detial a.go{display: block; position: absolute; left: 0; bottom: 0;  width: 100%; height: 40px; line-height: 40px; background: #ff647c; text-align: center; color: #fff; font-size: 14px;} 

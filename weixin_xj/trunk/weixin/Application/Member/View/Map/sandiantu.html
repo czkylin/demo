@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <title>各科室阅片量展示</title>
+   </head>
+   <body style="height: 100%; margin: 0">
+   <div id="container" style="height: 100%"></div>
+   <script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+   <script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+   <script type="text/javascript">
+            var dom = document.getElementById("container");
+            var myChart = echarts.init(dom);
+            var app = {};
+            option = null;
+            app.title = '各科室阅片量展示';
+
+            myChart.showLoading();
+
+            $.get('/weixin/Application/Member/View/Map/life-expectancy.json', function (data) {
+                myChart.hideLoading();
+
+                var itemStyle = {
+                    normal: {
+                        opacity: 0.8,
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                };
+
+                var sizeFunction = function (x) {
+                    var y = Math.sqrt(x / 500) + 0.1;
+                    return y * 80;
+                };
+                // Schema:
+                var schema = [
+                    {name: 'Radiograph', index: 0, text: '月份', unit: '月'},
+                    {name: 'Radiograph', index: 1, text: '远程阅片量', unit: '例'},
+                    {name: 'Division', index: 2, text: '总量', unit: '例'},
+                    {name: 'Radiograph', index: 3, text: '科室', unit: ''}
+                ];
+
+                option = {
+                    baseOption: {
+                        timeline: {
+                            axisType: 'category',
+                            orient: 'vertical',
+                            autoPlay: true,
+                            inverse: true,
+                            playInterval: 3000,
+                            left: null,
+                            right: 0,
+                            top: 20,
+                            bottom: 20,
+                            width: 70,
+                            height: null,
+                            label: {
+                                normal: {
+                                    textStyle: {
+                                        color: '#999'
+                                    }
+                                },
+                                emphasis: {
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                                }
+                            },
+                            symbol: 'none',
+                            lineStyle: {
+                                color: '#555'
+                            },
+                            checkpointStyle: {
+                                color: '#bbb',
+                                borderColor: '#777',
+                                borderWidth: 2
+                            },
+                            controlStyle: {
+                                showNextBtn: false,
+                                showPrevBtn: false,
+                                normal: {
+                                    color: '#666',
+                                    borderColor: '#666'
+                                },
+                                emphasis: {
+                                    color: '#aaa',
+                                    borderColor: '#aaa'
+                                }
+                            },
+                            data: []
+                        },
+                        backgroundColor: '#404a59',
+                        title: [{
+                            'text': data.timeline[0] + '各科室阅片量展示',
+                            textAlign: 'center',
+                            left: '50%',
+                            top: '5%',
+                            textStyle: {
+                                fontSize: 50,
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }],
+                        tooltip: {
+                            padding: 5,
+                            backgroundColor: '#222',
+                            borderColor: '#777',
+                            borderWidth: 1,
+                            formatter: function (obj) {
+                                var value = obj.value;
+                                return schema[3].text + '：' + value[3] + '<br>'
+                                        + schema[0].text + '：' + value[0] + schema[0].unit + '<br>'
+                                        + schema[1].text + '：' + value[1] + schema[1].unit + '<br>'
+                                        + schema[2].text + '：' + value[2] + schema[2].unit + '<br>';
+                            }
+                        },
+                        grid: {
+                            left: '12%',
+                            right: '110'
+                        },
+                        xAxis: {
+                            type: 'value',
+                            name: '月份',
+                            max: 12,
+                            min: 1,
+                            nameGap: 25,
+                            nameLocation: 'middle',
+                            nameTextStyle: {
+                                fontSize: 18
+                            },
+                            splitLine: {
+                                show: false
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#ccc'
+                                }
+                            },
+                            axisLabel: {
+                                formatter: '{value} 月'
+                            }
+                        },
+                        yAxis: {
+                            type: 'value',
+                            name: '远程阅片量',
+                            max: 100,
+                            nameTextStyle: {
+                                color: '#ccc',
+                                fontSize: 18
+                            },
+                            axisLine: {
+                                lineStyle: {
+                                    color: '#ccc'
+                                }
+                            },
+                            splitLine: {
+                                show: false
+                            },
+                            axisLabel: {
+                                formatter: '{value} 例'
+                            }
+                        },
+                        visualMap: [
+                            {
+                                show: false,
+                                dimension: 3,
+                                categories: data.division,
+                                calculable: true,
+                                textGap: 30,
+                                textStyle: {
+                                    color: '#ccc'
+                                },
+                                inRange: {
+                                    color: (function () {
+                                        var colors = ['#e0e00d', '#0de0ce', '#18e00d', '#d50de0', '#e0772b'];
+                                        return colors.concat(colors);
+                                    })()
+                                }
+                            }
+                        ],
+                        color: [
+                            '#e0e00d', '#0de0ce', '#18e00d', '#d50de0', '#e0772b'
+                        ],
+                        legend: { 
+                            show: true,  
+                            right: 80,
+                            top: 30,  
+                            data:["眼科","妇科","心血管","肿瘤","肝病"],
+                            textStyle: {
+                                color: '#ffffff',
+                                fontSize: 12
+                            },
+                        },
+                        series: [
+                            {
+                                name: '眼科',
+                                type: 'scatter',
+                                itemStyle: itemStyle,
+                            },
+                            {
+                                name: '妇科',
+                                type: 'scatter',
+                                itemStyle: itemStyle,
+                            },
+                            {
+                                name: '心血管',
+                                type: 'scatter',
+                                itemStyle: itemStyle,
+                            },
+                            {
+                                name: '肿瘤',
+                                type: 'scatter',
+                                itemStyle: itemStyle,
+                            },
+                            {
+                                name: '肝病',
+                                type: 'scatter',
+                                itemStyle: itemStyle,
+                            }
+                        ],
+                        animationDurationUpdate: 1000,
+                        animationEasingUpdate: 'quinticInOut'
+                    },
+                    options: []
+                };
+
+                for (var n = 0; n < data.timeline.length; n++) {
+                    option.baseOption.timeline.data.push(data.timeline[n]);
+                    option.options.push({
+                        title: {
+                            show: true,
+                            'text': data.timeline[n] + '各科室阅片量展示'
+                        },
+                        series: {
+                            type: 'scatter',
+                            itemStyle: itemStyle,
+                            data: data.series[n],
+                            symbolSize: function(val) {
+                                return sizeFunction(val[2]);
+                            }
+                        }
+                    });
+                }
+
+                myChart.setOption(option);
+
+            });;
+            if (option && typeof option === "object") {
+                myChart.setOption(option, true);
+            }
+   </script>
+   </body>
+</html>

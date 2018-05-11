@@ -1,0 +1,32 @@
+
+
+<html class="ui-mobile">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Member/css/follow/index.css">
+<!-- title -->
+
+<title>提交信息异常</title>
+
+<!--meta-->
+
+</head>
+
+<body>
+<p style="color: 333333;font-size: 1.4em"><strong>关于注册与登录:</strong></p>
+<p style="color: 666666">1、关于注册<p>
+<p style="color: 666666">正确填写本人手机号码（登录账户），点击短信验证码进行确认，验证完成后可登录，注册成功。</p>
+<p style="color: 666666">Q:提示登录失败？</p>
+<div style="color: 666666">A：1、检查手机号码填写是否正确<br></div>
+<div style="color: 666666"><a style="color: white">A：</a>2、短信验证码填写是否正确<br></div>
+<p style="color: 666666">2、关于短信验证码<p>
+<p style="color: 666666">未收到短信，请检查接受短信验证的手机是否安装了有短信拦截功能相关的软件（如手机卫士、手机管家等），若有安装，请前往进入相关软件，允许接受来自社区医管家软件的短信，操作完成后再次重试</p>
+</body>
+</html>

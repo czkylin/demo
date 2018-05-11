@@ -1,0 +1,51 @@
+<volist name="cf_detail" id="cf">
+            <div class="drug">
+                <div class="box image title">
+                    <label style="height:44px;">
+                        <input type="checkbox" />
+                        <i class="ui-icon-unchecked-s" style="line-height:44px;"></i>
+                    </label>
+                    <h3 style="line-height:44px;width:8rem;" onclick="toggleFn(this)">{$cf.TY_NAME}-{$cf.PRODUCT_GG} ￥{$cf.PRODUCT_MONEY|round=2} - {$cf.PRODUCT_TYPE}</h3>
+                </div>
+                <input type="hidden" class="product" value="{$cf.PRODUCT_ID}">
+                <input type="hidden" class="money" value="{$cf.PRODUCT_MONEY}">
+                <div class="main box">
+                    <div class="image box">
+                        <label></label>
+                        <label>
+                            <img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%" />
+                        </label>
+                    </div>
+                    <div class="content">
+                        <p class="box">
+                            <em>数量：</em>
+                            <i class="reduce" onclick="changeNum(this)"></i>
+                            <strong class="num">1</strong>
+                            <i class="add" onclick="changeNum(this)"></i>
+                            <strong>盒</strong>
+                        </p>
+                        <p class="box">
+                            <em>用量：</em>
+                            <i class="reduce" onclick="changeNum(this)"></i>
+                            <strong class="num">1</strong>
+                            <i class="add" onclick="changeNum(this)"></i>
+                            <strong>次/日</strong>
+                        </p>
+                        <p class="box">
+                            <em></em>
+                            <i class="reduce" onclick="changeNum(this)"></i>
+                            <strong class="num">1</strong>
+                            <i class="add" onclick="changeNum(this)"></i>
+                            <strong class="select"> 
+                                <select class="num" id="danwei_{$product.PRODUCT_ID}">
+                                    <option value="滴" selected="selected" >滴</option>
+                                    <option value="粒">粒</option>
+                                    <option value="袋">袋</option>
+                                </select>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </div>∮
+  </volist>
+		

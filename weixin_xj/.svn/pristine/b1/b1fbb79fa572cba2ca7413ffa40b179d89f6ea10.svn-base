@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>服务详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <img src="/weixin/Public/Member/images/eight/detail.jpg" width="100%" />
+    </header>
+    <section class="explain">
+        <h2>服务说明</h2>
+        <div class="ex-child">
+            <p>一年内2次北京三甲医院专家远程阅片诊断服务</p>
+            <p class="grey"><i></i>时间： 提前3个工作日预约</p>
+            <p class="grey"><i></i>工具： 患者终端设备、专家医生端PAD</p>
+            <p class="grey"><i></i>谁做： 客服中心、北京三甲医院专家</p>
+            <p class="grey">流程：</p>
+            <p class="grey">1.会员在我公司合作的基地医院进行拍片（费用自理）；</p>
+            <p class="grey">2.会员拨打400客服电话或通过患者终端设备预约专家远程阅片诊断服务的时间；/p>
+            <p class="grey">3.专家用医生端的PAD进行远程阅片，撰写阅片结果，反馈至患者端设备或微信公众号提醒会员查看；</p>
+            <p class="grey">4.会员通过患者端设备或微信公众号获取诊断结果。</p>
+        </div>
+    </section>
+    <div class="yy clear">
+        <a href="tel:4006562020" class="phone fl"></a>
+        <a href="#" class="text-center yya fr">立即预约</a>
+    </div>
+</body>
+</html>

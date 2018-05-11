@@ -1,0 +1,18 @@
+<volist name="member_list" id="member">
+	<li>
+		<a href="{:U('Expert/User/dangan',array('member_id'=>$member['MEMBER_ID'],'member_mobile'=>$member['MEMBER_MOBILE']))}">
+			<if condition="!$member['MEMBER_PIC']">
+				<img src="/weixin/Application/Member/View/images/member.png" alt=""/>
+			<else />
+				<img src="{$member['MEMBER_PIC']}" alt=""/>
+			</if>
+			<span>{$member['MEMBER_NAME']}</span>
+			<i>{$member['MEMBER_SEX']}</i>
+			<if condition="!$member['MEMBER_AGE']">
+				<i>未填写</i>
+			<else />
+				<i>{$member['MEMBER_AGE']}岁</i>
+			</if>
+		</a>
+	</li>∮
+</volist>

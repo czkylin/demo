@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+	<title>阅片列表</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+    <style>
+        body{background:#fff;font-size:14px;color:#333;}
+        section{padding:.5rem;width:11rem;border-bottom:1px solid #ebe8e8;position:relative;}
+        section .link{position:absolute;top:0;left:0;width:100%;height:100%;padding:0;margin:0;}
+        section li{padding:4px 0;}
+        section i.warn{color:#e90000;}
+        section i.info{color:#ffaa03;}
+        section em{font-style:normal;color:#656565;display:inline-block;margin-top:.4rem}
+        section a{border-radius:3px;display:inline-block;line-height:30px;padding:0 .5rem;margin-left:.5rem;position:relative;z-index:10;}
+        .buy{color:#ec5676;border:1px solid #ec5676;}
+        .delete{color:#333;border:1px solid #333;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+	<div id="xdyp-list">
+		<volist name="xdyp_list" id="xdyp">
+			<section>
+				<if condition="$xdyp['ORDER_STATUS'] neq '待付款'">
+			    	<a href="{:U('Order/xdyp_detail',array('order_id'=>$xdyp['ORDER_ID']))}" class="link"></a>
+		    	</if>
+			    <ul>
+			        <li>站点名称：{$xdyp['HOS_NAME']}</li>
+			        <if condition="$xdyp['ORDER_STATUS'] eq '待付款'">
+			        	<li>订单状态：<i class="warn">{$xdyp['ORDER_STATUS']}</i></li>
+		        	<else />
+						<li>订单状态：<i>{$xdyp['ORDER_STATUS']}</i></li>
+		        	</if>
+		        	<if condition="$xdyp['CHECK_FLAG'] eq '待审核'">
+			        	<li>审核状态：<i class="info">{$xdyp['CHECK_FLAG']}</i></li>
+		        	<elseif condition="$xdyp['CHECK_FLAG'] eq '已审核'"/>
+		        		<li>审核状态：<i>{$xdyp['CHECK_FLAG']}</i></li>
+	        		<else />
+						<li>审核状态：<i class="warn">拒绝</i></li>
+	        		</if>
+			        <li class="clear">
+			            <em class="fl">{$xdyp['CREATE_DATE']}</em>
+			            <if condition="$xdyp['ORDER_STATUS'] eq '待付款'">
+				            <a href="javascript:;" class="buy fr" onClick="pay({$xdyp['ORDER_ID']},'{$openid}')">去支付</a>
+			            <else/>
+			            	<a href="javascript:;" class="buy fr">已支付</a>
+						</if>
+						<!-- <a href="javascript:;" class="delete fr">取消订单</a> -->
+			        </li>
+			    </ul>
+			</section>
+		</volist>
+		<form action="{:U('Member/Order/xdyp_pay')}" method="POST">
+			<input type="hidden" name="d_openid" id="d_openid" value=""/>
+			<input type="hidden" name="order_id" id="order_id" value=""/>
+		</form>
+	</div>
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('#xdyp-list');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+	<div id="emptyData"></div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/order_load.js" type="text/javascript"></script>
+<script>
+
+var onOff = true;
+window.onload = function()
+{
+    window.onscroll();
+}
+window.onscroll = function () 
+{
+    load_more('#xdyp-list');
+}
+function load_more(obj) 
+{
+     if (!onOff) return;
+     if ($(obj).height() <= $(document).scrollTop() + $(window).height()) {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Order&a=xdyp_list_append','#xdyp-list');
+     }
+}
+
+function pay(order_id,d_openid)
+{
+	$("#order_id").val(order_id);
+	$("#d_openid").val(d_openid);
+	$("form").submit();
+}
+</script>
+</html>

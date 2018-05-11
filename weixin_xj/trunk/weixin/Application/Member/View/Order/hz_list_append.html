@@ -1,0 +1,43 @@
+<volist name="hz_list" id="user">
+   <if condition="$user['ENABLE_FLAG'] neq '0'">
+        <div class="con_hzjg">
+        <h2 class="yi">
+            <if condition="$user['ENABLE_FLAG'] eq '3'">
+                已取消
+            </if>
+          <!--   <if condition="$user['ENABLE_FLAG'] eq '2'">
+                待确定
+            </if> -->
+            <if condition="$user['ENABLE_FLAG'] eq '1'">
+               {$user.ORDER_STATUS}
+            </if>
+        </h2>
+        <div class="con_jg" style="background:none;">
+            <div class="touxiang">
+                <img src="/weixin/Public/Member/images/default/Diagnosis@2x.png">
+            </div>
+            <div class="xinxi">
+                <p>发起医生：<span>{$user.XNAME}</span></p>
+                <p>会诊专家：<span>{$user.DNAME}</span></p>
+                <p><b>{$user.CREATE_DATE}</b></p>
+            </div>
+        </div>
+        <div class="chakan">
+        <if condition="$user['ENABLE_FLAG'] eq '1'">
+            <if condition="$user['ORDER_STATUS'] eq '已支付'">
+                <a href="{:U('Order/hz_order_detail',array('hz_id'=>$user['RECORD_ID'],'order_id'=>$user['ORDER_ID']))}">查看结果</a>
+            <else />
+                <a href="javascript:void(0)" onclick="sub(this)">去支付</a>
+            </if>
+        </if>
+        </div>
+        </div>
+        <form action="{:U('Order/pay')}" method="post" class="subfrom">
+        <input type="hidden" name="price" value="{$user.ORDER_MONEY}">
+        <input type="hidden" name="order_id" value="{$user.ORDER_ID}">
+        <input type="hidden" name="hz_id" value="{$user.RECORD_ID}">
+        <input type="hidden" name="time" value="{$user.CREATE_DATE}">
+        <input type="hidden" name="serve_name" value="购买远程会诊服务">
+        </form>
+    </if>∮
+</volist>

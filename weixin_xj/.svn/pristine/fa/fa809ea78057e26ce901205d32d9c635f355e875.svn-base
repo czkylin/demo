@@ -1,0 +1,14 @@
+*{padding: 0; margin: 0;}
+html,body{width: 100%; height: 100%;}
+body{font-size: .24rem;}
+a{text-decoration: none;}
+section{border-bottom: .2rem solid #ededed; padding-left: .24rem; padding-top: .16rem; overflow: hidden;}
+section h2,section p{height: .6rem; line-height: .6rem; border-bottom: .01rem solid #ccc;}
+section p{word-break: break-all;}
+section p.disc{height: auto; border: 0;}
+section p.disc label{float: left;}
+section p.disc span{display: inline-block; width: 6rem; float: left; line-height: .6rem;}
+section p.clear{clear: both; border-top: .01rem solid #ccc;}
+section p.clear span.finish{color: #5da623;}
+section p.clear span.waiting{color: #fb2c18;}
+section p.last{border-bottom: 0;}

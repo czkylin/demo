@@ -1,0 +1,70 @@
+
+  <!-- 头部start -->
+  <div class="header">
+      <div class="h_top">
+        <div class="w1200">
+          <div class="fl"><span>欢迎来到北京圣康华</span></div>
+          <div class="fr tr"><span>客服热线：010-62033293</span></div>
+        </div>
+      </div>
+      <div class="h_bottom clear">
+        <div class="w1200">
+          <a href="/" class="fl logo"><img src="/Public/Common/images/logo.png" alt=""></a>
+          <div class="fl">
+            <ul id="list">
+              <li class="tab_nav"><a href="/">首页</a></li>
+              <li class="tab_nav">
+                <a href="#">知名专家<i></i></a>
+                <ol class="tab_con">
+                  <a href="#"><li>特需专家</li></a>
+                  <a href="#"><li>会诊专家</li></a>
+                  <a href="#"><li>眼底病科</li></a>
+                  <a href="#"><li>白内障科</li></a>
+                  <a href="#"><li>眼外伤科</li></a>
+                  <a href="#"><li>神经眼科</li></a>
+                  <a href="#"><li>眼视光与功能视觉</li></a>
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">就诊服务<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Service/minSug"><li>糖网</li></a>
+                  <a href="/Member/Service/cataract"><li>白内障</li></a>
+                  <a href="#"><li>眼底病</li></a>
+                  <a href="#"><li>眼视光</li></a>
+                  <!-- <a href="#"><li>眼整形</li></a> -->
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">特色服务<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/KeyService/consultationCentre"><li>远程眼科会诊中心</li></a>
+                  <a href="#"><li>眼科影像诊断中心</li></a>
+                  <!-- <a href="#"><li>糖尿病眼病远程医疗服务中心</li></a>
+                  <a href="#"><li>视觉医疗质控管理服务中心</li></a> -->
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">聚焦圣康华<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Focus/intro"><li>圣康华简介</li></a>
+                  <a href="/Member/Focus/news"><li>新闻动态</li></a>
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">联系我们<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Contact/guide"><li>患者就医指南</li></a>
+                  <a href="#"><li>联系我们</li></a>
+                </ol>
+              </li>
+            </ul>
+          </div>
+          <div class="fr search_box">
+            <input class="search" type="text" name="" value="" placeholder="搜索医生服务">
+            <input type="button" name="" value="" class="searchButton">
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- 头部end -->

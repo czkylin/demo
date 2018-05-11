@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>端午节全世界最坑的测试，给你的智商充个值</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/zhuanti/zt20160602/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/zhuanti/zt20160602/common.css">
+	<script>
+	    var iScale = 1;
+	    iScale = iScale / window.devicePixelRatio;
+	    document.write('<meta name="viewport" content="width=device-width, initial-scale=' + iScale + ', maximum-scale=' + iScale + ', minimum-scale=' + iScale + ',user-scalable=no">');
+	    document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + "px";
+	</script>
+</head>
+<body>
+	<div class="loadPage" style="z-index:99999;display:block;">
+	    <div class="loading">
+	        <div class="loading-num"><span>0%</span></div>
+	        <div class="inner">
+	            <div class="loading-progress"></div>
+	        </div>
+			<div class="load-spin-wrap">
+				<div class="loading-spin"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+			</div>
+	        <img src="/weixin/Public/Member/images/zhuanti/zt20160602/load-img.jpg" alt="" class="load-img">
+	        <img src="/weixin/Public/Member/images/zhuanti/zt20160602/bubble1.png" alt="" class="bubble1">
+	        <img src="/weixin/Public/Member/images/zhuanti/zt20160602//bubble2.png" alt="" class="bubble2">
+	        <img src="/weixin/Public/Member/images/zhuanti/zt20160602/bubble3.png" alt="" class="bubble3">
+	        <img src="/weixin/Public/Member/images/zhuanti/zt20160602/bubble4.png" alt="" class="bubble4">
+	    </div>
+	</div>
+	
+	<div class="swiper-container" id="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page1 swiper-no-swiping">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<h1>我们为屈原而战</h1>
+				<p>端午节为中国四大传统节日之一，印象最深的就是吃粽子、赛龙舟。据说，为了让江里的鱼不叮咬屈原的尸体，人们会把粽子投到江里。来吧，骚年，跟我一起拯救屈原吧！！！</p>
+				<a href="javascript:;" ontouchend="swiper.slideNext();">开始拯救</a>
+            </div>
+            <div class="swiper-slide page2 swiper-no-swiping questions" data-right="1">
+            	<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>1</span>/8题</p>
+				<h3>2016年的端午节是哪天</h3>
+				<p class="ques-answer">A、6月9日 </p>
+				<p class="ques-answer">B、6月10日</p>
+				<p class="ques-answer">C、6月11日 </p>
+				<p class="ques-answer">D、5月5日</p>
+            </div>
+            <div class="swiper-slide page3 swiper-no-swiping questions" data-right="4">
+            	<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>2</span>/8题</p>
+				<h3>端午节又称</h3>
+				<p class="ques-answer">A、五日节</p>
+				<p class="ques-answer">B、五月节</p>
+				<p class="ques-answer">C、龙舟节 </p>
+				<p class="ques-answer">D、以上都对</p>
+            </div>
+            <div class="swiper-slide page4 swiper-no-swiping questions" data-right="2">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>3</span>/8题</p>
+				<h3>端午节的法定假日</h3>
+				<p class="ques-answer">A、两天</p>
+				<p class="ques-answer">B、三天</p>
+				<p class="ques-answer">C、四天 </p>
+				<p class="ques-answer">D、五天</p>
+            </div>
+            <div class="swiper-slide page5 swiper-no-swiping questions" data-right="2">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>4</span>/8题</p>
+				<h3>端午节龙舟竞渡是因为屈原才举行的吗</h3>
+				<p class="ques-answer">A、是</p>
+				<p class="ques-answer">B、不是</p>
+            </div>
+            <div class="swiper-slide page6 swiper-no-swiping questions" data-right="4">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>5</span>/8题</p>
+				<h3>屈原跳的是哪条河</h3>
+				<p class="ques-answer">A、长江</p>
+				<p class="ques-answer">B、黄河</p>
+				<p class="ques-answer">C、鸭绿江 </p>
+				<p class="ques-answer">D、汨罗江</p>
+            </div>
+            <div class="swiper-slide page7 swiper-no-swiping questions" data-right="1">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>6</span>/8题</p>
+				<h3>中国汉族的四大传统节日</h3>
+				<p class="ques-answer" style="width:12rem; background-position:11rem center;">A、端午节、春节、清明节、中秋节</p>
+				<p class="ques-answer" style="width:12rem; background-position:11rem center;">B、端午节、父亲节、母亲节、春节</p>
+				<p class="ques-answer" style="width:12rem; background-position:11rem center;">C、端午节、元宵节、春节、中秋节</p>
+				<p class="ques-answer" style="width:12rem; background-position:11rem center;">D、端午节、国庆节、清明节、春节</p>
+            </div>
+            <div class="swiper-slide page8 swiper-no-swiping questions" data-right="2">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>7</span>/8题</p>
+				<h3>屈原是战国时代哪国人</h3>
+				<p class="ques-answer">A、齐国</p>
+				<p class="ques-answer">B、楚国</p>
+				<p class="ques-answer">C、赵国</p>
+				<p class="ques-answer">D、秦国</p>
+            </div>
+            <div class="swiper-slide page9 swiper-no-swiping questions" data-right="1">
+				<img src="/weixin/Public/Member/images/zhuanti/zt20160602/header-bg.jpg" alt="" class="header-bg">
+				<p class="ques-num">第<span>8</span>/8题</p>
+				<h3>中国端午节是第几个被列入世界非物质文化遗产</h3>
+				<p class="ques-answer">A、第一个</p>
+				<p class="ques-answer">B、第二个</p>
+				<p class="ques-answer">C、第三个</p>
+				<p class="ques-answer">D、第四个</p>
+            </div>
+             <div class="swiper-slide pagend swiper-no-swiping">
+             	<div class="pagend-wrap">
+             		<p class="beat">击败<span>67%</span>网友</p>
+             		<p class="right-ans">恭喜答对<span>6</span>道题</p>
+             		<p class="text">鄙视你，深深的那种</p>
+             		<a href="javascript:;" class="onceagain">不服输</a>
+             		<a href="http://mp.weixin.qq.com/s?__biz=MjM5MDU0MTMyOA==&mid=502435182&idx=1&sn=460a587184e03be88d0241cb24d76408&scene=0&previewkey=%2Bygttu7R54WHVhAKiuUFvMwqSljwj2bfCUaCyDofEow%3D#wechat_redirect">查看答案</a>
+             		<i class="fenxiang"></i>
+             	</div>
+            </div>
+        </div>
+    </div>
+	
+	<script src="/weixin/Public/Member/js/zhuanti/zt20160602/zepto.js"></script>
+	<script src="/weixin/Public/Member/js/zhuanti/zt20160602/animate.js"></script>
+	<script src="/weixin/Public/Member/js/zhuanti/zt20160602/swiper.min.js"></script>
+	<script src="/weixin/Public/Member/js/zhuanti/zt20160602/imagesload.js"></script>
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js "></script>
+	<script>
+		var swiper = null;
+		var score = 0;
+		var loading_pics = [
+		    '/weixin/Public/Member/images/zhuanti/zt20160602/end-bg.png',
+		    '/weixin/Public/Member/images/zhuanti/zt20160602/correct-btn.png',
+		    '/weixin/Public/Member/images/zhuanti/zt20160602/error-btn.png',
+		    '/weixin/Public/Member/images/zhuanti/zt20160602/footer-bg1.jpg',
+		    '/weixin/Public/Member/images/zhuanti/zt20160602/footer-bg.jpg'
+		];
+
+		loadImg(loading_pics,function(){
+		    setTimeout(function(){
+		        $(".loadPage").hide();
+		        $('.swiper-container').show();
+		        	swiper = new Swiper('.swiper-container', {
+			        direction: 'vertical',
+			        slidesPerView: 1,
+			        effect:'fade'
+			    });
+		    },500);
+		});
+
+		$('.questions').each(function(){
+			var _this = $(this);
+			fn1(_this);
+		});
+
+
+
+		function fn1(questions){
+			var _this = $(questions);
+			var right = _this.attr("data-right");
+			var onOff = true;
+
+			_this.find(".ques-answer").each(function(){
+
+
+				$(this).on("touchend",function(){
+
+					var thisIndex = $(this).index() -2;
+
+					if( onOff ){
+
+						onOff = false;
+
+						if( thisIndex == right ){
+							$(this).addClass("correct");
+							score ++;
+						}else{
+							$(this).addClass("error");
+						}
+
+						setTimeout(function(){
+							swiper.slideNext();
+							onOff = true;
+						},200);
+
+						console.log(score);
+						switch(score){
+							case 0:
+								$(".beat span").html('0%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("你咋不上天呢 ");
+								break;
+							case 1:
+								$(".beat span").html('10%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("握草  脑残中的战斗机");
+								break;
+							case 2:
+								$(".beat span").html('25%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("对得起窗外朕打下的大好江山吗");
+								break;
+							case 3:
+								$(".beat span").html('45%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("鄙视你，深深的那种");
+								break;
+							case 4:
+								$(".beat span").html('50%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("智商欠费，还不在服务区");
+								break;	
+							case 5:
+								$(".beat span").html('65%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("站在风口的你就差一阵风啦");
+								break;		
+							case 6:
+								$(".beat span").html('75%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("收下我的膝盖吧");
+								break;
+							case 7:
+								$(".beat span").html('85%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("中华上下五千年传承靠你啦！！！");
+								break;
+							case 8:
+								$(".beat span").html('99%');
+								$('.right-ans span').html(score);
+								$(".pagend-wrap .text").html("膜拜，五体投地式的");
+								break;		
+						}	
+
+					}
+
+						
+				});	
+			})
+		}
+
+		//分享给朋友
+		wx.onMenuShareAppMessage({
+		    title: '1111', // 分享标题
+		    desc: '2222', // 分享描述
+		    link: window.location.href, // 分享链接
+		    imgUrl: '' // 分享图标 
+		});
+
+		//分享到朋友圈
+		wx.onMenuShareTimeline({
+		    title: '1111', // 分享标题
+		    desc: '2222', // 分享描述
+		    link: window.location.href, // 分享链接
+		    imgUrl: ''// 分享图标
+		});
+
+
+		//重新玩
+		$(".onceagain").on("touchend",function(){
+			score = 0;
+			$(".beat span").html('0');
+			$('.right-ans span').html("0");
+			swiper.slideTo(1);
+			$('.ques-answer').removeClass("correct");
+			$('.ques-answer').removeClass("error");
+		})
+	</script>
+	<div style="width:0; height:1px; overflow: hidden; "><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259455748'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1259455748' type='text/javascript'%3E%3C/script%3E"));</script></div>
+</body>
+</html>

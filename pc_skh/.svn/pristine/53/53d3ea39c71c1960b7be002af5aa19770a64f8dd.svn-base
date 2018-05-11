@@ -1,0 +1,99 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+use Think\Log;
+class IndexController extends Controller
+{   
+    public function article($type_id)
+    {
+        $token = A_token();
+        $jiekou = 'http://weixin.yk2020.com';
+        $url = $jiekou."/interface/yc_doc/union_act_all.aspx?access_token=".$token;
+        $data = array
+        (
+            "type_id"=>"$type_id",
+            "province_id"=>'',
+            "page_num"=>"1",
+            "page_rows"=>"10",
+            "sort_type"=>'',
+        );
+        $json=json_encode($data);
+        $articleList = json_decode(post_json($url,$json),true);
+        return $articleList;
+    }
+	public function index()
+	{
+		//医院动态
+        $hdList = $this->article('11111');
+        $this->assign('hdList',$hdList);
+		
+        //糖网
+        $twList = $this->article('11117');
+        $this->assign('twList',$twList);
+
+        //白内障
+        $bnzList = $this->article('11115');
+        $this->assign('bnzList',$bnzList);
+
+        //眼视光
+        $ysgList = $this->article('11118');
+        $this->assign('ysgList',$ysgList);
+
+        //眼底病
+        $ydbList = $this->article('11116');
+        $this->assign('ydbList',$ydbList);
+
+        //特需专家
+        $txdocList = $this->article('11119');
+        $this->assign('txdocList',$txdocList);
+
+        //会诊专家
+        $hzdocList = $this->article('11120');
+        $this->assign('hzdocList',$hzdocList);
+
+        //糖网专家
+        $twdocList = $this->article('11121');
+        $this->assign('twdocList',$twdocList);
+
+        //白内障专家
+        $bnzdocList = $this->article('11122');
+        $this->assign('bnzdocList',$bnzdocList);
+
+        //眼底病专家
+        $ydbdocList = $this->article('11123');
+        $this->assign('ydbdocList',$ydbdocList);
+
+        //眼视光专家
+        $ysgdocList = $this->article('11124');
+        $this->assign('ysgdocList',$ysgdocList);
+
+        //眼整形专家
+        $yzydocList = $this->article('11125');
+        $this->assign('yzydocList',$yzydocList);
+
+        $this->display();
+	}
+
+	 //文章内容
+    public function arcinfo()
+    {
+        $id = I('artid')?I('artid'):69468752;
+        //文章接口数据
+        $token = A_token();
+        $jiekou = 'http://weixin.yk2020.com';
+        $url = $jiekou."/interface/yc_doc/union_act_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "record_id"=>$id,
+        );
+        $json=json_encode($data);
+        $arcinfo = json_decode(post_json($url,$json),true);
+        $arcinfo[0]['ACT_DESC'] = htmlspecialchars_decode($arcinfo[0]['ACT_DESC']);
+        $arcinfo[0]['ACT_DESC'] = str_replace('src="', 'src="http://weixin.yk2020.com', $arcinfo[0]['ACT_DESC']);
+        //文章接口数据
+        $this->assign('arcinfo',$arcinfo);
+        $this->display();
+    }
+
+
+}

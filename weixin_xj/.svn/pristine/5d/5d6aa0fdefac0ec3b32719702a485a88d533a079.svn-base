@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>学习计划</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+</head>
+<body>
+    <header class="head"> 
+        <h1 class="text-center">{$data2[0]['TYPE_NAME']}--{$data2[0]['BOOK_NAME']}</h1>
+        <section>
+            <img src="{$data2[0]['BOOK_PIC']}" alt="" />
+            <div id="pos_video"><video src="" autoplay id="video" controls></video></div>
+        </section>
+    </header>
+    <article id="page" class="page swiper-container">
+        <nav>
+            <ol class="swiper-pagination"></ol>
+        </nav>
+        <section class="swiper-wrapper">
+            <div class="swiper-slide" id="vList">
+
+            <volist name="data" id="vo">
+                <dl>
+                    <dt>{$vo.CHAP_NAME}--{$vo.CHAP_TITLE}</dt>
+                        <dd>
+                            <ul>
+                                <volist name="vo['SECTS']" id="sect">
+                                    <if condition="$sect.VIDEO_URL neq '' ">
+                                        <li>
+                                            <a href="javascript:;" data-video="{$sect.VIDEO_URL}">{$sect.SECT_NAME} {$sect.SECT_TITLE}
+                                            </a>
+                                        </li>
+                                    </if>
+                                    <if condition="$sect.VIDEO_URL eq '' ">
+                                        <li>
+                                           <a href="index.php?m=Expert&c=Class&a=detail&id={$sect.SECT_ID}">{$sect.SECT_NAME} {$sect.SECT_TITLE}
+                                            </a>
+                                        </li>
+                                    </if>
+                                </volist>
+                            </ul>
+                        </dd>
+                </dl>
+
+            </volist>
+            </div>
+            <div class="swiper-slide">
+                <header><h3>课程名称</h3></header>
+                <figure>
+                    <div class="section">
+                        <p>{$data2[0]['TYPE_NAME']}--{$data2[0]['BOOK_NAME']}</p>
+                    </div>
+                </figure>
+                <header><h3>讲师</h3></header>
+                <figure>
+                    <div class="section">
+                        <header>
+                            <div class="sPic"><img src="/weixin/Public/Expert/images/zhengcejiedu/people.jpg" /></div>
+                            <div class="sTxt">
+                                <p>暂无<small>网络专家</small></p>
+                                <p><em>北京网络医院</em><span>暂无</span></p>
+                            </div>
+                        </header>
+                        <footer>
+                            <p>暂无</p>       
+                        </footer>
+                    </div>
+                </figure>
+                <header><h3>课程介绍</h3></header>
+                <figure>
+               
+                    <div class="section">
+                        <p class="lh">{$data2[0]['BOOK_DESC']}</p>
+                    </div>
+
+                </figure>
+            </div>
+        </section>
+    </article>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Expert/js/swiper.jquery.js"></script>
+<script>
+var arrHeight = [
+    $('.swiper-slide').eq(0).height(),
+    $('.swiper-slide').eq(1).height()
+];
+$('.swiper-wrapper').height(arrHeight[0]);
+var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.swiper-pagination',
+    paginationClickable :true,
+    paginationBulletRender: function(index,className) {
+        switch(index){
+            case 0: name = '目录';break;    
+            case 1: name = '课程介绍';break;    
+        }    
+        return '<li class="'+className+'">'+name+'</li>';
+    },
+    onSlideChangeEnd:function(){
+        $('.swiper-wrapper').height(arrHeight[mySwiper.activeIndex]);
+    }
+});
+
+setTimeout(function(){
+    $('#pos_video').css('background','#000');
+    $('#video').attr('src',$('#vList a').eq(0).data('video'));
+    $('#video').get(0).play();
+},2000);
+    
+$('.swiper-slide dt').click(function(){
+    $(this).toggleClass('active');
+    $(this).next().slideToggle();
+})
+   
+$('#vList a').click(function(){
+    var video = $(this).data('video');
+    $('#video').attr({'src':video});
+    $('#video').get(0).play();
+    $('#vList a.active').removeClass('active');
+    $(this).addClass('active');
+    $('html,body').animate({scrollTop:0});
+});
+</script>
+</html>

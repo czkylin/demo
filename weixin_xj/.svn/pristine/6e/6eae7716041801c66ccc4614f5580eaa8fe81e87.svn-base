@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>处方列表</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/chufang/cf_lst.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body class="grey">
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">处方列表</h2>
+    </header>
+    <section class="unit box">
+        <div class="search box">
+            <i class="ui-icon-search"></i>
+            <input type="text" placeholder="请输入患者的姓名或手机号" />
+        </div>
+        <button class="sr pink">搜索</button>
+    </section>
+    <section class="unit">
+        <header class="box">
+            <h2>北京同仁堂</h2>
+            <p class="text-right"><span class="warn">未付款</span></p>
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <div class="ctxt">
+                    <p><strong>患者：</strong><em>范强</em></p>
+                    <p>胸闷气短,感冒发烧,头疼头晕。</p>
+                    <p><span>2016-07-27 18:58:56</span></p>
+                </div>
+            </div>
+            <div class="cRight center"><i class="ui-icon-arrow"></i></div>
+            <a href="#"></a>
+        </div>
+        <a href="#" class="color1 text-center go">去续方</a>
+    </section>
+    <section class="unit">
+        <header class="box">
+            <h2>北京同仁堂</h2>
+            <p class="text-right"><span class="warn">未下单</span></p>
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <div class="ctxt">
+                    <p><strong>患者：</strong><em>范强</em></p>
+                    <p>胸闷气短,感冒发烧,头疼头晕。</p>
+                    <p><span>2016-07-27 18:58:56</span></p>
+                </div>
+            </div>
+            <div class="cRight center"><i class="ui-icon-arrow"></i></div>
+            <a href="#"></a>
+        </div>
+        <a href="#" class="color1 text-center go">去续方</a>
+    </section>
+    <section class="unit">
+        <header class="box">
+            <h2>北京同仁堂</h2>
+            <p class="text-right"><span class="suc">已下单</span></p>
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <div class="ctxt">
+                    <p><strong>患者：</strong><em>范强</em></p>
+                    <p>胸闷气短,感冒发烧,头疼头晕。</p>
+                    <p><span>2016-07-27 18:58:56</span></p>
+                </div>
+            </div>
+            <div class="cRight center"><i class="ui-icon-arrow"></i></div>
+            <a href="#"></a>
+        </div>
+        <a href="#" class="color1 text-center go">去续方</a>
+    </section>
+    <section class="unit">
+        <header class="box">
+            <h2>北京同仁堂</h2>
+            <p class="text-right"><span class="suc">已付款</span></p>
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <div class="ctxt">
+                    <p><strong>患者：</strong><em>范强</em></p>
+                    <p>胸闷气短,感冒发烧,头疼头晕。</p>
+                    <p><span>2016-07-27 18:58:56</span></p>
+                </div>
+            </div>
+            <div class="cRight center"><i class="ui-icon-arrow"></i></div>
+            <a href="#"></a>
+        </div>
+        <a href="#" class="color1 text-center go">去续方</a>
+    </section>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/store/store.css" type="text/css" rel="stylesheet"/>
+<!-- title -->
+<title>购物车</title>
+<!--meta-->
+</head>
+<body>
+<div class="back"><a href="javascript:history.back(-1)"><img  src="/weixin/Application/Member/View/images/store/back.png"></a></div>
+<form action="{:U('Yd/cart_buy')}" method="post" name="form" id="form" onsubmit="return check_input(this)">
+	<div class="experts" style="margin-bottom:60px;">
+		<volist name="yd_list" id="yd" empty="暂时没有数据">
+		 <ul class="ul_car">
+			<li class="yaodian">
+				<div class="xuan">
+				 <label for="id_{$yd['HOS_ID']}"  >
+					<input type="checkbox" name="chkpart{$yd['HOS_ID']}" id="id_{$yd['HOS_ID']}" value="on" onclick="CheckGroup(this.form,'{$yd['HOS_ID']}')" title="本店的所有产品" >
+					<span></span>
+				 </label>
+				
+				</div>
+				<p>
+					<a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name={$yd['HOS_NAME']}&hos_id={$yd['HOS_ID']}&hos_pic={$yd['HOS_PIC']}">{$yd['HOS_NAME']}&nbsp;&nbsp;&gt;</a>
+					<a class="right bianji" onclick="edit_ok(this,{$yd['HOS_ID']})">编辑</a>
+				</p>
+			</li>
+			<volist name="yd['HOS_PRODUCTS']" id="product">
+			<li>
+				<div class="xuan">
+					<label for="id_mo_{$product['CART_ID']}">
+
+					<input type="checkbox" groupid="{$yd['HOS_ID']}" onclick="CheckSep(this,'chkpart{$yd['HOS_ID']}');" name="checked_id[]" value="{$product['CART_ID']}" PJS="{$product.PRODUCT_MONEY}" P_NUM="{$product.PRODUCT_NUM}" id="id_mo_{$product['CART_ID']}"/><span></span></label>
+					
+					<input type="hidden" name="money_{$product['CART_ID']}" value="{$product.PRODUCT_MONEY}"/>
+					<input type="hidden" id="product_{$product['CART_ID']}" name="product_{$product['CART_ID']}" value="{$product.PRODUCT_ID}"/>
+					<input type="hidden" name="hos_{$product.CART_ID}" value="{$yd['HOS_ID']}"/>
+				</div>
+				<div class="car_img">
+					<a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=product_content&product_id={$product['PRODUCT_ID']}&hos_id={$yd['HOS_ID']}">
+						<img src="{$product['PRODUCT_PIC']}">
+					</a>
+				</div>
+				<div class="xuan_right">
+					<div class="con_car">
+						<p>{$product['TY_MONEY']}</p>
+						<em>￥{$product['PRODUCT_MONEY']}</em>
+						<b>×{$product['PRODUCT_NUM']}</b>
+					</div>
+					<div class="yin">
+						<div class="dd">
+							<a class="btn-reduce"  href="javascript:;">-</a>
+							<input id="num_{$product['CART_ID']}" name="num_{$product['CART_ID']}" class="text" value="{$product['PRODUCT_NUM']}" onKeyUp="value=value.replace(/[^\d]/g,'')" maxlength="2"/>
+							<a class="btn-add"  href="javascript:;">+</a>
+						</div>
+						<a href="javascript:cart_delete({$product.PRODUCT_ID},{$yd['HOS_ID']})" class="shanc">删除</a>
+					</div>
+				</div>
+			</li>
+			</volist>
+		</ul>
+		</volist>
+	</div>
+	<div class="youhui_gm dingwei">
+		<a href="javascript:gopay()" class="right" >结算</a>
+
+		<div class="right"><b>总价￥<div name="all_price" id="all_price" style="display:inline">0</div></b>
+		<span>不含运费</span></div>
+        
+		<span class="quanxuan">
+		<label for="type-all"><input type="checkbox" name="chkall" value="on" onclick="CheckAll(this.form)" id="type-all"><span></span></label>
+		全选</span>
+	</div>
+</form>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Member/js/store.js" type="text/javascript"></script>
+<script>
+function edit_ok(click_id,hos_id)
+{
+	$(click_id).parents().parents().siblings().children().children('.yin').toggleClass('curr');
+	if($(click_id).text() == '编辑')
+	{
+		$(click_id).text('完成');
+	}
+	else
+	{
+		var num_str = "";
+		var product_str = "";
+		for (var i = 0; i < form.elements.length; i ++)
+		{
+			var e = form.elements[i];
+			if (e.name == 'checked_id[]')
+			{
+				var e_group = e.attributes['groupid'].nodeValue;
+				if (e_group == hos_id)
+				{
+					//alert($("#num_"+e.value).val());
+					num_str = num_str + $("#num_"+e.value).val() + "@";//产品数量
+					product_str = product_str + $("#product_"+e.value).val() + "@";//产品数量
+					
+				}
+			}
+		}
+
+		$.ajax({
+		url : "/weixin/index.php?m=Member&c=Yd&a=cart_edit",
+		data:{"num_str":num_str,"hos_id":hos_id,"product_str":product_str},
+		type: "get",
+		async: true,
+		dataType: "json",
+		success:function(data)
+		{
+			location.reload();
+		},
+		cache: false,
+		timeout: 5000,
+		error: function(XMLHttpRequest, textStatus, errorThrown)
+		{
+			alert("数据加载失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+		}
+		});
+		$(this).text('编辑');
+	}
+}
+
+function gopay()
+{
+	$("#form").submit();
+}
+
+function cart_delete(product_id,hos_id)
+{
+	$.ajax({
+	url : "/weixin/index.php?m=Member&c=Yd&a=delete_ok",
+	data:{"product_id":product_id,"hos_id":hos_id},
+	type: "get",
+	async: true,
+	dataType: "json",
+	success:function(data)
+	{
+		location.reload();
+	},
+	cache: false,
+	timeout: 5000,
+	error: function(XMLHttpRequest, textStatus, errorThrown)
+	{
+		alert("数据加载失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+	}
+	});
+}
+
+function CheckAll(form)
+{	/*$("#all_price").html(parseInt(0));
+	for (var i=0;i<form.elements.length;i++)
+	{
+		var e = form.elements[i];
+		if (e.name != 'chkall')
+		{
+			if(e.type == "checkbox")
+			{
+				e.checked = form.chkall.checked;
+				if(e.name == "checked_id[]")
+				{	
+					price_count(e);
+				}
+			}
+		}
+	}*/
+	
+	//$("#all_price").html(parseInt(0));
+	if(form.chkall.checked)
+	{
+		for (var i=0;i<form.elements.length;i++)
+		{
+			var e = form.elements[i];
+			if (e.name != 'chkall')
+			{
+				if(e.type == "checkbox")
+				{
+					if(e.name == "checked_id[]")
+					{	
+						if(e.checked!=true)
+						{
+							//alert("添加");
+							e.checked = form.chkall.checked;
+							price_count(e);
+						}
+					}
+					else
+					{
+					 e.checked = form.chkall.checked;
+					}
+						
+					
+				}
+			}
+		}
+	}
+	else
+	{
+		for (var i=0;i<form.elements.length;i++)
+		{
+			var e = form.elements[i];
+			if (e.name != 'chkall')
+			{
+				if(e.type == "checkbox")
+				{
+					if(e.name == "checked_id[]")
+					{
+						if(e.checked==true)
+						{
+							//alert("删除");
+							e.checked = form.chkall.checked;
+							price_count(e);
+						}
+					}
+					else
+					{
+					 e.checked = form.chkall.checked;
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+function check_input()
+{
+	var val = $('input:checkbox[name="checked_id[]"]:checked').val(); 
+	if(val == null)
+	{
+		alert('购买的商品不能为空请选择!');
+		return false;
+	}
+}
+
+function CheckGroup(form,g_id)
+{	
+/*	for (var i = 0; i < form.elements.length; i ++)
+		{
+			var e = form.elements[i];
+			if (e.name == 'checked_id[]')
+			{	
+				var e_group = e.attributes['groupid'].nodeValue;
+					//alert(g_id);
+				if (e_group == g_id)
+				{	
+					if(e.checked!=true)
+					{	alert("假");
+							alert(e.checked);
+							e.checked = eval("form.chkpart" + g_id + ".checked");
+							alert(e.checked);
+							price_count(e);
+					}
+						
+				}
+					
+			}
+		}*/
+	if(eval("form.chkpart" + g_id + ".checked"))
+	{
+		for (var i = 0; i < form.elements.length; i ++)
+		{
+			var e = form.elements[i];
+			if (e.name == 'checked_id[]')
+			{	
+				var e_group = e.attributes['groupid'].nodeValue;
+					//alert(g_id);
+				if (e_group == g_id)
+				{	
+					if(e.checked!=true)
+					{	//alert("假");
+						//alert(e.checked);
+						e.checked = eval("form.chkpart" + g_id + ".checked");
+						//alert(e.checked);
+						price_count(e);
+					}
+						
+				}
+					
+			}
+		}
+	}
+	else
+	{
+		for (var i = 0; i < form.elements.length; i ++)
+		{
+			var e = form.elements[i];
+			if (e.name == 'checked_id[]')
+			{	
+				var e_group = e.attributes['groupid'].nodeValue;
+					//alert(g_id);
+				if (e_group == g_id)
+				{	
+					if(e.checked==true)
+					{	//alert("假");
+						//alert(e.checked);
+						e.checked = eval("form.chkpart" + g_id + ".checked");
+						//alert(e.checked);
+						price_count(e);
+					}
+						
+				}
+					
+			}
+		}
+	}
+	
+	var num3=$('li.yaodian').find('input[type=checkbox]');
+		var num4=$('li.yaodian').find('input[type=checkbox]').length;//所有的input数量
+		var num5=0;//所有的被选中的数量
+		
+		num3.each(function(){
+			if($(this).is(':checked')){
+				num5++;
+				}
+			});
+		if(num5 == num4){
+			$("#type-all").prop('checked',true);
+			}
+			else
+			{
+			$("#type-all").prop('checked',false);
+			}
+	
+}
+
+function CheckSep(fgg,group_name){
+		var num=$("#"+fgg.id).parent().parent().parent().parent().children('li.yaodian').siblings('li').find('input[type=checkbox]');
+		var num1=$("#"+fgg.id).parent().parent().parent().parent().children('li').find('input[type=checkbox]').length;//所有的input数量
+		var num2=0;//所有的被选中的数量
+	
+		
+		
+		num.each(function(){
+			if($(this).is(':checked')){
+				num2++;
+				}
+			});
+		if(num2 == (num1-1)){
+			$("#"+fgg.id).parent().parent().parent().parent().children('li.yaodian').find('input[type=checkbox]').prop('checked',true);
+			}
+			else
+			{
+			$("#"+fgg.id).parent().parent().parent().parent().children('li.yaodian').find('input[type=checkbox]').prop('checked',false);
+			$("#type-all").prop('checked',false);
+			}
+		
+		var num3=$('li.yaodian').find('input[type=checkbox]');
+		var num4=$('li.yaodian').find('input[type=checkbox]').length;//所有的input数量
+		var num5=0;//所有的被选中的数量
+		
+		num3.each(function(){
+			if($(this).is(':checked')){
+				num5++;
+				}
+			});
+		if(num5 == num4){
+			$("#type-all").prop('checked',true);
+			}
+			else
+			{
+			$("#type-all").prop('checked',false);
+			}
+		price_count(fgg);
+	}
+function price_count(p)
+{	
+	var product_price = p.attributes['PJS'].nodeValue;
+	var product_num = p.attributes['P_NUM'].nodeValue;
+	var product_id = p.attributes['groupid'].nodeValue;
+	//console.log(product_id);
+	var id = "#id_"+product_id;
+	
+	//alert(p.checked);
+	if(p.checked == true)
+	{	
+		//alert($(id));
+		//$(id).attr('checked',true);
+		$("#all_price").html($("#all_price").html() - product_price*product_num*(-1));
+		
+	}
+	else
+	{	//alert(11);
+		//$("#all_price").html(parseInt(0));
+		$("#all_price").html($("#all_price").html() - product_price*product_num);	
+	}
+}
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

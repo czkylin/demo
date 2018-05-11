@@ -1,0 +1,13 @@
+<volist name="hz_order_list" id="money">
+<if condition = "$money.TAKE_MONEY neq '2'">
+    <div class="mx_list">
+        <div class="mingxileft w100">
+                <p>{$money['TAKE_NAME']}</p>
+                <span>保障人：{$money['PERSON_NAME']}</span><span style="margin-left:15px">手机：{$money['PERSON_MOBILE']|substr=0,3}****{$money['PERSON_MOBILE']|substr=-4}</span>
+                <br/>
+                <span>提成明细：{$money['TAKE_DESC']}
+                <br/>
+                时间：{$money['CREATE_DATE']}</span> </div>
+        <div class="mingxiright"> <b>￥{$money['TAKE_MONEY']|round=2}</b> </div>
+</div></if>∮
+</volist>

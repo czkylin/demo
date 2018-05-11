@@ -1,0 +1,35 @@
+<volist name="fuwu_jilu" id="fuwu">
+    <section class="unit" id="fuwu-list">
+        <div class="up box">
+            <div class="uleft">
+                <h2>预约时间：<em>{$fuwu['SERVE_DATE']|Dtodiy='Y-m-d',###}</em></h2>
+                <small>创建时间：{$fuwu['CREATE_DATE']}</small>
+            </div>
+            <div class="uright text-right"><i class="orange">{$fuwu['SERVE_STATUS']}</i></div>
+        </div>
+        <div class="centrol">
+            <div class="imgTxt">
+                <img src="/weixin/Public/Member/images/readpic/slide.jpg" />
+                <span>{$fuwu['SERVE_NAME']}</span>
+            </div>
+        <if condition="$fuwu['SERVE_STATUS'] eq '预约成功'">
+            <a href="{:U('User/fw_success',array('jz_id'=>$fuwu['JZ_ID']))}"></a>
+
+        <elseif condition="$fuwu['SERVE_STATUS'] eq '处理中'"/>
+            <a href="{:U('User/fw_do',array('jz_id'=>$fuwu['JZ_ID']))}"></a>
+
+         <elseif condition="$fuwu['SERVE_STATUS'] eq '待处理'"/>
+            <a href="{:U('User/fw_wait',array('jz_id'=>$fuwu['JZ_ID']))}"></a>
+        <else />
+            <a href="{:U('User/fw_fail',array('jz_id'=>$fuwu['JZ_ID']))}"></a>
+        </if>
+        </div>
+        <div class="down text-right">
+            <a href="{:U('User/fuwu_detail',array('jz_id'=>$fuwu['JZ_ID']))}" class="quxiao">取消预约</a>
+            <div style="display: none;">{$fuwu['JZ_ID']}</div>
+            <div style="display: none;">{$fuwu['SERVE_NAME']}</div>
+            <div style="display: none;">{$fuwu['SERVE_DATE']}</div>
+            <a href="tel:4006562020" class="active">联系客服</a>
+        </div>
+    </section>∮
+</volist>

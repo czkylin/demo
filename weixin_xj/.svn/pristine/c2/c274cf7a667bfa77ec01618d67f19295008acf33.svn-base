@@ -1,0 +1,21 @@
+<volist name="money_list" id="money">
+
+<div class="mx_list">
+
+	<div class="mingxileft">
+
+		<p>{$money['ORDER_NAME']}</p>
+
+		<span>购买人：{$money['MEMBER_NAME']}&nbsp;&nbsp;&nbsp;&nbsp;时间：{$money['CREATE_DATE']}</span>
+
+	</div>
+
+	<div class="mingxiright">
+
+		<b>￥{$money['ORDER_MONEY']|round=2}</b>
+
+	</div>
+
+</div>∮
+
+</volist>

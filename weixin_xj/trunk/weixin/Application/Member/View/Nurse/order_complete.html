@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Common/css/common/mobi-reset.css">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/nurse/nurse-complete.css">
+<title>订单详情</title>
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+</head>
+<body>
+	<!-- 温馨提示 -->	
+	<section id="tip">
+		<h2>温馨提示：</h2>
+		<p>1、护士上门后，请先检查其证件确认其身份</p>
+		<p>2、请事先准备好相关的所需物品（病例、处方等）</p>
+	</section>
+
+	<!-- 信息 -->
+	<section id="info">
+		<ul>
+			<li class="clear">
+				<span>预约号：</span>
+				<i>{$order_detail.SERVICEID}</i>
+				<b>
+					<if condition="$order_detail.SERVICESTATE eq '0'">
+                        等待接单
+                    <elseif condition="$order_detail.SERVICESTATE eq '1'" />
+                        接单成功
+                    <elseif condition="$order_detail.SERVICESTATE eq '2'" />
+                        患者完成
+                    <elseif condition="$order_detail.SERVICESTATE eq '3'" />
+                        订单完成
+                    <else/>
+                        取消订单
+                    </if>
+                </b>
+			</li>
+			<li class="clear">
+				<span>服务：</span>
+				<i>{$order_detail.SERVICENAME}</i>
+			</li>
+			<li class="clear">
+				<span>姓名：</span>
+				<i>{$order_detail.PERSONNAME}</i>
+			</li>
+			<li class="clear">
+				<span>电话：</span>
+				<i>{$order_detail['MEMBERMOBILE']|substr=0,3}****{$order_detail['MEMBERMOBILE']|substr=-4}</i>
+			</li>
+			<li class="clear">
+				<span>时间：</span>
+				<i>{$order_detail.SERVICEDATE|Dtodiy='Y年m月d日',###}</i>
+			</li>
+			<li class="clear">
+				<span>地址：</span>
+				<i>{$order_detail.SERVICEADDRESS}</i>
+			</li>
+			<!-- <li class="clear">
+				<span>备注：</span>
+				<i>自己  张春艳  女  27岁</i>
+			</li> -->
+		</ul>
+		<div class="des">
+			<h2>病情描述：</h2>
+			<p>{$order_detail.SERVICEDESC}</p>
+		</div>
+		<if condition="($order_detail.SERVICESTATE gt '1') and ($order_detail.SERVICESTATE neq '4')">
+			<div class="nurse">
+				<h2>服务护士</h2>
+				<div class="wrap clear">
+					<if condition="$order_detail[NURSEICON] eq ''">
+						<img src="/weixin/Public/Member/images/nurse/icon/nurse.png">
+		            <else/>
+		            	<img src="{$order_detail[NURSEICON]}" />
+		            </if>
+					<!-- <img src="/weixin/Public/Member/images/nurse/icon/nurse.png"> -->
+					<div class="main">
+						<p><span>{$order_detail.NURSENAME}</span> {$order_detail.NURSEDEPARTMENT}</p>
+						<p>{$order_detail.NURSEHOSPITAL}</p>
+					</div>
+				</div>	
+			</div>
+		</if>
+		
+		<!-- 评论 -->
+		<if condition="($order_detail[SERVICESTATE] eq '2') or ($order_detail[SERVICESTATE] eq '3')">
+			<if condition="$order_evaluate[Code] eq '9000'">
+				<div class="evaluate1">已评价</div>
+	        <else/>
+	        	<div class="evaluate">用户评价</div>
+	        </if>
+        </if>
+	</section>
+
+	<!-- 评论弹窗 -->
+	<div class="pl-mask"></div>
+	<div class="pl-pop">
+		<div class="pl-title">
+			<span></span>
+			服务评价
+		</div>
+		<ol class="star clear">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<p class="summary">非常不满意，各方面都很差</p>
+		<p class="summary-title">指出不足</p>
+		<ul class="summary-list clear">
+			<li class="active" onoff='selected'>态度恶劣</li>
+			<li class="" onoff='unselected'>服务不佳</li>
+			<li class="" onoff='unselected'>专业不强</li>
+			<li class="" onoff='unselected'>过时上门</li>
+		</ul>
+		<p class="pl-txt">其他想说的（将匿名并延迟告知护士）</p>
+		<div class="pl-text">
+			<textarea maxlength="50"></textarea>
+			<span>30-50</span>
+		</div>
+		<div class="pl-btn">匿名评价</div>
+	</div>
+
+	<!-- 评价完成 -->
+	<div class="pl-pop1" style="bottom:0;">
+		<div class="pl-title1">
+			<span></span>
+			服务评价
+		</div>
+		<ol class="star1 clear">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<p class="summary1">非常不满意，各方面都很差</p>
+		<ul class="summary-list1 clear">
+			<!-- <li class="active" onoff='selected'></li> -->
+		</ul>
+		<p class="sub-text">其他评价：<span></span></p>
+	</div>
+
+
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		//数据
+		var data = [
+			{
+				'summary':'非常不满意，各方面都很差',
+				'title':'指出不足',
+				'list':'<li class="active" onoff="selected">态度恶劣</li><li onoff="unselected">服务不佳</li><li onoff="unselected">专业不强</li><li class="fr" onoff="unselected">过时上门</li>'
+			},
+			{
+				'summary':'不满意，比较差',
+				'title':'指出不足',
+				'list':'<li class="active" onoff="selected">态度恶劣</li><li onoff="unselected">服务不佳</li><li onoff="unselected">专业不强</li><li onoff="unselected">过时上门</li>'
+			},
+			{
+				'summary':'一般，还需改善',
+				'title':'指出不足',
+				'list':'<li class="active" onoff="selected">态度恶劣</li><li onoff="unselected">服务不佳</li><li onoff="unselected">专业不强</li><li onoff="unselected">过时上门</li>'
+			},
+			{
+				'summary':'比较满意，仍可改善',
+				'title':'指出不足',
+				'list':'<li class="active" onoff="selected">态度恶劣</li><li onoff="unselected">服务不佳</li><li onoff="unselected">专业不强</li><li onoff="unselected">过时上门</li>'
+			},
+			{
+				'summary':'非常满意，无可挑剔',
+				'title':'夸夸护士吧！让她更有动力',
+				'list':'<li class="active" onoff="selected">态度好</li><li onoff="unselected">服务优</li><li onoff="unselected">专业强</li><li onoff="unselected">及时到达</li>'
+			}
+		];
+
+		
+
+		//初始化
+		addData(data[0]);
+		//提交时收集的数据
+		var evaluateData = {
+			star_index : 0, //星星的数量统计
+			summary : '非常不满意，各方面都很差',
+			list:[],
+			sub_text:'无'
+		};
+
+		//评价按钮（评星级）
+		$('.star > li').each(function(index){
+			var prev_index = index;
+			$(this).click(function(){
+				select_number = 1;
+				evaluateData.star_index = prev_index;
+				//星星点亮
+				$('.star > li').removeClass('active');
+				$('.star > li').each(function(index){
+					if( index <=  prev_index){
+						$(this).addClass('active');
+					}
+				});
+				//相应数据改变
+				addData(data[prev_index]);
+			})
+		});
+
+		//数据传输
+		function addData(obj){
+			$('.summary').html(obj.summary);
+			$('.summary-title').html(obj.title);
+			$('.summary-list').html(obj.list);
+			summarySelect();
+			$('.pl-txt').show();
+			$('.pl-text > textarea').val('');
+			$('.pl-text').hide();
+		}
+
+		//评价选项（多选）
+		var select_number = 1;
+		function summarySelect(){
+			$('.summary-list > li').each(function(){
+				$(this).click(function(){
+					if( $(this).attr('onoff') == 'unselected' ){
+						$(this).addClass('active');
+						$(this).attr('onoff','selected');
+						select_number ++;
+					}else{
+						$(this).removeClass('active');
+						$(this).attr('onoff','unselected');
+						select_number --;
+					}	
+				});
+			});
+		}
+			
+
+		//写评论
+		$('.pl-txt').click(function(){
+			$(this).hide();
+			$('.pl-text').show();
+			$('.pl-text > textarea').focus();
+		});
+
+		//关闭
+		$('.pl-title > span').click(function(){
+			$('.pl-pop').animate({'bottom':'-100%'}).hide();
+			$('.pl-mask').hide();
+		});
+
+		//打开评论
+		$('.evaluate').click(function(){
+			$('.pl-pop').show().animate({'bottom':0});
+			$('.pl-mask').show();
+		});
+
+		//提交
+		$('.pl-btn').click(function(){
+
+			//判断select_number是否为0 
+			if( select_number == 0 ){
+				alert('请至少勾选一项！');
+				return;
+			}else{
+				//获取数据添加到evaluateData
+				evaluateData.summary = $('.summary').html();
+				$('.summary-list > li').each(function(){
+					if( $(this).attr('onoff') == 'selected' ){
+						evaluateData.list.push($(this).html());
+					}
+				});
+				evaluateData.sub_text = $('.pl-text > textarea').val() == '' ? '无' : $('.pl-text > textarea').val();
+				var mark = evaluateData.list.join(',');
+				var ORDERID = {:I('get.ORDERID')};
+
+				$.ajax({
+		            type: "POST", //用POST方式传输
+		            url: "{:U('Nurse/order_evaluate')}", 
+		            data: {"ORDERID":ORDERID,"Star":(evaluateData.star_index+1),"Mark":mark,"Supplement":evaluateData.sub_text},
+		            error: function (XMLHttpRequest, textStatus, errorThrown) { },
+		            success: function (msg){
+		            	console.log(msg);
+		            	console.log(mark);
+		                evaluateData.list = [];
+
+						//数据添加到已评价
+						$('.star1 > li').each(function(index){
+							if( index <= evaluateData.star_index ){
+								$(this).addClass('active');
+							}
+						})
+						$('.summary1').html(evaluateData.summary);
+						$('.summary-list1').html(' ');
+						for( var i=0;i<evaluateData.list.length;i++ ){
+							$('.summary-list1').get(0).innerHTML +='<li class="active" onoff="selected">'+ evaluateData.list[i] +'</li>';
+						}
+						$('.sub-text > span').html(evaluateData.sub_text);
+
+
+						$('.pl-pop').hide().animate({'bottom':'-100%'});
+
+						//关闭已评论窗口
+						$('.pl-title1 > span').click(function(){
+							$('.pl-pop1').hide();
+							$('.pl-mask').hide();
+						});
+
+						window.location.reload();
+		            }
+		        });
+			}	
+
+		})
+
+		//已评价
+		$('.evaluate1').click(function(){
+
+			var callbackData = {
+				star_index : "{$order_evaluate.Star}", //星星的数量统计 -1
+				summary : '非常不满意，各方面都很差',
+				list:"{$order_evaluate.Mark}",
+				sub_text:"{$order_evaluate.Supplement}"
+			};
+
+
+			//数据添加到已评价
+			var nowIndex = Number(callbackData.star_index -1);
+			var nowListArr = callbackData.list.split(',');
+
+			$('.star1 > li').each(function(index){
+				if( index <= nowIndex ){
+					$(this).addClass('active');
+				}
+			});
+			$('.summary1').html(data[nowIndex].summary);
+			$('.summary-list1').html(' ');
+			for( var i=0;i<nowListArr.length;i++ ){
+				$('.summary-list1').get(0).innerHTML +='<li class="active" onoff="selected">'+ nowListArr[i] +'</li>';
+			}
+			$('.sub-text > span').html(callbackData.sub_text);
+			$('.pl-mask').show();
+			$('.pl-pop1').show();
+
+			//关闭已评论窗口
+			$('.pl-title1 > span').click(function(){
+				$('.pl-pop1').hide();
+				$('.pl-mask').hide();
+			});
+
+			
+
+
+		})
+	</script>
+</body>
+</html>

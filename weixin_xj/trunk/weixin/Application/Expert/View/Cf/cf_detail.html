@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>处方详情</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/chufang/cf_lst.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+    <style>
+        .people p img{height: 50px; width: 100px;}
+    </style>
+</head>
+<body>
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">{$member_name}的处方 </h2>
+    </header>
+    <article>
+        <section>
+            <h2 class="text-center">处方笺</h2>
+            <ul>
+                <li class="box w1">
+                    <strong class="text-center grey w25">药店名称</strong>
+                    <strong class="white w70"> 
+                    <if condition="$hos_name neq ''">
+                    {$hos_name}
+                    </if>
+                     <if condition="$hos_name eq ''">
+                    暂未指定药店
+                    </if></strong>      
+                </li>
+                <li class="box w1">
+                   <strong class="text-center grey w25">处方编号</strong>
+                   <strong class="white w70">{$cf_id}</strong>        
+                </li>
+                <li class="box w2">
+                    <strong class="text-center grey w25">姓 &nbsp; 名</strong>
+                    <strong class="text-center w20">{$member_name}</strong>
+                    <strong class="text-center grey w1375">性别</strong>
+                    <strong class="text-center w1375">{$member_sex}</strong>
+                    <strong class="text-center grey w1375">年龄</strong>
+                    <strong class="text-center w1375">{$member_age}</strong>
+                </li>
+                <li><p class="grey">临床诊断：</p></li>
+                <li>
+                    <div class="lst">
+                        <p>{$cf_content}</p>
+                        <if condition="$cf_pic neq '' "><img src="{$cf_pic}" width="95px" /></if>
+                    </div>
+                </li>
+                <li><p class="grey"><b>RP</b></p></li>
+                <volist name='cf_detail' id='cf_detail'>
+                <li>
+                    <div class="lst">
+                        <p>{$cf_detail.PRODUCT_NAME} <if condition="$cf_detail['PRODUCT_GG'] neq '' ">({$cf_detail.PRODUCT_GG})</if></p>
+                        <p>数量：{$cf_detail.PRODUCT_NUM} &nbsp;&nbsp; 每日{$cf_detail.YL_NUM}/次 &nbsp;&nbsp;  每次{$cf_detail.JL_NUM}</p>
+                    </div>
+                </li>
+                </volist>
+                
+            </ul>
+            <div class="people">
+                <p class="text-right"><img src="{$doc_signature}" ></p>
+            </div>
+        </section>
+    </article>
+</body>
+<script>
+var $img = document.querySelector('.lst').getElementsByTagName('img')[0];
+    
+$img.onclick = function(){
+    if(this.getAttribute('width') != '100%'){
+        this.setAttribute('width','100%');
+    }else{
+        this.setAttribute('width','95px')
+    }
+}
+</script>
+</html>

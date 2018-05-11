@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>预约详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <section class="unit center">
+        <div class="submit">
+            <i></i>
+            <br>
+            <p class="text-center">已提交</p>
+        </div>
+    </section> 
+    <section class="unit">
+        <p class="txts"><span>预约服务：</span>北京专家视频会诊咨询</p>
+        <p class="txts"><span>预约时间：</span>2016-08-25  14:30:00</p>
+    </section> 
+    <section class="explain" style="padding-bottom:100px;">
+        <h2>注意事项</h2>
+        <p class="lis">1.xxxxx</p>
+        <p class="lis">2.xxxxx</p>
+        <p class="lis">3.xxxxx</p>
+        <p class="lis">3.xxxxx</p>
+        <p class="lis">3.xxxxx</p>
+    </section>  
+    <div class="btns text-center">
+        <a href="javascript:;" class="text-center">取消预约</a>
+        <a href="tel:tel:4006562020" class="text-center">联系客服</a>
+    </div>
+    <div id="mask" class="mask opacity"></div> 
+    <div class="option toDown" id="option">
+        <div class="oList">
+            <h3>取消理由</h3>
+            <label for="qus1"><input type="radio" id="qus1" name="o" checked /><span></span>现在不想预约</label>
+            <label for="qus2"><input type="radio" id="qus2" name="o" /><span></span>预约日期选错</label>
+            <label for="qus3"><input type="radio" id="qus3" name="o" /><span></span>其它原因，在下方输入</label>
+            <textarea rows="4" id="talk"></textarea>
+            <a href="javascript:;" class="over btn" id="over">完成</a>
+        </div>
+    </div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+var $btn = document.querySelectorAll('.btn'),
+    $over = document.querySelectorAll('.over'),
+    option = document.getElementById('option'),
+    mask = document.getElementById('mask');
+$('.btns a').eq(0).click(function(){
+    mask.className = 'mask';
+    option.className = 'option';
+})
+mask.onclick = function(){
+    this.className = 'mask opacity';
+    option.className = 'option toDown';
+}
+
+$('#over').click(function(){
+
+    var expert_id = $("#expert_id").val();
+    var union_id = $("#union_id").val();
+
+    if($('#qus3').prop('checked'))
+    {
+        if($('#talk').val().trim() != '')
+        {
+            var check_desc = $('#talk').val();
+        }
+        else
+        {
+            alert('请输入原因');
+            return false;
+        }
+    }
+    else
+    {
+        var check_desc = $('.oList input:checked').parent().text();
+    }
+     $.ajax({
+                type: 'post',
+                url: "{:U('Expert/Doc/doc_tdsh')}",
+                data: {'check_desc':check_desc,'check_flag':'2','expert_id':expert_id,'union_id':union_id},
+                dataType:'json',
+                success: function(e){
+                    if(e=="ok"){
+                        location.reload()
+                    }else{
+                        alert("提交失败");
+                    }
+                }
+            })
+})
+
+function check_ok(){
+
+    var expert_id = $("#expert_id").val();
+    var union_id = $("#union_id").val();
+    $.ajax({
+        type: 'post',
+        url: "{:U('Expert/Doc/doc_tdsh')}",
+        data: {'check_flag':'1','expert_id':expert_id,'union_id':union_id},
+        dataType:'json',
+        success: function(e){
+            if(e=="ok"){
+                location.reload()
+            }else{
+                alert("提交失败");
+            }
+        }
+    })
+}
+</script>
+</html>

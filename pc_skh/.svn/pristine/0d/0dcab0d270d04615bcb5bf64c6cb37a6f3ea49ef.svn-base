@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>北京圣康华</title>
+  <!-- 公共样式 -->
+  <link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+  <!-- 当前样式 -->
+  <link rel="stylesheet" href="/Public/css/contact/guide.css">
+  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+</head>
+<body>
+  <!-- 头部start -->
+  <include file="Public:header"/>
+  <!-- 头部end -->
+  <div class="banner con">
+  </div>
+  <div class="nav con">
+    <div class="w1200">
+      <a href="">首页</a><span>></span><a href="">联系我们</a><span>></span><a href="">患者就医指南</a>
+    </div>
+  </div>
+  <div class="con1 con">
+    <div class="w1200">
+      <ul class="item">
+        <li class="active">预约挂号</li>
+        <li>就医前的准备工作</li>
+        <li>手术前的准备</li>
+        <li>出院准备</li>
+        <li>就医环境</li>
+        <li>医疗保险</li>
+        <li>地图&交通</li>
+      </ul>
+      <div class="content1 content active">
+        <h2>预约挂号</h2>
+        <h3>本院实行预约挂号制度；患者就医，请提前预约挂号。</h3>
+        <p class="desc">北京圣康华眼科医院实行严格的实名就医和预约挂号制度。任何患者就医前，均需实名预约挂号。未预约前来就医，我们可能无法为您安排医生为您服务。您可以电话预约挂号，也可以现场预约挂号。</p>
+        <p class="desc">北京圣康华眼科医院没有急诊服务业务。需要急诊医疗服务的患者，请选择设立急诊服务的医院就医。通常情况下，综合医院都会设立急诊科；需要急诊就医的患者，可以考虑选择综合医院急诊就医。</p>
+        <p class="desc">如果您在其他医院急诊就医后，还需要来我院预约就医，就医时请提供您在其他医院急诊就医的病历资料。</p>
+        <p class="title">预约电话: <strong>010-62033263</strong>；<strong>010-62033293</strong></p>
+        <p class="title">预约挂号时，请提供您的联系电话；如发生医生门诊时间因紧急情况临时变动的情况，医院会提前与您联系，安排预约变更或安排其他医生为您服务。</p>
+      </div>
+      <div class="content2 content">
+        <h2>就医前的准备工作</h2>
+        <h3>为了更好地为您提供有效的医疗服务，对于首次来我院就医的患者，建议您就医前进行如下方面的准备：</h3>
+        <p class="desc">1.带好已有的病历资料；</p>
+        <p class="desc">2.提前预约挂号，安排出充分就医时间；</p>
+        <p class="desc">3.安排好家人陪同；</p>
+        <p class="desc">4.选择好交通方法和交通路线；</p>
+        <p class="desc">5.带一个墨镜。眼科检查通常需要散瞳，散瞳后几小时会畏光，带一个墨镜可以解决散瞳后畏光的问题。</p>
+        <p class="desc">6.做好医疗付费的准备工作。建议患者使用信用卡、借记卡付费，这样可以避免携带现金的风险。北京市医保患者就医，请带好社保卡。</p>
+        <p class="desc">7.带好身份证。因为医疗安全考虑和医疗法律原因，医院实行严格的实名就医制度。如果医院无法核实您的身份，医院将无法为您提供医疗服务。</p>
+        <p class="desc">8.转诊单：如果您经当地医生转诊来我院就医，请带好医生转诊单。医生转诊单的信息将有助于我院医生更快、更准确地了解您的病情和医疗需要，从而可以更加有效地为您提供医疗服务。</p>
+      </div>
+      <div class="content3 content">
+        <h2>手术前的准备</h2>
+        <h3>已预约安排手术的患者，请阅读“手术前的准备”一节，做好手术前的个人准备工作。</h3>
+        <p class="title">手术前一天的准备：</p>
+        <p class="desc">1.在手术前一天应当洗澡；没有洗澡条件的患者，也应当洗头、洗脸。<br />
+        2.避免紧张，充分休息，保持良好的睡眠（可遵医嘱服用适量镇静安眠药）。<br />
+        3.避免感冒、饮酒、吸烟及食用油腻、辛辣食物。<br />
+        4.需要全身麻醉者，手术前一天午夜后禁饮食；需要晨起服药时，也只可用一小口水送服药物。局麻者术前可少量进食，应避免过饱食。<br />
+        5.如果您正在进行抗凝治疗、或正在服用阿司匹林、华法林纳、布洛芬或其他非类固醇类抗炎药物，请与您的内科医生联系，决定是否可以进行短暂停药。这些药物可以降低您的凝血能力，手术前需要停药。<br />
+        6.如果手术前发生上呼吸道感染、发热、咳嗽等情况或其他感染性病灶，应及时通知医师停手术。</p>
+
+        <p class="title">手术当日的准备</p>
+        <p class="desc">1.应穿着宽松、干净、舒适的衣服。应穿开身上衣，不要穿套头衫。不要戴项链、耳环、假牙等可能影响手术过程的物品。不可系发髻。手术前请上厕所，以防止手术中憋尿。<br />
+        2.如患者正在服用降血压药或心脏病药，这些药物在手术当日应当正常服用；服药时应当用小口水送服，不要喝水太多，可送服药物即可。但是，患者手术当日不能服用利尿降血压药，如双氢克尿塞（如 <strong>hydrochlorothiazide, HCTZ</strong>） 、速尿灵（<strong>Furosemide</strong>）等。服用这类药物的患者，应与经治内科医生联系，将药物更换为其他类别的其他降血压药物或停药。<br />
+        3.如果您是一位糖尿病患者，正在口服降糖药，手术当日请正常用药。如果您手术前一天的晚上必须使用胰岛素，请与您的内科医生联系，决定是否需要减少胰岛素用量。如果手术当日不吃早饭，或前一日晚使用常规量胰岛素，可能导致术中低血糖的发生。<br />
+        4.请将您正在服用的所有药物（包括晨起已经服用的药物和所有正在使用的眼药水）都带到医院，供麻醉医师核查。<br />
+        5.<strong>家人陪同</strong>：请安排家人或朋友陪同来医院手术。陪同人必须是<strong>18</strong>岁以上有行为能力的成人，并在手术过程中在医院区域内等候。对于门诊手术患者，陪同人应负责将患者接送患者回家；需要住院观察的术后患者，陪同人负责帮助患者办理住院手续。门诊手术患者，如果没有家人或朋友陪同接送，医院将取消手术安排。</p>
+
+        <p class="title">其他注意事项</p>
+        <p class="desc">1.如果情况允许，女性患者手术应尽可能避开月经期。<br />
+        2.手术中不要憋尿、咳嗽、屏气。如果出现需要憋尿、咳嗽等情况，必须及时告诉医生暂停手术，安排术中排尿，解除咳嗽。手术中请勿移动头部，非必要不要说话。</p>
+
+        <p class="title">交通</p>
+        <p class="desc">当日手术的患者，不宜乘用公共交通工具来往。自驾车、出租车是比较好的出行办法。门诊手术的患者，请安排好手术当日恰当来院、离院的交通工具。<br />
+        医院没有停车场，医院门前只能短暂停车，供患者上下车。医院对面有多个公共停车场；开车前来接送病人者，可将车辆停放在公共停车场。<br />
+        视网膜玻璃体手术后，眼内充填气体者在气体完全吸收之前不可乘坐飞机。</p>
+      </div>
+
+
+      <div class="content4 content">
+        <h2>出院准备</h2>
+        <p class="title">患者门诊手术或出院，应有成年家人接送陪同。</p>
+        <p class="title">为确保患者医疗安全，患者门诊手术后回家或出院时，不应乘坐公交车、地铁等公交工具。眼内注射气体的患者，不能乘坐飞机。</p>
+        <p class="title">如患者手术时或出院时没有家人陪同接送，应有患者朋友或亲属陪同。</p>
+        <p class="title">接送人员应预先在医院留下姓名及联系电话，说明与患者的关系，以便必要时的联系。如果患者前来手术或住院时没有家人和监护人陪同，医院将无法为患者办理手术或出院手续。</p>
+        <p class="title">医院没有停车场地。接送患者者，请将私人用车停放在医院对面的公共停车场。</p>
+      </div>
+
+
+      <div class="content5 content">
+        <h2>就医环境</h2>
+        <h3>就医前，了解一下医院的环境，包括门诊的功能布局、不同职员的着装、餐饮服务情况等，会为您的就医带来更多方便。</h3>
+        <p class="title">基本就医环境：</p>
+        <p class="desc">北京圣康华眼科医院对环境设计的要求是"简洁、自然、安宁、舒适"，为患者提供一个适用于眼科医疗要求的良好的就医环境。</p>
+        <p class="desc">医院门诊楼（A楼）共三层，各层又分为多个相对独立的诊区，各诊区有2-4间诊室和独立的候诊区，布局如下：</p>
+        <p class="indent">一层：护士工作站、视力检查区、综合眼科、白内障医疗中心、专家门诊、眼底照相室、治疗室</p>
+        <p class="indent">二层：青光眼科、眼底病与糖尿病眼病医疗中心、眼科影像诊断检查中心、内科</p>
+        <p class="indent">三层：功能视觉中心（眼视光、运动视觉、视觉康复）、听力康复科、激光治疗中心、检验科</p>
+        <p class="desc">病房设在病房楼三层，是医院最为安静的区域。日间术后观察室（日间病房）设在病房楼一层内段，环境独立、安静，进出十分便利。住院楼（B座）共四层，各层功能区如下：</p>
+        <p class="indent">一层：咖啡厅、日间病房、多功能会议室</p>
+        <p class="indent">二层：眼科影像诊断检查中心、远程会诊中心、糖尿病研究所</p>
+        <p class="indent">三层：病房</p>
+        <p class="indent">四层：手术室</p>
+        <div class="plane">
+          <img src="/Public/images/contact/guide/img1.jpg" alt="">
+          <span>查看平面图</span>
+        </div>
+
+        <p class="title">餐饮：</p>
+        <p class="desc">医院为住院病人提供符合眼科医疗要求的专业化、标准化餐饮服务。病房楼一层设有咖啡厅，提供简洁的餐饮服务。</p>
+        <p class="desc">北京圣康华眼科医院的餐饮服务的任务是为患者就医和员工工作提供保障。医院餐饮服务不对外服务。</p>
+        <p class="desc">北京圣康华眼科医院的餐饮服务遵循以下原则：</p>
+        <p class="indent">1.专业化：对患者的服务，要求适合眼科医疗的特点；对于员工的服务，要求简单、健康、饮食无异味。</p>
+        <p class="indent">2.简单化：遵循种类少、质量高的原则，使医院的餐饮服务符合医院的“高质量医疗、短时间住院”的特点。对员工的服务，以简单、方便、热量充足、不浪费时间、不影响餐后思维敏捷度为原则供餐。</p>
+        <p class="indent">3.标准化：医院提供标准化的餐饮服务，要求固定种类、标准一致、品质稳定可靠。</p>
+        <p class="indent">4.清真化：为了给穆斯林患者及员工提供一个舒适的就医、工作环境，医院不提供穆斯林习俗禁忌的饮食。</p>
+        <p class="indent">5.国际化：符合医院面向国内外患者服务的工作要求。</p>
+        <p class="desc">医院地处北京市的中心城区，医院周围有各种不同风格的餐饮服务。需要其他餐饮服务的患者和员工，可以在医院周围选择不同种类的餐饮服务。</p>
+        <p class="desc">员工工作期间，如果选择到院外就餐，应符合以上专业化和简单化的原则，同时不得饮酒，不得吸烟。</p>
+
+        <p class="title">工作制服：</p>
+        <p class="desc">北京圣康华眼科医院努力为患者就医创造一个“既温馨、又专业”的医疗环境。医院没有一般医疗机构那种传统的“白大褂”工作服。医生在门诊工作或查房时可穿个人平常服装或西装（领带一定用领带夹固定到衬衫上），佩戴医院身份名牌。医生在手术或治疗室工作时要更换专用服装。</p>
+        <p class="desc">护士和其他工作人员各有相应的工作制服，便于患者识别。</p>
+        <p class="indent">1.护士</p>
+        <p class="indent">2.主管护士（护士长）</p>
+        <p class="indent">3.实习护士</p>
+        <p class="indent">4.助理医生</p>
+        <p class="indent">5.住院医师</p>
+        <p class="indent">6.临床检验技术人员</p>
+        <p class="indent">7.临床药师</p>
+        <p class="indent">8. 后勤服务</p>
+
+        <p class="title">医院的照明设计：</p>
+        <p class="desc">作为一家以视觉医疗服务为特色的眼科专科医院，我们十分重视医院的照明设计。根据医院各分区的功能不同，医院的照明照度和色温各有不同</p>
+        <p class="indent">医院公共场合的照明照度较高，色温是4500k，可在保持较低色温良好舒适度的同时，保证充分的照明照度。</p>
+        <p class="indent">在手术室、办公区的照明照度充分，色温为4000k，可以使员工在工作状态下保持视觉舒适度。</p>
+        <p class="indent">病房照明照度相对较低，色温为3500k，可以在保持充分照明、满足医疗工作需要的情况下，为患者创造一个较为舒适、平静的家庭式照明环境。</p>
+        <p class="desc">除此之外，照明设计中还特别考虑了照明眩光问题和患者散瞳检查后的畏光问题。</p>
+      </div>
+
+      <div class="content6 content">
+        <h2>医疗保险</h2>
+        <h3>有医疗保险的患者，要做好医疗保险的准备；</h3>
+        <p class="desc">北京圣康华眼科医院是北京市医保定点专科医院，北京市所有医保参保者均可直接来院就医，不需预先选定，不受患者所选取的定点医院范围的限制。北京市医保患者就医，请携带社保卡。<br />
+        国际医疗保险患者、各类商业医疗保险患者就医，就医前需联系您的医疗保险公司。我们可以为您在本院就医的医疗保险支付事宜提供必要的协助。</p>
+      </div>
+
+      <div class="content7 content">
+        <h2>地图、交通</h2>
+        <h3>了解医院位置、公共交通路线，选择合适的出行方式。</h3>
+        <!--百度地图容器-->
+        <div style="width:818px; height:360px; border:#ccc solid 1px;" id="mapContent"></div>
+
+        <p class="desc"><i>地址:</i>北京市西城区西直门内大街132号</p>
+        <p class="desc"><i>公交路线:</i>北京圣康华眼科医院地处北京市西直门内大街中部，是北京地区公交线路最为密集的区域之一，有多路地铁及公交车可到达。</p>
+        <p class="title">公交路线1：乘坐地铁4号线，在新街口站下车，D出口，向西100米，西直门教堂西侧。</p>
+        <p class="title">公交路线2：乘坐地铁2号线或13号线，在西直门站下车，B出口或C出口，沿西直门内大街向东800米，路南，西直门教堂西侧。</p>
+        <p class="title">公交路线3：乘公交7、111、105、808路，在新开胡同站下车，医院就在车站旁边。</p>
+        <p class="desc"><i>驾车路线:</i></p>
+        <p class="title">路线一：经西直门桥，沿西直门内大街桥向东800米；</p>
+        <p class="title">路线二：经积水潭桥，沿新街口北大街向南，至西直门内大街路口，右转，沿西直门内大街向西，过赵登禹路路口继续西行100米，路南，教堂西侧。</p>
+        <p class="title">路线三：经赵登禹路，至西直门内大街路口，拐弯向西进入西直门内大街，西行200米，路南，教堂西侧。</p>
+        <p class="desc">更多情况，请致电我院“医疗服务中心”咨询。电话：<strong>010-62381656</strong></p>
+      </div>
+    </div>
+  </div>
+  <!-- 底部start -->
+  <include file="Public:footer"/>
+  <!-- 底部end -->
+  <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var item = document.getElementsByClassName('item')[0];
+    var oLi = item.getElementsByTagName('li');
+    var content = document.getElementsByClassName('content');
+    for(var i=0; i<oLi.length; i++) {
+      oLi[i].index = i;
+      oLi[i].onclick = function() {
+        for(var i=0; i<oLi.length; i++) {
+          oLi[i].classList.remove('active');
+          console.log(content[i]);
+          content[i].classList.remove('active');
+        }
+        this.classList.add('active');
+        content[this.index].classList.add('active');
+        if(this.index == 6) {
+          setTimeout(initMap(), 20)
+        }
+      }
+    }
+
+    var plane = document.getElementsByTagName('img')[0];
+    var cover = document.createElement('div');
+    var img1 = document.createElement('img');
+    var img2 = document.createElement('img');
+    function create() {
+      cover.appendChild(img1);
+      cover.appendChild(img2);
+      document.body.appendChild(cover);
+      img1.src = '/Public/images/contact/guide/img2.jpg';
+      img2.src = '/Public/images/contact/guide/close.png';
+      cover.className = 'cover';
+      img1.className = 'cover1';
+      img2.className = 'cover2';
+    }
+    console.log(plane);
+    plane.onclick= function() {
+      create();
+    //获取滚动条距离顶部的距离
+      var top = document.documentElement.scrollTop || document.body.scrollTop;
+      cover.style.top = top - 700 +'px';
+      console.log(cover.style.top);
+      cover.style.display = 'block';
+    //禁止页面滚动
+      document.body.style.overflow = 'hidden';
+    }
+    img2.onclick = function() {
+      cover.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    //创建和初始化地图函数：
+    function initMap(){
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+        addMarker();//向地图中添加marker
+    }
+
+    //创建地图函数：
+    function createMap(){
+        var map = new BMap.Map("mapContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(116.372209,39.946363);//定义一个中心点坐标
+        map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+
+    //地图事件设置函数：
+    function setMapEvent(){
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+
+    //地图控件添加函数：
+    function addMapControl(){}
+
+    //标注点数组
+    var markerArr = [{title:"北京圣康华眼科医院",content:"地址：北京市西城区西直门内大街132号<br/>坐标：116.372209,39.946363",point:"116.372209|39.946363",isOpen:0,icon:{w:21,h:21,l:0,t:0,x:6,lb:5}}
+     ];
+    //创建marker
+    function addMarker(){
+        for(var i=0;i<markerArr.length;i++){
+            var json = markerArr[i];
+            var p0 = json.point.split("|")[0];
+            var p1 = json.point.split("|")[1];
+            var point = new BMap.Point(p0,p1);
+            var iconImg = createIcon(json.icon);
+            var marker = new BMap.Marker(point,{icon:iconImg});
+            var iw = createInfoWindow(i);
+            var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+            marker.setLabel(label);
+            map.addOverlay(marker);
+            label.setStyle({
+                        borderColor:"#808080",
+                        color:"#333",
+                        cursor:"pointer"
+            });
+
+            (function(){
+              var index = i;
+              var _iw = createInfoWindow(i);
+              var _marker = marker;
+              _marker.addEventListener("click",function(){
+                  this.openInfoWindow(_iw);
+                });
+                _iw.addEventListener("open",function(){
+                  _marker.getLabel().hide();
+                })
+                _iw.addEventListener("close",function(){
+                  _marker.getLabel().show();
+                })
+              label.addEventListener("click",function(){
+                  _marker.openInfoWindow(_iw);
+                })
+              if(!!json.isOpen){
+                label.hide();
+                _marker.openInfoWindow(_iw);
+              }
+            })()
+        }
+    }
+    //创建InfoWindow
+    function createInfoWindow(i){
+        var json = markerArr[i];
+        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+        return iw;
+    }
+    //创建一个Icon
+    function createIcon(json){
+        var icon = new BMap.Icon("http://7xic1p.com1.z0.glb.clouddn.com/markers.png", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+        return icon;
+    }
+
+
+
+  </script>
+</body>
+</html>

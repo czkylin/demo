@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>千县万医介绍</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+    <style>
+        body{font-size:16px;}
+        article{width:90%;margin:0 auto;}
+        article:nth-of-type(1){padding-top:120px;}
+        article:nth-of-type(2){padding-bottom:100px;}
+        article h2{width:50%;height:70px;line-height:70px;font-weight:normal;background:url(/weixin/Public/Expert/images/zhengcejiedu/titleH1Bg.png) no-repeat 0 bottom;text-indent:3em;font-size:16px;}
+        article p{text-indent:2em;padding:10px 0;line-height:30px;}
+        article h3{font-weight:normal;font-size:16px;height:40px;line-height:40px;border-bottom:1px solid #30baff;}
+        article ul{display:box;display:-webkit-box;padding:10px 0;}
+        article li{width:.9rem;}
+        article li .eList{width:100%;margin-bottom:10px;}
+        article li .eList p{width:.6rem;height:.6rem;border-radius:.6rem;overflow:hidden;text-indent:0;padding:0;margin:0 auto;}
+        article li .eList img{width:100%;vertical-align:middle;}
+        article span{font-size:12px;display:block;text-align:center;line-height:24px;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+</head>
+<body>
+   <nav class="menu">
+        <ul>
+            <li class="text-center">
+                <i></i>
+                <span>千县万医计划</span>
+                <a href="index.php?m=Expert&c=Class&a=jobLine"></a>
+            </li>
+            <li class="text-center">
+                <i></i>
+                <span>千县万医介绍</span>
+               <a href="index.php?m=Expert&c=Class&a=qxwyjs"></a>
+            </li>
+        </ul>
+    </nav>
+    <article>
+        <h2>千县万医介绍</h2>
+        <p>“全国眼科远程医疗联盟——千县万医培训工程”汲取国际领先的医院管理理念与经营模式，以北京为中心，辐射全国，向各省、市、县医院提供眼科医生培训和专家技术指导学术交流等服务。在全国34个省、市、自治区建立100多个国家区域协同医疗服务中心，以及1000多家县市级眼科诊疗中心远程会诊医疗基地，继而满足基层对优质医疗服务的需求，为眼病患者带来福音，惠及全社会。</p>
+        <img src="/weixin/Public/Expert/images/zhengcejiedu/greyLogo.png" width="100%"/>
+        <p>“全国眼科远程医疗联盟——千县万医培训工程”是经北京市社会团体登记管理机关核准登记的非营利性社会团体。全国眼科远程医疗联盟集产、学、研一体化，宗旨为团结国内外开展眼科疾病诊断和治疗技术应用研究的高等科研院所，临床应用眼病诊断治疗新技术的医院、开展眼病诊断治疗设备研制的企业等单位。通过开展资源整合进行联合研究，达到在临床上眼科疾病诊断和治疗技术与研制出可以替代进口产品的国内眼科疾病诊断治疗装备之目的。</p>
+    </article>
+    <article>
+        <h2>专家风采</h2>
+        <ul>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/1.jpg" /></p>
+                    <span>朱思泉</span>
+                    <span>主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/2.jpg" /></p>
+                    <span>王军</span>
+                    <span>主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/3.jpg" /></p>
+                    <span>刘玉福</span>
+                    <span>主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            </ul>
+            <ul>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/4.jpg" /></p>
+                    <span>施玉英</span>
+                    <span>主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/5.jpg" /></p>
+                    <span>王涛</span>
+                    <span>主任医师</span>
+                    <span>专长：青光眼  白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/6.jpg" /></p>
+                    <span>史翔宇</span>
+                    <span>副主任医师</span>
+                    <span>专长：白内障  眼外伤</span>
+                </div>
+            </li></ul>
+            <ul>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/7.jpg" /></p>
+                    <span>王晓贞</span>
+                    <span>副主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/8.jpg" /></p>
+                    <span>陶靖</span>
+                    <span>副主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/9.jpg" /></p>
+                    <span>王书华</span>
+                    <span>副主任医师</span>
+                    <span>专长：青光眼  白内障</span>
+                </div>
+            </li></ul>
+            <ul>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/10.jpg" /></p>
+                    <span>董喆</span>
+                    <span>副主任医师</span>
+                    <span>专长：白内障</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/11.jpg" /></p>
+                    <span>陈惠茹</span>
+                    <span>主任医师</span>
+                    <span>专长：眼底病</span>
+                </div>
+            </li>
+            <li>
+                <div class="eList">
+                    <p><img src="/weixin/Public/Expert/images/ext/12.jpg" /></p>
+                    <span>赵丽丽</span>
+                    <span>副主任医师</span>
+                    <span>专长：眼底病  白内障</span>
+                </div>
+            </li>
+        </ul>
+    </article>
+     <include file="Public:footer_kc" />
+      <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

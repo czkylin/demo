@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>支出详情</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/jiexin.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<p class="des">具体收入以实收为准</p>
+	<div class="time module">{$order_date}</div>
+	<div class="title module">{$order_name}</div>
+	<ul class="list">
+		<li>
+			<span>支出金额</span>
+			<b><i>{$order_money}</i> 元</b>
+		</li>
+		
+	</ul>
+	<div class="total">
+		<span>总共</span>
+		<b><i>{$order_money}</i> 元</b>
+	</div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

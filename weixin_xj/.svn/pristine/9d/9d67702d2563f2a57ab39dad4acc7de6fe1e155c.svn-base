@@ -1,0 +1,151 @@
+<html class="ui-mobile">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta http-equiv="cache-control" content="public">
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + "px";
+</script>
+
+<title>报销管理</title>
+
+<style>
+	.diandan_list{padding:0.5rem;}
+	.order-list{ padding:0 0.5rem; margin-bottom: 1rem;}
+	.order-list li{height: 2rem; border-bottom: 1px solid #ccc;}
+	.order-list li h2{height: 2rem; width: 6rem; float: left; font-size: 0.6rem; line-height: 2rem;}
+	.order-list li i{height: 2rem; float: right; line-height: 2rem; font-size: 0.35rem;}
+	.order-list li.shenhe{border-bottom: none;}
+	.order-list li.shenhe a{float: right;height: 1rem; margin-top: 0.5rem; line-height: 1rem; font-size: 0.35rem; margin-left: 0.5rem; color: #fff; border-radius: 0.25rem; padding:0 0.3rem; background: #000;}
+	.order-list{
+		background: #F3F3F3;
+	}
+</style>
+
+</head>
+
+<body style=" background:#fff">
+
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile"  style=" background:#fff">
+	<div style="text-align: center;margin-top: 8px">
+			<h2 style="font-size: 20px">报销申请列表</h2>
+		</div>
+	<div class="diandan_list" id="dingdan">
+		<volist name="baoxiao" id="baoxiao" empty="暂时没有数据">
+			<ul class="order-list">
+				<li>
+					<h2>预借金额：</h2><i class="">{$baoxiao['MONEY_ADVANCE']}</i>
+				</li>
+				<li>
+					<h2>退回金额：</h2><i class="">{$baoxiao['MONEY_RETURN']}</i>
+				</li>
+				<li>
+					<h2>补领金额：</h2><i class="">{$baoxiao['MONEY_REPLACE']}</i>
+				</li>
+				<li>
+					<h2>总计项目金额：</h2><i class="">{$baoxiao['MONEY_SUM']}</i>
+				</li>
+				<li>
+					<h2>单据张数：</h2><i class="">{$baoxiao['ER_COUNT']}</i>
+				</li>
+				<li class="shenhe">
+					<h2>操作</h2>
+					<a href="/weixin/index.php?m=Home&c=Jixiao&a=baoxiao_info&expense_id={$baoxiao['EXPENSE_ID']}">查看详情</a>
+				</li>
+			</ul>
+		</volist>
+	</div>
+
+	 <div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+
+	<div id="current_pagenum" style="display:none">2</div>
+
+</div>
+
+<!--通底的引用开始-->
+
+<!-- <include file="Public:footer_fd" /> -->
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+
+<script>
+	var over_footer = '';
+	function load_more()
+	{
+		loadmore('#current_pagenum','/weixin/index.php?m=Home&c=Jixiao&a=baoxiao_list_append','#dingdan');
+	}
+
+</script>
+
+<!--通底的引用结束-->
+<!-- <include file="Public:footer_fd" /> -->
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>团队详情</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/medical/medical.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <header class="pics noLine">
+        <div class="team box">
+            <div class="image">
+
+                <if condition="$doc_detail['UNION_PIC'] eq ''">
+                    <img src="{$doc_detail.SMALL_PIC}" width="100%" />
+                <else/>
+                    <img src="{$doc_detail.UNION_PIC}" width="100%" />
+                </if>
+            
+            </div>
+            <div class="text">
+                <h2>{$doc_detail.UNION_NAME}</h2>
+                <p class="limit"><?php echo htmlspecialchars_decode($doc_detail['UNION_DESC']);?></p>
+                <div class="text-right"><i class="ui-icon-unfold"></i></div>
+            </div>
+        </div>
+        <div class="tc">
+            <p>擅长：心功能不全、心绞痛、高血压、血脂异常、冠心病</p>
+        </div>
+    </header>
+    <article>
+    <section class="unit">
+                <div class="team box">
+                    <div class="box">
+                        <div class="image">
+                            <if condition="$doc_detail['SMALL_PIC'] eq '' ">
+                                <img src="/weixin/Public/Expert/images/teams/user.png" width="100%" />
+                            <else/>
+                                <img src="{$doc_detail.SMALL_PIC}" width="100%" />
+                            </if>
+                        </div>
+                        <div class="text">
+                            <h2>{$doc_detail.EXPERT_NAME}<small>{$doc_detail.EXPERT_ROLE}</small><em>首席专家</em></h2>
+                            <h3>{$doc_detail.HOS_NAME}</h3>
+                            <p>擅长：{$doc_detail.EXPERT_SKILL}</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#"></a>
+    </section>
+    <volist name="expert_info" id="info">
+        <if condition="($info['CHECK_FLAG'] eq 1) or ($info['EXPERT_ID'] eq $expert_id)">
+        <section class="unit">
+            <div class="team box">
+                <div class="box">
+                    <div class="image">
+                        <if condition="$info['SMALL_PIC'] eq '' ">
+                            <img src="/weixin/Public/Expert/images/teams/user.png" width="100%" />
+                        <else/>
+                            <img src="{$info.SMALL_PIC}" width="100%" />
+                        </if>
+                    </div>
+                    <div class="text">
+                        <h2>{$info.EXPERT_NAME}<small>{$info.EXPERT_ROLE}</small></h2>
+                        <h3>{$info.HOS_NAME}</h3>
+                        <p>擅长：{$info.EXPERT_SKILL}</p>
+                        <if condition="$info['EXPERT_ID'] eq $expert_id">
+                        <span class="sta no">
+                        <if condition="$info['CHECK_FLAG'] eq '0' ">待审核</if>
+                        <if condition="$info['CHECK_FLAG'] eq '2' ">未通过</if>
+                        </span>
+                        </if>
+                    </div>
+                </div>
+            </div>
+            <a href="#"></a>
+        </section>
+        </if>
+    </volist>
+    </article>
+    <if condition="$status neq '1' ">
+        <p class="last text-center">如果您有意向加入专家团队，请点击立即加入</p>
+    
+    <footer id="footer" class="footer">
+        
+        <a href="{:U('Expert/Doc/doc_tdsq')}&id={$doc_detail.UNION_ID}" class="join">立即加入</a>
+        
+    </footer>
+    </if>
+</body>
+<script>
+var $i = document.querySelector('.pics i'),
+    $p = document.querySelector('.text p'),
+    onOff = true;
+    
+$i.onclick = function(){
+    if(onOff){
+        $p.className = '';
+        this.className = 'ui-icon-unfold down';
+    }else{
+        $p.className = 'limit';
+        this.className = 'ui-icon-unfold';
+    }
+    onOff = !onOff;
+}
+</script>
+</html>

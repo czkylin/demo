@@ -1,0 +1,20 @@
+<volist name="jiekuan" id="jiekuan" empty="">
+	<ul class="order-list">
+		<li>
+			<h2>借款金额：</h2><i class="">{$jiekuan['LOAN_MONEY']}</i>
+		</li>
+		<li>
+			<h2>借款用途：</h2><i class="" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width: 8rem; text-align: right;">{$jiekuan['LOAN_CONTENT']}</i>
+		</li>
+		<li>
+			<h2>借款备注：</h2><i class="" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width: 8rem; text-align: right;">{$jiekuan['LOAN_DESC']}</i>
+		</li>
+		<li>
+			<h2>借款日期：</h2><i class="">{$jiekuan['LOAN_DATE']|Dtodiy='Y-m-d',###}</i>
+		</li>
+		<li class="shenhe">
+			<h2>操作</h2>
+			<a href="/weixin/index.php?m=Member&c=Jixiao&a=jiekuan_info&loan_id={$jiekuan['LOAN_ID']}">查看详情</a>
+		</li>
+	</ul>∮
+</volist>

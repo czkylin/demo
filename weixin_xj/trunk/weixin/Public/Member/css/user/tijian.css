@@ -1,0 +1,65 @@
+/*common css*/
+body{font-size: 0.6rem;}
+*{padding: 0; margin: 0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{text-decoration: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+i{font-style: normal;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{display: block; content: ""; clear: both;}
+/*main*/
+.main{padding: 15px 3.2%; border-bottom: 1px solid #e7e7e7;}
+.main .con{float: left; display: block; width: 50%;}
+.main .shengao{padding-left: 5%;}
+.main .shengao img{width: 46%; float: left; display: block;}
+.main .shengao span{margin-left: 5%; float: left; display: block; height: 100%; width: 10%; border-top: 1px solid #333333; border-bottom: 1px solid #333333; background: url(/weixin/Public/Member/images/user/shengaobg.png) no-repeat center; background-size: contain;}
+.main .shengao span i{z-index: 1; position: relative; line-height: 30px; display: block; width: 100%; height: 30px; background: #fff;font-size: 12px; color: #333;}
+.main .shengao span b{}
+.main .tizhong{width: 46%; padding-left: 5%; text-align: center;}
+.main .tizhong span{display: block; font-size: 14px;}
+.main .tizhong img{width: 40%;}
+.des-list{float: right; display: block; width: 50%;}
+.des-list ul{}
+.des-list ul li{height: 0.9rem;}
+.des-list ul li span{margin-top: 6%; height: 0.45rem; float: left; width: 12px; height: 12px; border-radius: 12px;}
+.des-list ul li span.fei{background: #ee5c55;}
+.des-list ul li span.zc{background: #10ca6e;}
+.des-list .des{float: left; height: 0.9rem; margin-left: 4%;}
+.des-list .des p{ height: 0.45rem; font-size: 12px; color: #999999; line-height: 0.45rem;}
+.des-list .des b{display: block;font-size: 13px; color: #333;  height: 0.45rem; line-height: 0.45rem;}
+.des-list .time{font-size: 14px; color: #999999; margin-top: 5px;}
+
+.list1{}
+.list1 li{height: 40px; line-height: 40px; padding: 0 3.2%; border-bottom: 1px solid #e7e7e7;}
+.list1 li a{display: block;}
+.list1 li span{float: left; font-size: 14px; color: #333; height: 40px; line-height: 40px; padding-left: 35px;}
+.list1 li i{float: right; background: url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat 0 center; background-size: 10px; width: 10px; height: 40px;}
+.list1 li:nth-of-type(1) span{background: url(/weixin/Public/Member/images/user/icon_ck.png) no-repeat 0 center; background-size: 24px;}
+.list1 li:nth-of-type(2) span{background: url(/weixin/Public/Member/images/user/icon_hz.png) no-repeat 0 center; background-size: 24px;}
+.list1 li:nth-of-type(3) span{background: url(/weixin/Public/Member/images/user/icon_qb.png) no-repeat 0 center; background-size: 24px;}
+
+.list2{padding: 0 3.2%;}
+.list2 li{height: 40px; border-bottom: 1px solid #e7e7e7;}
+.list2 li a{display: block; height: 40px; padding-right: 20px;background: url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat right center; background-size: 10px;}
+.list2 li span{padding-left: 35px; float: left; height: 40px; line-height: 40px; font-size: 13px; color: #333;}
+.list2 li i{float: right; height: 40px; line-height: 40px; font-size: 13px; color: #999;}
+.list2 li:nth-of-type(1) span{background: url(/weixin/Public/Member/images/tijian/xuetang1.png) no-repeat 4px center; background-size: 16px;}
+.list2 li:nth-of-type(2) span{background: url(/weixin/Public/Member/images/tijian/xueyang1.png) no-repeat 2px center; background-size: 18px;}
+.list2 li:nth-of-type(3) span{background: url(/weixin/Public/Member/images/tijian/xueya1.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(4) span{background: url(/weixin/Public/Member/images/tijian/xinlv1.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(5) span{background: url(/weixin/Public/Member/images/tijian/shengao1.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(6) span{background: url(/weixin/Public/Member/images/tijian/niao1.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(7) span{background: url(/weixin/Public/Member/images/tijian/tiwen1.png) no-repeat 4px center; background-size: 14px;}
+.yichang{padding: 0 3.2%; height: 40px; border-bottom: 1px solid #e7e7e7;}
+.yichang a{display: block; height: 40px; padding-right: 20px;background: url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat right center; background-size: 10px;}
+.yichang span{padding-left: 35px; float: left; height: 40px; line-height: 40px; font-size: 13px; color: #ea4847; background: url(/weixin/Public/Member/images/tijian/yichang.png) no-repeat 2px center; background-size: 20px;}
+/*异常时候的样式*/
+.list2 li:nth-of-type(1).fei span{background: url(/weixin/Public/Member/images/tijian/xuetang2.png) no-repeat 4px center; background-size: 16px;}
+.list2 li:nth-of-type(2).fei span{background: url(/weixin/Public/Member/images/tijian/xueyang2.png) no-repeat 2px center; background-size: 18px;}
+.list2 li:nth-of-type(3).fei span{background: url(/weixin/Public/Member/images/tijian/xueya2.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(4).fei span{background: url(/weixin/Public/Member/images/tijian/xinlv2.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(5).fei span{background: url(/weixin/Public/Member/images/tijian/shengao2.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(6).fei span{background: url(/weixin/Public/Member/images/tijian/niao2.png) no-repeat 2px center; background-size: 20px;}
+.list2 li:nth-of-type(7).fei span{background: url(/weixin/Public/Member/images/tijian/tiwen2.png) no-repeat 4px center; background-size: 14px;} 
+.list2 li.fei i{color: #ea4847;}

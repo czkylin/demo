@@ -1,0 +1,107 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/zhuanjia.min.css" type="text/css" rel="stylesheet"/>
+<title>人员评测</title>
+</head>
+
+<body>
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+        <p class="msgtishi"  id="msg"></p>
+</div>
+<div id="J_QK_zixun" class="gp GJ_Gp gp-quankezixun-zixun" style="padding-bottom: 10px;">
+        <form method="post" name="consult" action="/weixin/index.php?m=Member&c=Pc&a=add_ok" onsubmit="return sub()">
+                <div class="g-list shadow">
+                        <div class=" item both content"> 待评测人员:{$real_name} </div>
+                        <div class=" item both content pingyu"> <span>评语：</span>
+                                <textarea placeholder="请输入内容描述！" name="eval_content" id="eval_content"></textarea>
+                        </div>
+                        <div class=" item both content pingyu"> <span>评分：</span>
+                                <input type="text" name="eval_score" size="4" id="eval_score" class="pingfen" />
+                                &nbsp;&nbsp;满分100 </div>
+                </div>
+                <div class="g-btn-padding fixed">
+                        <input type="hidden" value="{$eval_user_id}" name="eval_user_id">
+                        <input type="submit" value="提交" class="gbn gbt-pri"/>
+                </div>
+        </form>
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script type="text/javascript">
+
+function sub()
+
+{
+
+	var sendBox = $("#eval_content").val();
+
+
+
+	if(sendBox == "")
+
+	{
+
+		alert("请输入评语！");
+
+		return false;
+
+	}
+
+
+
+	var value = $("#eval_score").val();
+
+	var temp=/^\d+(\.\d+)?$/;
+
+	if(temp.test(value) == false)
+
+	{
+
+		alert("评分分值不能为空并且只能输数字！");
+
+		return false;
+
+	}
+
+	if(value < 1)
+
+	{
+
+		alert("分值不能小于1！");
+
+		return false;
+
+	}
+
+	if(value > 100)
+
+	{
+
+		alert("分值不能超过100！");
+
+		return false;
+
+	}
+
+}
+
+</script>
+</html>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>

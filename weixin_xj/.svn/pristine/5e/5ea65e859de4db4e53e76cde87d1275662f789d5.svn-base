@@ -1,0 +1,42 @@
+@charset "utf-8";
+html {-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;font-smoothing:antialiased;}
+blockquote,body,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,pre,td,textarea,th,ul {margin:0;padding:0}
+table {border-collapse:collapse;border-spacing:0}
+fieldset,img {border:0}
+address,b,caption,cite,code,dfn,em,i,var {font-style:normal;font-weight:400}
+dl,ol,ul {list-style-type:none}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:400}
+a {text-decoration:none;-webkit-transition:color .5s;transition:color .25s;color:#fff}
+a:hover {color:#fff;text-decoration:none;-webkit-tap-highlight-color:rgba(255,0,0,0);outline:0;outline:none;blr:expression(this.onFocus=this.blur())}
+sup {vertical-align:text-top}
+sub {vertical-align:text-bottom}
+textarea {resize:none}
+img {vertical-align:middle}
+button,input[type=submit],input[type=text],input[type=button],select {-webkit-appearance:none;border-radius:0;-webkit-tap-highlight-color:rgba(255,0,0,0);outline:0;outline:0;blr:expression(this.onFocus=this.blur())}
+body {background:#fff;font-family:"Microsoft Yahei",Arial,Helvetica,sans-serif;}
+.fl {float:left}
+.fr {float:right}
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden;line-height:0;font-size:0;}
+.dis {display:block;}
+.text-center {text-align:center;}
+.text-left {text-align:left;}
+.text-right {text-align:right;}
+.pos_fixed {position:fixed;}
+.pos_absolute {position:absolute;}
+
+.container{max-width:1100px;margin:80px auto 0;}
+.head .logo{width:120px;margin:0 auto;}
+.head p{line-height:40px;font-size:18px;}
+.head .size0{font-size:16px;}
+.content{margin-top:10px;}
+.content table{width:100%;font-size:18px;margin-bottom:50px;}
+.content tr{border-top:1px solid #1a1a1e;height:40px;}
+.content td{padding:10px 0;}
+.content tr.last{border-bottom:1px solid #1a1a1e;}
+.content tr span{width:40%;display:inline-block;}
+.footer{margin-top:350px;}
+.footer li{font-size:16px;line-height:40px;height:40px;border-bottom:1px solid #1a1a1e;}
+.footer li.last{border-bottom-width:0;}
+.footer li p{margin-right:50px;}
+.print{max-width:1100px;margin:50px auto;}
+.print a{color:#fff;background:#0ea1ad;display:inline-block;width:100px;border-radius:3px;text-align:center;height:30px;line-height:30px;}

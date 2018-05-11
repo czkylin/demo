@@ -1,0 +1,43 @@
+/* reset css */
+*{margin: 0; padding: 0;}
+img{vertical-align: top;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0); text-decoration: none;}
+html,body{font-family: "微软雅黑";}
+li{list-style: none;}
+/*main css*/
+.page{text-align: center;}
+.page h1,.page h2{margin-top: 2rem; font-size: 1rem; color: #4f4f4f; line-height: 1.6rem; font-weight: 600;}
+.page p{line-height: 1.2rem; color: #797979; font-size: 0.72rem;}
+.page .div{line-height: 1.2rem; color: #797979; font-size: 0.72rem;}
+.page .div span{color: #479eba;}
+.page1 img{display: block; width: 14.2rem; margin: 1.4rem auto 0;}
+.page a{display: block; line-height: 1.2rem; font-size: 0.72rem; color: #479eba;}
+.page2 .img-wrap{position: relative; padding: 1.5rem 0;}
+.page2 .img{display: block; width: 100%;}
+.page2-pop{position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: none;}
+.page2-pop .mask{position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0,0.7);}
+.p2-pop1{width: 11.92rem; display: block; margin: 10px auto;}
+.p2-pop2{width: 11rem; display: block; margin: 5px auto;}
+.p2-pop3{width: 11rem; display: block; margin: 5px auto;}
+.swiper-pagination{bottom: 0;left: 0;display: block;width: 100%;text-align: center;}
+.swiper-pagination-bullet{width: 15px;height: 5px;background: #fff;margin: 0 2px;display: inline-block;border-radius: 0;opacity: 1;}
+.swiper-pagination-bullet-active{background: #7bbad0;}
+.page3{background: #dadcdd; padding: 1rem 0;}
+.p3-img{display: block; width: 8.32rem; margin: 0 auto 1.4rem;}
+.p3-con{display: block; width: 13.8rem; margin: 0 auto; display: none;}
+.p4-img{display: block; width: 4.26rem; margin: 1.4rem auto;}
+.page4{border-bottom: 8px solid #f8f8f8; position: relative;}
+.p4-pop{position: absolute; left: 0; display: none; bottom: 0; width: 100%; padding: 0.4rem 0; background: rgba(227,227,227,0.5);}
+.p4-pop h3{line-height: 1.2rem;font-size: 0.64rem;color: #2b2b2b;}
+.p4-pop img{display: block; width: 13.66rem; margin: 0 auto;}
+.p5-img{display: block; width: 6.6rem; margin: 1.4rem auto;}
+.p5-pop{width: 100%; margin: 0 auto 1.4rem; opacity: 0; display: none;}
+.p5-pop.animate{-webkit-animation:fadeInLeft 0.8s forwards;animation:fadeInLeft 0.8s forwards;}
+.link{position: fixed; left: 0; bottom: 0; z-index: 10; width: 100%; display: block; height: 44px; line-height: 44px; text-align: center; overflow:hidden; color: #fff; font-size: 16px;}
+.link_1{ width:37%; height:44px; line-height:44px; display:block; float:left;  background: #ff8400;}
+.link_2{ width:63%; height:44px; line-height:44px;display:block; float:left;  background: #bf1b20; color:#fff;}
+
+.video{width:12.4rem; position: relative;background:url(/weixin/Public/Member/images/shangcheng/video-bg.jpg) no-repeat;background-size:100% 100%;height:6.7rem;padding:1.3rem 1.3rem 1rem;}
+.video img{width: 100%; }
+.video video,.movie{position: absolute; top: 13.3%; width: 84%; display: block; left: 8%; }
+.movie{height:6.88rem;}

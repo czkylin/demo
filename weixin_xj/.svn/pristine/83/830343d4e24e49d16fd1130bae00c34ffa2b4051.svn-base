@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>联盟产品-苄达赖氨酸滴眼液</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/yanyao/yanyao.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/pro.css">
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+<div class="yanyao">
+	<img src="/weixin/Public/Expert/images/yanyao/img10.jpg">
+    <img src="/weixin/Public/Expert/images/yanyao/img11.jpg">
+</div>
+<div id="code" style="margin-top:20px;">
+        <div class="statement">
+            <h2 class="text-center">声明</h2>
+            <p>本文所涉及的资料部分来源于网络，本网转载涉及版权等问题，请作者与我们联系，我们将在第一时间删除。</p>
+        </div>
+        <img src="/weixin/Public/Expert/images/zhengcejiedu/twoCode.png" alt="">
+        <p class="text-center">擦亮您心灵的视窗 开启那一瞬间豁然的绽放全国眼科远程医疗联盟 医者，一生</p>
+       <!--  <p class="text-center">阅读 98</p> -->
+        <a href="javascript:;" id="top">返回顶部</a>
+    </div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script>
+$('#top').click(function(){
+    $('html,body').animate({scrollTop:0});
+}); 
+</script>
+</html>

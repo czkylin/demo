@@ -1,0 +1,46 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Home/css/peixun/peixun.css" type="text/css" rel="stylesheet"/>
+<!-- title -->
+<title>讲师介绍</title>
+<!--meta-->
+</head>
+<body>
+<div class="about">
+  <h1>讲师介绍</h1>
+  <h2>{$wk_info.WK_NAME}</h2>
+  <div class="titleimg">
+    <h3>{$wk_info.CREATE_NAME}</h3>
+    <img src="{$wk_info.WK_IMG}">
+  </div>
+  <p>{$wk_info['WK_DESC']|htmlspecialchars_decode|Strimgurl='/upload','http://weixin.yk2020.com/upload',###}</p>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script>
+var over_footer = '1';
+</script>
+<script>
+$(function(){ 
+  $('.cont_left li').click(function(){
+  $(this).addClass('curr').siblings().removeClass('curr');
+  var ww=$(this).index();
+  $('.con_right>div').eq(ww).addClass('xianshi').siblings().removeClass('xianshi');
+  });
+})
+</script>
+</html>

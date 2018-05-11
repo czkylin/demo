@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>百倍爱心卡集锦</title>
+</head>
+<link href="/weixin/Public/Home/css/kalist.css" type="text/css" rel="stylesheet" >
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script>
+
+    function set_log(act)
+    {
+        var type = "Home_bb_detail_102";
+        var link_mobile = '{:I("get.link_mobile","0")}';
+        var openid = "{$openid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+
+    wx.config({
+        debug: false,
+        appId: '<?php echo $appId;?>',
+        timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+        nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    var wx_share_title = '元旦小长假 各地药店筛查活动集锦';
+    var wx_share_desc = '12月31日-1月2日元旦小长假期间，各地药店筛查活动开展的热火朝天';
+    var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Home/images/kalist/102/f.jpg";
+
+    wx.ready(function() {
+        wx.onMenuShareTimeline({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Home&c=Baibei&a=bb_detail_102&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name={:I("get.user_name","")}',
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                set_log('朋友圈');
+            },
+            cancel: function() {}
+        });
+        wx.onMenuShareAppMessage({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Home&c=Baibei&a=bb_detail_102&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name={:I("get.user_name","")}',
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                set_log('微信');
+            },
+            cancel: function() {}
+        });
+    });
+
+</script>
+<body>
+<div class="det">
+	<h2>元旦小长假 各地药店筛查活动集锦</h2>
+    <div class="del_con">
+    	<img src="/weixin/Public/Home/images/kalist/102/01.jpg">
+        <p>12月31日山东东营市平顺堂大药房筛查活动进行中</p>
+        <img src="/weixin/Public/Home/images/kalist/102/02.jpg">
+        <p>12月31日定州平安药房健康筛查活动中</p>
+        <img src="/weixin/Public/Home/images/kalist/102/03.jpg">
+        <p>12月31日河北唐山市玉田县圣亚药房活动进行中</p>
+        <img src="/weixin/Public/Home/images/kalist/102/04.jpg">
+        <p>1月1日东营市广饶县平民大药房活动进行</p>
+        <img src="/weixin/Public/Home/images/kalist/102/05.jpg">
+        <p>1月1日德州恒达医药有限公司（宁津广场大药房）筛查活动进行中</p>
+        <img src="/weixin/Public/Home/images/kalist/102/06.jpg">
+        <p>1月1日河北省唐山市玉田县圣亚药房活动进行中</p>
+        <img src="/weixin/Public/Home/images/kalist/102/07.jpg">
+        <p>1月1日山东东营市广饶平民大药房活动第2天</p>
+        <img src="/weixin/Public/Home/images/kalist/102/08.jpg">
+        <p>1月2日德州恒达医药有限公司（宁津广场大药房）筛查活动进行中</p>
+    </div>
+    <br><br>
+    <a href='/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name={:I("get.user_name","")}&sale_type={:C("SALE_TYPE_1")}&attach=<?php echo urlencode(base64_encode("m=Home&c=Baibei&a=bb_detail_102"));?>' class="jiaru">立即加入</a>
+</div>
+</body>
+</html>

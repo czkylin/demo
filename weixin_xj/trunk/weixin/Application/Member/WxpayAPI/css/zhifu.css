@@ -1,0 +1,25 @@
+.zhifu_top { height: 70px; padding: 0 20px; background: #fff; border-bottom: 2px solid #dedede; }
+.zhifu_top p { line-height: 70px; color: #4574d0 }
+.zhifu_top p b { font-weight: normal; }
+.zhifu_con { height: 70px; padding: 0 20px; background: #fff; }
+.zhifu_con p { line-height: 70px; color: #333333 }
+.zhifu_con p b { font-weight: normal; float: right; color: #ff0000; font-size: 20px; }
+.zhifu_bot { margin-top: 20px; }
+.zhifu_bot h2 { font-weight: normal; padding-left: 20px; font-size: 16px; margin-bottom: 20px; }
+.zhifu_bot ul { }
+.zhifu_bot ul li { background: #fff; height: 70px; border-bottom: 1px solid #dadada;}
+.zhifu_bot ul li:nth-of-type(2){height: 90px;}
+.zhifu_bot ul li .img-wrap{width: 20%; text-align: center; float: left;}
+.zhifu_bot ul li .img-wrap img { width: 40px; padding-top: 15px;}
+.zhifu_bot ul li:nth-of-type(2) .img-wrap img{padding-top: 26px;}
+.zhifu_bot ul li p,.zhifu_bot ul li .chongzhika{ width: 72%; float: left; border-left: 1px solid #dadada; height: 40px; padding-left: 10px; margin-top: 15px; font-size: 16px; }
+.zhifu_bot ul li:nth-of-type(1) p{text-align: left; line-height: 40px;}
+.zhifu_bot ul li .chongzhika{text-align: left; margin-top: -10px; position: relative; height: 60px;}
+.zhifu_bot ul li .chongzhika .card{color: #999; display: block;}
+.zhifu_bot ul li p span { background: #ff8400; color: #fff; padding: 7px; border-radius: 7px; margin-left: 10px; }
+.zhifu_bot ul li .dangqian { float: right; background: url(../images/lab.png) no-repeat; width: 20px; height: 20px; margin: 0; padding: 0; background-size: 20px; margin-top: 23px; margin-right: 15px; }
+.zhifu_bot ul li .dangqian.curr { float: right; background: url(../images/labbg.png) no-repeat; width: 20px; height: 20px; margin: 0; padding: 0; background-size: 20px; margin-top: 23px; margin-right: 15px; }
+.zhifu_bot ul li input { display: none; }
+.queding { margin: 0 20px; }
+.zhifu_bot p { color: #999999; font-size: 14px; text-align: center; line-height: 60px; height: 60px; margin: 0; }
+.queding a { background: #ff8400; border-radius: 5px; color: #fff; display: block; font-size: 16px; line-height: 35px; text-align: center; }

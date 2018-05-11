@@ -1,0 +1,83 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/loginReg.min.css" type="text/css" rel="stylesheet"/>
+<link type="text/css" rel="stylesheet" href="/weixin/Application/Home/View/iconfont/ux_1439282084_8082368/demo.css"/>
+<link type="text/css" rel="stylesheet" href="/weixin/Application/Home/View/iconfont/ux_1439282084_8082368/iconfont.css"/>
+
+<!-- title -->
+
+<title>绑定手机</title>
+
+<!--meta-->
+
+</head>
+
+<body style=" background:#e5e5e5;">
+<div style="min-height: 480px;">
+        <div class="bangdingcg"> <i class="iconfont">&#xe659;</i>
+                <h2>您已成功绑定手机号！</h2>
+                <p>功能介绍：免费咨询、专家咨询、现场阅片、远程阅片、远程会诊、疾病自测</p>
+                <b><span id="num"></span>秒钟后自动转入！</b> <em><a href="/weixin/index.php?m=Home&c=User&a=mywork_house">我的工作室</a></em> </div>
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+
+$(document).ready(function()
+
+{
+
+	function jump(count)
+
+	{
+
+		window.setTimeout(function()
+
+		{
+
+			count--;
+
+			if(count > 0)
+
+			{
+
+				var content=count;
+
+				$('#num').text(content);
+
+				jump(count); 
+
+			}
+
+			else
+
+			{
+
+				location.href="/weixin/index.php?m=Home&c=User&a=mywork_house";
+
+			}
+
+		}, 1000);
+
+	}
+
+	jump(5);
+
+}); 
+
+</script> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?>
+</div>
+</body>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>指南解读-电子书列表</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/ceses/zhiNanJieDu.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="Tab_CaiDan"><a href="{:U('Unexp/book_info')}" class="curr">电子书</a> <!-- <a href="{:U('Unexp/video_list')}">视频列表</a> --></div>
+<div class="bookList">
+        <div class="pad_15 mainCon">
+                <div class="book_top">
+                        <div class="book_img"><img src="{$book[0]['BOOK_PIC']}" /></div>
+                        <div class="book_tit">
+                                <h2>{$book[0]['BOOK_NAME']}</h2>
+                                <span class="time">出版时间：{$book[0]['BOOK_DATE']|Dtodiy='Y.m.d',###} </span>
+                                <span class="compile">编著：{$book[0]['BOOK_EDITER']}</span>
+                        </div>
+                </div>
+        </div>
+        <div class="mainCon videoInfo">
+                <h2 class="title_h2 ">指南目录</h2>
+        </div>
+        <div class="clear"></div>
+        <div class="tabCon pad_15">
+                <ul>   
+                   <volist name="chap_list" id="chap">
+                      <li class="sectionsList">
+                          <h3>{$chap['CHAP_NAME']}      {$chap['CHAP_TITLE']}</h3>
+                          <ul class="sections">
+                              <volist name="chap['SECTS']" id="sects"> 
+                              <li><a href="{:U('Unexp/sect_info',array('s_id'=>$sects['SECT_ID']))}"><span>{$sects['SECT_NAME']}     {$sects['SECT_TITLE']}</span>
+                              <span class="ui-icon-video jiangJie" <if condition="$sects['VIDEO_URL'] EQ '' ">id="disnone"</if> >视频</span></a></li>
+                              </volist> 
+                          </ul>
+                      </li>
+                    </volist>
+                </ul>
+        </div>
+</div>
+<!--通底的引用开始-->
+<include file="Public:footer_fd" /> 
+<script>var over_footer = '1';</script>
+<!--通底的引用结束--> 
+<script src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script>
+$(function(){
+$('.tabCon li h3').click(function(){
+	$(this).parent('li').siblings().children('.sections').slideUp();
+			$(this).parent('li').siblings().children('h3').removeClass('bg');
+			if($(this).siblings('.sections').is(':visible')){
+				$(this).removeClass('bg');
+				$(this).siblings('.sections').slideUp();
+				}else{
+				$(this).addClass('bg');
+				$(this).siblings('.sections').slideDown();	
+					}
+			})
+})	
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

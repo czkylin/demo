@@ -1,0 +1,125 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/dingdan.min.css" type="text/css" rel="stylesheet"/>
+<title>订单详情</title>
+</head>
+
+<body style=" background:#fff;">
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style=" background:#fff">
+  <div class="xq1">
+    <div class="detal_shoushu"> <span class="img"><img src="{$array.0.SMALL_PIC}" class="g-left expert-img"/> </span> <span class="meta">
+      <div class="name_dj"> <strong class="mingcheng">{$array.0.EXPERT_NAME}</strong> </div>
+      <p>{$array.0.SERVE_NAME}</p>
+      </span> </div>
+  </div>
+  <div class="xq2">
+    <h2>订单详情</h2>
+    <ul>
+      <li>订单号：{$array.0.ORDER_ID}</li>
+      <li>医生姓名：{$array.0.EXPERT_NAME}{$array.0.HOS_NAME}</li>
+      <li>预定时间：{$array.0.ORDER_DATE}</li>
+      <li>订单名称：{$array.0.ORDER_NAME}</li>
+      <li>订单价格：{$array.0.ORDER_MONEY}</li>
+      <li>订单状态：{$array.0.ORDER_STATUS}</li>
+      <li>患者姓名：{$array.0.MEMBER_NAME}</li>
+    </ul>
+    <input type="hidden" id="order_id" value="{$array.0.ORDER_ID}">
+  </div>
+  <if condition="$array[0][ORDER_STATUS] eq '待付款'">
+    <form action="{:U('Order/pay')}" method="post" class="form_tijao">
+      <input type="hidden" name="price" value="{$array.0.ORDER_MONEY}">
+      <input type="hidden" name="serve_name" value="{$array.0.ORDER_NAME}">
+      <input type="hidden" name="order_id" value="{$array.0.ORDER_ID}">
+      <input type="hidden" name="time" value="{$array.0.ORDER_DATE}">
+      <input type="hidden" name="doc_id" value="{$array.0.EXPERT_ID}">
+      <input type="hidden" name="status" value="{$array.0.ORDER_STATUS}">
+      <input type="hidden" name="sj_type" id="sj_type" value="{$sj_type}">
+      <input type="submit" value="立即支付">
+      <a href="javascript:void(0)" id="click" >
+      <input type="button" value="取消订单">
+      </a>
+    </form>
+    <else/>
+  </if>
+  <if condition="($array[0][ORDER_STATUS] eq '已付款') && ($array[0][O2O_FLAG] eq '0')"> <a href="javascript:void(0)" onClick="order()" class="form_tijao">
+    <input type="button" value="我要退款">
+    </a>
+    <else/>
+  </if>
+</div>
+<div style="height: 60px;"></div>
+<include file="Public:footer_fd" /> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+
+	var over_footer = '4';
+	$("#click").click(function(){
+		var order_id = $("#order_id").val();
+
+		$.ajax({
+
+			type: "GET",
+
+			url: "/weixin/index.php?m=Member&c=Order&a=tpay&order_id="+order_id,
+
+			success: function(msg)
+			{
+				if(msg=="ok")
+				{
+
+					alert("取消成功");
+
+					location.href="/weixin/index.php?m=Member&c=Order&a=order_list";
+
+				}
+        if(msg=="00047")
+        {
+
+          alert("已经支付过订单，不能删除");
+
+        }
+				else
+				{
+
+					alert("取消失败");
+
+				}
+
+			}
+
+		});
+
+
+	});
+		
+
+	function order()
+
+	{
+
+		alert("请联系客服：400-656-2020");
+
+	}
+
+  
+
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

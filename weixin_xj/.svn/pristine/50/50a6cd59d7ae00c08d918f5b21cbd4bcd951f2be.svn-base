@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+<title>图片</title>
+<style>
+	*{margin:0; padding:0;}
+	body{
+		display: flex;
+		display: -webkit-flex;
+		flex-flow: column;
+	}
+	.img-wrapper{
+		flex:1;
+		min-height: 250px;
+		border: 1px solid #000;
+	}
+	.btn{}
+	.btn input{
+		height: 30px;
+		width: 60px;
+	}
+</style>
+</head>
+<body>
+	<img src="/weixin/Public/Member/images/huzhu/father/love.png" alt="" id="imgbg">
+	<div class="img-wrapper">
+		<img src="" alt="">
+	</div>
+	<div class="btn">  
+        <input type="button" onclick="chooseImage()" value="上传图片">
+        <input type="button" onclick="synthesis()" value="合成图片">  
+    </div>
+    <script src="/weixin/Public/Common/js/jquery.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+
+    	var img_src = ['/weixin/Public/Member/images/huzhu/father/love.png','/weixin/Public/Member/images/huzhu/join/img5.jpg']; //储存合成图片的src
+    
+		var appId = "<?php echo $appId;?>"      // 微信平台唯一标识  
+	    var timestamp = "<?php echo $timestamp;?>"  // 生成signature所使用的timestamp  
+	    var nonceStr = "<?php echo $NonceStr;?>"   // 生成signature所使用的nonceStr  
+	    var signature = "<?php echo $signature;?>"  // 数字签名，生成参照：微信JSSDK接口 - 生成签名  
+
+	    //config配置
+	    wx.config({  
+	        debug: false,  
+	        appId: appId,  
+	        timestamp: timestamp,  
+	        nonceStr: nonceStr,  
+	        signature: signature,  
+	        jsApiList: ["chooseImage", "previewImage", "uploadImage", "downloadImage"]  
+	    }); 
+
+	    
+
+    	//照相或者从手机相册中选取图片 
+	    function chooseImage() { 
+
+	        wx.chooseImage({  
+	            count: 9,  
+	            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+	            sourceType: ['album', 'camera'],      // 可以指定来源是相册还是相机，默认二者都有  
+	            success: function (res) {  
+	                var localId = res.localIds[0].toString();// 返回选定照片的本地ID列表,localId可作为img标签的src属性显示图片          
+	                //uploadImage(localIds)
+	                img_src.push(localId)
+
+	                //在页面显示图片
+	                if(isIOS()){
+	                	//IOS兼容
+	                	wx.getLocalImgData({
+						    localId: localId, // 图片的localID
+						    success: function (res) {
+						        var localData = res.localData; // localData是图片的base64数据，可以用img标签显示
+						        $('.img-wrapper > img').attr('src',localData)
+						    }
+						});
+	                }else{
+	                	$('.img-wrapper > img').attr('src',localId)
+	                }
+
+	            }  
+	        });  
+
+	    }
+
+	    //合成图片
+	    function synthesis(){
+
+	    	var dataSrc = getOriginImg(img_src);
+
+	    	$('#imgbg').remove();
+	    	$('.img-wrapper > img').attr('src',dataSrc);
+
+	    }
+
+	    function getOriginImg (oriImgs){
+
+	    	if( !oriImgs ){
+	    		return false
+	    	}
+
+	    	var maxWidth = 320;
+	    	var height = 500;
+
+	    	var canvas = document.createElement('canvas');
+	    	canvas.width = maxWidth;
+	    	canvas.height = height;
+	    	var ctx = canvas.getContext('2d');
+
+	    	ctx.rect(0,0,canvas.width,canvas.height);      
+            ctx.fillStyle='#fff';  
+            ctx.fill();  
+
+	    	for( var i=0;i<oriImgs.length;i++ ){
+
+	    		var img = new Image;
+	    		img.src = oriImgs[i];
+
+	    		img.onload = function(){
+	    			ctx.drawImage(this,0,0,320,500)
+	    		}	    			
+
+	    	}
+
+	    	var fbw_img_data = canvas.toDataURL('image/png');
+
+	    	return fbw_img_data;
+
+	    }
+
+
+	    function isIOS(){
+	    	var u = navigator.userAgent;
+	    	return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+	    }
+
+
+    </script>  
+</body>
+</html>

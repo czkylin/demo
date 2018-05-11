@@ -1,0 +1,29 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<link type="text/css" rel="stylesheet" href="__PUBLIC__/Expert/css/gerenzhongxin/gerenzhongxin.css" />
+		<title>个人中心-积分明细</title>
+	</head>
+	<body style="background:#fff;">
+		<div style="height:3%; background:#ededed;"></div>
+		<div class="gp GJ_Gp gp-profile g-items gp-profile_index">  
+		  	<div class="jfgz">
+	      		<div class="jfgz">
+		      		<p>积分奖励明细：</p>
+		            <ul class="gz_list">
+		            	<li>1. 每日签到5分/次，累计签到达20天/月额外奖励50分。</li>
+		                <li class="gz_bg">2. 审核通过后奖励积分200分(绑定手机号100分，会员申请100分)。</li>
+		                <li>3. 推荐会员申请注册奖励积分50分/每人。</li>
+		            </ul>
+	     	 	</div>
+	      	</div>
+		</div>  
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

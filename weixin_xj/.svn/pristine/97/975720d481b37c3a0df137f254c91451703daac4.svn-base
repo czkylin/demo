@@ -1,0 +1,13 @@
+
+
+<volist name="doc_list" id="doc">
+    <li><a href="#" class="pic"><img src="{$doc['SMALL_PIC']}"/></a>
+        <div class="lm_right"> 
+            <strong class="mingcheng">{$doc['EXPERT_NAME']}</strong> 
+            <i class="new_time">{$doc['CREATE_DATE']|Dtodiy='Y.m.d',###}</i>
+            <i>{$doc['HOS_NAME']}</i> 
+            <span>{$doc['DEP_NAME']}<if condition="$doc['DEP_NAME'] neq ''">/</if>{$doc['EXPERT_RANK']}</span>
+            <p>简介：{$doc['EXPERT_DESC']}.....</p>
+        </div>
+    </li>∮
+</volist>

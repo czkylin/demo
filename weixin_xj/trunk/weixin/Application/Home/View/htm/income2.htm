@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <style>
+        body{background:#fff;font-size:16px;color:#666;}
+        header{border-bottom:10px solid #e7e7e7;}
+        header p{line-height:40px;font-size:20px;color:#333;}
+        header ul{padding-left:.5rem;}
+        header li{border-bottom:1px solid #e7e7e7;height:44px;line-height:44px;}
+        input.times{-webkit-appearance:none;height:30px;line-height:30px;border-width:0;background:none;outline:none;font-size:10px;display:inline-block;width:3rem;color:#666;font-weight:normal;padding-left:10px;margin-top:1px;}
+        header span{display:block;width:3.5rem;}
+        header a{display:block;width:11rem;margin:14px auto;line-height:44px;background:#eb5376;color:#fff;border-radius:3px;}
+        .unit p{line-height:32px;text-align:center;width:3rem;border-right:1px solid #e7e7e7;border-bottom:1px solid #e7e7e7;box-sizing:border-box;-webkit-box-sizing:border-box;font-size:14px;}
+        .unit p:nth-child(2){width:3rem;}
+        .unit p:nth-child(3){width:6rem;}
+        .unit p:last-child{border-right-width:0;}
+        .unit p span{color:#666;font-size:10px;}
+        .unit p strong{width:3rem;display:inline-block;position:relative;}
+        .unit p strong:before{position:absolute;right:.3rem;top:.4rem;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid #00c3c1;content:'';}
+        .unit p.weight{color:#333;}
+        .unit p.count{color:#00c3c1;}
+    </style>
+    <link rel="stylesheet" href="/weixin/Public/Home/css/normalize3.0.2.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/mobiscroll.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/mobiscroll_date.css">
+    <title>经营回款收入</title>
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+   <header>
+       <p class="text-center">经营回款收入</p>
+   </header>
+    <section>
+        <div class="unit box">
+            <p class="weight center">项目</p>
+            <p class="weight">
+                <b>累计统计</b><br>
+                <span>1月1日-12月12日</span>    
+            </p>
+            <p class="weight clear">
+                <strong class="fl">开始日期<input type="date" name="start" readonly id="start" class="times" value="2017-03-31" /></strong>
+                <strong class="fl">结束日期<input type="date" readonly value="2017-04-06" id="end" class="times" /></strong>
+            </p>
+        </div>
+        <div class="unit box">
+            <p>HMO预售</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p>HMO销售</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p>心电阅片</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p>手术</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p>耗材</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p>慧科药品</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p>慧科设备</p>
+            <p>100</p>
+            <p>100</p>
+        </div>
+        <div class="unit box">
+            <p class="count">合计</p>
+            <p class="count">700</p>
+            <p class="count">700</p>
+        </div>
+    </section>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Home/js/mobiscroll_date.js" charset="gb2312"></script>
+<script src="/weixin/Public/Home/js/mobiscroll.js"></script>
+<script>
+    var currYear = (new Date()).getFullYear();
+    var currMonth = (new Date()).getMonth();
+    var currDate = (new Date()).getDate();
+    $("#start").mobiscroll().date({
+        preset: 'date', 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "今天",
+        dayText: '日', 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-2, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onSelect: function(valueText){
+            if($('#start').val() > $('#end').val()){
+                var v = valueText;
+                $('#start').val($('#end').val());
+                $('#end').val(v);
+            }
+        }
+    });
+    $("#end").mobiscroll().date({
+        preset: 'date', 
+        setText: '确定', //确认按钮名称 
+        cancelText: '取消',//取消按钮名籍我
+		nowText: "今天",
+        dayText: '日', 
+        monthText: '月', 
+        yearText: '年',
+        theme: 'android-ics light', //皮肤样式
+		display: 'bottom', //显示方式 
+		mode: 'scroller', //日期选择模式
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: true,
+		startYear: currYear-2, //开始年份
+		maxDate: new Date(), //开始年份
+		endYear: currYear, //结束年份
+        onSelect: function(valueText){
+            if($('#start').val() > $('#end').val()){
+                var v = valueText;
+                $('#end').val($('#start').val());
+                $('#start').val(v);
+            }
+        }
+    });
+</script>
+</html>

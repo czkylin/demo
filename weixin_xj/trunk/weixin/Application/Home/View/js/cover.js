@@ -1,0 +1,28 @@
+// var code = document.getElementsByClassName('title')[0];
+// var code = document.getElementById('cover_code');
+var code = document.getElementsByClassName('cover_code')[0];
+var cover = document.createElement('div');
+var img1 = document.createElement('img');
+var img2 = document.createElement('img');
+function create() {
+  cover.appendChild(img1);
+  cover.appendChild(img2);
+  document.getElementsByClassName('mine')[0].appendChild(cover);
+  img1.src = '/weixin/Application/Home/View/images/cover.jpg';
+  img2.src = '/weixin/Application/Home/View/images/close.jpg';
+  cover.className = 'cover';
+  img1.className = 'cover1';
+  img2.className = 'cover2';
+}
+code.onclick= function() {
+  create();
+  var top = document.documentElement.scrollTop || document.body.scrollTop;
+  cover.style.top = top+'px';
+  console.log(cover.style.top);
+  cover.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+img2.onclick = function() {
+  cover.style.display = 'none';
+  document.body.style.overflow = '';
+}

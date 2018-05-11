@@ -1,0 +1,28 @@
+.con{width: 100%; overflow: hidden; box-sizing: border-box; min-width: 1200px;}
+p{font-size: 14px; color: #666666;}
+.w1200{width: 1200px; height: auto; margin: 0 auto; min-width: 1200px;}
+.banner{height: 420px; background: url('/Public/images/focus/news/banner.jpg') no-repeat center; background-size: cover; overflow: hidden;}
+.banner p{color: #ffffff;}
+.banner p.title{margin: 132px 0 0 60px; font-size: 32px;}
+.banner p.desc{margin-left: 64px; font-size: 16px;}
+.nav{height: 52px; line-height: 52px; font-size: 12px;}
+.nav span{display: inline-block; width: 30px; text-align: center; color: #999999;}
+.nav a{color: #999999;}
+.nav a:nth-child(1){color: #333333;}
+.con1{height: 680px; margin-bottom: 108px;}
+.con1 .conLeft{padding-top: 22px; width: 780px; height: 100%; border: 1px solid #e2e2e2; box-sizing: border-box;}
+.con1 .conLeft ul{width: 660px; height: auto; margin: 0 auto;}
+.con1 .conLeft ul li{position: relative; padding: 0 2px 0 20px; width: 100%; height: 66px; border-bottom: 1px solid #e2e2e2; line-height: 66px; font-size: 14px; color: #666666; box-sizing: border-box;}
+.con1 .conLeft ul li:hover{color: #077478;}
+.con1 .conLeft ul li i{position: absolute; left: 0; top: 33px; display: inline-block; width: 4px; height: 4px; background: #767676; border-radius: 50%;}
+.con1 .conLeft ol{margin: 70px auto 30px; width: 424px; height: 28px; line-height: 28px;}
+.con1 .conLeft ol li{position: relative; margin-right: 8px; height: 30px; border: 1px solid #c0c0c0; float: left; text-align: center; font-size: 12px; color: #888888; cursor: pointer; box-sizing: border-box;}
+.con1 .conLeft ol li.item{width: 36px;}
+.con1 .conLeft ol li.active{background: #077478; color: #ffffff;}
+.con1 .conLeft ol li.prev,.con1 .conLeft ol li.next{width: 62px;}
+.con1 .conLeft ol li .ent{position: absolute; top: 0; left: 0; display: inline-block; padding-left: 4px; width: 32px; height: 28px; border: 0;}
+.con1 .conLeft ol li.none{border: 0;}
+.con1 .conLeft ol li.last{width: 38px;}
+.con1 .conRight{width: 371px; height: 100%;}
+.con1 .conRight img{margin-bottom: 48px;}
+.con1 .conRight img:nth-child(3){margin: 0;}

@@ -1,0 +1,23 @@
+<volist name="yd_list" id="yd">
+	<a href="{:U('FjYd/yd_detail',array('hos_id'=>$yd['HOS_ID'],'hos_address'=>$yd['HOS_ADDRESS'],'hos_pic'=>$yd['HOS_PIC'],'hos_name'=>$yd['HOS_NAME']))}">
+		<li class="clear">
+			<if condition="!$yd['HOS_PIC']">
+				<img src="/weixin/Public/Member/images/yd/yd.png" class="img">
+			<else />
+				<img src="{$yd.HOS_PIC}" class="img">
+			</if>
+			<div class="list-info">
+				<h2>{$yd.HOS_NAME}</h2>
+				<p class="add">{$yd.PROVINCE_NAME} {$yd.CITY_NAME}</p>
+				<!-- <div class="xingji">
+					<i>
+						<b style="width:90%;">
+							<img src="/weixin/Public/Member/images/icon/start.png">
+						</b>
+					</i>
+				</div> -->
+				<span class="distance">{$yd.JL}km</span>
+			</div>
+		</li>
+	</a>∮
+</volist>

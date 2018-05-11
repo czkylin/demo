@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>北京圣康华</title>
+  <link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+</head>
+<body>
+  <!-- 底部start -->
+    <div class="footer">
+      <div class="ft_top clear">
+        <div class="w1200">
+          <ul>
+            <li><a href="">诊疗项目</a></li>
+            <li><a href="">白内障</a></li>
+            <li><a href="">糖网</a></li>
+            <li><a href="">眼底病</a></li>
+            <li><a href="">眼视光</a></li>
+            <li><a href="">眼整形</a></li>
+          </ul>
+          <ul>
+            <li><a href="">便捷服务</a></li>
+            <li><a href="">权威专家</a></li>
+            <li><a href="">来院路线</a></li>
+            <li><a href="">在线咨询</a></li>
+            <li><a href="">预约挂号</a></li>
+          </ul>
+          <ul>
+            <li><a href="">聚焦圣康华</a></li>
+            <li><a href="">圣康华简介</a></li>
+            <li><a href="">圣康华荣誉</a></li>
+            <li><a href="">媒体报道</a></li>
+            <li><a href="">社会责任</a></li>
+          </ul>
+          <div class="text">
+            <p class="title">服务热线</p>
+            <strong>400-656-2020</strong>
+            <p class="range">周一至周五 8:30-17:30</p>
+          </div>
+        </div>
+      </div>
+      <div class="ft_bottom">Copyright © 2016 北京远程新华网络技术有限公司 版权所有 京ICP备14009444-1</div>
+    </div>
+  <!-- 底部end -->
+  <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+</body>
+</html>

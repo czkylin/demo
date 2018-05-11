@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>注册申请</title>
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="../../../../Public/Expert/css/user/zhuce.css" type="text/css" rel="stylesheet"/>
+<script src="../../../../Public/Common/js/jquery.min.js"></script>
+
+</head>
+<body>
+<div style="position:fixed; left:0; right:0; top:0; bottom:0; display:none; background:#000; opacity:0.7; z-index:999" id="hui"></div>
+	<div class="shenqing">
+    	<h2>全国肝病精准诊疗技术平台</h2>
+        <h3>千县万医培训工程</h3>
+        <h4>注册申请表</h4>
+        <p>远程肝病学院——千县万医培训工程，是北京亚太肝病诊疗技术联盟倡导搭建的全国性学术交流培训平台。北京亚太肝病诊疗技术联盟为注册会员提供线上及线下的培训、交流、进修、活动等，会员不仅可以通过系统化、专业化的渠道，获得肝病专科领域的学习培训提升，同样也可获得国内外合作机构间的互动学习、科研实践、同业交流、远程合作等机会，其将成为打造肝脏疾病精准化诊疗技术平台的重要发展基础。</p>
+    </div>
+    <div class="sq_bottom">
+    	<h2>北京亚太肝病诊疗技术联盟，诚邀您的加入：</h2>
+        <div class="yaoqing">
+        	<label>推荐人:</label><input placeholder="（仅限远程肝病学院学员或APALD会员拥有推荐资格）">
+        </div>
+        <span>注册信息</span>
+        <ul>
+        	<li>
+            	<label>医生姓名:</label><input>
+            </li>
+            <li>
+            	<label>出生年月:</label><input>
+            </li>
+            <li>
+            	<label>机构名称:</label><input>
+            </li>
+            <li>
+            	<label>职务职称:</label><input>
+            </li>
+            <li>
+            	<label>联系电话:</label><input>
+            </li>
+            <li>
+            	<label>传真:</label><input>
+            </li>
+            <li>
+            	<label>电子邮件:</label><input>
+            </li>
+            <li>
+            	<label>通讯地址:</label><input>
+            </li>
+        </ul>
+        <p>本人申请加入北京亚太肝病诊疗技术联盟，并自愿注册成为“千县万医培训工程”的医生会员。在今后的工作中，将认真做到：拥护并遵守联盟章程，履行会员义务，服从联盟管理，关心并支持联盟组织的各项活动的同时，积极提升肝病诊疗技术水平，为构建全国范围内的肝病精准诊疗技术平台而服务。</p>
+        <div class="yaoqing">
+        	<label>申请人:</label><input>
+        </div>
+        <div class="yaoqing">
+        	<label>时间:</label><input placeholder="（如2016年2月2日）">
+        </div>
+        <div class="tijiao">
+        	<a href="#" class="tj_but">提交申请表</a>
+            <a href="#" class="chakan">查看注册须知</a>
+        </div>
+        
+                    <div class="tc_con">
+                        <img src="/weixin/Public/Member/images/yonghu/cgimg.png" class="cgimg">
+                        <p><span>恭喜！注册成功！</span>欢迎加入北京亚太肝病诊疗技术联盟</p>
+                        <a href="" class="queding">确定</a>
+                    </div>
+                    
+                   <!-- <div class="tc_con">
+                        <img src="/weixin/Public/Member/images/yonghu/yjimg.png">
+                        <p>已经注册过，无需重复提交!</p>
+                        <a href="" class="queding">确定</a>
+                    </div>-->
+                    
+                   <!-- <div class="tc_con">
+                        <img src="/weixin/Public/Member/images/yonghu/sbimg.png">
+                        <p>注册失败！<br>参数错误或请重新<b>关注公众号 </b></p>
+                        <a href="" class="queding">确定</a>
+                    </div>-->
+                    
+                    
+        <div class="foot">
+        	<img src="/weixin/Public/Expert/images/zhuce/logo.jpg">
+            <p>北京亚太肝病诊疗技术联盟</p>
+        </div>
+    </div>
+<include file="Public:tj" />
+<script>
+$(function(){
+	$('.tj_but').click(function(){
+		$('.tc_con').css('display','block');
+		$('#hui').css('display','block');
+		})
+		
+		$('.tc_con .queding').click(function(){
+		$('.tc_con').css('display','none');
+		$('#hui').css('display','none');
+		})
+})
+</script>
+</body>
+</html>

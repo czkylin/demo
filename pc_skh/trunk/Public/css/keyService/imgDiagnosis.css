@@ -1,0 +1,39 @@
+.w1020{width: 1020px; margin: 0 auto;}
+h2{line-height: 60px; text-align: center; font-size: 26px; color: #333333;}
+h2 em{padding: 14px 0; border-bottom: 3px solid #077478;}
+p{font-size: 14px; color: #666666;}
+.banner{height: 420px; min-width: 1200px; background: url('/Public/images/keyService/imgDiagnosis/banner.jpg') no-repeat center; background-size: cover; overflow: hidden; box-sizing: border-box;}
+.con{width: 100%; overflow: hidden; min-width: 1200px; box-sizing: border-box;}
+.con1{padding-top: 52px; height: 230px; background: #f2fbff;}
+.con1 p{margin-top: 22px; line-height: 24px;}
+.con2{height: 595px; background: url('/Public/images/keyService/imgDiagnosis/bg1.jpg') no-repeat center; background-size: cover;}
+.con3{height: 690px;}
+.con3 dl{margin-top: 206px; height: 368px;}
+.con3 dl dt{float: left; width: 322px; height: 368px;}
+.con3 dl dt p.title{margin-top: 35px; line-height: 60px; font-size: 26px;}
+.con3 dl dt p.title em{padding-bottom: 14px; border-bottom: 3px solid #077478;}
+.con3 dl dt p.desc{margin-top: 40px; line-height: 24px;}
+.con3 dl dd{float: right;}
+.con3 dl dd p.text{line-height: 54px; text-align: right;}
+.con4{height: 690px; background: url('/Public/images/keyService/imgDiagnosis/bg2.jpg') no-repeat center; background-size: cover;}
+.con4 dl{margin-top: 142px; padding: 76px 88px 0 90px; height: 354px; background: #ffffff; box-sizing: border-box;}
+.con4 dl dt{float: left; padding-top: 22px; width: 558px; height: 210px; box-sizing: border-box;}
+.con4 dl dd{float: right; width: 312px;}
+.con4 dl dd p.title{line-height: 52px; text-align: right; font-size: 26px;}
+.con4 dl dd p.title em{padding-bottom: 10px; border-bottom: 3px solid #077478;}
+.con4 dl dd p.desc{margin-top: 34px; line-height: 24px;}
+.con5{padding-top: 242px; height: 690px; background: url('/Public/images/keyService/imgDiagnosis/bg3.jpg') no-repeat center; background-size: cover;}
+.con5 p{color: #ffffff;}
+.con5 p.title{line-height: 48px; font-size: 26px;}
+.con5 p.title em{padding-bottom: 10px; border-bottom: 2px solid #ffffff;}
+.con5 p.desc{margin-top: 24px; width: 282px; line-height: 24px;}
+.con6{padding-top: 164px; height: 690px; background: url('/Public/images/keyService/imgDiagnosis/bg4.jpg') no-repeat center; background-size: cover;}
+.con6 p{float: right; text-align: right; clear: both;}
+.con6 p.title{line-height: 52px; font-size: 26px;}
+.con6 p.title em{padding-bottom: 10px; border-bottom: 3px solid #077478;}
+.con6 p.desc{margin-top: 24px; width: 322px; line-height: 24px;}
+.con7{height: 460px; background: #f4fbff;}
+.con7 h2{margin-top: 54px;}
+.con7 dl{float: left; margin: 108px 170px 0 0; width: 126px; text-align: center;}
+.con7 dl:nth-of-type(4){margin-right: 0;}
+.con7 dl dd{line-height: 56px; font-size: 14px;}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png">
+    <!--CSS库文件-->
+    <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet" />
+    <!--CSS当前页面文件-->
+    <link href="/weixin/Public/Member/css/dingdan.min.css" type="text/css" rel="stylesheet" />
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+    <title>我的订单</title>
+</head>
+<body style=" background:#ebebeb">
+    <div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style=" background:#ebebeb">
+        <div class="tab-box" style="margin:0;">
+            <div class="tab1"><a href="{:U('Member/Order/order_list')}"><span>我的订单</span></a></div>
+            <div class="tab2"><a href="{:U('Member/Cf/cf_list')}"><span>我的处方</span></a></div>
+        </div>
+        <ul class="states">
+           
+            <li <if condition="$act eq 1"> class="active" </if>><a href="{:U('Member/Order/order_list',array('act'=>1))}">全部订单</a></li>
+            <li <if condition="$act eq 2"> class="active" </if>><a href="{:U('Member/Order/order_list',array('order_status'=>0,'o2o_flag'=>0,'act'=>2))}">待付款</a></li>
+            <li <if condition="$act eq 3"> class="active" </if>><a href="{:U('Member/Order/order_list',array('order_status'=>1,'act'=>3))}">已付款</a></li>
+            <li <if condition="$act eq 4"> class="active" </if>><a href="{:U('Member/Order/order_list',array('o2o_flag'=>1,'act'=>4))}">已完成</a></li>
+            <li <if condition="$act eq 5"> class="active" </if>><a href="{:U('Member/Order/order_list',array('o2o_flag'=>2,'act'=>5))}">已作废</a></li>
+        </ul>
+        <if condition="empty($order_list)">
+            <div class="nodetail">
+                <img src="/weixin/Public/Common/images/icon/icon1.png" alt="">
+                <i>暂无数据</i>
+            </div>
+        <else />
+        <div class="diandan_list">
+            <ul id="order-list">
+               <!--  empty="暂时没有数据" -->
+                <volist name="order_list" id="order">
+                    <li>
+                        <div class="tit">
+
+                            <h2>{$order['SJ_NAME']}</h2>
+
+                            <if condition="$order['O2O_FLAG'] eq '已作废'">
+                                <i>已作废</i>
+                            <else />
+                             <?php  
+                                $ordertime = date("Y-m-d",strtotime($order['CREATE_DATE']));
+                                if($ordertime!= date("Y-m-d")&&$order['ORDER_STATUS']=='待付款')
+                                {
+                                    echo "<i>已过期</i>";
+                                }else{
+                                    echo "<i>".$order['ORDER_STATUS']."</i>";
+                               }
+                               ?>
+                            </if> 
+                        </div>
+                        <div class="des">
+                            <if condition="$order.SJ_TYPE eq '1'">
+                                <a href="{:U('Member/Order/hos_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE']))}">
+                            <elseif condition="$order.SJ_TYPE eq '2'" />
+                                <a href="{:U('Member/Order/hz_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE'],'hz_id'=>$order['HZ_ID'],'order_name'=>$order['ORDER_NAME']))}">
+                            <else/>
+                                <a href="{:U('Member/Order/hos_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE']))}">
+                            </if>
+                            <img src="{$order['SERVE_PIC']|default='/weixin/Public/Member/images/order/order_list.png'}" width="40px" height="40px" />
+                             
+                            <h2>{$order['ORDER_NAME']}</h2>  <span>{$order['CREATE_DATE']}</span>
+                            </a>
+                            <!-- SERVE_PIC -->
+                        </div>
+
+                        <div class="btn">
+                       
+                            <if condition="$order['O2O_FLAG'] eq '已作废'">
+                            <else />
+                                <if condition="$order['ORDER_STATUS'] eq '待付款'">
+                                     <?php 
+                               
+                                        if($ordertime== date("Y-m-d")){
+                                          
+                                    ?>
+                                    <if condition="$order.SJ_TYPE eq '1'">
+                                        <a  class="active" href="{:U('Member/Order/hos_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE']))}">
+                                    <elseif condition="$order.SJ_TYPE eq '2'" />
+                                        <a class="active" href="{:U('Member/Order/hz_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE'],'hz_id'=>$order['HZ_ID'],'order_name'=>$order['ORDER_NAME']))}">
+                                    <else/>
+                                        <a class="active" href="{:U('Member/Order/hos_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE']))}">
+                                    </if>去付款</a><?php }?>
+                                <elseif condition="$order['ORDER_STATUS'] eq '已付款'" />
+                                    <a href="javascript:;">已付款</a>
+                                <elseif condition="$order['ORDER_STATUS'] eq '支付失败'" />
+                                <else />
+                                    <a href="javascript:;">{$order['ORDER_STATUS']}</a>
+                                </if>
+                            </if>
+                        
+                            <if condition="$order['ORDER_STATUS'] eq '支付失败'">
+                                <a href="javascript:;">已作废</a>
+                            <else />
+                                <a href="javascript:;">{$order['O2O_FLAG']}</a>
+                            </if>
+
+                        </div>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('#order-list');">加载更多</a></div>
+        <div id="emptyData"></div>
+        <div id="order_status" style="display:none">{$order_status}</div>
+        <div id="o2o_flag" style="display:none">{$o2o_flag}</div>
+        <div id="current_pagenum" style="display:none">2</div>
+        </if>
+    </div>
+    <!--通底的引用开始-->
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+    <include file="Public:footer_fd" />
+    <script src="/weixin/Public/Common/js/order_load.js" type="text/javascript"></script>
+    <script>
+        var over_footer = '4';
+        var onOff = true;
+        function search_list(order_status,o2o_flag) 
+        {
+            $('#current_pagenum').text('1');
+            $('#order-list').html('');
+            $('#order_status').text(order_status);
+            $('#o2o_flag').text(o2o_flag);
+            $('.ui-jiazai').children('a').text('加载更多');
+            //load_more('.experts');
+            loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=Order&a=order_list_append&order_status=' + order_status + '&o2o_flag=' + o2o_flag, '#order-list');
+        }
+        window.onload = function(){
+            window.onscroll();
+        }
+        window.onscroll = function () {
+            load_more('#order-list');
+        }
+        function load_more(obj) {
+            if (!onOff) return;
+            // console.log($(obj).height(),$(document).scrollTop(),$(window).height());
+            if ($(obj).height() <= $(document).scrollTop() + $(window).height()) {
+                onOff = !onOff;
+                loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=Order&a=order_list_append&order_status=' + $('#order_status').text() + '&o2o_flag=' + $('#o2o_flag').text(), '#order-list',function(){
+                    $('.empty_data').css({'top':0,'z-index':-1});
+                });
+            }
+        }
+
+        // $(".states > li").each(function(){
+        //     $(this).on("touchend",function(){
+        //         $(this).addClass("active").siblings().removeClass("active");
+        //     })
+        // })
+    </script>
+    <!--通底的引用结束-->
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?> </div>
+</body>
+</html>

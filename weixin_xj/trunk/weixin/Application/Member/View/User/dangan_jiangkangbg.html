@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>健康档案</title>
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/dangan.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+<div class="xinxi">
+	<div class="xiaoxi"><p>您有4份健康报告可以查看！</p></div>
+	<div class="more-list">
+		<ul class="more clear">
+			<li class="fl">
+				<a href="{:U('Member/User/jiankang')}">
+					<img src="/weixin/Public/Member/images/user/yiti.jpg" alt="">
+				</a>
+			</li>
+			<li class="fr">
+				<a href="{:U('Member/User/wanbiao')}">
+					<img src="/weixin/Public/Member/images/user/biao.jpg" alt="">
+				</a>
+			</li>
+			<li class="fl">
+				<a href="{:U('Member/User/wd_bingli')}">
+					<img src="/weixin/Public/Member/images/user/bingli.jpg" alt="">
+				</a>
+			</li>
+			<li class="fr">
+				<a href="javascript:;">
+					<img src="/weixin/Public/Member/images/user/more.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+
+		<ul class="con">
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>0))}">血糖</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>1))}">血氧</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>2))}">血压</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>3))}">心率</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>4))}">身高、体重</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>5))}">尿常规</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/jk_info',array('tj_type'=>6))}">体温</a>
+			</li>
+
+		</ul>
+	</div>	
+</div>
+
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/zepto.js"></script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>提现规则</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/txgz.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<h1 class="title">联盟医生提现规则</h1>
+	<div class="main">
+		<ul>
+			<li>一、提现次数：每个自然月一次。</li>
+			<li>二、提现金额：每笔提现需大于200元</li>
+			<li>三、提现账户：只能选择中国工商银行</li>
+			<li>四、提现周期：30天</li>
+			<li>
+				五、备注：
+				<p>1、工商银行提现仅支持工作日，周末及节假日请勿提现</p>
+				<p>
+					2、受限于银行系统规则，请所有商户仔细核对银行提现帐号，由于银行帐号原因引起的提现失败会扣除手续费，且资金返回周期为T+1，感谢配合。
+				</p>
+				<p>
+					备注：如遇支付平台系统故障或网络故障，提现可能会稍有延迟，敬请谅解。
+				</p>
+			</li>
+		</ul>
+	</div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body{font-size:14px;background:#fff;color:#333;}
+label{display:block;}
+input[type="checkbox"]{display:none;}
+input[type="checkbox"]:checked~i{background:url(/weixin/Public/Member/images/shoping/checkbox.jpg) no-repeat;background-size:cover;border-color:#ef4a65;}
+header ol{padding:10px .2rem;border-bottom:1px solid #ebebeb;}
+header li{width:1.93rem;text-align:center;line-height:20px;}
+.checks{width:10px;height:10px;border:1px solid #c8c8c8;margin-right:4px;display:block;vertical-align:middle;margin-top:2px;position:relative;z-index:10px;}
+.area{width:1.93rem;}
+.area a{color:#999;}
+section{border-bottom:10px solid #f1f1f1;padding:10px .2rem;}
+.img img{vertical-align:bottom;}
+.txt p{color:#333;font-size:12px;}
+.txt span{color:#999;font-size:10px;}
+.price,.total{font-size:12px;text-align:center;}
+.num{color:#333;margin-top:.2rem;}
+.num b{border:1px solid #ddd;line-height:20px;width:.5rem;box-sizing:border-box;text-align:center;font-size:16px;font-weight:normal;}
+.num b.reduce{border-right-width:0;}
+.num b.add{border-left-width:0;}
+.num strong{border:1px solid #ddd;border-left-width:0;border-right-width:0;line-height:20px;width:0.93rem;font-weight:normal;text-align:center;box-sizing:border-box;}
+.money{border-bottom:1px solid #e7e7e7;padding:10px .2rem;}
+.money:first-of-type{margin-bottom:40px;}
+.money.fixed{position:fixed;bottom:0;left:0;width:100%;padding:0;border-top:1px solid #e7e7e7;border-bottom-width:0;background:#fff;}
+.money p{color:#999;}
+.money i,.money p b{font-weight:normal;font-style:normal;color:#f30;}
+.money strong{font-weight:normal;font-size:16px;color:#333;}
+.money i{font-size:16px;margin-right:10px;}
+.calcs{background:#ef4a65;color:#fff;text-align:center;display:inline-block;line-height:40px;padding:0 30px;}
+.cart{position:fixed;bottom:60px;right:20px;background:url(/weixin/Public/Member/images/shoping/cart.png) no-repeat;background-size:cover;width:50px;height:50px;}
+.cart i{position:absolute;top:-2px;right:-2px;width:14px;height:14px;background:#f30;border-radius:50%;text-align:center;color:#fff;line-height:14px;font-size:12px;}
+.nav{border-bottom:10px solid #f1f1f1;}
+.nav li{line-height:40px;border-bottom:1px solid #e7e7e7;padding:0 0.5rem;}
+.nav li:last-child{border-bottom-width:0;}
+.nav strong{font-size:16px;margin-right:.5rem;font-weight:normal;}
+.nav i{color:#999;}
+.nav i.red{color:#f30;}
+.art h2{font-weight:normal;padding:0 0.5rem;font-size:16px;line-height:40px;}
+.art section{background:#f1f1f1;padding:.5rem;border-width:0;margin-bottom:10px;}
+.img{width:2rem;}
+.txts{width:3rem;padding:0 0.5rem}
+.count{width:3rem;}
+.price{width:2rem;font-size:14px;}

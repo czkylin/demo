@@ -1,0 +1,26 @@
+
+<volist name="qj_list" id="qj" empty="">
+	<ul class="order-list">
+		<li>
+			<h2>请假人：</h2><i class="">{$qj['REAL_NAME']}</i>
+		</li>
+		<li>
+			<h2>请假类型：</h2><i class="">{$qj['TYPE_ID']}</i>
+		</li>
+		<li>
+			<h2>请假事由：</h2><i class="">{$qj['QJ_DESC']}</i>
+		</li>
+		<li>
+			<h2>请假部门：</h2><i class="">{$qj['DEPART_NAME']}</i>
+		</li>
+		<li>
+			<h2>请假天数：</h2><i class="">{$qj['QJ_DAY']}</i>
+		</li>
+		<li class="shenhe">
+			<h2>审核状态：</h2>
+			<a href="">审核</a>
+			<i class="">{$qj['CHECK_FLAG']}</i>
+		</li>
+	</ul>∮
+</volist>
+

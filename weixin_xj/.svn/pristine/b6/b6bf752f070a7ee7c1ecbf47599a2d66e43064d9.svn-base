@@ -1,0 +1,249 @@
+/*tip*/
+#tip{
+	padding: 0.4rem 0.48rem;
+	border-bottom: 0.4rem solid #e7e7e7;
+}
+#tip h2{
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.6rem;
+	color: #ef4a65;
+}
+#tip p{
+	line-height: 1rem;
+	font-size: 0.52rem;
+	color: #666666;
+}
+/*info*/
+#info{}
+#info ul{}
+#info ul li{
+	padding: 0 0.48rem;
+	line-height: 1.7rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+#info ul li span{
+	float: left;
+	font-size: 0.6rem;
+	color: #333;
+	font-weight: 600;
+}
+#info ul li i{
+	font-style: normal;
+	float: left;
+	font-size: 0.6rem;
+	color: #666;
+	max-width: 10rem;
+}
+#info ul li b{
+	float: right;
+	font-weight: normal;
+	font-size: 0.6rem;
+	color: #4db000;
+}
+.des{
+	padding: 0.4rem 0.48rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+.des h2{
+	font-size: 0.6rem;
+	color: #333;
+	line-height: 1.2rem;
+}
+.des p{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 1rem;
+}
+.nurse{
+	padding: 0.4rem 0.48rem;
+}
+.nurse h2{
+	font-size: 0.6rem;
+	color: #333;
+	line-height: 1.2rem;
+	margin-bottom: 0.4rem;
+}
+.nurse img{
+	float: left;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 1.5rem;
+	margin-right: 0.4rem;
+}
+.nurse .main{
+	float: left;
+}
+.nurse .main p{
+	height: 0.75rem;
+	line-height: 0.75rem;
+	font-size: 0.52rem;
+	color: #999;
+}
+.nurse .main span{
+	color: #000;
+}
+/*evaluate*/
+.evaluate,.evaluate1{
+	width: 14rem;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	text-align: center;
+	background: #ef4a65;
+	color: #fff;
+	font-size: 0.6rem;
+	border-radius: 0.12rem;
+	margin:  0.6rem auto;
+}
+/*pl-pop*/
+.pl-mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	display: none;
+}
+.pl-pop,.pl-pop1{
+	position: absolute;
+	bottom: -100%;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	display: none;
+}
+.pl-title,.pl-title1{
+	height: 1.7rem;
+	line-height: 1.7rem;
+	text-align: center;
+	font-size: 0.7rem;
+	color: #333333;
+	position: relative;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 0.9rem;
+}
+.pl-title span,.pl-title1 span{
+	position: absolute;
+	left: 0.48rem;
+	top: 0.5rem;
+	display: block;
+	width: 0.7rem;
+	height: 0.7rem;
+	background: url(/weixin/Public/Member/images/nurse/icon/close.png) no-repeat center;
+	background-size: 0.7rem;
+}
+.star,.star1{
+	margin-left: 3.75rem;
+	margin-bottom: 0.8rem;
+}
+.star li,.star1 li{
+	float: left;
+	display: block;
+	width: 0.9rem;
+	height: 0.9rem;
+	background: url(/weixin/Public/Member/images/nurse/icon/star1.png) no-repeat center;
+	background-size: 0.9rem;
+	margin: 0 0.3rem;
+	-webkit-transition:0.3s;
+	transition:0.3s;
+}
+.star li.active,.star1 li.active{
+	background-image: url(/weixin/Public/Member/images/nurse/icon/star2.png);
+}
+.summary,.summary1{
+	font-size: 0.5rem;
+	color: #ffae01;
+	text-align: center;
+	margin-bottom: 0.8rem;
+}
+.summary-title,.summary-title1{
+	font-size: 0.4rem;
+	color: #999999;
+	text-align: center;
+	margin-bottom: 0.8rem;
+}
+.summary-list,.summary-list1{
+	width: 9.4rem;
+	margin: 0 auto;
+}
+.summary-list li,.summary-list1 li{
+	display: block;
+	width: 3.7rem;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	text-align: center;
+	border: 1px solid #cccccc;
+	color: #999999;
+	font-size: 0.5rem;
+	margin-bottom: 0.8rem;
+	border-radius: 0.12rem;
+}
+.summary-list li:nth-of-type(odd),.summary-list1 li:nth-of-type(odd){
+	float: left;
+}
+.summary-list li:nth-of-type(even),.summary-list1 li:nth-of-type(even){
+	float: right;
+}
+.summary-list li.active,.summary-list1 li.active{
+	color: #ef4a65;
+	border-color: #ef4a65;
+}
+.pl-txt{
+	width: 10rem;
+	height: 1.2rem;
+	border: 1px solid #cccccc;
+	border-radius: 0.12rem;
+	line-height: 1.2rem;
+	background: #f5f5f5;
+	color: #999999;
+	font-size: 0.5rem;
+	text-indent: 0.5em;
+	margin: 0 auto 0.6rem;
+}
+.pl-text{
+	display: none;
+	padding: 0.5rem;
+	width: 9rem;
+	height: 2.2rem;
+	margin: 0 auto 0.6rem;
+	position: relative;
+	background: #f5f5f5;
+	border-radius: 0.12rem;
+	border: 1px solid #cccccc;
+}
+.pl-text textarea{
+	height: 100%;
+	width: 100%;
+	border: none;
+	outline: none;
+	background: none;
+	resize:none;
+}
+.pl-text span{
+	position: absolute;
+	right: 0.5rem;
+	bottom: 0;
+	font-size: 0.4rem;
+	color: #999;
+}
+.sub-text{
+	width: 10rem;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	color: #333333;
+	font-size: 0.5rem;
+	margin: 0 auto 1rem;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+.pl-btn{
+	width: 100%;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	text-align: center;
+	background: #ef4a65;
+	color: #fff;
+	font-size: 0.6rem;
+}

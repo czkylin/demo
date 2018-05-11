@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>转诊详情</title>
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/referral.css">
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	
+	<ul class="referral user-info">
+		<li class="re-title">基本信息</li>
+		<li>
+			<p>姓名：<em>{$referral_info['PERSON_NAME']}</em></p>
+		</li>
+		<li>
+			<p>电话：<em>{$referral_info['PERSON_MOBILE']}</em></p>
+		</li>
+		<li>
+			<p>身份证号：<em>{$referral_info['PERSON_IDCARD']}</em></p>
+		</li>
+		<li>
+			<p class="cardImg">证件照片：<em><img src="{$referral_info['PERSON_IDCARD_PIC']}"></em></p>
+		</li>
+	</ul>
+	<ul class="referral user-info">
+		<li class="re-title">转诊信息</li>
+		<li>
+			<p>转诊医院：<em>{$referral_info['HOS_NAME']}</em></p>
+		</li>
+		<li>
+			<p>转诊描述：<em>{$referral_info['REFERRAL_DESC']}</em></p>
+		</li>
+	</ul>
+	<form action="{:U('Referral/referral_dinfo_add')}" name="" method="POST">
+		<ul class="referral d-check">
+			<li class="re-title">转诊审核</li>
+			<li>
+				<p>
+					是否同意：	
+					<label>
+						<i class="radio on"></i><input name="agree" type="radio" value="1" class="agree" checked/>是
+					</label> 
+					<label>
+						<i class="radio"></i><input name="agree" type="radio" value="2" class="agree" />否
+					</label> 
+				</p>
+			</li>
+			<li>
+				<p>
+					审核理由
+					<textarea class="area" name="reason" maxlength="30" placeholder="30字以内"></textarea>
+				</p>
+			</li>
+			<input type="submit" value="确认提交" class="re-btn">
+		</ul>
+	</form>
+	<div class="bigImg">
+		<div class="bg1"></div>
+	</div>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Member/js/referral.js"></script>
+	<script>
+		$('label').click(function(){
+      $(this).children('i').addClass('on');
+      $(this).siblings().children('i').removeClass('on');
+  	})
+	</script>
+
+</body>
+</html>

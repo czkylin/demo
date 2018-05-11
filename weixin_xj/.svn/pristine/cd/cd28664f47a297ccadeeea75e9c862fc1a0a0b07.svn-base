@@ -1,0 +1,51 @@
+<volist name="daiyan_list" id="daiyan">
+    <section>
+        <div class="unit box">
+            <div class="img">
+                <if condition="empty($daiyan[HEADIMGURL])">
+                    <img src="/weixin/Application/Home/View/images/dtdoctor.png" width="100%" />
+                <else />
+                    <img src="{$daiyan[HEADIMGURL]}" width="100%" />
+                </if>
+            </div>
+            <div class="txt">
+                <p class="nick_name">
+                    <span>{$daiyan.NICKNAME}</span>
+                    <span>会员姓名：{$daiyan.MEMBER_NAME}</span>
+                </p>
+                <p class="member_name">
+                    <span>保障人姓名：{$daiyan.PERSON_NAME}</span>
+                </p>
+                <p class="person_mobile">
+                    <span>保障人手机号：{$daiyan.PERSON_MOBILE}</span>
+                </p>
+                <p class="person_mobile">
+               
+                <if  condition= "($daiyan['WL_CODE'] eq '') && ($daiyan['ZT_FLAG'] eq '物流')" >
+
+                    <span>配送状态：未发货</span>
+                    <br>
+                    <span>物流编号：暂无</span>
+
+                <elseif condition="$daiyan['ZT_FLAG'] eq '自提'" />
+                     <span style="">配送状态：<em style="color:#6ed615;font-style:normal;">已发货</em>-{$daiyan.ZT_FLAG}</span>
+
+                <else />
+                    <span>配送状态：<em style="color:#6ed615;font-style:normal;">已发货</em>-快递</span>
+                    <br>
+                    <span>物流编号：{$daiyan.WL_CODE}</span>
+                </if>
+                </p>
+                <p class="person_mobile">
+                    <span>购买类型：{$daiyan.SALE_TYPE}</span>
+                </p>
+            </div>
+        </div>
+        <if condition="$daiyan[ORDER_STATUS] eq '已付款'">
+            <i class="ok">{$daiyan.ORDER_STATUS}</i>
+        <else />
+            <i class="wait">{$daiyan.ORDER_STATUS}</i>
+        </if>
+        
+    </section>∮
+</volist>

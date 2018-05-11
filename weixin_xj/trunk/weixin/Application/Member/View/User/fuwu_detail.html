@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>预约详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <section class="unit center">
+        <p class="txts"><span>服务：</span>{$jz_info['SERVE_NAME']}<i class="fr">{$jz_info['SERVE_STATUS']}</i></p>
+    </section> 
+    <section class="unit">
+        <p class="txts"><span>姓名：</span>{$user_info['MEMBER_NAME']}</p>
+        <p class="txts"><span>性别：</span>{$user_info['MEMBER_SEX']}</p>
+        <p class="txts"><span>年龄：</span><if condition="!$user_info['MEMBER_AGE']">未填写<else />{$user_info['MEMBER_AGE']}</if></p>
+        <p class="txts"><span>手机：</span>{$user_info['MEMBER_MOBILE']}</p>
+        <p class="txts"><span>预约时间：</span>{$jz_info['SERVE_DATE']|Dtodiy='Y-m-d',###}</p>
+    </section> 
+    <input type="hidden" id="jz_id" value="{$jz_info['JZ_ID']}"></input>
+    <input type="hidden" id="serve_name" value="{$jz_info['SERVE_NAME']}"></input>
+    <input type="hidden" id="serve_date" value="{$jz_info['SERVE_DATE']}"></input>   
+    <div class="btns text-center">
+        <a href="javascript:;" class="text-center">取消预约</a>
+        <a href="tel:4006562020" class="text-center">联系客服</a>
+    </div>
+    <div id="mask" class="mask opacity"></div> 
+    <div class="option toDown" id="option">
+        <div class="oList">
+            <h3>取消理由</h3>
+            <label for="qus1"><input type="radio" id="qus1" name="o" checked /><span></span>现在不想预约</label>
+            <label for="qus2"><input type="radio" id="qus2" name="o" /><span></span>预约日期选错</label>
+            <label for="qus3"><input type="radio" id="qus3" name="o" /><span></span>其它原因，在下方输入</label>
+            <textarea rows="4" id="talk"></textarea>
+            <a href="javascript:;" class="over btn" id="over">完成</a>
+        </div>
+    </div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+var $btn = document.querySelectorAll('.btn'),
+    $over = document.querySelectorAll('.over'),
+    option = document.getElementById('option'),
+    mask = document.getElementById('mask');
+$('.btns a').eq(0).click(function(){
+    mask.className = 'mask';
+    option.className = 'option';
+})
+mask.onclick = function(){
+    this.className = 'mask opacity';
+    option.className = 'option toDown';
+}
+
+$('#over').click(function(){
+
+    if($('#qus3').prop('checked'))
+    {
+        if($('#talk').val().trim() != '')
+        {
+            var check_desc = $('#talk').val();
+        }
+        else
+        {
+            alert('请输入原因');
+            return false;
+        }
+    }
+    else
+    {
+        var check_desc = $('.oList input:checked').parent().text();
+    }
+    if(confirm("你确定取消预约吗？"))
+    {
+        var jz_id = $("#jz_id").val();
+        var serve_name = $("#serve_name").val();
+        var serve_date = $("#serve_date").val();
+        $.ajax({
+            type: "POST",
+            url: "{:U('User/fuwu_quxiao')}",
+            async: true,
+            data: {'jz_id':jz_id,'jj_desc':check_desc},
+            success: function(msg)
+            {
+                switch (msg)
+                {
+                    case 'ok':
+                        location.href="{:U('User/quxiao')}&jz_id="+jz_id+"&serve_name="+serve_name+"&serve_date="+serve_date;
+                        return;
+                        break;
+                    case '00029':
+                        alert("只有未处理的订单才能取消！");
+                        return;
+                        break;
+                    default:
+                        alert("系统繁忙，请稍后再试！");
+                        return;
+                        break;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) 
+            {   
+                alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+            }
+        });
+
+    }
+})
+
+</script>
+</html>

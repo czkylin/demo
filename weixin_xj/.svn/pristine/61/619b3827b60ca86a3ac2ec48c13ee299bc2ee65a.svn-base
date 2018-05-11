@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="share-title" content="">
+		<title>申请状态</title>
+	</head>
+	<body>
+		<div style=" width: 100%; text-align: center; margin-top: 20%;">
+	  	<img src="/weixin/Public/Expert/images/zhuce/{$img}.png" style=" width: 50%; margin:0; padding:0;">
+	  	<p style=" font-size: 16px; height:40px; line-height: 40px; text-align: center; font-family: '微软雅黑';">{$data}</p>
+	  	<p>{$zhengshu}</p>
+	</div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

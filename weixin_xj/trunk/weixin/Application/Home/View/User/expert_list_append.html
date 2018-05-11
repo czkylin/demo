@@ -1,0 +1,34 @@
+<volist name="expert_list" id="member" >
+		<li>
+			<dl>
+				<dt>
+					<img src="{$member['HEADIMGURL']}" />
+				</dt>
+				<dd>
+					<span class="name">
+						<!-- 医生姓名: -->
+						{$member['EXPERT_NAME']}
+					</span>
+					<br>
+					<span class="add">
+						<!-- 职称 -->
+                        <if condition="$member['EXPERT_RANK'] eq ''">
+                        未填写
+                        <else/>
+						{$member['EXPERT_RANK']}
+                        </if>
+					</span>
+					<br>
+					<span class="nc">
+						<!-- 昵称： -->
+						{$member['NICKNAME']}
+					</span>
+					<br>
+					<span class="time">
+						<!-- 推荐时间： -->
+						推荐时间：{$member['TJ_DATE']}
+					</span>
+				</dd>
+			</dl>
+		</li>∮
+</volist>

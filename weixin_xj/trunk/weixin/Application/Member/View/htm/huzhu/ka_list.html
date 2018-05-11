@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/user/user_info.css?time={$csstime}.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/insurance.min.css">
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    wx.config({
+        debug: false,
+        appId: '<?php echo $appId;?>',
+        timestamp: '<?php echo $timestamp;?>', // 必填，生成签名的时间戳
+        nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+</script>
+<title>百倍爱心宣传列表</title>
+</head>
+<body>
+<!--<div class="user-title">
+        <a href="{:U('Member/User/info_detail')}" class="clearfix">
+            <if condition="$member_pic eq ''">
+                <if condition="$member_sex eq '女' ">
+                    <img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png" alt="">
+                <else/>
+                    <img src="/weixin/Public/Expert/images/fenXiang/dfboy.png" alt="">
+                </if>
+            <else/>
+             <img src="{$member_pic}" />
+            </if>
+            <div class="des">
+                <p>{$name}</p>
+                <p>{$member_sex} {$phone}</p>
+            </div>
+        </a>
+    </div>-->
+<div class="content bottom mod-guarantee" style=" padding-bottom:0;">
+        <div class="guarantee-header"> <img src="/weixin/Public/Member/images/baozhang/top_ban.jpg"> </div>
+        <div class="guarantee-statis clearfix ">
+                <div class="item item1 ">
+                        <div class="main">
+                                <h5>总资金</h5>
+                                <p style=" line-height:50px;"><span class="join-money">25800</span>元</p>
+                                <small>今日↑<span>6800</span>元</small> </div>
+                </div>
+                <div class="item item2 ">
+                        <div class="main">
+                                <h5>已加入会员</h5>
+                                <p style=" line-height:50px;"><span class="join-number">243</span>人</p>
+                                <small>今日↑<span>68</span>人</small> </div>
+                </div>
+                <div class="item item2">
+                        <div class="main">
+                                <h5>我已参与</h5>
+                                <p style=" line-height:50px;"><span class="average_money">1</span>人</p>
+                                <small></small> </div>
+                </div>
+        </div>
+</div>
+<div class="info1"> <a href="{:U('Member/Huzhu/index')}"> <span><img src="/weixin/Public/Member/images/gerenzhongxin/hz.png"></span> <b>我的百倍爱心卡</b> <i><img src="/weixin/Public/Member/images/gerenzhongxin/youjiantou.jpg"></i> </a> <a href="{:U('Member/User/expand')}"> <span><img src="/weixin/Public/Member/images/gerenzhongxin/hz.png"></span> <b>分享爱心卡</b> <i><img src="/weixin/Public/Member/images/gerenzhongxin/youjiantou.jpg"></i> </a> </div>
+<div class="info2" style=" margin:0; padding:0; background:#fff; border:0;">
+        <ul id="hos-list">
+                <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/huzhu/share_icon/chuandi.png" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>百倍爱心卡 火热传递中 </h2>
+                                <p>百倍爱心卡,火热售卖中</p>
+                        </div>
+                        </a> </li>
+                <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/aid/200.jpg" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>百元投入 倾情援助</h2>
+                                <p>百倍爱心卡首例手术援助患者术后回访实录</p>
+                        </div>
+                        </a> </li>
+
+                <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/baozhang/top_ban.jpg" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>关爱身边人,送您10万健康保障</h2>
+                                <p>百倍爱心卡，老年人专属心血管保障。我觉得很适合您，抽空看看呗</p>
+                        </div>
+                        </a> </li>
+                <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/huzhu/share_icon/share.png" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>好友喊你一起开始慢病管理啦</h2>
+                                <p>慢病管理百元援助项目，我们更懂你的身体</p>
+                        </div>
+                        </a> </li>
+                <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/huzhu/share_icon/parent.png" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>告诉您，百元送父母10万健康保障</h2>
+                                <p>感恩回馈，百元爱心援助项目，关爱父母身体健康</p>
+                        </div>
+                        </a> </li>
+                <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/huzhu/share_icon/share_des.png" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>号外号外！！好友喊你快来领取十万救助保障</h2>
+                                <p>给健康100分的呵护，百倍爱心卡健康保障计划。是您保障心血管健康的上上之选</p>
+                        </div>
+                        </a> </li>
+                        <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+                        <div class="hezuoHos">
+                                <div class="yiyuanpic"> <img class="" src="/weixin/Public/Member/images/huzhu/share_icon/thanks.png" alt="百倍爱心卡 火热传递中"> </div>
+                                <h2>好友送您的亲人一份十万保障</h2>
+                                <p>老年人健康不可大意！百倍爱心卡，多一份保障，多一份安心</p>
+                        </div>
+                        </a> </li>
+        </ul>
+        <br>
+</div>
+<div style="display: none;" id="member_vip">{$member_vip}</div>
+
+
+<!--通底的引用结束-->
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

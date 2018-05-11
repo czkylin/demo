@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php 
+        use Think\Log;
+        $log=new Log();
+        
+?>
+<head>
+    <meta charset="utf-8">
+    <meta name="screen-orientation" content="portrait">
+    <title>我是代言人</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/animate.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/zhengcejiedu/expand.css?<?php echo time();?>.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+    </script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+        //tab
+        wx.config({
+            debug: false
+            , appId: '<?php echo $appId;?>'
+            , timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr: '<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>', // 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+        var wx_share_title = '{$user_info.real_name}告诉您，百元送父母10万健康保障';
+        var wx_share_desc = '百倍爱心卡，老年人专属心血管保障。我觉得很适合您，抽空看看呗？';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_icon/parent.png";
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: wx_share_title, 
+                desc: wx_share_desc, 
+                link: "http://wx-heartorg.yk2020.com//weixin/index.php?m=Member&c=Huzhu&a=share_parent&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name}", 
+                imgUrl: wx_share_imgUrl, 
+                success: function () {
+                    <?php
+
+                        $log->write($type."_expand {openid:".$homeid.",link_mobile:".$user_info['link_mobile'].",url_path:".$path."}","WXSHARE","","./Application/Runtime/Logs/share".date('Y-m-d').'.log');
+                    ?>;
+                }
+                , cancel: function () {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title, 
+                desc: wx_share_desc,
+                link: "http://wx-heartorg.yk2020.com//weixin/index.php?m=Member&c=Huzhu&a=share_parent&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name}",
+                imgUrl: wx_share_imgUrl, 
+                success: function () {
+                    <?php
+
+                        $log->write($type."_expand {openid:".$homeid.",link_mobile:".$user_info['link_mobile'].",url_path:".$path."}","WXSHARE","","./Application/Runtime/Logs/share".date('Y-m-d').'.log');
+                    ?>;
+                }
+                , cancel: function () {}
+            });
+        });
+    </script>
+</head>
+<body style=" position:relative;">
+    <!--<div style="position:absolute; left:0; right:0; top:0; bottom:0; display:none; background:#000; filter:alpha(opacity=70);-moz-opacity:0.7;-khtml-opacity:0.7; opacity:0.7;  z-index:99;" id="hui"></div>-->
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="logo_con">
+                    <div class="ani clear" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0.10s"> <img src="/weixin/Public/Member/images/zhengcejiedu/logo1.jpg" class="logo1"> <img src="/weixin/Public/Member/images/zhengcejiedu/logo2.jpg" class="logo2"> </div>
+                </div>
+                <div class="one_top clear">
+                    <div class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s">
+                        <a href="{:U('Member/User/expand_result')}"> <img src="/weixin/Public/Member/images/zhengcejiedu/img11.jpg" class="f_l"> </a>
+                    </div>
+                    <div class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.5s" swiper-animate-delay="0.5s">
+                        <a href="javascript:;" class="erweima"> <img src="/weixin/Public/Member/images/zhengcejiedu/twoCode.png" class="f_l" style="margin-left: 12.5%;"> </a>
+                    </div>
+                    <div class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0.3s"> <img src="/weixin/Public/Expert/images/expand/firstScreen/img2.jpg" class="f_r huodong"> </div>
+                    
+                   
+                </div>
+                <div class="one_center">
+                    <div class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.9s" swiper-animate-delay="0.9s"><img src="/weixin/Public/Member/images/zhengcejiedu/img2.png" class="yingjifen"></div>
+                    <div class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="3.9s" swiper-animate-delay="0.9s"><img src="/weixin/Public/Member/images/zhengcejiedu/bot2.png" class="jifen"></div>
+                     <div class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1.5s" swiper-animate-delay="0.9s">
+                        <a href="{:U('Member/Huzhu/daiyan_list')}"> <img src="/weixin/Public/Member/images/zhengcejiedu/img4.jpg" class="f_l img_cg"> </a>
+                    </div>
+                    <div class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1.5s" swiper-animate-delay="0.9s">
+                        <a href="{:U('Member/Huzhu/fx')}"> <img src="/weixin/Public/Member/images/zhengcejiedu/img5.jpg" class="f_l img_jg"> </a>
+                    </div>
+                </div>
+                <div class="ani tuijian_con" ><a href="{:U('Member/User/expand_list',array('path'=>$path))}" class="tuijian">我要代言</a></div> <!-- <img src="/weixin/Public/Expert/images/expand/down.png" class="down"> -->
+                <div class="hui">
+                    <div class="xiangqing">
+                        <h2 style="margin-top: 1rem;">活动详情</h2>
+                        <p><b>1</b>分享人必须已关注“心脑管家”，并绑定手机号码，才可分享。</p>
+                        <p><b>2</b>凡是参与活动的用户，必须是通过分享人的分享页面购买“百倍爱心卡”。</p>
+                        <p><b>3</b>用户必须支付成功。</p>
+                        <p><b>4</b>奖励规则明细</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接销售：17%</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间接销售：6%</p>
+                        <p>例：用户A通过分享推广链接给用户B，假设用户B购买了百倍爱心卡/百倍爱心卡健康管理套装，则A用户有17%的提成；用户B再分享给用户C，假设用户C购买了百倍爱心卡/百倍爱心卡健康管理套装，则B获得17%的提成，A获得6%提成。</p>
+                        <p><b>5</b>业绩明细可在“我的业绩”里面查看。 </p>
+                        <p><b>6</b>本活动最终解释权归北京远程视界集团所有。</p> 
+                        <span></span>
+                    </div>
+                </div>
+                <!-- <div class="fenxiang_con">
+                                <div class="fenxiang">
+                                    <img src="/weixin/Public/Expert/images/expand/fenxiang.png">
+                                </div>    
+                            </div> --></div>
+<!--            <div class="swiper-slide">-->
+                <!--<div class="ani tow_h2" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0.10s">
+                                <h2>如何分享给好友？</h2>
+                        </div>
+                            <div class="tow_center">
+                                <div class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s"><img src="/weixin/Public/Member/images/zhengcejiedu/book.jpg"></div>
+                                <p class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s"><img src="/weixin/Public/Member/images/zhengcejiedu/towcon.png" /></p>
+                        </div>
+                            <div class="ani jifen_con" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.2s" swiper-animate-delay="0.9s"><p style="font-size:16px;margin-top:30px;">我是***，我已为家人购买百倍爱心卡，我为百倍爱心卡代言！买了百倍爱心卡，做冠心病支架介入手术、心脏搭桥手术、心律失常介入射频消融手术最高援助10万！大家赶紧加入吧！</p></div>
+                            <img src="/weixin/Public/Expert/images/expand/down.png" class="down"> -->
+                <!--<div class="ani tow_h2" swiper-animate-effect="slideInDown" swiper-animate-duration="1s" swiper-animate-delay="0.10s">
+                    <h2>如何分享给好友？</h2> </div>
+                <div class="tow_center">
+                    <div class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay="0.5s"><img src="/weixin/Public/Member/images/zhengcejiedu/towcon.png"></div>
+                </div>
+                <div class="ani jifen_con" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.2s" swiper-animate-delay="0.9s"><img src="/weixin/Public/Member/images/zhengcejiedu/bot.png"></div> <img src="/weixin/Public/Expert/images/expand/down.png" class="down"> </div>-->
+            <!--<div class="swiper-slide">
+                <div class="ani three_top" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.5s" swiper-animate-delay="0.9s"><img src="/weixin/Public/Expert/images/expand/threeScreen/top.png"></div>
+                <div class="ani three_h2" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.7s" swiper-animate-delay="0.9s">
+                    <h2>成功分享很简单哦！</h2> </div>
+                <div class="ani three_p" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                    <p>当您有20个小伙伴通过您分享的
+                        <br> 页面购买百倍爱心卡成功后 即可获得一张百倍爱心卡</p>
+                </div>
+                <div class="ani tuijian_con_last" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="1.1s" swiper-animate-delay="0.9s"><a href="{:U('Member/User/expand_list')}" class="tuijian_last">我要分享</a></div>
+                <div class="fenxiang_con2">
+                    <div class="fenxiang_last"> <img src="/weixin/Public/Expert/images/expand/fenxiang.png"> </div>
+                </div>
+            </div>-->
+        </div>
+        <!--<div class="swiper-slide">
+            <div class="ani three_top" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.5s" swiper-animate-delay="0.9s"><img src="/weixin/Public/Expert/images/expand/threeScreen/top.png"></div>
+            <div class="ani three_h2" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.7s" swiper-animate-delay="0.9s">
+                <h2>成功当上代言人很简单哦！</h2> </div>
+            <div class="ani three_p" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                <p>您成功加入了心脑管家微信患者端或心脑运营端</p>
+            </div>
+            <div class="ani three_p" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                <p>您分享的页面链接有人成功购买之后，您就有现金奖励哦！！ 还在等什么！！快快分享吧！！</p>
+            </div>
+            <div class="ani tuijian_con_last" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="1.1s" swiper-animate-delay="0.9s"><a href="{:U('Member/User/expand_list')}" class="tuijian_last">我要分享</a></div>
+            <div class="fenxiang_con2">
+                <div class="fenxiang_last"> <img src="/weixin/Public/Expert/images/expand/fenxiang.png"> </div>
+            </div>
+        </div>-->
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    </div>
+    <!-- 二维码 -->
+    <div id="pop">
+        <div class="mask"></div>
+        <div class="pop-content">
+            <div class="close"></div>
+            <div class="pop-main"> <img src="" alt="">
+                <p>扫一扫，即刻加入慢病管理</p>
+            </div>
+            <p class="pop-des">百倍爱心卡</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="/weixin/Public/Expert/js/jquery.js"></script>
+    <script src="/weixin/Public/Expert/js/swiper.min.js"></script>
+    <script src="/weixin/Public/Expert/js/swiper.animate1.0.2.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            paginationClickable: true
+            , direction: 'vertical'
+            , noSwipingClass: 'stop-swiping'
+            , onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素 
+                swiperAnimate(swiper); //初始化完成开始动画
+            }
+            , onSlideChangeEnd: function (swiper) {
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+                $('.huodong').click(function () {
+                    $('.hui').css('display', 'block');
+                    $(this).parent().parent().parent('.swiper-slide').addClass('stop-swiping');
+                })
+                $('.xiangqing span').click(function () {
+                    $('.hui').css('display', 'none');
+                    $(this).parents().removeClass('stop-swiping');
+                });
+            })
+            //二维码
+        $('.erweima').click(function () {
+            var username = encodeURIComponent("{$user_info['user_name']}");
+            var code = "http://weixin.yk2020.com/include/get_share_code.aspx?a=wxlogin&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&attach=<?php echo urlencode(base64_encode('m=Member&c=User&a=expand'));?>&user_name=" + username;
+            console.log(code);
+            $('#pop').show();
+            $('.pop-main img').attr('src', code);
+            $('#pop').show();
+        })
+        $('.close').click(function () {
+            $('#pop').hide();
+        })
+    </script>
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

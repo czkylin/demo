@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="share-title" content="">
+		<title>审核状态</title> 
+		<!--CSS库文件-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+		<!--CSS当前页面文件-->
+		<link href="/weixin/Public/Expert/css/user/zhuce.css" type="text/css" rel="stylesheet"/>
+	</head>
+	<body class="shenhebg">
+		<div class="shenhezhong"> 
+			<p class="center"><img src="/weixin/Public/Expert/images/zhuce/chenggong.png"></p>
+			<h1>审核中...</h1>
+			<h2>{$user_info['EXPERT_NAME']} 您好！</h2>
+			<h2>{$user_info['HOS_NAME']}</h2>
+			<h2>{$user_info['LINK_MOBILE']}</h2>
+			<p style="text-align:center;">您好！您的会员申请已提交，<br>审核通过后我们将为您颁发会员证书。</p>
+		</div>
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

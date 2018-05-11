@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+/*导航*/
+
+.NavAll { background: none repeat scroll 0 0 #2a7ce5; color: #fff; font-size: 16px; line-height: 42px; margin-bottom:15px; height: 42px; }
+.NavAll a { color: #fff; padding:0 10px;}
+

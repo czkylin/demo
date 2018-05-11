@@ -1,0 +1,13 @@
+<volist name="member_list" id="member">
+	<li>
+		<dl>
+			<dt>
+				<img src="{$member['MEMBER_PIC']}" />
+			</dt>
+			<dd>
+				<p><span>就诊人:</span>{$member['MEMBER_NAME']}</p>
+				<p><span>性别：</span>{$member['MEMBER_SEX']}</p>
+			</dd>
+		</dl>
+	</li>∮
+</volist>

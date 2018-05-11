@@ -1,0 +1,17 @@
+huzhu---首页
+
+chongzhi---微信充值选择金额
+
+dongjie_zanwu---所以得暂无页面都用同一个
+
+huiyuanxinxi---会员信息
+
+jiankanggaozhi---健康告知
+
+jiaruxingdong---加入行动
+
+wodebaozhang---我的保障
+
+yaoqing---邀请
+
+zhangdan---账单

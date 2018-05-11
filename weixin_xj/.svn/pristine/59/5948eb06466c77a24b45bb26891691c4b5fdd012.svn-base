@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>联盟授课</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+    <style>
+        header{border-width:0px;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+</head>
+<body class="mine">  
+    <nav class="menu">
+        <ul>
+            <li class="text-center">
+                <i></i>
+                <span>千县万医计划</span>
+                <a href="index.php?m=Expert&c=Class&a=jobLine"></a>
+            </li>
+            <li class="text-center">
+                <i></i>
+                <span>千县万医介绍</span>
+                <a href="index.php?m=Expert&c=Class&a=qxwyjs"></a>
+            </li>
+        </ul>
+    </nav>
+    <article id="lList">
+        <h2>课程列表</h2>
+            <volist name="kc_list" id="vo">
+                <section>
+                    <div class="lt">
+                        <div class="lImg">
+                            <img src="{$vo.BOOK_PIC}" />
+                        </div>
+                        <div class="lTxt">
+                            <p>{$vo.BOOK_NAME}</p>
+                            <p>
+                                <i>{$vo.PIONT_NUM}</i>
+                                <em>更新完成</em>
+                            </p>
+                        </div>
+                    </div>
+                    <a href="index.php?m=Expert&c=Class&a=studyDetail&book_id={$vo.BOOK_ID}"></a>
+                </section>
+        </volist>
+    </article>
+    <div class="ui-jiazai"><a href="javascript:;" id="load" onClick="load_more();" class="text-center">点击加载</a></div>
+    <div id="current_pagenum" style="display:none">2</div>
+  <include file="Public:footer_kc" />
+   <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<!--加载更多-->
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script>
+function load_more()
+{
+   
+   loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Class&a=append_line&page_num='+$('#current_pagenum').text(),'#lList');
+}
+</script>
+</html>

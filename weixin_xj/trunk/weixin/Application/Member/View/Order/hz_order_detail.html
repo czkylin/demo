@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="/weixin/Public/Member/css/consult/consult_state.css" type="text/css" rel="stylesheet"/>
+<style>
+    #sub2,#sub2s{width:4.2rem;display:inline-block;margin:.4rem;-webkit-box-sizing:border-box;box-sizing:border-box;float:left;}    
+    #sub2s{background:#e31d1d;}
+</style>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize=document.documentElement.clientWidth/10 + "px";
+</script>
+<title>远程会诊</title>
+</head>
+<body>
+	<div class="state">
+        <switch name="array[0]['ENABLE_FLAG']" >
+            <case value="待处理">
+                <img src="/weixin/Public/Expert/images/consult/icon_wait.png" alt="">
+                <p>会诊请求已发送，请耐心等待。</p>
+            </case>
+            <case value="拒绝">
+                <img src="/weixin/Public/Expert/images/consult/icon_fail.png" alt="">
+                <p>会诊订单未通过。</p>
+            </case>
+            <case value="同意">
+                <if condition = "$array[0][ORDER_STATUS] eq '待付款'">
+                    <img src="/weixin/Public/Expert/images/consult/icon_nopaid.png" alt="">
+                    <p>会诊订单未支付</p>
+                <else/>
+                    <img src="/weixin/Public/Expert/images/consult/icon_paid.png" alt="">
+                    <p>会诊订单已支付</p>
+                </if> 
+            </case>
+            <default />
+        </switch>
+        
+	</div>
+	<div class="content">
+		<!-- 患者信息 -->
+		<div class="patient">
+			<div class="title">
+				<h2>患者信息</h2>
+				<a href="/weixin/index.php?m=Member&c=User&a=dangan">健康档案 ></a>
+			</div>
+			<p class="info">{$array.0.MEMBER_NAME}<span> {$array.0.MEMBER_SEX} {$array.0.MEMBER_AGE}岁</span></p>
+			<!-- <div class="mes">
+				<p><span>详情:</span>发生的方式看附件是快递放假时看附件是快递费</p>
+			</div>	 -->
+		</div>
+		<!-- 发起医生 -->
+		<div class="doctor">
+			<h2 class="title">发起医生</h2>
+			<div class="info">
+				<div class="info-wrap clear">
+					<img src="{$array.0.SMALL_EXPERT_PIC}" alt="">
+					<div class="mes">
+						<p><span>{$array.0.SMALL_EXPERT_NAME}</span> {$array.0.SMALL_EXPERT_RANK}</p>
+						<p>{$array.0.SMALL_HOS_NAME}</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<!-- 参与医生 -->
+		<div class="doctor">
+			<h2 class="title">参与医生</h2>
+			<div class="info">
+				<div class="info-wrap clear">
+					<img src="{$array.0.BIG_EXPERT_PIC}" alt="">
+					<div class="mes">
+						<p><span>{$array.0.BIG_EXPERT_NAME}</span> {$array.0.BIG_EXPERT_RANK}</p>
+						<p>{$array.0.BIG_HOS_NAME}</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<div class="time">会诊时间：{$array.0.ORDER_DATE|Dtodiy='Y-m-d',###}</div>
+		<div class="price">会诊费用：<span>￥{$array.0.ORDER_MONEY}元</span></div>
+
+        <switch name="array[0]['ENABLE_FLAG']" >
+
+            <case value="待处理">
+                <a href="#" class="link" onClick="javascript:history.back(-1);">返回</a>
+            </case>
+
+            <case value="拒绝">
+                <div class="fail">拒绝理由：{$array.0.JJ_RESULT}</div>
+            </case>
+
+            <case value="同意">
+                <if condition = "$array[0][ORDER_STATUS] eq '待付款'">
+                    <form action="{:U('Order/pay')}" method="post" class="form_tijao" style="height:auto;">
+                        <input type="hidden" name="price" value="{$array.0.ORDER_MONEY}">
+                        <input type="hidden" name="serve_name" value="{$order_name}">
+                        <input type="hidden" name="order_id" id="order_id" value="{$order_id}">
+                        <input type="hidden" name="time" value="{$array.0.ORDER_DATE}">
+                        <input type="hidden" name="hz_id" id="hz_id" value="{$hz_id}">
+                        <input type="hidden" name="sj_type" id="sj_type" value="{$sj_type}">
+                        <input type="submit" value="立即支付" id="sub2" class="go">
+                        <input type="button" value="取消订单" id="sub2s" class="go"><br>
+                    </form>
+                <else/>
+                    <a href="{:U('Member/Order/my_hz_detali',Array('hz_id'=>$hz_id))}" class="go">查看会诊报告</a>
+                </if> 
+            </case>
+            <default />
+        </switch>
+	</div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script>
+    $("#sub2s").click(function()
+    {
+        var order_id = $("#order_id").val();
+        var record_id = $("#hz_id").val();
+
+         $.ajax({
+
+             type: "GET",
+
+             url: "/weixin/index.php?m=Member&c=Order&a=tpay&order_id="+order_id+"&record_id="+record_id,
+
+             success: function(msg){
+
+                 if(msg=="ok"){
+
+                     alert("取消成功");
+
+                     location.href="/weixin/index.php?m=Member&c=Order&a=order_list";
+
+                 }else{
+
+                     alert("取消失败")
+
+                 }
+
+             }  
+
+         });
+
+    });
+</script>
+</html>

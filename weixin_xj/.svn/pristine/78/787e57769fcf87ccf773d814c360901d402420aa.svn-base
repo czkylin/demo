@@ -1,0 +1,9 @@
+/*!
+ * 表单公用样式*/
+
+form { }
+form label { width: 100%; border: 1px solid #f3f3f3; font-size: 12px; display: block; position: relative; color: #333; padding: 20px 10px; height: 60px; line-height: 20px; }
+form label input { position: absolute; left: 70px; border: 0; padding: 0 10px; color: #666; }
+form input.ui-btn-purchase-blue { margin: 20px 0;width: 100%;}
+form label.ui-textarea { height: 100px; }
+form textarea { position: absolute; top: 20px; font-size: 14px; padding: 0 10px 0 80px; height: 60px; line-height: 20px; color: #666; border: 0; width: 100%; left: 0; }

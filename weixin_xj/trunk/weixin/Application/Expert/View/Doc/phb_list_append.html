@@ -1,0 +1,34 @@
+<volist name="doc_list" id="doc">        
+   <li>
+                    <div class="ww pos_a">
+                    {$doc['JIFEN_RANK']}
+                    </div>
+                    <div class="touxiang pos_a"> 
+                        <a href="#">
+                            <if condition="($doc['EXPERT_SEX'] eq '未填写') && ($doc['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')">
+                                <img src="/weixin/Public/Expert/images/yonghu/girl.png" />
+                            <elseif condition="($doc['EXPERT_SEX'] eq '男') && ($doc['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+                                <img src="/weixin/Public/Expert/images/yonghu/boy.png" />
+                            <elseif condition="($doc['EXPERT_SEX'] eq '女') && ($doc['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+                                <img src="/weixin/Public/Expert/images/yonghu/girl.png" />
+                            <elseif condition="empty($doc)" />
+                                <img src="/weixin/Public/Expert/images/yonghu/girl.png" />
+                            <else />
+                                <img src="{$doc.SMALL_PIC}" />
+                            </if>
+                        </a> 
+                    </div>
+                    <div class="huoyuedu">
+                            <div class="title">
+                                <div class="fl title-des">
+                                    <span>{$doc['EXPERT_NAME']}</span>
+                                    <span class="huadong_hos">{$doc['HOS_NAME']}</span> 
+                                </div>
+                                <span class="fr">{$doc['JIFEN_NUM']}</span>
+                                <div class="clear"></div>
+                            </div>
+                    </div>
+                    <div class="clear"></div>
+                </li>∮ 
+</volist>
+

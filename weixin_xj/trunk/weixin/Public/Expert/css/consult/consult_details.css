@@ -1,0 +1,41 @@
+.clearfix:after{clear: both; display: block; content: '';}
+.left{float: left;}
+.zixuntop .mes{padding:0.3rem 0; margin-bottom: 0.4rem; border-bottom: 1px dashed #ccc;}
+.zixuntop .touxiang{ float: left; width: 2rem; height: 2rem; border-radius: 2rem; border: 1px solid #e1e1e1; overflow: hidden;}
+.zixuntop .touxiang img{width: 100%; height:2em;}
+.zixuntop .des{float: left; height: 2rem; margin-left: 0.5rem;}
+.zixuntop .des h3{text-align: left; height: 1rem; line-height: 1rem; font-size: 0.6rem; color: #333;}
+.zixuntop .des p{color: #777777; font-size: 0.5rem; text-align: left; height: 1rem; line-height: 1rem;}
+.zixuntop a{float: right; font-size: 0.55rem; color: #0099ff;}
+.zixuntop .question{position: relative;}
+.zixuntop .question-title{float: left; width: 10%; height: 100%; text-align: center;}
+.zixuntop .question-des{float: left; display: block; width: 85%; padding: 0 2.5%;}
+.zixuntop .question-des p{font-size: 0.512rem; color: #666666; line-height: 0.768rem; text-align: left; margin-bottom: 0.512rem;}
+.zixuntop .question-des img{max-width: 150px; max-height: 150px; width: 50px; height: 50px;}
+.zixuntop .question-des a{position: absolute; right: 0; bottom: 0; font-size: 0.55rem; color: #0099ff;}
+
+.doctor_mes{float: right; position: relative; width: auto; margin-top: 20px;}
+.liaotian{text-align: left;}
+.doctor_mes .doctor_portait{position: absolute; right: 0; text-align: center; top: 5px; width: 50px;}
+.doctor_mes .doctor_portait a{ color: #000; float: left; font-size: 14px; width: 45px; line-height: 30px;}
+.doctor_mes .doctor_portait img{width: 45px; height: 45px; margin: 0 auto; border-radius: 50%; border: 1px solid #e7e7e7;}
+.doctor_mes .piece_lstw3{margin-left: 10px; margin-right: 65px; background-color: #0093ee;border-color: #bfbfbf;padding: 14px;position: relative;border-radius: 6px;color: #fff;}
+.liaotian .textC{display: block;}
+.times{text-align: right;}
+.liaotian .textC p{display: block;font-size: .6rem;word-break: break-all;white-space: normal;color: #fff;}
+.patient_mes{float: left; position: relative;width: auto;margin-top: 20px;}
+.patient_mes .piece_lstw2{background: #e7eff7; margin-left: 60px; border-color: #bfbfbf;padding: 14px;position: relative; border-radius: 6px;color: #fff;}
+.patient_mes .textC p,.patient_mes .textC .times{ color: #333;}
+.patient_mes .patient_portait{ position: absolute;left: 0;text-align: center;top: 5px;width: 50px;}
+.patient_mes .patient_portait a{color: #000;float: left;font-size: 14px;width: 45px;line-height: 30px;}
+.patient_mes .patient_portait img,.doctor_mes .patient_portait img{width: 45px; height: 45px; margin: 0 auto; border-radius: 50%; border: 1px solid #e7e7e7;}
+.doctor-prescription{float: right;position: relative;width: auto;margin-top: 20px;}
+.doctor-prescription .piece_lstw2{ margin-right: 60px; border-color: #bfbfbf;padding: 14px;position: relative;border-radius: 6px;color: #fff; background: #ff8400;}
+.doctor-prescription .liaotian .textC img.drug{ width: 30px;height: auto;margin: 0;}
+.doctor-prescription .liaotian .textC .left h2,.doctor-prescription .liaotian .textC .left p{color: #fff;font-weight: normal;line-height: 15px;margin-left: 6px;}
+.doctor-prescription .liaotian .textC .left p{font-size: 12px;margin-top: 4px;}
+.doctor-prescription .doctor_portait{position: absolute;right: 0;text-align: center;top: 5px;width: 50px;}
+.doctor-prescription .doctor_portait a{color: #000;float: left;font-size: 14px;width: 45px;line-height: 30px;}
+.doctor-prescription .doctor_portait img{border-radius: 50%; height: 43px;margin: 0 auto;width: 43px; border: 1px solid #e7e7e7;}
+.join{position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.doctor-prescription .piece_lstw2.green{background-color: #0dc900;}

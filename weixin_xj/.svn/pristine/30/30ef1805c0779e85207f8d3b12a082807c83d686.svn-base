@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>核心价值观</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/aboult.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px'
+    </script>
+</head>
+<body>
+    <header class="dDetail">
+        <a href="index.php?m=Expert&c=User&a=aboultyc" class="icon">&#xf62b;</a>
+        <h2>核心价值观</h2>
+    </header>
+    <article class="wxvalue">
+        <section>
+            <div class="vLine"></div>
+            <figure>
+                <h3>我们的使命</h3>
+                <p>解决老百姓看病难看病贵</p>
+            </figure>
+        </section>
+        <section>
+            <div class="vLine"></div>
+            <figure>
+                <h3>我们的愿景</h3>
+                <p>搭建医疗健康业务、技术、交易电子商务平台，通过医疗数据云平台的建设，打造世界顶级医疗健康生态体系，推动未来精准医疗发展。</p>
+            </figure>
+        </section>
+        <section>
+            <div class="vLine"></div>
+            <figure>
+                <h3>我们的目标</h3>
+                <p>构建国家、省级、市级三级远程专科会诊中心</p>
+            </figure>
+        </section>
+        <section>
+            <div class="vLine"></div>
+            <figure>
+                <h3>我们的价值观</h3>
+                <p>诚信 融合 创新 共赢</p>
+            </figure>
+        </section>
+        <section>
+            <div class="vLine"></div>
+            <figure>
+                <h3>我们的作风</h3>
+                <p>认真 快 坚守承若</p>
+            </figure>
+        </section>
+    </article>
+    <footer style="background:#f2f2f2;text-align:center;bottom:0;left:0;width:100%;height:60px;overflow:hidden;position:fixed;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;">
+        <object data="/weixin/Public/Expert/css/zhengcejiedu/bottom.svg" src="/weixin/Public/Expert/css/zhengcejiedu/bottom.svg" type="" style="width:100%;transform:scale(0.5,0.5);-webkit-transform:scale(0.5,0.5);vertical-align:top;"></object>
+    </footer>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<volist name="order_list" id="order">
+
+<dl>
+
+	<a href="/weixin/index.php?m=Home&c=Order&a=order_info&order_id={$order['ORDER_ID']}">
+
+	<dt>
+
+		<span><img width="75" height="75" <if condition="$order['HEADIMGURL'] neq '' "> src="{$order['HEADIMGURL']}" <else /> src="/weixin/Public/Home/images/common/cf_list.png" </if>" /></span>
+
+	</dt>
+
+	<dd>
+
+		<h2>服务名称：{$order['ORDER_NAME']}</h2>
+
+		<p>订单ID：{$order['ORDER_ID']}&nbsp;&nbsp;&nbsp;总价：<em class="quantity">{$order['ORDER_MONEY']|round=2}</em>元&nbsp;&nbsp;&nbsp;数量：<em class="quantity">1</em></p>
+
+		<p>下单时间：{$order['CREATE_DATE']}</p>
+
+		<span>订单状态：{$order['ORDER_STATUS']}&nbsp;&nbsp;&nbsp;核销状态：{$order['O2O_FLAG']}</span>
+
+	</dd>
+
+	<br clear="all" />
+
+	</a>
+
+</dl>∮
+
+</volist>

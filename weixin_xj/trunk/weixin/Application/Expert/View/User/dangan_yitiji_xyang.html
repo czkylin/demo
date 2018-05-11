@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-血氧</title>
+<style>
+	.detail.detail_xy li .box p b{color: #0fbca1;}
+</style>
+</head>
+<body>
+<!--血氧-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="xueyang">
+		<div class="con">
+			<h2 class="tit2">血氧</h2>
+			<p>正常人体动脉血的血氧饱和度为98% 静脉血为75%；</p>
+			<p>脉率（pulse rate）是每分钟脉搏的次数，正常情况下与心率一致，与呼吸的比例约为4：1～5：1；健康成人在安静状态下脉率为60～100次/min，女性稍快。</p>
+		</div>
+		<ul class="detail detail_xy">
+			<volist name="jk_info" id="jk">
+				<li>
+					<a href="javascript:;" class="clear">
+						<div class="right position box dongmaizhi">
+							<p><b>动脉血</b><br><span>{$jk.OXYGEN}%</span></p>
+							<span class="canshu">正常</span>
+						</div>
+						<div class="right position box maibozhi">
+							<p><b>脉搏</b><br><span>{$jk.PULSERATE}/分</span></p>
+							<span class="canshu">正常</span>
+						</div>
+						<p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						<div class="clear"></div>
+					</a>	
+				</li>
+			</volist>
+			<!-- <li>
+				<div class="right position box dongmaizhi">
+					<p><b>动脉血</b><br><span>50%</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<div class="right position box maibozhi">
+					<p><b>脉搏</b><br><span>50/分</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box dongmaizhi">
+					<p><b>动脉血</b><br><span>78%</span></p>
+					<span class="canshu">过慢</span>
+				</div>
+				<div class="right position box maibozhi">
+					<p><b>脉搏</b><br><span>90/分</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				<div class="right position box dongmaizhi">
+					<p><b>动脉血</b><br><span>100%</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<div class="right position box maibozhi">
+					<p><b>脉搏</b><br><span>120/分</span></p>
+					<span class="canshu">过快</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+//血氧
+function fn(){
+	//脉搏
+	$(".maibozhi").each(function(){
+		var shuzhi = parseInt($(this).find("p").find("span").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=100){
+			$canshu.html("过快").addClass("color_gj");
+		}else if( shuzhi <= 60 ){
+			$canshu.html("过慢").addClass("color_ts");
+		}else{
+			$canshu.html("正常");
+		}
+	})
+	//动脉血
+	$(".dongmaizhi").each(function(){
+		var shuzhi = parseInt($(this).find("p").find("span").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=95){
+			$canshu.html("正常");
+		}else{
+			$canshu.html("偏低").addClass("color_gj");
+		}
+	})
+}
+$(function(){
+	fn();
+})
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&tj_type='+tj_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+html,body{width: 100%; height: 100%;}
+.swiper-container{width: 100%; height: 100%;}
+.swiper-slide{background: url(/weixin/Public/Member/images/win_sum/bg1.jpg) no-repeat left top; background-size: 100% 100%; width: 100%; height: 100%; position: relative;}
+img{position: absolute; z-index: 2;}
+img.flower{width: 3.94rem; height: 3.99rem; left: 0; bottom: 0;}
+img.flower1{width: 3.94rem; height: 3.99rem; left: 0; bottom: -1.7rem;}
+img.flower2{width: 1.56rem; height: 2.06rem; right: .2rem; bottom: 0;}
+.arrow{width:24px;height:24px;position:absolute;bottom:2rem;left:50%;margin-left:-12px;z-index:100;}
+.arrow:before{position:absolute;top:0;left:0;width:20px;height:20px;border:2px solid #11783a;border:2px solid #fff;border-bottom-color:rgba(0,0,0,0);border-right-color:rgba(0,0,0,0);border-radius:4px;content:'';transform:rotate(45deg);-webkit-transform:rotate(45deg);}
+@-webkit-keyframes rise{
+    0% {
+        opacity:0;
+        -webkit-transform: translate3d(0,100px,0);
+        transform: translate3d(0,100px,0)
+    }
+    40% {
+        opacity:1;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+    100% {
+        opacity:0;
+        -webkit-transform: translate3d(0,-20px,0);
+        transform: translate3d(0,-20px,0)
+    }
+}
+
+@keyframes rise{
+    0% {
+        opacity:0;
+        -webkit-transform: translate3d(0,100px,0);
+        transform: translate3d(0,100px,0)
+    }
+    40% {
+        opacity:1;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+    100% {
+        opacity:0;
+        -webkit-transform: translate3d(0,-20px,0);
+        transform: translate3d(0,-20px,0)
+    }
+}
+
+.rise{
+    -webkit-animation-name: rise;
+    animation-name: rise;
+    -webkit-animation-iteration-count:infinite;
+    animation-iteration-count:infinite;
+}
+
+.s1 img.img1{width: .86rem; height: 2.02rem; left: 2.2rem; top: 1.04rem;}
+.s1 img.img2{width: 3.69rem; height: 6.06rem; left: 5.28rem; top: 3.16rem; z-index: 1;}
+
+.s2 img.img3{width: 3.27rem; height: 3.02rem; top: 0.94rem; left: 2.06rem;}
+.s2 img.img4{width: 6.56rem; height: 6.03rem; top: 4.14rem; left: .72rem;}
+
+.s3 img.img5{width: 7rem; height: auto; top: .08rem; left: .32rem;}
+.s3 img.img6{width: 6.50rem; height: 5.76rem; top: 4.98rem; left: .6rem;}
+
+.s4 img.img7{width: 6.73rem; height: 2.38rem; top: 1.4rem; left: .4rem;}
+.s4 img.img8{width: 6.5rem; height: 5.76rem; top: 4.96rem; left: .66rem;}
+
+.s5 img.img9{width: 5.4rem; height: 4.52rem; top: .76rem; left: 1rem;}
+.s5 img.img10{width: 6.5rem; height: 5.76rem; top: 5.16rem; left: .66rem;}
+
+.s6 img.img11{width: 3.85rem; height: .85rem; top: 1.7rem; left: 1.72rem;}
+.s6 img.img12{width: 4.95rem; height: 2.68rem; top: 3.38rem; left: 1.26rem;}
+.s6 img.img13{width: 5.39rem; height: 1.56rem; top: 6.9rem; left: 1rem;}
+.s6 img.img14{width: 2.8rem; height: .68rem; top: 9.44rem; left: 2.35rem;}

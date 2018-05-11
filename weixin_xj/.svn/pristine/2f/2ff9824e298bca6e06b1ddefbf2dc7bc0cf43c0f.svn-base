@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="/weixin/Public/Member/css/jtys/consult_introduce.css">
+<title>家庭医生</title>
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 10 + "px";
+</script>
+</head>
+<body>
+	<h1>专属家庭医生</h1>
+	<p class="title">权威专家全方位指导，专业服务，资源精准匹配</p>
+	<div class="img-wrap">
+		<img src="/weixin/Public/Member/images/jtys/zj.png" alt="">
+	</div>
+	<div class="main">
+		<div class="con">
+			<ul>
+				<li>1、每年6次预约北京专家视频会诊咨询</li>
+				<li>2、每月2次私人家庭医生视频咨询会诊随访</li>
+				<li>3、每年2次北京三甲医院专家预约挂号服务</li>
+				<li>4、每年2次北京三甲医院专家远程阅片诊断服务</li>
+				<li>5、每年2次北京三甲医院专家远程视频会诊服务</li>
+				<li>6、每年2次定点机构健康体检服务</li>
+				<li>7、每年2次专家健康评估和健康指导</li>
+				<li>8、配备远程家庭医疗陪护机器人全年服务</li>
+			</ul>
+			<div class="link">
+				<a href="https://weidian.com/item.html?itemID=1927804008" class="link1">成为家庭医生会员</a>
+				<a href="tel:400-656-2020" class="link2">服务热线：400-656-2020</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

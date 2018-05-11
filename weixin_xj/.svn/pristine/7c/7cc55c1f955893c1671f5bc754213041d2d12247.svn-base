@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>VIP心脑护照卡</title>
+    <!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/zhuanti/card20160803/card0803.css?v=1.003"/>
+<style type="text/css">
+.link {
+    bottom: 0;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    height: 44px;
+    left: 0;
+    line-height: 44px;
+    overflow: hidden;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 10;
+}
+.link_1 {
+    background: #ff8400 none repeat scroll 0 0;
+    display: block;
+    float: left;
+    height: 44px;
+    line-height: 44px;
+    width: 37%;
+}
+.link_2 {
+    background: #bf1b20 none repeat scroll 0 0;
+    color: #fff;
+    display: block;
+    float: left;
+    height: 44px;
+    line-height: 44px;
+    width: 63%;
+}
+.nav{position:fixed;top:0;left:0;background:rgba(0,0,0,0.3);width:11rem;padding:10px 0.5rem; z-index: 20;font-size:16px;}
+.nav .people{overflow:hidden;position:relative;width:8rem;height:18px;}
+.nav ul{height:18px;position:absolute;top:0;left:0;}
+.nav span{color:#f70a0a;display:inline-block;width:3rem;}
+.nav em{color:#fff;font-style:normal;margin:0 10px;display:block;} 
+</style>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';    
+</script>
+</head>
+<body>
+    <nav id="nav" class="nav clear">
+        <span class="fl">最新数据：</span>
+        <div class="people fl">
+                <ul class="box">
+                    <li class="box">
+                    <!-- <volist name="buy_list" id="buy">
+                        <em>{$buy.PERSON_NAME|msubstr=0,1,'utf-8',false}**&nbsp;{$buy.PERSON_MOBILE|substr=0,3}****{$buy.PERSON_MOBILE|substr=-4}</em>
+                    </volist> -->
+                    <em>总资金：{$bx_list.all_money}元</em>
+                    <em>今日增长资金：{$bx_list.day_all_money}元</em>
+                    <em>已加入会员：{$bx_list.hy_num}人</em>
+                    <em>今日增长会员：{$bx_list.day_hy_num}人</em>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--1一组开始-->                
+            <div class="swiper-slide">
+                <div class="box1">
+                    <h2 class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">远离心脑血管疾病，家庭医生为您护航。</h2>
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--1一组结束-->
+            <!--2一组开始-->                
+            <div class="swiper-slide">
+                <div class="box2">
+                    <h2 class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">家庭医生专属团队</h2>
+                    <p class="p2title1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                        <b class="p2txet1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s"></b>
+                    </p>
+                    <p class="p2title2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">
+                        <b class="p2txet2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s"></b>
+                    </p>
+                    <p class="p2title3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="2.3s">
+                        <b class="p2txet3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="2.8s"></b>
+                    </p>
+                    <p class="p2title4 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="3.3s">家庭医生是以生物-心理-社会医学模式的全科医学理论为指导，强调以人为中心，定制个性化服务，致力于整体健康的维护与促进，具有执业医生资格的三甲专家，是健康管理的主要提供者。</p>
+                    
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--2一组结束-->
+            <!--3一组开始-->                
+            <div class="swiper-slide">
+                <div class="box3">
+                    <h2 class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">复诊无忧----打破区域阻碍，足不出户享受专家在线服务、绿色通道、康复咨询。</h2>
+                    <h3 class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">优势</h3>
+                    <p class="p3img1 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">简化流程</p>
+                    <p class="p3img2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">缩短时间</p>
+                    <p class="p3img3 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2.3s">高质量</p>
+                    <p class="p3img4 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="2.8s">权威性</p>
+                    <p class="p3text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="3.3s"></p>
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--3一组结束-->
+            <!--4一组开始-->                
+            <div class="swiper-slide">
+                <div class="box4">
+                    <h2>家庭医生专属团队----国家级三甲医院主任医师入住专家团队心脑血管心脑血管医联体</h2>
+                    <p class="p4img1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">国家级三甲医院</p>
+                    <p class="p4img2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">国家级三甲医院</p>
+                    <p class="p4img3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">国家级三甲医院</p>
+                    <p class="p4img4 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">国家级三甲医院</p>
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--4一组结束-->
+            <!--5一组开始-->                
+            <div class="swiper-slide">
+                <div class="box5">
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--5一组结束-->
+            <!--6一组开始-->                
+            <div class="swiper-slide">
+                <div class="box6">
+                    <h2>服务患者</h2>
+                    <div class="p6con">
+                        <p class="p6img1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"></p>
+                        <p class="p6img2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.6s"></p>
+                        <p class="p6img3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.9s"></p>
+                        <p class="p6img4 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s"></p>
+                        <p class="p6img5 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.5s"></p>
+                        <p class="p6img6 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s"></p>
+                        <p class="p6img7 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="2.1s"></p>
+                        <p class="p6icon1" ></p>
+                        <p class="p6icon2" ></p>
+                        <p class="p6icon3" ></p>
+                        <p class="p6icon4" ></p>
+                        <p class="p6icon5" ></p>
+                    </div>
+
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--6一组结束-->
+            <!--7一组开始-->                
+            <div class="swiper-slide">
+                <div class="box7">
+                    <h2>服务患者</h2>
+                    <div>
+                        <p class="p7img1 ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">以病人为中心，以质量为核心</p>
+                        <p class="p7img2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s">为患者着想，替患者服务</p>
+                        <p class="p7img3 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="1.3s">临城县中医院“服务百姓，健康活动”大型义诊活动</p>
+                        <p class="p7img4 ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.8s">为老百姓服务，让老百姓放心</p>
+                    </div>
+                    <!-- <a href="" class="btn"></a> -->
+                </div>
+            </div> 
+            <!--7一组结束-->
+            <!--8一组开始-->                
+            <div class="swiper-slide">
+                <div class="box8">
+                    <!-- <a href="" class="btn"></a> -->
+                    <!-- <a href="https://weidian.com/item.html?itemID=1927804008" class="buy">立即购买</a> -->
+                    <a href="tel:4006562020" class="tel">电话预约</a>
+                    
+                </div>
+            </div> 
+            <!--8一组结束-->
+
+        </div>  
+        <!-- <a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_9900_1'));?>&sale_type={:C("SALE_TYPE_5")}&user_name={:I('get.user_name','')}" class="link"><span class="link_1">￥9900.00</span><span class="link_2">立即购买</span></a>   -->    
+    </div>
+
+
+    <!-- Swiper JS -->
+    <script src="/weixin/Public/Common/js/jquery.min.js"></script>
+    <script src="/weixin/Public/Common/js/swiper.min.js"></script>
+    <script src="/weixin/Public/Common/js/swiper.animate.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical', 
+        onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+        swiperAnimateCache(swiper); //隐藏动画元素 
+        swiperAnimate(swiper); //初始化完成开始动画
+          }, 
+          onSlideChangeEnd: function(swiper){ 
+            swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+          } 
+    });
+
+    function set_log(act){
+            var type = "{$type}"+"_share_9900_1";
+            var link_mobile = '{:I("get.link_mobile","")}';
+            var openid = "{$homeid}";
+            var path = "{$path}";
+            $.ajax(
+                    {
+                        type: "post",
+                        url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                        data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                        dataType: "json",
+                        success: function(data)
+                        {
+                            console.log('set_log:success');
+                        }
+                });
+        }
+
+    //微信分享
+        wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '管理 “心脑血管”疾病 家庭医生为你护航';
+        var wx_share_desc = ' 健康数据采集,健康状况判断,健康计划执行，私人家庭医生,医疗陪护机器人 。加入我们，远离心血管疾病，健康管理身体';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/zhuanti/card0803/p1_bg.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_9900_1&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                     set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_9900_1&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+
+    </script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style=" width:1px;height:0px;overflow:hidden;">
+<?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+<script>
+var h = $('#nav ul').html();
+var w = 0;
+$('#nav em').each(function(){
+    w += $(this).outerWidth() + 20;
+})
+$('#nav ul').append(h).width(w);
+var iNow = 0;
+setInterval(function(){
+    $('#nav ul').css({
+        'transform': 'translate3d(-'+iNow+'px,0,0)',
+        '-webkit-transform': 'translate3d(-'+iNow+'px,0,0)'
+    });
+    iNow++;
+    if(iNow > $('#nav li').width()){
+        iNow = 0;
+    }
+},30);    
+</script>
+</html>

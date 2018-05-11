@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <title>心脏护照卡</title>
+</head>
+<body>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img1.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img2.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img3.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img4.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img5.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img6.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img7.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img8.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img9.jpg" width="100%" ></section>
+    <section><img src="/weixin/Public/Member/images/zhuanti/1000/img10.jpg" width="100%" ></section>
+</body>
+<script src="/weixin/Public/Common/js/lazy.js"></script>
+<script>
+var sec = document.getElementsByTagName('section');
+    
+for(var i=0;i<sec.length;i++){
+    sec[i].style.opacity = 0;
+    sec[i].style.transition = '0.3s';
+    sec[i].style.webkitTransition = '0.3s';
+}
+window.onscroll = function(){
+    lazy(sec,800);
+}    
+
+window.onload = function(){
+    window.onscroll();
+}
+</script>
+</html>

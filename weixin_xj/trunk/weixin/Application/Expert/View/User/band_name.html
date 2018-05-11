@@ -1,0 +1,174 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--分享页面样式调用-->
+<link href="/weixin/Public/Expert/css/zhuanjiagongzuoshi/zhuanjiagongzuoshi.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<title>完善信息</title>
+</head>
+<body >
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+	<p style=" background:#666; color:#fff; line-height:25px;width:200px; height: auto; text-align:center; margin: 0 auto; padding: 10px;display: none;" id="msg"></p>
+</div>
+<div id="index">
+	<div class="dengluInfo"></div>
+	<ul class=" wanshan">
+		<li class="link">
+			<input type="text" placeholder="姓名" style=" width:90%;" name="truename" value="{$data.truename}"  id="truename">
+		</li>
+		<li class="link">
+			<a href="javascript:void(0)" class="g-arrow-r padleft" onClick="hos()" >
+				<input type="hidden" name="hos_id" value="{$data.hos_id}" placeholder="医院" id="hos_id"/>
+				<input type="text"  name="hosname" value="{$data.hosname}" placeholder="医院" id="hosname"/>
+			</a>
+		</li>
+		<li class="link" style="display:none">
+			<a href="javascript:void(0)" class="g-arrow-r padleft" onclick="keshi()" >
+				<input type="hidden" name="keshi" value="{$data.keshi}" placeholder="科室" id="keshi"/>
+				<input type="text" name="keshiname" value="{$data.keshiname}" placeholder="科室" id="keshiname"/>
+			</a>
+		</li>
+		<li class="link">
+			<a href="javascript:void(0)" class="g-arrow-r padleft" onClick="zhic()">
+				<input type="text" name="zhicheng" value="{$data.zhic}" placeholder="职称" id="zhic"/>
+			</a>
+		</li>
+	</ul> 
+	<div class="wanshan_qianw">
+		<a class="yishengDL" onClick="sub()">提     交</a>
+	</div>
+    <div class="wanshan_qianw">
+		 <a class="yishengDL" href="/weixin/index.php?m=Expert&c=User&a=user_info">不是医生？点击忽略此步</a>
+	</div>
+   
+</div>
+<input type="hidden" value="{$data.pro}" id="pro">
+<input type="hidden" value="{$data.city}" id="city">
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script type="text/javascript">
+// 获取医院列表
+function hos()
+{
+	var truename = $('#truename').val();
+	var zhic = $('#zhic').val();
+	location.href = "?m=Expert&c=User&a=province_list&truename="+truename+'&zhic='+zhic;
+}
+
+function keshi()
+{
+	var hos_id = $('#hos_id').val();
+	var hosname=$('#hosname').val();
+	var truename = $('#truename').val();
+	var pro = $('#pro').val();
+	var city = $('#city').val();
+	var keshi = $('#keshi').val();
+	var zhic = $('#zhic').val();
+	if(hos_id=='')
+	{
+		$('#msg').show();
+		$('#msg').html('请先选择医院！');
+		return false;
+	}
+	else
+	{
+		location.href = "?m=expert&c=user&a=dep_list&truename="+truename+'&hos_id='+hos_id+'&hosname='+hosname+'&pro='+pro+'&city='+city+'&zhic='+zhic
+	}
+}
+
+function zhic()
+{
+	var truename = $('#truename').val();
+	var pro = $('#pro').val();
+	var city = $('#city').val();
+	var hos_id = $('#hos_id').val();
+	var hosname=$('#hosname').val();
+	var keshi = $('#keshi').val();
+	var keshiname = $('#keshiname').val();
+	location.href = "?m=expert&c=user&a=expert_rank&truename="+truename+'&hos_id='+hos_id+'&hosname='+hosname+'&pro='+pro+'&city='+city+'&keshi='+keshi+'&keshiname='+keshiname
+}
+
+function sub()
+{
+	var hos_id = $('#hos_id').val()
+	var truename = $('#truename').val()
+	var pro = $('#pro').val()
+	var city = $('#city').val()
+	var keshi = $('#keshi').val()
+	var keshiname = $('#keshiname').val()
+	var zhic = $('#zhic').val()
+	var openid = $('#openid').val();
+
+	var reg = /^([\u4E00-\u9FA5]+，?)+$/;
+	var yesorno = truename.match(reg) != null;
+
+	if(!yesorno)
+	{
+		$('#msg').show();
+		$('#msg').html('姓名必须中文！');
+		setTimeout(function(){fail();},2000);
+		return false;
+	}
+
+	if(hos_id=='')
+	{
+		$('#msg').show();
+		$('#msg').html('请选择医院！');
+		setTimeout(function(){fail();},2000);
+		return false;
+	}
+//	if(keshi=='')
+//	{
+//		$('#msg').show();
+//		$('#msg').html('请选择科室！');
+//		setTimeout(function(){fail();},2000);
+//		return false;
+//	}
+	if(zhic=='')
+	{
+		$('#msg').show();
+		$('#msg').html('请选择职称！');
+		setTimeout(function(){fail();},2000);
+		return false;
+	}
+
+	
+	$.ajax({
+		type: "POST", //用POST方式传输
+		url: "{:U('User/complete_info_update')}", //目标地址
+		data: "hos_id="+hos_id+'&truename='+truename+'&pro='+pro+'&city='+city+'&keshi='+keshi+'&keshiname='+keshiname+'&zhic='+zhic+'&openid='+openid,
+		error: function (XMLHttpRequest, textStatus, errorThrown) { },
+		success: function (msg)
+		{
+			if(msg=='ok')
+			{
+				location.href = "{:U('User/user_info')}"
+			}
+			else
+			{
+				$('#msg').html('系统繁忙,请稍后！');
+			}
+		}
+	});
+}
+function success()
+{
+	location.href = 'index.php'
+}
+function fail()
+{
+	$('#msg').hide();
+}
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+ <volist name="data" id="vo">
+    <li style="height: auto;">
+        <if condition="$vo['MEMBER_PIC'] eq ''">
+          <img src="/weixin/Public/Member/images/yonghu/comment.png" alt="" class="touxiang" style="border:1px solid #999">
+        <else />
+          <img src="{$vo.MEMBER_PIC}" alt="" class="touxiang" style="border:1px solid #999">
+        </if>
+        <div class="des"  style="height: auto;">
+          <div class="info"  style="height: auto;">
+            <span class="name">{$vo.MEMBER_NAME}</span>
+            <b class="comment-reslut fcmy">
+            <if condition="$vo['PJ_FLAG'] eq '0'">
+              满意
+            <elseif condition="$vo['PJ_FLAG'] eq '1'" />
+              非常满意
+            <else />
+              不满意
+            </if>
+            </b>
+          </div>
+          <div class="con">
+            {$vo.PJ_CONTENT}  
+          </div>
+          <div style="float: right; padding-bottom: 5px;">
+            {$vo.CREATE_DATE}
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+
+          <div style="clear: both;"></div>
+      </li>∮
+</volist>

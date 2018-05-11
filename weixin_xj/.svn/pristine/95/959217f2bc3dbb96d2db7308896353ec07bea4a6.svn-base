@@ -1,0 +1,1 @@
+$('body').append('<div style="padding-bottom:50px"><img src="/weixin/Public/Common/images/notice.jpg" width="100%" /></div>')

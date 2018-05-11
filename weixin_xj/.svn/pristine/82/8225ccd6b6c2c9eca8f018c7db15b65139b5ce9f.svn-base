@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="cache-control" content="public">
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="share-title" content="">
+        <title>注册须知</title>
+        <!--CSS库文件-->
+        <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+        <!--CSS当前页面文件-->
+        <link href="/weixin/Public/Expert/css/user/zhuce.css?time={$time}.csss" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+    	<div class="shenqing">
+        	<h2>注册须知</h2>
+            <h1>1.背景优势：</h1>
+            <p>全国心脑远程联盟是一个为医生提供协作发展的平台。以医生集团为核心，开展“线上复诊”、“慢病管理”为主旨的家庭医生特色服务。为医生提供最新学术前沿资讯，跨地域学术交流的同时，严密保护医生隐私。</p>
+                <p>全国心脑远程联盟致力于为医患之间提供“远程阅片、电子处方、坐诊手术、家庭医生”等多种服务模式，使医生多点执业、分级诊疗成为现实，为心脑血管患者提供高效、优质、便捷的互联网医疗服务。</p>
+            <h1>2.会员享有：</h1>
+            <p class="bot_p">
+            <span>A.联盟头条：</span>掌握集团实时新闻 了解最新医疗政策<br>
+            <span>B.名医风采：</span>收集专科名医事迹 展示医疗学术成果<br>
+            <span>C.医学专题：</span>汇集国内医学现状 网络业内医学巨献<br>
+            <span>D.病例展示：</span>收集优质病例资源 丰富专科诊疗经验<br>
+            <span>E.活动会议：</span>掌握线下学术交流 把握行业最新动态<br>
+            <span>F.千县万医：</span>直击专家学术课程 提升自我医学经验<br>
+            <span>G.医生工作站：</span>记录在线工作明细 浏览订单处方详情<br>
+            <span>H.推荐二维码：</span>推荐好友即得积分 机制健全奖励丰厚<br>
+            <span>I.分享医生圈：</span>业内专家分享交流 得百家智慧之精华<br>
+            <span>J.积分排行榜：</span>当前排名实时查看 积分凭证获取收益</p>
+            <h1>3.注册条件：</h1>
+            <p class="bot_p">
+            <span>A.所属机构：</span>申请的医疗机构必须是国内具有正规资质的二甲级及以上公立医院的心脑血管相关科室医生或医务工作者。<br>
+            <span>B.执业资质：</span>拥有国家认证的医生执业资格证。</p>
+            <h1>4.注册流程：</h1>
+            <p style=" text-indent:0px;">
+                A.申请人关注“全国心脑远程联盟”公众号，并点击会员申请，绑定手机号。<br>
+                B.申请人填写《全国心脑远程联盟——注册申请表》，填写完毕，提交，等待审核。<br>
+                C.工作人员与医生打电话核实信息，确认信息无误后，审核通过。<br>
+                D.系统提示审核通过，并颁发会员证书。<br>
+                E.完成会员注册。<br>
+            </p>
+            <h1>5.用户协议：</h1>
+            <p style=" text-indent:0px;">
+                A.申请人关注“全国心脑远程联盟”公众号，并点击会员申请，绑定手机号。<br>
+                B.申请人填写《全国心脑远程联盟——注册申请表》，填写完毕，提交，等待审核。<br>
+                C.工作人员与医生打电话核实信息，确认信息无误后，审核通过。<br>
+                D.系统提示审核通过，并颁发会员证书。<br>
+                E.完成会员注册。<br>
+            </p>
+        </div>
+        <div class="footer">
+        	<img src="/weixin/Public/Expert/images/zhuce/ma.jpg" class="left">
+            <span>扫一扫！加入“全国心脑远程联盟”</span>
+            <p>网址：xj.yc9120.com
+                微信号：全国心脑远程联盟（heartorg）
+                会员部地址：
+                北京市丰台区万丰路316号万开中心A座
+                邮编：100161
+                联系电话:400-656-2020</p>
+            <img src="/weixin/Public/Expert/images/zhuce/foot.jpg" style=" position:absolute; left:42%; bottom:0;margin:0;">
+        </div>
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+    </body>
+</html>

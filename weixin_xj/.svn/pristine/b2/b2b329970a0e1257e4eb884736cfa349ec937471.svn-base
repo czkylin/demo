@@ -1,0 +1,46 @@
+<volist name="cf_list" id="cf">
+		<li>
+			<?php 
+				if($cf['ORDER_STATUS']=='未下单')
+				{
+
+					$cf['status']=1;
+				}
+			?>
+			<a class="list_img" href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID'],'order_status'=>$cf['status']))}">
+			<if condition="$cf['CF_PIC'] eq '' ">
+				<img src="/weixin/Public/Member/images/cf/cf_list.jpg" width="40px" height="40px" />
+			<else />
+				<img src="{$cf['CF_PIC']}" width="40px" height="40px" />
+			</if>
+			</a>
+			<div class="list_txt">
+				<h3><span>{$cf['HOS_NAME']}<b></b></span></h3>
+				<p><a href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID'],'order_status'=>$cf['status']))}">{$cf['CF_CONTENT']}</a></p>
+				<h4><span>处方状态：{$cf['ORDER_STATUS']}</span><time>{$cf['CREATE_DATE']}</time></h4>
+			</div>
+			<a class="list_right" href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID'],'order_status'=>$cf['status']))}">
+			<if condition="$cf['ORDER_STATUS'] neq '已下单'">
+			<p class="xiadan">去下单</p>
+			</if>
+			</a>			
+		</li>∮
+</volist>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

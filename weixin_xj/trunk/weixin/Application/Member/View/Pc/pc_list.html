@@ -1,0 +1,77 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/portal.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/hos_list.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+
+<!-- title -->
+<title>待评测人员列表</title>
+<!--meta-->
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+<div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+	<div class="experts" style="position:relative;">
+		<div class="nav_tit">
+			<h2>人员列表</h2>
+		</div>
+		<div data-role="content" class="ui-content" role="main">
+			<div id="js-list" class="list">
+				<ul id="pc-list">
+					<volist name="pc_list" id="pc" empty="暂无数据">
+					<li>
+                  		<if condition="$pc['EVAL_FLAG'] eq '未评测'">
+						<a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Pc&a=add_info&user_id={$pc['RECORD_ID']}&real_name={$pc['REAL_NAME']}">
+						<else />
+					    <a class="yylist_a" style=" margin-bottom:6px;" href="javascript:void(0)">
+						</if>
+						<span class="img">
+                        <if condition="$pc['HEADIMGURL'] eq ''">
+						<img src="/weixin/Application/Expert/View/images/dtdoctor.png" style="height:60px; width:60px;" class="g-left expert-img"/>
+						<else />
+					    <img src="{$pc['HEADIMGURL']}" style="height:60px; width:60px;"   class="g-left expert-img"/>
+						</if>
+							</span>
+							<span class="meta">
+								<div class="name_dj">
+									<strong class="mingcheng">{$pc['REAL_NAME']}--{$pc['EVAL_FLAG']}&nbsp;&nbsp;{$pc['EVAL_SCORE']}</strong>
+									<i>{$pc['ORG_NAME']}</i>
+								</div>
+								<p class="hos_jj" style=" margin-top:1px;">
+								{$pc['CENTER_NAME']}
+								{$pc['ROLE_NAME']}</p>
+							</span>
+						</a>
+					</li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+		<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+		<div id="current_pagenum" style="display:none">2</div>
+	</div>
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Member/js/list.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+<script>
+	function load_more()
+	{
+		loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Pc&a=pc_list_append','#pc-list');
+	}
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

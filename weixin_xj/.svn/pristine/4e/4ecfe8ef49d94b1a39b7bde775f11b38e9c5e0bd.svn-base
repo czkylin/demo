@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>阅片/手术量数据展示</title>
+   <script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+   <script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin:0;">
+    <div id="main" style="height:100%;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            title: {
+                text: '阅片/手术量数据展示',
+                textStyle: {
+                    fontSize: 28
+                }
+            },
+            grid: {  
+                left: '8%',  
+                top: '10%',  
+                bottom: '1%',  
+                containLabel: true  
+            },
+            tooltip: {},
+            legend: {
+                data:['阅片量','手术量']
+            },
+            xAxis: {
+                name: '月份',
+                data: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+                axisTick: {
+                    alignWithLabel: true
+                },
+                nameTextStyle: {
+                    fontSize: 18
+                },
+            },
+            yAxis: {
+                name: '阅片/手术量（例）',
+                nameTextStyle: {
+                    fontSize: 18
+                },
+            },
+            series: [
+                {
+                    name: '阅片量',
+                    type: 'bar',
+                    data: [1000,3050,4500,5000,5300,5600,6500,6800,7000,6800,6900,7000]
+                },
+                {
+                    name: '手术量',
+                    type: 'line',
+                    data: [100,200,300,350,400,320,450,600,500,670,650,700]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

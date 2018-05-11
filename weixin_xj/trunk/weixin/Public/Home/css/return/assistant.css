@@ -1,0 +1,235 @@
+/*commom*/
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "黑体";
+  color: #333;
+  font-size: 0.6rem;
+  background-color: #fff;
+}
+img {
+  vertical-align: top;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+li {
+  list-style: none;
+}
+input{
+-webkit-appearance: none;
+}
+/*list*/
+section.assistant {
+  padding-left: 0.5rem;
+}
+section.assistant .list li {
+  height: 1.76rem;
+  line-height: 1.76rem;
+  border-bottom: 1px solid #e7e7e7;
+  padding-right: 0.5rem;
+}
+section.assistant .list li span {
+  float: left;
+}
+section.assistant .list li i {
+  float: right;
+}
+section.assistant .list li.hos_select div {
+  float: left;
+  width: 11.2rem;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  position: relative;
+}
+section.assistant .list li.hos_select div input {
+  width: 100%;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  border: none;
+  background: none;
+  outline: none;
+  color: #333;
+  font-size: 14px;
+}
+section.assistant .list li.hos_select div input.color333 {
+  color: #333;
+}
+section.assistant .list li.hos_select div ol {
+  display: none;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  max-height: 17.6rem;
+  overflow-y:scroll;
+  left: 0;
+  top: 1.76rem;
+  border-right: 1px solid #e7e7e7;
+  border-left: 1px solid #e7e7e7;
+  z-index: 5;
+}
+section.assistant .list li.hos_select div ol li {
+  text-indent: 1em;
+  font-size: 0.5rem;
+  overflow: hidden;
+}
+section.assistant .list li.hos_select i {
+  width: 0;
+  height: 0;
+  border-width: 0.28rem;
+  border-style: solid;
+  border-color: #666666 transparent transparent transparent;
+  position: relative;
+  top: 0.74rem;
+}
+section.assistant .list li.return input {
+  float: left;
+  height: 1.76rem;
+  line-height: 1.76rem;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+}
+section.assistant .list li.return p {
+  float: left;
+  color: #333;
+  height: 1.76rem;
+  line-height: 1.76rem;
+}
+section.assistant .list li.return i {
+  font-style: normal;
+}
+section.assistant .list li.time div {
+  float: left;
+}
+section.bottomcolor {
+  border-bottom: 0.4rem solid #e7e7e7;
+}
+section.bottomcolor .list > li:last-of-type {
+  border-bottom: none;
+}
+section.foot {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+section.foot a {
+  display: block;
+}
+section.foot a.see {
+  text-align: center;
+  line-height: 0.88rem;
+  color: #4fa2ff;
+  font-size: 0.52rem;
+  width: 100%;
+}
+section.foot a.sub, section.foot input.sub{
+  width: 14rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  background: #eb5376;
+  color: #fff;
+  font-size: 0.6rem;
+  margin-left: 0.5rem;
+  border-radius: 0.1rem;
+  border: none;
+}
+section.review {
+  padding-left: 0.5rem;
+}
+section.review ul li {
+  padding-right: 0.5rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-bottom: 1px solid #e7e7e7;
+}
+section.review ul li span {
+  float: left;
+}
+section.review ul li p {
+  float: left;
+  width: 5rem;
+}
+section.review ul li i {
+  float: right;
+  font-style: normal;
+}
+section.review ul li i.success {
+  color: #4db000;
+}
+section.review ul li i.unsuccess {
+  color: #fe0101;
+}
+section.result ul li {
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid #e7e7e7;
+}
+section.result ul li div.pos {
+  height: 1rem;
+  line-height: 1rem;
+}
+section.result ul li div.pos p {
+  float: left;
+}
+section.result ul li div.pos i {
+  float: right;
+  font-style: normal;
+}
+section.result ul li div.pos i.pending {
+  color: #ff6d00;
+}
+section.result ul li div.pos i.success {
+  color: #4db000;
+}
+section.result ul li div.pos i.reject {
+  color: #fe0101;
+}
+section.result ul li p {
+  height: 1rem;
+  line-height: 1rem;
+}
+section.result ul li div.btn {
+  height: 1.2rem;
+}
+section.result ul li div.btn a {
+  display: block;
+  height: 1.04rem;
+  width: 2.96rem;
+  line-height: 1.04rem;
+  text-align: center;
+  font-size: 0.52rem;
+  margin-left: 0.4rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.08rem;
+  color: #666;
+}
+section.result ul li div.btn a.more {
+  float: right;
+  border-color: #eb5376;
+  color: #eb5376;
+}
+section.result ul li div.btn a.again {
+  float: right;
+}
+section.submitAgain {
+  width: 100%;
+}
+section.submitAgain a {
+  display: block;
+  width: 14rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  background: #eb5376;
+  color: #fff;
+  font-size: 0.6rem;
+  border-radius: 0.1rem;
+  margin: 0 auto;
+}

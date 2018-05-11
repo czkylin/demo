@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>会员信息</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/insurance.min.css">
+</head>
+<body ontouchstart="" style=" background:#fff;">
+<div class="content top bottom mod-member-info">
+        <div class="info-block m-t-5 m-b-5"> 会员No.003428968 </div>
+        <div class="qsc-list-group">
+                <div class="list-item"> <strong>姓名</strong> <span> <span class="text-default">朱凯璇</span> </span> </div>
+                <div class="list-item"> <strong>身份证</strong> <span> <span class="text-default">3412**********0738</span> </span> </div>
+                <div class="list-item" id="link-status-modal"> <strong>保障状态</strong> <span> <span class="text-warning f-16">观察期</span> <i class="list-arrow"></i> </span> </div>
+                <div class="list-item"> <strong>加入时间</strong> <span> <span class="text-default">2016-10-14</span> </span> </div>
+                <div class="list-item"> <strong>保障生效日期</strong> <span> <span class="text-default"> 149天后 </span> </span> </div>
+        </div>
+        <div class="info-block m-t-5 m-b-5"> 账户信息 </div>
+        <div class="qsc-list-group observed-members"> <a href="support" class="list-item"> <strong>累计互助次数</strong> <span> 0次 <i class="list-arrow"></i> </span> </a> <a id="link-balance-modal" class="text-check list-item account-balance"> <strong>账户余额</strong> <strong class="text-success">10元</strong> <span> <span class="account-status ">优</span> <span class="account-status low">良</span> <span class="account-status ">不足</span> </span> </a> <a href="dongjie_zanwu.html" class="list-item"> <strong>冻结额度</strong> <span> 0.00元 <i class="list-arrow"></i> </span> </a> <a href="zhangdan.html" class="list-item" id="link-bill"> <strong>账单</strong> <span class="text-success f-16"> <i class="list-arrow"></i> </span> </a> </div>
+        <p class="user-notice" id="app-download"> <span class="">当账户余额低于3元将会失去保障，为了确保您的权益，请下载轻松筹APP以便及时接收余额状态通知 &nbsp;&nbsp;</span> <a class="" href="http://counter.qschou.com/counter/LINK/a670b7fd-999c-4b16-a73f-ac4638593680/incr?redirect_url=http%3a%2f%2fa.app.qq.com%2fo%2fsimple.jsp%3fpkgname%3dcom.qingsongchou.social">立刻下载&gt;&gt;</a> </p>
+        <div class="form-item form-radio support-money_radio clearfix" data-toggle="buttons">
+                        <label for="m20" class="btn active">
+                                <input type="radio" id="m20" value="20" name="support-money_list" checked="checked">
+                                <span><span class="text-danger">20</span>元</span> </label>
+                        <label for="m20" class="btn">
+                                <input type="radio" id="m50" value="50" name="support-money_list">
+                                <span><span class="text-danger">50</span>元</span> </label>
+                        <label for="m20" class="btn">
+                                <input type="radio" id="m100" value="100" name="support-money_list">
+                                <span><span class="text-danger">100</span>元</span> </label>
+                </div>
+        <a class="btn btn-block btn-success chongzhi_btn" id="link-recharge" href="#">微信充值</a>
+        <div class="qsc-modal in" id="status-modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog middle middle-max">
+                        <div class="modal-content clearfix">
+                                <div class="modal-header text-center"> </div>
+                                <div class="modal-body">
+                                        <div> <span class="account-status enough">生效</span> <span class="account-status-content">您可以享受互助保障。</span> </div>
+                                        <div> <span class="account-status low">观察期</span> <span class="account-status-content">又称等待期或免责期，是为了防止参与行动的会员明知道将发生风险事故，而马上加入以获得利益的行为。18～39周岁观察期为180天，40～50周岁观察期为360天。</span> </div>
+                                        <div> <span class="account-status not-enough">失效中</span> <span class="account-status-content">是指当前用户余额不足，暂时失去保障。用户可以在60天内充值以恢复保障。</span> </div>
+                                </div>
+                                <div class="modal-footer"> <a href="javascript:void(0);" class="btn btn-primary btn-lg btn-radius" data-dismiss="modal">我知道了</a> </div>
+                        </div>
+                </div>
+        </div>
+        <div class="qsc-modal in" id="balance-modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog middle middle-max">
+                        <div class="modal-content clearfix">
+                                <div class="modal-header text-center"> </div>
+                                <div class="modal-body">
+                                        <div> <span class="account-status enough">优</span> <span class="account-status-content">账户余额&gt;=50元时，帐户余额充足，安心享受互助保障。</span> </div>
+                                        <div> <span class="account-status low">良</span> <span class="account-status-content">3&lt;=账户余额&lt;50元时，保障状态良好，需及时将账户余额补足到50元以上。</span> </div>
+                                        <div> <span class="account-status not-enough">不足</span> <span class="account-status-content">账户余额&lt;3元时，暂时失去保障。60日内补足余额，从缴费当日开始，可重新享受保障。60日内未补足余额，若重新加入计划，需和新会员一样在180天等待期后，方可重新享受保障</span> </div>
+                                </div>
+                                <div class="modal-footer"> <a href="javascript:void(0);" class="btn btn-primary btn-lg btn-radius" data-dismiss="modal">我知道了</a> </div>
+                        </div>
+                </div>
+        </div>
+</div>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/insurance.min.js"></script> 
+<script>
+    $(function(){
+	    $('#link-balance-modal').on('click', function(){
+		    $('#balance-modal').modal('show');
+	    });
+        $('#link-status-modal').on('click', function(){
+		    $('#status-modal').modal('show');
+	    });
+        $('#link-bill').on('click', function(){
+            window.location = 'http:\/\/insurance.qschou.com\/member\/payment?member=7b1066c252226e9a08c64e26422e825499b17795\x26insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5';
+        });
+        $('#link-recharge').on('click', function(e){
+            if( typeof(GlobalObj.isIOS) != 'undefined' && GlobalObj.isIOS && appVersion < 137) {
+                e.stopPropagation();
+                e.preventDefault();
+                alertMessage('对不起,您当前使用的app版本太低。如需使用该服务,请升级应用', 10000);
+            } else {
+                window.location = 'http:\/\/m.qschou.com\/insurance\/recharge?member=7b1066c252226e9a08c64e26422e825499b17795\x26insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5';
+            }
+        });
+    });
+</script>
+<div id="cli_dialog_div"></div>
+</body>
+</html>

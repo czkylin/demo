@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/portal.min.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/style.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/animations.css">
+<title>心脑护照卡</title>
+</head>
+<body style="background:#e6e5e5;overflow:auto;" >
+
+    <div class="con">
+    	<div class="overall_top_for_card"><div class="info_top">
+        	<ol class="info_title">
+           		<li class="li01">
+                	<img src="/weixin/Public/Member/images/card/index/card4.png"  alt=""/> 
+            	</li>
+            	<li>心脑护照卡</li>
+            </ol>
+        </div>
+        <div class="tab">
+        	<ul>
+                <li>
+                    <a href="/weixin/Application/Member/View/Card/xinxi.html">商品信息</a>
+                </li>
+                <li>
+                    <a href="/weixin/Application/Member/View/Card/tese.html" class="cur">服务特色</a>
+                </li>
+                <li>
+                    <a href="/weixin/Application/Member/View/Card/liucheng.html">服务流程</a>
+                </li>
+           </ul>
+        </div>
+        </div>
+        <div class="product">
+        <!--服务特色start-->    
+           <div class="Service_features">
+           		
+              <div class="pad_top page-1-1 page-current">
+                <div class="up_down hide">
+                  	<span><img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/></span>
+                     <div class="black">
+                     	 <em></em>
+                       <em></em>
+                     </div>                      
+                </div>
+                <div style="" class="wrap">
+                  <img src="/weixin/Public/Member/images/card/tese/serve1.jpg" alt="" class="con_img" />			 			   					
+                </div>
+              </div>
+
+               <div class="pad page-2-1">
+                 <div class="up_down hide">
+                  <span><img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/></span>
+                  <div class="black">
+                     	 <em></em>
+                       <em></em>
+                  </div>                      
+                  </div>
+                    <div style="" class="wrap">
+                        <div style="" class="wrap">
+                          <img src="/weixin/Public/Member/images/card/tese/serve2.jpg" class="con_img"  alt=""/>                        
+                        </div>
+                   </div>
+               </div>
+
+               <div class="pad page-3-1">
+                 <div class="up_down hide">
+                  	<span>
+                      <img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/>
+                    </span>
+                     <div class="black">
+                     	 <em></em>
+                       <em></em>
+                     </div>                    
+                  </div>
+
+                 	<div style="" class="wrap">
+                        <div style="" class="wrap">
+                          <img class="con_img" src="/weixin/Public/Member/images/card/tese/serve3.jpg"  alt=""/>                        
+                        </div>
+                 		</div>
+               </div>
+
+               <div class="pad page-4-1">
+                  <div class="up_down hide">
+                    <span>
+                      <img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/>
+                    </span>
+                     <div class="black">
+                       <em></em>
+                       <em></em>
+                     </div>                    
+                  </div>
+               		<div style="" class="wrap">
+               			<div style="" class="wrap">
+                          <img src="/weixin/Public/Member/images/card/tese/serve4.jpg" class="con_img"  alt=""/>                        
+                        </div>
+               		</div>
+            	 </div>
+            	 <div class="pad page-5-1">                 
+                    <div style="" class="wrap">
+                       <div style="" class="wrap">
+                          <img src="/weixin/Public/Member/images/card/tese/serve5.jpg" class="con_img"  alt=""/>                        
+                        </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    
+<!--<script src="/weixin/Public/Member/js/card/zepto.js"></script> 
+<script src="/weixin/Public/Member/js/card/touch.js"></script> 
+<script src="/weixin/Public/Member/js/card/indexfeat.js"></script> -->
+
+<!-- analytics code -->
+<div class="hide"> 
+    <script src="http://s95.cnzz.com/z_stat.php?id=1253891981&web_id=1253891981" language="JavaScript"></script> 
+</div>
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span>
+    <h1>载入中...</h1>
+</div>
+<div class="ui-loading-screen" style="display: none;"> </div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的家庭医生</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/jiating/index.css">
+     <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+    </script>
+</head>
+<body>
+    <div class="notice">
+        <a href="javascript:;">
+            <span>该服务3天后即将过期，去续费</span>
+            <!--
+                年费患者用户 提醒周期为到期日前 2个月进行提醒  续费操作
+
+                月付患者用户 提醒周期为到期日前 7日进行提醒 续费操作
+            -->
+            <i>></i>
+        </a>
+    </div>
+    <div class="main">
+        <ul class="list">
+            <li class="clearfix">
+               <img src="/weixin/Public/Member/images/jiating/tou.png" alt="" class="touxiang"> 
+               <div class="mes">
+                    <p class="type">心血管</p>
+                    <p class="name">高丽 主治医生</p>
+                    <p class="add">北京市北大医院  内科</p>
+               </div>
+            </li>
+        </ul>
+        <div class="con clearfix">
+            <div class="con-wrap fl">
+                <a href="javascript:;">
+                    <img src="/weixin/Public/Member/images/jiating/tuwen.jpg" alt="" style="width:2rem; margin-bottom: 0.4rem;">
+                    <p>图文咨询</p>
+                </a>
+            </div>
+             <div class="con-wrap fr">
+                <a href="javascript:;">
+                    <img src="/weixin/Public/Member/images/jiating/details.png" alt="" style="width:1.8rem; margin-bottom: 0.3rem;">
+                    <p>咨询记录</p>
+                </a>  
+            </div>
+        </div>
+    </div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<!--加载更多-->
+</html>

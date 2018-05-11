@@ -1,0 +1,42 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('ul li').eq(0).children('.xingbie').addClass('on');
+	$('ul li').click(function(){
+		$(this).css('background','#e1eefe').siblings().css('background','#fff');
+		$(this).children('.xingbie').addClass('on');
+		$(this).siblings().children('.xingbie').removeClass('on')
+		})
+	})
+</script>
+<title>图文咨询设置</title>
+</head>
+<body>
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style="padding-bottom: 10px;">  
+ 	<form>
+    <ul>    
+		<li class="avatar">
+			<input type="radio" id="male" checked="checked" class="sex" name="rd" value="男" /><label class="xingbie" for="male">男</label>
+		</li>
+        <li class="avatar">
+        	<input type="radio" id="female" class="sex" name="rd" value="女" />
+            <label class="xingbie" for="female">女</label>
+		</li> 
+	</ul> 
+ 	 </form>
+	
+	
+    
+ </div>	
+</body>
+</html>

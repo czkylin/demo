@@ -1,0 +1,253 @@
+<html class="ui-mobile">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta http-equiv="cache-control" content="public">
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<link rel="stylesheet" href="/weixin/Application/Member/View/css/bootstrap.min.css" type="text/css">
+
+<link type="text/css" rel="stylesheet" href="/weixin/Application/Member/View/css/zhuanjia.min.css"/>
+
+<script type="text/javascript" src="/weixin/Application/Member/View/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/weixin/Application/Member/View/js/jquery.form.min.js"></script>
+
+<title>医生咨询</title>
+
+</head>
+
+<body style=" background-color:#d0d6e0;">
+
+<div class="zixuncon">
+
+    <div class="zixuntop">
+
+        <h3>
+
+            {$tdata.MEMBER_NAME}
+
+            <i>            
+
+           {$tdata.MEMBER_SEX}
+
+            </i>
+
+            <span>
+
+            <?php 
+
+                if($tdata['MEMBER_AGE']!=''){
+
+                    echo $tdata['MEMBER_AGE'].'岁';
+
+                }
+
+            ?>
+
+            </span><b></b>
+
+        </h3>
+
+        <p>问题：{$tdata.CONSULT_CONTENT} </p>
+
+    </div>
+
+
+
+    <volist name='data' id='v'>
+
+    <div class="zixunbot">
+
+        <div class="date">{$v.REPLY_DATE}</div>
+
+        <div class="msg-doctor">
+
+            <div class="liaotian">
+
+                <if condition="$v.ALIGN_TYPE eq 1">
+
+                <div class="piece_lstw2">
+
+                    <em><img src="/weixin/Application/Member/View/images/gongzuoshi/dot.png"></em>
+
+                    <div class="textC">
+
+                        <h4>
+
+                            {$v.REPLY_USER_NAME|mb_substr=###,0,3}**
+
+                            <i>
+
+                           {$v.MEMBER_SEX}
+
+                            </i>
+
+                        </h4>
+
+                        <p>{$v.REPLY_CONTENT}</p>
+
+                    </div>
+
+                </div>
+
+                <div class="doctor-portait">
+
+                    <a href="javascript:void(0)">
+
+                        <img src="{$v.USER_PIC}">{$v.REPLY_USER_NAME|mb_substr=###,0,3}**
+
+                    </a>
+
+                </div>
+
+                <else/>
+
+                <!-- 医生区域 start -->
+
+                <div class="huanzhe-portait">
+
+                    <a href="javascript:void(0)">
+
+                        <img src="{$v.USER_PIC}">我
+
+                    </a>
+
+                </div>
+
+                <div class="piece_lstw3">
+
+                    <em><img src="/weixin/Application/Member/View/images/huanzhe.png"></em>
+
+                    <div class="textC">
+
+                    <h4>我</h4>
+
+                    <p>{$v.REPLY_CONTENT}</p>
+
+                    </div>
+
+                </div>
+
+                <!-- 医生区域 end -->
+
+                </if>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </volist>
+
+     <div class="zixunsm">医生会尽快给您回复，请您耐心等待<img src="/weixin/Application/Member/View/images/gongzuoshi/55-121204194026.gif"></div>
+
+
+
+    <a id='msg_bottom' onclick="jump_bottom()" href="#bottom"></a>
+
+    <a name="bottom"></a>
+
+    <div class="zixunbot" style="margin-bottom:50px;"></div>
+
+
+
+    <div class="input-controller J_Input_Ctrl" al-show="(status.code==0|| status.code==1)&amp;&amp; myself &amp;&amp; asknum&gt;0">
+
+        <div class="upload-btn" style="overflow: hidden;"></div>
+
+        <input type="text" al-keyup="inputText($event)" id="sendBox" placeholder="请输入内容" al-value="textMsg" class="nofixed text-input">
+
+        <input type="hidden" id="consult_id" value="{$consult_id}">
+
+        <button onclick="sendmsg()" class="send-btn">发送</button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    $(document).ready(function(){  
+
+        $("#msg_bottom").click();   
+
+    });  
+
+
+
+    function jump_bottom(){
+
+        window.location.href='#bottom';
+
+    }
+
+
+
+     function sendmsg(){   
+
+        var consult_id=$('#consult_id').val();
+
+        var content_v = $.trim($('#sendBox').val());
+
+        var len = content_v.length; 
+
+        if(len==0){
+
+            alert('回复内容不能为空！');
+
+            return false;
+
+        }else{
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "{:U('consult/consult_response')}",
+
+                data: "&consultContent="+content_v+"&consult_id="+consult_id,
+
+                success: function(msg){
+
+                    if(msg=='ok'){
+
+                        alert('提交成功！');
+
+                        window.location.reload();
+
+                        // window.location.href='#bottom';
+
+                    }else{
+
+                        alert('提交失败，请联系管理员！');
+
+                    }
+
+                }
+
+            });
+
+        }
+
+    }
+
+
+
+</script>
+
+</body>
+
+</html>

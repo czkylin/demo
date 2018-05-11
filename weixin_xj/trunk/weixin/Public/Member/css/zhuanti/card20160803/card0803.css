@@ -1,0 +1,92 @@
+html,body{ height: 100%; }
+ul,li,h1,h2,h3,h4,p,ol{margin: 0; padding:0; list-style: none;}
+body {    background: #eee;    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;    font-size: 14px;    color:#000;    margin: 0;    padding: 0;}
+h2,h3,h4,p{ text-indent: -9999px; height: 0; }
+
+.swiper-container { width: 100%; height: 100%;}
+.swiper-slide { text-align: center;    font-size: 18px;    background: #fff;     /* Center slide text vertically */    display: -webkit-box; display: -ms-flexbox; display: -webkit-flex;  display: flex;    -webkit-box-pack: center;    -ms-flex-pack: center;    -webkit-justify-content: center;    justify-content: center;    -webkit-box-align: center;    -ms-flex-align: center;    -webkit-align-items: center;    align-items: center;}
+.swiper-slide.hide{ display: none; }
+.box1 h2{ width: 80%; height: 30%; margin:0 10%; text-indent: -9999px; background:url('/weixin/Public/Member/images/zhuanti/card0803/p1_title.png') no-repeat center bottom; background-size: 100%; }
+a.btn{ display: inline-block; width: 80px; height: 80px; position: absolute; right: 1em; bottom: 1em;  background:url('/weixin/Public/Member/images/zhuanti/card0803/btn.png') no-repeat; background-size: 100%; }
+.box1{ width: 100%; height: 100%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p1_bg.jpg') no-repeat; position: relative; background-size: 100% 100%; }
+.box1 h2{ width: 80%; height: 30%; margin:0 10%; text-indent: -9999px; background:url('/weixin/Public/Member/images/zhuanti/card0803/p1_title.png') no-repeat center bottom; background-size: 100%; }
+.box1 p{width: 24%; padding-top: 8%;  position: absolute; left: 38%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p_icon.png') no-repeat; background-size: 100%; position: absolute; bottom:0; }
+
+.box2{ width: 100%; height: 100%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_bg.jpg') no-repeat; position: relative; background-size: 100% 100%;  }
+.box2 h2{ width: 54%; padding-top: 8%;  position: absolute; left: 23%; top: 5%;  text-indent: -9999px; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title.jpg') no-repeat center bottom; background-size: 100%; }
+.box2 p{ margin: 0; height: 0; position: absolute; }
+.box2 p.p2title1{ width: 100%; padding-top: 23%; top: 17%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title1.png') no-repeat; background-size: 100%; }
+.box2 p.p2title2{ width: 100%; padding-top: 23%; top: 28%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title2.png') no-repeat; background-size: 100%; }
+.box2 p.p2title3{ width: 100%; padding-top: 23%; top: 37.5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title3.png') no-repeat; background-size: 100%; }
+.box2 .p2txet1{ width: 61%; padding-top: 10%; position: absolute; top: 22%; left: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_txet1.png') no-repeat; background-size: 90%;}
+.box2 .p2txet2{ width: 75%; padding-top: 10%; position: absolute; top: 22%; right: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_txet2.png') no-repeat; background-size: 90%;}
+.box2 .p2txet3{ width: 46%; padding-top: 10%; position: absolute; top: 30%; left: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_txet3.png') no-repeat center; background-size: 90%;}
+.box2 p.p2title4{ width: 80%; padding-top: 15%; top: 55%; left: 10%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_text.png') no-repeat; background-size: 100%; }
+/*.box2 p.p2title1{ width: 61%; padding-top: 10%; top: 22%; left: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title1.png') no-repeat; background-size: 90%; }
+.box2 p.p2title2{ width: 75%; padding-top: 10%; top: 32%; right: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title2.png') no-repeat; background-size: 90%; }
+.box2 p.p2title3{ width: 46%; padding-top: 10%; top: 42%; left: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_title3.png') no-repeat; background-size: 90%; }
+.box2 p.p2title4{ width: 80%; padding-top: 15%; top: 55%; left: 10%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p2_text.png') no-repeat; background-size: 100%; }*/
+
+.box3{ width: 100%; height: 100%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_bg.jpg') no-repeat; position: relative; background-size: 100% 100%; }
+.box3 h2{ width:88%; padding-top:68%; position: absolute; left: 5%; top: 5%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_title.png') no-repeat; background-size: 100% auto;}
+.box3 h3{ width:14%; padding-top: 7%; position: absolute; top: 53%; left: 43%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_h_title.png') no-repeat; background-size: 100%; }
+.box3 p.p3img1{ width: 13.5%; padding-top: 18%; position: absolute; top: 60%; left: 15%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_h_icon1.png') no-repeat; background-size: 100%;}
+.box3 p.p3img2{ width: 13.5%; padding-top: 18%; position: absolute; top: 60%; left: 32.5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_h_icon2.png') no-repeat; background-size: 100%;}
+.box3 p.p3img3{ width: 13.5%; padding-top: 18%; position: absolute; top: 60%; left: 50%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_h_icon3.png') no-repeat; background-size: 100%;}
+.box3 p.p3img4{ width: 13.5%; padding-top: 18%; position: absolute; top: 60%; left: 67.5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_h_icon4.png') no-repeat; background-size: 100%;}
+.box3 p.p3text{ width: 70%; padding-top: 18%; position: absolute; top: 75%; left: 15%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p3_h_con.png') no-repeat; background-size: 100%;}
+
+.box4{ width: 100%; height: 100%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p4_bg.jpg') no-repeat; position: relative; background-size: 100% 100%;}
+.box4 p.p4img1{ width: 32%; padding-top: 38%; position: absolute; top: 25%; left: 15%; z-index: 10; background:url('/weixin/Public/Member/images/zhuanti/card0803/p4_img1.png') no-repeat; background-size: 100%;}
+.box4 p.p4img2{ width: 58%; padding-top: 65%; position: absolute; top: 25%; left: 30%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p4_img2.png') no-repeat; background-size: 100%;}
+.box4 p.p4img3{ width: 58%; padding-top: 65%; position: absolute; top: 60%; left: 5%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p4_img3.png') no-repeat; background-size: 100%;}
+.box4 p.p4img4{ width: 32%; padding-top: 38%; position: absolute; top: 65%; left: 55%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p4_img4.png') no-repeat; background-size: 100%;}
+
+.box5{ width: 100%; height: 100%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p5_bg.jpg') no-repeat; position: relative; background-size: 100% 100%;}
+
+.box6{ width: 100%; height: 100%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_bg.jpg') no-repeat; position: relative; background-size: 100% 100%; }
+.p6con{}
+.p6img1{ width:22%; padding-top: 22%; position: absolute; top: 25%; left: 10%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img1.png') no-repeat; background-size: 100%;}
+.p6img2{ width:22%; padding-top: 22%; position: absolute; top: 23%; left: 55%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img2.png') no-repeat; background-size: 100%;}
+.p6img3{ width:22%; padding-top: 22%; position: absolute; top: 35%; left: 25%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img3.png') no-repeat; background-size: 100%;}
+.p6img4{ width:22%; padding-top: 22%; position: absolute; top: 35%; left: 70%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img4.png') no-repeat; background-size: 100%;}
+.p6img5{ width:35%; padding-top: 40%; position: absolute; top: 50%; left: 10%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img5.png') no-repeat; background-size: 100%;}
+.p6img6{ width:35%; padding-top: 40%; position: absolute; top: 50%; left: 50%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img6.png') no-repeat; background-size: 100%;}
+.p6img7{ width:35%; padding-top: 40%; position: absolute; top: 70%; left: 35%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_img7.png') no-repeat; background-size: 100%;}
+.p6icon1{ width:10%; padding-top: 10%; position: absolute; top: 28%; left: 30%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_icon.png') no-repeat; background-size: 100%;
+animation:mymovef 5s infinite; -webkit-animation:mymovef 5s infinite; /*Safari and Chrome*/ animation-direction:alternate;}
+@keyframes mymovef{
+from {width:8%; opacity: 0.3;}to {width:10%; opacity: 1;}
+}
+@-webkit-keyframes mymovef {from {width:8%;}to {width:10%;}}
+.p6icon2{ width:15%; padding-top: 15%; position: absolute; top: 25%; left: 55%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_icon.png') no-repeat; background-size: 100%;
+animation:mymoves 3s infinite; -webkit-animation:mymoves 3s infinite; /*Safari and Chrome*/ animation-direction:alternate;}
+@keyframes mymoves{from {width:13%;}to {width:15%;}}
+@-webkit-keyframes mymoves {from {width:13%;}to {width:15%;}}
+.p6icon3{ width:15%; padding-top: 15%; position: absolute; top: 40%; left: 35%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_icon.png') no-repeat; background-size: 100%;
+animation:mymovet 1s infinite; -webkit-animation:mymovet 1s infinite; /*Safari and Chrome*/ animation-direction:alternate;}
+@keyframes mymovet{from {width:13%;}to {width:15%;}}
+@-webkit-keyframes mymovet {from {width:13%;}to {width:15%;}}
+.p6icon4{ width:20%; padding-top: 20%; position: absolute; top: 10%; left: 60%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_icon.png') no-repeat; background-size: 100%;
+animation:mymovefo 2s infinite; -webkit-animation:mymovefo 2s infinite; /*Safari and Chrome*/ animation-direction:alternate;}
+@keyframes mymovefo{from {width:18%;}to {width:20%;}}
+@-webkit-keyframes mymovefo {from {width:18%;}to {width:20%;}}
+.p6icon5{ width:10%; padding-top: 10%; position: absolute; top: 75%; left: 65%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p6_icon.png') no-repeat; background-size: 100%;
+animation:mymovefi 3s infinite; -webkit-animation:mymovefi 3s infinite; /*Safari and Chrome*/ animation-direction:alternate;}
+@keyframes mymovefi{from {width:10%;}to {width:8%;}}
+@-webkit-keyframes mymovefi {from {width:10%;}to {width:8%;}}
+
+
+.box7{ width: 100%; height: 100%; background:#dedade; position: relative; background-size: 100% 100%; }
+.box7 h2{ width:34%; padding-top:8%; position: absolute; left: 33%; top: 5%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p7_title.jpg') no-repeat; background-size: 100%;}
+.box7 div{ width: 100%; height: 80%; position: absolute; bottom: 0; }
+.box7 .p7img1{ width: 100%; height: 25%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p7_img1.jpg') no-repeat; background-size: 100%;}
+.box7 .p7img2{ width: 100%; height: 25%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p7_img2.jpg') no-repeat; background-size: 100%;}
+.box7 .p7img3{ width: 100%; height: 25%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p7_img3.jpg') no-repeat; background-size: 100%;}
+.box7 .p7img4{ width: 100%; height: 25%;  background:url('/weixin/Public/Member/images/zhuanti/card0803/p7_img4.jpg') no-repeat; background-size: 100%;}
+
+
+
+.box8{ width: 100%; height: 100%; background:url('/weixin/Public/Member/images/zhuanti/card0803/p8_bg.jpg') no-repeat; position: relative; background-size: 100% 100%; }
+.buy{ text-indent: -9999px; position: absolute; left: 50%; right: 0; bottom: 10%; top:76%; }
+.tel{ text-indent: -9999px; position: absolute; left: 0; right: 50%; bottom: 10%; top:76%; }

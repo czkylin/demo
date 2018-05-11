@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>患者预约</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/zhengcejiedu/clinic.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px'
+    </script>
+</head>
+<body>
+    <header class="blue">
+        <section>
+            <i class="icon">&#xf602;</i>
+            <div class="bRight">
+                <h3>{$data['name']}</h3>
+                <p>性别：{$data['sex_a']} &nbsp 年龄：{$data['age']}岁 &nbsp 手机：{$data['mobile']}</p>
+                <p>所在地：{$data['address']}</p>
+            </div>
+        </section>
+    </header>
+<form action="#" method="POST" id="form">
+        <input type="hidden" name="name" value="{$data['name']}">
+        <input type="hidden" name="sex" value="{$data['sex']}">
+        <input type="hidden" name="age" value="{$data['age']}">
+        <input type="hidden" name="mobile" id="mobile" value="{$data['mobile']}">
+        <input type="hidden" name="order_type" id="order_type" value="{$data['order_type']}">
+        <input type="hidden" name="address" value="{$data['address']}">
+    <article>
+        <h4>提交您的问题，我们替您匹配对症医生</h4>
+        <section>
+            <p  class="hTitle">本次预约的疾病或症状<i style="font-style: normal;color: #f40808;">*</i></p>
+            <textarea name="jibing" id="jibing" cols="30" rows="2" placeholder="2~25字" class="tt" maxlength="25"></textarea>
+        </section>
+    </article>
+    <article>
+        <section>
+            <p  class="hTitle">为您的预约写一个醒目标题<i style="font-style: normal;color: #f40808;">*</i></p>
+            <textarea name="biaoti" id="biaoti" cols="30" rows="3" class="tt" maxlength="30" placeholder="请简述您的问题好让医生注意到您，5-30个字"></textarea>
+        </section>
+    </article>
+    <article>
+        <section>
+            <p  class="hTitle">请详细描述病情和希望医生提供的帮助<i style="font-style: normal;color: #f40808;">*</i></p>
+             <textarea name="miaoshu" id="miaoshu" cols="30" rows="4" class="tt" maxlength="50" placeholder="请详细描述症状、部位、诱因、发病特点和当前身体情 况，以及您希望医生提供的帮助，50个字"></textarea>
+        </section>
+    </article>
+    <article style="border-bottom-color:#fff;">
+        <section>
+           <div class="item both uploader">
+                <div class="g-image-upload-box" style="display:inline-block;">
+                    <div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+                        <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');" style="display:none;">
+                        <a href="javascript:;" id="upload" class="upload" style="width:62px;"></a>
+                    </div>
+                </div>
+                <div class="text-wrap">
+                     <p>上传疾病照片</p>
+                    <p>(图片加密，只有您和医生可见）</p>
+                </div>
+                <div style="width:100%;">
+                    <img src="" id="pre_pic" style="display:none" width="100%">
+                </div>
+                <div id="press_status"></div>
+                <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+                  
+            </div>
+        </section>
+    </article>
+    <article>
+        <a href="javascript:;" class="go" id="button">提 交</a>
+    </article>
+</form>
+    <div id="f"></div>
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="/weixin/Public/Expert/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/mobileFix.mini.js?v=8d13c59"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/exif.js?v=c65d9ea"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a"></script>
+
+<script type="text/javascript">
+    $('#upload').click(function(){
+        $('#fileupload').click();
+    })
+    //Zoom('.img-zoom');
+    $("#button").click(function(){
+        var jibing = $("#jibing").val();
+        var mobile = $("#mobile").val();
+        var biaoti = $("#biaoti").val();
+        var miaoshu = $("#miaoshu").val();
+        var imgbase64 = $("#imgbase64").val();
+       // alert(imgbase64);
+        if(mobile == '')
+        {
+            alert("请完善预约信息！");
+            return false;
+        }
+        if(jibing == '')
+        {
+            alert("请填写疾病或症状！");
+            $("#jibing").focus();
+            return false;
+        }
+        if(biaoti == '')
+        {
+            alert("请填写预约标题！");
+            $("#jibing").focus();
+            return false;
+        }
+        if(miaoshu == '')
+        {
+            alert("请填写病情描述！");
+            $("#jibing").focus();
+            return false;
+        }
+        else
+        {
+            var str_data = $("#form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{:U('Member/Order/yuyue_add_ok')}",
+                async: true,
+                data: str_data,
+                success: function(msg)
+                {
+                    switch (msg) 
+                    {
+                        case '1':
+                            alert("提交成功！");
+                            location.href="/weixin/index.php?m=Member&c=Order&a=yuyue_list";
+                            break;
+                        default:
+                            alert("系统繁忙，请稍后再试！");
+                            break;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+        }
+
+    });
+
+  
+
+    function press_img(input_file, imgbase64, pre_pic, press_status)
+    {
+        $('#pre_pic').css('display','block');
+        lrz(input_file.files[0],
+        {
+            width:1000,
+            before: function()
+            {
+                document.querySelector(press_status).innerHTML = "压缩处理开始，请稍后...";
+            },
+            fail: function(err)
+            {
+                document.querySelector(press_status).innerHTML = err;
+            },
+            always: function()
+            {
+                document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+            },
+            done: function (results)
+            {
+                document.querySelector(imgbase64).innerHTML = results.base64;//返回base64字符串，放置到textarea区域
+                document.querySelector(pre_pic).src = results.base64;//展示预览图片
+            }
+        });
+    }
+</script>
+
+
+</html>

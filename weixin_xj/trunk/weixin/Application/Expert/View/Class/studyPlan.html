@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>学习计划</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <volist name="data" id="vo">
+                <div class="hContent">
+                    <h2 class="text-center">{$vo.TYPE_NAME}</h2>
+                    <p>{$vo.TYPE_DESC|DeleteHtml=###|msubstr=0,40,'utf-8',false}...</p>
+                   <!-- <a href="#" class="text-center">开始学习</a>-->
+                </div>
+        </volist>
+    </header>
+    <article id="page" class="page">
+        <section class="grade">
+
+            <volist name="book_list" id="vo">
+
+                <h1><i></i><em>{$vo.TYPE_NAME}</em></h1>
+                <volist name="vo['BOOK_INFO']" id="book">
+                    <div class="list">
+                 
+                        <img src="{$book.BOOK_PIC}" />
+                        <a href="index.php?m=Expert&c=Class&a=studyDetail&book_id={$book.BOOK_ID}">
+                             <div>
+                                <strong class="text-center">{$book.BOOK_NAME}</strong>
+                                <span class="text-center">{$book.BOOK_DESC|DeleteHtml=###|msubstr=0,40,'utf-8',false}...</span>
+                            </div>
+                        </a>
+                    </div> 
+                </volist>
+            </volist>
+
+        </section>    
+    </article>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

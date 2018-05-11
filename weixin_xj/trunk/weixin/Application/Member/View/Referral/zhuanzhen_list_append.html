@@ -1,0 +1,20 @@
+<volist name="referral_list" id="referral">
+	<li>
+		<a href="{:U('Referral/zhuanzhen_info',array('referral_id'=>$referral['REFERRAL_ID']))}">
+			<if condition="$referral['REFERRAL_STATUS'] eq '1'">
+				<span class="pass">通过</span>
+			<elseif condition="$referral['REFERRAL_STATUS'] eq '0'"/>
+				<span class="await">待审</span>
+			<else/>
+				<span class="fail">拒绝</span>
+			</if>
+			
+			<p>患者姓名：<em>{$referral['PERSON_NAME']}</em></p>
+			<p>患者手机号：<em>{$referral['PERSON_MOBILE']}</em></p>
+			<p>提交者姓名：<em>{$referral['SUBMIT_NAME']}</em></p>
+			<p>提交者手机号：<em>{$referral['SUBMIT_MOBILE']}</em></p>
+			<!-- <p>转诊医院：<em>{$referral['HOS_NAME']}</em></p> -->
+			<p>提交日期：<em>{$referral['CREATE_DATE']}</em> </p>
+		</a>
+	</li>∮
+</volist>

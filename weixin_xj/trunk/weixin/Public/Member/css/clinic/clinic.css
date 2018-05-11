@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document 郑洁*/
+body { background: #f6f6f6; }
+/*远程会诊消息*/
+.xiaoxi { padding: 15px; }
+.shijian { text-align: center; margin-top: 15px; }
+.shijian span { font-size: 14px; color: #fff; background: #dddddd; display: inline-block; padding: 8px; border-radius: 3px; }
+.cont_xx { background: #fff; padding: 12px; border-radius: 5px; margin-top: 15px; }
+.cont_xx h2 { font-weight: normal; font-size: 18px; color: #333; }
+.cont_xx span { color: #666; font-size: 14px; }
+.cont_xx p { color: #666; font-size: 14px; line-height: 24px; }
+.cont_xx p b { color: #666; font-size: 14px; font-weight: normal; }
+.cont_xx p b.wei { color: #ff2424; }
+.look { border-top: 1px solid #e7e7e7; padding-top: 10px; margin-top: 10px; position: relative; }
+.look a { display: block; color: #333; font-size: 16px; }
+.look i { position: absolute; right: 0px; top: 0; font-size: 20px; }
+/*会诊详情*/
+.con_hz { background: #fff; margin-top: 15px; }
+.con_hz h2 { height: 50px; line-height: 50px; border-bottom: 1px solid #e7e7e7; padding-left: 15px; color: #333; font-size: 16px; font-weight: normal; }
+.con_hzys { padding: 15px; }
+.con_hzys p { color: #333; font-size: 14px; line-height: 30px; }
+.con_zdjg { padding: 15px; }
+.con_zdjg p { color: #666; font-size: 12px; line-height: 24px; }
+.con_zdjg img { width: auto; max-width: 70%; height: 200px; margin: 0; }
+.pswp__button { position: fixed; right: 50%; bottom: 15px; width: 6em; height: 2em; color: #fff; font-size: 18px; margin-right: -3em; background-color: #ff647c; background-image: none; z-index: 1100; line-height: 2em; border-radius: 6px; }
+figure { margin: 0; }
+
+
+.msg-huanzhe {min-height: 45px; position: relative; width: 100%; margin-top: 20px;}
+.msg-huanzhe .huanzhe-portait img { margin: 0 auto; max-width:none; width:38px; height:38px;}
+.msg-huanzhe .huanzhe-portait { position: absolute; right: 0; text-align: center; top: 5px; width:38px; height:38px; border: 1px solid #e7e7e7; border-radius:50%; overflow:hidden;  }
+.msg-huanzhe .huanzhe-portait a{ display:block;}
+.msg-huanzhe .textC{ text-align:right; margin-right:60px; padding-top:10px;}
+
+.zixunbot { overflow: hidden; }
+.msg-doctor {min-height: 45px; position: relative; width: 100%; margin-top: 20px;}
+.msg-doctor .huanzhe-portait img { max-width:none; width:38px; height:38px;}
+.msg-doctor .huanzhe-portait { position: absolute; left: 0; text-align: center; top: 5px; width:38px; height:38px; border: 1px solid #e7e7e7; border-radius:50%; overflow:hidden;  }
+.msg-doctor .huanzhe-portait a{ display:block;}
+.msg-doctor .textC{ text-align:left; margin-left:60px; padding-top:10px;}
+/*订单详情*/
+.dingdan{ background:#fff; margin-top:15px;}
+.dingdan h2.zhuangtai{height: 50px; line-height: 50px; border-bottom: 1px solid #e7e7e7; padding:0 15px; color: #333; font-size: 14px; font-weight: normal;}
+.dingdan h2.zhuangtai span{ float:right; color:#ff8400;}
+.dingdan_con{ border-bottom: 1px solid #e7e7e7;background:#fff; padding:15px;}
+.dingdan_con p{ color: #333; font-size: 14px; line-height: 30px; }
+.dingdan_con h2{ height: 30px; line-height: 30px; color: #ef4a65; font-size: 16px; font-weight: normal;}
+.jiage{ border-bottom: 1px solid #e7e7e7; background:#fff; padding:15px;}
+.jiage span{ font-size:14px; color:#333; height:40px; line-height:40px;}
+.jiage span b{ font-size:18px; font-weight:normal; color:#ff6b00; float:right;}
+.zhifu{ background:#fff; padding:15px; overflow:hidden;}
+.zhifu a{ display:inline-block; padding:8px 24px; border-radius:5px; float:right;}
+.zhifu a.quxiao{ color:#999; font-size:12px; border:1px solid #999;}
+.zhifu a.zhifu{ color:#ff647c; font-size:12px; border:1px solid #ff647c; margin-left:18px;}
+/*消息中心*/
+.xx_zx{ padding:15px; overflow:hidden; height:80px; box-sizing:border-box; border-bottom: 1px solid #e7e7e7;}
+.hz_xx{ background:url(/weixin/Public/Member/images/clinic/icon.png) no-repeat; background-position: 15px 15px;background-size:50px;}
+.right_con{ margin-left:65px; position:relative;}
+.right_con h2{ font-size:16px; color:#333; font-weight:normal; line-height:30px;}
+.right_con p{ color:#999; font-size:14px;}
+.right_con i{ position:absolute; right:0; top:13px; display:inline-block; width:20px; height:20px; background:#f74c31; border-radius:50%; color:#fff; font-size:12px; text-align:center; line-height:20px;}
+.xt_xx{ background:url(/weixin/Public/Member/images/clinic/icon.png) no-repeat; background-position: 15px -60px;background-size:50px;}
+.fw_xx{ background:url(/weixin/Public/Member/images/clinic/icon.png) no-repeat; background-position: 15px -135px;background-size:50px;}
+
+/*会诊结果*/
+.con_hzjg { background: #fff; margin-top: 10px; overflow:hidden; }
+.con_hzjg h2 { height: 34px; line-height: 34px; border-bottom: 1px solid #e7e7e7; padding:0 15px; font-size: 12px; font-weight: normal; text-align:right; }
+.con_hzjg h2.yi{ color: #00d05d;}
+.con_hzjg h2.wei{ color: #ff8400;}
+.con_jg { margin:0 15px; padding:15px 0; background:url(../../images/clinic/icon2.png) no-repeat center right; background-size:10px;border-bottom: 1px solid #e7e7e7; box-sizing:border-box; overflow:hidden; }
+.con_jg .touxiang{ width:55px; height:55px; border-radius:50%; overflow:hidden; float:left;}
+.con_jg .touxiang img{width:55px; height:55px;}
+.con_jg .xinxi{ float:left; margin-left:10px;}
+.con_jg .xinxi p { color: #000; font-size: 12px; line-height: 20px; }
+.con_jg .xinxi p b{ font-weight:normal; font-size:12px; color:#999;}
+.con_hzjg .chakan{ height:23px; line-height:23px; padding:14px 15px;}
+.con_hzjg .chakan a{ display:inline-block; float:right; border:1px solid #ef4a65; font-size:12px; color:#ef4a65; border-radius:3px; width:66px; text-align:center;}
+
+
+
+
+

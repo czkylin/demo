@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+   	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+   	<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<style>
+		body,html{height: 100%; overflow: hidden;}
+		#main{height: 100%}
+	</style>
+</head>
+<body>
+	<div id="main"></div>
+	<script>
+	window.onload = function(){
+		var myChart = echarts.init(document.getElementById('main'));
+
+		$.ajax({
+			url:'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Index&a=hos_map',
+			type:'post',
+			data:{},
+			dataType:'json',
+			success:function(data){
+				var json = data;
+				json && fn(json)
+			},
+			error:function(){
+				console.log(arguments)
+			}
+		})
+
+		function fn(json) {
+			var iNow = 0;
+			var res = [];
+			var timer = setInterval(function(){
+
+				var geoCoord = [json[iNow].LNG_POINT,json[iNow].LAT_POINT]
+
+				if (geoCoord) {
+					res.push({
+						name: json[iNow].HOS_NAME,
+						value: geoCoord.concat(Math.random())
+					})
+				}
+					
+				iNow++;
+
+				if( iNow == json.length ){
+					iNow = 0
+				}
+
+
+				option = {
+				    backgroundColor: '#404a59',
+				    title: {
+				        text: '全国科室',
+				        subtext: '描述',
+				        left: 'center',
+				        textStyle: {
+				            color: '#fff'
+				        }
+				    },
+				    geo: {
+				        map: 'china',
+				        label: {
+				            emphasis: {
+				                show: false
+				            }
+				        },
+				        roam: true,
+				        itemStyle: {
+				            normal: {
+				                areaColor: '#323c48',
+				                borderColor: '#111'
+				            },
+				            emphasis: {
+				                areaColor: '#2a333d'
+				            }
+				        }
+				    },
+				    series : [
+				        {
+				            name: 'Top 5',
+				            type: 'effectScatter',
+				            coordinateSystem: 'geo',
+				            data: res,
+				            symbolSize: 20,
+				            showEffectOn: 'render',
+				            rippleEffect: {
+				                brushType: 'stroke'
+				            },
+				            hoverAnimation: true,
+				            label: {
+				                normal: {
+				                    formatter: '{b}',
+				                    position: 'right',
+				                    show: true
+				                }
+				            },
+				            itemStyle: {
+				                normal: {
+				                    color: '#f4e925',
+				                    shadowBlur: 10,
+				                    shadowColor: '#333'
+				                }
+				            },
+				            zlevel: 1
+				        }
+				    ]
+				};
+
+				 myChart.setOption(option);
+
+				 res.shift()
+
+			},2000)
+		}	
+				
+	}
+		 
+	</script>
+</body>
+</html>

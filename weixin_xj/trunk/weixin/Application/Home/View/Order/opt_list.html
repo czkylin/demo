@@ -1,0 +1,118 @@
+<html class="ui-mobile">
+
+<head>
+
+<!--css-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- title -->
+
+<title>白内障手术订单</title>
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="share-title" content="">
+
+<!--公用样式调用-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/portal.minv2.css" type="text/css" rel="stylesheet"/>
+
+<link href="/weixin/Public/Home/css/operation.min.css" type="text/css" rel="stylesheet"/>
+
+
+
+
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:#e5e5e5;">
+
+	<ul id="opt-list" class="sub_jieguo" style="margin-top:0.3rem; background:#fcfcfc; padding:15px;">
+
+		<volist name="opt_list" id="opt" empty="暂时没有数据">
+
+		<li>
+
+			<div class="huiyuan_left">
+
+				<img src="{$opt['HEADIMGURL']}" alt=""/>
+
+			</div>
+
+			<div class="huiyuan_right">
+
+				<div class="right_top">
+
+					<div class="r_t_l">
+
+						<p>订单号:&nbsp;{$opt['ORDER_ID']} &nbsp;&nbsp;{$opt['MEMBER_NAME']}</p>
+
+						<span>预约时间:&nbsp;{$opt['ORDER_DATE']}</span>
+
+						<p style="margin-top:0.6rem;">服务名称:&nbsp;{$opt['ORDER_NAME']}</p>
+
+					</div>
+
+					<div class="r_t_r">
+
+						<p>¥{$opt['ORDER_MONEY']}<br/><span>×1</span></p>
+
+					</div>
+
+					<br clear="all" />
+
+				</div>
+
+				<div class="right_bot" style=" margin-top:0rem;">
+
+					<span class="jy_zhuangtai">{$opt['ORDER_STATUS']}</span>
+
+				</div>
+
+			</div>
+
+			 <br clear="all"/>
+
+		</li>
+
+		</volist>
+
+	</ul>
+
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();" {$stly}>加载更多</a></div>
+
+	<div id="current_pagenum" style="display:none">2</div>
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+
+<script>
+
+function load_more()
+
+{ 
+
+	loadmore('#current_pagenum','/weixin/index.php?m=Home&c=Order&a=opt_list_append','#opt-list');
+
+}
+
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+
+</html>

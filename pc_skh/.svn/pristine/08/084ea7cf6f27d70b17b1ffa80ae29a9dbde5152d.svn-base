@@ -1,0 +1,38 @@
+
+  <!-- 底部start -->
+    <div class="footer">
+      <div class="ft_top clear">
+        <div class="w1200">
+          <ul>
+            <li><a href="">诊疗项目</a></li>
+            <li><a href="">白内障</a></li>
+            <li><a href="">糖网</a></li>
+            <li><a href="">眼底病</a></li>
+            <li><a href="">眼视光</a></li>
+            <li><a href="">眼整形</a></li>
+          </ul>
+          <ul>
+            <li><a href="">便捷服务</a></li>
+            <li><a href="">权威专家</a></li>
+            <li><a href="">来院路线</a></li>
+            <li><a href="">在线咨询</a></li>
+            <li><a href="">预约挂号</a></li>
+          </ul>
+          <ul>
+            <li><a href="">聚焦圣康华</a></li>
+            <li><a href="">圣康华简介</a></li>
+            <li><a href="">圣康华荣誉</a></li>
+            <li><a href="">媒体报道</a></li>
+            <li><a href="">社会责任</a></li>
+          </ul>
+          <div class="text">
+            <p class="title">服务热线</p>
+            <strong>010-62033293</strong>
+            <p class="range">周一至周五 8:00-17:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="ft_bottom">Copyright © 2016 北京远程新华网络技术有限公司 版权所有 京ICP备14009444-1</div>
+    </div>
+    <script language="javascript" src="http://pbt.zoosnet.net/JS/LsJS.aspx?siteid=PBT44701575&float=1&lng=cn"></script>
+  <!-- 底部end -->

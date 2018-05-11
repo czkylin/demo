@@ -1,0 +1,45 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/weiguanwang.min.css" type="text/css" rel="stylesheet"/>
+
+<!-- title -->
+
+<title>{$ILL_NAME}-远程视界</title>
+
+<!--meta-->
+
+</head>
+
+<body style=" background:#fff;">
+<div style="min-height: 480px;">
+        <div class="detail">
+                <h2>{$ILL_NAME}</h2>
+                <div class="mar_bot_20">
+                        <p>{$ILL_CONTENT}</p>
+                </div>
+                <div class="zixun_con">
+                        <div class="zixun"> <a href="/weixin/index.php?m=Member&c=Doc&a=doc_list">专家咨询</a><span></span></div>
+                </div>
+        </div>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

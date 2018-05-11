@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <title>端午大作战</title>
+    <link rel="stylesheet" type="text/css" href="/weixin/Public/Member/Lott/css/duanwu_style.css">
+    <script type="text/javascript" src="/weixin/Public/Member/Lott/js/jquery.js"></script>
+    <script type="text/javascript" src="/weixin/Public/Member/Lott/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/weixin/Public/Member/Lott/js/remControl.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var box = $('#box');
+            box.css('width',window.innerWidth);
+            box.css('height',window.innerHeight);
+        });
+    </script>
+</head>
+<body>
+<!-- 接到宝箱 -->
+        <div class="popup-box succeed" style="">
+            <div class="popup-box-bg"></div>
+            <div class="popup-con">
+                <div class="bx-btn">
+                    <a href="{:U('Member/Lott/kai')}"><img src="/weixin/Public/Member/Lott/images/pop-bx.png" style="width:2.42rem;margin: .8rem auto 0;"></a>
+                    <p>点击宝箱收获惊喜吧！</p>
+                </div>
+                <div class="fx-btn">
+                    <p>恭喜您获得 <em></em> 分</p>
+                    <a href="javascript:;" class="share-btn">分享朋友圈+5局</a>
+                    <a href="{:U('Member/Lott/game')}" calss="again">再来一局(剩余 <span class="ju">1</span> 局) </a>
+                </div>
+            </div>
+        </div>
+<!-- 未接到宝箱 -->
+        <div class="popup-box failure" style="">
+            <div class="popup-box-bg"></div>
+            <div class="popup-con">
+                <div class="bx-btn">
+                    <img src="/weixin/Public/Member/Lott/images/pop-bx.png" style="width:2.42rem;margin: .8rem auto 0;">
+                    <p>很遗憾！您没有接到宝箱</p>
+                </div>
+                <div class="fx-btn">
+                    <p>恭喜您获得 <em></em> 分</p>
+                    <a href="javascript:;" class="share-btn">分享朋友圈+5局</a>
+                    <a href="{:U('Member/Lott/game')}" calss="again">再来一局(剩余 <span class="ju">2</span> 局) </a>
+                </div>
+            </div>
+        </div>
+<!-- 没机会 -->
+    <div class="popup-box noChans">
+        <div class="popup-box-bg"></div>
+        <div class="popup-con">
+            <div class="bx-btn">
+                <!-- <img src="/weixin/Public/Member/Lott/images/pop-bx.png" style="width:2.42rem;margin: .8rem auto 0;"> -->
+                <p style="margin: 1rem auto; width: 80%;">您已经没有机会了，分享到朋友圈可获取5次机会！</p>
+            </div>
+            <div class="fx-btn">
+                <p>恭喜您获得 <em></em> 分</p>
+                <a href="javascript:;" class="share-btn">分享朋友圈+5局</a>
+                <a href="javascript:;" style="background:#bbb;">再来一局(剩余 <span>0</span> 局) </a>
+            </div>
+        </div>
+    </div>
+    <div id="box">
+       	<canvas id="canvas" style="display: block;"></canvas>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+            <script type="text/javascript">
+               
+				/*cookie设置*/
+				$('.again>span').html("8")
+				if($.cookie('ttt')==null){
+					$.cookie('ttt',5); 
+					var ju = $.cookie('ttt')-1;
+				}else{
+					var times = $.cookie('ttt')-1<=0?0:$.cookie('ttt')-1;
+					$.cookie('ttt',times);
+					var ju =times-1;
+				}
+				//赋值
+				$(".ju").text(ju);
+			
+				//判断游戏是否可进行
+				if($.cookie('ttt')>0){
+					var B = 0.56;
+					var canvasW = window.innerWidth;
+					var canvasH = canvasW/B;
+					if(canvasH > window.innerHeight) canvasH = window.innerHeight;
+					var canvasObj = $('#canvas');
+					var again = $('.again');
+					canvasObj.css('margin-top',(window.innerHeight-canvasH)/2);
+					canvasObj.attr('width',canvasW);
+					canvasObj.attr('height',canvasH);
+					var ca=document.getElementById("canvas");
+
+					var ctx=ca.getContext("2d");
+					var bj1=new Image();
+
+					var player=new Image();
+					var newImg = new Image();
+					var tu=new Array();
+
+					bj1.src="/weixin/Public/Member/Lott/images/bj.png";
+					player.src="/weixin/Public/Member/Lott/images/lz.png";
+					newImg.src="/weixin/Public/Member/Lott/images/lzbx.png"
+					var playerWidth =123*B;
+					var playerHeight =213*B;
+
+					var h=20;
+					var gk=1;
+					var sudu=10;
+					var zl=100;
+					var chi=0;
+					var shi=0;
+					var fs=0;
+					var sm=1;
+					var bj=bj1;
+
+					function object(){
+						this.x=0;
+						this.y=0;
+						this.l=11;
+						this.image = new Image();
+					}
+
+					var sprite=new object();
+					//sprite.x=(canvasW - playerWidth)/2;
+					sprite.x = 0;
+					sprite.y = canvasH-140;
+					// console.log(canvasH-playerHeight);
+					//sprite.y=canvasH-playerHeight;
+					sprite.image=player;
+					var move = 'ontouchmove' in document ? 'touchmove' : 'mousemove' ;
+					addListener(ca,move,m);
+					var beginTime = new Date();
+					var gameTime = 20;
+					var remainTime;
+					var range = canvasW - 80*B;
+
+					function audioAutoPlay(id){
+						var audio = document.getElementById(id);
+						audio.play();
+						document.addEventListener("WeixinJSBridgeReady", function () {
+							audio.play();
+						}, false);
+					}
+
+					function chansheng(){
+						if(shi%h==0){
+
+							for(var j=2*chi;j<2*(chi+1);j++){
+								tu[j]=new object();
+								var i=Math.round(Math.random()*range);
+								if(j==2*chi+1)
+								{
+									while(Math.abs(i-tu[2*chi].x)<30){
+										i=Math.round(Math.random()*range);
+									}
+								}
+								var k=Math.round(Math.random()*zl);
+								if(k < 80){
+									tu[j].image.src="/weixin/Public/Member/Lott/images/zz.png";
+									tu[j].q = 1;
+								}else if(k < 90){
+									tu[j].image.src="/weixin/Public/Member/Lott/images/bd.png";
+									tu[j].q = 2;
+								}else{
+									tu[j].image.src="/weixin/Public/Member/Lott/images/bx.png";
+									tu[j].q = 3;
+								}
+								tu[j].x=i;
+								tu[j].y=-Math.round(Math.random()*300);
+							}
+
+							chi++;
+							if(chi==10) chi=0;
+						}
+						shi++;
+					}
+
+					function checkTime(gameTime){
+
+						var nowTime = new Date();
+						remainTime = gameTime-parseInt((nowTime.getTime()-beginTime.getTime())/1000);
+						$('#m-con').html(remainTime);
+
+					}
+
+					function sudukongzhi(){
+						if(remainTime > 15){
+							h=10;
+							sudu=20;
+						}else if(remainTime > 10){
+							h=10;
+							sudu=25;
+						}else{
+							h=10;
+							sudu=30;
+						}
+					}
+					function draw(){
+						sudukongzhi();
+						chansheng();
+						for(var i=0;i<tu.length;i++){
+							if(jianche(sprite,tu[i])) {
+								if(tu[i].q == 1){
+									fs += 10;
+								}else if(tu[i].q == 2){
+									gameTime -= 3;
+								}else{
+									fs+=100;
+									sprite.image = newImg;
+								}
+								tu[i].y+=200;
+
+							}else if(!jianche(sprite,tu[i])){
+								tu[i].y+=sudu;
+							}
+							ctx.drawImage(tu[i].image,tu[i].x,tu[i].y,80*B,80*B);
+						}
+					}
+
+					function jianche(a,b){
+						var c=a.x-b.x;
+						var d=a.y-b.y;
+						if(c < b.image.width*B && c>-a.image.width*B  && d<b.image.height*B && d>-a.image.height*B){
+							return true;
+						}else{
+							return false;
+						}
+					}
+					function addListener(element,e,fn){
+						if(element.addEventListener){
+							element.addEventListener(e,fn,false);
+						} else {
+							element.attachEvent("on" + e,fn);
+						}
+					}
+					function m(e){
+						var ev = 'ontouchmove' in document ? e.touches[0] : e ;
+						var x = ev.pageX ; // 这样就能在PC 和 手机上都拿到坐标值了
+						sprite.x = x-playerWidth/2;
+						if(sprite.x+playerWidth>=canvasW) sprite.x=canvasW-playerWidth;
+						else if(sprite.x<=playerWidth/2) sprite.x=0;
+					}
+
+					
+			   
+					function stop(){
+						clearInterval(interval);
+
+						// 判断是否接到宝箱
+						if(sprite.image == newImg){
+							$('.popup-box.succeed').show();
+						}else{
+							$('.popup-box.failure').show();
+						}
+
+						//获取分数
+						var fen = $("#f-con").html();
+
+						$.post("/weixin/index.php?m=Member&c=Lott&a=score_add",{fen:fen},
+						   function(data){
+						     
+						   });
+					}
+
+
+					interval = setInterval(function(){
+						ctx.clearRect(0,0,canvasW,canvasH);
+						ctx.drawImage(bj,0,0,canvasW,canvasH);
+						ctx.drawImage(sprite.image,sprite.x,sprite.y,280*B,146*B);
+						audioAutoPlay('Jaudio');
+						$(function(){
+							$("#Jaudio")[0].play();
+						})
+						draw();
+						$("#f-con").html(fs);
+						$('.fx-btn>p>em').html(fs);
+						checkTime(gameTime);
+						if(remainTime<=0) {
+							$("#m-con").html(0);
+							stop();
+							// 背景音乐停止
+							$('audio').get(0).pause();
+						}
+					},100);
+				}else{
+				//弹出框框没有机会分享活的五次
+					$('.popup-box.noChans').show();
+				}
+				//增加次数
+				function addshare(){
+					$.cookie('ttt',(parseInt($.cookie('ttt'))+6));
+				}
+				
+
+
+	//微信分享
+		wx.config({
+		    debug: false,
+		    appId: '<?php echo $appId;?>',
+		    timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+		    nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+		    signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+		    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		var wx_share_title = '端午大作战，避开炸弹抢粽子了。';
+		var wx_share_desc = '限时20秒，快快抢粽子得分吧，抢得分数越多享受优惠越大哦';
+		var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/Lott/images/lott.png";
+
+		wx.ready(function() {
+		    wx.onMenuShareTimeline({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index',
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+		               addshare();  
+		               location.reload();
+		        },
+		        cancel: function() {}
+		    });
+		    wx.onMenuShareAppMessage({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index',
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+		              addshare();  
+		              location.reload();
+		        },
+		        cancel: function() {}
+		    });
+		});
+     </script>
+
+        <div id="f"><div id="f-con"></div></div>
+        <div id="m"><div id="m-con"></div></div>
+        <div class="shui"></div>
+        
+        <!-- 背景音乐 -->
+        <audio id="Jaudio" class="media-audio" src="/weixin/Public/Member/Lott/music/bg.mp3" preload loop="loop"></audio >
+    </div>
+
+   
+    <div class="share-box">
+        <div class="share-bg"></div>
+        <img src="/weixin/Public/Member/Lott/images/share.png">
+    </div> 
+    <script type="text/javascript">
+        // 阻止屏幕上下滑动
+        $('body').on('touchmove', function (event) {event.preventDefault();});
+        	document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+        $(function(){
+            $('.share-btn').click(function(){
+                $('.share-box').show();
+            });
+            $('.share-box').click(function(){
+                $('.share-box').hide();
+            });
+        });
+    </script>
+</body>
+</html>

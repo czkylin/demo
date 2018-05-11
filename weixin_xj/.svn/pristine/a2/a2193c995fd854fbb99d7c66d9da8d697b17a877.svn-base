@@ -1,0 +1,97 @@
+<html class="ui-mobile">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="cache-control" content="public">
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="format-detection" content="telephone=no">
+        <title>个人信息</title>
+        <!--公用样式调用-->
+        <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+        <!--分享页面样式调用-->
+        <link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+        <link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/weixin/Expert/js/birthday.js"></script>
+        <script>  
+            $(function () {
+                $.ms_DatePicker({
+                        YearSelector: ".sel_year",
+                        MonthSelector: ".sel_month",
+                        DaySelector: ".sel_day"
+                });
+                $.ms_DatePicker();
+            }); 
+            </script> 
+            <script type="text/javascript">
+            $(function(){
+                var gh=$('footer a').eq(0).children('span').text();
+                var zx=$('footer a').eq(0).children('span').text();
+                var gr=$('footer a').eq(0).children('span').text();
+                if(gh>100)
+                {
+                    $('footer a').eq(0).children('span').text('***');
+                }
+                if(gh>100)
+                {
+                    $('footer a').eq(1).children('span').text('***');
+                }
+                if(gh>100)
+                {
+                    $('footer a').eq(2).children('span').text('***');
+                }
+            });
+        </script>
+    </head>
+    <body>
+    <div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style="padding-bottom: 100px;">  
+        <ul>    
+            <li class="avatar ystx">
+                <label>头像</label>           
+                <b class="jiantou touxiang">
+                    <a href="{:U('User/upload_face')}">
+                        <img src="{$data.SMALL_PIC}" style='_margin-top:expression(( 180 - this.height ) / 2);' />
+                    </a>
+                </b>
+            </li> 
+            <li> 
+                <label>姓名</label>   
+                <span class="right" style="line-height:20px;">{$data.EXPERT_NAME}</span>
+            </li>
+            <li> 
+                <label>性别</label>   
+                <span class="right" style="line-height:20px;">{$data.EXPERT_SEX}</span>
+            </li>
+            <li> 
+                <label>医院</label>   
+                <span class="right" style="line-height:20px;">{$data.HOS_NAME}</span>
+            </li>
+            <li> 
+                <label>科室</label>   
+                <span class="right" style="line-height:20px;">{$data.DEP_NAME}</span>
+            </li>
+            <li> 
+                <label>职称</label>   
+                <span class="right" style="line-height:20px;">{$data.EXPERT_RANK}</span>
+            </li>
+            <li class="link">
+                <a href="{:U('User/expert_skill')}" class="g-arrow-r">
+                    <label class="nowidth">擅长</label>   
+                    <span class="right yirenz">{$data.EXPERT_SKILL|mb_substr=###,0,30}</span>
+                </a>
+            </li>
+            <li class="link">
+                <a href="{:U('User/expert_desc')}" class="g-arrow-r">
+                    <label class="nowidth">简介</label>   
+                    <span class="right yirenz">{$data.EXPERT_DESC|mb_substr=###,0,30}</span>
+                </a>
+            </li>
+        </ul> 
+     </div>
+    <!-- <input name='oldface' type='hidden' id='oldface' value='<?php echo $face; ?>' /> -->
+    <include file="Public:tj" />
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+    </body>
+</html>

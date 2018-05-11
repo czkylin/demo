@@ -1,0 +1,136 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">-->
+<!--<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">-->
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/footer.min.css">
+<!--<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">-->
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/head.css">
+<style>
+    img{border-width:0;}
+    .clear{overflow:hidden;}
+    .fl{float:left;}
+    .fr{float:right;}
+    .ask{color: #ff647c;}
+    .box{display:box;display:-webkit-box;}   
+    .info{width:70%}
+    .info i{display:inline-block;width:10px;height:10px;border-radius:10px;background:#e4e9ec;margin-right:10px;}
+    #hz li{margin:0;}
+    section li{color:#858585;border-bottom:1px solid #ccc;}
+    section li.active{color:#5c5c5c;}
+    section li.active i{background:#ff7a8f;}
+    .time{width:30%;text-align:right;}
+    .txt{padding:0 10px;}
+    #block{background:#eceff1;border-bottom:1px solid #ccc;}
+    #block header{border-bottom:1px solid #ccc;}
+    #block article{border-radius:6px;border:1px solid #ccc;background:#fff;width:90%;margin:20px auto;}
+    #block .sec{padding:10px;}
+    #block em{margin-right:5px;}
+    #block p{height:25px;line-height:25px;}
+    #block .img,#block .img2{width:50px;height:50px;overflow:hidden;}
+    #btn{background:#fff;padding:3% 5%;position:fixed;bottom:0;left:0;width:90%;}
+    #btn a{background:#ff647c;border-radius:4px;color:#fff;display:block;height:44px;line-height:44px;font-size:18px;text-align:center;}
+</style>
+<title>我的患者咨询</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+<header class="header">
+    <a href="index.php?m=Expert&c=User&a=mywork_house" class="icon">&#xf62b;</a>
+    <h2>我的患者咨询</h2>
+</header>
+<div class="wdzixun_ul" id="consult_list">
+	<div id="block">
+	    <article>
+	        <header class="text-center"><span>患者基本信息</span></header>
+            <section>
+                <div class="sec clear">
+                    <div class="img fl">
+                    
+                    <if condition="($consult_list[0]['MEMBER_SEX'] eq '未填写') && ($consult_list[0]['MEMBER_PIC'] eq '')" >
+                        <img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png"  width="100%" height="100%" />
+                    <elseif condition="($consult_list[0]['MEMBER_SEX'] eq '男') && ($consult_list[0]['MEMBER_PIC'] eq '')"/>
+                        <img src="/weixin/Public/Expert/images/fenXiang/dfboy.png"  width="100%" height="100%" />
+                    <elseif condition="($consult_list[0]['MEMBER_SEX'] eq '女') && ($consult_list[0]['MEMBER_PIC'] eq '')" />
+                        <img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png"  width="100%" height="100%" />
+                    <else />
+                        <img src="{$consult_list[0]['MEMBER_PIC']}"  width="100%" height="100%" />
+                    </if>
+                    </div>
+                    <div class="txt fl">
+                        <p>
+                            <em>{$consult_list[0]['MEMBER_NAME']}</em>
+                            <em>/ {$consult_list[0]['MEMBER_SEX']}</em>
+                            <em>/ {$consult_list[0]['MEMBER_AGE']}</em>
+                       </p>
+                       <p>{$consult_list[0]['MEMBER_MOBILE']}</p>
+                    </div>
+                    <!-- <div class="img2 fr"><img src="/weixin/Public/Expert/images/yonghu/vip.png" width="100%" /></div> -->
+                </div>
+            </section>
+	    </article>
+	</div>
+	<section id="hz">
+	    <ul>
+	        <volist name="consult_list" id="data">
+                <if condition="$data['CONSULT_ID'] eq ''">
+                <else /> 
+                    <a href="/weixin/index.php?m=Expert&c=Jtys&a=consult_details&consult_id={$data['CONSULT_ID']}">
+
+    			        <if condition="$data['RE_STATUS'] eq '已回复'">
+    				        <li class="clear">
+    				    <else />
+    				    	<li class="active clear">
+    				    </if>
+                            <if condition="$data['TW_FLAG'] eq '1'">
+                                <p class="ask">医生询问</p>
+                            <else />
+                                <p class="ask">患者咨询</p>
+                            </if>
+    				            <div class="info fl"><i></i>{$data['CONSULT_CONTENT']}</div>
+    				            <div class="time fr">{$data['CONSULT_DATE']}</div>
+    				     	</li>
+    				</a>
+                </if>
+	        </volist>
+	    </ul>
+	</section>
+</div>
+<div class="ui-jiazai">
+	<a href="javascript:void(0);" onclick="load_more();">加载更多</a>
+</div>
+<div id="btn">
+    <a href="index.php?m=Expert&c=Jtys&a=consult_pay&member_id={$member_id}">诊后随访</a>
+</div>
+<div id="current_pagenum" style="display:none">2</div>
+<include file="Public:footer_bottom"/>    
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+<script>
+var over_footer = '2';
+function load_more()
+{
+	var member_id = $('#member_id').val();
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Jtys&a=consult_list_append&member_id={$member_id}','#consult_list');
+}
+</script>
+<!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->     
+     <div style="height:0px;overflow:hidden;">
+         <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?>
+     </div>
+</body>
+</html>

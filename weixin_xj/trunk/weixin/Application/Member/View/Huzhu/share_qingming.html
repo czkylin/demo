@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="百倍爱心卡,清明节之际，那些离你而去的亲人不为人知的秘密" />
+	<meta name="description" content="亲人的突然逝去让“子欲养而亲不待”成为人生最大的悲哀。" />
+	<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css"?time={$time}.css>
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/share_parent.css?time={$time}.css">
+	<title>清明节之际，那些离你而去的亲人不为人知的秘密</title>
+	<script>
+		document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 15 + "px";
+	</script>
+	<style>
+		#link{
+			position: fixed;
+		    left: 0;
+		    bottom: 0;
+		    z-index: 10;
+		    width: 100%;
+		    display: block;
+		    height: 44px;
+		    line-height: 44px;
+		    text-align: center;
+		    overflow: hidden;
+		    color: #fff;
+		    font-size: 16px;
+		}
+		.link_1{
+			width: 37%;
+		    height: 44px;
+		    line-height: 44px;
+		    display: block;
+		    float: left;
+		    background: #ff8400;
+		}
+		.link_2{
+			width: 63%;
+		    height: 44px;
+		    line-height: 44px;
+		    display: block;
+		    float: left;
+		    background: #bf1b20;
+		    color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+      <nav id="nav" class="nav clear">
+        <span class="fl">最新数据：</span>
+        <div class="people fl">
+                <ul class="box">
+                    <li class="box">
+                    <!-- <volist name="buy_list" id="buy">
+                        <em>{$buy.PERSON_NAME|msubstr=0,1,'utf-8',false}**&nbsp;{$buy.PERSON_MOBILE|substr=0,3}****{$buy.PERSON_MOBILE|substr=-4}</em>
+                    </volist> -->
+                    <em>总资金：{$bx_list.all_money}元</em>
+                    <em>今日增长资金：{$bx_list.day_all_money}元</em>
+                    <em>已加入会员：{$bx_list.hy_num}人</em>
+                    <em>今日增长会员：{$bx_list.day_hy_num}人</em>
+                    </li>
+                </ul>
+            </div>
+    </nav> 
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide page1">
+	        	<img src="/weixin/Public/Member/images/huzhu/qingming/p1.jpg">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page2">
+	        	<img src="/weixin/Public/Member/images/huzhu/qingming/p2.jpg">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page3">
+	        	<img src="/weixin/Public/Member/images/huzhu/qingming/p3.jpg">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page4">
+	        	<img src="/weixin/Public/Member/images/huzhu/qingming/p4.jpg">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page5">
+	        	<img src="/weixin/Public/Member/images/huzhu/qingming/p5.jpg">
+	        	<div class="arrow"></div>
+	        </div>
+	        <div class="swiper-slide page6">
+	        	<img src="/weixin/Public/Member/images/huzhu/qingming/p6.jpg">
+	        </div>
+	    </div>    
+	</div>
+	<div id="link">
+    	<span class="link_1">¥200.00</span>
+
+    	<a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_qingming'));?>&sale_type={:C("SALE_TYPE_1")}&user_name={:I('get.user_name','')}" class="link_2">立即购买</a>
+    </div>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		    height : window.innerHeight
+		})  
+
+		//微信分享
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '清明节之际，那些离你而去的亲人不为人知的秘密';
+        var wx_share_desc = '亲人的突然逝去让“子欲养而亲不待”成为人生最大的悲哀。';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/qingming/fx.png";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_qingming&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('朋友圈');
+
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_qingming&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                     set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+	
+
+	<script type="text/javascript">
+
+
+    function set_log(act)
+    {
+        var type = "{$type}"+"_share_parent";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+
+	var h = $('#nav ul').html();
+	var w = 0;
+	$('#nav em').each(function(){
+	    w += $(this).outerWidth() + 20;
+	})
+	$('#nav ul').append(h).width(w);
+	var iNow = 0;
+
+setInterval(function(){
+    $('#nav ul').css({
+        'transform': 'translate3d(-'+iNow+'px,0,0)',
+        '-webkit-transform': 'translate3d(-'+iNow+'px,0,0)'
+    });
+    iNow++;
+    if(iNow > $('#nav li').width()){
+        iNow = 0;
+    }
+},30);
+</script>
+</body>
+</html>

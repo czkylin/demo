@@ -1,0 +1,106 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<meta name="Keywords" content="关爱血压关爱健康 实捷B02T智能电子血压计" />
+<meta name="description" content="一键测量使用方便简单；全自动智能加压；真人语音播报；蓝屏大屏大字方方便老人使用" />
+<!--CSS库文件-->
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/h5_bbaxktc.css">
+<title>关爱血压关爱健康 实捷B02T智能电子血压计</title>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+</script>
+    <script>
+
+        function set_log(act){
+        var type = "{$type}"+"_share_398";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+        wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '关爱血压关爱健康 实捷B02T智能电子血压计';
+        var wx_share_desc = '一键测量使用方便简单；全自动智能加压；真人语音播报；蓝屏大屏大字方方便老人使用';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/shoping/share/s3.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_398&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                     set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_398&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+    </script>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="padding-bottom: 50px;">
+    <div class="ka_box">
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img1.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img2.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img3.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img4.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img5.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img6.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img7.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img8.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img9.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img10.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img11.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img12.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/turgoscope_Jamr/img13.jpg" alt=""/>
+        <!--<footer>
+           <span class="link_1">¥300.00</span>
+            <a href="javascript:;" class="text-center" id="buy" style="background:#5789c6;">立即购买</a>
+        </footer>-->
+    </div>
+    <!-- CNZZ统计代码 -->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+    <!-- CNZZ统计代码  百倍爱心卡498健康套装 单独统计-->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1261123499).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Member/js/initCart.js"></script>
+<script>
+initCart('300','#','/weixin/Public/Member/images/shoping/share/s3.jpg',0);    
+</script>
+</html>

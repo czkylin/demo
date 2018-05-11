@@ -1,0 +1,68 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+<title>我的咨询</title>
+</head>
+
+<body>
+<div class="wdzixun_ul" id="consult_list">
+        <volist name="consult_list" id="consult" empty="暂时没有数据">
+                <li> <a href="/weixin/index.php?m=Member&c=Jtys&a=consult_details&consult_id={$consult['CONSULT_ID']}">
+                        <div class="zixun_left"> <span> <img src="{$consult['SMALL_PIC']}" width="60" height="60">
+                                <if condition="$consult['REP_FALG'] eq '已回复'"> <b></b>
+                                        <else/>
+                                </if>
+                                </span> </div>
+                        <div class="zixun_right">
+                                <h3>{$consult['EXPERT_NAME']}</h3>
+                                <div class="right_center"><span>{$consult['CONSULT_DATE']}</span><b>{$consult['REP_FALG']}</b></div>
+                                <p>{$consult['CONSULT_CONTENT']}</p>
+                        </div>
+                        </a> </li>
+        </volist>
+</div>
+<div class="ui-jiazai"><a href="javascript:void(0);" style="border-top:none;" onClick="loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Jtys&a=consult_list_append&expert_id='+$('#expert_id').text(),'#consult_list');" {$stly}>加载更多</a></div>
+<div id="current_pagenum" style="display:none">2</div>
+<div id="current_province" style="display:none">{$province_id}</div>
+<div id="current_type_id" style="display:none">{$type_id}</div>
+<div id="expert_id" style="display:none">{$expert_id}</div>
+
+<!--通底的引用开始--> 
+
+<include file="Public:footer_fd" /> 
+
+<!--Js库文件--> 
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+
+<!--加载更多--> 
+
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script>
+
+	var over_footer = '2';
+
+</script> 
+
+<!--通底的引用结束--> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<volist name="member_viplist" id="vip">
+	<li>
+		<a href="{:U('Expert/Jtys/consult_list',array('member_id'=>$vip['MEMBER_ID']))}">
+			<if condition="!$vip['MEMBER_PIC']">
+				<img src="/weixin/Application/Member/View/images/member.png" alt=""/>
+			<else />
+				<img src="{$vip['MEMBER_PIC']}" alt=""/>
+			</if>
+			<span>{$vip['MEMBER_NAME']}</span>
+			<i>{$vip['MEMBER_SEX']}</i>
+			<i>{$vip['MEMBER_AGE']}岁</i>
+		</a>
+	</li>∮
+</volist>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="cache-control" content="public">
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="share-title" content="">
+        <title>联盟之家</title>
+        <!--CSS库文件-->
+        <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+        <!--CSS当前页面文件-->
+        <link href="/weixin/Public/Expert/css/union/lianMengZhiJia.css" type="text/css" rel="stylesheet"/>
+        <link href="/weixin/Public/Expert/css/ceses/reset.css" type="text/css" rel="stylesheet">
+        <link href="/weixin/Public/Expert/css/ceses/willesPlay.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="head"><img src="/weixin/Public/Expert/images/lianMengZhiJia/head.jpg"></div>
+        <div class="pad_15 lianMengZJ">
+            <h1>远程肝病学院简介</h1>
+            <!--视频start-->
+            <div id="willesPlay">
+                <div class="playContent">
+                    <video id="playVideo" height="100%" width="100%">
+                        <source src="http://xy.apald.org/Public/Uploads/ytlm.mp4" type="video/mp4">当前浏览器不支持 video直接播放
+                    </video>
+                    <div class=" playTip glyphicon glyphicon-play"></div>
+                </div>
+                <!-- <div class="playControll">
+                    <div class="playPause playIcon"></div>
+                    <div class="timebar"> <span class="currentTime">0:00:00</span>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                        </div>
+                        <span class="duration"></span> </div>
+                    <div class="otherControl"> <span class="ui-icon-screen fullScreen glyphicon glyphicon-fullscreen"></span>
+                        <div style="display: none;" class="volumeBar">
+                            <div class="volumewrap">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 8px;height: 40%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->  
+            </div> 
+            
+            <!--视频begin-->
+            <p style="margin-top: 5px">2015年9月19日，由北京亚太肝病诊疗技术联盟与北京远程视界集团共同发起成立的"远程肝病学院--千县万医培训工程"启动仪式在青岛香格里拉大酒店举行，同时，设立了专项基金用于搭建 "远程肝脏疾病精准诊疗技术平台"，规范基层肝病医生的培训体系。启动仪式上，北京远程视界集团董事长韩春善先生发言，由北京亚太肝病诊疗技术联盟理事长成军教授主持，邀请了自来全国800名专家参加此次活动，并为全国远程肝病会诊中心的专家颁发荣誉牌匾和证书。"远程肝病学院--千县万医培训工程"汲取国际领先的医院管理理念与经营模式，以北京为中心，辐射全国，向各省、市、县医院提供肝病专科医生培训和专家技术指导学术交流等服务。将在全国34个省、市、自治区建立100个国家区域协同医疗服务中心，以及500家县市级肝病诊疗中心远程会诊医疗基地，继而满足基层对优质医疗服务的需求，为肝病患者带来福音，惠及全社会。</p>
+            <img src="/weixin/Public/Expert/images/lianMengZhiJia/img1.jpg">
+            <h1>北京亚太肝病诊疗技术联盟</h1>
+            <p>APALD是由首都医科大学附属北京地坛医院、北京大学第一医院、复旦大学附属华山医院和四川大学华西医院等国内数十家医院，北京亚太联盟医院管理有限公司，北京市理化分析测试中心，森隆药业有限公司、北京嘉华永芳健康科技有限公司等数十家科研院所及企业自愿联合发起成立，是经北京市社会团体登记管理机关核准登记的非营利性社会团体。APALD集产、学、研一体化，宗旨为团结国内外开展肝脏疾病诊断和治疗技术应用研究的高等科研院所，临床应用肝脏病诊断治疗新技术的医院、开展肝脏病诊断治疗设备研制的企业等单位，通过开展资源整合进行联合研究，达到在临床上肝脏疾病诊断和治疗技术与研制出可以替代进口产品的国内肝脏疾病诊断治疗装备之目的。</p>
+            <img src="/weixin/Public/Expert/images/lianMengZhiJia/img2.jpg">
+            <div class="zhuanjia">
+                <h2>专家风采</h2>
+                <ul>
+                    <volist name="doc_list" id="doc">
+                        <li>  
+                            <a href="javascript:void(0)">
+                                <img src="{$doc['SMALL_PIC']}" style="margin-left: 8%">
+                                <h2>{$doc['EXPERT_NAME']}</h2>
+                                <span style="height: 60px">{$doc['HOS_NAME']}</span>
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+
+        <script src="/weixin/Public/Expert/js/video/jquery-1.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/weixin/Public/Expert/js/video/willesPlay.js" type="text/javascript" charset="utf-8"></script>
+        <include file="Public:tj" />
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+    </body>
+</html>

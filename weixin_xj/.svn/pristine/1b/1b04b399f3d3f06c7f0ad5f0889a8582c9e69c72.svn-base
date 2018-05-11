@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>账单</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/insurance.min.css">
+</head>
+<body>
+	<div class="state">
+		<img src="/weixin/Public/Member/images/baozhang/cg.png" alt="">
+		<p>预约成功</p>
+	</div>
+    <div class="wf_con">
+    	<ul>
+        	<li>已预约的服务：<span>远程会诊</span></li>
+            <li>已预约的医院：<span>北京大学医院</span></li>
+            <li>已预约的专家：<span>王勇</span></li>
+            <li>安排会诊时间：<span>2016-10-2</span></li>
+        </ul>
+        <h2>注意事项</h2>
+        <p>
+        	1.xxxxxxxxxxxx<br>
+        	2.xxxxxxxxxxxx<br>
+            3.xxxxxxxxxxx
+        </p>
+        <div class="baozhang_but">
+        	<a class="btn btn-success" id="link-recharge" href="#">联系客服</a>
+        </div>
+    </div>
+    <!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

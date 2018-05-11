@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/tijian.css">
+<title>体检报告</title>
+</head>
+<script>
+	 document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px'
+</script>
+<body>
+	<header id="time">2016-10-03</header>
+	<section class="main clear">
+		<div class="con clear">
+			<div class="shengao clear">
+				<img src="/weixin/Public/Member/images/user/nan.png" alt="">
+				<span><i>180cm</i></span>
+			</div>
+			<div class="tizhong">
+				<img src="/weixin/Public/Member/images/user/tanhuang.png" alt="">
+				<span>75KG</span>
+			</div>
+		</div>
+		<div class="des-list">
+			<div class="cankao">（正常参考值）</div>
+			<ul>
+				<li class="clear">
+					<span class="fei"></span>
+					<div class="des">
+						<b>空腹3.9～6.1 餐后6.7-9.4</b>
+						<p>血糖（mmol/L）</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<b>动脉血为98% 静脉血75%</b>
+						<p>血氧</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<b>收缩压90~139 舒张压60~89</b>
+						<p>血压（mmHg）</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<b>60～100次/分钟</b>
+						<p>心率</p>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<b>36.3℃～37.2℃</b>
+						<p>体温</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="summary">
+		<div class="title">医生汇总分析<a href="javascript:;"></a></div>
+		<div class="content">
+			胸前压迫样疼痛并可能放射到双臂颈及下颌；心跳不规则呼吸困难；焦虑恐惧；眩晕；恶心呕吐；大汗；口唇甲床苍白或紫绀；皮肤苍白青紫及意识丧失等
+		</div>	
+	</section>
+	<section class="options">
+		<div class="title"><span></span>您的全部检查项</div>
+		<ul class="list">
+			<li>
+				<span class="name fl">血糖</span>
+				<div class="des fr">
+					<div class="num fl"><span>7.1mmol</span></div>
+					<div class="col fl low">偏低</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">血氧</span>
+				<div class="des fr">
+					<div class="num fl">
+						<b>动脉血</b>
+						<i>90%</i>
+					</div>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">血压</span>
+				<div class="des fr">
+					<div class="num fl">
+						<b class="red">舒张压</b>
+						<i>65mmHg</i>
+					</div>
+					<div class="col fl high">偏高</div>
+				</div>
+				<div class="des fr">
+					<div class="num fl">
+						<b>收缩压</b>
+						<i>90mmHg</i>
+					</div>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">心率</span>
+				<div class="des fr">
+					<div class="num fl">
+						<b>心率</b>
+						<i>100/分</i>
+					</div>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">身高、体重</span>
+				<div class="des fr">
+					<div class="num fl">
+						<b>身高</b>
+						<i class="green">183cm</i>
+					</div>
+					<div class="num fl">
+						<b>体重</b>
+						<i class="green">75kg</i>
+					</div>
+					<div class="num fl">
+						<b>BMI</b>
+						<i class="green">22.3</i>
+					</div>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">心率</span>
+				<div class="des fr">
+					<a href="javascript:;" class="num fl">查看全部>></a>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">体温</span>
+				<div class="des fr">
+					<div class="num fl"><span>36C°</span></div>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+			<li>
+				<span class="name fl">脉率</span>
+				<div class="des fr">
+					<div class="num fl"><span>96/分</span></div>
+					<div class="col fl normal">正常</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			setTimeout(function(){
+				var iH = $(".shengao").find('img').css('height');
+				var iH1 = (parseFloat(iH)-30)/2;
+				$(".shengao").find('span').css('height',iH);
+				$(".shengao").find('span').find("i").css('top',iH1);
+			},50)	
+		});
+
+		//下拉效果
+		(function(){
+			var onOff = true;
+			$('.title > a').click(function(){
+				if( onOff ){
+					$('.title').addClass('active');
+					$('.summary > .content').slideUp();
+				}else{
+					$('.title').removeClass('active');
+					$('.summary > .content').slideDown();
+				}
+				onOff = !onOff;
+			})
+		})()
+	</script>
+</body>
+</html>

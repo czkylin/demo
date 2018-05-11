@@ -1,0 +1,276 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/insurance.min.css">
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<title>基本信息</title>
+<style>
+    .g-items li label{width: 80px; text-align: left; }
+</style>
+</head>
+
+<body>
+
+<div class="" style=" width: 100%; position:fixed; top: 30%; left: 0; z-index: 999;">
+        <p class="msgtishi"  id="msg" style="text-align:center; color:#333;"></p>
+</div>
+<form method="POST" action="" id="form">
+	<div class="gp GJ_Gp g-items gp-profile-auth">
+        <ul>
+            <li>
+                <label>姓 名：</label>
+                <input type="text" class="weism" name="jzr_name" id="jzr_name">
+            </li>
+            <li>
+                <label>身 份 证：</label>
+                <input type="text" class="weism" name="jzr_code" id="jzr_code">
+            </li>
+            <li>
+                <label>性 别：</label>
+                <input type="text" id="jzr_sex" name="jzr_sex" class="weism" readOnly="true"/>
+            </li>
+            <li>
+                <label>出生日期：</label>
+                <input type="text" id="jzr_date" name="jzr_date" class="weism" readOnly="true"/>
+            </li>
+            <li>
+                <label>手 机 号：</label>
+                <input type="number" placeholder="" class="weism" name="jzr_phone" id="jzr_phone">
+            </li>
+            <input type="hidden" name="jzr_age" id="jzr_age">
+        </ul>
+        <div class="colorRed">
+            <p>以上信息是获取您信息的重要凭证,请谨慎填写</p>
+        </div>
+	</div>
+	<div class="tuichu">
+		<a href="javascript:void(0)" id="tijiao">提交</a>
+	</div>
+
+   
+</form>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script> 
+<script>
+    var huzhu = "{:I('get.huzhu',0,'intval')}";
+
+    $("#jzr_code").blur(function(){
+        var card = $.trim($('#jzr_code').val());
+        if(isNumber(card))
+        {
+            if(card.length == 15)
+            {
+                var len15 = card.charAt(card.length - 1);
+                if(isLen(len15))
+                {
+                    $("#jzr_sex").val("女");
+                }
+                else
+                {
+                    $("#jzr_sex").val("男");
+                }
+
+                // console.log(card);
+                var age15 = card.substr(6,2),
+                // console.log(age15);
+                    m15 = card.substr(8,2),
+                    d15 = card.substr(10,2);
+                $("#jzr_date").val("19"+age15+"-"+m15+"-"+d15);
+                var myDate = new Date();
+                var nowyear = myDate.getYear(); //获取当前年份(2位)
+                // console.log(nowyear);
+                person_age = nowyear-age15;
+                // console.log(person_age);
+                $("#jzr_age").val(person_age);
+                
+            }
+
+            if(card.length == 18)
+            {
+                var len18 = card.charAt(card.length - 2);
+                if(isLen(len18))
+                {
+                    $("#jzr_sex").val("女");
+                }
+                else
+                {
+                    $("#jzr_sex").val("男");
+                }
+                
+                // console.log(card);
+                var age18 = card.substr(6,4),
+                // console.log(age18);
+                    m18 = card.substr(10,2),
+                    d18 = card.substr(12,2);
+                $("#jzr_date").val(age18+"-"+m18+"-"+d18);
+                var myDate = new Date();
+                var nowyear = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+                // console.log(nowyear);
+                person_age = nowyear-age18;
+                // console.log(person_age);
+                $("#jzr_age").val(person_age);
+            }
+        }
+
+
+    });
+
+
+	$("#tijiao").click(function(){
+        var name = $("#jzr_name").val();
+        var sex = $("#jzr_sex").val();
+        var date = $("#jzr_date").val();
+        var number = $("#jzr_code").val();
+        var mobile = $("#jzr_phone").val();
+        if(name == '')
+        {
+            alert("请填写姓名！");
+            $("#jzr_name").focus();
+            return false;
+        }
+        if(!/^[\u2E80-\uFE4F]+$/gi.test($("#jzr_name").val()))
+        {        
+            alert("姓名只能输入汉字");
+            $("#jzr_name").focus();
+            return false;
+        }
+        if(!isNumber(number))
+        {
+            alert("身份证号码有误！");
+            $("#jzr_code").focus();
+            return false;
+        }
+        if(date == '')
+        {
+            alert("请填写出生日期！");
+            return false;
+        }
+        if(sex == '')
+        {
+            alert("请填写性别！");
+            return false;
+        }
+
+        if(!isMobile(mobile))
+        {
+            alert("手机号码有误！");
+            $("#jzr_phone").focus();
+            return false;
+        }
+
+
+        var str_data = $("#form").serialize();
+        $.ajax({
+            type: "POST",
+            url: "{:U('Member/User/jzr_add_ok')}",
+            async: true,
+            data: str_data,
+            success: function(msg)
+            {
+                switch (msg)
+                {
+                    case '1':
+                        alert("添加成功！");
+                        var url="";
+                        if(huzhu==1){
+                            url = "{:U('Member/Huzhu/jiaruxingdong')}";
+                        }else if(huzhu==2){
+                            url = "{:U('Member/Nurse/order_member')}";
+                        }else{
+                            url = "{:U('Member/User/my_bingli')}";
+                        }
+                        location.href=url;
+                        return;
+                        break;
+                    case '2':
+                        alert("就诊人已存在！")
+                        return;
+                        break;
+                    case '3':
+                        alert("信息提交有误！")
+                        return;
+                        break;
+                    case '5':
+                        alert("身份证号码不合法！");
+                        return;
+                        break;
+                    default:
+                        alert("系统繁忙，请稍后再试！");
+                        return;
+                        break;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) 
+            {   
+                alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+            }
+        });
+    });
+
+	//检验手机
+    function isMobile(str)
+    {
+        var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+        if(reg.test(str))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //检验身份证
+    function isNumber(str)
+    {
+        var reg15=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;
+        var reg18=/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X|x)$/;
+        if(reg15.test(str)||reg18.test(str))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //检验偶数
+    function isLen(str)
+    {
+        var reg=/^\d*[02468]$/;
+        if(reg.test(str))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+
+</script> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

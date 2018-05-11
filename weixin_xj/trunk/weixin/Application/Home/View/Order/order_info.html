@@ -1,0 +1,112 @@
+<html class="ui-mobile">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta http-equiv="cache-control" content="public">
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/order.min.css" type="text/css" rel="stylesheet"/>
+
+<title>订单详情</title>
+<style>
+.xq3 .hosinfor dt{width: 100%}
+</style>
+</head>
+
+<body>
+
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style=" background:#fff">
+
+    <!--<div class="xq1">
+
+    	<div class="xq1_l">
+
+        	<span><img src="/weixin/Application/Home/View/images/hos.jpg" alt=""/></span>
+
+            <i>3.6km</i>
+
+        </div>
+
+        <div class="xq1_r">
+
+        	<h2>北京同仁医院</h2>
+
+            <p>三级甲等</p>
+
+            <p class="yp_pritice">¥100<span>¥140</span></p>
+
+        </div>
+
+    </div>-->
+
+    <div class="xq2">
+
+    	<h2>订单详情</h2>
+
+        <ul>
+            
+            <li>会员名称：{$order.MEMBER_NAME}</li>
+
+            <li>性别：{$order.MEMBER_SEX}</li>
+
+        	<li>订单号：{$order.ORDER_ID}</li>
+
+			<li>订单状态：{$order.ORDER_STATUS}</li>
+
+			<li>服务名称：{$order.ORDER_NAME}</li>
+
+            <li>购买手机号：{$order.MEMBER_MOBILE}</li>
+            
+            <if condition="$order['ORDER_NAME'] eq '购买电子处方'">
+            <else />
+             <li>
+                预定时间：{$order.ORDER_DATE}
+                </li>
+            </if>
+
+            <li>付款时间：{$order.CREATE_DATE}</li>
+
+            <li class="no_bor">总价：{$order.ORDER_MONEY}</li>
+
+        </ul>
+
+    </div>
+
+    <div class="xq3">
+
+    	<h2>药店信息</h2>
+
+    	<dl class="hosinfor">
+
+        	<dt>
+
+            	<h2>{$order.HOS_NAME}</h2>
+
+                <p>地址：<span class="dizhi">{$order.HOS_ADDRESS}</span></p>
+
+				<p>电话：<if condition="$order.HOS_PHONE eq ''">4006562020<else />{$order.HOS_PHONE}</if> <span class="dizhi"></span></p>
+
+            </dt>
+
+            <br clear="all" />
+        </dl>
+    </div>
+</div>
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+
+</html>

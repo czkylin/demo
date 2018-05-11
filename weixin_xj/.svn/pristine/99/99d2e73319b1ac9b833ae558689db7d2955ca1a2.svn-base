@@ -1,0 +1,70 @@
+﻿<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/dingdan.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<title>{$title}订单</title>
+</head>
+
+<body style=" background:#fff">
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile"  style=" background:#fff">
+        <div class="diandan_list">
+                <ul id="opt_list">
+                        <volist name="list" id="list"> <a href="/weixin/index.php?m=Member&c=Operation&a=operation_detail&oid={$list['ORDER_ID']}">
+                                <li>
+                                        <if condition="($list['HOS_PIC'] eq '')"><img src="/weixin/Application/Member/View/images/icon/operation.png" width="60px"  height="60px"/>
+                                                <else/>
+                                                <img src="{$list['HOS_PIC']}" width="60px"  height="60px"/> </if>
+                                        <h2>{$list['HOS_NAME']}</h2>
+                                        <i class="tongguo">{$list['ORDER_STATUS']}</i>
+                                        <h2>{$list['MEMBER_NAME']}&nbsp;&nbsp;{$list['ORDER_NAME']}</h2>
+                                        <span>预约时间：{$list['ORDER_DATE']}</span> </li>
+                                </a> </volist>
+                </ul>
+        </div>
+</div>
+<if condition="$count gt 5">
+        <div class="ui-jiazai" ><a style=" border-top:0px;" href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+</if>
+<div id="current_pagenum" style="display:none">2</div>
+
+<!--通底的引用开始--> 
+
+<include file="Public:footer_fd" /> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script> 
+<script>
+
+	var over_footer = '4';
+
+	function load_more()
+
+	{
+
+		loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Operation&a=operation_list_append&page_num='+$('#current_pagenum').text(),'#opt_list');
+
+	}
+
+	</script> 
+
+<!--通底的引用结束--> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

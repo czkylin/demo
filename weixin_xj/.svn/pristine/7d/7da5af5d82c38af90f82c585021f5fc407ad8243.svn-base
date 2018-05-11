@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/member/member_detail.css">
+<title>患者资料</title>
+</head>
+<body>
+	<div class="tianjia_hz">
+    	<a href="#"><i><img src="/weixin/Public/Expert/images/member/tianjia.png"></i><span>添加此患者到“我添加的”分组</span></a>
+    </div>
+    <div class="mask">
+        <div class="dialog">
+            <div class="head">
+                <p class="text-center">您已成功添加此患者到我的患者</p>
+            </div>
+            <div class="hz box">
+                <a href="#">返回</a>
+                <a href="javascript:;">去查看</a>
+            </div>
+        </div>
+    </div>
+	<div class="detail">
+		<div class="con clear">
+
+			<if condition="!$person_date['MEMBER_PIC']">
+				<a href="{:U('Member/huanzhe_info',array('jsondate'=>$jsondate))}" class="img">
+					<img src="/weixin/Application/Member/View/images/member.png" alt=""/>
+				</a>
+			<else />
+				<a href="{:U('Member/huanzhe_info',array('jsondate'=>$jsondate))}" class="img">
+					<img src="{$person_date['MEMBER_PIC']}" alt=""/>
+				</a>
+			</if>
+			
+			<div class="des">
+				<p>{$person_date.MEMBER_NAME}<span> {$person_date.MEMBER_SEX} <if condition="!empty($person_date['MEMBER_AGE'])">  {$person_date.MEMBER_AGE}岁 </if></span></p>
+				<!-- <i>心脏病</i> -->
+			</div>
+			
+			<div class="link">
+				<a href="{:U('Expert/User/dangan',array('member_id'=>$person_date['MEMBER_ID'],'member_mobile'=>$person_date['MEMBER_MOBILE'],'isperson'=>1))}">更多健康档案</a>
+				<if condition="$member_info[0]['MEMBER_ID']">
+					<a href="{:U('Expert/Jtys/consult_details',array('member_id'=>$member_info[0]['MEMBER_ID'],'consult_id'=>0))}">查看历史咨询</a>
+				<else />
+					<a href="javascript:void(0);" style="color:#ccc;">查看历史问诊</a>
+				</if>
+				
+			</div>
+
+		</div>
+		<div class="beizhu">
+			<a href="javascript:;">
+				<span>备注</span>
+				<i>无</i>
+			</a>
+		</div>	
+	</div>
+	<h2>病例资料
+		<if condition="$person_date['MEMBER_ID']">
+			<a href="{:U('Member/bingli_add',array('record_id'=>$person_date['MEMBER_ID'],'member_id'=>$member_info[0]['MEMBER_ID']))}">+ 新增病例</a>
+		<else />
+			<a href="javascript:void(0);" style="color:#ccc;">+ 新增病例</a>
+		</if>
+		
+	</h2>
+	<if condition="empty($case_list[0])">
+		<div class="tb_box" style=" text-align: center; margin-top:20px; padding-bottom:40px;"> 
+            <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+            <i style=" line-height: 30px;">暂无数据</i>
+        </div>
+	<else />
+		<ul class="list tb_box" id="bl-list">
+			<volist name="case_list" id="case">
+				<li>
+					<div class="clear wrap">
+						<div class="date fl">
+							<p>{$case.CREATE_DATE|substr=5,5}</p>
+							<span>{$case.CREATE_DATE|substr=0,4}</span>
+						</div>
+						<div class="process fl"></div>
+						<div class="con fl">
+							<p class="hos">{$case['CASE_TITLE']}</p>
+							<p class="des">
+								<if condition="$case['CASE_DESC'] eq ''">暂无
+								<else />
+									{$case.CASE_DESC}
+								</if>
+							</p>
+						</div>
+						<div class="img-wrap fl">
+							<div class="mask"></div>
+							<if condition="$case['CASE_PIC'] neq ''">
+								<img src="{$case.CASE_PIC}" alt="">
+							</if>
+							<span></span>
+						</div>
+						<!-- <a href="javascript:;">查看更多</a> -->
+					</div>
+				</li>
+			</volist>
+				<div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more('#bl-list');">加载更多</a></div>
+				<div id="emptyData"></div>
+				<div id="current_pagenum" style="display:none">2</div>
+				<div id="member_id" style="display:none">{$person_date['MEMBER_ID']}</div>
+			
+		</ul>
+		
+	</if>
+	<div class="chakan">
+		<img src="" alt="">
+		<span>关闭</span>
+	</div>
+<!-- 	<div class="interrogation-mask"></div> -->
+	<div class="tb_box">
+		<h2>家庭管理员</h2>
+		<div class="con clear tb_con chengyuan">
+				<div class="title_icon">
+					<if condition="!$member_info[0]['MEMBER_PIC']">
+						<img src="/weixin/Application/Member/View/images/member.png" width="100%" alt=""/>
+					<else />
+						<img src="{$member_info[0]['MEMBER_PIC']}" width="100%" alt=""/>
+					</if>
+				</div>
+				<p class="chengyuan_p">{$member_info.0.MEMBER_NAME|default="无"}<span>{$member_info.0.MEMBER_SEX} <if condition="!empty($member_info[0]['MEMBER_AGE'])">  {$member_info.0.MEMBER_AGE}岁 </if></span></p>
+				<p class="chengyuan_p">关系：<span>无</span></p>
+			</div>
+		</div>
+	</div>
+	<div class="zhuangtai">
+		<p>心脑管家安装状态：<span><if condition="$member_info[0]['XZ_FLAG'] eq 1">已下载<else />未下载</if></span></p>
+		<p>心脑管家微信状态：<span><if condition="$member_info[0]['GZ_FLAG'] eq 1">已关注<else />未关注</if></span></p>
+	</div>
+	<div style=" height:60px; width:100%;"></div>
+	<if condition="$member_info[0]['MEMBER_ID']">
+		<a href="{:U('Expert/Jtys/consult_details',array('member_id'=>$member_info[0]['MEMBER_ID'],'consult_id'=>0))}" class="interrogation">问诊</a>
+	<else />
+		<a href="javascript:void(0);" class="interrogation" style="background:#ccc;">问诊</a>
+	</if>
+	
+	<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script>
+	<script>
+		//图片放大
+		$(".img-wrap").each(function(){
+			var _this = this;
+			$(this).on('touchend',function(){
+				var src = $(_this).find('img').attr("src");
+				$('.chakan').css({width:$(window).width(),height:$(window).height()}).show();
+				$('.chakan').find("img").attr('src',src);
+			})
+		});
+		//关闭
+		$(".chakan span").on('touchend',function(){
+			$('.chakan').find("img").attr('src','');
+			$('.chakan').hide();
+		});
+
+		var onOff = true;
+
+		window.onload = function(){
+		    window.onscroll();
+		}
+		window.onscroll = function(){
+		    load_more('#bl-list');
+		}
+		function load_more(obj)
+		{	
+			var member_id = $("#member_id").text();
+
+			if(!onOff) return;
+		    if($(obj).height() <= $(document).scrollTop() + $(window).height()){
+		        onOff = !onOff;
+			loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Member&a=member_detail_append&member_id='+member_id,'#bl-list',function(){
+		                    $('.empty_data').css({'top':0,'z-index':-1});
+		                });
+			}
+		}
+		//添加患者
+	$('.tianjia_hz a').click(function(){
+            $('.mask').css({
+                'display':'box',
+                'display':'-webkit-box'
+            });
+        })
+        $('.hz a').click(function(){
+            $('.mask').hide();
+        })
+	</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/*common*/
+*{margin: 0; padding: 0;}
+li{list-style: none;}
+img{vertical-align: top;}
+body{background: #e7e7e7; font-size: 14px;font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;}
+.clear:after{content: '';display: block; clear: both;}
+a{text-decoration: none; color: #999999;}
+/*header*/
+.header{padding: 20px 0; background: url(/weixin/Public/Member/images/jtys/index/header-bg.jpg) no-repeat center top; background-size: cover;}
+.header .touxiang{text-align: center; position: relative; margin-bottom: 6px;}
+.header .touxiang img{width: 75px; height: 75px; border: 1px solid #cac8c6; border-radius: 75px;}
+.header .touxiang i{position: absolute; bottom: 0; left: 50%; width: 76px; height: 20px; background: url(/weixin/Public/Member/images/jtys/index/title.png) no-repeat; background-size: 76px 20px; margin-left: -38px; }
+.header .des1{text-align: center; height: 26px; line-height: 26px; color: #333333; font-weight: 500; margin-bottom: 4px;} 
+.header .des1 span{font-size: 17px;}
+.header .des1 i{font-size: 15px; font-style: normal;}
+.header .des2{text-align: center; font-size: 15px; font-weight: 500;}
+/*server*/
+.server{background: #fff; margin-bottom: 15px;}
+.server ul{}
+.server ul li:nth-of-type(1),.server ul li:nth-of-type(2){border-bottom: 1px solid #e7e7e7; float: left; width: 50%; padding: 12px 0; box-sizing:border-box; -webkit-box-sizing:border-box; }
+.server ul li:nth-of-type(1){padding-left: 62px; background: url(/weixin/Public/Member/images/jtys/index/icon-talk.png) no-repeat 20px center; background-size: 36px;}
+.server ul li:nth-of-type(2){padding-left: 52px; background: url(/weixin/Public/Member/images/jtys/index/icon-say.png) no-repeat 10px center; background-size: 30px;}
+.server ul li p,.server div p{font-size: 15px; color: #333; font-weight: bold; height: 24px; line-height: 24px;}
+.server ul li span,.server div span{display: block; font-size: 12px;}
+.server ul li:nth-of-type(1){border-right:1px solid #e7e7e7;}
+.server div{font-size: 12px; padding: 12px 0 12px 62px; background: url(/weixin/Public/Member/images/jtys/index/icon-video.png) no-repeat 20px center; background-size: 38px;}
+.server ul li:nth-of-type(3){float: left; width: 100%; padding: 12px 0 12px 64px;  background: url(/weixin/Public/Member/images/jtys/index/icon-video.png) no-repeat 20px center; background-size: 38px;}
+.server ul li:nth-of-type(3) span{font-size: 12px;}
+@media screen and (max-width: 320px){
+	.server div{padding: 12px 0 12px 42px; background: url(/weixin/Public/Member/images/jtys/index/icon-video.png) no-repeat 8px center; background-size: 30px;}
+	.server ul li:nth-of-type(1){padding-left: 42px; background: url(/weixin/Public/Member/images/jtys/index/icon-talk.png) no-repeat 8px center; background-size: 30px;}
+	.server ul li:nth-of-type(2){padding-left: 34px; background: url(/weixin/Public/Member/images/jtys/index/icon-say.png) no-repeat 4px center; background-size: 26px;}
+}
+/*person server*/
+.personal{background: #fff; margin-bottom: 15px;}
+.personal .des{padding: 10px 20px; border-bottom: 1px solid #e7e7e7;}
+.personal .des .touxiang{width: 54px; float: left; position: relative;}
+.personal .des .touxiang img{width: 54px; height: 54px; border:1px solid #cac8c6; border-radius: 54px;}
+.personal .des .touxiang i{position: absolute; bottom: 0; left: 50%; width: 54px; height: 14px; background: url(/weixin/Public/Member/images/jtys/index/title1.png) no-repeat; background-size: 54px 14px; margin-left: -27px; }
+.personal .des .con{float: left; margin-left: 5px;}
+.personal .des .con p{height: 30px; line-height: 30px;}
+.personal .des .con p b{font-size: 15px;}
+.personal .des .con p i{font-style: normal; font-size: 13px;}
+.personal .des .con span{ display: block; color: #777777; font-size: 13px;}
+.personal ul{}
+.personal ul li{float: left; width: 50%; padding: 12px 0; box-sizing:border-box; -webkit-box-sizing:border-box; }
+.personal ul li:nth-of-type(1){padding-left: 62px; background: url(/weixin/Public/Member/images/jtys/index/icon-talk.png) no-repeat 20px center; background-size: 36px;}
+.personal ul li:nth-of-type(2){padding-left: 52px; background: url(/weixin/Public/Member/images/jtys/index/icon-say.png) no-repeat 10px center; background-size: 30px;}
+.personal ul li p{font-size: 15px; color: #333; font-weight: bold; height: 24px; line-height: 24px;}
+.personal ul li span{display: block; font-size: 12px;}
+.personal ul li:nth-of-type(1){border-right:1px solid #e7e7e7;}
+@media screen and (max-width: 320px){
+	.personal .des{padding: 10px 8px;}
+	.personal ul li:nth-of-type(1){padding-left: 42px; background: url(/weixin/Public/Member/images/jtys/index/icon-talk.png) no-repeat 8px center; background-size: 30px;}
+	.personal ul li:nth-of-type(2){padding-left: 34px; background: url(/weixin/Public/Member/images/jtys/index/icon-say.png) no-repeat 4px center; background-size: 26px;}
+}
+/*card*/
+.card{background: #fff; margin-bottom: 15px;}
+.card .des{padding: 10px 20px 20px 20px; border-bottom: 1px solid #e7e7e7; position: relative;}
+.card .des .touxiang{width: 54px; float: left; position: relative;}
+.card .des .touxiang img{width: 54px; height: 54px; border:1px solid #cac8c6; border-radius: 54px;}
+.card .des .touxiang i{position: absolute; bottom: 0; left: 50%; width: 54px; height: 14px; background: url(/weixin/Public/Member/images/jtys/index/title2.png) no-repeat; background-size: 54px 14px; margin-left: -27px; }
+.card .des .con{float: left; margin-left: 5px;}
+.card .des .con p{height: 30px; line-height: 30px;}
+.card .des .con p b{font-size: 15px;}
+.card .des .con span{ display: block; color: #777777; font-size: 13px;}
+.card .tel{position: absolute; right: 20px; bottom: 10px; font-size:14px; color: #333;}
+.card .tel a{text-decoration: underline; color: #333;}
+@media screen and (max-width: 320px){
+	.card .des{padding: 10px 8px 20px 8px;}
+	.card .tel{position: absolute; right: 8px; bottom: 10px; font-size: 13px;}
+}
+/*zixun*/
+.zixun{padding:10px 20px 30px 20px;  background: #fff;}
+.zixun-tit{height: 30px; line-height: 30px; margin-bottom: 8px;}
+.zixun-tit h2{font-size: 17px; color: #333333; float: left;}
+.zixun-tit a{float: right; font-size: 13px; color: #007aff;}
+.zixun-con{margin-bottom: 5px;}
+.zixun-con .yisheng{padding-left: 50px; margin-bottom: 6px; position: relative; height: 40px; line-height: 40px;}
+.zixun-con .yisheng img{width: 40px; height: 40px; border-radius: 50%; border: 1px solid #cac8c6; position: absolute; left: 0; top: 0;}
+.zixun-con .yisheng-con{height: 40px; line-height: 40px; border-bottom: 1px solid #e7e7e7;}
+.zixun-con .yisheng-con span{float: left; font-size: 12px; color: #999;}
+.zixun-con .yisheng-con i{ float: right; font-style: normal; font-size: 12px; }
+.zixun-con .yisheng-con i.red{color: #ff647c;}
+.zixun-con .yisheng-con i.blue{color: #007aff;}
+.zixun-con .huanzhe{ padding-left: 50px;}
+.zixun-con .huanzhe-con{ font-size: 12px; color: #999; line-height: 22px;}
+.zixun-con .btn-wrap{height: 30px; text-align: right;}
+.zixun-con .btn-wrap .con-btn{font-style: normal; font-size: 30px; line-height: 30px;}
+.zixun-con span{display: block; text-align: right; font-size: 12px; color: #999999;}
+.zixun-con .huanzhe-con.limit{overflow: hidden; display: box;display: -webkit-box;text-overflow: ellipsis;-webkit-box-orient: vertical;-webkit-line-clamp: 1;}
+@media screen and (max-width: 320px){
+	.zixun {
+    	padding: 10px 10px 30px 10px;
+	}
+}

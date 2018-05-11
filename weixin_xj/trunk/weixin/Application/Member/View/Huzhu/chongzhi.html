@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>充值</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+</head>
+<body ontouchstart="">
+<div class="content top bottom mod-project_support">
+        <div class="qsc-form-group">
+                <div class="form-item form-radio support-money_radio clearfix" data-toggle="buttons">
+                        <label for="m20" class="btn active">
+                                <input type="radio" id="m20" value="20" name="support-money_list" checked="checked">
+                                <span><span class="text-danger">20</span>元</span> </label>
+                        <label for="m20" class="btn">
+                                <input type="radio" id="m50" value="50" name="support-money_list">
+                                <span><span class="text-danger">50</span>元</span> </label>
+                        <label for="m20" class="btn">
+                                <input type="radio" id="m100" value="100" name="support-money_list">
+                                <span><span class="text-danger">100</span>元</span> </label>
+                </div>
+                <div class="form-item input-group input-cell other-raise-money">
+                        <input type="tel" class="control-input" name="support-money-other" placeholder="其他金额">
+                        <span class="input-group-mb">元</span> </div>
+        </div>
+        <div class="qsc-form-group">
+                <div class="qsc-form-group">
+                        <div class="form-item form-radio" data-toggle="buttons">
+                                <label for="bank-weixin" class="btn active">
+                                        <input type="radio" id="bank-weixin" name="payType" checked="checked">
+                                        <i class="icon icon-pay bank-weixin"></i> <span class="xuanze">微信支付</span> </label>
+                        </div>
+                </div>
+        </div>
+        <div class="qsc-modal dialog" id="modalPayStatus" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog middle">
+                        <div class="modal-content">
+                                <div class="modal-header"> 支付结果 </div>
+                                <div class="modal-body"> 您的支付是否成功? </div>
+                                <div class="modal-footer clearfix">
+                                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">支付失败</button>
+                                        <a href="" class="btn btn-primary btn-lg active" id="payStatusSuccess">支付成功</a> </div>
+                        </div>
+                </div>
+        </div>
+        <div class="footer-btn m-t-150"> <a href="#" class="btn btn-primary btn-block btn-lg" id="member-recharge">确认支持</a> </div>
+</div>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/insurance.min.js"></script> 
+<script>
+    
+
+    var redirect = function(url) {
+        var dom = window.document.createElement('form');
+
+        var parts = url.split('?');
+        var action = parts[0];
+        var query = parts[1];
+
+        var paramArray = [];
+        if (query) {
+            paramArray = query.split('&');
+        }
+
+        dom.setAttribute('method', 'get');
+        dom.setAttribute('action', action);
+        dom.style.display = 'none';
+        dom.style.visibility = 'hidden';
+
+        var e, kv, k, v;
+        for (var i = 0; i < paramArray.length; i++) {
+            kv = paramArray[i].split('=');
+            k = kv[0];
+            v = kv[1] || '';
+            e = window.document.createElement('input');
+
+            e.setAttribute('type', 'hidden');
+            e.setAttribute('name', decodeURIComponent(k));
+            e.setAttribute('value', decodeURIComponent(v));
+
+            dom.appendChild(e);
+        }
+
+        window.document.body.appendChild(dom);
+        dom.submit();
+    };
+
+    var otherRaise = $('.other-raise-money input');
+
+    otherRaise.focus(function () {
+        $(".support-money_radio .btn").removeClass("active");
+        $(".other-raise-money input").css("border-color", "#43ac43");
+		$('input[name="support-money_list"]:checked').attr("checked",false)
+    });
+
+    otherRaise.keyup(function () {
+        $(".support-money_radio .btn").removeClass("active");
+    });
+
+    $('.support-money_radio .btn').click(function () {
+        $(".other-raise-money input").val("").css("border-color", "rgba(0,0,0,0.10)");
+    });
+
+    $('#member-recharge').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        loadingMessage('提交中', true);
+        var $this = $(this);
+        $this.addClass('disabled');
+
+        var fee = $('input[name="support-money_list"]:checked').val() || $('input[name="support-money-other"]').val();
+        if(!fee) {
+            alertMessage('请填写充值金额');
+            $this.removeClass('disabled');
+            return
+        }
+
+        if (! /^\d+$/.test(fee) || parseInt(fee) < 1) {
+            alertMessage('充值金额只能是整数，并且至少1元');
+            $this.removeClass('disabled');
+            return
+        }
+
+        $.ajax({
+            url: GlobalObj.host+'/api/v2/users/insurance/'+GlobalObj.insuranceUUID+'/recharge',
+            type: 'POST',
+            headers: {'X-CSRF-Token': GlobalObj.csrf},
+            data: JSON.stringify({member: GlobalObj.member, fee: parseInt(fee), fee_type:0}),
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            contentType: 'application/json',
+            success: function (data) {
+                if (typeof data.data.payType == 'undefined') {
+                    alertMessage("下单失败,请稍后重试");
+                    $this.removeClass('disabled');
+                    return
+                }
+                
+                if (data.data.payType == 4) { 
+                    window.location = data.data.payURL;
+                } else if (data.data.payType == 2){ 
+                    window.localStorage.setItem('payStatus', 1);
+                    redirect(data.data.payURL); 
+                } else if (data.data.payType == 3) { 
+                    
+                    var rs = data.data.payParams;
+                    wx.chooseWXPay({
+                        timestamp: rs.timestamp, 
+                        nonceStr: rs.nonceStr, 
+                        package: rs.packageStr, 
+                        signType: rs.signType, 
+                        paySign: rs.paySign, 
+                        success: function (res) {
+                            
+                            window.location.href = GlobalObj.host+'/member/payment/success?member='+GlobalObj.member+'&insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5';
+                        },
+                        fail: function (res) {
+                            alert(JSON.stringify(res));
+                        }
+                    });
+                }
+            },
+            error: function (xhr) {
+                switch (xhr.status) {
+                    case 401 :
+                        window.location.href = 'http:\/\/m.qschou.com\/login?refer_url=http%3A%2F%2Finsurance.qschou.com%2Frecharge%3Fmember%3D7b1066c252226e9a08c64e26422e825499b17795%26insurance_uuid%3D9494537c-69e7-4008-8ee8-d87fb25302c5';
+                        break;
+                    default:
+                        if (xhr.responseJSON.error) {
+                            alertMessage("下单失败"+JSON.stringify(xhr.responseJSON.error), 3000);
+                        }
+                        else {
+                            alertMessage('系统繁忙,请稍候再试');
+                        }
+                        break;
+                }
+            },
+            complete: function () {
+                $this.removeClass('disabled');
+                loadingMessage( 1, false );
+            }
+        });
+    });
+</script>
+<div id="cli_dialog_div"></div>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

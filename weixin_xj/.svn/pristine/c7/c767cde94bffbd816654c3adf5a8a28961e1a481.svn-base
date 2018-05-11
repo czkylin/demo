@@ -1,0 +1,11 @@
+*{padding: 0; margin: 0;}
+html,body{width: 100%; height: 100%;}
+body{font-size: .3rem;}
+li{list-style: none;}
+ul{padding-left: .24rem;}
+li{height: .8rem; line-height: .8rem; border-bottom: .01rem solid #ccc;}
+li div{float: left;}
+li div.count{margin-left: 4.44rem;}
+li div.arrows{position: relative;}
+li div span.bot{position: absolute; width: 0; height: 0; left: .3rem; top: .2rem; border-width: .2rem; border-style: solid; border-color: transparent transparent transparent #a9a9a9;}
+li div span.top{position: absolute; width: 0; height: 0; left: .25rem; top: .2rem; border-width: .2rem; border-style: solid; border-color: transparent transparent transparent #ffffff;}

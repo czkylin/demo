@@ -1,0 +1,77 @@
+/*common css*/
+*{padding: 0; margin: 0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{text-decoration: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+i{font-style: normal;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{display: block; content: ""; clear: both;}
+/*main*/
+.tianjia_hz{ height:40px; line-height:40px; width:100%; text-align:center;}
+.tianjia_hz a{ color:#4891ef; font-size:14px; display:block; }
+.tianjia_hz a i{ width:38px; height:38px; display:inline-block;}
+.tianjia_hz a i img{ width:24px; height:24px; padding:8px;}
+.mask { position: fixed; background: rgba(0,0,0,0.6); top: 0; left: 0; width: 100%; height: 100%; z-index: 100; text-align:center;  -webkit-box-pack: center; -webkit-box-align: center; display:-webkit-box; display:none;}
+.dialog { background: #fff; border-radius: 6px; text-align:center; }
+.head p { padding: 30px; }
+.hz { border-top: 1px solid #ccc; }
+.hz a { width: 50%; border-right: 1px solid #ccc; display: block; line-height: 40px; color: #0093ee; font-size: 16px; box-sizing:border-box; float:left; }
+.hz a:last-child { border-width: 0; }
+
+
+
+.detail{padding: 0 3.2%; border-bottom: 8px solid #e7e7e7;}
+.detail .con{padding: 10px 0; border-bottom: 1px solid #e7e7e7;}
+.detail .con .img{float: left; width: 40px; height: 40px; border-radius: 40px; overflow: hidden;}
+.detail .con .img img{width: 100%;border-radius: 40px;}
+.detail .des{float: left; margin-left: 4%; height: 40px;}
+.detail .des p{height: 20px; line-height: 20px; color: #333333; font-size: 13px;}
+.detail .des p span{color: #999; font-size: 12px;}
+.detail .des i{font-size: 12px; padding: 2px 5px; border: 1px solid #ff9c00; color: #ff9c00; border-radius: 3px;}
+.detail .con .link{float: right; height: 40px; }
+.detail .con .link a{display: block; height: 20px; line-height: 20px; font-size: 12px; color: #4891ef; position: relative; top: -20px; padding-top: 20px;}
+.detail .con .link a:last-child{ padding-top: 0; padding-bottom: 20px; }
+.detail .beizhu{padding: 10px 0;}
+.detail .beizhu a{display: block; color: #333; height: 24px; line-height: 24px; padding-right: 20px;	background: url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat right center; background-size: 8px;}
+.detail .beizhu a span{float: left; font-size: 14px; height: 24px; line-height: 24px;}
+.detail .beizhu a i{float: left; font-size: 13px; color: #999; margin-left: 10px; height: 24px; line-height: 24px;	}
+.list{padding: 5px 3.2% 0;}
+.list li{padding: 8px 0; border-bottom: 1px solid #e7e7e7;}
+.list li .wrap{display: block;}
+.list li .wrap a{float: right; height: 30px; width: 70px; line-height: 30px; text-align: center; background: #4891ef; color: #fff; font-size: 12px; border-radius: 3px; margin-top: 15px;}
+.list .date{padding: 5px 0;}
+.list .date p{font-size: 14px; height: 25px;line-height: 25px; color: #333;}
+.list .date span{font-size: 12px; color: #999; display: block; height: 25px;line-height: 25px;}
+.list li .process{width: 36px; height: 60px;background: url(/weixin/Public/Member/images/user/process2.jpg) no-repeat center; background-size: 16px; }
+.list li:last-of-type .process{background: url(/weixin/Public/Member/images/user/process3.jpg) no-repeat center bottom; background-size: 16px; position: relative; }
+.list li:first-of-type .process{background: url(/weixin/Public/Member/images/user/process1.jpg) no-repeat center bottom; background-size: 16px; position: relative; }
+.list .con{padding: 5px 0;}
+.list .con .hos{height: 25px;line-height: 25px; color: #333; font-size: 14px;}
+.list .con .des{height: 25px; width: 80px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; line-height: 25px; color: #999; font-size: 12px;}
+.list .img-wrap{position: relative; z-index: 4; margin-left: 4px;}
+.list .img-wrap img{ width: 60px; height: 60px;}
+.list .img-wrap span{position: absolute; right: 0px; bottom: 0px; width: 20px; height: 20px; background: url(/weixin/Public/Member/images/user/fangda.png) no-repeat; background-size: 20px; z-index: 3;}
+.list .img-wrap .mask{position: absolute; left: 0; top: 0; width: 60px; height: 60px; background: rgba(0,0,0,0.5); z-index: 2;}
+.chakan{display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 1000; text-align: center; background: rgba(0,0,0,0.7);}
+.chakan span{position: absolute; left: 50%; bottom: 60px; margin-left: -3em; color: #fff; background: #ff647c; width: 6em; text-align: center; height: 2em; line-height: 2em; border-radius: 6px;  background-size: 25px;}
+.chakan img{width: 90%; margin-top: 40px;}
+h2{padding: 10px 3.2%; font-size: 14px; color: #333;}
+h2 a{float: right; font-size: 12px; color: #4891ef; font-weight: normal;}
+.interrogation{position: fixed; bottom: 10px; left: 3.2%; display: block; width: 93.6%; height: 40px; z-index: 999; line-height: 40px; background: #4891ef; color: #fff; font-size: 14px; text-align: center; border-radius: 3px;}
+
+
+
+.tb_box{ border-bottom: 8px solid #e7e7e7; }
+.tb_con{ position: relative; padding-left: 80px; }
+.title_icon{ position: absolute; left: 10px; top: 15px; width: 45px; height: 45px; overflow-x: hidden; border-radius: 40px; overflow: hidden; text-align: center;  }
+.title_icon img{ width: 45px; min-height: 100%; }
+.chengyuan{ padding-top: 10px; padding-bottom: 10px; height: 80px; box-sizing:border-box;-moz-box-sizing:border-box; -webkit-box-sizing:border-box; padding-right: 10px; }
+.chengyuan_p{ line-height: 1.5em; width:100%;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;-webkit-text-overflow:ellipsis;	-moz-text-overflow:ellipsis;white-space:nowrap; }
+.chengyuan_p span{ color: #999999; font-size: 0.8em; padding-left: 1em;}
+
+.zhuangtai{ padding:10px;  box-sizing:border-box;-moz-box-sizing:border-box; -webkit-box-sizing:border-box; }
+.zhuangtai p{ height: 3em; line-height: 3em; font-weight: 500; border-bottom: 1px solid #e7e7e7; }
+.zhuangtai p span{ color: #999; padding-left: 1em;}
+.dess{position:relative;width:100%;height:40px;margin:0;border-bottom:1px solid #e7e7e7;}
+.arw{position:absolute;background:url(/weixin/Public/Member/images/user/jiantou1.png) no-repeat center center;background-size:12px;top:0;left:0; width:40px;height:40px;transform:rotate(180deg);-webkit-transform:rotate(180deg);}

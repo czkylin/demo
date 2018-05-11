@@ -1,0 +1,96 @@
+<?php if (!defined('THINK_PATH')) exit();?><html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/weixin/Public/Member/css/bootstrap.min.css" type="text/css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Common/css/commonLoadMore/loadMore.css"/>
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Home/css/gerenzhongxin.css"/>
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Home/css/yishengbangzs.css"/>
+<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/javascript"></script>
+<title>我推荐的医生会员</title>
+<style>
+    .tab-box{width: 100%; height: 30px; margin-bottom: 4px;}
+    .tab-box .tab1,.tab-box .tab2{width: 50%; float: left; height: 30px; line-height: 30px; text-align: center; background: #fff;}
+    .tab-box .tab1,.tab-box .tab1 a{background: #FF647C; color: #fff;}
+</style>
+</head>
+<body>
+<div class="wode_hz">
+<div class="tab-box">
+    <a href="<?php echo U('Home/User/tj_expert_list');?>" ><div class="tab1">推荐医生会员</div></a>
+    <a href="<?php echo U('Home/User/mydoc_list');?>"><div class="tab2">代医生申请记录</div></a>
+</div>
+    <?php if(empty($expert_list)): ?><div class="nodetail" style="width:100%;height:100%;text-align:center;position:fixed;top:0;left:0;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;z-index: -1">
+            <div>
+                <img src="/weixin/Public/Common/images/icon/icon1.png" alt=""><br><br>
+                <i>暂无数据</i>
+            </div>
+        </div>
+    <?php else: ?>
+	<ul id="member_list">
+		<?php if(is_array($expert_list)): $i = 0; $__LIST__ = $expert_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$member): $mod = ($i % 2 );++$i;?><li>
+			<dl>
+				<dt>
+					<img src="<?php echo ($member['HEADIMGURL']); ?>" />
+				</dt>
+				<dd>
+					<span class="name">
+						<!-- 医生姓名: -->
+						<?php echo ($member['EXPERT_NAME']); ?>
+					</span>
+					<br>
+					<span class="add">
+						<!-- 职称 -->
+                        <?php if($member['EXPERT_RANK'] == ''): ?>未填写
+                        <?php else: ?>
+						<?php echo ($member['EXPERT_RANK']); endif; ?>
+					</span>
+					<br>
+					<span class="nc">
+						<!-- 昵称： -->
+						<?php echo ($member['NICKNAME']); ?>
+					</span>
+					<br>
+					<span class="time">
+						<!-- 推荐时间： -->
+						推荐时间：<?php echo ($member['TJ_DATE']); ?>
+					</span>
+				</dd>
+			</dl>
+		</li><?php endforeach; endif; else: echo "" ;endif; ?>
+	</ul><?php endif; ?>
+</div>
+<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();"></a></div>
+<div id="current_pagenum" style="display:none">2</div>
+
+ <!--Js库文件--> 
+        <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+        <!--加载更多-->
+        <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script>
+        <script type="text/javascript">
+            var onOff = true;
+            window.onscroll = function () {
+                load_more('.wode_hz');
+            }
+            function load_more(obj) {
+                if (!onOff) return;
+                if ($(obj).height() <= $(document).scrollTop() + document.body.clientHeight) {
+                    onOff = !onOff;
+                    loadmore('#current_pagenum','/weixin/index.php?m=Home&c=User&a=expert_list_append','#member_list');
+                }
+            }
+            /*function load_more()
+            {
+                loadmore('#current_pagenum','/weixin/index.php?m=Home&c=User&a=expert_list_append','#member_list');
+            }*/
+
+        </script>
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/portal.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/stylev3.css" type="text/css" rel="stylesheet"/>
+
+<!-- title -->
+
+<title>医院详情</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:rgb(240, 240, 240);" >
+<div  id="gp-experts"  class="ui-page ui-body-c ui-page-active" style="min-height: 480px; position:inherit;">
+        <div data-role="content" class="ui-content" role="main">
+                <div class="head">
+                        <div class="hos_deil">
+                                <h2>{$hos.HOS_NAME}</h2>
+                        </div>
+                        <ul>
+                                <li> <a href="/weixin/index.php?m=Member&c=Hos&a=serve_list&hos_id={$hos['HOS_ID']}">
+                                        <p> <img src="/weixin/Application/Member/View/images/hos/hos1.png"> </p>
+                                        <p class=" mat_10 font14">开通服务</p>
+                                        </a> </li>
+                                <li><a class="curr" href="#">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos2_2.png"></p>
+                                        <p class=" mat_10 font14">医院详情</p>
+                                        </a></li>
+                                <li><a href="/weixin/index.php?m=Member&c=Hos&a=jiaotong&hos_id={$hos['HOS_ID']}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos3.png"></p>
+                                        <p class=" mat_10 font14">交通路线</p>
+                                        </a></li>
+                                <!-- <li><a href="/weixin/index.php?m=Member&c=Hos&a=ry_list&hos_id={$hos['HOS_ID']}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos4.png"></p>
+                                        <p class=" mat_10 font14">医院荣誉</p>
+                                        </a></li> -->
+                                <li><a href="/weixin/index.php?m=Member&c=Hos&a=doc_list&hos_id={$hos['HOS_ID']}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos5.png"></p>
+                                        <p class=" mat_10 font14">专业医生</p>
+                                        </a></li>
+                        </ul>
+                </div>
+                <div class="hos_jianjie">
+                        <div class="jianjie_top">
+                                <h2>{$hos.HOS_NAME}</h2>
+                                <span>医保定点</span></div>
+                        <div class="jianjie_bot"> <img src="{$hos.HOS_PIC}">
+                                <ul>
+                                        
+                                        <!-- <li>所属区域：<b>{$hos.HOS_ADDRESS}</b></li>
+					
+					<li>医院级别：<b>{$hos.LEVEL_NAME}</b></li>
+					
+					<li>医院类型：<b>{$hos.TYPE_NAME}</b></li>
+					
+					<li>医院性质：<b>{$hos.HOS_XZ}</b></li>
+					
+					<li>科室数量：<b>{$hos.DEP_COUNT}个</b></li> -->
+                                        
+                                        <li class="clearfix">
+                                                <div class="fl"> 级别：<b>{$hos.LEVEL_NAME}</b> </div>
+                                                <div class="fr"> 类型：<b>{$hos.TYPE_NAME}</b> </div>
+                                        </li>
+                                        <li class="clearfix">
+                                                <div class="fl"> 性质：<b>{$hos.HOS_XZ}</b> </div>
+                                                <div class="fr"> 科室：<b>{$hos.DEP_COUNT}个</b> </div>
+                                        </li>
+                                        <li class="clearfix"> 地址：<b>{$hos.HOS_ADDRESS}</b> </li>
+                                </ul>
+                        </div>
+                        <div class="jianjie" id="jianjie">
+                        {$hos.HOS_DESC|htmlspecialchars_decode}</div>
+                </div>
+        </div>
+</div>
+<script>
+        var oJian = document.getElementById("jianjie");
+        oJian.style.fontSize = "14px";
+        oJian.style.lineHeight = "20px";
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

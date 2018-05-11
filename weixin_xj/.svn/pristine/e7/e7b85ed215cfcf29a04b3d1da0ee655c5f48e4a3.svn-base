@@ -1,0 +1,777 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>开处方</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+<script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body class="huise">
+<form method="post" name="consult" action="{:U('Cf/tj_ok')}" onSubmit="return sub()">
+<if condition="$error_code neq 'ok'">
+  <?php echo $error_code;?>
+<else />
+</if>
+        <div class="chanpin" style=" margin-bottom:12px">
+        	<h3>① 填写患者信息</h3>
+             <div class="xzyd">
+               <input type="number" id="member_phone"  name="member_phone"  maxlength="11" placeholder="请输入患者手机号" oninput="checkphone()">
+               <span id="phonemsg" style="font-size:12px; color:#F00"></span>
+               <br/>  <br/>
+               <input type="text"  placeholder="请输入患者姓名" name="member_name" id="member_name" oninput="cleartext('cfmsg')">
+               <span id="cfmsg" style="font-size:12px; color:#F00"></span>
+                <br/>  <br/>
+               <div class="member_jc">性别：
+               <label for="male"><input type="radio" name="member_sex" id="male"  checked="checked"  value="0" />男</label>
+               <label for="wmale"><input type="radio" name="member_sex" id="wmale"    value="1" />女</label>
+                <br/>  <br/>
+               <div>年龄：<input type="number" name="member_age"  id="member_age" /></div>
+               </div>
+             </div>
+        </div>
+        <div class="chanpin" >
+        		<h3>② 填写初步诊断信息</h3><h4 class="gz_h4"><input type="checkbox" class="ty" checked="checked">同意<a href="{:U('Expert/User/agreement_zhiqing')}">知情告知书</a></h4>
+                <div class="xzyd">
+                <textarea  name="consultContent" id="v_content" cols="32" rows="5" placeholder="请输入处方描述内容！"></textarea>
+                </div>
+        </div>
+        <div class="item both uploader">
+                <div class="g-image-upload-box">
+               <div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+               <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+                </div>
+                </div>
+                <div style="margin:0 auto;"> <img src="" id="pre_pic" width="20%" zht="1"></div>
+                <div id="press_status"></div>
+                <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+                
+        </div>
+
+        <div class="chanpin" style="margin-bottom:12px">
+           
+                
+           
+            <h3>③ 选择药店</h3><h3 style="float:right; ">没有？<a href="tel:4006562020">联系客服</a></h3>
+            
+            <div class="yd_box">
+				<div class="yd_xuanze">
+                   
+                    <if condition="$yd_list['0']['HOS_NAME'] neq '' ">
+                        <li class="curr">绑定、附近</li>
+                    <else/>
+                        <li class="curr">自主选择</li>
+                    </if>
+            
+                   
+                </div>
+				<div class="qiehuan">
+					<div class="xzyd yd_tb <if condition="$yd_list['0']['HOS_NAME'] neq '' ">xianshi</if>">
+		                <select  onChange="get_product(this.value,'1')" id="yd_id_y1" ><!-- onChange="get_product(this.value)" -->
+		                <volist name="yd_list" id="yd" empty="">
+		                   <option value ="{$yd['HOS_ID']}" >{$yd['HOS_NAME']}</option>1
+                           
+		                </volist>
+		                </select>
+            		</div>
+					<div class="ct yd_tb <if condition="$yd_list['0']['HOS_NAME'] eq '' ">xianshi</if>">
+                       
+                        <select  id="pro" onchange="selcity(this.value)">
+                            <option value="0">请选择</option>
+                            <volist name='data_pre' id='pr'>
+                             <option value="{$pr.PROVINCE_ID}">{$pr.PROVINCE_NAME}</option>2
+                             </volist>
+                         </select>省
+                         <select name="city" id="city" onchange="selyd(this.value)">
+                             <option value="0">请选择</option>
+                         </select>市
+                         <select  name="hos_id" id="yd_id_y2" class="yd_xz" onChange="get_product(this.value,'2')">
+                             <option value="0">请选择</option>
+                         </select>
+            		</div>
+				</div>
+				
+				
+			</div>
+			<div class="queding_yd">
+            	您选择的药店是：<b id="selhos_name">{$yd_list.0.HOS_NAME}</b>
+                <input type="hidden" name="hos_id" id="yd_id123" value="{$yd_list[0]['HOS_ID']}">
+            </div>
+              <!-- <ul id="plist">
+              </ul> -->
+        </div>
+
+        
+    <!--     <div class="chanpin" >
+     		<h3>④ 选择预设处方</h3><h3 style="float:right; ">没有？<a href="/weixin/index.php?m=Expert&c=cf&a=cf_add_mb&type=0">点击设置</a></h3>
+            <div class="xzyd">
+            
+                <select name="yd_id" id="yd_id_y" onChange="search_list(this.value,'')">
+                   <option value="0">请选择</option>
+                <volist name="cfname_list" id="yd" empty="$empty1">
+                   <option value ="{$yd['MB_ID']}" >{$yd['MB_NAME']}</option>
+                </volist>
+                </select>
+			</div>
+             -->
+        </div>
+        <div class="chanpin">
+            <h3>④ 对应信息</h3><!--<h3 style="float:right; width:50px;">全选？</h3>-->
+             <div class="chanpin">
+              
+            <div class="ui-search" style="padding-left:0px">
+                        <div class="ui-searchtxt">
+                                <input class="left" placeholder="输入药品名称" type="text" name="name" id="name"/>
+                        </div>
+                     <input class="right ui-btn-search" onClick="search_list_p('',document.all.name.value);" type="button" value="搜索"/>
+                </div>                 
+        </div>
+            <ul id="plist">
+            </ul>
+            <ul id="list">
+                <volist name='product_list' id='product' key="k">
+                    <li id="y_{$product.PRODUCT_ID}">
+                        <label class="ui-icon-unchecked-s xz" for="week1_{$product.PRODUCT_ID}"></label>
+                        <input type="checkbox" name="product[]" id="week1_{$product.PRODUCT_ID}" onclick="checkproduct({$product.PRODUCT_ID})" value="{$product.PRODUCT_ID}" style="display:none" />
+                        <h3>{$product.TY_NAME}-{$product.PRODUCT_GG} ￥ {$product['PRODUCT_MONEY']|round=2} - {$product.PRODUCT_TYPE}</h3>
+                        <div style=" height:40px;">
+                            <div style="padding-right:30px;width:100px; line-height:40px">数量：</div>
+                            <label  class="label1">
+                                <span class="jianshao"></span>
+                                <span class="num"><span>1</span></span>
+                                <span class="zengjia"></span>
+                                <input name="num_{$product.PRODUCT_ID}" type="hidden" value="1">
+                            </label>
+                        </div>
+                        <div style=" height:40px; width:300px;">
+                            <div style="padding-right:30px;width:100px; float:left; line-height:40px">用量：</div>
+                            <label class="label2">
+                                <span class="jianshao"></span>
+                                <span class="num2"><span>1</span></span>
+                                <span class="zengjia"></span>
+                                <input name="yl_{$product.PRODUCT_ID}" type="hidden" value="1">
+                            </label>
+                            <div style="width:100px; float:right; line-height:40px;">次/日</div>
+                        </div>
+                        <div style=" height:40px; width:300px;">
+                            <label class="label3">
+                                <span class="jianshao"></span>
+                                <span class="num3"><span>1</span></span>
+                                <span class="zengjia"></span>
+                                <input name="jl_{$product.PRODUCT_ID}" type="hidden" value="1" />
+                            </label>
+                            <div style="width:100px; float:right; line-height:40px;">
+                                <select name="jldanwei"  id="danwei_{$product.PRODUCT_ID}">
+                                  <option value ="滴">滴</option>
+                                  <option value ="粒">粒</option>
+                                  <option value="袋">袋</option>
+                                </select> /次
+                            </div>
+                        </div> 
+                        <input name="dj_{$product.PRODUCT_ID}" id="ypdj" type="hidden" value="{$product.PRODUCT_MONEY}">
+                    </li>
+                </volist>
+            </ul>
+            <div class="ui-jiazai mar_bot_none" ><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div> 
+            
+        </div>
+        <!--已选药品-->
+        <div class="drugs_list_con2"></div>
+       <div class="drugs_list_con">
+       		<h2>已选药品</h2>
+            <div class="drugs_con">
+            	<div class="drugs_list" id="cfbuttom">
+                	
+                </div>
+            </div>
+       </div>
+        <div id="current_name" style="display:none"></div>
+        <div id="current_pagenum" style="display:none">2</div>
+        <div id="yd_id" style="display:none"></div>
+        <div style="padding-bottom:60px;"></div>
+        <input name="gethos_id" id='gethos_id' type="hidden" value="" />
+        <div class="tijiao">
+        <button class="ui-btn-purchase-pink">提交</button>
+        </div>
+</form>
+<style>
+.tc_con{ text-align:center; background:#fff; width:80%; margin-left:10%; border-radius:5px; display:none; z-index:99999; position:fixed; top:25%;}
+.tc_con img{ width:100px; height:100px; margin-top:20px;}
+.tc_con .cgimg{ width:137px; height:104px; margin-top:20px;}
+.tc_con p{ margin:0; margin-top:10px; margin-bottom: 10px; color:#333333; font-size:14px;}
+.tc_con p span{ color:#f8b900; font-size:16px; margin:0;}
+.tc_con p b{ color:#0dab6e; font-size:14px; margin:0; font-weight:normal;}
+.tc_con .queding{ color:#666666; font-size:14px; text-align:center; border-top:1px solid #e5e5e5; display:block; line-height:40px;}
+</style>
+<div class="tc_con" id="sb3"> <img src="__PUBLIC__/Common/images/icon/loading.gif" style="width:32px; height:32px">
+            <p>资料提交中...请稍等</p>
+</div>
+<!--Js库文件--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/mobileFix.mini.js " type="text/javascript"></script> 
+<!--Exif.js 读取图像的元数据 --> 
+<script src="/weixin/Public/Common/js/exif.js " type="text/javascript"></script> 
+<!--lrz.min.js 压缩图片 --> 
+<script src="/weixin/Public/Expert/js/lrz.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more_test.js " type="text/javascript"></script> 
+<!-- scrollTo -->
+<script src="/weixin/Public/Common/js/jquery.scrollTo.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//药品列表第一个展开
+$('#list').find('li').eq(0).addClass('heightauto').siblings('li').removeClass('heightauto');
+//药品列表展开收起
+$('.chanpin').delegate('#list li h3','click',function(){
+
+    var list_li =$(this).parents('li');//.parents('li')
+    if (list_li.hasClass('heightauto')) {
+        list_li.removeClass('heightauto');       
+    }else{
+        list_li.addClass('heightauto').siblings('li').removeClass('heightauto');
+    }
+    
+})
+//选中药品列表展开收起
+$('.chanpin').delegate('#plist h3','click',function(){
+var plist_li =$(this).parents('li');
+    if (plist_li.hasClass('heightauto')) {
+        plist_li.removeClass('heightauto');
+    }else{
+        plist_li.addClass('heightauto');
+    }
+})
+
+var json = {};
+function checkproduct(id) {
+            //定义对应属性
+            var ids = "#" + "y_" + id;
+            var week = "#" + "week2_" + id;
+            var weeks = "week2_" + id;
+            var y_id = "y_" + id;
+            var htmls = $(ids).html();
+            json[id] = htmls;
+            //获取名字
+            var iName = $(ids).eq(0).find("h3").html();
+            //获取名字(已选药品中截取药品名)
+            var iNameShort = $(ids).eq(0).find("h3").html().split('-',1);
+            //获取价格
+            var iPromoneys = $(ids).eq(0).find("#ypdj").val();
+            //alert(iPromoneys);
+            //获取数字
+            var iNum = $(ids).eq(0).find('.num').find('span').html();
+            var iNum2 = $(ids).eq(0).find('.num2').find('span').html();
+            var iNum3 = $(ids).eq(0).find('.num3').find('span').html();
+            var danwei = $("#danwei_"+id).val();
+          //  alert(danwei);
+            var html = '';
+            var iHtml = '';
+            //选中项隐藏
+            $(ids).remove();
+            //判断是否已选
+            if ($("#plist>li").length == 0) {
+                //已选列表为空
+                html = '<li class="' + id + '"><label class="ui-icon-unchecked-s xz xuanze" for=' + weeks + '></label><input type="checkbox" name="product[]" id=' + weeks + ' value=' + id + '  style="display:none" onclick="removeEle(this)" checked="checked"><h3>' + iName + '</h3><div style=" height:40px;"><div style="padding-right:30px;width:100px; line-height:40px">数量：</div><label  class="label1"><span class="jianshao"></span><span class="num"><span>' + iNum + '</span></span><span class="zengjia"></span><input name="num_' + id + '" type="hidden" value=' + iNum + '></label></div><div style=" height:40px; width:300px;"><div style="padding-right:30px;width:100px; float:left; line-height:40px">用量：</div><label class="label2"><span class="jianshao"></span><span class="num2"><span>' + iNum2 + '</span></span><span class="zengjia"></span><input name="yl_' + id + '" type="hidden" value=' + iNum2 + '></label><div style="width:100px; float:right; line-height:40px;">次/日</div></div><div style=" height:40px; width:300px;"><label class="label3"><span class="jianshao"></span><span class="num3"><span>' + iNum3 + '</span></span><span class="zengjia"></span><input name="jl_' + id + '" type="hidden" value=' + iNum3 + ' /></label><div style="width:100px; float:right; line-height:40px;"><select name="jldw_' + id + '"><option value ="' + danwei + '">' + danwei + '</option></select> /次</div></div><input name="dj_' + id + '" type="hidden"  value=' + iPromoneys + '></li>';
+            }
+            else {
+                $("#plist>li").each(function () {
+                    //已存在在选中列表项
+                    if ($(this).attr('class') == id) {
+                        //获取选中列表中的数字
+                        var oldNum = $(this).find('.num').find('span').html();
+                        var oldNum2 = $(this).find('.num2').find('span').html();
+                        var oldNum3 = $(this).find('.num3').find('span').html();
+
+                        $(this).html('<label class="ui-icon-unchecked-s xz xuanze" for=' + weeks + '></label><input type="checkbox" name="product[]" id=' + weeks + ' value=' + id + '  style="display:none" onclick="removeEle(this)" checked="checked"><h3>' + iName + '</h3><div style=" height:40px;"><div style="padding-right:30px;width:100px; line-height:40px">数量：</div><label  class="label1"><label><span class="jianshao"></span><span class="num"><span>' + (parseInt(oldNum) + parseInt(iNum)) + '</span></span><span class="zengjia"></span><input name="num_' + id + '" type="hidden" value=' + (parseInt(oldNum) + parseInt(iNum)) + '></label></div><div style=" height:40px; width:300px;"><div style="padding-right:30px;width:100px; float:left; line-height:40px">用量：</div><label class="label2"><span class="jianshao"></span><span class="num2"><span>' + parseInt(oldNum2) + '</span></span><span class="zengjia"></span><input name="yl_' + id + '" type="hidden" value=' + parseInt(oldNum2) +'></label><div style="width:100px; float:right; line-height:40px;">次/日</div></div><div style=" height:40px; width:300px;"><label class="label3"><span class="jianshao"></span><span class="num3"><span>' + parseInt(oldNum3) + '</span></span><span class="zengjia"></span><input name="jl_' + id + '" type="hidden" value=' + parseInt(oldNum3) + ' /></label><div style="width:100px; float:right; line-height:40px;"><select name="jldw_' + id + '"><option value ="' + danwei + '">' + danwei + '</option></select> /次</div></div><input name="dj_' + id + '" type="hidden"  value=' + iPromoneys + '>');
+                        html = '';
+                        return false;
+                    }
+                    else {
+                        //不存在在选中列表项
+                        html = '<li class="' + id + '"><label class="ui-icon-unchecked-s xz xuanze" for=' + weeks + '></label><input type="checkbox" name="product[]" id=' + weeks + ' value=' + id + '  style="display:none" onclick="removeEle(this)" checked="checked"><h3>' + iName + '</h3><div style=" height:40px;"><div style="padding-right:30px;width:100px; line-height:40px">数量：</div><label  class="label1"><span class="jianshao"></span><span class="num"><span>' + iNum + '</span></span><span class="zengjia"></span><input name="num_' + id + '" type="hidden" value=' + iNum + '></label></div><div style=" height:40px; width:300px;"><div style="padding-right:30px;width:100px; float:left; line-height:40px">用量：</div><label class="label2"><span class="jianshao"></span><span class="num2"><span>' + iNum2 + '</span></span><span class="zengjia"></span><input name="yl_' + id + '" type="hidden" value=' + iNum2 + '></label><div style="width:100px; float:right; line-height:40px;">次/日</div></div><div style=" height:40px; width:300px;"><label class="label3"><span class="jianshao"></span><span class="num3"><span>' + iNum3 + '</span></span><span class="zengjia"></span><input name="jl_' + id + '" type="hidden" value=' + iNum3 + ' /></label><div style="width:100px; float:right; line-height:40px;"><select name="jldw_' + id + '"><option value ="' + danwei + '">' + danwei + '</option></select> /次</div></div><input name="dj_' + id + '" type="hidden"  value=' + iPromoneys + '></li>';
+                    }
+                })
+            }
+            $('#plist').append(html);
+
+
+            //已选药品展示
+            if ($(".product_zs").length == 0) {
+                //已选列表为空
+                iHtml = '<div class="product_zs" product_id="'+ id +'"><p>' + iNameShort + '</p><p>数量：<span class="num">' + iNum + '</span></p><p>用量：<span class="num2">' + iNum2 + '次/日</span></p><p><span class="num3">' + iNum3 + '</span><span>' + danwei + ' </span>/次</p></div>';  
+            }
+            else {
+                $(".product_zs").each(function () {
+                    //已存在在选中列表项
+                    if ($(this).attr('product_id') == id) {
+                        //获取选中列表中的数字
+                        var oldNum = $(this).find('.num').html();
+                        var oldNum2 = $(this).find('.num2').html();
+                        var oldNum3 = $(this).find('.num3').html();
+                        
+                        $(this).html('<p>' + iNameShort + '</p><p>数量：<span class="num">' + (parseInt(oldNum) + parseInt(iNum)) + '</span></p><p>用量：<span class="num2">' + parseInt(oldNum2) +'次/日</span></p><p><span class="num3">' + parseInt(oldNum3) + '</span><span>' + danwei + ' </span>/次</p></div>');
+
+                        iHtml = '';
+                        return false;
+                    }
+                    else {
+                        //不存在在选中列表项
+                        iHtml = '<div class="product_zs" product_id="'+ id +'"><p>' + iNameShort + '</p><p>数量：<span class="num">' + iNum + '</span></p><p>用量：<span class="num2">' + iNum2 + '次/日</span></p><p><span class="num3">' + iNum3 + '</span><span>' + danwei + ' </span>/次</p></div>';
+                    }
+                })
+            }
+            $('#cfbuttom').append(iHtml);
+
+        }
+//删除选中
+function removeEle(ele){
+    var classes = $(ele).parent().attr('class');
+    //var html = $(ele).parent().find('.htmls').html();
+    var ids = 'y_'+$(ele).val();
+
+    //判断下面选项栏中是否有我们删除的选项
+    if( !!$("#list").find('li#'+ids).html() ){
+      $(ele).parent().remove();
+    }else{
+      $(ele).parent().remove();
+      $('#list').append('<li id="'+ids+'">'+json[$(ele).parent().get(0).className]+'</li>');
+      $('#'+ids).find('label').removeClass('xuanze');
+    }
+}
+
+
+var on_off = true;
+//搜索
+function search_list(yd_id,name)
+{   
+    
+    //每次选中重新加载一次
+    $('#plist').html("");
+    
+    if(on_off){
+
+        on_off = false;
+
+        $('.ui-jiazai').css('display','block');
+        
+        if (yd_id != '')
+        {   
+            $('#yd_id').text(yd_id);
+        }else
+        {   
+            var yd_id;
+            yd_id = $('#yd_id_y option:selected').val();
+            $('#yd_id').text(yd_id);
+        }
+        $('#current_name').text(encodeURI(name));
+        $('#current_pagenum').text('1');
+        $('#list').html('');
+        $('.ui-jiazai').children('a').text('加载更多');
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=mb_pr_list_append&name='+$('#current_name').text()+'&yd_id='+$('#yd_id').text()+'','#list');
+
+    }
+
+    
+        
+}
+
+function load_more()
+{   
+   var hos_id = $("#yd_id123").val();
+    loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=yaopin_list_append&name='+$('#current_name').text()+'&yd_id='+ hos_id +'','#list');
+}
+
+window.onbeforeunload   =   function()   { 
+//document.getElementById('#list li label  input').value = "1";
+
+$("#list li label input").val(1);
+} 
+/*购买药品数量*/
+$('.chanpin').delegate('ul#list li label .jianshao','click',function(){
+    var _this   = $(this),
+        $num    = _this.next().find('span').eq(0),
+        n       = $num.text(),
+        count   = parseInt(n)-1 > 0 ? parseInt(n)-1 : 1;
+        $num.text(count);
+        //alert(count)
+        $(this).siblings('input').attr("value",count);
+});
+$('.chanpin').delegate('ul#list li label .zengjia','click',function(){
+    var _this   = $(this),
+        $num    = _this.prev().find('span').eq(0), 
+        n       = $num.text(),
+        count   = parseInt(n)+1;
+    $num.text(count);
+    $(this).siblings('input').val(count);
+});
+$('.chanpin').delegate('ul#plist li label .jianshao','click',function(){
+    var _this   = $(this),
+        $num    = _this.next().find('span').eq(0),
+        n       = $num.text(),
+        count   = parseInt(n)-1 > 0 ? parseInt(n)-1 : 1;
+        $num.text(count);
+        $(this).siblings('input').attr("value",count);
+
+        var pin1  = _this.parents('li').index();
+        var pinp1 = _this.parents('li').find('.num').children('span').text();
+        var pinp2 = _this.parents('li').find('.num2').children('span').text();
+        var pinp3 = _this.parents('li').find('.num3').children('span').text();           
+         
+        var cfpinp1 = $('#cfbuttom .product_zs').eq(pin1).find('p').eq(1).find('.num').text(pinp1);
+        var cfpinp2 = $('#cfbuttom .product_zs').eq(pin1).find('p').eq(2).find('.num2').text(pinp2 +"次/日");        
+        var cfpinp3 = $('#cfbuttom .product_zs').eq(pin1).find('p').eq(3).find('num3').text(pinp3);       
+        return false;
+
+});
+$('.chanpin').delegate('ul#plist li label .zengjia','click',function(){
+    var _this   = $(this),
+        $num    = _this.prev().find('span').eq(0), 
+        n       = $num.text(),
+        count   = parseInt(n)+1;
+       $num.text(count);
+       $(this).siblings('input').val(count);
+
+        var pin1  = _this.parents('li').index();
+        var pinp1 = _this.parents('li').find('.num').children('span').text();
+        var pinp2 = _this.parents('li').find('.num2').children('span').text();
+        var pinp3 = _this.parents('li').find('.num3').children('span').text();  
+
+        var cfpinp1 = $('#cfbuttom .product_zs').eq(pin1).find('p').eq(1).find('.num').text(pinp1);
+        var cfpinp2 = $('#cfbuttom .product_zs').eq(pin1).find('p').eq(2).find('.num2').text(pinp2 +"次/日");        
+        var cfpinp3 = $('#cfbuttom .product_zs').eq(pin1).find('p').eq(3).find('.num3').text(pinp3);      
+        return false;  
+      
+});
+
+/*药品选择*/
+
+$('#list').delegate('li .xz','click',function()
+{
+
+    
+    $('.drugs_list_con').show();
+   $('.drugs_list_con2').show();
+    var yaopin = $(this), k = $(this).siblings(".xuanze").length;
+    if(yaopin.hasClass("xuanze"))
+    {
+        yaopin.removeClass("xuanze")
+    }
+    else
+    {
+        yaopin.addClass("xuanze")
+    }
+   
+
+})
+/*删除选择药品*/
+$('#plist').delegate('.xz','click',function(){
+    var epin1 = $(this).parents('li').index();
+    var cfpinp1 = $('#cfbuttom .product_zs').eq(epin1);
+    $('#cfbuttom').find('div.product_zs').eq(epin1).remove();
+    if ($('#cfbuttom').find('div.product_zs').length==0) {
+        $('.drugs_list_con').hide();
+		 $('.drugs_list_con2').hide();
+    }
+   
+});
+
+/*scrollTo 点击到相应选中的位置*/
+$('#cfbuttom').delegate('.product_zs','click',function(){      
+    var num_name = $(this).attr('product_id');    
+    $.scrollTo('.'+num_name,400); 
+}); 
+
+
+/*点击传图片，图片显示，文字消失*/
+$(".g-image-upload-box").click(function(){
+    $("#pre_pic").show();
+    $(".J_Showmeonfileuploaded").hide();
+})
+/*点击放大缩小*/
+$("#pre_pic").click(function(){
+    var zht = $(this).attr('zht');
+    if(zht=='1')
+    {
+      $("#pre_pic").attr("width","100%");
+      $("#pre_pic").attr("zht","2");
+    }else{
+      $("#pre_pic").attr("width","20%");
+      $("#pre_pic").attr("zht","1");
+    }
+})
+
+function sub()
+{
+    var sendBox = $("#v_content").val();
+    var imgbase64 = $("#imgbase64").val();
+    var member_phone = $("#member_phone").val();
+    var member_name = $("#member_name").val();
+    var member_age = $("#member_age").val();
+    var hos_name = $("#selhos_name").html();
+    var re=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+    if(!$('.ty').prop('checked'))
+    {
+        alert('请先同意知情告知书');
+        return false; 
+        
+    }
+
+    if(!re.test(member_phone))
+    {   
+        $("#member_phone").focus();
+        alert("手机号未填写或格式不正确")
+        $("#phonemsg").html("手机号格式不正确");
+        return false;
+    }
+    
+    if(member_name == "")
+    {
+        $("#member_name").focus();
+        alert("请输入患者姓名！");
+        return false;
+    }
+    if(member_age == "")
+    {
+        $("#member_age").focus();
+        alert("请输入患者年龄！");
+        return false;
+    }
+
+    if(sendBox == "")
+    {
+        $("#v_content").focus();
+        alert("请输入处方描述内容！");
+        return false;
+    }
+
+    if(hos_name=="")
+     {
+         alert("请选择药店！");
+         return false;
+     }
+
+    var val = $('input:checkbox[name="product[]"]:checked').size(); 
+    if(val == 0)
+    {
+        alert('请选择药品!');
+        return false;
+    }
+}
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+{
+    lrz(input_file.files[0], {
+        width:500,
+        before: function() {
+            document.querySelector(press_status).innerHTML="压缩处理开始，请稍后...";
+        },
+        fail: function(err) {
+            document.querySelector(press_status).innerHTML=err; 
+        },
+        always: function() {
+            document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+        },
+        done: function (results) {
+            
+            document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+            document.querySelector(pre_pic).src=results.base64;//展示预览图片
+        }
+    });
+}
+var onOff = true; 
+
+
+//检查手机号是否注册过
+function checkphone()
+{
+      var str_data = $("form").serialize();
+      var  member_phone = $("#member_phone").val();
+      var re=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+      if(!re.test(member_phone))
+      {
+          $("#phonemsg").html("手机号格式不正确");
+          return false;
+      }else
+      {     
+            //显示进度条
+            $("#sb3").css('display','block');
+            cleartext('phonemsg');
+            //请求是否存在手机号开始
+            $.ajax({
+                type: "POST",
+                url: "/weixin/index.php?m=Expert&c=Cf&a=checkphone",
+                async: true,
+                data: str_data,
+                success: function(msg)
+                {   
+
+            var msg = eval("("+msg+")");
+            //alert(msg.MEMBER_SEX);
+                      $("#sb3").css('display','none');
+                      switch (msg) 
+                        {
+                        case "0":   //注册成功
+                            $("#cfmsg").html("患者未注册，请补全姓名");
+                            $("#member_name").val("");
+                            return false;
+                            break;
+                        case "1":   //有用户，但未填写姓名
+                            $("#cfmsg").html("请补全患者姓名");
+                            $("#member_name").val("");
+                            return false;
+                            break;
+                    default:    
+                            $("#member_name").val(msg.MEMBER_NAME);
+                  $("#member_age").val(msg.MEMBER_AGE);
+                  if(msg.MEMBER_SEX=="男"){
+                     $("#male").attr("checked","checked");
+                  }else{
+                    $("#wmale").attr("checked","checked");
+                  }
+                            $("#cfmsg").html("");
+                            return false;
+                            break;
+                        }
+                },
+            error: function(XMLHttpRequest, textStatus, errorThrown) 
+            {   
+                $("#sb3").css('display','none');
+                alert("失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+            }
+           });
+          //请求手机结束
+      }
+      
+}
+function cleartext(tsextid)
+{
+  var tsextid= "#" + tsextid;
+  $(tsextid).html("");
+}
+
+function search_list_p(yd_id,name)
+{   
+    
+    //每次选中重新加载一次
+    //$('#plist').html("");
+  var arred = [];
+  $('#plist input[type="checkbox"]').each(function(){
+    arred.push($(this).val());
+  });
+ // console.log(arred.join(','));
+    if(on_off){
+        
+        on_off = false;
+     var hos_id = $("#gethos_id").val();
+
+        $('.ui-jiazai').css('display','block');
+
+        $('#current_name').text(encodeURI(name));
+        $('#current_pagenum').text('1');
+        $('#list').html('');
+        $('.ui-jiazai').children('a').text('加载更多');
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=yaopin_list_append&name='+$('#current_name').text()+'&yd_id='+ hos_id +'&product_id=' + arred.join(',') + '','#list');
+
+    }
+    
+        
+}
+
+//年龄不显示负数
+$("#member_age").val(20);
+$("#member_age").change(function(){
+  if( $("#member_age").val() <= 0 ){
+    $("#member_age").val(0);
+  }
+})
+
+
+//获取市
+
+function selcity(id){
+
+     $.ajax({
+
+            type: "POST", //用POST方式传输
+            url: "/weixin/index.php?m=Expert&c=Cf&a=city_list", //目标地址
+            data: {"city_id":id},
+            success: function (msg)
+            {
+                $("#city").html(msg);
+            }
+
+        });
+
+}
+
+
+//根据省市获取药店
+function selyd(cid){
+    var pid = $("#pro").val();
+    $.ajax({
+
+            type: "POST", //用POST方式传输
+            url: "/weixin/index.php?m=Expert&c=Cf&a=city_yd_list", //目标地址
+            data: {"city_id":cid,"pid":pid},
+            success: function (msg)
+            {
+                msg =  eval("("+msg+")")
+               $("#yd_id_y2").html(msg['str']);
+               $("#selhos_name").html(msg['hos_name']);
+               $("#yd_id123").val(msg['hos_id']);
+            }
+
+        });
+}
+
+//根据药店id获取药品
+function get_product(hos_id,num,name){
+    var selId = document.getElementById("yd_id_y"+num);       //获取select的id
+    var seleIndex =selId.selectedIndex;   
+    var hos_name = selId.options[seleIndex].text;
+    var hos_id = $("#yd_id_y"+num).val();
+    $("#selhos_name").html(hos_name);
+    $("#yd_id123").val(hos_id);
+
+    //已选药品清空
+    $('#plist').html('');
+    //下边的购物车删除
+    $('#cfbuttom').html('');
+    $('.drugs_list_con').hide();
+    $('.drugs_list_con2').hide();
+    
+   $.ajax({
+
+            type: "POST", //用POST方式传输
+            url: "/weixin/index.php?m=Expert&c=Cf&a=getpro_byhos", //目标地址
+            data: {"hos_id":hos_id},
+            success: function (msg)
+            {
+              $("#gethos_id").val(hos_id);
+                $("#list").html(msg);
+            }
+
+        });
+}
+
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

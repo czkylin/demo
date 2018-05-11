@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>扫我二维码，成为您的家庭医生</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <style type="text/css">
+      .f_l{ float:left;}
+      .f_r{ float:right;}
+      .yard_back{ padding:2rem;}
+      .yard_con{ background:#fff; border-radius:3px; border:1px solid #e1e1e1;width:100%;}
+      .yare_top{ }
+      .top_pic img{ width:100%; height:auto;}
+      .intro{ padding:20px; overflow:hidden; box-sizing:border-box; }
+      .intro h2{ margin:0; font-weight:normal;}
+      .intro span{ line-height:1.5rem; color:#333;}
+      .intro p{ color:#666; min-height: 3em;}
+      .intro .f_l{ width:100%;position:relative; padding-right:90px; box-sizing:border-box;}
+      .intro .f_l img{ width:80px; height:80px;position:absolute; right:0; top:0;}
+      .p_con{ margin-top:15px; font-size:14px; color:#888;}
+    </style>
+     
+</head>
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+ <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '<?php echo $appId;?>',
+        timestamp: <?php echo $timestamp;?>, // 必填，生成签名的时间戳
+        nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+</script>
+<body style="background:#ededed;">
+   <div class="yard_back">
+   <div class="yard_con">
+   		<div class="yare_top">
+        	<div class="top_pic">
+            <if condition="($user['EXPERT_SEX'] eq '未填写') && ($user['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')">
+                    <img src="/weixin/Public/Expert/images/yonghu/girl.png" style="width:80%;padding:10%;" />
+
+                <elseif condition="($user['EXPERT_SEX'] eq '男') && ($user['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+                    <img src="/weixin/Public/Expert/images/yonghu/boy.png" style="width:80%;padding:10%;" />
+
+                <elseif condition="($user['EXPERT_SEX'] eq '女') && ($user['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+                    <img src="/weixin/Public/Expert/images/yonghu/girl.png" style="width:80%;padding:10%;" />
+
+                <else />
+                    <img src="{$user.SMALL_PIC}" />
+
+            </if> 
+          </div>
+            <div class="intro">
+            	<div class="f_l">
+                	<h2>{$user.EXPERT_NAME}</h2>
+                    <span>{$user.EXPERT_RANK}</span>
+                    <p>{$user.HOS_NAME}&nbsp;&nbsp;{$user.DEP_NAME}</p>
+                     <img src="{$user_ewm.error_code}">
+                </div>
+            </div>
+        </div>
+        
+   </div>
+   <p class="p_con">长按或扫描二维码，关注我的微站；向我报到、问诊、预约挂号，我也会通过微信进行随访。</p>     
+   </div>
+
+     <!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->           
+     <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?>
+     </div>
+     <script>
+
+    var wx_share_title = '心脑管家';
+    var wx_share_desc = '扫描二维码即可拥有您的私人医生';
+    var wx_share_imgUrl = "{$user['SMALL_PIC']}";
+    var wx_share_url = "http://wx-heartorg.yk2020.com/weixin/index.php?m=Expert&c=User&a=doc_yard&oid={$openid}"
+
+    wx.ready(function() {
+        wx.onMenuShareTimeline({
+            title: wx_share_desc,
+            link: wx_share_url,
+            imgUrl: wx_share_imgUrl,
+            success: function() {},
+            cancel: function() {}
+        });
+        wx.onMenuShareAppMessage({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: wx_share_url,
+            imgUrl: wx_share_imgUrl,
+            success: function() {},
+            cancel: function() {}
+        });
+    });
+
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+     </body>
+
+</html>

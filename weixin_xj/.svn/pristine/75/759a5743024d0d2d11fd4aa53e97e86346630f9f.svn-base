@@ -1,0 +1,87 @@
+﻿<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/portal.min.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/style.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/animations.css">
+<title>远程心界</title>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="background:#fafafa" >
+<div class="con">
+    <div class="overall_top_for_card">
+        <div class="info_top">
+            <ol class="info_title">
+                <li class="li01"> <img src="/weixin/Public/Member/images/card/index/card2.png"  alt=""/> </li>
+                <li>金卡</li>
+                <!--<li class="li03"> <img src="/weixin/Public/Member/images/card/icon/car.png"  alt=""/> </li>-->
+            </ol>
+        </div>
+        <div class="tab">
+            <ul>
+                <li><a href="{:U('Member/Card/card1980Information')}" class="cur" >商品信息</a></li>
+                <li><a href="{:U('Member/Card/Features1980')}">服务特色</a></li>
+                <li><a href="{:U('Member/Card/Process1980')}">服务流程</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="product"> 
+        <!--商品信息start-->
+        <div class="product_information">
+            <div class="compare">
+                <div class="infor1 mar_top page page-1-1 page-current">
+                    <div class="up_down"> <span><img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/></span>
+                        <div class="black"> <em></em> <em></em> </div>
+                    </div>
+                    <div style="" class="wrap">
+                        <img src="/weixin/Public/Member/images/card/product1980/ind.png" class="con_img">
+                    </div>
+                </div>
+            </div>
+            <div class="six_security mar_top page page-2-1 hide">
+                <div class="up_down"> <span><img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/></span>
+                    <div class="black"> <em></em> <em></em> </div>
+                </div>
+                <div style="" class="wrap">
+                    <h2><img src="/weixin/Public/Member/images/card/product100/six_tie.png" alt="六大服务保障买的更放心"></h2>
+                    <img src="/weixin/Public/Member/images/card/product100/six_security.png" class="six_img"> </div>
+            </div>
+            
+        </div>
+        <div class="infor4 mar_top page page-3-1 hide">
+            <div style="" class="wrap">
+             <!--   <h2> <img src="/weixin/Public/Member/images/card/product100/hezuo_h2.png"  alt=""/> </h2>
+                <img src="/weixin/Public/Member/images/card/product100/huoban.png" alt=""/>-->
+                <div id="buy">
+                    <div class="buy_top">
+                        <div class="buy_top_left"> <img src="/weixin/Public/Member/images/card/process/card1980.png" alt=""/> </div>
+                        <div class="buy_top_right">
+                            <h3>金卡</h3>
+                            <p>经典健康管理套餐</p>
+                            <b>￥1980</b> <span>￥2600</span> </div>
+                    </div>
+                    <div class="buy_bottom" style="display:none;">立即购买</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/weixin/Public/Member/js/card/zepto.js"></script> 
+<script src="/weixin/Public/Member/js/card/touch.js"></script> 
+<script src="/weixin/Public/Member/js/card/index.js"></script> 
+
+<!-- analytics code -->
+<div class="hide"> 
+    <script src="http://s95.cnzz.com/z_stat.php?id=1253891981&web_id=1253891981" language="JavaScript"></script> 
+</div>
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span>
+    <h1>载入中...</h1>
+</div>
+<div class="ui-loading-screen" style="display: none;"> </div>
+</body>
+</html>

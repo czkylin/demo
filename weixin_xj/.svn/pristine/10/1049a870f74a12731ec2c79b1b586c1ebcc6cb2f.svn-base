@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>收入列表</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/chufang/cf_lst.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/payment/money_list.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+    <link href="__PUBLIC__/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+</head>
+<body class="grey">
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">收入列表</h2>
+    </header>
+    <div class="chufang_list" id="ss_list">
+        <volist name="money_list" id="data">
+            <section class="unit">
+                <header class="box">
+                    <h2>{$data.ORDER_NAME}</h2>
+                </header>
+                <div class="ct box">
+                    <div class="cLeft box">
+                        <div class="ctxt">
+                            <p class="clearfix">
+                                <if condition=" $data['EXPERT_NAME'] neq '' ">
+                                <strong>医生名字：</strong><em>{$data.EXPERT_NAME}</em>
+                                <else/>
+                                <strong>患者名字：</strong><em>{$data.MEMBER_NAME}</em>
+                                </if>
+                            </p>
+                            <p class="clearfix"><strong>订单金额：</strong><em>{$data.ORDER_MONEY}</em></p>
+                            <p class="clearfix"><strong>提成金额：</strong><em>{$data.PIONT_MONEY}</em></p>
+                            <p class="clearfix"><strong>订单描述：</strong>
+                                <if condition="$data['ORDER_DESC'] eq ''">
+                                    <em>暂无</em>
+                                <else />
+                                    <em>{$data.ORDER_DESC}</em>
+                                </if>
+                            </p>
+                            <p class="clearfix"><strong>创建时间：</strong><em>{$data.CREATE_DATE}</em></p>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+        </volist>
+    </div>
+<div class="ui-jiazai">
+    <a href="javascript:void(0);" onclick="load_more();">加载更多</a>
+</div>
+<div id="emptyData"></div>
+<div id="current_pagenum" style="display:none">2</div>
+   <!--Js库文件--> 
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+   <!--加载更多-->
+    <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+<script>
+
+    var onOff = true;
+    window.onload = function(){
+        window.onscroll();
+    }
+    window.onscroll = function()
+    {
+        load_more('.chufang_list');
+    }
+
+    function load_more(obj)
+    {   
+        if(!onOff) return;
+        if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+        {
+            onOff = !onOff;
+            loadmore('#current_pagenum','/weixin/index.php?m=Home&c=Payment&a=money_list_append&order_type={$order_type}&jifen_date={$jifen_date}','#ss_list',function(){
+                $('.empty_data').css({'top':0,'z-index':-1});
+            });
+        }
+    }
+</script>
+</body>
+</html>

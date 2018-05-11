@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-身高体重</title>
+<style>
+	@media screen and (max-width: 321px){
+		.detail.detail_sg li .box{margin-left: 0.5em;}
+	}	
+</style>
+</head>
+<body>
+<!--身高体重-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="shenti">
+		<div class="con">
+			<h2 class="tit5">身高/体重</h2>
+		</div>
+		<ul class="detail detail_sg">
+			<volist name="jk_info" id="jk">
+				<li class="clear">
+					<a href="javascript:;" class="clear">
+						<p class="left tms"><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						<div class="left position box box1 shengao">
+							<p><b>身高</b><br><span>{$jk.HEIGHT}cm</span></p>
+						</div>
+						<div class="left position box box1 tizhong">
+							<p><b>体重</b><br><span>{$jk.WEIGHT}KG</span></p>
+						</div>
+						<div class="left position box box1 BMI">
+							<p><b>BMI</b><br><span>0/span></p>
+							<span class="canshu">正常</span>
+						</div>
+					</a>
+				</li>
+			</volist>
+			<!-- <li>
+				<div class="right position box BMI">
+					<p><b>BMI</b><br><span>22.3</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<div class="right position box box1 tizhong">
+					<p><b>体重</b><br><span>87KG</span></p>
+				</div>
+				<div class="right position box box1 shengao">
+					<p><b>身高</b><br><span>175cm</span></p>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				
+				<div class="right position box BMI">
+					<p><b>BMI</b><br><span>15</span></p>
+					<span class="canshu">偏胖</span>
+				</div>
+				<div class="right position box  box1 tizhong">
+					<p><b>体重</b><br><span>61KG</span></p>
+				</div>
+				<div class="right position box  box1 shengao">
+					<p><b>身高</b><br><span>170cm</span></p>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				
+				<div class="right position box BMI">
+					<p><b>BMI</b><br><span>28</span></p>
+					<span class="canshu">偏瘦</span>
+				</div>
+				<div class="right position box box1 tizhong">
+					<p><b>体重</b><br><span>93KG</span></p>
+				</div>
+				<div class="right position box box1 shengao">
+					<p><b>身高</b><br><span>182cm</span></p>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<div id="imei_type" style="display:none">{$imei_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+//身高，体重动态设置BMI和样式
+$(function(){
+	fn();
+})
+function fn(){
+	$(".BMI").each(function(){
+		var $BMI = $(this).find("p").find("span");
+		var $tizhong = $(this).siblings(".tizhong").find("p").find("span");
+		var $shengao = $(this).siblings(".shengao").find("p").find("span");
+		var tizhong = parseFloat($tizhong.html()); 
+		var shengao = parseFloat($shengao.html()); 
+		var BMI = parseFloat( tizhong / Math.pow(shengao/100,2) ).toFixed(1);
+		$BMI.html(BMI);
+		if( BMI > 24 ){
+			//大于24，偏胖
+			$(this).find('.canshu').html("偏胖").addClass("color_gj");
+		}else if( BMI < 18.5 ){
+			//小于18.5，偏瘦
+			$(this).find('.canshu').html("偏瘦").addClass("color_ts");
+		}else{
+			//大于24小于18.5，正常
+			$(this).find('.canshu').html("正常");
+		}
+	})
+}
+
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+    var imei_type = $("#imei_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&is_all={:I("is_all",'')}&tj_type='+tj_type+'&imei_type='+imei_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

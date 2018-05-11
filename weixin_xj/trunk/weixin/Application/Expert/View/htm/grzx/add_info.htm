@@ -1,0 +1,105 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="../../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../../Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="../../../../../Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<!--分享页面样式调用-->
+<link type="text/css" rel="stylesheet" href="../../../../../Public/Expert/css/gerenzhongxin/gerenzhongxin.css" />
+<title>提交分享信息</title>
+</head>
+<body>
+<div id="J_QK_zixun" class="gp GJ_Gp gp-quankezixun-zixun" style=" height:100%; background:#fff; padding:0 10px;">
+        <form method="post" name="consult" action="/weixin/index.php?m=Expert&c=Share&a=add_ok&doc_id={$doc_id}" enctype='multipart/form-data' onSubmit="return sub()">
+                <div class="g-list shadow">
+                        <div class="sc_h">
+                                <input type="text" placeholder="请输入标题" />
+                        </div>
+                        <div class="content">
+                                <textarea placeholder="请输入内容" name="consultContent" id="v_content"></textarea>
+                        </div>
+                        <div class="item both uploader">
+                                <div class="g-image-upload-box">
+                                        <div class="J_UploadBtn upload-btn small" style="overflow: hidden;">
+                                                <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input">
+                                        </div>
+                                </div>
+                                <div class="desc J_Showmeonfile uploaded">
+                                        <p>上传图片资料</p>
+                                </div>
+                        </div>
+                </div>
+                <div class="g-btn-padding fixed" style="width:100%">
+                        <input type="hidden" value="1" class="J_HiddenConsultLimit">
+                        <input type="hidden" name="lat" id='lat' value="{$lat}" />
+                        <input type="hidden" name="lng" id='lng' value="{$lng}"/>
+                        <input type="submit" value="提交" class="ui-btn-purchase-blue" onClick="return sub()" style=" display:block;width:100%"/>
+                </div>
+                <!-- gbn gbt-pri-->
+        </form>
+</div>
+<script type="text/javascript" src="/weixin/Public/Expert/js/jquery.min.js"></script> 
+<script type="text/javascript" src="/weixin/Public/Expert/js/jquery.form.min.js"></script> 
+<script type="text/javascript" src="/weixin/Public/Expert/js/mobileFix.mini.js?v=8d13c59"></script> 
+<script type="text/javascript" src="/weixin/Public/Expert/js/exif.js?v=c65d9ea"></script> 
+<script type="text/javascript" src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a"></script> 
+<script type="text/javascript">
+function sub()
+{
+	var sendBox = $("#v_content").val();
+	var imgbase64 = $("#imgbase64").val();
+	var lat = $("#lat").val();
+	var lng = $("#lng").val();
+
+	if(lat == "0" || lng == "0")
+	{
+		alert("位置获取失败！");
+		return false;
+	}
+	if(sendBox == "")
+	{
+		alert("请输入内容！");
+		return false;
+	}
+	if(imgbase64 == "")
+	{
+		alert("请上传图片！");
+		return false;
+	}
+}
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+{
+	lrz(input_file.files[0],
+	{
+		width:500,
+		before: function()
+		{
+			document.querySelector(press_status).innerHTML = "压缩处理开始，请稍后...";
+		},
+		fail: function(err)
+		{
+			document.querySelector(press_status).innerHTML = err;
+		},
+		always: function()
+		{
+			document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+		},
+		done: function (results)
+		{
+			document.querySelector(imgbase64).innerHTML = results.base64;//返回base64字符串，放置到textarea区域
+			document.querySelector(pre_pic).src = results.base64;//展示预览图片
+		}
+	});
+}
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

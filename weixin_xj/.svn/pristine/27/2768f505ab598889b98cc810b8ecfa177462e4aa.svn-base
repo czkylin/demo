@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="Keywords" content="页面关键字" />
+    <meta name="description" content="页面描述" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/presale.css">
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+    <title>预售申请</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body> 
+    <nav>
+        <ol class="box">
+            <li><a href="{:U('Member/Presale/presale',array('homeid'=>$homeid))}" class="text-center">预售申请</a></li>
+            <li><a href="{:U('Home/Presale/detail',array('homeid'=>$homeid))}" class="text-center active">申请明细</a></li>
+        </ol>
+    </nav>
+    <article id="app" class="app">
+        <volist name="ys_list" id="ys">
+            <section>
+                <h2>{$ys['CREATE_DATE']}</h2>
+                <div class="content">
+                    <p>申请终端：<if condition="$ys['HOS_NAME']">{$ys['HOS_NAME']}<else />暂无</if></p>
+                    <p>申请物品：{$ys['APPLY_OBJECT2']}</p>
+                    <p>支付金额：{$ys['PAY_MONEY']}</p>
+                    <p>支付状态：<b class="warn"><if condition="$ys['IS_PLAY'] eq 1">已支付<else />未支付</if></b></p>
+                </div>
+                <if condition="$ys['IS_PLAY'] neq 1">
+                    <div class="buyList clear">
+                        <a href="{:U('Member/Presale/persale_pay',array('parameters'=>$ys['PARAMETERS'],'homeid'=>$homeid))}" class="text-center fr active">去支付</a>
+                        <!-- <a href="#" class="text-center fr">取消订单</a> -->
+                    </div>
+                </if>
+            </section>
+        </volist>
+        
+    </article>
+
+<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('#app');"></a></div>
+<div id="current_pagenum" style="display:none">2</div>
+<div id="emptyData"></div>
+    
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script> 
+<!--通底的引用结束-->
+<script>
+var onOff = true;
+window.onload = function()
+{
+    window.onscroll();
+}
+window.onscroll = function () 
+{
+    load_more('#app');
+}
+ function load_more(obj) 
+ {
+     if (!onOff) return;
+     if ($(obj).height() <= $(document).scrollTop() + $(window).height()) {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Home&c=Presale&a=detail_append','#app');
+     }
+}
+
+</script>
+</body>
+</html>

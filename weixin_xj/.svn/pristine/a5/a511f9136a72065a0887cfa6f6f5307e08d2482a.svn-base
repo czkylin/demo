@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="Keywords" content="远程视界集团" />
+    <meta name="description" content="远程视界集团" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/dingding.css">
+    <title>钉钉</title>
+    <script src="https://g.alicdn.com/dingding/open-develop/1.5.1/dingtalk.js"></script>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head> 
+<body> 
+    <article id="art">
+        <section class="swiper-container">
+            <div class="swiper-wrapper box">
+                <!-- <div class="swiper-slide"><a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=931"><img src="http://hmo.yc999120.com/images/dingding/banner0623.jpg" width="100%" /></a></div> --><!--钉钉微社区-->
+                <div class="swiper-slide"><a href="https://mp.weixin.qq.com/s?__biz=MzA5Mzg2MTgyNw==&mid=2650143221&idx=1&sn=db747d29fcaf9f38e076cfc5914cfc32&chksm=88563b59bf21b24fc07c0ad142b2a5926a0a84b64881d8b80b15b1334b5a03722107861c832b#rd"><img src="http://hmo.yc999120.com/images/dingding/banner0704.jpg" width="100%" /></a></div>
+                <div class="swiper-slide"><a href="https://mp.weixin.qq.com/s?__biz=MzA5Mzg2MTgyNw==&mid=2650143177&idx=1&sn=e590b373185ace3a050d43d6f9c71138&chksm=88563b65bf21b273e75b5bacd7255bbc437d333a3177fe9e3099e2f4aa6b9ed7aa6ab027e4b2#rd"><img src="http://hmo.yc999120.com/images/dingding/banner0630.jpg" width="100%" /></a></div><!--广告2-->
+                <div class="swiper-slide"><a href="https://mp.weixin.qq.com/s?__biz=MzA5Mzg2MTgyNw==&mid=2650143202&idx=1&sn=5a325250cb947c9928963a783ecad531&chksm=88563b4ebf21b2588100b89f835a6cf7ae1570c364f614510e67269db310c68d12440be75548#rd"><img src="http://hmo.yc999120.com/images/dingding/banner0629.jpg" width="100%" /></a></div><!--企业文化-->
+                <div class="swiper-slide"><a href="http://weixin-fk.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=daiyan"><img src="http://hmo.yc999120.com/images/dingding/banner2.jpg" width="100%" /></a></div><!--无忧卡-->
+                
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </section>
+        <nav class="nav">
+            <ul class="box">
+                <li><a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-4">
+                    <em></em>
+                    <span>待我审批</span>
+                </a></li>
+                <li><a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=2">
+                    <em></em>
+                    <span>未读日志</span>
+                </a></li>
+                <li><a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=158&app_icon=lALOD48D7czIzMg">
+                    <em></em>
+                    <span>考勤打卡</span>
+                </a></li>
+                <li><a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-8">
+                    <em></em>
+                    <span>签到</span>
+                </a></li>
+            </ul>
+        </nav>
+        <div class="hr"></div>
+        <section class="sec">
+            <h2><i></i><span>我的应用</span></h2>
+            <ol class="clear">
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-4">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>审批</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=2">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>日志</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=1461">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>会议室预订</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-9">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>电话会议</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-5">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>钉邮</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-2">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>公告</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=1603">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>智能报表</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=1288">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>视频会议</span>
+                    </a>
+                </li>
+            </ol>
+        </section>
+        <div class="hr"></div>
+        <section class="sec">
+            <h2><i></i><span>其他应用</span></h2>
+            <ol class="clear">
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=931">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>微社区</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-18">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>钉钉运动</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="http://www.hq88.com/">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>线上商学院</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="dingtalk://dingtalkclient/action/switchtab?index=2&name=work&scene=1&corpid=ding831074df0649902135c2f4657eb6378f&appid=-3">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>钉盘</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="http://corp.yk2020.com/">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>远程官网</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="http://weixin.yk2020.com/program/index.aspx">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icon18.png" alt="" class="long"></strong>
+                        <span>云平台</span>
+                    </a>
+                </li>
+                <li class="fl">
+                    <a href="javascript:;" id="all">
+                        <strong><img src="/weixin/Public/Member/images/dingding/icons.png" alt=""></strong>
+                        <span>全部</span>
+                    </a>
+                </li>
+                <li class="fl"><a href="javascript:;"></a></li>
+            </ol>
+        </section>
+        <div class="hr"></div>
+    </article>
+    <!--<div id="mask" class="mask">
+        <div class="dialog">
+            <div class="img">
+                <img src="/weixin/Public/Member/images/dingding/get.jpg" width="100%" />
+            </div>
+        </div>
+        <i></i>
+    </div>-->
+    <div style="height:0;overflow:hidden;">
+        <script src="https://s19.cnzz.com/z_stat.php?id=1261997979&web_id=1261997979" language="JavaScript"></script>
+    </div>      
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        //direction: 'vertical',
+        /*loop: true,*/
+        autoplay : 5000,
+        autoplayDisableOnInteraction : false,
+        // 如果需要分页器
+        pagination: '.swiper-pagination'
+   }); 
+    $('#all').click(function(){
+        dd.ready(function(){
+            dd.biz.util.openLink({
+                "url": "https://h5.dingtalk.com/appcenter/index.html?showmenu=false&dd_share=false&dd_progress=false&corpId=ding831074df0649902135c2f4657eb6378f" ,
+                "enableShare": true
+            });
+        })
+    });
+    
+    //弹窗
+    /*$('#get').click(function(){
+        $('#mask').show();
+    });
+    
+    $('#mask i').click(function(){
+        $('#mask').hide();
+    })*/
+</script>
+</html>

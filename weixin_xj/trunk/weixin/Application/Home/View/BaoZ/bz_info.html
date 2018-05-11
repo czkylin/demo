@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<link href="/weixin/Application/Home/View/css/docInfo.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/common/common.css" rel="stylesheet" type="text/css" />
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<style>
+    #dateshadow{
+        z-index: 100;
+    }
+    #datePage{
+        position: fixed;
+        top: 25%;
+        z-index: 105;
+    }
+    .info li{height:auto;}
+</style>
+<title>百倍爱心助手</title>
+</head>
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + 'px';
+</script>
+<body>
+<div id="datePlugin"></div>
+	<form action="{:U('Home/BaoZ/bz_add',array('user_id'=>$user_id))}" method="post" id="form" enctype="multipart/form-data">
+		<ul class="info">
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">推荐人:</span>
+				<input type="text" class="fl" name="tj_name" value="{$name}" id="tj_name" readOnly="true"> 
+			</li>
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">推荐人手机:</span>
+				<input type="text" class="fl" name="tj_mobile" value="{$phone}" id="tj_mobile" readOnly="true">
+			</li>
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">被保障人:</span>
+				<input type="text" class="fl" name="person_name" id="person_name" value="{$person_name}">
+			</li>
+			<li class="clear">
+				<i></i>
+				<span class="fl">身份证号:</span>
+				<input type="text" class="fl" name="card" id="card" maxlength="18" value="{$card}">
+			</li>
+			<li class="clear" style="display: none;">
+				<i>*</i>
+				<span class="fl">年龄:</span>
+				<input type="hidden" class="fl" name="person_age" id="person_age" value="" readOnly="true">
+			</li>
+			<li class="clear" style="display: none;">
+				<i>*</i>
+				<span class="fl">性别:</span>
+				<input type="hidden" class="fl" name="person_sex" id="person_sex" value="" readOnly="true">
+			</li>
+			<input type="hidden" class="fl" name="jzr_date" id="jzr_date" value="" readOnly="true">
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">联系方式:</span>
+				<input type="text" class="fl" id="link_mobile" name="link_mobile" maxlength="11" value="{$link_mobile}">
+			</li>
+            <li class="clear">
+                <i></i>
+                <span class="fl">卡号:</span>
+                <input type="text" class="fl" id="link_number" name="link_number" value="">
+            </li>			
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">申请日期:</span>
+				<input type="text" class="fl" name="today" value="{$today}" readOnly="true">
+			</li>
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">选择售卡产品:</span>
+				<select name="sale_type" id="sale_type">
+					<volist name="card_list" id="card"> 
+						<option value="{$card.SALE_TYPE}">{$card.SALE_NAME}</option>
+					</volist>
+				</select>
+			</li>
+			<li class="clear">
+				<i></i>
+				<span class="fl">选择售卡地点:</span>
+				<select name="hos_id" id="yd_list">
+					<option value="0">暂无选择</option>
+					<!-- <if condition="!$yd_list">
+						<option value="0">暂无售卡地点</option>
+					</if> -->
+					<volist name="yd_list" id="yd">
+						<option value="{$yd['HOS_ID']}">{$yd['HOS_NAME']}</option>
+					</volist>
+				</select>
+			</li>
+			<!--图片提醒-->
+			<li class="clear" style="padding: 0 0.8rem; color:red;">
+				备注：以下图片的选择，安卓手机务必选择 “文档” -> “图库或者相册” -> 选择要上传的图片
+			</li>
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">交易流水:</span>
+				<input type="file" accept="image/*" onchange="press_img(this)" id="liushui" class="fl yincang" name="photo[]">
+				<a><span class="sc"></span><strong>选择图片</strong></a>
+			</li>
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">申请表:</span>
+				<input type="file" accept="image/*" onchange="press_img(this)" id="sq1" class="fl yincang" name="photo[]">
+				<a><span class="sc"></span><strong>选择图片</strong></a>
+			</li>
+			<!-- <li class="clear">
+				<i>*</i>
+				<span class="fl">申请表2:</span>
+				<input type="file" accept="image/*" onchange="press_img(this)" id="sq2" class="fl yincang" name="">
+				<a><span class="sc"></span><strong>选择图片</strong></a>
+			</li> -->
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">身份证正面:</span>
+				<input type="file" accept="image/*" onchange="press_img(this)" id="shen1" class="fl yincang" name="photo[]">
+				<a><span class="sc"></span><strong>选择图片</strong></a>
+			</li>
+			<li class="clear">
+				<i>*</i>
+				<span class="fl">身份证反面:</span>
+				<input type="file" accept="image/*" onchange="press_img(this)" id="shen2" class="fl yincang" name="photo[]">
+				<a><span class="sc"></span><strong>选择图片</strong></a>
+			</li>
+		</ul>
+		<div style="text-align:center; font-size: 14px;margin:0 15px;line-height: 25px;color: #eb5376">会员信息提交后，请到“百倍爱心助手成果”查看会员审核状态</div>
+		<ul class="btn clear">
+			<li class="sub" style="text-align:center; margin:0;"><input type="button" value="提交" onclick="SendForm();" id="tijiao" style="width:10rem; display:inline-block; margin-top:15px;"></li>
+		</ul>
+	</form>
+	<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+    <script type="text/javascript" src="/weixin/Public/Common/js/date/date.js" ></script> 
+    <script type="text/javascript" src="/weixin/Public/Common/js/date/iscroll.js"></script>
+	<script type="text/javascript" src="/weixin/Public/Expert/js/mobileFix.mini.js?v=8d13c59"></script>
+	<script src="/weixin/Public/Expert/js/exif.js?v=c65d9ea" type="text/javascript"></script>
+	<script src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a" type="text/javascript"></script>
+
+	<script type="text/javascript">
+
+		function press_img(input_file)
+		{
+			var liushui = $(input_file).val();
+			liushui = liushui.slice(12);
+			console.log($(input_file).next().text(liushui));
+			
+		}
+
+		$("#card").blur(function(){
+			var card = $.trim($('#card').val());
+			if(card.length == 15)
+	        {
+	            var len15 = card.charAt(card.length - 1);
+	            if(isLen(len15))
+	            {
+	            	$("#person_sex").val("女");
+	            }
+	            else
+	            {
+	            	$("#person_sex").val("男");
+	            }
+
+	            var age15 = card.substr(6,2),
+                    m15 = card.substr(8,2),
+                    d15 = card.substr(10,2);
+
+	            var myDate = new Date();
+	            var nowyear = myDate.getYear(); //获取当前年份(2位)
+	            // console.log(nowyear);
+	            person_age = nowyear-age15;
+	            $("#jzr_date").val("19"+age15+"-"+m15+"-"+d15);
+	            // console.log(person_age);
+	            $("#person_age").val(person_age);
+	            
+	        }
+
+	        if(card.length == 18)
+	        {
+	            var len18 = card.charAt(card.length - 2);
+	            if(isLen(len18))
+	            {
+	            	$("#person_sex").val("女");
+	            }
+	            else
+	            {
+	            	$("#person_sex").val("男");
+	            }
+	            
+	            var age18 = card.substr(6,4),
+                    m18 = card.substr(10,2),
+                    d18 = card.substr(12,2);
+
+	            var myDate = new Date();
+	            var nowyear = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+	            // console.log(nowyear);
+	            $("#jzr_date").val(age18+"-"+m18+"-"+d18);
+	            person_age = nowyear-age18;
+	            // console.log(person_age);
+	            $("#person_age").val(person_age);
+	        }
+
+
+		});
+
+		function SendForm() 
+     	{
+         	if(CheckPost()) 
+         	{
+                $("body").append('<div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;"><div id="loading" class="loading"><i></i><i></i><i></i></div></div>')
+         		$("#tijiao").attr('onclick','');
+         		$("#form").submit();
+         	}
+     	}
+
+
+	    function CheckPost()
+	    {	
+	    	var tj_name = $.trim($('#tj_name').val());
+	    	var yd_list = $.trim($('#yd_list').val());
+	    	var liushui = $.trim($('#liushui').val());
+	    	var sq1 = $.trim($('#sq1').val());
+	    	// var sq2 = $.trim($('#sq2').val());
+	    	var shen1 = $.trim($('#shen1').val());
+	    	var shen2 = $.trim($('#shen2').val());
+            var person_name = $.trim($('#person_name').val());
+            var link_mobile = $.trim($('#link_mobile').val());
+            var link_number = $.trim($('#link_number').val());
+            var card = $.trim($('#card').val());
+            
+            
+            if(tj_name == '')
+            {
+                alert('请先找本公司人事开通云平台账户！');
+                $("#tj_name").focus();
+                return false;
+            }
+
+            if(person_name == '')
+            {
+                alert('被保障人不能为空！');
+                $("#person_name").focus();
+                return false;
+            }
+
+            //判断七位数字
+            if( link_number !== '' ){
+            	var re = /^[0-9,]*$/;
+
+            	if( !re.test(link_number) ){
+            		alert('卡号只能是数字！');
+            		return false;
+            	}
+            }
+            
+
+            // if(card == '')
+            // {
+            //     alert('身份证不能为空！');
+            //     $("#card").focus();
+            //     return false;
+            // }
+
+         //    if(!isNumber(card))
+	        // {
+	        //     alert("身份证格式有误！");
+	        //     $("#card").focus();
+	        //     return false;
+	        // }
+
+	        if(link_mobile == '')
+            {
+                alert('联系方式不能为空！');
+                $("#link_mobile").focus();
+                return false;
+            }
+
+
+            if (!isPhone(link_mobile))
+            {
+                alert("联系方式格式有误！" );
+                $("#link_mobile").focus();
+                return false;
+            }
+
+            if(liushui == '')
+            {
+                alert('交易流水不能为空！');
+                $("#liushui").focus();
+                return false;
+            }
+            if(sq1 == '')
+            {
+                alert('申请表不能为空！');
+                $("#sq1").focus();
+                return false;
+            }
+            // if(sq2 == '')
+            // {
+            //     alert('申请表2不能为空！');
+            //     $("#sq2").focus();
+            //     return false;
+            // }
+            if(shen1 == '')
+            {
+                alert('身份证正面不能为空！');
+                $("#shen1").focus();
+                return false;
+            }
+            if(shen2 == '')
+            {
+                alert('身份证反面不能为空！');
+                $("#shen2").focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        function isPhone (ssn) //检查手机是否匹配正则表达式
+        {
+            var re=/^(0|86|17951)?(13[0-9]|15[012356789]|17[3678]|18[0-9]|14[57])[0-9]{8}$/i;
+            if(re.test(ssn))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+         //检验身份证
+	    function isNumber(str)
+	    {
+	        var reg15=/^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$/;
+	        var reg18=/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X|x)$/;
+	        if(reg15.test(str)||reg18.test(str))
+	        {
+	            return true;
+	        }
+	        else
+	        {
+	            return false;
+	        }
+	    }
+
+	    //检验偶数
+	    function isLen(str)
+	    {
+	        var reg=/^\d*[02468]$/;
+	        if(reg.test(str))
+	        {
+	            return true;
+	        }
+	        else
+	        {
+	            return false;
+	        }
+	    }
+	    
+	</script>
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body> 
+</html>

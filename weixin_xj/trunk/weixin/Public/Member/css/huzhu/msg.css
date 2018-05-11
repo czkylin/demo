@@ -1,0 +1,101 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body,html{
+	height: 100%;
+}
+li{
+	list-style: none;
+}
+input{
+	-webkit-appearance: none;
+}
+a{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.msg{
+	height: 100%;
+	background:url(/weixin/Public/Member/images/huzhu/msg/bg.jpg);
+	background-size: 100% 100%; 
+	position: relative;
+}
+.back{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 1.2rem;
+	height: 1.2rem;
+	background: url(/weixin/Public/Member/images/huzhu/msg/back.png);
+	background-size:1.2rem 1.2rem; 
+}
+.msg-wrap{
+	padding-top: 2.48rem;
+}
+.leavemsg{
+	width: 9.9rem;
+	height: 12.7rem;
+	background: url(/weixin/Public/Member/images/huzhu/msg/bg2.png);
+	background-size: 14rem 15.4rem;
+	margin: 0 auto;
+	padding:2.7rem 2.1rem 0 2rem;
+}
+.leavemsg h2{
+	text-align: center; 
+	font-size: .8rem;
+	color: #d90907;
+}
+.leavemsg li{
+	height: 1.36rem;
+	line-height: 1.36rem;
+	border-bottom:1px solid #e0818d;
+}
+.leavemsg li span{
+	float: left;
+	font-size: 0.5rem;
+	color: #db6e7b;
+	font-weight: 600;
+}
+.leavemsg li input{
+	float: left;
+	background: none;
+	outline: none;
+	border: none;
+	font-size: 0.5rem;
+	color: #333;
+	line-height: 1.36rem;
+	max-width: 6rem;
+	font-weight: 600;
+}
+.msg .tx{
+	border-bottom:1px solid #e0818d;
+	margin-bottom: 5px;
+}
+.msg .tx span{
+	display: block;
+	height: 1.36rem;
+	line-height: 1.36rem; 
+	font-size: 0.5rem;
+	color: #db6e7b;
+	font-weight: 600;
+}
+.msg .tx textarea{
+	height: 2.4rem;
+	width: 100%;
+	resize:none;
+	outline: none;
+	font-size: 0.5rem;
+}
+.msg .sub{
+	display: block;
+	background: #db6e7b;
+	height: 1.4rem;
+	width: 4.8rem;
+	text-align: center;
+	line-height: 1.4rem;
+	font-size: 0.7rem;
+	color: #fff;
+	border: none;
+	margin: 0 auto;
+	border-radius: 4px;
+}

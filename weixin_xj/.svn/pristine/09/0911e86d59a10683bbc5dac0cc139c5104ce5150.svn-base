@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/my_card.css">
+<title>二维码名片</title>
+</head>
+<body>
+	<div class="touxiang">
+		<div class="touxiang-wrap">
+			<img src="/weixin/Public/Expert/images/user/touxiang.jpg" alt="" class="img">
+			<div class="mes clear">
+				<ul class="fl">
+					<li><h2>李阳</h2></li>
+					<li>主任医师</li>
+					<li>急诊内科</li>
+					<li>大兴区人民医院</li>
+				</ul>
+				<img src="/weixin/Public/Expert/images/user/erweima.jpg" alt="" class="fr">
+			</div>
+		</div>
+		<p>扫描二维码，关注我的微站，向我报到、问诊预约挂号，我也会定期进行患者随访</p>
+	</div>
+</body>
+</html>

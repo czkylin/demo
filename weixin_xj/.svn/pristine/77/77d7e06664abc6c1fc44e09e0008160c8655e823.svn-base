@@ -1,0 +1,46 @@
+/*common css*/
+body{font-family: "微软雅黑","黑体";}
+*{padding: 0; margin: 0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{text-decoration: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+i{font-style: normal;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{display: block; content: ""; clear: both;}
+/*main*/
+.xuanxiang{width: 100%; border-bottom: 1px solid #e7e7e7;}
+.xuanxiang li{float: left; width: 46%; padding: 0 2%; position: relative;}
+.xuanxiang li a{display: block; padding: 10px 0;}
+.xuanxiang li i{position: absolute; width: 1px; height: 20px; top: 10px; right: 0; background: #e7e7e7;}
+.xuanxiang li span{display: block; height: 20px; text-align: center; font-size: 15px; color: #999999;}
+.xuanxiang li.active a{border-bottom: 2px solid #4891ef;}
+.xuanxiang li.active span{color: #4891ef}
+.newpeopel{padding: 10px 3.2%; border-bottom: 15px solid #f3f3f3;}
+.newpeopel span{font-size: 14px; color: #333; display: block; height: 24px; line-height: 24px; background: url(/weixin/Public/Expert/images/member/ren.png) no-repeat left center; background-size: 18px; padding-left: 28px;}
+.newpeopel a{color: #333;}
+.list{}
+.list > li{}
+.list > li h3{padding: 0 3.2%; background: #f5fafd; height: 30px; line-height: 30px; font-size: 14px; color: #333;}
+.list .mes{}
+.mes li{padding: 8px 3.2%; border-bottom: 1px solid #e7e7e7; position: relative;}
+.mes li .yaoqing{position: absolute; z-index: 15; top: 15px; right: 24px; color: #4891ef; height: 24px; line-height: 24px; width: 15%; text-align: center; font-size: 12px; border: 1px solid #4891ef; border-radius: 3px;}
+.mes li a{display: block; height: 40px; font-size: 12px; color: #333; position: relative; z-index: 10; padding-left: 30px; background: url(/weixin/Public/Expert/images/consult/icon_select.png) no-repeat 4px center; background-size: 15px;}
+.mes li a.active{background-image: url(/weixin/Public/Expert/images/consult/icon_select1.png);}
+.mes li a img{float: left; width: 40px; height: 40px; border-radius: 40px; }
+.mes li a span{ float: left; height: 40px; line-height: 40px; margin-left: 4%;}
+.mes li a i{float: left;height: 40px; line-height: 40px; margin-left: 4%; color: #999;}
+.mes li:last-of-type{border-bottom: none;}
+.myinfo{padding: 0 3.2%;}
+.myinfo .touxiang{width: 40px; height: 40px; border: 1px solid #e7e7e7; border-radius: 40px;}
+.myinfo .touxiang img{width: 40px; height: 40px; border-radius: 40px;}
+.myinfo-wrap{padding: 10px 0; border-bottom: 1px solid #e7e7e7;}
+.myinfo .detail{ margin-left: 5%;}
+.myinfo .detail h3{font-size: 15px; color: #333;}
+.myinfo .detail p{font-size: 13px; color: #999;}
+.numberlist{position: fixed; right: 5px; top: 70px;}
+.numberlist li{height: 15px; line-height: 15px; width: 20px; font-size: 12px; color: #333; text-align: center;}
+.numberlist li a{display: block; color: #333;}
+@media screen and (max-width: 320px){
+	.numberlist li{height: 13px; line-height: 13px;}
+}

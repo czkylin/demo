@@ -1,0 +1,12 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+use Think\Log;
+class ContactController extends Controller
+{
+	public function guide()
+	{
+		$this->display();
+	}
+
+}

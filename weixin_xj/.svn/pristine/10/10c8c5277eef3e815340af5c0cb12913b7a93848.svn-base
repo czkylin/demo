@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/member/member_list.css">
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+</script>
+<title>我的患者</title>
+</head>
+<body>
+	<ul class="xuanxiang clear">
+		<li>
+			<a href="{:U('Expert/Member/member_list')}"><span>我添加的</span></a>
+			<i></i>
+		</li>
+		<li class="active">
+			<a href="{:U('Expert/Member/member_leavehosptial')}"><span>已出院的</span></a>
+			<i></i>
+		</li>
+		<li>
+			<a href="{:U('Expert/Member/cousult_me_list')}"><span>咨询我的</span></a>
+			<i></i>
+		</li>
+		<li>
+			<a href="{:U('Expert/Member/member_viplist')}"><span>VIP患者</span></a>
+		</li>
+	</ul>
+	<!--普通患者-->
+	<div class="putong">
+		<!-- <a href="{:U('Expert/User/doc_yard')}">
+			<div class="myinfo">
+				<div class="myinfo-wrap clear">	
+					<div class="touxiang fl">
+						<if condition="($expert_info['EXPERT_SEX'] eq '未填写') && ($expert_info['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')">
+				                <img src="/weixin/Public/Expert/images/yonghu/girl.png" alt="">
+			            <elseif condition="($expert_info['EXPERT_SEX'] eq '男') && ($expert_info['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+			                <img src="/weixin/Public/Expert/images/yonghu/boy.png" alt="">
+			            <elseif condition="($expert_info['EXPERT_SEX'] eq '女') && ($expert_info['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+			                <img src="/weixin/Public/Expert/images/yonghu/girl.png" alt="">
+			            <elseif condition="empty($expert_info)" />
+			                <img src="/weixin/Public/Expert/images/yonghu/girl.png" alt="">
+			            <else />
+			                <img src="{$expert_info['SMALL_PIC']}" alt="">
+			            </if>
+					</div>
+					<div class="detail fl">
+						<h3>{$expert_info['EXPERT_NAME']}</h3>
+						<p><span>{$expert_info['HOS_NAME']}</span> {$expert_info['DEP_NAME']}</p>
+					</div>
+				</div>
+			</div>
+		</a>
+		<div class="newpeopel">
+			<span><a href="{:U('Expert/member/member_add')}">添加新患者</a></span>
+		</div> -->
+
+		<if condition="empty($member_list[0])">
+            <div style=" text-align: center; margin-top:20px">
+                <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+                <i style=" line-height: 30px;font-size: 16px;">暂无数据</i>
+            </div>
+        <else />
+
+			<ul class="list">
+				<volist name="str_list" id="str">
+					<li id='{$str}'>
+						<h3>{$str}</h3>
+							<ul class="mes" id="mes-list">
+								<volist name="member_list" id="member">
+									
+									<if condition="$member['STR'] eq $str">
+
+										<li>
+											<a href="{:U('Expert/Member/member_detail',array('jsondate'=>$member['jsondate']))}">
+												<if condition="!$member['MEMBER_PIC']">
+													<img src="/weixin/Application/Member/View/images/member.png" alt=""/>
+												<else />
+													<img src="{$member['MEMBER_PIC']}" alt=""/>
+												</if>
+												<span><if condition="$member['MEMBER_NAME'] eq $member['MEMBER_MOBILE']">{$member['MEMBER_NAME']|substr=0,4}****{$member['MEMBER_NAME']|substr=-4}
+												<elseif condition="$member['MEMBER_NAME']"/>
+													{$member['MEMBER_NAME']}
+												<else />
+													{$member['MEMBER_MOBILE']}
+												</if></span>
+												<i>{$member['MEMBER_SEX']}</i>
+												<if condition="!$member['MEMBER_AGE']">
+													<i>未填写</i>
+												<else />
+													<i>{$member['MEMBER_AGE']}岁</i>
+												</if>												
+											</a>
+											<div class="yaoqing">管理</div>
+											<input type="hidden" id="jsondate" value="{$member['jsondate']}">
+											<if condition="$member['JS_FLAG'] eq 0">
+												<!-- <div class="yaoqing">邀请</div>
+												<input type="hidden" id="member_id" value="{$member['MEMBER_ID']}"> -->
+											</if>								
+										</li>
+									</if>
+								</volist>
+							</ul>
+							<!-- <div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more('#mes-list');">加载更多</a></div>
+							<div id="emptyData"></div>
+							<div id="current_pagenum" style="display:none">2</div> -->
+					</li>
+				</volist>
+			</ul>
+			<ul class="numberlist">
+				<li><a href="#1">#</a></li>
+				<li><a href="#A">A</a></li>
+				<li><a href="#B">B</a></li>
+				<li><a href="#C">C</a></li>
+				<li><a href="#D">D</a></li>
+				<li><a href="#E">E</a></li>
+				<li><a href="#F">F</a></li>
+				<li><a href="#G">G</a></li>
+				<li><a href="#H">H</a></li>
+				<li><a href="#I">I</a></li>
+				<li><a href="#J">J</a></li>
+				<li><a href="#K">K</a></li>
+				<li><a href="#L">L</a></li>
+				<li><a href="#M">M</a></li>
+				<li><a href="#N">N</a></li>
+				<li><a href="#O">O</a></li>
+				<li><a href="#P">P</a></li>
+				<li><a href="#Q">Q</a></li>
+				<li><a href="#R">R</a></li>
+				<li><a href="#S">S</a></li>
+				<li><a href="#T">T</a></li>
+				<li><a href="#U">U</a></li>
+				<li><a href="#V">V</a></li>
+				<li><a href="#W">W</a></li>
+				<li><a href="#S">S</a></li>
+				<li><a href="#X">X</a></li>
+				<li><a href="#Y">Y</a></li>
+				<li><a href="#Z">Z</a></li>
+			</ul>
+		</if>
+	</div>
+
+	
+	
+	<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script>
+	<script>
+		$(".xuanxiang li").each(function(index){
+			$(this).on("touchend",function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				if( index == 0 ){
+					$(".putong").show();
+					$(".vip").hide();
+				}else{
+					$(".putong").hide();
+					$(".vip").show();
+				}
+			})
+		})
+
+
+		$(".mes li .yaoqing").each(function(index){
+			$(this).on("touchend",function(){
+				var jsondate = $(this).siblings('#jsondate').val();
+				window.location.href = "{:U('Expert/Member/huanzhe_info')}&jsondate="+jsondate;
+				return false;
+				
+			})
+		})
+
+		// $(".mes li .yaoqing").each(function(index){
+		// 	$(this).on("touchend",function(){
+		// 		var member_id = $(this).siblings('#member_id').val();
+		// 		var expert_id = "{$expert_info.EXPERT_ID}";
+		// 		$.ajax({
+	 //                type: "POST",
+	 //                url: "{:U('Member/send_yq')}",
+	 //                async: true,
+	 //                data: {'member_id':member_id,'expert_id':expert_id},
+	 //                success: function(msg)
+	 //                {
+	 //                    console.log(msg);
+	 //                    if(msg == "00033"){
+	 //                        alert("被邀请的手机号不能为空");
+	 //                    }else if(msg == "00034"){
+	 //                        alert("不是你的患者");
+	 //                    }else if(msg == "00032"){
+	 //                        alert("您已经向该患者发送过邀请");
+	 //                    }else if(msg == "00010"){
+	 //                        alert("未绑定手机号！");
+	 //                    }else if(msg == "00006"){
+	 //                        alert("参数传递不正确");
+	 //                    }else if(msg == "ok"){
+	 //                        alert("邀请成功");
+	 //                    }else{
+	 //                        alert("系统错误"+msg);
+	 //                    }
+	 //                }
+	 //            });
+		// 	})
+		// })
+
+		$(".mes li").on('touchstart',function(){
+			$(this).css("background-color",'#f3f3f3');
+		});
+		$(".mes li").on('touchend',function(){
+			$(this).css("background-color",'#fff');
+		});
+
+
+		// var onOff = true;
+
+		// window.onload = function(){
+		//     window.onscroll();
+		// }
+		// window.onscroll = function(){
+		//     load_more('#mes-list');
+		// }
+		// function load_more(obj)
+		// {	
+		// 	if(!onOff) return;
+		//     if($(obj).height() <= $(document).scrollTop() + $(window).height()){
+		//         onOff = !onOff;
+		// 	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Member&a=member_list_append','#mes-list',function(){
+		//                     $('.empty_data').css({'top':0,'z-index':-1});
+		//                 });
+		// 	}
+		// }
+
+	</script>	
+</body>
+</html>

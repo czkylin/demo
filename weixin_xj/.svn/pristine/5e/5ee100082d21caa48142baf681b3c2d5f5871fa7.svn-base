@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>医生集团</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/medical/medical.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <header class="head">
+        <ul class="box">
+            <li class="active"><a href="#">医生集团</a></li>
+            <li><a href="#">我的医生集团</a></li>
+        </ul>
+    </header>
+    <article>
+        <section class="unit">
+            <div class="team box">
+                <div class="left">
+                    <h2>张浩专家团队</h2>
+                    <p>擅长：心功能不全、心绞痛、高血压、血脂异常、冠心病</p>
+                </div>
+                <div class="right text-right"><i class="ui-icon-arrow"></i></div>
+            </div>
+            <a href="#"></a>
+        </section>
+        <section class="unit">
+            <div class="team box">
+                <div class="left">
+                    <h2>张浩专家团队</h2>
+                    <p>擅长：心功能不全、心绞痛、高血压、血脂异常、冠心病</p>
+                </div>
+                <div class="right text-right"><i class="ui-icon-arrow"></i></div>
+            </div>
+            <a href="#"></a>
+        </section>
+        <section class="unit">
+            <div class="team box">
+                <div class="left">
+                    <h2>张浩专家团队</h2>
+                    <p>擅长：心功能不全、心绞痛、高血压、血脂异常、冠心病</p>
+                </div>
+                <div class="right text-right"><i class="ui-icon-arrow"></i></div>
+            </div>
+            <a href="#"></a>
+        </section>
+    </article>
+</body>
+</html>

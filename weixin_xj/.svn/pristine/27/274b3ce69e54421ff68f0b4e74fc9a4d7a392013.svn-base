@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Home/css/return/assistant.css">
+<title>经营回款助手详情</title>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+</script>
+</head>
+<body>
+	<section class="assistant" style="margin-bottom: 1.2rem;">
+		<ul class="list">
+			<li class="hos_select">
+				<span>医院：</span>
+				<div>
+					<input type="text" placeholder="某某医院" id="text" class="color333">
+					<ol class="pos_list">
+						<!-- <li>11111</li>
+						<li>22222</li>
+						<li>33333</li>
+						<li>44444</li> -->
+					</ol>
+				</div>
+				<i></i>
+			</li>
+			<li class="return">
+				<span>手术回款额：</span>
+				<input type="text" value="10000">
+				<i>元</i>
+			</li>
+			<li class="return">
+				<span>耗材回款额：</span>
+				<input type="text" value="900000">
+				<i>元</i>
+			</li>
+			<li class="time">
+				<span>申请时间：</span>
+				<div></div>
+			</li>
+		</ul>
+	</section>
+	<section class="submitAgain">
+		<a href="javascript:;">重新提交</a>
+	</section>
+	<script src="/weixin/Public/Home/js/jquery.min.js"></script>
+	<script>
+		//自动填写申请时间
+		(function(){
+			var iTime = new Date();
+			var iYear = iTime.getFullYear();
+			var iMon = iTime.getMonth() + 1;
+			var iDate = iTime.getDate();
+			$('.time > div').html(iYear + "-" + iMon + "-" + iDate);
+		})();
+
+		(function(){
+			$('#text').on('input',function(){
+				var val = $('#text').val();
+				console.log(val);
+				$.ajax({
+					type:'GET',
+					url:'xxx.php',
+					data: val,
+					success:function(data){
+
+					},
+					error:function(err){
+
+					}
+				})
+			})
+		})();
+	</script>	
+</body>
+</html>

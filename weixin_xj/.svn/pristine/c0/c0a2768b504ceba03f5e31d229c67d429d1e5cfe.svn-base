@@ -1,0 +1,49 @@
+<volist name="consult_list" id="consult" empty="$empty">
+	<div class="zxcon">
+		<a href="/weixin/index.php?m=Expert&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID']}">
+			<div class="zxcon-top">
+			<if condition="$consult['RE_STATUS'] eq '待回复'">
+			<i></i>
+			<else/>
+			</if>
+			<p>{$consult['MEMBER_NAME']}</p><p>{$consult['MEMBER_SEX']}</p><p><if condition="$consult['MEMBER_AGE'] eq ''"><else />{$consult['MEMBER_AGE']}岁</if></p><span>{$consult['FREE_FLAG']}</span></div>
+			<div class="zxcon-bot">
+				<p>{$consult['CONSULT_CONTENT']}</p>
+				<div class="shijian">
+                <p class="left">
+
+                 <?php
+                    $now_time =  time();
+                     $consult['CONSULT_DATE'] = $now_time-strtotime($consult['CONSULT_DATE']);
+                ?>
+
+                <if condition="($consult['CONSULT_DATE'] lt 60 )"> 
+                <php>echo $consult['CONSULT_DATE'];</php>秒前
+                </if>
+                <if condition="($consult['CONSULT_DATE'] gt 60 ) && ($consult['CONSULT_DATE'] lt 3600 )"> 
+                <php>echo ceil($consult['CONSULT_DATE']/60);</php>分钟前
+                </if>
+                <if condition="($consult['CONSULT_DATE'] gt 3600 ) && ($consult['CONSULT_DATE'] lt 86400 )">
+                    <php>echo ceil($consult['CONSULT_DATE']/60/60);</php>小时前
+                </if>
+                <if condition="$consult['CONSULT_DATE'] gt 86400 ">
+                    <php>echo ceil($consult['CONSULT_DATE']/60/60/24);</php>天前
+                </if>
+
+                <!-- <p class="right">{$consult['PROVINCE_NAME']}</p> --></div>
+			</div>
+            
+            <div class="daihuifu yihuifu"> 
+            	<if condition="$consult['RE_STATUS'] eq '已回复'">
+            		<a href="/weixin/index.php?m=Expert&c=Consult&a=consult_details&consult_id={$consult['consult']}">{$consult['RE_STATUS']}</a>
+                 </if>
+             </div>
+			 <div class="daihuifu"> 
+            	<if condition="$consult['RE_STATUS'] eq '待回复'">
+            		<a href="/weixin/index.php?m=Expert&c=Consult&a=consult_details&consult_id={$consult['consult']}">{$consult['RE_STATUS']}</a>
+                 </if>
+             </div>
+            <!--<div class="yiihuifu"> <a href="/weixin/index.php?m=Expert&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID']}">{$consult['RE_STATUS']}</a></div>-->
+		</a>
+	</div>∮
+</volist>

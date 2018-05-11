@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link href="label.css" type="text/css" rel="stylesheet"/>
+<title>库文件 label样式预览  写于20151119</title>
+<style>
+.ui-label-s { font-size: 14px; line-height: 13px; display: inline-block; position: relative; padding: 5px; color: #333; border: none; background: #eeeeee; border-radius: 3px; text-align:center;}
+</style>
+</head>
+<body ontouchstart>
+<section class="ui-container">
+        <section id="border">
+                <div class="demo-item">
+                        <p class="demo-desc">标签</p>
+                        <div class="demo-block">
+                                <div class="ui-label-list">
+                                        <label class="ui-label-s">金庸</label>
+                                        <label class="ui-label-s">功夫</label>
+                                        <label class="ui-label-s">悬疑</label>
+                                        <label class="ui-label-s">盗墓笔记</label>
+                                        <label class="ui-label-s">欢乐谷</label>
+                                </div>
+                        </div>
+                </div>
+        </section>
+</section>
+</body>
+</html>

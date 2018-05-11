@@ -1,0 +1,100 @@
+body{background: #fff;}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+.list{ 
+	padding: 0 24px;
+}
+.list li{
+	margin-bottom: 15px;
+} 
+.list li h3{
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #000;
+} 
+.list .list-des{
+	padding: 0 8px;
+	height: 32px;
+	line-height: 32px;
+	background: #ebebeb;
+} 
+.list .list-des p{
+	font-size: 14px;
+	color: #333;
+	float: left;
+	margin: 0 5px;
+}
+.list .list-main{
+	padding: 12px;
+	background: #ebebeb;
+	border: 1px solid #f9f9f9;
+} 
+.list .main-con{
+	float: left;
+}  
+.list .main-con p{
+	line-height: 40px;
+	height: 40px;
+	font-size: 14px;
+	color: #000;
+}  
+.list .main-img{
+	float: right;
+}  
+.list .main-img img{
+	width: 80px;
+	height: 80px;
+}  
+.imgshow{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.7);
+	display: none;
+}
+.imgshow span{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	color: #fff;
+	width: 35px;
+	height: 35px;
+	background: url(/weixin/Public/Expert/images/cf/icon_guanbi.jpg) no-repeat;
+	background-size: 35px;
+}
+.imgshow img{
+	width: 80%;
+	display: block;
+	margin: 15% auto 0;
+}
+@media screen and (max-width:360px){
+	.list .list-des{
+		padding: 0 5px;
+	}
+	.list .list-des p{ 
+		font-size: 13px;
+		margin:0 4px;
+	}
+}
+@media screen and (max-width:320px){
+	.list .list-des{
+		padding: 0 4px;
+	}
+	.list .list-des p{ 
+		font-size: 12px;
+		margin:0 3px;
+	}
+}
+.ui-jiazai{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.ui-jiazai a{
+	color: #999;
+}

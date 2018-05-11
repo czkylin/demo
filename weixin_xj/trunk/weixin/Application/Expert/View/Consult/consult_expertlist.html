@@ -1,0 +1,193 @@
+<html class="ui-mobile">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png">
+    <!--CSS库文件-->
+    <link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet" />
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+    <!--CSS当前页面文件-->
+    <link href="/weixin/Public/Expert/css/consult/portal.min.css" type="text/css" rel="stylesheet" />
+    <link href="/weixin/Public/Expert/css/consult/hos_list.min.css" type="text/css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="/weixin/Public/Member/css/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/yd.css">-->
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+    <!-- title -->
+    <title>医生列表</title>
+    <!--meta-->
+</head>
+<body>
+    <div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+        <div class="experts" style="position:relative;">
+            <div class="ui-search">
+                <div class="ui-searchtxt">
+                    <input type="text" name="expert_name" id="expert_name" value="" placeholder="请输入专家名称"> 
+                </div>
+                <input type="button" class="ui-btn-search" onClick="javascript:;" readonly="readonly" unselectable="on" value="搜索" style="background:#4891ef;"> 
+            </div>
+            <div data-role="content" class="ui-content" role="main">
+                <div id="js-list" class="list">
+                    <ul id="doc-list">
+                        <li>
+                            <a class="yylist_a" style=" margin-bottom:6px;" href="javascript:;"> 
+                                <span class="img">
+                                    <img src="1" style="height:60px; width:60px;" class="g-left expert-img"/>
+                                    <?php    
+
+										$my=intval($doc['MY_NUM']); 
+										$hy=intval($doc['HY_NUM']);  
+										$cp=intval($doc['CP_NUM']); 
+										$sum = ($my*8+$hy*10+$cp*4)*60/(($my+$hy+$cp)*10);
+										$sum1 = round($sum,0);
+                                        if($sum1 == 0)
+                                        {
+                                            $sum1 = 50;
+                                        } 
+                                        echo "<i><b style='width:".$sum1."px;'>
+                                        <img src='/weixin/Public/Member/images/icon/start.png' /></b></i>";
+									?>												                                   
+                                </span> 
+                                <span class="meta">
+                                    <div class="name_dj"> 
+                                        <strong class="mingcheng"><em class="zc">EXPERT_NAME</em><em class="zc">EXPERT_RANK</em><em class="count">浏览量：{$doc['POINT_NUM']+97}</em></strong> 
+                                        <strong class="mingcheng"><em class="zc">HOS_NAME</em><em class="zc">DEP_NAME</em></strong> 
+                                    </div>
+                                    <p class="desc">擅长：吹逼</p>
+                                </span> 
+                            </a>
+                        </li>
+                        <li>
+                            <a class="yylist_a" style=" margin-bottom:6px;" href="javascript:;"> 
+                                <span class="img">
+                                    <img src="2" style="height:60px; width:60px;" class="g-left expert-img"/>
+                                    <?php    
+
+                                        $my=intval($doc['MY_NUM']); 
+                                        $hy=intval($doc['HY_NUM']);  
+                                        $cp=intval($doc['CP_NUM']); 
+                                        $sum = ($my*8+$hy*10+$cp*4)*60/(($my+$hy+$cp)*10);
+                                        $sum1 = round($sum,0);
+                                        if($sum1 == 0)
+                                        {
+                                            $sum1 = 50;
+                                        } 
+                                        echo "<i><b style='width:".$sum1."px;'>
+                                        <img src='/weixin/Public/Member/images/icon/start.png' /></b></i>";
+                                    ?>                                                                                 
+                                </span> 
+                                <span class="meta">
+                                    <div class="name_dj"> 
+                                        <strong class="mingcheng"><em class="zc">EXPERT_NAME</em><em class="zc">EXPERT_RANK</em><em class="count">浏览量：{$doc['POINT_NUM']+97}</em></strong> 
+                                        <strong class="mingcheng"><em class="zc">HOS_NAME</em><em class="zc">DEP_NAME</em></strong> 
+                                    </div>
+                                    <p class="desc">擅长：吹逼</p>
+                                </span> 
+                            </a>
+                        </li>
+                        <li>
+                            <a class="yylist_a" style=" margin-bottom:6px;" href="javascript:;"> 
+                                <span class="img">
+                                    <img src="3" style="height:60px; width:60px;" class="g-left expert-img"/>
+                                    <?php    
+
+                                        $my=intval($doc['MY_NUM']); 
+                                        $hy=intval($doc['HY_NUM']);  
+                                        $cp=intval($doc['CP_NUM']); 
+                                        $sum = ($my*8+$hy*10+$cp*4)*60/(($my+$hy+$cp)*10);
+                                        $sum1 = round($sum,0);
+                                        if($sum1 == 0)
+                                        {
+                                            $sum1 = 50;
+                                        } 
+                                        echo "<i><b style='width:".$sum1."px;'>
+                                        <img src='/weixin/Public/Member/images/icon/start.png' /></b></i>";
+                                    ?>                                                                                 
+                                </span> 
+                                <span class="meta">
+                                    <div class="name_dj"> 
+                                        <strong class="mingcheng"><em class="zc">EXPERT_NAME</em><em class="zc">EXPERT_RANK</em><em class="count">浏览量：{$doc['POINT_NUM']+97}</em></strong> 
+                                        <strong class="mingcheng"><em class="zc">HOS_NAME</em><em class="zc">DEP_NAME</em></strong> 
+                                    </div>
+                                    <p class="desc">擅长：吹逼</p>
+                                </span> 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="comfirm">
+            <div class="mes" id="img-wrap"> 
+            </div>
+            <a href="javascript:;" id="go">确认</a>
+        </div>
+    </div>
+    <!--通底的引用开始-->
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+    <script>
+        var srcArr = [];
+        var oImg = document.getElementById('img-wrap');
+        $("#doc-list li").each(function(){
+            $(this).find('a').attr('abc','unselected');
+            $(this).find('a').on('touchend',function(){
+                if( $(this).attr('abc') == 'unselected' ){
+                    $(this).addClass('active');
+                    $(this).attr('abc','selected');
+                    //把选中的添加到数组
+                    srcArr.push({'src': $(this).find('.expert-img').attr('src')});
+                }else{
+                    $(this).removeClass('active');
+                    $(this).attr('abc','unselected');
+                    var _this = $(this);
+                    //console.log(_this.find('.expert-img').attr('src'));
+                    //从数组中删除相应元素
+                    var src = _this.find('.expert-img').attr('src');
+                    for( var i=0,flag=true,len=srcArr.length;i<len;flag ? i++ : i ){
+                        if( srcArr[i]&&srcArr[i].src==src ){
+                            srcArr.splice(i,1);
+                            flag = false;
+                        }else{
+                            flag = true;
+                        }
+                    }
+                }
+            });
+        });
+        
+        //监听事件，触发确认选项
+        $("#doc-list li").each(function(){
+            $(this).delegate('a','touchend',function(){
+                //图片中添加
+                oImg.innerHTML = '';
+                if( srcArr.length >0 ){
+                    for( var i=0;i<srcArr.length;i++ ){
+                        oImg.innerHTML += "<img src='"+ srcArr[i].src +"'>";
+                    }
+                }
+                $("#doc-list li").each(function(){
+                    if( $(this).find('a').attr('abc') == 'selected' ){
+                        $('.comfirm').show();
+                        return false;
+                    }else{
+                        $('.comfirm').hide();
+                    }
+                });    
+            })
+        })
+    </script>
+    <!--通底的引用结束-->
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?> </div>
+</body>
+</html>

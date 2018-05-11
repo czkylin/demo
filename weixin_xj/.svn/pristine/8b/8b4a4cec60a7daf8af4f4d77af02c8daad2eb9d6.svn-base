@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="cache-control" content="public">
+	<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/msg.css">
+	<title>123</title>
+	<script>
+		(function(){
+			var html = document.documentElement;
+			html.style.fontSize = html.clientWidth / 15 + "px";
+		})()
+	</script>
+</head>
+<body>
+	<div class="msg">
+		<div class="msg-wrap">
+			<div class="leavemsg">
+				<form action="xxx.php" methods="post">
+					<h2>留言板</h2>
+					<ul>
+						<li>
+							<span>您的称呼：</span>
+							<input type="text">
+						</li>
+						<li>
+							<span>父亲的称呼：</span>
+							<input type="text">
+						</li>
+						<li>
+							<span>父亲的电话：</span>
+							<input type="text">
+						</li>
+					</ul>
+					<div class="tx">
+						<span>想要对父亲说的话：</span>
+						<textarea maxlength="20"></textarea>
+					</div>
+					<input type="submit" value="爱父亲" class="sub">
+				</form>	
+			</div>
+		</div>	
+	</div>
+</body>
+</html>

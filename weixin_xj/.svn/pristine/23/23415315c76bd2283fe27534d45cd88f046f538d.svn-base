@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="cache-control" content="public">
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="share-title" content="">
+        <title>{$list_title}</title>
+        <!--CSS库文件-->
+        <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+        <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonLabel/label.css" type="text/css" rel="stylesheet" >
+        <!--CSS当前页面文件-->
+        <link href="/weixin/Public/Expert/css/ceses/bingLiZhanShi.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+        <!-- <a class="jfgz_href" href="/weixin/index.php?m=Expert&c=Share&a=add_info">上传病例</a> -->
+        <div class="pad_15 pad_top">
+            <ul class="geShengLianMeng_list" id="blzs-list">
+                <volist name="act_list" id="act" empty="暂时没有数据">
+                    <li>
+                        <a href="{:U('Union/act_info',array('type_id'=>$type_id,'record_id'=>$act['RECORD_ID']))}" class="pic"><img src="{$act['ACT_PIC']}"></a>
+                        <div class="lm_right">
+                            <h2>
+                                <a href="{:U('Union/act_info',array('type_id'=>$type_id,'record_id'=>$act['RECORD_ID']))}">{$act['ACT_TITLE']}</a>
+                            </h2>
+                            <p>
+                                <a href="{:U('Union/act_info',array('type_id'=>$type_id,'record_id'=>$act['RECORD_ID']))}">{$act['ACT_DESC']|DeleteHtml=###|msubstr=0,40,'utf-8',false}...</a>
+                            </p>
+                            <p class="sponsor"><span class="right">{$act['CREATE_DATE']|Dtodiy='Y.m.d',###}</span></p>
+                        </div>
+                    </li>
+               </volist>
+            </ul>
+            <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+            <div id="current_pagenum" style="display:none">2</div>
+            <div id="current_province" style="display:none">{$province_id}</div>
+            <div id="current_type_id" style="display:none">{$type_id}</div>
+        </div>
+    
+        <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+        <include file="Public:footer_fd" /> 
+        <script>var over_footer = '1';</script>
+
+        
+        <!--加载更多-->
+        <script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script>
+        <script>
+            function search_list(greate_date,province_id)
+            { 
+                if (province_id != '')
+                {
+                        $('#current_province').text(province_id);
+                }
+
+                if ($('#current_province').text() == '0')
+                {
+                        $('#current_province').text('');
+                }
+
+                $('#current_pagenum').text('1');
+                $('#blzs-list').html('');
+                $('.ui-jiazai').children('a').text('加载更多');
+                loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=union&a=arc_list_append&type_id='+$('#current_type_id').text()+'&province_id='+$('#current_province').text()+'','#blzs-list');
+            }
+
+            function load_more()
+            {
+                loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=union&a=act_list_append&type_id='+$('#current_type_id').text()+'&province_id='+$('#current_province').text()+'','#blzs-list');
+            }
+        </script>
+        <include file="Public:tj" />
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+    </body>
+</html>

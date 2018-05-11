@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/theme/pace-theme-loading-bar.css">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/aid_neimeng.css">
+	<meta name="Keywords" content="情系白内障患者，共享和谐新视界" />
+	<meta name="description" content="专为老年白内障患者福利，预防加治疗！百倍眼保卡送您1000元白内障手术援助金！" />
+	<title>有爱就有未来，百倍爱心卡之巴彦淖尔市首例爱心援助</title>
+  <script>
+      document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/750*100 + 'px';
+  </script>
+</head>
+<body>
+<section class="swiper-container swiper-container1">
+    <div class="swiper-wrapper" data-time="5000">
+			<div class="swiper-slide s1">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img1.png" alt="" class="ani img1" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img2.png" alt="" class="ani img2" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower.png" alt="" class="flower">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower2.png" alt="" class="flower2">
+					<div class="arrow ani" swiper-animate-effect="rise" swiper-animate-duration="2s"></div>
+			</div>
+			<div class="swiper-slide s2">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img3.png" alt="" class="ani img3" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img_4.png" alt="" class="ani img4" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower.png" alt="" class="flower1">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower2.png" alt="" class="flower2">
+					<div class="arrow ani" swiper-animate-effect="rise" swiper-animate-duration="2s"></div>
+			</div>
+			<div class="swiper-slide s3">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img5.png" alt="" class="ani img5" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img_6.png" alt="" class="ani img6" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower.png" alt="" class="flower1">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower2.png" alt="" class="flower2">
+					<div class="arrow ani" swiper-animate-effect="rise" swiper-animate-duration="2s"></div>
+			</div>
+			<div class="swiper-slide s4">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img7.png" alt="" class="ani img7" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img_8.png" alt="" class="ani img8" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower.png" alt="" class="flower1">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower2.png" alt="" class="flower2">
+					<div class="arrow ani" swiper-animate-effect="rise" swiper-animate-duration="2s"></div>
+			</div>
+			<div class="swiper-slide s5">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img9.png" alt="" class="ani img9" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img_10.png" alt="" class="ani img10" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower.png" alt="" class="flower1">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower2.png" alt="" class="flower2">
+					<div class="arrow ani" swiper-animate-effect="rise" swiper-animate-duration="2s"></div>
+			</div>
+			<div class="swiper-slide s6">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img11.png" alt="" class="ani img11" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img12.png" alt="" class="ani img12" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/img13.png" alt="" class="ani img13" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0s">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower.png" alt="" class="flower1">
+					<img src="/weixin/Public/Member/images/aid_neimeng/flower2.png" alt="" class="flower2">
+					<a href="/weixin/index.php?m=Member&c=Huzhu&a=share_init&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&user_name={:I('get.user_name','')}"><img src="/weixin/Public/Member/images/aid_neimeng/img14.png" alt="" class="ani img14" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0s"></a>
+			</div>
+    </div>
+</section>
+<!-- 总统计代码 -->
+<div style="height:0px;overflow:hidden;"><script src="https://s11.cnzz.com/z_stat.php?id=1259145768&web_id=1259145768" language="JavaScript"></script></div>
+<!-- 单独统计代码 -->
+<div style="height:0px;overflow:hidden;"><script src="https://s19.cnzz.com/z_stat.php?id=1263103581&web_id=1263103581" language="JavaScript"></script></div>
+
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+<script src="/weixin/Public/Common/js/swiper.animate.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+var mySwiper = new Swiper ('.swiper-container', {
+	direction : 'vertical',
+	pagination: '.swiper-pagination',
+	//virtualTranslate : true,
+	mousewheelControl : true,
+	resistanceRatio : 0,
+	onInit: function(swiper){
+		swiperAnimateCache(swiper);
+		swiperAnimate(swiper);
+	},
+	onSlideChangeEnd: function(swiper){
+		swiperAnimate(swiper);
+	},
+	onTransitionEnd: function(swiper){
+		swiperAnimate(swiper);
+	},
+
+
+	watchSlidesProgress: true,
+
+	onProgress: function(swiper){
+		for (var i = 0; i < swiper.slides.length; i++){
+			var slide = swiper.slides[i];
+			var progress = slide.progress;
+			var translate = progress*swiper.height/4;
+			scale = 1 - Math.min(Math.abs(progress * 0.5), 1);
+			var opacity = 1 - Math.min(Math.abs(progress/2),0.5);
+			slide.style.opacity = opacity;
+			es = slide.style;
+			es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = 'translate3d(0,'+translate+'px,-'+translate+'px) scaleY(' + scale + ')';
+
+		}
+	},
+
+	onSetTransition: function(swiper, speed) {
+		for (var i = 0; i < swiper.slides.length; i++){
+			es = swiper.slides[i].style;
+			es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = speed + 'ms';
+
+		}
+	}
+})
+
+
+    function set_log(act)
+    {
+        var type = "{$type}"+"_mother";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+
+
+    //微信分享
+    wx.config({
+        debug: false,
+        appId: '<?php echo $appId;?>',
+        timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+        nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    var wx_share_title = '有爱就有未来，百倍爱心卡之巴彦淖尔市首例爱心援助';
+    var wx_share_desc = '刚好你需要，正好有我在！百倍爱心卡巴彦淖尔首例援助患者爱心援助！';
+    var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/aid_neimeng/share.png";
+
+    wx.ready(function() {
+        wx.onMenuShareTimeline({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=aid_neimeng&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                 set_log('朋友圈');
+            },
+            cancel: function() {}
+        });
+        wx.onMenuShareAppMessage({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=aid_neimeng&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                set_log('微信');
+            },
+            cancel: function() {}
+        });
+    });
+</script>
+</body>
+</html>

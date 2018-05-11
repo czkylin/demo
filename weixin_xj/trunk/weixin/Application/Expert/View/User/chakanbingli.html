@@ -1,0 +1,80 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<!--公用样式调用-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<!--分享页面样式调用-->
+		<link rel="stylesheet" href="/weixin/Public/Expert/css/user/chakanbingli.css">
+		<script>
+			document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + 'px';
+		</script>
+		<title>查看病例</title>
+	</head>
+	<body>
+		
+		<ul class="list">
+			<li>
+				<h3>张三</h3>
+				<div class="list-des">
+					<p>性别：男</p>
+					<p>年龄：36岁</p>
+					<p>手机号：138000000</p>
+				</div>
+				<div class="list-main clearfix">
+					<div class="main-con">
+						<p>名称：</p>
+						<p>咨询</p>
+					</div>
+					<div class="main-img">
+						<img src="" alt="">
+					</div>
+				</div>
+			</li>
+			<li>
+				<h3>李三</h3>
+				<div class="list-des">
+					<p>性别：男</p>
+					<p>年龄：36岁</p>
+					<p>手机号：138000000</p>
+				</div>
+				<div class="list-main clearfix">
+					<div class="main-con">
+						<p>名称：</p>
+						<p>咨询</p>
+					</div>
+					<div class="main-img">
+						<img src="" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+
+		<div class="imgshow" id="imgshow">
+			<span></span>
+			<img src="" alt="">
+		</div>
+		
+		<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+		<script>
+			$(".main-img").each(function(){
+				$(this).click(function(){
+					var iSrc = $(this).attr("src");
+					$(".imgshow img").attr("src",iSrc);
+					$(".imgshow").show();
+				})
+			});
+
+			$(".imgshow span").click(function(){
+				$(".imgshow").hide();
+			})
+		</script>
+		
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>借款详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <style>
+        body{height:100%;}
+        #list li p{width: auto;}
+        #list li i{position:absolute; right: 0; top: 0; width: 60%; font-style: normal; }
+        .clearfix:after{content: ""; display: block; clear: both;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+
+<body class="data">
+    <article id="page" class="dataList">
+        <h2 class="text-center">借款申请详情</h2>
+        <section>
+            <ul id="list">
+                <li>
+                    <p>借款金额</p>
+                    <i>{$jiekuan.LOAN_MONEY}</i>
+                </li>
+                <li>
+                    <p>借款人</p>
+                    <i>{$jiekuan.REAL_NAME}</i>
+                </li>
+                <li>
+                    <p>借款部门</p>
+                    <i>{$jiekuan.DEPART_NAME}</i>
+                </li>
+                <li data-name="bir">
+                    <p>借款日期</p>
+                    <i>{$jiekuan.LOAN_DATE|Dtodiy='Y-m-d',###}</i>
+                </li>
+                <li style="height: auto; display: block;" class="clearfix">
+                    <p style="float:left;">借款用途</p>
+                    <i style="float: right; position: relative;">{$jiekuan.LOAN_CONTENT}</i>
+                </li><li style="height: auto; display: block;" class="clearfix">
+                    <p style="float:left;">借款备注</p>
+                    <i style="float: right; position: relative;">{$jiekuan.LOAN_DESC}</i>
+                </li>
+                <li>
+                    <p>财务审核</p>
+                    <if condition="$jiekuan.CHECK2_FLAG eq 0">
+                        <i>未审核</i>
+                    <elseif condition="$jiekuan.CHECK2_FLAG eq 1"/>
+                        <i style="color: green">已审核</i>
+                    <elseif condition="$jiekuan.CHECK2_FLAG eq 2"/>
+                        <i style="color: red">审核拒绝</i>
+                    <else />
+                    </if>
+                </li>
+                <li>
+                    <p>放款状态</p>
+                    <if condition="$jiekuan.CHECK6_FLAG eq 0">
+                        <i>未放款</i>
+                    <elseif condition="$jiekuan.CHECK6_FLAG eq 1"/>
+                        <i style="color: green">已放款</i>
+                    <elseif condition="$jiekuan.CHECK6_FLAG eq 2"/>
+                        <i style="color: red">拒绝放款</i>
+                    </if> 
+                </li>
+            </ul>
+        </section>
+    </article>
+</body>
+</html>

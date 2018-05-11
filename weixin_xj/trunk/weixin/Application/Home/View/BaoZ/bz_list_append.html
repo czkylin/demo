@@ -1,0 +1,19 @@
+<volist name="bz_list" id="list"> 
+	<li> 
+        <h2>姓名：{$list['PERSON_NAME']}</h2>
+        <i class="tongguo" style="line-height: 40px">状态： 
+            <if condition="$list[CHECK_FLAG] eq '0'">
+                待审
+            <elseif condition="$list[CHECK_FLAG] eq '1'"/>
+                成功 
+            <else />
+                拒绝
+                <br/>
+            </if>
+        </i>
+        <h2>身份证号：{$list.PERSON_IDCARD|substr=0,4}***{$list.PERSON_IDCARD|substr=-4}</h2>
+        <h2>手机号：{$list['PERSON_MOBILE']}</h2> 
+        <if condition="$list[CHECK_DESC]"><div style="float: right;color:#ff6600;font-size: 12px;max-width: 40%";>拒绝理由：{$list[CHECK_DESC]}</div></if>
+        <h2>时间：{$list['CREATE_DATE']}</h2>             
+    </li>∮
+</volist>

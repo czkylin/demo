@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>转诊列表</title>
+  <link rel="stylesheet" href="/weixin/Public/Home/css/referral/referral_list_info.css">
+  <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/750*100 + 'px';
+  </script>
+</head>
+<body>
+  <ul>
+    <a href="">
+      <li>
+          <div>2017.7.28</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.27</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.26</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.25</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.24</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.23</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.22</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+    <a href="">
+      <li>
+          <div>2017.7.21</div>
+          <div class="count">18例</div>
+          <div class="arrows">
+            <span class="bot"></span>
+            <span class="top"></span>
+          </div>
+      </li>
+    </a>
+  </ul>
+</body>
+</html>

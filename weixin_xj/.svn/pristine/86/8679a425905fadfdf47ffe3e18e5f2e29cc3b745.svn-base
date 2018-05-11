@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/member/member_list.css">
+<title>我的患者</title>
+</head>
+<body>
+	<ul class="xuanxiang clear">
+		<li class="active">
+			<a href="javascript:;"><span>普通患者</span></a>
+		</li>
+		<li>
+			<a href="javascript:;"><span>VIP患者</span></a>
+		</li>
+	</ul>
+	<!--普通患者-->
+	<div class="putong">
+		<div class="newpeopel">
+			<span><a href="{:U('Expert/member/member_add')}">新朋友</a></span>
+		</div>
+		<ul class="list">
+			<li>
+				<h3>A</h3>
+				<ul class="mes">
+					<volist name="member_list" id="member">
+						<li>
+							<a href="{:U('Expert/member/member_detail',array('member_id'=>$member['MEMBER_ID']))}">
+								<img src="{$member['MEMBER_PIC']}" alt=""/>
+								<span>{$member['MEMBER_NAME']}</span>
+								<i>{$member['MEMBER_SEX']}</i>
+								<if condition="!$member['MEMBER_AGE']">
+									<i>未填写</i>
+								<else />
+									<i>{$member['MEMBER_AGE']}岁</i>
+								</if>
+							</a>
+						</li>
+					</volist>
+				</ul>
+			</li>
+			<!-- <li>
+				<h3>B</h3>
+				<ul class="mes">
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3>C</h3>
+				<ul class="mes">
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+					
+				</ul>
+			</li> -->
+		</ul>
+	</div>
+	<!--vip患者-->
+	<div class="vip" style="display:none">
+		<div class="newpeopel">
+			<span><a href="{:U('Expert/member/member_add')}">新朋友</a></span>
+		</div>
+		<ul class="list">
+			<li>
+				<h3>A</h3>
+				<ul class="mes">
+					<volist name="member_viplist" id="vip">
+						<li>
+							<a href="{:U('Expert/member/member_detail',array('member_id'=>$vip['MEMBER_ID']))}">
+								<img src="{$vip['MEMBER_PIC']}" alt=""/>
+								<span>{$vip['MEMBER_NAME']}</span>
+								<i>{$vip['MEMBER_SEX']}</i>
+								<i>{$vip['MEMBER_AGE']}岁</i>
+							</a>
+						</li>
+					</volist>
+				</ul>
+			</li>
+			<!-- <li>
+				<h3>B</h3>
+				<ul class="mes">
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h3>C</h3>
+				<ul class="mes">
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<img src="" alt="">
+							<span>张春艳</span>
+							<i>男</i>
+							<i>36岁</i>
+						</a>
+					</li>
+				</ul>
+			</li> -->
+		</ul>
+	</div>
+	<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+	<script>
+		$(".xuanxiang li").each(function(index){
+			$(this).on("touchend",function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				if( index == 0 ){
+					$(".putong").show();
+					$(".vip").hide();
+				}else{
+					$(".putong").hide();
+					$(".vip").show();
+				}
+			})
+		})
+	</script>	
+</body>
+</html>

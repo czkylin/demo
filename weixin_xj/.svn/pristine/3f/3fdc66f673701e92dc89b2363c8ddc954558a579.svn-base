@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>提现记录</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/take.css">
+    <style type="text/css">
+        .tab li{width:50%;box-sizing:border-box;-webkit-box-sizing:border-box;}
+        .tab a{display:block;width:100%;height:40px;line-height:40px;background:#fff;color:#ff647c;}
+        .tab li.active a{background:#ff647c;color:#fff;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+    <nav class="tab">
+        <ul class="box">
+            <li class="text-center"><a href="{:U('Member/Huzhu/hz_order_list')}">百倍爱心卡收入</a></li>
+            <li class="text-center active"><a href="{:U('Member/Huzhu/record')}">提现申请记录</a></li>
+        </ul>
+    </nav>
+   <section class="sec">
+        <if condition="empty($record_list)">
+            <div style=" text-align: center;">
+                <br/> 
+                <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+                <i style=" line-height: 30px;font-family: '微软雅黑';font-style: normal">暂无提现记录</i>
+            </div>
+        <else />
+            <ul>
+               
+                   <volist name="record_list" id="list">
+                        <li class="box">
+                            <div class="pleft">
+                                <p>提现</p>
+                                <p><small>{$list['CREATE_DATE']}</small><b>审核状态：<if condition="$list['CHECK_FLAG'] eq '通过'"><span style="color: #3c3">审核通过</span><elseif condition="$list['CHECK_FLAG'] eq '待审'"/><spans style="color: #ff647c">待审</span><else /><span style="color: #ff647c">审核拒绝 ({$list['CHECK_DESC']})</span></if></b></p>
+                            </div>
+                            <div class="pright">
+                                <p class="text-right">￥{$list['INCOME_MONEY']}</p>
+                                <p class="text-right"><small>提现渠道：{$list['RG_FLAG']}</small></p>
+                            </div>
+                        </li>
+                    </volist>
+                
+            </ul>
+        </if>
+   </section> 
+</body>
+</html>

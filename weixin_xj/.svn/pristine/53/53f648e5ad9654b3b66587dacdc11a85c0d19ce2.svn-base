@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>报告详情</title>
+    <!-- <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" > -->
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/user/jk_info.css">
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body class="grey">
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">报告详情</h2>
+    </header>
+    <if condition="empty($jk_info)">
+        <div style=" text-align: center;">
+            <br/> 
+            <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+            <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+        </div>
+    <else />
+        <div class="chufang_list" id="jk_info">
+            <volist name="jk_info" id="jk" empty="暂时没有数据">
+                <section class="unit">
+                    <div class="ct box">
+                        <div class="cLeft box">
+                            <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                            <if condition="$tj_type eq 0">
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>血糖(mmol/L)：{$jk.GLUCOSE|round=1}</p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            <elseif condition="$tj_type eq 1"/>
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>血氧(%)：{$jk.OXYGEN|round=1}</p>
+                                    <p>脉率(bpm)：{$jk.PULSERATE|round=1}</p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            <elseif condition="$tj_type eq 2"/>
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>收缩压(mmHg)：{$jk.SYSTOLIC|round=1}</p>
+                                    <p>舒张压(mmHg)：{$jk.DIASTOLIC|round=1}</p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            <elseif condition="$tj_type eq 3"/>
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>心率(bpm)：{$jk.HR|round=1}</p>
+                                    <p>P轴：{$jk.PAXIS|round=1}</p>
+                                    <p>T轴：{$jk.TAXIS|round=1}</p>
+                                    <p>QRS轴：{$jk.QRSAXIS|round=1}</p>
+                                    <p>PR间期：{$jk.PR|round=1}</p>
+                                    <p>QT间期：{$jk.QT|round=1}</p>
+                                    <p>QTc间期：{$jk.QTC|round=1}</p>
+                                    <p>QRS时限：{$jk.QRS|round=1}</p>
+                                    <p>RV5值：{$jk.RV5|round=1}</p>
+                                    <p>SV1值：{$jk.SV1|round=1}</p>
+                                    <p>诊断结果：
+                                        <if condition="!$jk.DIAGNOSIS">
+                                            暂无
+                                        <else />
+                                            {$jk.DIAGNOSIS}
+                                        </if>
+                                    </p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            <elseif condition="$tj_type eq 4"/>
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>身高(cm)：{$jk.HEIGHT|round=1}</p>
+                                    <p>体重(kg)：{$jk.WEIGHT|round=1}</p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            <elseif condition="$tj_type eq 5"/>
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>尿胆原(umol/L)：{$jk.URO|round=1}</p>
+                                    <p>潜血：{$jk.BLD|round=1}</p>
+                                    <p>胆红素(umol/L)：{$jk.BIL|round=1}</p>
+                                    <p>酮体：{$jk.KET|round=1}</p>
+                                    <p>葡萄糖(mmol/L)：{$jk.GLU|round=1}</p>
+                                    <p>蛋白质：{$jk.PRO|round=1}</p>
+                                    <p>PH：{$jk.PH|round=1}</p>
+                                    <p>亚硝酸盐：{$jk.NIT|round=1}</p>
+                                    <p>白细胞：{$jk.WBC|round=1}</p>
+                                    <p>比重：{$jk.SG|round=1}</p>
+                                    <p>维生素C：{$jk.VC|round=1}</p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            <else />
+                                <div class="ctxt">
+                                    <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                                    <p>温度(°C)：{$jk.TEMPERATURE|round=1}</p>
+                                    <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                                </div>
+                            </if>
+                        </div>
+                    </div>
+                </section>
+            </volist>
+            
+        </div>
+        <div class="ui-jiazai">
+            <a href="javascript:void(0);" onClick="load_more('#jk_info');"></a>
+        </div>
+    </if>
+    <div id="current_pagenum" style="display:none">2</div>
+    <div id="tj_type" style="display:none">{$tj_type}</div>
+
+    <!--Js库文件--> 
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+    <!--加载更多-->
+    <script src="/weixin/Public/Member/js/load.js" type="text/javascript"></script> 
+    <script>
+
+        var onOff = true;
+        window.onload = function(){
+            window.onscroll();
+        }
+        window.onscroll = function(){
+            load_more('#jk_info');
+        }
+
+        function load_more(obj)
+        {   
+            var tj_type = $("#tj_type").text();
+
+            if(!onOff) return;
+
+            if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+            {
+                onOff = !onOff;
+                loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=jk_info_append&tj_type='+tj_type,'#jk_info');
+            }
+        }
+    </script>
+</body>
+</html>

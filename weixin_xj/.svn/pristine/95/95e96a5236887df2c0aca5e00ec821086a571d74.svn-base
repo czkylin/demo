@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>申请提现</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/take.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+   <section class="unit">
+       <h2>提现金额</h2>
+       <div class="price box">
+           <strong>￥</strong>
+           <input type="tel" />
+       </div>
+       <p><em>可提现余额0.00元，单次最高提现200元。</em><a href="#" class="record">提现记录</a></p>
+   </section> 
+   <section class="unit">
+       <p class="text-center">因微信支付原因，到账时间可能有延迟</p>
+       <a href="#" class="confirm text-center">确认提取</a>
+   </section> 
+</body>
+</html>

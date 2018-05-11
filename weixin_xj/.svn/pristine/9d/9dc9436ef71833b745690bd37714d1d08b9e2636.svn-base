@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>积分流水</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/aboult.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px'
+    </script>
+</head>
+<body>
+    <header class="dDetail">
+        <a href="javascript:;" class="icon">&#xf62b;</a>
+        <h2>积分流水</h2>
+    </header>
+    <article class="wxPoint">
+        <section>
+            <ul>
+                <li>
+                    <p class="pull-left">每日按时签到</p>
+                    <p class="pull-right">
+                        <i>+ 1分</i><b>2015-12-17</b>
+                    </p>
+                </li>
+                <li>
+                    <p class="pull-left">绑定手机</p>
+                    <p class="pull-right">
+                        <i>+ 4分</i><b>2015-12-17</b>
+                    </p>
+                </li>
+                <li>
+                    <p class="pull-left">推荐会员关注企业号</p>
+                    <p class="pull-right">
+                        <i>+ 50分</i><b>2015-12-17</b>
+                    </p>
+                </li>
+            </ul>
+        </section>
+    </article>
+    
+   <include file="Public:footer_bottom" />
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

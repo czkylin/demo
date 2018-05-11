@@ -1,0 +1,31 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+
+class MapController extends Controller
+{
+	public function bing()
+	{
+
+		$this->display();
+	}
+
+	public function earth()
+	{
+
+		$this->display();
+	}
+
+	public function zhu()
+	{
+
+		$this->display();
+	}
+
+
+	public function earth1()
+	{
+
+		$this->display();
+	}
+}

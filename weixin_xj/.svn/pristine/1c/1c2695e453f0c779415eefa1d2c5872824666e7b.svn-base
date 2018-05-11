@@ -1,0 +1,11 @@
+ <volist name="doc_consult" id="vo">
+    <li>
+        <h2> 
+        <?php  
+            echo mb_substr($vo['MEMBER_NAME'],0,1,'utf-8');  
+        ?>**</h2>
+        <p>{$vo.CONSULT_CONTENT}</p>
+        <br/>
+        <p>{$vo.CONSULT_DATE}</p>
+    </li>∮
+</volist>

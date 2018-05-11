@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/medical/medical.css">
+    <title>药店收入</title>
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+    <article>
+        <section class="date">
+            <ul>
+                <li>
+                    <span>开始日期</span>
+                    <input type="date">
+                </li>
+                <li>
+                    <span>截止日期</span>
+                    <input type="date">
+                </li>
+            </ul>
+            <p class="num text-center"><i>总销量：1000元</i><i>药店数量：10个</i></p>
+            <a href="javascript:;" class="text-center">查询</a>
+        </section>
+        <section class="list">
+            <div class="home flex">
+                <div class="img"><img src="/weixin/Public/Home/images/bak/123.jpg" width="100%" /></div>
+                <div class="txt">
+                    <h2>同仁堂大药房</h2>
+                    <p>自营产品：1000元</p>
+                    <p>总部产品：1000元</p>
+                </div>
+                <div class="count">
+                    <b>总营业额</b>
+                    <b>2000元</b>
+                </div>
+            </div>
+            <div class="home flex">
+                <div class="img"><img src="/weixin/Public/Home/images/bak/123.jpg" width="100%" /></div>
+                <div class="txt">
+                    <h2>同仁堂大药房</h2>
+                    <p>自营产品：1000元</p>
+                    <p>总部产品：1000元</p>
+                </div>
+                <div class="count">
+                    <b>总营业额</b>
+                    <b>2000元</b>
+                </div>
+            </div>
+        </section>
+    </article>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+$('date li').click(function(){
+    $(this).find('input').focus();
+})    
+</script>
+</html>

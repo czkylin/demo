@@ -1,0 +1,26 @@
+<volist name="pc_list" id="pc">
+<li>
+        <if condition="$pc['EVAL_FLAG'] eq '未评测'">
+          <a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Pc&a=add_info&user_id={$pc['RECORD_ID']}&real_name={$pc['REAL_NAME']}">
+          <else />
+          <a class="yylist_a" style=" margin-bottom:6px;" href="javascript:void(0)">
+        </if>
+        <span class="img">
+          <if condition="$pc['HEADIMGURL'] eq ''">
+          <img src="/weixin/Application/Expert/View/images/dtdoctor.png" style="height:60px; width:60px;" class="g-left expert-img"/>
+          <else />
+          <img src="{$pc['HEADIMGURL']}" style="height:60px; width:60px;"   class="g-left expert-img"/>
+          </if>
+        </span>
+		<span class="meta">
+			<div class="name_dj">
+				<strong class="mingcheng">{$pc['REAL_NAME']}--{$pc['EVAL_FLAG']}&nbsp;&nbsp;{$pc['EVAL_SCORE']}</strong>
+				<i>{$pc['ORG_NAME']}</i>
+			</div>
+			<p class="hos_jj" style=" margin-top:1px;">
+			{$pc['CENTER_NAME']}
+			{$pc['ROLE_NAME']}</p>
+		</span>
+	</a>
+</li>∮
+</volist>

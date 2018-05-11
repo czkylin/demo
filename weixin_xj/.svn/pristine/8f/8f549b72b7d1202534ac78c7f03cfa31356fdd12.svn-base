@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="">
+  <meta name="keywords" content="远程视界科技集团小远带您乘坐医联体特快专列">
+	<title>远程视界科技集团小远带您乘坐医联体特快专列</title>
+	<style type="text/css">
+		*{padding: 0;margin:0;}
+		img {border-width: 0; vertical-align: middle;}
+		a{text-decoration:none;border:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;outline:none;}
+		.btn-box{position: relative;}
+		.btn{position: absolute; display: block; width: 9.8rem; left: 50%; margin-left: -4.9rem; bottom: 3.1rem;}
+		.btn img{width: 9.8rem;}
+	</style>
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	<section class="zntz-con">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/banner.jpg" width="100%;">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt01.jpg" width="100%;">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt02.jpg" width="100%;">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt03.jpg" width="100%;">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt04.jpg" width="100%;">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt05.jpg" width="100%;">
+		<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt06.jpg" width="100%;">
+		<div class="btn-box">
+			<img class="lazy" src="/weixin/Public/Member/images/yilianti/ylt07.jpg" width="100%;">
+			<a href="/weixin/index.php?m=Member&c=Huzhu&a=share_init&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&user_name={:I('get.user_name','')}" class="btn">
+				<img src="/weixin/Public/Member/images/yilianti/btn.png">
+			</a>
+		</div>
+	</section>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Member/js/jquery.lazyload.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  $(function() {
+	    $("img.lazy").lazyload({effect: "fadeIn"});
+	  });
+	</script>
+	<script>
+		//微信分享
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '远程视界科技集团小远带您乘坐医联体特快专列';
+        var wx_share_desc = '远程视界科技集团小远带您走近远程人背后的故事';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/yilianti/icon.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=yilianti&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=yilianti&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+	<!-- CNZZ统计代码 -->
+	<div style="height:0px;overflow:hidden;"><script src="https://s11.cnzz.com/z_stat.php?id=1259145768&web_id=1259145768" language="JavaScript"></script></div>
+	<!-- CNZZ统计代码  百倍爱心宣四单独统计-->
+	<div style="height:0px;overflow:hidden;"><script src="https://s22.cnzz.com/z_stat.php?id=1263395902&web_id=1263395902" language="JavaScript"></script></div>
+</body>
+</html>

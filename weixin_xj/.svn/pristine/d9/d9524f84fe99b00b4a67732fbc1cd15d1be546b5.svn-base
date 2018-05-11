@@ -1,0 +1,145 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!-- CSS公共 -->
+<link rel="stylesheet" href="/weixin/Public/Common/css/commonIcon/icon.css">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/jtys/index.css" type="text/css" rel="stylesheet"/>
+
+<title>家庭医生</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<div class="touxiang">
+			<img src="/weixin/Public/Member/images/jtys/index/touxiang.jpg" alt="">
+			<i></i>
+		</div>
+		<p class="des1"><span>刘冰</span> <i>主任医师</i></p>
+		<p class="des2">北京北亚医院</p>
+	</div>
+	<!-- server -->
+	<div class="server">
+		<ul class="clear">
+			<li>
+				<a href="javascript:;">
+					<p>在线咨询</p>
+					<span>图文资讯，充分沟通</span>
+				</a>	
+			</li>
+			<li>
+				<a href="javascript:;">
+					<p>语音咨询</p>
+					<span>直接语音，高效直接</span>
+				</a>
+			</li>
+		</ul>
+		<div>
+			<a href="javascript:;">
+				<p>视频咨询</p>
+				<span>直接语音，高效直接</span>
+			</a>
+		</div>
+	</div>
+	<!-- person server -->
+	<div class="personal">
+		<div class="des clear">
+			<div class="touxiang">
+				<img src="/weixin/Public/Member/images/jtys/index/touxiang.jpg" alt="">
+				<i></i>
+			</div>
+			<div class="con">
+				<p><b>刘冰</b> <i>主任医师</i></p>
+				<span>北京北亚医院</span>
+			</div>
+		</div>
+		<ul class="clear">
+			<li>
+				<a href="javascript:;">
+					<p>在线咨询</p>
+					<span>图文资讯，充分沟通</span>
+				</a>	
+			</li>
+			<li>
+				<a href="javascript:;">
+					<p>语音咨询</p>
+					<span>直接语音，高效直接</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- card server -->
+	<div class="card">
+		<div class="des clear">
+			<div class="touxiang">
+				<img src="/weixin/Public/Member/images/jtys/index/touxiang.jpg" alt="">
+				<i></i>
+			</div>
+			<div class="con">
+				<p><b>刘冰</b></p>
+				<span>QQ:4535788245</span>
+			</div>
+			<div class="tel">
+				电话：<a href="tel:13261175139;">13261175139</a>
+			</div>
+		</div>
+	</div>
+	<!-- zixun -->
+	<div class="zixun">
+		<div class="zixun-tit">
+			<h2>我的咨询</h2>
+			<a href="javascript:;">查看全部咨询</a>
+		</div>
+		<div class="zixun-con">
+			<div class="yisheng">
+				<img src="/weixin/Public/Member/images/jtys/index/touxiang.jpg" alt="">
+				<div class="yisheng-con">
+					<span>杨峰</span>
+					<i class="blue">已回复</i>
+					<i class="red">未回复</i>
+				</div>
+			</div>
+			<div class="huanzhe">
+				<p class="huanzhe-con limit">您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生您好，请问您会在什么情况下会产生</p>
+				<div class="btn-wrap">
+					<i class="ui-icon-unfold con-btn"></i>
+				</div>
+				<span>2016年9月14日 10：51</span>
+			</div>
+		</div>
+	</div>			
+
+	
+<include file="Public:footer_bottom" />
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+	var onOff = true;
+	$(".con-btn").on('touchend',function(){
+		if( onOff ){
+			$(".huanzhe-con").removeClass("limit");
+			$(this).css("transform","rotate(-180deg)");
+			$(".btn-wrap").css("text-align","inherit");
+		}else{
+			$(".huanzhe-con").addClass("limit");
+			$(this).css("transform","rotate(0)");
+			$(".btn-wrap").css("text-align","right");
+		}
+		onOff = !onOff;
+	})
+</script>
+
+<!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->     
+     <div style="height:0px;overflow:hidden;">
+         <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?>
+     </div>
+</body>
+</html>

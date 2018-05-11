@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Member/css/swiper.min.css">
+<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/zhuanti/duanwujie.css">
+<title>今年端午送父母一个百倍爱心粽——端午大促 买一送一</title>
+<script type="text/javascript">
+		(function(){
+			var html = document.documentElement;
+			html.style.fontSize = html.clientWidth / 10 + "px";
+		})()
+	</script>
+</head>
+<body>
+<div class="swiper-container">
+         <div class="swiper-wrapper">
+                <div class="swiper-slide page1">
+                    <div class="yun1"></div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page2">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/img1.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi1.png">
+                    </div>
+                	<div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page3">
+                	<div class="quan" id="quan"></div>
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img2.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi2.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page4">
+                	<div class="quan" id="quan"></div>
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img3.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi3.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page5">
+                	<div class="quan" id="quan"></div>
+                    
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/page4_top.png" class="tit_4">
+                   
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img4.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi4_1.png">
+                    </div>
+                    <div class="bottn"><a href="{:U('Member/Huzhu/share_init',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name'],'path'=>'栏目菜单百倍爱心卡'))}">了解详情</a></div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page6">
+                	<div class="quan" id="quan"></div>
+                    
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/page4_top.png" class="tit_4">
+                    
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img4.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi4_2.png">
+                    </div>
+                    <div class="bottn"><a href="{:U('Member/Huzhu/share_init',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name'],'path'=>'栏目菜单百倍爱心卡'))}">了解详情</a></div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page7">
+                	<div class="quan" id="quan"></div>
+                    
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/page4_top.png" class="tit_4">
+                   
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img4.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi4_3.png">
+                    </div>
+                    <div class="bottn"><a href="{:U('Member/Huzhu/share_init',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name'],'path'=>'栏目菜单百倍爱心卡'))}">了解详情</a></div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                
+                
+                
+                
+                <div class="swiper-slide page8">
+                	<div class="quan" id="quan"></div>
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img5.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi5.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page9">
+                	<div class="quan" id="quan"></div>
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img6.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi6.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page10">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img7.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi7.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page11">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img8.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi8.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page12">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img9.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi9.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page13">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img10.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi10.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page14">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img11.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi11.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page15">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img12.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi12.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page16">
+                	<div class="quan" id="quan"></div>
+                    <img src="/weixin/Public/Member/images/zhuanti/duanwujie/fuwu.png" class="fuwu">
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img13.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi13.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                </div>
+                <div class="swiper-slide page17">
+                	<div class="quan" id="quan"></div>
+                	<img src="/weixin/Public/Member/images/zhuanti/duanwujie/img14.png" class="tupian">
+                    <div class="ani zi" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s">
+                		<img src="/weixin/Public/Member/images/zhuanti/duanwujie/zi14.png">
+                    </div>
+                    <div class="ani duobao">
+                		<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index"></a>
+                    </div>
+                    <div class="arrow"></div>
+                    
+                </div>
+                
+        </div>
+        <div id="music" class="music rotate"></div>
+<audio style="display:none; height: 0" id="bg-music" preload="auto" src="/weixin/Public/Member/images/zhuanti/duanwujie/yinyue.mp3" loop></audio>
+<div class="bottom">
+                        <a class="zixun">200元</a>
+                        <a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&sale_type={:C("SALE_TYPE_1")}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_init'));?>&user_name={:I('get.user_name','')}" class="goumai">立即购买</a>
+                    </div>
+</div>
+
+</body>
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script src="/weixin/Public/Member/js/swiper.min.js"></script>
+<script src="/weixin/Public/Common/js/swiper.animate.min.js"></script>
+<script src="/weixin/Public/Common/js/snowfall.jquery.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!-- Initialize Swiper -->
+<script>
+	        
+  var swiper = new Swiper ('.swiper-container', {
+  onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+    swiperAnimateCache(swiper); //隐藏动画元素 
+    swiperAnimate(swiper); //初始化完成开始动画
+  }, 
+  onSlideChangeEnd: function(swiper){ 
+    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+  } 
+  })     
+</script>
+<script>
+//音乐
+var audio = document.getElementById('bg-music');
+document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById('bg-music');
+            audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
+    audioAutoPlay();
+});
+$('#music').click(function(){
+        if(audio.paused){
+            $(this).addClass('rotate');
+            audio.play();
+        }else{
+            $(this).removeClass('rotate');
+            audio.pause();
+        }
+    })
+	//花瓣飘落
+    $(document).snowfall('clear');
+    $(document).snowfall({
+        image: "/weixin/Public/Member/images/mother/huaban.png",
+        flakeCount:10,
+        minSize: 2,
+        maxSize: 20
+    });
+</script>
+<script type="text/javascript">
+    //微信分享
+    wx.config({
+        debug: false
+        , appId: '<?php echo $appId;?>'
+        , timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+        nonceStr: '<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>', // 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+var wx_share_title = '今年端午送父母一个百倍爱心粽——端午大促 买一送一”';
+var wx_share_desc = '今年端午，送给父母一份特别的礼物，百倍爱心卡（百倍爱心粽），给父母一份健康的祝福！';
+var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/zhuanti/duanwujie/1.png";
+wx.ready(function () {
+    wx.onMenuShareTimeline({
+        title: wx_share_title
+        , desc: wx_share_desc
+        , link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=duanwujie&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name=' + encodeURIComponent("{:I('get.user_name','')}")
+        , imgUrl: wx_share_imgUrl
+        , success: function () {
+            set_log('朋友圈');
+        }
+        , cancel: function () {}
+    });
+    wx.onMenuShareAppMessage({
+        title: wx_share_title
+        , desc: wx_share_desc
+        , link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=duanwujie&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name=' + encodeURIComponent("{:I('get.user_name','')}")
+        , imgUrl: wx_share_imgUrl
+        , success: function () {
+            set_log('微信');
+        }
+        , cancel: function () {}
+    });
+}); 
+</script>
+<div style="width:1px;height: 0; overflow: hidden">
+<script src="https://s19.cnzz.com/z_stat.php?id=1262019692&web_id=1262019692" language="JavaScript"></script>
+</div>
+</html>

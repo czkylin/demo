@@ -1,0 +1,22 @@
+
+<volist name="share_list" id="share">
+	<li>
+		<div class="pic fl">
+	    	<span class="fs24">{$share['CREATE_DATE']|substr=3,5}</span><span class="fs14">{$share['CREATE_DATE']|substr=0,2}月</span>
+	    </div>
+		<section class="fr">
+			<div class="tw fs14">
+				<a href="/weixin/index.php?m=Expert&c=Share&a=share_info&record_id={$share['RECORD_ID']}">
+					<img src="{$share['SHARE_PIC']}"/>{$share['SHARE_CONTENT']}......
+					<div class="clear"></div>
+				</a>
+			</div>
+	        
+	        <!--
+	        审核中则有<div class="time fs16 tar"><span class="fc2587c6">{$share['SHARE_CHECK']}</span></div>
+	        已审核就没有<div class="time fs16 tar"><span class="fc2587c6">{$share['SHARE_CHECK']}</span></div>
+	        -->
+		</section>
+		<div class="clear"></div>
+	</li>∮
+</volist>

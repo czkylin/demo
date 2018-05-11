@@ -1,0 +1,20 @@
+<volist name="hos_list" id="hos">
+	<li>
+		<a href="/weixin/index.php?m=Home&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}" class="yylist_a">
+			<span class="img">
+				<img src="{$hos['HOS_PIC']}"  alt="{$hos['HOS_NAME']}" class="g-left expert-img"/>
+			</span>
+			<div class="meta">
+				<div class="name_dj">
+					<strong class="mingcheng">{$hos['HOS_NAME']}</strong>
+					<i>{$hos['LEVEL_NAME']}</i>
+				</div>
+				<div class="juti_info">
+					<span style=" width:50%;">{$hos['PROVINCE_NAME']} {$hos['CITY_NAME']}</span>
+					<span style="margin-right:0;">{$hos['GM_NUM']}人购买</span>
+					<span style="float:right;">{$hos['JL']}km</span>
+				</div>
+			</div>
+		</a>
+	</li>∮
+</volist>

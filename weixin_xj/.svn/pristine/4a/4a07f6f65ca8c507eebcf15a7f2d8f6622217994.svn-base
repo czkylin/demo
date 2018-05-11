@@ -1,0 +1,21 @@
+<volist name="yd_list" id="data">
+	<dl>
+		<a href="/weixin/index.php?m=Expert&c=Order&a=order_detail&order_id={$data['ORDER_ID']}">
+			<dt>
+				<span>
+	                <if condition="$data['HOS_PIC'] neq ''">
+	                <img src="{$data['HOS_PIC']}" width="60" height="60" />
+	                <else/>
+	                <img src="/weixin/Public/Expert/images/cf/cf_list.png" width="60" />
+	                </if>
+	            </span>
+			</dt>
+			<dd>
+				<h2>{$data['HOS_NAME']}</h2>
+				<p>{$data['CITY_NAME']}</p>
+				<p>&nbsp;{$data['HOS_ADDRESS']}</p>
+			</dd>
+			<br clear="all" />
+		</a>
+	</dl>∮
+</volist>

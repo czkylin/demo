@@ -1,0 +1,26 @@
+<volist name="cl" id="cl" empty="">
+	<ul class="order-list">
+		<li>
+			<h2>出发日期：</h2><i class="">{$cl['OUT_DATE']|Dtodiy='Y-m-d',###}</i>
+		</li>
+		<li>
+			<h2>返回日期：</h2><i class="">{$cl['RETURN_DATE']|Dtodiy='Y-m-d',###}</i>
+		</li>
+		<li>
+			<h2>出差天数：</h2><i class="">{$cl['OUT_DAY']}</i>
+		</li>
+		<li>
+			<h2>单据：</h2><i class="">{$cl['BX_NUM']}</i>
+		</li>
+		<li>
+			<h2>金额小计：</h2><i class="">{$cl['TOTAL_MONEY']}</i>
+		</li>
+		<li>
+			<h2>出差事由：</h2><i class="" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width: 8rem; text-align: right;">{$cl['OUT_DESC']}</i>
+		</li>
+		<li class="shenhe">
+			<h2>操作</h2>
+			<a href="/weixin/index.php?m=Home&c=Jixiao&a=chailv_info&ticket_id={$cl['TICKET_ID']}">查看详情</a>
+		</li>
+	</ul>∮
+</volist>

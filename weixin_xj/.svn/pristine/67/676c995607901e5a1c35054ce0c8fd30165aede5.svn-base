@@ -1,0 +1,222 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<!--公用样式调用-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<!--分享页面样式调用-->
+		<link rel="stylesheet" href="/weixin/Public/Member/css/user/chakanbingli.css">
+		<script>
+			document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + 'px';
+		</script>
+		<title>管理就诊人</title>
+		<style>
+			.bl-xiangqing{display: none;}
+			.btn-list a{
+				background: #fff;
+				color: #ef4a65;
+				border:1px solid #ef4a65;
+				height: 25px;
+				line-height: 25px;
+			}
+			.list .list-des{height: 40px; line-height: 40px;}
+			.list .list-des .blxq{float: right; display:block; line-height: 15px; padding: 3px 5px; background: #ef4a65; color: #fff; margin: 12px 0 0 0; font-size: 12px; border-radius: 2px;}
+		</style>
+	</head>
+	<body><!-- 
+		<div class="count">
+			<p>共有<span>2</span>人就诊人,<span>3</span>条病例</p>
+		</div> -->
+		<if condition="empty($data)">
+            <div style=" text-align: center;">
+            	<br/> 
+                <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+                <i style=" line-height: 30px;">暂无数据</i>
+            </div>
+        <else />
+			<ul class="list" id="member_list">
+				<volist name="data" id='vo' empty="暂时没有数据">
+					<li>
+						<!-- <h3><div style="display: none;">{$vo['RECORD_ID']}</div></h3> -->
+						<div class="list-des">
+							<p>{$vo.PERSON_NAME}</p>
+							<p>性别：{$vo.PERSON_SEX}</p>
+							<p>年龄：{$vo.PERSON_AGE}岁</p>
+							<if condition="!empty($vo[PERSON_CASES])">
+								<span class="blxq">显示病例</span>
+							</if>
+						</div>
+						<div class="btn-list clearfix">
+							<a class="fl" href="{:U('Member/User/bingli_add',array('record_id'=>$vo['RECORD_ID']))}">添加病例</a>
+							<a class="fl" href="{:U('Member/User/jzr_update',array('record_id'=>$vo['RECORD_ID']))}">修改就诊人</a>
+							<a class="fr jzr_del" href="javascript:void(0)">删除就诊人</a>
+							<div style="display: none;">{$vo['RECORD_ID']}</div>
+						</div>
+						<div class="bl-xiangqing">
+							<volist name="vo.PERSON_CASES" id="v">
+								<div class="list-main clearfix">
+									<div class="main-img">
+										<if condition="$v['CASE_PIC'] eq ''">
+										<else /><img src="{$v.CASE_PIC}" alt="">
+										</if>	
+									</div>
+									<div class="main-con">
+										<p>名称：{$v.CASE_TITLE}</p>
+										<p>描述: 
+											<if condition="$v['CASE_DESC'] eq ''">暂无
+											<else />{$v.CASE_DESC}
+											</if>
+										</p>
+										<p>时间:{$v.CREATE_DATE}</p>
+									</div>
+								</div>
+								<div class="xiugai clearfix">
+									<p><a href="{:U('Member/User/bingli_update',array('case_id'=>$v['CASE_ID']))}">修改病例</a></p>
+									<div><a href="javascript:void(0)" class="bingli_del">删除病例</a><div style="display: none;">{$v['CASE_ID']}</div></div>
+								</div>
+							</volist>
+						</div>
+					</li>
+				</volist>	
+			</ul>
+			<div class="imgshow" id="imgshow">
+				<span></span>
+				<img src="" alt="">
+			</div>
+	
+			
+
+			<!-- 加载更多 -->
+			<div class="ui-jiazai tac" style="margin-bottom:80px;"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+	        <div id="current_pagenum" style="display:none">2</div>
+	        
+
+        </if>
+        <div id="member_id" style="display:none">{$member_id}</div>
+
+	        <a href="{:U('Member/User/jzr_add')}" style="position: fixed;left: 0;bottom: 0;height: 40px;width: 100%;display: block;line-height: 40px;text-align: center;background: #ff647c;color: #fff;font-size: 14px;">添加就诊人</a>
+
+		<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+		<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script> 
+		<script>
+			deletPre()
+			function deletPre(){
+				$(".jzr_del").click(function(){
+					var record_id = $(this).next().text();
+					if (confirm("你确定删除吗?") == true) 
+					{  
+			            $.ajax({
+				            type: "POST",
+				            url: "{:U('Member/User/jzr_del')}",
+				            async: true,
+				            data: {"record_id":record_id},
+				            success: function(msg)
+				            {
+				                switch (msg)
+				                {
+				                    case '1':
+				                        alert("删除成功！");
+				                        location.reload(true);
+				                        return;
+				                        break;
+			                        case '2':
+				                        alert("您已支付,不能删除订单！");
+				                        location.reload(true);
+				                        return;
+				                        break;
+				                    default:
+				                        alert("删除失败！");
+				                        return;
+				                        break;
+				                }
+				            },
+				            error: function(XMLHttpRequest, textStatus, errorThrown) 
+				            {   
+				            	alert("网络不稳定,请稍后再试或者重新刷新页面！");
+				                // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+				            }
+			        	});
+			        }
+				});
+			}
+				
+
+			$(".main-img").each(function(){
+				$(this).click(function(){
+					var iSrc = $(this).find('img').attr("src");
+					$(".imgshow img").attr("src",iSrc);
+					$(".imgshow").height($('body').height()).show();
+				})
+			});
+
+			$(".imgshow span").click(function(){
+				$(".imgshow").hide();
+			})
+
+			function load_more()
+            {
+            	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=my_bingli_append&member_id=' +$('#member_id').text(),'#member_list',function(){
+            		deletPre()
+            	});
+            }
+
+            $(".bingli_del").click(function(){
+				var case_id = $(this).next().text();
+				if (confirm("你确定删除吗?") == true) 
+				{  
+		            $.ajax({
+			            type: "POST",
+			            url: "{:U('Member/User/bingli_del')}",
+			            async: true,
+			            data: {"case_id":case_id},
+			            success: function(msg)
+			            {
+			                switch (msg)
+			                {
+			                    case '1':
+			                        alert("删除成功！");
+			                        location.reload(true);
+			                        return;
+			                        break;
+			                    default:
+			                        alert("系统繁忙，请稍后再试！");
+			                        return;
+			                        break;
+			                }
+			            },
+			            error: function(XMLHttpRequest, textStatus, errorThrown) 
+			            {   
+			            	alert("网络不稳定,请稍后再试或者重新刷新页面！");
+			                // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+			            }
+		        	});
+		        }
+			});
+
+			(function(){
+				$('.blxq').each(function(){
+					$(this).attr('onOff','true');
+					$(this).click(function(){
+						if( $(this).attr('onOff') == 'true' ){
+							$(this).parent().siblings('.bl-xiangqing').slideDown();
+							$(this).attr('onOff','false');
+							$(this).html('隐藏病例');
+						}else{
+							$(this).parent().siblings('.bl-xiangqing').slideUp();
+							$(this).attr('onOff','true');
+							$(this).html('显示病例');
+						}
+
+					})	
+				})
+			})()
+		</script>
+		
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

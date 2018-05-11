@@ -1,0 +1,22 @@
+<volist name="expert_list" id="expert">
+    <section class="li">
+        <div class="box">
+            <div class="image">
+                <if condition="!$expert['SMALL_PIC']">
+                    <img src="/weixin/Application/Member/View/images/member.png" alt="" width="100%" />
+                <else />
+                    <img src="{$expert['SMALL_PIC']}" alt="" width="100%"/>
+                </if>
+            </div>
+            <div class="text">
+                <h2>{$expert['EXPERT_NAME']}</h2>
+                <p><span>{$expert['HOS_NAME']}</span><!-- <strong>主任医师</strong> --></p>
+            </div>
+            <div class="links text-right">
+                <a href="javascript:void(0);" class="text-center <if condition='$expert[JS_FLAG] eq 1'> hide </if>">接受</a>
+                <input type="hidden" class="expert_id" value="{$expert['EXPERT_ID']}">
+            </div>
+            <a href="{:U('Consult/consult_details',array('expert_id'=>$expert['EXPERT_ID'],'consult_id'=>'0','fz_flag'=>$expert['FZ_FLAG']))}" class="lks"></a>
+        </div>
+    </section>∮
+</volist>

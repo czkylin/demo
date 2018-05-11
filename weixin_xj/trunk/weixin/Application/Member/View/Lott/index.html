@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+    <title>端午大作战</title>
+    <link rel="stylesheet" type="text/css" href="/weixin/Public/Member/Lott/css/duanwu_style.css">
+    <script type="text/javascript" src="/weixin/Public/Member/Lott/js/jquery.js"></script>
+    <script type="text/javascript" src="/weixin/Public/Member/Lott/js/remControl.js"></script>
+</head>
+<body style="width:100%; height:100%; background:url('/weixin/Public/Member/Lott/images/fm.jpg') no-repeat; background-size: 100% 100%;">
+	<div class="fm-box">
+		<div class="fm-zz">
+			<img src="/weixin/Public/Member/Lott/images/fm-zz.png" class="zz-left">
+			<img src="/weixin/Public/Member/Lott/images/fm-zz.png">
+		</div>
+		<div class="fm-btn">
+			<a href="{:U('Member/Lott/game')}"><img src="/weixin/Public/Member/Lott/images/start.png"></a>
+		</div>
+		<div class="fm-rule">
+			<img src="/weixin/Public/Member/Lott/images/gz.png" style="width:.8rem;" class="gz-btn">
+		</div>
+		<div class="fm-rule-de">
+			<img src="/weixin/Public/Member/Lott/images/gz-details.png" style="width:5.8rem;" class="gz-details">
+		</div>
+	</div>
+	   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.fm-rule').click(function(){
+	      if($('.fm-rule-de').css("display")==='none'){
+	     		$('.fm-rule-de').show(); 
+	      }else{
+	      	$('.fm-rule-de').hide();
+	      }
+	    });
+
+		});
+    
+    // 阻止屏幕上下滑动
+    $('body').on('touchmove', function (event) {event.preventDefault();});
+    document.addEventListener('touchmove', function(e){e.preventDefault()}, false);
+
+
+	//微信分享
+		wx.config({
+		    debug: false,
+		    appId: '<?php echo $appId;?>',
+		    timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+		    nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+		    signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+		    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+
+		var wx_share_title = '端午大作战，避开炸弹抢粽子了。';
+		var wx_share_desc = '限时20秒，快快抢粽子得分吧，抢得分数越多享受优惠越大哦';
+		var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/Lott/images/lott.png";
+
+		wx.ready(function() {
+		    wx.onMenuShareTimeline({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index',
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+		              
+
+		        },
+		        cancel: function() {}
+		    });
+		    wx.onMenuShareAppMessage({
+		        title: wx_share_title,
+		        desc: wx_share_desc,
+		        link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Lott&a=index',
+		        imgUrl: wx_share_imgUrl,
+		        success: function() {
+		             
+		        },
+		        cancel: function() {}
+		    });
+		});
+
+	</script>
+</body>
+</html>

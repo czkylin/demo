@@ -1,0 +1,326 @@
+/*初始化*/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; margin: 0; padding: 0;}
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-weight: normal;}
+address, cite, dfn, em, var,i{ font-style:normal; }
+b,strong{font-weight:normal;}
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; color: #333;}
+a{border:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;outline:none;}
+a:hover {}
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+img{vertical-align: middle;}
+button, input, select, textarea { font-size:100%; font-family:"Microsoft Yahei";}
+table { border-collapse:collapse; border-spacing:0; }
+body{font-family:"Microsoft Yahei"; background: #f4f4f4;}.bni-conversation{
+  padding-top: 3.5rem;
+  font-size: .3rem;
+  line-height: .48rem;
+  color: #cc9b2d;
+  text-align: center;
+} 
+
+/* 翻出-Y轴 */
+@-webkit-keyframes flipoutY{
+    0%{-webkit-transform:translateX(-50%) rotateY(0);opacity:1;}
+    20%{-webkit-transform:translateX(-50%) rotateY(90deg);opacity:0.5;}
+    60%{-webkit-transform:translateX(-50%) rotateY(0deg);opacity:1;}
+    80%{-webkit-transform:translateX(-50%) rotateY(-90deg);opacity:0.5;}
+    100%{-webkit-transform:translateX(-50%) rotateY(0);opacity:1;}
+}
+@-webkit-keyframes rock{
+  0%{transform:rotate(0deg);}
+  10%{transform:rotate(3deg);}
+  20%{transform:rotate(-3deg);}
+  30%{transform:rotate(2deg);}
+  40%{transform:rotate(-2deg);}
+  50%{transform:rotate(1deg);}
+  60%{transform:rotate(-1deg);}
+  70%{transform:rotate(0deg);}
+  100%{transform:rotate(0deg);}
+}
+/*动画样式定义―振铃*/
+@-webkit-keyframes ring{
+  0%{-webkit-transform:scale(0.9);}
+  10%,20%{-webkit-transform:scale(0.8) rotate(-3deg);}
+  30%,50%,70%,90%{-webkit-transform:scale(1) rotate(3deg);}
+  40%,60%,80%{-webkit-transform:scale(1) rotate(-3deg);}
+  100%{-webkit-transform:scale(0.9) rotate(0);}
+}
+@-webkit-keyframes upDown{
+  0%,20%,40%,60%,80%,100%{bottom: .1rem;}
+  10%,50%{bottom: .2rem;}
+  30%,70%,90%{bottom: .0rem;}
+}
+@-webkit-keyframes downUp{
+  0%,20%,40%,60%,80%,100%{bottom: .0rem;}
+  10%,50%{bottom: .1rem;}
+  30%,70%,90%{bottom: -.07rem;}
+
+}
+
+.gbk-ad{width:100%;height: 4rem;position: absolute; top: 0;}
+.gbk-sb{display: block; position: absolute; height: .7rem;}
+.gbk-sb01{bottom: .1rem; -webkit-animation: upDown 3s infinite;}
+.gbk-sb02{bottom: 0; -webkit-animation: downUp 3s infinite;}
+.gbk-sb02{bottom: 0; -webkit-animation: downUp 3s infinite;}
+.gbk-j{position: absolute; bottom: .2rem; right: .5rem; -webkit-animation: rock 2s infinite;}
+
+.bni-intro li{
+  text-align: center;
+  margin-bottom: .6rem;
+  position: relative;
+}
+.bni-intro li .song img{
+  width: 6rem;
+  position: absolute;
+  top: 1.6rem;
+  left: 50%;
+  margin-left: -3rem;
+  -webkit-animation: ring 3s infinite;
+}
+.bni-intro li .title{
+  position: relative;
+}
+.bni-intro li .title img{
+  position: absolute;
+  left: 50%;
+  margin-left: -2.25rem;
+  -webkit-animation: rock 2s infinite;
+}
+.bni-intro li .one-title img{
+  width: 3.8rem;
+  top: -1rem;
+  margin-left: -1.9rem;
+}
+.bni-intro li .two-title img{
+  width: 4.5rem;
+  top: 0rem;
+}
+.bni-intro li:first-child{
+  margin-bottom: 0;
+}
+.bni-intro li img{
+  width: 6.4rem;
+}
+.bni-intro li.one-img{
+  margin-bottom: 0;
+}
+.rmd-sj.bni-sj{
+  margin-left: .6rem;
+  z-index: 2;
+}
+.rmd-pro-answer-box.bni-pro-answer-box{
+  display: none;
+}
+.rmd-pro-answer.bni-pro-answer{
+  background: #fff5de;
+  color: #3c2324;
+  min-height: .8rem;
+  border: .02rem #fceccd solid;
+  margin: -.12rem .2rem .2rem .2rem;
+  padding: .2rem;
+  border-radius: .1rem;
+  line-height: .45rem;
+  z-index: 1;
+  position: relative;
+}
+.rmd-proquestion{
+  position: relative;
+}
+.rmd-proquestion em{
+  display: inline-block;
+  margin-right: .3rem;
+  color: #f16952;
+}
+.rmd-proquestion span{
+  display: block;
+  width: .34rem;
+  height: .2rem;
+  background: url('../images/baoxian-zt/back-down.png'); 
+  background-size: .34rem .2rem;
+  position: absolute;
+  right: 0;
+  top: .1rem;
+}
+.rmd-proquestion.show span{
+  background: url('../images/baoxian-zt/back-up.png');
+  background-size: .34rem .2rem;
+}
+.rongyb-data{
+  width: 6rem;
+  margin: .8rem auto;
+  background: #fffbf2;
+  font-size: .24rem;
+  border-radius: .1rem;
+  padding: .2rem .3rem;
+  position: relative;
+}
+.rongyb-data ul{
+  margin-top: .2rem;
+}
+.rongyb-data li{
+  border-bottom: .02rem #c7c7c7 solid;
+  padding: .2rem 0;
+  line-height: .5rem;
+}
+.be05-01{
+  width: 4.5rem;
+  position: absolute;
+  top: -.6rem;
+  left: 1rem;
+}
+.bni-box{
+  margin-bottom: 1rem;
+}
+.binvited-btn-box a{
+  display: block;
+  width: 100%;
+  height: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .3rem;
+  color: #fff;
+  background: #ff9321;
+  z-index: 2
+}
+
+.left-btn span{
+  display: inline-block;
+  font-size: .4rem;
+  margin-right: 1.4rem;
+}
+.left-btn em{
+  display: inline-block;
+  width: 1.7rem;
+  height: .6rem;
+  border-radius: .1rem;
+  background: #e20329;
+  line-height: .6rem;
+}
+
+/*保卡重疾保障*/
+.fbk-btn-box a{
+  background: #1d9e2e;
+}
+.fbk-cjwt{
+  width: 4.5rem;
+  position: absolute;
+  top: -.45rem;
+  left: 1rem;
+}
+.fbk-ad img{
+  padding-top: .6rem;
+  -webkit-animation: ring 3s infinite;
+}
+.fbk-one{
+  margin-top: 1rem;
+}
+.bni-intro .fbk-title1 img,.bni-intro .fbk-title2 img{
+  position: absolute;
+  left: 45%;
+  margin-left: -2.5rem;
+  width: 5rem;
+  -webkit-animation: rock 2s infinite;
+  margin-bottom: 0;
+}
+
+/*E倍爱眼卡*/
+.e-box{
+  margin-bottom: 2rem;
+}
+.e-title1{
+  position: absolute;
+  top: .3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-animation: rock 2s infinite;
+}
+.bni-intro .e-title1 img{
+  width: 5.33rem;
+}
+.e-btn-box a{
+  background: linear-gradient(to right, #5b41d7 0%,#2bbeda 100%);
+  background: -webkit-linear-gradient(to right, #5b41d7 0%,#2bbeda 100%);
+  background: -moz-linear-gradient(to right, #5b41d7 0%,#2bbeda 100%);
+  background: -ms-linear-gradient(to right, #5b41d7 0%,#2bbeda 100%);
+}
+.e-box .bni-intro li img{
+  width: 6.8rem;
+}
+
+/* 肝保卡重疾保障 */
+.gbk-explian{
+  padding-top: 4.2rem;
+}
+.gbk-btn-box a{
+  background: #d0f1fa;
+}
+.gbk-btn-box a span{
+  color: #0B638D;
+}
+.gbk-cjwt-box{
+  background: #72c4dc;
+}
+.gbk-cjwt-box .rmd-proquestion em{
+  color: #FFFFFF;
+}
+.gbk-cjwt-box .rmd-pro-answer.bni-pro-answer{
+  background: #519cb2;
+  color: #FFFFFF;
+  border: none;
+  margin: .3rem .2rem .2rem .2rem;
+}
+.gbk-cjwt-box li{
+  border-bottom: .02rem #519cb2 solid;
+  padding: .2rem 0;
+  line-height: .5rem;
+}
+.gbk-cjwt{
+  width: 4.5rem;
+  position: absolute;
+  top: -0.45rem;
+  left: 1rem;
+}
+.triangle-border {
+  position:absolute;
+  left: .5rem;
+  overflow:hidden;
+  width:0;
+  height:0;
+  border-width:.25rem;
+  border-style: dashed dashed solid dashed;
+}
+.tb-border {
+  top: -.46rem;
+  border-color: transparent transparent #519CB2 transparent;
+}
+.tb-background {
+  top: -.45rem;
+  border-color: transparent transparent #519CB2 transparent;
+}
+.question:before{
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: .05rem;
+  width: .18rem;
+  height: .18rem;
+  margin-top: -.1rem;
+  border-bottom: .04rem solid #FFFFFF;
+  border-right: .04rem solid #FFFFFF;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.question.show:before{
+  transform:rotate(225deg);
+  margin-top: -.05rem;
+}

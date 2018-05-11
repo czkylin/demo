@@ -1,0 +1,35 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<!--分享页面样式调用-->		
+<link href="/weixin/Public/Expert/css/fenXiang/fenXiang.css" type="text/css" rel="stylesheet"/>
+<!-- title -->
+<title>文章详情</title>
+<!--meta-->
+</head>
+<body>
+<div class="tijiao tac">
+	<img src="/weixin/Application/Expert/View/images/icon7.png"/>
+	<p class="fs22 fc000">已提交成功！</p>
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td><a class="ui-btn-purchase-blue" href="/weixin/index.php?m=Expert&c=Share&a=add_info">继续分享</a></td>
+			<td><a class="ui-btn-purchase-blue" href="/weixin/index.php?m=Expert&c=Share&a=my_share_list&doc_id={$doc_id}">返回列表</a></td>
+			<td><a class="ui-btn-purchase-blue" href="/weixin/index.php?m=Expert&c=Share&a=share_list">返回所有</a></td>
+		</tr>
+	</table>
+</div>
+<footer class="footer"></footer>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

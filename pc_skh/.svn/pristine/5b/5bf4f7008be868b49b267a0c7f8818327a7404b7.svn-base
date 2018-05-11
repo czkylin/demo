@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>北京圣康华</title>
+  <!-- 公共样式 -->
+  <link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+  <!-- 当前样式 -->
+  <link rel="stylesheet" href="/Public/css/focus/news.css">
+</head>
+<body>
+  <!-- 头部start -->
+  <include file="Public:header"/>
+  <!-- 头部end -->
+  <div class="banner con">
+    <div class="w1200">
+      <p class="title">公司动态</p>
+      <p class="desc">Company News</p>
+    </div>
+  </div>
+  <div class="nav con">
+    <div class="w1200">
+      <a href="">首页</a><span>></span><a href="">新闻动态</a>
+    </div>
+  </div>
+  <div class="con1 con">
+    <div class="w1200">
+      <div class="conLeft fl">
+        <ul>
+          <volist name="newsList" id="news" empty="$empty">
+            <a href="{:U('Focus/docDetail',array('artid'=>$news['RECORD_ID']))}"><li><i></i>{$news['ACT_LECTOR']}<span class="fr">{$news['CREATE_DATE']|Dtodiy="Y-m-d",###}</span></li></a>
+          </volist>
+        </ul>
+        <ol>
+          <!-- <li class="prev">上一页</li>
+          <li class="item active">1</li>
+          <li class="item">2</li>
+          <li class="item">3</li>
+          <li class="item">4</li>
+          <li class="none">...</li>
+          <li class="item">38</li>
+          <li class="next">下一页</li>
+          <li class="last"><input type="text" name="" value="" class="ent"></li> -->
+          {$page}
+          <!-- <li class="last"><form action="{:U('Focus/news')}" method="GET"><input type="text" name="p" value="" class="ent"></form></li> -->
+        </ol>
+        
+        
+      </div>
+      <div class="conRight fr">
+        <img src="/Public/images/focus/news/pic1.jpg" alt="">
+        <img src="/Public/images/focus/news/pic2.jpg" alt="">
+        <img src="/Public/images/focus/news/pic3.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- 底部start -->
+  <include file="Public:footer"/>
+  <!-- 底部end -->
+  <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var item = document.getElementsByClassName('item');
+    for(var i=0; i<item.length; i++) {
+      item[i].index = i;
+      item[i].onclick = function(e) {
+        for(var i=0; i<item.length; i++) {
+          item[i].classList.remove('active');
+        }
+        this.classList.add('active');
+        console.log(this.innerHTML);
+        $.ajax({
+          url: '/path/to/file',
+          type: 'GET',
+          dataType: 'json',
+          data: {param1: 'value1'}
+        })
+        .done(function() {
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        })
+
+      }
+    }
+    var ent = document.getElementsByClassName('ent')[0];
+    ent.onkeydown = function(e) {
+      var keynum;
+      if(window.event) {
+        keynum = e.keyCode;
+      } else if(e.which) {
+        keynum = e.which;
+      }
+      if(keynum == 13) {
+        console.log(e.target.value);
+        $.ajax({
+          url: '/path/to/file',
+          type: 'GET',
+          dataType: 'json',
+          data: {num: e.target.value}
+        })
+        .done(function() {
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+
+      }
+    }
+    // var next = document.getElementsByClassName('next')[0];
+    // next.onclick = function() {
+    //   var active = document.getElementsByClassName('active')[0];
+    //   var current = parseInt(active.innerHTML);
+    //   for(var i=0; i<item.length-1; i++) {
+    //     item[i].innerHTML = current + i;
+    //   }
+    // }
+
+    // var prev = document.getElementsByClassName('prev')[0];
+    // prev.onclick = function() {
+    //   var active = document.getElementsByClassName('active')[0];
+    //   var current = parseInt(active.innerHTML);
+    //   for(var i=0; i<item.length-1; i++) {
+    //     item[i].innerHTML = current-1 + i;
+    //   }
+    // }
+  </script>
+</body>
+</html>

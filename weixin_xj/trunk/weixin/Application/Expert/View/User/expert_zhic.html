@@ -1,0 +1,64 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--分享页面样式调用-->
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<title>选择职称</title>
+</head>
+<body >
+ <form action="{:U('User/expert_update_zhic')}" method="post" id="form" name="form">
+<div class="gp GJ_Gp g-items gp-profile-auth" id="xuanze"> 
+    
+    <select name="column_value" id="band" onChange="get_val(this.value)" >
+        <option selected="selected" value="{$zhic}"  >{$zhic}</option>
+        <option value="主任医师" >主任医师</option>
+        <option value="副主任医师" >副主任医师</option>
+        <option value="住院医师" >住院医师</option>
+        <option value="其他" >其他</option>
+    </select>
+<div class="xuanze_wanc"><a href="javascript:void(0)" onClick="finish()">完成</a></div>
+</div>
+<div id="qt" style="display:none">
+    <div class="qita">
+        <input type="text" placeholder="请输入您的职称" id="zhic" name="zhic" style="height:40px; line-height:40px; padding:10px 10px">
+        <input type="hidden" name="column_name" id="column_name" value="expert_rank">
+    </div>
+    <div class="xuanze_wanc"><a href="javascript:void(0)" onClick="finish()">完成</a></div>
+</div>
+</form>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/erji_chengshi.js"></script>
+<script type="text/javascript">
+ function get_val (val){
+        if(val=="其他"){
+            //$("#xuanze").remove();
+            $("#xuanze").hide()
+            $('#qt').show()
+        }else{
+             $("#xuanze").show()
+            $('#qt').hide()
+        }
+    }
+function finish(){
+    var band = $("#band option:selected").val();
+    if(band=="其他"){
+        if($("#zhic").val()==""){
+            alert("请填写科室！")
+        }
+    }
+     form.submit()
+}
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

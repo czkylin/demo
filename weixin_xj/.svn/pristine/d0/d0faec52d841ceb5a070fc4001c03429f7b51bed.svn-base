@@ -1,0 +1,24 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<title>家庭医生</title>
+<style>
+    *{padding: 0; margin: 0;}
+    body{background: #f4f4f4; text-align: center;}
+    img{vertical-align: top; margin-bottom: 15px; margin-top: 110px; width: 24%;}
+    p{font-size: 16px; color: #999; line-height: 24px; font-weight: bold;}
+    p a{color: #ff647b; text-decoration: none;}
+</style>
+</head>
+<body>
+    <img src="/weixin/Public/Member/images/yonghu/noconsult_list.png" alt="">
+    <p> 您还未有家庭医生<br>如需帮助请联系<a href="tel:400-656-2020">400-656-2020</a></p>
+</body>
+</html>

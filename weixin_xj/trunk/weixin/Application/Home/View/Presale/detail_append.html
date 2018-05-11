@@ -1,0 +1,17 @@
+<volist name="ys_list" id="ys">
+    <section>
+        <h2>{$ys['CREATE_DATE']}</h2>
+        <div class="content">
+            <p>申请终端：<if condition="$ys['HOS_NAME']">{$ys['HOS_NAME']}<else />暂无</if></p>
+            <p>申请物品：{$ys['APPLY_OBJECT2']}</p>
+            <p>支付金额：{$ys['PAY_MONEY']}</p>
+            <p>支付状态：<b class="warn"><if condition="$ys['IS_PLAY'] eq 1">已支付<else />未支付</if></b></p>
+        </div>
+        <if condition="$ys['IS_PLAY'] neq 1">
+            <div class="buyList clear">
+                <a href="{:U('Member/Presale/persale_pay',array('parameters'=>$ys['PARAMETERS']))}" class="text-center fr active">去支付</a>
+                <!-- <a href="#" class="text-center fr">取消订单</a> -->
+            </div>
+        </if>
+    </section>∮
+</volist>

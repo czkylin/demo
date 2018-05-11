@@ -1,0 +1,24 @@
+<volist name="list" id="rank">
+    <li>
+        <div class="ww pos_a"> 
+            {$rank['PM_RANK']}
+        </div>
+        <div class="touxiang pos_a">
+            <a href="javascript:;"> <img src="{$rank['HOS_PIC']|default='/weixin/Public/Member/images/yd/yd.png'}"> </a>
+        </div>
+        <div class="huoyuedu">
+            <div class="title">
+                <div class="title-des"> 
+                <span>{$rank['HOS_NAME']}</span>  
+                </div> 
+                <!-- <span class="fr"></span> -->
+                
+                <div class="clear"></div>
+            </div>
+        </div>
+        <p style="position: absolute; right: 0; top: 10px; line-height:20px;"><span style="font-size:12px;color:#333;margin-right:10px;">售卡收入：{$rank['MONEY']}元</span><br>
+                <span style="font-size:12px;color:#333;margin-right:10px;">售卡数量：{$rank['NUMS']}张</span></p>
+        <div class="clear"></div>
+
+    </li>∮
+</volist>

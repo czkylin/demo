@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>健康服务</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/insurance.min.css">
+</head>
+<body>
+	<div class="jk_top">
+    	<i class="jiao"></i>
+    	<div class="toux_bg">
+        	<img src="{$yuyue['UserPic']}">
+        </div>
+        <h2>{$yuyue['UserName']}</h2>
+    </div>
+    <div class="fuwu">
+    	<h2>会员服务</h2>
+        <div class="fuwu_bot">
+        	<ul>
+                <volist name="yuyue['ServiceList']" id="fuwu">
+                	<li>
+                    	<b></b>
+                        <div class="fw_jg">
+                        	<h3>{$fuwu['ServiceName']}</h3>
+                            <span>1次/年<i><a href="{:U('Huzhu/yuyue_result',array('ServiceJzId'=>$fuwu['ServiceId']))}">查看结果</a></i></span>
+                        </div>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div class="baozhang_but">
+        	<a class="btn btn-success" id="link-recharge" href="tel:110">预约</a>
+        </div>
+    </div>
+    <!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

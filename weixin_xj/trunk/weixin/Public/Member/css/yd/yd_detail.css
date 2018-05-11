@@ -1,0 +1,269 @@
+/*commom*/
+* {
+  margin: 0;
+  padding: 0;
+}
+input,
+a,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input,
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: none;
+  background: none;
+  padding: 0;
+  border: none;
+}
+body {
+  -webkit-user-select: none;
+  font-family: Helvetica;
+  -webkit-text-adjust: 100%;
+}
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+a {
+  text-decoration: none;
+}
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+i,
+em {
+  font-style: normal;
+}
+/*main*/
+header img {
+  width: 100%;
+}
+section:nth-of-type(1) {
+  border-bottom: 0.4rem solid #e7e7e7;
+}
+.base-info {
+  padding: 0.6rem 0.48rem;
+  position: relative;
+}
+.base-info h2 {
+  font-size: 0.52rem;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+.base-info p {
+  font-size: 0.48rem;
+  line-height: 0.8rem;
+  color: #999;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.base-info span {
+  position: absolute;
+  right: 0.56rem;
+  bottom: 0;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url(/weixin/Public/Member/images/icon/down.png) no-repeat;
+  background-size: 0.48rem;
+}
+.base-info span.up {
+  -webkit-transform: rotateZ(-180deg);
+  transform: rotateZ(-180deg);
+}
+.add {
+  padding: 0 0.48rem 0.6rem;
+}
+.add h2 {
+  font-size: 0.52rem;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+.add a {
+  display: block;
+  height: 0.52rem;
+  line-height: 0.52rem;
+  padding-left: 0.52rem;
+  padding-right: 0.52rem;
+  font-size: 0.48rem;
+  color: #999;
+  background: url(/weixin/Public/Member/images/icon/address.png) no-repeat left center;
+  background-size: 0.4rem;
+  position: relative;
+}
+.add a span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 0.52rem;
+  width: 0.52rem;
+  background: url(/weixin/Public/Member/images/icon/down.png) no-repeat center;
+  background-size: 0.4rem;
+  -webkit-transform: rotateZ(-90deg);
+  transform: rotateZ(-90deg);
+}
+.yy-title {
+  padding: 0.56rem 0.48rem;
+  font-size: 0.52rem;
+  color: #333;
+}
+#doc-list p {
+  height: 24px;
+  line-height: 24px;
+  color: #333;
+  font-size: 12px;
+}
+#doc-list li {
+  display: block;
+  background: #fff;
+  border-radius: 0 0 4px 4px;
+  color: #333;
+  line-height: 20px;
+  position: relative;
+  clear: both;
+  border-bottom: 1px solid #e7e7e7;
+}
+#doc-list li > a {
+  display: block;
+  background: #f5f5f5;
+  border-radius: 0 0 4px 4px;
+  padding: 10px 0.48rem;
+  color: #333;
+  line-height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+#doc-list .img {
+  text-align: center;
+  display: block;
+  line-height: 46px;
+  overflow: hidden;
+  width: 58px;
+  height: 58px;
+  border-radius: 60px;
+  border: 1px solid #ccc;
+  margin-top: 0.2rem;
+}
+#doc-list span.img img {
+  border-radius: 50px;
+  border: #e7e7e7 1px solid;
+  width: 100%;
+  height: 58px;
+}
+#doc-list .docImg {
+  width: 25%;
+}
+#doc-list .docImg i {
+  width: 60px;
+  display: block;
+  height: 9.719px;
+  margin-top: 5px;
+  background: url(/weixin/Public/Member/images/icon/xing.png) no-repeat;
+  background-size: 60px;
+  position: relative;
+}
+#doc-list .docImg i b {
+  height: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+#doc-list .docImg i img {
+  border-width: 0;
+  width: 60px;
+}
+#doc-list .meta {
+  display: block;
+  font-size: 12px;
+  width: 75%;
+}
+#doc-list .meta .name_dj {
+  overflow: hidden;
+}
+#doc-list .meta .name_dj .mingcheng {
+  font-size: 14px;
+  float: left;
+  overflow: hidden;
+  color: #333;
+  font-weight: 400;
+  height: 24px;
+  width: 100%;
+  display: inline-block;
+}
+#doc-list .meta .name_dj .mingcheng em {
+  display: block;
+  background: #000;
+  color: #333;
+  line-height: 20px;
+  width: 20px;
+  float: left;
+}
+#doc-list .meta .name_dj .mingcheng em.zc {
+  background: none;
+  width: auto;
+  margin-right: 10px;
+  font-size: 12px;
+}
+#doc-list .meta .name_dj .mingcheng em.count {
+  float: right;
+  background: none;
+  width: auto;
+  font-size: 12px;
+}
+#doc-list .meta p.desc {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding: 0;
+  height: auto;
+  min-height: 40px;
+}
+#doc-list .kt_service {
+  overflow: hidden;
+  text-align: right;
+  padding: 10px 0.48rem;
+}
+#doc-list .kt_service a {
+  background: #fff;
+  display: block;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 0 0 4px 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 20px;
+  position: relative;
+  overflow: hidden;
+}
+#doc-list .kt_service a.service {
+  display: inline-block;
+  padding: 3px 6px;
+  text-align: center;
+  color: #ef4a65;
+  font-size: 12px;
+  border: 1px solid #ef4a65;
+  width: 48PX;
+  border-radius: 3px;
+  margin: 5px 3px 0 0;
+}
+#doc-list .kt_service a.weikaitong {
+  border: 1px solid #e7e7e7;
+  color: #999;
+}

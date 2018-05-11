@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+body{ font-family:"微软雅黑"; margin:0;}
+.xiaoxi_list{ width:100%; height:auto; margin-top:8px; }
+.xiaoxi_info{ width:100%; height:auto; padding:10px 0; padding-bottom:0; margin-bottom:8px; background:#fff;}
+.xiaoxi_info span{ display:block; padding:0 15px 15px; line-height:24px; font-size:18px; color:#bbb;}
+.xiaoxi_info .xiangq{ padding:10px; border-bottom:1px solid #f7f7f7; height:34px; line-height:34px; overflow:hidden; }
+.xiaoxi_info .chakan_xq{ background:url(/weixin/Public/Expert/images/xiaoxi/dayu.png) no-repeat 97% center; background-size:10px 18px;}
+.xiaoxi_info .xiangq b{ width:24px; height:24px; background:url(/weixin/Public/Expert/images/xiaoxi/icon1.png) no-repeat; background-size:100% 100%; margin-right:8px; margin-top:5px; display:inline-block; float:left;}
+.xiaoxi_info .xiangq a{ display:inline-block; height:20px; line-height:20px; margin-top:7px; font-size:15px; border-left:1px solid #999; padding-left:8px; float:left; color:#333; }
+.xiaoxi_info .xiangq a:visited{ color:#999;}

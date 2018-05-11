@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>收支明细</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/details.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<ul id="control" class="clear">
+		<li class="active">处方</li>
+		<li>支出</li>
+	</ul>
+	<div class="btn">
+		<a href="javascript:;">提现</a>
+	</div>
+	<div id="box">
+		<ul class="content active">
+			<li>
+				<p class="title">处方<span>处</span></p>
+				<p class="time">2016-08-09 16:45:23</p>
+				<i>+14</i>
+			</li>
+			<li>
+				<p class="title">处方<span>处</span></p>
+				<p class="time">2016-08-09 16:45:23</p>
+				<i>+14</i>
+			</li>
+		</ul>
+		<ul class="content">
+			<li>
+				<p class="title">支出<span>支</span></p>
+				<p class="time">2016-08-09 16:45:23</p>
+				<i>+14</i>
+			</li>
+			<li>
+				<p class="title">支出<span>支</span></p>
+				<p class="time">2016-08-09 16:45:23</p>
+				<i>+14</i>
+			</li>
+		</ul>
+	</div>
+	<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/touch.js"></script>
+	<script>
+		//tab
+		$('#control li').each(function(index){
+			$(this).on('touchend',function(){
+				$('#control li').each(function(index){
+					$(this).removeClass('active');
+				})
+				$(this).addClass('active');
+
+				$('.content').each(function(){
+					$(this).removeClass('active');
+				})
+				$('.content').eq(index).addClass('active');
+			})
+		})
+	</script>
+	
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

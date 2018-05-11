@@ -1,0 +1,39 @@
+<volist name="cf_list" id="cf">
+        <section class="unit">
+            <header class="box">
+                <h2>{$cf.HOS_NAME}</h2>
+                <p class="text-right"><span class="warn">{$cf.ORDER_STATUS}</span></p>
+            </header>
+            <div class="ct box">
+                <div class="cLeft box">
+                    <div class="cimg"><if condition="!$cf['MEMBER_PIC']"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"><else /><img src="{$cf['MEMBER_PIC']}" width="100%"></if></div>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$cf.MEMBER_NAME}</em></p>
+                        <p><strong>内容：</strong>{$cf.CF_CONTENT}</p>
+                        <p><span>{$cf.CREATE_DATE}</span></p>
+                    </div>
+                </div>
+                <div class="cRight center"><i class="ui-icon-arrow"></i></div>
+                <a href="{:U('Expert/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID']))}"></a>
+            </div>
+            <a href="{:U('Expert/Cf/cf_addx',array('record_id'=>$cf['RECORD_ID']))}" class="color1 text-center go">去续方</a>
+        </section>∮
+    </volist>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>处方列表</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="chufang_list">
+	<ul id="cf-list">
+		<volist name="cf_list" id="cf" empty="暂时没有数据">
+		<li>
+			<a class="list_img" href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'order_status'=>$cf['ORDER_STATUS'],'cf_pic'=>$cf['CF_PIC']))}"><img src="{$cf['CF_PIC']}" width="40px" height="40px" /></a>
+			<div class="list_txt">
+				<h3><span>{$cf['EXPERT_NAME']}<b></b></span></h3>
+				<p><a href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'order_status'=>$cf['ORDER_STATUS'],'cf_pic'=>$cf['CF_PIC']))}">{$cf['CF_CONTENT']}</a></p>
+				<h4><span>处方状态：{$cf['ORDER_STATUS']}</span><time>{$cf['CREATE_DATE']}</time></h4>
+			</div>
+			<a class="list_right" href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'order_status'=>$cf['ORDER_STATUS'],'cf_pic'=>$cf['CF_PIC']))}"></a>
+
+		</li>
+		</volist>
+	</ul>
+	<div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</div>
+<include file="Public:footer_fd" />
+<!--Js库文件--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<!--加载更多-->
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script>
+<!--通底定义-->
+var over_footer = '2';
+function load_more()
+{
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Cf&a=cf_list_append','#cf-list');
+}
+</script>
+</body>
+</html>

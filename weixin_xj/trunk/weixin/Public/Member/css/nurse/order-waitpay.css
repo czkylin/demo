@@ -1,0 +1,70 @@
+/*tip*/
+#tip{
+	padding: 0.4rem 0.48rem;
+	border-bottom: 0.4rem solid #e7e7e7;
+}
+#tip h2{
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.6rem;
+	color: #ef4a65;
+}
+#tip p{
+	line-height: 1rem;
+	font-size: 0.52rem;
+	color: #666666;
+}
+/*info*/
+#info{}
+#info ul{}
+#info ul li{
+	padding: 0 0.48rem;
+	line-height: 1.7rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+#info ul li span{
+	float: left;
+	font-size: 0.6rem;
+	color: #333;
+	font-weight: 600;
+}
+#info ul li i{
+	font-style: normal;
+	float: left;
+	font-size: 0.6rem;
+	color: #666;
+	max-width: 10rem;
+}
+#info ul li b{
+	float: right;
+	font-weight: normal;
+	font-size: 0.6rem;
+	color: #fe0101;
+}
+/*pay*/
+#pay{
+	height: 1.9rem;
+	line-height: 1.9rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+#pay span{
+	float: right;
+	font-size: 0.56rem;
+	color: #333;
+}
+#pay span i{
+	color: #ef4a65;
+	font-style: normal;
+}
+#pay a{
+	float: right;
+	display: block;
+	width: 4.44rem;
+	height: 1.9rem;
+	text-align: center;
+	line-height: 1.9rem;
+	background: #ef4a65;
+	color: #fff;
+	font-size: 0.64rem;
+	margin-left: 1rem;
+}

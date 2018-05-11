@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>新增续方</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/chufang/cf_lst.min.css?<?php time();?>.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 10 + 'px';
+    </script>
+</head>
+
+<body class="addy">
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">新增续方</h2> </header>
+    <section class="unit">
+        <div class="basic box"> <span style="width:auto;">姓名：</span><span id="name">{$member_name}</span> <span style="width:auto;"> 性别：</span><span id="sex" style="width:45px;">{$member_sex}</span> <span style="width:auto;">年龄：</span><span id="age">{$member_age}</span>
+            <input type="hidden" id="iphone" value="{$member_mobile}"> </div>
+        <div class="basic">
+            <h3>诊断信息：</h3>
+            <textarea name="consultContent" id="desc" cols="30" rows="3">{$cf_content}</textarea>
+        </div>
+        <div class="medical clear"> <span class="fl">药店：</span>
+            <select name="hos_id" id="hos_id" class="fr"  >
+
+                <if condition="$hos_name neq '' "> 
+                    <option value="{$hos_id}" selected>{$hos_name}</option>
+                </if>
+
+                <!-- <volist name='yd_list' id='yd'>
+                    <if condition="($yd.HOS_NAME neq $hos_name)">
+                        <option value="{$yd.HOS_ID}">{$yd.HOS_NAME}</option>
+                    </if>
+                </volist>  -->                               
+            </select>
+        </div>
+    </section>
+    <section class="drugs">
+        <h2>R：</h2>
+        <volist name="cf_detail" id="cf">
+            <div class="drug">
+                <div class="box image">
+                    <label style="height:44px;"><input type="checkbox" checked /> <i class="ui-icon-unchecked-s" style="line-height:44px;"></i> </label>
+                    <h3 class="title" style="line-height:44px;width:8rem;" onclick="toggleFn(this)">{$cf.TY_NAME}-{$cf.PRODUCT_GG} ￥{$cf.PRODUCT_MONEY|round=2}<if condition="$cf['PRODUCT_TYPE'] neq ''"> - {$cf.PRODUCT_TYPE}</if></h3>    
+                </div>
+                <input type="hidden" class="product" value="{$cf.PRODUCT_ID}">
+                <input type="hidden" class="money" value="{$cf.PRODUCT_MONEY}">
+                <div class="main box">
+                    <div class="image box">
+                        <label></label>
+                        <label> <img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%" /> </label>
+                    </div>
+                    <div class="content">
+                        <p class="box"> <em>数量：</em> <i class="reduce" onclick="changeNum(this)"></i> <strong class="num">{$cf.PRODUCT_NUM}</strong> <i class="add" onclick="changeNum(this)"></i> <strong>盒</strong> </p>
+                        <p class="box"> <em>用量：</em> <i class="reduce" onclick="changeNum(this)"></i> <strong class="num">{$cf.YL_NUM}</strong> <i class="add" onclick="changeNum(this)"></i> <strong>次/日</strong> </p>
+                        <p class="box"> <em></em> <i class="reduce" onclick="changeNum(this)"></i>
+                        <strong class="num"><?php  echo preg_replace('/\D/', '', $cf['JL_NUM']);?></strong>
+                        <i class="add" onclick="changeNum(this)"></i> 
+                        <strong>
+                        <select class="num" id="danwei_{$product.PRODUCT_ID}">
+                            <option value="<?php  echo preg_replace('/\d/', '', $cf['JL_NUM']);?>" selected="selected" ><?php  echo preg_replace('/\d/', '', $cf['JL_NUM']);?></option>
+                        </select>
+                        </strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </volist>
+        <div id="cf-list"></div>
+        <div class="text-right"><a href="javascript:;" class="addm text-center" onclick="addproduct()">增加药品</a></div>
+        <div id="record_id" style="display:none">{$record_id}</div>
+    </section>
+    <footer class="footer">
+        <!-- <button class="btn pink text-center">提交</button> -->
+        <div class="tijiao">
+            <button class="ui-btn-purchase-pink" id="btn">提交</button>
+        </div>
+        <!-- <a href="javascript:;" class="btn pink text-center" id="btn">提交</a>  -->
+    </footer>
+    <div id="current_pagenum" style="display:none">1</div>
+</body>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<!--加载更多-->
+<script src="/weixin/Public/Common/js/load_m.js " type="text/javascript"></script>
+<script>
+
+
+    var $checked = document.querySelectorAll('.image input');
+    var arr = [];
+    var onOff ;
+
+    function changeNum(obj) {
+        var n = 1;
+        if ($(obj).hasClass('reduce')) {
+            n = parseInt($(obj).next().html());
+            $(obj).next().html((n - 1) < 1 ? 1 : (n - 1));
+        }
+        else {
+            n = parseInt($(obj).prev().html());
+            $(obj).prev().html((n + 1));
+        }
+    }
+        
+
+    
+
+    function addproduct() {
+        var hos_id = $("#hos_id").val();
+        loadmore("#current_pagenum", '/weixin/index.php?m=Expert&c=Cf&a=cf_addx_append&record_id=' +$('#record_id').text()+'&hos_id='+hos_id, '#cf-list');
+        
+    }
+    $('#btn').click(function () {
+        var text = $("#desc").val();
+        if(text=="")
+        {
+            alert("请填写诊断信息");
+            $("#desc").focus();
+            return false;
+        }
+        arr = [];
+        $('.image input').each(function () {
+            if ($(this).is(':checked')) {
+                var json = {};
+                json.name = $(this).parents('.drug').find('.product').val();
+                json.money = parseFloat(Number($(this).parents('.drug').find('.money').val())).toFixed(2);
+                json.num1 = $(this).parents('.box').siblings('.main').find('.num').eq(0).text();
+                json.yl_num = $(this).parents('.box').siblings('.main').find('.num').eq(1).text();
+                var danwei = $(this).parents('.box').siblings('.main').find('.num').eq(3).val();
+                var jl_num = $(this).parents('.box').siblings('.main').find('.num').eq(2).text();
+                if (danwei)
+                {
+                    json.jl_num = jl_num + danwei;
+                }
+                else
+                {
+                    json.jl_num = jl_num;
+                }
+                arr.push(json);
+            }
+        });
+        console.log(arr);
+        if (arr.length > 0) {
+            $.ajax({
+                url: "{:U('Expert/Cf/cf_addx_do')}"
+                , type: 'POST'
+                , data: {
+                    'product_id': $('#name').text()
+                    , 'phone': $('#iphone').val()
+                    , 'sex': $('#sex').text()
+                    , 'age': $('#age').text()
+                    , 'desc': $('#desc').val()
+                    , 'hos_id': $('#hos_id option:selected').val()
+                    , 'info': arr
+                }
+                , dataType: 'json'
+                , success: function (msg) {
+                    if (msg == "ok") {
+                        alert("续方成功！");
+                        location.href = "/weixin/index.php?m=Expert&c=Cf&a=cf_list";
+                    }
+                    else {
+                        alert("续方失败！");
+                        history.go(-1);
+                    }
+                }
+            , })
+        }
+        else {
+            alert('没有勾选药品');
+        }
+    });
+    
+    $('#hos_id').change(function(){
+        $("#current_pagenum").html(1);
+        $('#cf-list').html('');
+        $('.addm').show();
+    });
+
+    //点击药品名出来药品详情
+    function toggleFn(obj){
+        $(obj).parent().siblings('.main').toggle();
+
+    }
+</script>
+
+</html>

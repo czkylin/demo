@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>健康告知</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/insurance.min.css">
+</head>
+<body ontouchstart="" class="">
+<div class="content bottom mod-guarantee">
+        <div class="health-data"> <i class="health-bg"></i>
+                <h3>微爱大病互助行动</h3>
+                <h6>癌症等30种重大疾病</h6>
+                <div class="insurance-item">
+                        <p>加入本行动，您需要仔细阅读并如实承诺以下事项，若您存在以下任何一项情况，将不能参加本计划；若您未如实告知其中任何一项情况，将来申请互助时，运营方将按规定拒绝您的申请</p>
+                </div>
+        </div>
+        <div class="health-data">
+                <ul>
+                        <li> 您在过去三年内是否曾经因疾病（非意外事故）连续住院治疗七天或七天以上?或因其它慢性疾病需要长期（三个月以上）服药控制或手术治疗？ </li>
+                        <li> 被保障人目前或曾经未患有下列任一疾病：
+                                <p>高血压（收缩压≥140mmHg或舒张压≥90mmHg）、冠心病、先天性心脏病、肺心病、风湿性心脏病、心肌病、心律失常，慢性支气管炎或肺气肿，癫痫、脑出血、脑栓塞、脑血管瘤、脑血管畸形，慢性乙肝（含乙肝携带者）、丙肝、肝硬化、酒精性肝病，消化道溃疡，慢性肾炎、尿毒症，糖耐量异常、糖尿病，甲状腺疾病、类风湿性关节炎、风湿病，反复鼻或牙龈出血、白细胞减少、贫血、白血病、再生障碍性贫血，系统性红斑狼疮，多发性硬化，帕金森综合征，视网膜疾病、青光眼、白内障、中耳炎，癌症、肿瘤，先天性疾病、遗传性疾病、职业病（如尘肺、矽肺、各种慢性中毒）</p>
+                        </li>
+                        <li> 您是否存在酒精或药物滥用成瘾?<br>
+                                您是否存在身体残障，导致无法正常工作、生活和出行？<br>
+                                您是否存在肢体运动功能或躯体感觉障碍？<br>
+                                您是否曾接受器官移植手术？ </li>
+                        <li> 过去六个月内，被保障人未曾出现下列不明原因的症状或不适：<br>
+                                体重减轻超过5公斤(非健身或减肥原因)、不明原因的出血点或瘀块、反复鼻或牙龈出血，身体出现肿块、包块、结节、咯血、呕血、便血、血尿、淋巴结肿大，经检查显示需要进一步的检查、治疗或随访 </li>
+                </ul>
+        </div>
+</div>
+<footer class="qsc-bar bar-fixed guarantee-bar"> <a id="has_sick" href="javascript:void(0);" class="bar-item no-active direct h5_direct"><span class="little-title">部分情况有</span></a> <a id="confirm-no-sick" href="{:U('User/jzr_add','huzhu=1')}" class="bar-item active direct h5_direct"> <span class="little-title">以上情况全无</span> </a> </footer>
+<div class="qsc-modal dialog" id="sick-convention" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog middle ">
+                <div class="modal-content ">
+                        <div class="modal-header"> </div>
+                        <div class="modal-body"> 很抱歉，由于健康情况不符合加入条件，被保障人不能参与该互助计划。
+                                如有疑问请咨询客服：1010-1019。 </div>
+                        <div class="modal-footer clearfix" role="group">
+                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">重新确认</button>
+                        </div>
+                </div>
+        </div>
+</div>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/insurance.min.js"></script>
+<div id="cli_dialog_div"></div>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+ <volist name="yuyue_list" id="list"> 
+    <a href="/weixin/index.php?m=Member&c=Order&a=yuyue_detail&record_id={$list['RECORD_ID']}">
+        <li> 
+            <h2>预约患者：{$list['MEMBER_NAME']}</h2>
+            <i class="tongguo">状态：{$list['ORDER_STATUS']}</i>
+            <h2>预约类型：{$list['ORDER_TYPE']}</h2>
+            <h2>预约时间：{$list['CREATE_DATE']}</h2>             
+        </li>
+     </a>∮
+</volist>

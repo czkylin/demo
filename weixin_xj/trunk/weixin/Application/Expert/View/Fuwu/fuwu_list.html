@@ -1,0 +1,105 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/footer.min.css">
+<link href="/weixin/Public/Expert/css/dingdan/dingdan.css" type="text/css" rel="stylesheet"/>
+<style>
+.header{padding:.13rem 0;background: #ff647c;position:relative;height:auto;}    
+.header a.icon{left:.1rem;top:.13rem;font-size:30px;color:#fff;position:absolute;}    
+.header h2{width:100%;color:#fff;font-size:24px;text-align:center;height:26px;line-height:26px;}   
+</style>
+<title>我的预约</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+<header class="header">
+    <a href="index.php?m=Expert&c=User&a=mywork_house" class="icon">&#xf62b;</a>
+    <h2>我的预约</h2>
+</header>
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style="padding-bottom: 10px;">
+<if condition="empty($fuwu_jilu)">
+    <div style=" text-align: center;">
+        <br/> 
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+    </div>
+<else />
+	<div class="dingdan_list">
+		<div class="chose_fuwu list_show" id="fuwu-list">
+		<volist name="fuwu_jilu" id="data" empty="$empty">
+			<dl>
+					<dd style="width:100%; float:none; min-height:105px;">
+						<h2>预约服务</h2>
+                        <div style="border-top:1px solid #e7e7e7; border-bottom:1px solid #e7e7e7; padding:5px 0;">
+                            <p>预约项目：{$data['SERVE_NAME']}</p>
+                            <p>预约时间：{$data['CREATE_DATE']}</p>
+                            <p>预约人：{$data['MEMBER_NAME']}</p>
+                        </div>
+                        <div style="text-align:right; padding:5px 0;"><a id="fq" href="javascript:;" style="display:inline-block;  border:1px solid #ffc473; color:#ffc473; font-size:12px; padding:3px 6px; border-radius:3px;">发起视频</a></div>
+					</dd>
+					<br clear="all" />
+				</a>
+			</dl>
+		</volist>
+		</div>
+	</div>
+	<div class="ui-jiazai" >
+		<a href="javascript:void(0);" onClick="load_more();"></a>
+	</div>
+    <div id="emptyData"></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+</div>
+<!--通底的引用开始-->
+<include file="Public:footer_bottom" />
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+    var over_footer = '4';
+</script>
+<!--通底的引用结束-->
+<script>
+    var onOff = true;
+    window.onload = function(){
+        window.onscroll();
+    }
+    window.onscroll = function(){
+        load_more('#fuwu-list');
+    }
+
+    $("#fq").click(function(){
+        var r=confirm("是否发起视频")
+        if (r==true)
+        {
+            window.open("http://weixin.yk2020.com/appdown/xj/member/download.aspx");
+        }
+    })
+        
+    function load_more(obj)
+    {	
+        if(!onOff) return;
+        if($(obj).height() <= $(document).scrollTop() + document.body.clientHeight){
+            onOff = !onOff;
+            loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Fuwu&a=fuwu_list_append','#fuwu-list',function(){
+                $('.empty_data').css({'top':0,'z-index':-1});
+            });
+        }
+    }	
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

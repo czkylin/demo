@@ -1,0 +1,38 @@
+<volist name='product_list' id='product' key="k">
+    <li id="y_{$product.PRODUCT_ID}">
+            <label class="ui-icon-unchecked-s xz" for="week1_{$product.PRODUCT_ID}" ></label>
+            <input type="checkbox" name="product[]" id="week1_{$product.PRODUCT_ID}" onClick="checkproduct({$product.PRODUCT_ID})" value="{$product.PRODUCT_ID}" style="display:none;" />
+             <h3>{$product.PRODUCT_NAME}-{$product.TY_NAME} ￥<php> echo round($product['PRODUCT_MONEY'],2)</php></h3>
+            <!--<label> <span class="jianshao"></span> <span class="num"><span>1</span></span> <span class="zengjia"></span>
+                    <input name="num_{$product.PRODUCT_ID}" type="hidden" value="1">
+            </label>-->
+            <div style=" height:40px;position:relative;">
+                <div style="width:80px; float:left; line-height:40px">数量：</div>
+                 <label class="label2" style="top:0;left:80px;">
+                    <span class="jianshao"></span>
+                    <span class="num2"><span>1</span></span>
+                    <span class="zengjia"></span>
+                    <input name="num_{$product.PRODUCT_ID}" type="hidden" value="1">
+                </label>
+            </div>
+           <div style=" height:40px;position:relative;">
+                <div style="width:80px; float:left; line-height:40px">用量：</div>
+                 <label class="label2" style="top:0;left:80px;">
+                    <span class="jianshao"></span>
+                    <span class="num2"><span>3</span></span>
+                    <span class="zengjia"></span>
+                    <input name="yl_num" type="hidden" value="3">
+                </label>
+                <div style="width:75px; float:right; line-height:38px;">次/日</div>
+            </div>
+            <div style=" height:40px;position:relative;">
+                     <label class="label2" style="top:0;left:80px;">
+                        <span class="jianshao"></span>
+                        <span class="num2"><span>2</span></span>
+                        <span class="zengjia"></span>
+                        <input name="jl_num" type="hidden" value="2">
+                    </label>
+                    <div style="width:75px; float:right; line-height:38px;">滴/次</div>
+            </div>
+    </li>∮
+</volist>

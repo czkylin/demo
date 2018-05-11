@@ -1,0 +1,31 @@
+<volist name="xdyp_list" id="xdyp">
+	<section>
+		<if condition="$xdyp['ORDER_STATUS'] neq '待付款'">
+	    	<a href="{:U('Order/xdyp_detail',array('order_id'=>$xdyp['ORDER_ID']))}" class="link"></a>
+    	</if>
+	    <ul>
+	        <li>站点名称：{$xdyp['HOS_NAME']}</li>
+	        <if condition="$xdyp['ORDER_STATUS'] eq '待付款'">
+	        	<li>订单状态：<i class="warn">{$xdyp['ORDER_STATUS']}</i></li>
+        	<else />
+				<li>订单状态：<i>{$xdyp['ORDER_STATUS']}</i></li>
+        	</if>
+        	<if condition="$xdyp['CHECK_FLAG'] eq '待审核'">
+	        	<li>审核状态：<i class="info">{$xdyp['CHECK_FLAG']}</i></li>
+        	<elseif condition="$xdyp['CHECK_FLAG'] eq '已审核'"/>
+        		<li>审核状态：<i>{$xdyp['CHECK_FLAG']}</i></li>
+    		<else />
+				<li>审核状态：<i class="warn">拒绝</i></li>
+    		</if>
+	        <li class="clear">
+	            <em class="fl">{$xdyp['CREATE_DATE']}</em>
+	            <if condition="$xdyp['ORDER_STATUS'] eq '待付款'">
+		            <a href="javascript:;" class="buy fr" onClick="pay({$xdyp['ORDER_ID']},'{$openid}')">去支付</a>
+	            <else/>
+	            	<a href="javascript:;" class="buy fr">已支付</a>
+				</if>
+				<!-- <a href="javascript:;" class="delete fr">取消订单</a> -->
+	        </li>
+	    </ul>
+	</section>∮
+</volist>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>如何赚积分</title>
+<link href="/weixin/Public/Home/css/zhengcejiedu/howzhuan.css" type="text/css" rel="stylesheet">
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+</script>
+</head>
+<body>
+	<h1><span>积分奖励规则</span><i></i></h1>
+	<div class="yisheng">
+		<h2><span></span><strong>	发展心脑血管疾病相关科室医生积分方案</strong></h2>
+		<div class="con">
+			<p>1、发展医生集团带头人【三甲医院副主任医师以上】</p>
+			<ul>
+				<li>绑定手机：35分</li>
+				<li>审核通过：4965分</li>
+				<li>三甲专家共计：5000分</li>
+			</ul>
+		</div>
+		<div class="con">
+			<p>2、发展专科医生【二甲医院的专科医生 主治医师以上】</p>
+			<ul>
+				<li>绑定手机：35分</li>
+				<li>审核通过：465分</li>
+				<li>专科医生共计：500分</li>
+			</ul>
+		</div>
+		<div class="con">
+			<p>3、发展医生会员【乡镇卫生院 / 社区医院  / 村卫生室】</p>
+			<ul class="bbn">
+				<li>绑定手机：35分</li>
+				<li>审核通过：65分</li>
+				<li>社区医生共计：100分</li>
+			</ul>
+		</div>
+	</div>
+	<div class="huanzhe">
+		<h2><span></span><strong>发展患者积分方案</strong></h2>
+		<div class="con">
+			<ul class="bbn">
+				<li>绑定手机：5分</li>
+				<li>申请办卡（免费卡）：10分</li>
+			</ul>
+		</div>
+		<h2><span></span><strong>服务量方面积分</strong></h2>
+		<div class="con">
+			<ul class="bbn">
+				<li>经营主任负责一家医院：300分</li>
+				<li>经营主任负责一家药店：300分</li>
+			</ul>
+		</div>
+		<h2><span></span><strong>交易金额方面积分</strong></h2>
+		<div class="con">
+			<ul class="bbn">
+				<li>卖一张VIP心脑护照卡：9900分</li>
+				<li>卖一张1000元心脑护照卡：1000分</li>
+			</ul>
+		</div>
+	</div>
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content="心脏有病不是事儿，术前检查大数据，术中援助百倍卡，专家伴你常管理，健康长长久久，点击查看详情" />
+    <meta name="keywords" content="百倍爱心卡，机器人，机器人套装" />
+	<title>地球人你好，我是机器人萌萌，有我你家会去大专家，傲娇脸
+</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/share_jqr_1.css?<?php echo time();?>.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '地球人你好，我是机器人萌萌，有我你家会去大专家，傲娇脸';
+        var wx_share_desc = '心脏有病不是事儿，术前检查大数据，术中援助百倍卡，专家伴你常管理，健康长长久久，点击查看详情';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_icon/jqr_1.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_jqr_1&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_jqr_1&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+
+    </script>
+</head>
+<body>
+     <nav id="nav" class="nav clear">
+        <span class="fl">最新数据：</span>
+        <div class="people fl">
+                <ul class="box">
+                    <li class="box">
+                    <!-- <volist name="buy_list" id="buy">
+                        <em>{$buy.PERSON_NAME|msubstr=0,1,'utf-8',false}**&nbsp;{$buy.PERSON_MOBILE|substr=0,3}****{$buy.PERSON_MOBILE|substr=-4}</em>
+                    </volist> -->
+                    <em>总资金：{$bx_list.all_money}元</em>
+                    <em>今日增长资金：{$bx_list.day_all_money}元</em>
+                    <em>已加入会员：{$bx_list.hy_num}人</em>
+                    <em>今日增长会员：{$bx_list.day_hy_num}人</em>
+                    </li>
+                </ul>
+            </div>
+    </nav> 
+    <section>
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/001.jpg" width="100%" alt="百倍爱心卡" />
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/002.jpg" width="100%" alt="百倍爱心卡" />
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/003.jpg" width="100%" alt="百倍爱心卡" />
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/004.jpg" width="100%" alt="百倍爱心卡" />
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/005.jpg" width="100%" alt="百倍爱心卡" />
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/006.jpg" width="100%" alt="百倍爱心卡" />
+        <img src="/weixin/Public/Member/images/huzhu/jqr_1/007.jpg" width="100%" alt="百倍爱心卡" />
+    </section>
+    
+
+    <div style="width: 100%; height: 80px;"></div>
+    <footer class="box">
+        <if condition="$footer neq 'hide'">
+            <a  class="link" href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&sale_type={:C('sale_type_6')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_jqr_1'));?>&user_name={:I('get.user_name','')}">
+            <span class="link_1">￥12800.00</span><span class="link_2">立即购买</span></a>
+        <else />
+        </if>
+    </footer>
+
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+
+function set_log(act)
+    {
+        var type = "{$type}"+"_share_yf";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+
+$('#qus').click(function(){
+    $('#mask').show();
+});
+$('.cancel').click(function(){
+    $('#mask').hide();
+});
+    
+var h = $('#nav ul').html();
+var w = 0;
+$('#nav em').each(function(){
+    w += $(this).outerWidth() + 20;
+})
+$('#nav ul').append(h).width(w);
+var iNow = 0;
+setInterval(function(){
+    $('#nav ul').css({
+        'transform': 'translate3d(-'+iNow+'px,0,0)',
+        '-webkit-transform': 'translate3d(-'+iNow+'px,0,0)'
+    });
+    iNow++;
+    if(iNow > $('#nav li').width()){
+        iNow = 0;
+    }
+},30);
+$('.item header').click(function(){  $(this).toggleClass('active').parent().siblings().find('header').removeClass('active');
+    $(this).next().slideToggle().parent().siblings().find('.q-content').slideUp();
+})
+</script>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+<!-- CNZZ统计代码  百倍爱心卡机器人套装单独统计-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1261696511).'" width="0" height="0"/>';?></div>
+</html>

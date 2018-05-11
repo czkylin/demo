@@ -1,0 +1,30 @@
+<volist name="money_list" id="data">
+    <section class="unit">
+        <header class="box">
+            <h2>{$data.ORDER_NAME}</h2>
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="ctxt">
+                    <p class="clearfix">
+                        <if condition=" $data['EXPERT_NAME'] neq '' ">
+                        <strong>医生名字：</strong><em>{$data.EXPERT_NAME}</em>
+                        <else/>
+                        <strong>患者名字：</strong><em>{$data.MEMBER_NAME}</em>
+                        </if>
+                    </p>
+                    <p class="clearfix"><strong>订单金额：</strong><em>{$data.ORDER_MONEY}</em></p>
+                    <p class="clearfix"><strong>提成金额：</strong><em>{$data.PIONT_MONEY}</em></p>
+                    <p class="clearfix"><strong>订单描述：</strong>
+                        <if condition="$data['ORDER_DESC'] eq ''">
+                            <em>暂无</em>
+                        <else />
+                            <em>{$data.ORDER_DESC}</em>
+                        </if>
+                    </p>
+                    <p class="clearfix"><strong>创建时间：</strong><em>{$data.CREATE_DATE}</em></p>
+                </div>
+            </div>
+        </div>
+    </section>∮
+</volist>

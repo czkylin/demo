@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/insurance.min.css"><title>远程会诊</title>
+</head>
+<body>
+	
+	<div class="content">
+		
+		<div class="doctor">
+			<h2 class="title">会诊信息</h2>
+					<div class="mes">
+						<h3>郝彤</h3>
+						<p>会诊时间：2016-11-22</p>
+					</div>
+             <h2 class="title">会诊专家</h2>
+					<div class="hzzj">
+						<div class="tou">
+                        	<img src="/weixin/Public/Member/images/baozhang/touxiang.jpg">
+                        </div>
+                        <div class="zj_xx">
+                        	<h2>王辉<span>主任医师</span></h2>
+                            <p>北京大学附属医院</p>
+                        </div>
+					</div>       
+		</div>
+	</div>
+	<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

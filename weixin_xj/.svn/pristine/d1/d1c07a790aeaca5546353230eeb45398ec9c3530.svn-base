@@ -1,0 +1,66 @@
+<html class="ui-mobile">
+
+<head>
+
+<!--css-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- title -->
+
+<title>阅片结果</title>
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="share-title" content="">
+
+<link href="/weixin/Application/Home/View/css/portal.minv2.css" type="text/css" rel="stylesheet">
+
+<link href="/weixin/Application/Home/View/css/operation.min.css"  type="text/css" rel="stylesheet" />
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:#fff;">
+
+	<div class="hk_wc">
+
+		<div class="huikui">
+
+			<a href="">感恩回馈</a>
+
+		</div>
+
+		<div class="wancheng">
+
+			<a href="">完成</a>
+
+		</div>
+
+		<br clear="all" />
+
+	</div>
+
+	<div class="ui-content" style="background:#fff;">
+
+		<div class="order-status">
+
+			<div class="more_img"><img src="/weixin/Application/Home/View/images/readTheResults/more.png" alt=""/></div>
+
+		</div>
+
+		<p class="chengg-mess">还有<i>{$case.case_count}</i>个病例没有诊断结果<br/><span>请及时上传阅片结果</span></p>
+
+	</div>
+
+	<div class="continue_sub"><a href="/weixin/index.php?m=Home&c=Hos&a=case_list">继续去提交诊断结果</a></div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+
+</html>

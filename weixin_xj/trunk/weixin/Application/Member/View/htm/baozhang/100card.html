@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <title>百倍爱心卡</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/100card.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+    <section>
+        <img src="/weixin/Public/Member/images/100card/pic1.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic2.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic3.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic4.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic5.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic6.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic7.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic8.jpg" width="100%" />
+        <img src="/weixin/Public/Member/images/100card/pic9.jpg" width="100%" />
+    </section>
+    <section class="more">
+        <a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=index" class="text-center">了解更多</a>
+    </section>
+    <div style="width: 100%; height: 1px;"></div>
+    <footer class="box">
+        <a href="tel:4006562020" class="text-center" id="qus">咨询</a>
+        <a href="/weixin/Application/Member/View/htm/baozhang/join.html" class="text-center">立即加入</a>
+    </footer>
+   <!--  <div class="mask" id="mask">
+        <div class="dialog center">
+            <div class="alert">
+                <div class="top">
+                    <h2 class="text-center">提示</h2>
+                    <p class="text-center">您即将拨打服务电话：11111接通后，请转7联系客服人员</p>
+                </div>
+                <div class="bottom box">
+                    <a href="javascript:;" class="text-center cancel">取消</a>
+                    <a href="tel:11111" class="text-center">确定</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+$('#qus').click(function(){
+    $('#mask').show();
+});
+$('.cancel').click(function(){
+    $('#mask').hide();
+})
+</script>
+</html>

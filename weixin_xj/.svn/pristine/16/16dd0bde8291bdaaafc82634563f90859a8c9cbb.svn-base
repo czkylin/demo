@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="Keywords" content="页面关键字" />
+<link href="/weixin/Public/Member/css/huzhu/assistance.css" rel="stylesheet" type="text/css">
+<title>援助详情</title>
+</head>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+</script>
+<body>
+<div class="main">
+	<p><span>援助对象：</span><b>百倍爱心卡正式会员</b></p>
+    <p><span>援助范围：</span><b>1、在会员定点服务医疗机构进行冠心病支架介
+                    入手术，心脏搭桥手术，心律失常介入射频
+                    消融手术
+                2、过观察期进入服务期内患者</b></p>
+    <p><span>援助额度：</span><b>医保（含新农合）报销范围内，按比例报销后
+               需要个人承担部分由专项基金援助一次最高援
+               助10万元</b></p>
+    <img src="/weixin/Public/Member/images/huzhu/img.jpg">
+    <p><span>意外保障：</span><b>中国人民健康保险股份有限公司北京分公司承保医疗事故及医疗意外保险，保额3万元</b></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+html, body { height: 100%; }
+body { font-size: 16px; }
+.nav { position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.3); width: 11rem; padding: 10px 0.5rem; z-index: 100; }
+.nav .people { overflow: hidden; position: relative; width: 8rem; height: 18px; }
+.nav ul { height: 18px; position: absolute; top: 0; left: 0; }
+.nav span { color: #f70a0a; display: inline-block; width: 3rem; }
+.nav em { color: #fff; font-style: normal; margin: 0 10px; display: block; }
+.six img { width: 100%; }
+footer { position: fixed; bottom: 0; left: 0; width: 100%; }
+footer a { width: 100%; color: #fff; line-height: 50px; display: block; font-size: 20px; background: #e76814; }

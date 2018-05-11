@@ -1,0 +1,13 @@
+<volist name="zd_list" id="zhangdan">
+    <tbody>
+        <tr>
+            <td class="avatar"><i class="icon icon-pay bank-weixin"></i></td>
+            <td class="">
+                <strong>被资助人  <b>{$hzcs.PERSON_NAME}</b></strong>
+                <p>资助金额<span>￥{$hzcs.CONSUME_MONEY}</span></p>
+                <p>{$hzcs.CREATE_DATE}</p>    
+            </td>
+            <td class="">已救助</td>
+        </tr>
+    </tbody>∮
+</volist>

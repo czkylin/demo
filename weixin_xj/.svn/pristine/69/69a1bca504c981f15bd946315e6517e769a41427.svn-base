@@ -1,0 +1,93 @@
+﻿<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/dingdan.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<title>预约服务详情</title>
+</head>
+
+<body>
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style=" background:#fff"> 
+        
+        <!-- 	<div class="xq1">
+
+		<div class="detal_shoushu">
+
+			<span class="img">
+
+				<if condition="$list.HOS_NAME eq ''">
+
+				<a href="javascript:void(0)"><img src="/weixin/Application/Member/View/images/icon/operation.png" width="60px"  height="60px" alt="{$list.HOS_NAME}" class="g-left expert-img"/></a>
+
+				<else/>
+
+				<a href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$list.HOS_ID}"><img src="{$list.HOS_PIC}" width="60px"  height="60px"  alt="{$list.HOS_NAME}" class="g-left expert-img"/></a>
+
+				</if>
+
+			</span>
+
+			<span class="meta">
+
+				<div class="name_dj"> 
+
+					<strong class="mingcheng">{$list[0].ORDER_NAME}</strong>
+
+					<i>{$list.ORDER_NAME]}</i>
+
+				</div>
+
+				<p>{$list.ORDER_DATE}</p>
+
+			</span>
+
+		</div>
+
+	</div> -->
+        
+        <div class="xq2">
+                <h2 style="line-height:20px;color:#fff;">预约详情</h2>
+                <ul>
+                        <li>疾病描述：{$list.ORDER_NAME}</li>
+                        <li>预约提交时间：{$list.CREATE_DATE}</li>
+                        <li>预约类型：{$list.ORDER_NAME}</li>
+                        <li>预约状态：{$list.ORDER_STATUS}</li>
+                        <li>预约地址：{$list.ORDER_PROVINCE}</li>
+                        <li>患者姓名：{$list.MEMBER_NAME}</li>
+                        <li>手机号：{$list.MEMBER_MOBILE}</li>
+                </ul>
+        </div>
+</div>
+
+<!--通底的引用开始--> 
+
+<include file="Public:footer_fd" /> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+
+	var over_footer = '4';
+
+</script> 
+
+<!--通底的引用结束--> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

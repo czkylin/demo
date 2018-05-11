@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Home/css/return/assistant.css">
+<title>经营回款助手成果</title>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+</script>
+</head>
+<body>
+	<section class="result">
+		<ul>
+			<volist name="hk_list" id='v' empty="暂无数据">
+			<li>
+				<div class="pos">
+					<p><span>医院：</span>{$v['HOS_NAME']}</p>
+					<if condition="$v['CHECK_FLAG'] eq '待审'">
+						<i class="pending" style="color: #3591F9">待审</i>
+					<elseif condition="($v['CHECK_FLAG'] eq '拒绝') || ($v['CHECK5_FLAG'] eq '拒绝') || ($v['CHECK2_FLAG'] eq '拒绝') || ($v['CHECK3_FLAG'] eq '拒绝')"/>
+						<i class="pending" style="color: #fe0101">拒绝</i>
+					<elseif condition="($v['CHECK_FLAG'] eq '通过') && ($v['CHECK5_FLAG'] eq '通过') && ($v['CHECK2_FLAG'] eq '通过') && ($v['CHECK3_FLAG'] eq '通过')"/>
+						<i class="pending" style="color: #4db000">通过</i>
+					<else />
+						<i class="pending" style="color: #3591F9">待审</i>
+					</if>
+					<!-- <i class="pending" style="color: #4db000">
+					<?php 
+
+						if($v['CHECK_FLAG']=="拒绝" || $v['CHECK5_FLAG']=="拒绝" || $v['CHECK2_FLAG']=="拒绝" || $v['CHECK3_FLAG']=="拒绝")
+						{
+							echo "拒绝";
+						}
+						else if($v['CHECK_FLAG']=="通过" && $v['CHECK5_FLAG']=="通过" && $v['CHECK2_FLAG']=="通过" && $v['CHECK3_FLAG']=="通过")
+						{
+							echo "通过";
+						}else{
+							echo "待审";
+						}
+					?>
+					</i> -->
+				</div>
+				<p><span>申请时间：</span>{$v['CREATE_DATE']}</p>
+				<div class="btn">
+					<a href="/weixin/index.php?m=Home&c=Return&a=hk_detail&record_id={$v['RECORD_ID']}" class="more">查看详情</a>
+				</div>	
+			</li>
+			</volist>
+			<!-- <li>
+				<div class="pos">
+					<p><span>医院：</span>北京市海淀区医院</p>
+					<i class="success">通过</i>
+				</div>
+				<p><span>申请时间：</span>2017-03-28</p>
+				<div class="btn">
+					<a href="javascript:;" class="more">查看详情</a>
+				</div>	
+			</li>
+			<li>
+				<div class="pos">
+					<p><span>医院：</span>北京市海淀区医院</p>
+					<i class="reject">拒绝</i>
+				</div>
+				<p><span>申请时间：</span>2017-03-28</p>
+				<div class="btn">
+					<a href="javascript:;" class="more">查看详情</a>
+					<a href="javascript:;" class="again">再次提交</a>
+				</div>	
+			</li> -->
+		</ul>
+	</section>
+	<script src="/weixin/Public/Home/js/jquery.min.js"></script>	
+</body>
+</html>

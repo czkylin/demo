@@ -1,0 +1,345 @@
+<html lang="en" style="font-size: 80px;"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的工作室</title>
+    <link rel="stylesheet" href="/weixin/Public/Home/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/sweetalert.css">
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+    <style>
+        header {
+            border-width: 0px;
+        }
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 4 + 'px';
+    </script>
+</head>
+<body class="mine"> <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=howzhuan" class="zhuan" id="zhuan">如何赚积分？<span id="zhuan-btn"></span></a>
+    <header id="header" class="myPic">
+        <div class="headImg">
+            <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=band_phone"><img src="/weixin/Application/Home/View/images/dtdoctor.png"></a>
+                <!--判断出 认证且通过审核  自己的头像  需要后台审核后头像采用  链接为个人设置-->
+                        </div>
+        <h2 class="text-center" style="display:none;">hi,
+            您好
+                    </h2>
+         <a href="#" class="nomes">未绑定药店或未录入公司系统用户！</a>    </header>
+    <article id="page" class="order">
+        <section class="iList">
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=BaoZ&amp;a=bz_info" data-level="2"> 
+                        <em>
+                            <i class="icon11"></i>
+                            <span>百倍爱心助手</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=BaoZ&amp;a=bz_list" data-level="2"> 
+                        <em>
+                            <i class="icon7"></i>
+                            <span>百倍爱心会员</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=fenxiang&amp;" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>百倍爱心传递</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=share_init&amp;" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>百倍爱心宣一</span>
+                        </em> 
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=share_yf&amp;" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>百倍爱心宣二</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=share_parent&amp;" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>百倍爱心宣三</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=share_des&amp;" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>百倍爱心宣四</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=share_5&amp;" data-level="2"> 
+                       <em>
+                        <i class="icon2"></i>
+                        <span>百倍爱心宣五</span>
+                    </em> 
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Hos&amp;a=hos_list&amp;" data-level="2"> 
+                        <em>
+                            <i class="icon1"></i>
+                            <span>会诊医院</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=get_yd_list" data-level="2"> 
+                        <em>
+                            <i class="icon5"></i>
+                            <span>合作药店</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Train&amp;a=index" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>微课堂</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=band_phone" data-level="2"> 
+                        <em>
+                            <i class="icon3"></i>
+                            <span>手机绑定</span>
+                        </em> 
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=my_hos_list" data-level="2"> 
+                        <em>
+                            <i class="icon4"></i>
+                            <span>我的医院</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=my_yd_list" data-level="2"> 
+                        <em>
+                            <i class="icon5"></i>
+                            <span>我的药店</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=tj_expert_list" data-level="2">
+                        <em>
+                            <i class="icon6"></i>
+                            <span>我的医生</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=tj_member_list" data-level="2"> 
+                        <em>
+                            <i class="icon7"></i>
+                            <span>我的会员</span>
+                        </em> 
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Order&amp;a=order_list" data-level="2"> 
+                        <em>
+                            <i class="icon8"></i>
+                            <span>我的订单</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Cf&amp;a=cf_list" data-level="2"> 
+                        <em>
+                            <i class="icon9"></i>
+                            <span>我的药店处方</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=My_performance" data-level="2"> 
+                        <em>
+                            <i class="icon10"></i>
+                            <span>我的营业额</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Doc&amp;a=doc_info" data-level="2"> 
+                        <em>
+                            <i class="icon11"></i>
+                            <span>医生申请助手</span>
+                        </em> 
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Payment&amp;a=mypayment" data-level="2"> 
+                        <em>
+                            <i class="icon10"></i>
+                            <span>我的收入</span>
+                        </em> 
+                    </a>
+                </li>
+                <li id="kk">
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=expert" data-level="2"> 
+                        <em>
+                            <i class="icon6"></i>
+                            <span>服务专家</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=User&amp;a=zg" data-level="2"> 
+                        <em>
+                            <i class="icon5"></i>
+                            <span>药品专柜</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Shouce&amp;a=caiye" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>VIP卡服务</span>
+                        </em> 
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Shouce&amp;a=smallBook" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>VIP使用说明</span>
+                        </em> 
+                    </a>
+                </li>
+                <li>
+                    <a href="/weixin/index.php?m=Home&amp;c=Shouce&amp;a=zheye" data-level="2"> 
+                        <em>
+                            <i class="icon2"></i>
+                            <span>软件使用手册</span>
+                        </em> 
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </article>
+    <!-- 传值 -->
+    <input type="hidden" id="data_code" value="">
+    <input type="hidden" id="data_bandCode" value="">
+    
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <img src="http://c.cnzz.com/wapstat.php?siteid=1260047007&amp;r=&amp;rnd=1235348056" width="0" height="0"></div>
+
+<script src="/weixin/Public/Home/js/sweetalert.min.js"></script>
+<script>
+    var $li = document.querySelectorAll('.iList li');
+    var $code = document.getElementById('data_code').value;
+    var $bandCode = document.getElementById('data_bandCode').value;
+    var arr = [];
+    var iX = 0
+        , iY = 0;
+    for (var i = 0; i < $li.length; i++) {
+        arr.push($li[i]);
+    }
+    arr.forEach(function (value, index) {
+        value.addEventListener('touchstart', function (ev) {
+            iX = ev.changedTouches[0].pageX;
+            iY = ev.changedTouches[0].pageY;
+            if (this.className != 'current') {
+                this.getElementsByTagName('i')[0].style.color = '#d62c77';
+                this.getElementsByTagName('span')[0].style.color = '#d62c77';
+            }
+        });
+        value.addEventListener('touchmove', function (ev) {
+            //ev.preventDefault();
+            var iDisX = ev.changedTouches[0].pageX
+                , iDisY = ev.changedTouches[0].pageY;
+            if ((iDisX != 0 || iDisY != 0) && this.className != 'current') {
+                this.getElementsByTagName('i')[0].style.color = 'rgba(0, 0, 0, 0.5)';
+                this.getElementsByTagName('span')[0].style.color = '#666';
+            }
+        });
+        value.addEventListener('touchend', function () {
+            if (this.className != 'current') {
+                this.getElementsByTagName('i')[0].style.color = 'rgba(0, 0, 0, 0.5)';
+                this.getElementsByTagName('span')[0].style.color = '#666';
+            }
+            if ($bandCode == 6) {
+                //ev.preventDefault();
+            }
+        });
+        value.getElementsByTagName('a')[0].onclick = function () {
+            //alert(this.dataset.level)
+            if ($bandCode == 6 && this.dataset.level > 0) {
+                swal({
+                    title: "未注册"
+                    , text: ""
+                    , type: "warning"
+                    , showCancelButton: true
+                    , cancelButtonText: "取消"
+                    , confirmButtonColor: "#DD6B55"
+                    , confirmButtonText: "去注册"
+                    , closeOnConfirm: false
+                }, function () {
+                    window.location = '/weixin/index.php?m=Home&c=User&a=band_phone'
+                });
+                return false;
+            }
+            if ($bandCode == 1 && ($code == 0 || $code == 3) && this.dataset.level > 1) {
+                swal({
+                    title: "未认证"
+                    , text: ""
+                    , type: "warning"
+                    , showCancelButton: true
+                    , cancelButtonText: "确定"
+                    , confirmButtonColor: "#DD6B55"
+                    , confirmButtonText: "去认证"
+                    , closeOnConfirm: false
+                }, function () {
+                    window.location = '/weixin/index.php?m=Home&c=User&a=band_phone'
+                });
+                return false;
+            }
+        }
+    });
+    //如何赚积分关闭
+    var oBtn = document.getElementById("zhuan-btn");
+    var oZhuan = document.getElementById("zhuan");
+    oBtn.addEventListener("touchend", function () {
+        oZhuan.style.display = 'none';
+    }, false);
+</script>
+<div id="cli_dialog_div"></div></body></html>

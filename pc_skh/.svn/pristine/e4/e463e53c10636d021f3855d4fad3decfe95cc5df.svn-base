@@ -1,0 +1,9 @@
+<?php
+return array(
+
+    'JIEKOU'=>'http://weixin.yk2020.com/interface/pc_member/cgpt/',
+    'CESHI'=>'http://192.168.100.228:8080/interface/pc_member/cgpt/',
+
+    
+    
+);

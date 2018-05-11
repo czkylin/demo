@@ -1,0 +1,39 @@
+<volist name="jx_list" id="jx">
+
+ <li>
+
+			<div class="pic fl"><span class="fs14">{$jx['CREATE_DATE']|Dtodiy='m月d日',###}</span></div>
+
+			<section class="fr">
+
+				<div class="tw fs14">
+
+					<a >
+
+                        状   态：{$jx['CHECK_FLAG']}<br>
+
+						外勤类型：{$jx['TYPE_NAME']}<br>
+
+						描述内容：{$jx['WAIQIN_ADDRESS']}<br>
+
+                        录入时间：{$jx['CREATE_DATE']|Dtodiy='Y.m.d H:i:s',###}<br>
+
+						得 分 值：{$jx['JIFEN_VALUE']}分<br>
+
+						外勤地址：{$jx['WAIQIN_ADDRESS']}
+
+						<div class="clear"></div>
+
+					</a>
+
+				</div>
+
+				<div class="time fs16 tar"></div>
+
+			</section>
+
+			<div class="clear"></div>
+
+		</li>∮
+
+</volist>

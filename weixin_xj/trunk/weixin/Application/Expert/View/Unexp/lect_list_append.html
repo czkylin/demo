@@ -1,0 +1,9 @@
+
+    <volist name="lect_list" id="lect" >
+        <dl>
+            <dt><a href="{:U('Unexp/lect_info',array('s_id'=>$lect['SECT_ID']))}"><img src="{$lect['VIDEO_IMG']}"></a></dt>
+            <dd class="hei_40"><a href="{:U('Unexp/lect_info',array('s_id'=>$lect['SECT_ID']))}">{$lect['SECT_NAME']}</a></dd>
+            <dd>{$lect['EXPERT_NAME']}</dd>
+            <dd class="ui-icon-video">{$lect['PIONT_NUM']}</dd>
+        </dl>∮
+    </volist>

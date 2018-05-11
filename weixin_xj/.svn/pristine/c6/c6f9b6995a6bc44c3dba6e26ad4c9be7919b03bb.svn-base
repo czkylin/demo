@@ -1,0 +1,28 @@
+<volist name="doc_list" id="doc">        
+   <li>
+                    <div class="ww pos_a">
+                    {$doc['JIFEN_RANK']}
+                    </div>
+                    <div class="touxiang pos_a"> 
+                        <a href="#">
+                             <if condition="($doc['HEADIMGURL'] eq '') ">
+                                <img src="/weixin/Application/Home/View/images/dtdoctor.png" />
+                            <else />
+                                <img src="{$doc.HEADIMGURL}" />
+                            </if>
+                        </a> 
+                    </div>
+                    <div class="huoyuedu">
+                            <div class="title">
+                                <div class="fl title-des">
+                                    <span>{$doc['REAL_NAME']}</span>
+                                    <span class="huadong_hos">{$doc['CENTER_NAME']}</span> 
+                                </div>
+                                <span class="fr">{$doc['JIFEN_NUM']}</span>
+                                <div class="clear"></div>
+                            </div>
+                    </div>
+                    <div class="clear"></div>
+                </li>∮ 
+</volist>
+

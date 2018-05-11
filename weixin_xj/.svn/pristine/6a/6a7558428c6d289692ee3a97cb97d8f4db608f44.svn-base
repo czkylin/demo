@@ -1,0 +1,44 @@
+
+
+<html class="ui-mobile">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Member/css/follow/index.css">
+<!-- title -->
+
+<title>业绩的计算</title>
+
+<!--meta-->
+
+</head>
+
+<body>
+<p style="color: 333333;font-size: 1.4em"><strong>关于业绩的计算：</strong></p>
+<p style="color: 666666">分享人获取业绩规则明细：</p>
+<p style="color: 666666;text-indent:2em">直接销售：17%</p>
+<p style="color: 666666;text-indent:2em">间接销售：6%</p>
+<p style="color: 666666;text-indent:2em">以售卖百倍爱心卡为例：</p>
+<p style = "color: 666666;text-indent:2em">用户A通过分享推广链接给用户B，假设B购买了百倍爱心卡，则A用户有17%的提成；用户B再分享给用户C，假设C购买了百倍爱心卡，则B获得17%提成，A获得6%提成。</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

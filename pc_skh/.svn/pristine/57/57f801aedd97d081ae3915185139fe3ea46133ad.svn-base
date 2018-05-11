@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>北京圣康华</title>
+  <!-- 公共样式 -->
+  <link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+  <!-- 当前样式 -->
+  <link rel="stylesheet" href="/Public/css/focus/intro.css">
+</head>
+<body>
+  <!-- 头部start -->
+  <include file="Public:header"/>
+  <!-- 头部end -->
+  <div class="banner">
+    <!-- <img src="/Public/images/focus/intro/banner.jpg" alt=""> -->
+  </div>
+  <div class="con1 con">
+    <div class="w1200">
+      <div class="w1080">
+        <h2>品<em>质圣康</em>华</h2>
+        <p>北京圣康华眼科医院是一家由眼科学者发起创建，集医、教、研为一体的学院型、平台型眼科专科医院，是北京市医保定点专科医院，也是北京地区少数拥有外事管理资质的医疗机构之一。</p>
+        <p>医院定位于开展国际先进的医疗项目，开创新的医疗技术，解决复杂疑难眼病的医疗问题及对人群视觉健康造成重大危害的疾病的医疗问题，为眼病患者提供高质量的眼科医疗服务。</p>
+        <p>作为一家平台型专科医疗机构，北京圣康华眼科医院的核心医疗团队以医生合伙人机制进行建设。借助地处首都核心区的地理资源优势和国家医改的时机，医院凝聚了一大批来自国内外的优秀眼科学者和学界领袖，由此形成了医院坚实的医疗、科研和教学力量。保证了医院在相关专业领域的领导性医疗服务能力。</p>
+        <p>医院设有四个重点专业科室，包括眼底病与糖尿病眼病医疗中心、青光眼、白内障、功能视觉医疗中心。医院接受国内外医疗机构的眼科医疗转诊，为来自世界各地的眼病患者提供高质量的眼科医疗服务。</p>
+        <p>与此同时，医院设综合眼科、听觉康复科和内科等临床科室；综合眼科为广大眼病患者提供高质量的基础眼科医疗服务；听觉康复科可为有视听障碍患者提供听觉康复专业服务；内科以心血管病和糖尿病为重点专业，为医院的眼科医疗工作提供内科专业支持保障服务。</p>
+        <p>北京圣康华眼科医院“远程眼科影像诊断与会诊服务中心”是医院的网络医院专业服务平台，可为国内外医疗机构或眼科医生提供独立第三方眼科影像诊断服务，也可为患者个人提供眼科医疗咨询及会诊服务。</p>
+        <p>医院通过广泛的国际资源整合与合作，开展具有国际水平的眼科临床与公共卫生研究工作，先后获得多项国际组织支持。医院在糖尿病视网膜病变医疗方面的研究工作成就，赢得了国际同行的广泛认可，成为国际糖尿病联合会的全球试点推广项目。医院与美国威斯康辛大学眼科中心专家合作建立的“糖尿病视网膜病变眼科影像诊断与眼科医疗质量保障服务中心”（简称“糖尿病视网膜病变影像诊断中心”），为国际糖尿病联合会的有关项目提供人才培训和糖尿病眼科医疗技术支持与质量管理服务。</p>
+        <p>
+          <img src="/Public/images/focus/intro/pic1.jpg" alt="">
+          <img src="/Public/images/focus/intro/pic2.jpg" alt="">
+          <img src="/Public/images/focus/intro/pic3.jpg" alt="">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="con2 con">
+    <div class="w1200">      
+      <div class="w1080">
+        <h2>圣康<em>华专家</em>团</h2>
+        <dl>
+          <dt class="fl"><img src="/Public/images/focus/intro/pic4.jpg" alt=""></dt>
+          <dd class="fr">圣康华为提高就医质量，组建了一支实力强大的专家团队常年坐诊。为了能够在技术上保持先进，在这批拥有丰富临床经验、管理经验以及高尚医德医风的资深专家带领下，圣康华不仅将服务品质推陈出新，更将越来越多的前沿医疗技术运用于临床，各大主力科室的技术力量与服务水平都不断完善提升，全面保障医疗品质及医疗安全。</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div class="con3 con">
+    <div class="w1080">
+      <h2>圣康<em>华诊疗</em>服务</h2>
+      <p>医院设有四个重点专业科室，包括眼底病与糖尿病眼病医疗中心、青光眼、白内障、功能视觉医疗中心。医院接受国内外医疗机构的眼科医疗转诊，为来自世界各地的眼病患者提供高质量的眼科医疗服务。</p>
+      <img src="/Public/images/focus/intro/pic5.jpg" alt="">
+    </div>
+  </div>
+  <div class="con4 con">
+    <div class="w1080">
+      <h2>圣康<em>华服务</em>理念</h2>
+      <ul>
+        <li>
+          <p class="title">患者至上</p>
+          <img src="/Public/images/focus/intro/pic6.jpg" alt="">
+          <p class="desc">看病就是看专家，患者可根据自己的情况，自主选择专家看病。我院专家都是针对各种疾病各有深入研究，特为广大患者开启就医绿色通道。</p>
+        </li>
+        <li>
+          <p class="title">专病专治</p>
+          <img src="/Public/images/focus/intro/pic7.jpg" alt="">
+          <p class="desc">我院为提高患者就诊质量，特聘资深专家亲诊，并拥有与时俱进的诊疗技术和设备，针对患者实行个性化诊疗方案及治疗。</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 底部start -->
+    <include file="Public:footer"/>
+  <!-- 底部end -->
+  <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+</body>
+</html>

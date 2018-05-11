@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-心率</title>
+</head>
+<body>
+<!--心率-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="xinlv">
+		<div class="con">
+			<h2 class="tit4">心率</h2>
+		</div>
+		<ul class="detail detail_xl">
+			<volist name="jk_info" id="jk">
+				<li>
+					<a href="javascript:;" class="clear">
+						<div class="right position box xinlvzhi">
+							<p><b>心率</b><br><span>{$jk.HR}/分</span></p>
+							<span class="canshu">过快</span>
+						</div>
+						<p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						<div class="clear"></div>
+					</a>
+				</li>
+			</volist>
+			<!-- <li>
+				
+				<div class="right position box xinlvzhi">
+					<p><b>心率</b><br><span>70/分</span></p>
+					<span class="canshu">正常</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				
+				<div class="right position box xinlvzhi">
+					<p><b>心率</b><br><span>40/分</span></p>
+					<span class="canshu">过慢</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li>
+			<li>
+				
+				<div class="right position box xinlvzhi">
+					<p><b>心率</b><br><span>130/分</span></p>
+					<span class="canshu">过快</span>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+function fn(){
+	$(".xinlvzhi").each(function(){
+		var shuzhi = parseInt($(this).find("p").find("span").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=100){
+			$canshu.html("过快").addClass("color_gj");
+		}else if( shuzhi <= 60 ){
+			$canshu.html("过慢").addClass("color_ts");
+		}else{
+			$canshu.html("正常");
+		}
+	})
+}
+//心率，动态设置
+$(function(){
+	fn();
+})
+
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&tj_type='+tj_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

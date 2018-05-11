@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/myaccount_cz.css">
+<title>充值</title>
+</head>
+<body>
+	<ul class="selector">
+		<li class="active">
+			<a href="javascript:;" class="clear">
+				<div class="type">
+					<img src="/weixin/Public/Member/images/user/weixin.jpg" alt="">
+					<div class="type-des">
+						<p>微信</p>
+						<span>推荐微信用户使用</span>
+					</div>
+				</div>
+			</a>
+		</li>
+	</ul>
+	<div class="jie">
+		<p>充值金额</p>
+		<div>
+			<span>￥</span>
+			<input type="tel" name="number" id="number" value="{$money}">
+		</div>	
+        <div id="orderid" style="display: none;">{$order_id}</div>
+	</div>
+    
+	<input type="submit" id="submit" class="sub">
+
+	<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script>
+		$('.selector li').on('touchend',function(){
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+
+		$("#submit").click(function(){
+            var number = $("#number").val();
+            var orderid = $("#orderid").text();
+            
+            if(number == '')
+            {
+                alert("请输入充值金额！");
+                $("#number").focus();
+                return false;
+            }
+            else
+            {
+                location.href="{:U('Member/User/myAccount_cz_ok')}&number="+number+"&orderid="+orderid;
+             
+            }
+        });
+
+
+	</script>
+</body>
+</html>

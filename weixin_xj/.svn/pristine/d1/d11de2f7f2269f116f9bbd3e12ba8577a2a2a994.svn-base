@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+	<title>阅片列表</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <style>
+        body{background:#fff;font-size:14px;color:#333;}
+        section{padding:.5rem;width:11rem;border-bottom:1px solid #ebe8e8;position:relative;}
+        section .link{position:absolute;top:0;left:0;width:100%;height:100%;padding:0;margin:0;}
+        section li{padding:4px 0;}
+        section i.warn{color:#e90000;}
+        section i.info{color:#ffaa03;}
+        section em{font-style:normal;color:#656565;display:inline-block;margin-top:.4rem}
+        section a{border-radius:3px;display:inline-block;line-height:30px;padding:0 .5rem;margin-left:.5rem;position:relative;z-index:10;}
+        .buy{color:#ec5676;border:1px solid #ec5676;}
+        .delete{color:#333;border:1px solid #333;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+	<section>
+	    <a href="#" class="link"></a>
+	    <ul>
+	        <li>站点名称：xxx</li>
+	        <li>订单状态：<i class="warn">待支付</i></li>
+	        <li>审核状态：<i class="info">待审</i></li>
+	        <li class="clear">
+	            <em class="fl">2017-5-26 10:36</em>
+	            <a href="javascript:;" class="buy fr">去支付</a>
+	            <a href="javascript:;" class="delete fr">删除订单</a>
+	        </li>
+	    </ul>
+	</section>
+	<section>
+	    <a href="#" class="link"></a>
+	    <ul>
+	        <li>站点名称：xxx</li>
+	        <li>订单状态：<i>已支付</i></li>
+	        <li>审核状态：<i class="warn">拒绝</i></li>
+	        <li class="clear">
+	            <em class="fl">2017-5-26 10:36</em>
+	        </li>
+	    </ul>
+	</section>
+	<section>
+	    <a href="#" class="link"></a>
+	    <ul>
+	        <li>站点名称：xxx</li>
+	        <li>订单状态：<i class="warn">待支付</i></li>
+	        <li>审核状态：<i>通过</i></li>
+	        <li class="clear">
+	            <em class="fl">2017-5-26 10:36</em>
+	            <a href="javascript:;" class="buy fr">去支付</a>
+	            <a href="javascript:;" class="delete fr">删除订单</a>
+	        </li>
+	    </ul>
+	</section>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+$('.delete').click(function(){
+    $(this).parents('section').remove();
+})    
+</script>
+</html>

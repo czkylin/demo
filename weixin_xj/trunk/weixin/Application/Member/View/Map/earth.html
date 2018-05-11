@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基地医院实时信息</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<style>
+		body,html{height: 100%; overflow: hidden;}
+		#main{height: 100%}
+	</style>
+</head>
+<body>
+	<div id="main"></div>
+	<script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+   	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+   	<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script>
+	window.onload = function(){
+
+		var geoCoordMap = {};
+		var BJData = [];
+		var timer = null;
+
+		getDate()
+
+		function getDate(){
+			$.post('/weixin/Application/Member/View/Map/data.json',function(response){
+				getRandom(response)
+
+				timer = setInterval(function(){
+					getRandom(response)
+				},15000,function(){
+					clearInterval(timer)
+				})
+
+			})
+		}
+		//获取随机数据
+		function getRandom(response){
+			var len = response.length;
+			response = setRandom(len,10,response)
+			//console.log(response)
+			setDate(response)
+		}
+
+		//随机设置数据
+		function setRandom(all,n,data){
+
+			var arr = randomNum(all,n)
+			var newArr = [];
+
+			for( var i=0;i<n;i++ ){
+
+				newArr.push( data[arr[i]] )
+
+			}
+
+			return newArr
+
+		}
+
+		//总数为all中随机选取不重复的n个数
+		function randomNum(all,n){
+			var arr = [];
+			for(var i=0;i<all;i++){
+				arr.push(i)
+			}
+			var newArr = [];
+			for(var i=0;i<n;i++){
+				newArr.push((arr.splice( Math.round( Math.random()*(arr.length-1) ) , 1))[0])
+			}
+			return newArr
+		}
+
+		function setDate(arr){
+			var len = arr.length;
+			geoCoordMap = {};
+			BJData = [];
+			for( var i=0;i<len;i++ ){
+				var name = arr[i].HOS_NAME;
+				geoCoordMap[name] = [arr[i].LNG_POINT,arr[i].LAT_POINT];
+				var newArr = [{name:'北京'},{name:name,value:50}]
+				BJData.push(newArr)				
+			}
+			geoCoordMap['北京'] = [116.4551,40.2539];
+			BJData.unshift([{name:'北京'}, {name:'北京',value:250}])
+
+			setTimeout(function(){
+				drawMap()
+			},200)
+		}
+
+		function drawMap(){
+
+			var myChart = echarts.init(document.getElementById('main'));
+
+			var convertData = function (data) {
+			    var res = [];
+			    for (var i = 0; i < data.length; i++) {
+			        var dataItem = data[i];
+			        //获取中心坐标
+			        var fromCoord = geoCoordMap[dataItem[1].name];
+			        //获取目的地的坐标
+			        var toCoord = geoCoordMap[dataItem[0].name];
+			        //加入数组 [中心名称,目标名称,[中心坐标,目标坐标]]
+			        if (fromCoord && toCoord) {
+			            res.push({
+			                fromName: dataItem[0].name,
+			                toName: dataItem[1].name,
+			                coords: [fromCoord, toCoord]
+			            });
+			        }
+			    }
+			    return res;
+			};
+
+			var color = ['#a6c84c', '#ffa022', '#46bee9'];
+			var series = [];
+
+			[
+				[
+					'北京', BJData
+				]
+			].forEach(function (item, i) {
+			    series.push(
+			    {
+			        name: item[0] + ' Top10',
+			        type: 'lines',
+			        zlevel: 1,
+			        effect: {
+			            show: true,
+			            period: 6,
+			            trailLength: 0.7,
+			            color: '#fff',
+			            symbolSize: 3
+			        },
+			        lineStyle: {
+			            normal: {
+			                color: color[i],
+			                width: 0,
+			                curveness: 0.2
+			            }
+			        },
+			        data: convertData(item[1])
+			    },
+			    {
+			        name: item[0] + ' Top10',
+			        type: 'lines',
+			        zlevel: 2,
+			        symbol: ['none', 'arrow'],
+			        symbolSize: 10,
+			        effect: {
+			            show: true,
+			            period: 6,
+			            trailLength: 0,
+			            symbol: 'diamond',
+			            symbolSize: 10
+			        },
+			        lineStyle: {
+			            normal: {
+			                color: color[i],
+			                width: 1,
+			                opacity: 0.6,
+			                curveness: 0.2
+			            }
+			        },
+			        data: convertData(item[1])
+			    },
+			   	//目标地点的坐标和样式展示
+			    {
+			        name: item[0] + ' Top10',
+			        type: 'effectScatter',
+			        coordinateSystem: 'geo',
+			        zlevel: 20,
+			        rippleEffect: {
+			            brushType: 'stroke'
+			        },
+			        label: {
+			            normal: {
+			                show: true,
+			                position: 'right',
+			                formatter: '{b}'
+			            }
+			        },
+			        symbolSize: function (val) {
+			            return val[2] / 8;
+			        },
+			        itemStyle: {
+			            normal: {
+			                color: color[i]
+			            }
+			        },
+			        data: item[1].map(function (dataItem) {
+			            return {
+			                name: dataItem[1].name,
+			                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+			            };
+			        })
+			    });
+
+			});
+
+			option = {
+			    backgroundColor: '#404a59',
+			    title : {
+			        text: '基地医院实时信息',
+			        subtext: '远程视界全国基地医院分布图',
+			        left: 'center',
+			        textStyle : {
+			            color: '#fff'
+			        }
+			    },
+			    tooltip : {
+			        trigger: 'item'
+			    },
+			    geo: {
+			        map: 'china',
+			        label: {
+			            emphasis: {
+			                show: false
+			            }
+			        },
+			        roam: true,
+			        itemStyle: {
+			            normal: {
+			                areaColor: '#323c48',
+			                borderColor: '#404a59'
+			            },
+			            emphasis: {
+			                areaColor: '#2a333d'
+			            }
+			        }
+			    },
+			    series: series
+			};	
+
+			myChart.setOption(option);
+		}	
+	}
+		 
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--分享页面样式调用-->
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+
+<title>选择科室</title>
+</head>
+<body>
+<div id="step1">
+<div class="gp GJ_Gp g-items gp-profile-auth">
+    <form action="{:U('User/expert_update_info')}" method="post" id="form" name="form">
+        <ul>
+        
+            <li>
+            <select name="column_value" id="dep_name" >
+                <option selected="selected" value="{$dep_id}">{$dep_name}</option>
+                <volist name='row' id='v'>
+                <option value="{$v.DEP_ID}">{$v.DEP_NAME}</option>
+                </volist>
+            </select>
+            </li>
+        
+    </ul>
+    <input type="hidden" name="column_name" id="column_name" value="dep_id">
+    <div class="xuanze_wanc"><a href="#" onclick="selhos()">完成</a></div>
+    </form>
+	
+ </div>
+</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/erji_chengshi.js"></script>
+<script type="text/javascript">
+     function selhos(){
+        form.submit()
+    }
+    
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

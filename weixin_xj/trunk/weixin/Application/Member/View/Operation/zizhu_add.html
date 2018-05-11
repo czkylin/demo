@@ -1,0 +1,179 @@
+﻿<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/zhuanti/style.min.css" type="text/css" rel="stylesheet"/>
+
+<!-- title -->
+
+<title>远程视界</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:url(/weixin/Application/Member/View/images/zhuanti/tu6.jpg) no-repeat; width:100%; background-size:cover;" >
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+        <p class="msgtishi"  id="msg"></p>
+</div>
+<div class="con2">
+        <div class="wrap">
+                <h2 style=" position:absolute; top:14%; left:9%; width:85%;">
+                        <form class="dengluCon">
+                                <label class="biaodan"> <b>姓名</b>
+                                        <input type="text" id="name" value="{$member_name}" placeholder="请填写您的姓名" class="in_biaodan" >
+                                </label>
+                                <label class="biaodan"> <b>手机号</b>
+                                        <input type="text" id="phone" value="{$member_mobile}" placeholder="请填写您的手机号" class="in_biaodan">
+                                </label>
+                                <input type="hidden" id="from_flag" value="{$from_flag}"/>
+                                <div class="jszz"><a href="javascript:void(0)" onclick="sub()">提交</a></div>
+                        </form>
+                </h2>
+        </div>
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+
+	$("#name").focus(function()
+
+	{
+
+		$('#msg').hide();
+
+	});
+
+
+
+	$("#phone").focus(function()
+
+	{
+
+		$('#msg').hide();
+
+	});
+
+
+
+	function sub()
+
+	{
+
+		var name = $("#name").val();
+
+		var phone = $("#phone").val();
+
+		var from_flag = $("#from_flag").val();
+
+		var mobileRule = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0-9]|170)\d{8}$/; 
+
+		if(name=="")
+
+		{
+
+			 $('#msg').show();
+
+			 $('#msg').html('姓名不能为空');
+
+			 setTimeout(function(){fail();},2000);
+
+			 return false;
+
+		}
+
+		if(phone=="")
+
+		{
+
+			 $('#msg').show();
+
+			 $('#msg').html('电话号码不能为空');
+
+			 setTimeout(function(){fail();},2000);
+
+			 return false;
+
+		}
+
+
+
+		if(!mobileRule.test(phone))
+
+		{
+
+			$('#msg').show();
+
+			$('#msg').html('请正确填写电话号码');
+
+			setTimeout(function(){fail();},2000);
+
+			return false;
+
+		}
+
+		function fail()
+
+		{
+
+			$('#msg').hide();
+
+		}
+
+
+
+		$.ajax({
+
+			type: "POST",
+
+			url: "{:U('Operation/operation_add')}",
+
+			data: "name="+name+"&phone="+phone+"&from_flag="+from_flag,
+
+			success: function(msg)
+
+			{
+
+				if(msg=="ok")
+
+				{
+
+					$('#msg').show();
+
+					$('#msg').html('提交成功');
+
+					location.href = "/weixin/index.php?m=Member&c=Operation&a=operation_list";
+
+				}
+
+				else
+
+				{
+
+					$('#msg').show();
+
+					$('#msg').html('提交失败');
+
+				}
+
+			}
+
+		});
+
+	}
+
+	</script> 
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

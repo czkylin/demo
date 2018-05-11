@@ -1,0 +1,14 @@
+<volist name="book_list" id="book">
+	<dl>
+	  <dt><a href="{:U('Unexp/book_info',array('book_id'=>$book['BOOK_ID'],'type_id'=>$book_type))}"><img src="{$book['BOOK_PIC']}" ></a></dt>
+	  <dd><a href="{:U('Unexp/book_info',array('book_id'=>$book['BOOK_ID'],'type_id'=>$book_type))}">{$book['BOOK_NAME']}</a></dd>
+	  <dd class="date">
+      <switch name="book.QK_TYPE">
+                <case value="1">季刊</case>
+                <case value="2">月刊</case>
+                <case value="3">周刊</case>
+                <default />期刊
+            </switch>
+           </dd>
+	</dl>∮
+</volist>

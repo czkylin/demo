@@ -1,0 +1,18 @@
+<volist name="product_list" id="product">
+<div class="sp_info">
+	<div class="sp_img">
+		<a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=product_content&product_id={$product['PRODUCT_ID']}&hos_id={$hos_id}">
+			<img src="{$product['PRODUCT_PIC']}" width="318" height="278" alt=""/>
+		</a>
+	</div>
+	<p>{$product['TY_NAME']}</p>
+	<div class="sp_xinxi">
+		<!--<span class="sj_dz">北京</span>-->
+	</div>
+	<div class="sp_price">
+		<span class="xianjia">¥{$product['PRODUCT_MONEY']}</span>
+		<span class="qianjia">¥{$product['PRODUCT_MONEY']}</span>
+		<b>&gt;</b>
+	</div>
+</div>∮
+</volist>

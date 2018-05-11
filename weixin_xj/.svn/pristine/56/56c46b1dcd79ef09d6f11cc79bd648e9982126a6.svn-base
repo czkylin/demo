@@ -1,0 +1,220 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--公用样式调用-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/zhuanjiagongzuoshi3.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Home/css/yishengbangzs2.css" type="text/css" rel="stylesheet"/>
+<title>在线咨询</title>
+</head>
+<style>
+@media screen and (max-width: 321px){
+        .input-controller .text-input{
+                width: 55%;
+        }
+}
+@media screen and (min-width: 322px) and (max-width: 376px){
+        .input-controller .text-input{
+                width: 62%;
+        }
+}
+@media screen and (min-width: 378px){
+        .input-controller .text-input{
+                width: 65%;
+        }
+}
+</style>
+<body style=" background-color:#d0d6e0;" onload="window.scrollTo(0,document.body.scrollHeight);">
+<div class="zixuncon">
+        <div class="zixuntop">
+                <h3> {$title.MEMBER_NAME} <i>{$title.MEMBER_SEX}</i> <span>
+                        <if condition="$title['MEMBER_AGE'] eq ''">
+                                <else />
+                                {$title['MEMBER_AGE']}岁</if>
+                        </span><b></b> </h3>
+                <p>问题：{$title.CONSULT_CONTENT}</p>
+        </div>
+        <volist name='cosult_list' id='cosult'>
+                <div class="zixunbot">
+                        <div class="date">{$cosult.REPLY_DATE}</div>
+                        <div class="msg-doctor">
+                                <div class="liaotian">
+                                        <if condition="$cosult.ALIGN_TYPE eq 0">
+                                                 <!-- 医生区域 start -->
+                                                <div class="piece_lstw2">
+                                                        <div class="textC">
+                                                                <h4> {$cosult.REPLY_USER_NAME} <i> {$cosult.MEMBER_SEX} </i> </h4>
+                                                                <p>{$cosult.REPLY_CONTENT}</p>
+                                                                <if condition="$cosult.REPLY_IMG neq '' ">
+                                                                        <img class="piece_lstw3-img" src="{$cosult.REPLY_IMG}" alt="">
+                                                                </if>
+                                                        </div>
+                                                </div>
+                                                <div class="doctor-portait"> <a href="javascript:void(0)"> <img src="{$cosult.USER_PIC}" width="50" height="50"> </a> </div>
+                                                <!-- 医生区域 end -->
+                                                <else/>
+                                                
+                                                <!-- 运营区域 start -->
+                                                
+                                                <div class="huanzhe-portait"> <a href="javascript:void(0)"> <img src="{$cosult.USER_PIC}" width="50" height="50">我 </a> </div>
+                                                <div class="piece_lstw3">
+                                                        <div class="textC">
+                                                                <p>{$cosult.REPLY_CONTENT}</p>
+                                                                <if condition="$cosult.REPLY_IMG neq '' ">
+                                                                        <img class="piece_lstw3-img" src="{$cosult.REPLY_IMG}" alt="">
+                                                                </if>
+                                                        </div>
+                                                </div>
+                                                
+                                                <!-- 运营区域 end --> 
+                                                
+                                        </if>
+                                </div>
+                        </div>
+                </div>
+        </volist>
+        <div class="zixunbot" style="margin-bottom:50px;"></div>
+
+        <form method="post" action="/weixin/index.php?m=Home&c=Consult&a=consult_response" enctype='multipart/form-data' onsubmit="return sub()">
+
+                <div class="input-controller J_Input_Ctrl" al-show="(status.code==0|| status.code==1)&amp;&amp; myself &amp;&amp; asknum&gt;0">
+
+                <div class="item both uploader clear" style="float:left;"> 
+
+                        <div class="g-image-upload-box">
+
+                                <div class="J_UploadBtn upload-btn small" style="overflow: hidden; margin: 0; margin-left:5px; position:relative; background-position: center;">
+                                        <!-- <span style="font-size:12px; position:absolute; bottom:0; left:0; width: 45px; display:block; text-align:center;">图片</span> -->
+                                        <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onchange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+
+                                </div>
+
+                        </div>
+
+                        <img src="" id="pre_pic" width="200" style="display:none">
+
+                        <div id="press_status"></div>
+
+                        <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+
+                        <div class="desc J_Showmeonfileuploaded" style="display:none">
+
+                        <h3>上传图片资料</h3>
+
+                        <p>病症部位，检查报告或者其他病情资料</p>
+
+                        </div>
+
+                </div>
+
+                        <input type="text" al-keyup="inputText($event)" name="consultContent" id="sendBox" placeholder="请输入内容" al-value="textMsg" class="nofixed text-input">
+
+                        <input type="hidden" id="consult_id" name="consult_id" value="{$consult_id}">
+
+                        <input type="submit" value="发送"  class="gbn gbt-pri"  style="height:30px; line-height:30px; margin-top:10px; float:left;" />
+
+                        <input type="hidden" id="doc_to_yd" value="{$doc_to_yd}" /><!-- 医生是否绑定药店 -->
+                </div>
+
+        </form>
+</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Expert/js/exif.js?v=c65d9ea" type="text/javascript"></script>
+
+<script src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a" type="text/javascript"></script> 
+<script>
+
+$(document).ready(function()
+{
+
+	$("#msg_bottom").click();
+
+});
+
+
+function jump_bottom()
+
+{
+
+	window.location.href='#bottom';
+
+}
+
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+{
+
+        
+        lrz(input_file.files[0], 
+
+        {
+
+                width:200,
+
+                before: function()
+
+                {
+
+                        document.querySelector(press_status).innerHTML="";
+
+                },
+
+                fail: function(err)
+
+                {
+
+                        document.querySelector(press_status).innerHTML=err;
+
+                },
+
+                always: function()
+
+                {
+
+                        document.querySelector(press_status).innerHTML="";
+
+                },
+
+                done: function (results)
+
+                {
+                        document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+
+                        //document.querySelector(pre_pic).src=results.base64;//展示预览图片
+
+                }
+
+        });
+
+}
+
+function sub()
+{
+
+        var sendBox = $("#sendBox").val();
+
+        if(sendBox == "")
+        {
+                alert("请输入内容！");
+                return false;
+
+        }
+
+}
+
+
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

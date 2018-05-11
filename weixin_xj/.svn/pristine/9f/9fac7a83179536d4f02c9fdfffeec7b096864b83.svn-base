@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>我的医生集团</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/medical/medical.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <header class="head">
+        <ul class="box">
+            <li><a href="{:U('Expert/Doc/doc_team')}">医生集团</a></li>
+            <li class="active"><a href="{:U('Expert/Doc/mydoc_team')}">我的医生集团</a></li>
+        </ul>
+    </header>
+    <article>
+    <volist name="expert_info" id="info">
+        <section class="unit">
+            <div class="team box">
+                <div class="left box">
+                    <div class="image"><img src="/weixin/Public/Expert/images/teams/user.png" width="100%" /></div>
+                    <div class="text">
+                        <h2>{$info.EXPERT_NAME}</h2>
+                        <p>擅长：{$info.EXPERT_SKILL}</p>
+                    </div>
+                </div>
+                <div class="right text-right">
+                
+                <span class="sta no">
+                    <if condition="$info['CHECK_FLAG'] eq '0' ">待审核</if>
+                    <if condition="$info['CHECK_FLAG'] eq '1' ">已通过</if>
+                    <if condition="$info['CHECK_FLAG'] eq '2' ">未通过</if>
+                    <if condition="$info['CHECK_FLAG'] eq '3' ">未申请</if>
+                </span>
+                <i class="ui-icon-arrow"></i></div>
+            </div>
+            <a href="{:U('Expert/Doc/doc_detail')}&expert_id={$info.EXPERT_ID}&union_id={$doc_detail.UNION_ID}"></a>
+        </section>
+    </volist>
+        
+    </article>
+</body>
+</html>

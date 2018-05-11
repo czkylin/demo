@@ -1,0 +1,160 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">-->
+<!--<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">-->
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/footer.min.css">
+<!--<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">-->
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/head.css">
+<style>
+    img{border-width:0;}
+    .clear{overflow:hidden;}
+    .fl{float:left;}
+    .fr{float:right;}
+    .box{display:box;display:-webkit-box;}   
+    .info{width:70%}
+    .info i{display:inline-block;width:10px;height:10px;border-radius:10px;background:#e4e9ec;margin-right:10px;}
+    #hz li{margin:0;}
+    section li{color:#858585;border-bottom:1px solid #ccc;}
+    section li.active{color:#5c5c5c;}
+    section li.active i{background:#ff7a8f;}
+    .time{width:30%;text-align:right;}
+    .txt{padding:0 10px;}
+    #block{background:#eceff1;border-bottom:1px solid #ccc;}
+    #block header{border-bottom:1px solid #ccc;}
+    #block article{border-radius:6px;border:1px solid #ccc;background:#fff;width:90%;margin:20px auto;}
+    #block .sec{padding:10px;}
+    #block em{margin-right:5px;}
+    #block p{height:25px;line-height:25px;}
+    #block .img,#block .img2{width:50px;height:50px;overflow:hidden;}
+    #btn{background:#fff;padding:3% 5%;position:fixed;bottom:0;left:0;width:90%;}
+    #btn a{background:#ff647c;border-radius:4px;color:#fff;display:block;height:44px;line-height:44px;font-size:18px;text-align:center;}
+</style>
+<title>我的患者咨询</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+<header class="header">
+    <a href="index.php?m=Expert&c=User&a=mywork_house" class="icon">&#xf62b;</a>
+    <h2>我的患者咨询</h2>
+</header>
+<div class="wdzixun_ul" id="consult_list">
+	<!--<volist name="consult_list" id="consult" empty="$empty">
+	<div class="zxcon">
+		<a href="/weixin/index.php?m=Expert&c=Jtys&a=consult_details&consult_id={$consult['CONSULT_ID1']}">
+			<div class="zxcon-top">
+			<if condition="$consult['RE_STATUS'] eq '待回复'">
+			<i></i>
+			<else/>
+			</if>
+			<p>{$consult['MEMBER_NAME']}</p><p>{$consult['MEMBER_SEX']}</p><p><if condition="$consult['MEMBER_AGE'] eq ''"><else />{$consult['MEMBER_AGE']}岁</if></p><span>{$consult['FREE_FLAG']}</span></div>
+			<div class="zxcon-bot">
+				<p>{$consult['CONSULT_CONTENT']}</p>
+				<div class="shijian"><p class="left">
+				 <?php
+				$now_time =  time();
+				 $consult['CONSULT_DATE'] = $now_time-strtotime($consult['CONSULT_DATE']);
+				?>
+
+				<if condition="($consult['CONSULT_DATE'] lt 3600 )&&($consult['CONSULT_DATE'] gt 60 )"> 
+                <php>echo ceil($consult['CONSULT_DATE']/60);</php>分钟前
+                <elseif condition="($consult['CONSULT_DATE'] gt 3600 ) && ($consult['CONSULT_DATE'] lt 86400 )"/>
+                    <php>echo ceil($consult['CONSULT_DATE']/60/60);</php>小时前
+                <else /> 
+                    <php>echo ceil($consult['CONSULT_DATE']/60/60/24);</php>天前
+                </if>
+
+				</p><p class="right">{$consult['PROVINCE_NAME']}</p></div>
+			</div>
+            
+            <div class="yihuifu"> 
+            	<if condition="$consult['RE_STATUS'] eq '已回复'">
+            		<a href="/weixin/index.php?m=Expert&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID1']}">{$consult['RE_STATUS']}</a>
+                 </if>
+             </div>
+			 <div class="daihuifu"> 
+            	<if condition="$consult['RE_STATUS'] eq '待回复'">
+            		<a href="/weixin/index.php?m=Expert&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID1']}">{$consult['RE_STATUS']}</a>
+                 </if>
+             </div>
+		</a>
+	</div>
+	<input name="member_id" type="hidden" value="{$member_id}" id="member_id"/>
+	</volist>-->
+	<div id="block">
+	    <article>
+	        <header class="text-center"><span>患者基本信息</span></header>
+            <section>
+                <div class="sec clear">
+                    <div class="img fl"><img src="" width="100%" /></div>
+                    <div class="txt fl">
+                        <p>
+                            <em>谈默默</em>
+                            <em>/ 男</em>
+                            <em>/ 24</em>
+                       </p>
+                       <p>13812345678</p>
+                    </div>
+                    <div class="img2 fr"><img src="" width="100%" /></div>
+                </div>
+            </section>
+	    </article>
+	</div>
+	<section id="hz">
+	    <ul>
+	        <li class="active box">
+	            <div class="info"><i></i>最后一条信息 调出来</div>
+	            <div class="time">4:20 PM</div>
+	        </li>
+	        <li class="box">
+	            <div class="info"><i></i>最后一条信息 调出来</div>
+	            <div class="time">4:20 PM</div>
+	        </li>
+	        <li class="box">
+	            <div class="info"><i></i>最后一条信息 调出来</div>
+	            <div class="time">4:20 PM</div>
+	       </li>
+	    </ul>
+	</section>
+</div>
+<div class="ui-jiazai">
+	<a href="javascript:void(0);" onclick="load_more();">加载更多</a>
+</div>
+<div id="btn">
+    <a href="javascript:;">诊后随访</a>
+</div>
+<div id="current_pagenum" style="display:none">2</div>
+<include file="Public:footer_bottom"/>    
+<!--<footer style="background:#f2f2f2;text-align:center;bottom:0;left:0;width:100%;height:60px;overflow:hidden;position:fixed;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;">
+    <object data="/weixin/Public/Expert/css/zhengcejiedu/bottom.svg" src="/weixin/Public/Expert/css/zhengcejiedu/bottom.svg" type="" style="width:100%;transform:scale(0.5,0.5);-webkit-transform:scale(0.5,0.5);"></object>
+</footer>-->
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+<script>
+var over_footer = '2';
+function load_more()
+{
+	var member_id = $('#member_id').val();
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Jtys&a=consult_list_append&member_id={$member_id}','#consult_list');
+}
+</script>
+<!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->     
+     <div style="height:0px;overflow:hidden;">
+         <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?>
+     </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<volist name="share_list" id="share">
+	<ul class="list_fir list_third">
+		<li class="myself">
+			<a class="pic fl" href="/weixin/index.php?m=Expert&c=Share&a=my_share_list&doc_id={$share['EXPERT_ID']}"><img src="{$share['SMALL_PIC']}"/></a>
+			<section class="fr">
+				<h2 class="name_txt fs18"><a class="fc2587c6" href="/weixin/index.php?m=Expert&c=Share&a=my_share_list&doc_id={$share['EXPERT_ID']}">{$share['EXPERT_NAME']}</a></h2>
+				<div class="tw fs14">
+					<a href="/weixin/index.php?m=Expert&c=Share&a=share_info&record_id={$share['RECORD_ID']}">
+						<img src="{$share['SHARE_PIC']}" />{$share['SHARE_CONTENT']}......
+						<div class="clear"></div>
+					</a>
+				</div>
+				<div class="time fs16">
+					<a class="fr" href="javascript:void(0);" onClick="dz({$share['RECORD_ID']});">
+						<img src="/weixin/Application/Expert/View/images/icon1.png"/>赞
+					</a>10月26日 8:08&nbsp;
+				</div>
+				<if condition="$share['EXPERT_STR'] neq '' "> 
+					<div class="zan pr fs14">
+						<img class="pa" src="/weixin/Application/Expert/View/images/icon14.jpg"/>
+						<img class="fl" src="/weixin/Application/Expert/View/images/icon2.png"/>
+						<div id="z_conut{$share['RECORD_ID']}">{$share['EXPERT_STR']}</div>
+						<div class="clear"></div>
+					</div>
+				<else/>
+					<div class="zan pr fs14" style="display:none" id="zan{$share['RECORD_ID']}">
+						<img class="pa" src="/weixin/Application/Expert/View/images/icon14.jpg"/>
+						<img class="fl" src="/weixin/Application/Expert/View/images/icon2.png"/>
+						<div id="z_conut{$share['RECORD_ID']}">{$share['EXPERT_STR']}</div>
+						<div class="clear"></div>
+					</div>
+
+				</if>
+			</section>
+			<div class="clear"></div>
+		</li>
+	</ul>∮
+</volist>

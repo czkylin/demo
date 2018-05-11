@@ -1,0 +1,6 @@
+@charset "utf-8";
+.footer{width:100%;position:fixed;bottom:0;left: 0; height:60px; text-align:center; background-color: #f5f5f5; z-index:9999;-webkit-box-sizing: border-box; box-sizing: border-box;}
+.footer a{display:block; float:left;width:25%; font-size:14px; text-align: center; line-height: 20px; padding-top:8px; color: #666;}
+.footer a span{ display:block; text-align:center; line-height: 20px;}
+.footer a h2{font-size:12px; width:100%; font-weight:normal;}
+.footer a span:before{font-size:22px;line-height:32px;color:#b8c4c4;}

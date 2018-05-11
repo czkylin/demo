@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Common/css/common/mobi-reset.css">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/nurse/order-info.css">
+<title>订单</title>
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+</head>
+<body>
+	<!-- 地址 -->
+	<section id="add">
+		<div class="add">
+			所在区域：{:I('get.searchVal')}
+		</div>
+		<div class="add-more clear">
+			<span>详细地址：</span>
+			<div>
+				<input type="text">
+				<i>具体门牌号-3-206室</i>
+			</div>
+		</div>
+	</section>
+	<div class="line"></div>
+	
+	<!-- 预约时间 -->
+	<section id="time">
+		<i></i>
+		<span class="icon"></span>
+		<strong>预约服务时间</strong>
+		<!-- <b></b> -->
+		<a href="javascript:;">一个小时内到达</a>
+	</section>
+	
+	<!-- 服务选择 -->
+	<section id="service">
+		<p style="border-bottom: 1px solid #e7e7e7;">服务项目：{$ServiceInfo.SERVICE_NAME}</p>
+		<p style="font-size: 0.5rem;">本次服务费用：<span>{$ServiceInfo.SERVICE_PRICE}元</span> <i>（两个小时内算急诊范围，服务费增加）</i></p>
+	</section>
+	
+	<!-- 信息 -->
+	<section id="info">
+		<a href="{:U('Nurse/order_member')}">选择服务人信息<span class="person_name">请选择</span></a>
+		<div class="content">
+			<h3>请简单输入被诊断人的病症</h3>
+			<div class="txt">
+				<textarea></textarea>
+				<span>请输入内容</span>
+			</div>
+		</div>
+	</section>
+	
+	<!-- 底部 -->
+	<section class="footer">
+		<p>提示：请尽量预约白天上门服务，若需要夜间服务请以增加服务费的方式补贴医护人员往返交通费</p>
+		<a href="javascript:;" class="submit">立即提交</a>
+		<form action="{:U('Nurse/order_add')}" method="post">
+			<input type="hidden" id="SERVICE_ID" name="SERVICE_ID" value="{:I('get.SERVICE_ID')}">
+			<input type="hidden" id="AppointmentAddress" name="AppointmentAddress" >
+			<input type="hidden" id="payjson" name="payjson" value="{$ServiceInfo.json}">
+			<input type="hidden" id="Lat" name="Lat" value="{$lat|default='0'}">
+			<input type="hidden" id="Lng" name="Lng" value="{$lng|default='0'}">
+			<input type="hidden" id="PersonId" name="PersonId" >
+			<input type="hidden" id="AppointmentContent" name="AppointmentContent" >
+
+		</form>
+	</section>
+
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var url1 = location.search;
+		console.log(url1);
+		localStorage.setItem('url1', url1);
+		//初始化 记录到缓存中
+		$('.add-more').find('input').val(localStorage.getItem('address'));
+		$('.txt > textarea').val(localStorage.getItem('desc'));
+
+		//默认文字
+		if( $('.add-more').find('input').val() !== '' ){
+			$('.add-more').find('i').hide();
+		}
+		if( $('.txt > textarea').val() !== '' ){
+			$('.txt').find('span').hide();
+		}
+
+
+		//赋值 记录到缓存中
+		$('.add-more').find('input').blur(function(){
+			localStorage.setItem('address', $(this).val());
+		});
+
+		$('.txt > textarea').blur(function(){
+			localStorage.setItem('desc', $(this).val());
+		});
+
+		//提交订单 清空缓存
+		$('.submit').click(function(){
+
+			$('#AppointmentAddress').val("{:I('get.searchVal')}" + $('.add-more').find('input').val());
+			$('#PersonId').val(localStorage.getItem('person_id'));
+			$('#AppointmentContent').val(localStorage.getItem('desc'));
+
+			if($('#AppointmentAddress').val() == ''){
+                alert("地址获取失败！");
+                return false;
+            }
+            if($('#PersonId').val() == ''){
+                alert("请先选择服务人信息！");
+                return false;
+            }
+			localStorage.clear();
+			$('form').submit();
+
+		})
+
+
+		//添加服务人
+		if( localStorage.getItem('person_name') !==''){
+			$('#info').find('.person_name').html(localStorage.getItem('person_name'));
+		}else{
+			$('#info').find('.person_name').html('请选择');
+		}
+
+		inputFn('.add-more div input','.add-more div i');
+		inputFn('.content .txt textarea','.content .txt span');
+		//地址输入框
+		function inputFn(obj1,obj2){
+			$(obj1).focus(function(){
+				$(obj2).hide();	
+			})
+			$(obj1).blur(function(){
+				if( $(this).val() == '' ){
+					$(obj2).show();
+				}
+			})
+		}
+
+			
+	</script>	
+</body>
+</html>

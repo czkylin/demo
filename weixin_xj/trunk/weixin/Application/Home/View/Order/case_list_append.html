@@ -1,0 +1,40 @@
+<volist name="case_list" id="case">
+<li>
+	<div class="huiyuan_left">
+		<img src="{$case['MEMBER_PIC']}" alt=""/>
+	</div>
+	<div class="huiyuan_right">
+		<div class="right_top">
+			<div class="r_t_l">
+				<p>订单号：&nbsp;{$case['ORDER_ID']} &nbsp;&nbsp;{$case['MEMBER_NAME']}&nbsp;&nbsp;{$case['MEMBER_SEX']}</p>
+				<p>电&nbsp;&nbsp;&nbsp;&nbsp;话：{$case['MEMBER_MOBILE']}</p>
+				<p style="margin-top:0.4rem;">服务名称：{$case['ORDER_NAME']}</p>
+				<p style="margin-top:0.4rem;">已传病例数：{$case['CASE_NUM']}</p>
+			</div>
+			<div class="r_t_r">
+				<p>¥{$case['ORDER_MONEY']}<br/></p>
+			</div>
+			<br clear="all" />
+		</div>
+		<form enctype="multipart/form-data" action="/weixin/index.php?m=Home&c=Order&a=case_add" method="post">
+			<div class="right_bot">
+				<div class="ti_jieguo">提交诊断结果</div>
+				<div class="shangchuan">
+					<input class="ty_kuang" type="text" />
+					<div>
+						<a class="file">
+							<!--<input type="file" accept="image/*" capture="camera" name="mypic" onChange="showPic(this.id,'showimg')"  id='pic'>-->
+							<input type='file' name='mypic' accept="image/*" capture="camera">
+							<input type='hidden' name='order_id' value="{$case['ORDER_ID']}">
+							<input type='hidden' name='member_id' value="{$case['MEMBER_ID']}">
+						</a>
+						<button type="submit" class="image_sc">上传</button>
+						<br clear="all" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<br clear="all"/>
+</li>∮
+</volist>

@@ -1,0 +1,54 @@
+.stati{
+	padding: 0.2rem 0.48rem;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: 0.6rem;
+	color: #6e6e6e;
+}
+/*list*/
+#list{
+	margin-bottom: 4rem;
+}
+#list li{
+	padding: 0 0.48rem;
+	height: 1.7rem;
+	line-height: 1.7rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+#list li span{
+	float: left;
+	font-size: 0.64rem;
+	color: #333;
+}
+#list li i{
+	margin-left: 1.1rem;
+	font-style: normal;
+	float: left;
+	font-size: 0.56rem;
+	color: #999;
+}
+#list li a{
+	float: right;
+	width: 2.7rem;
+	height: 1.1rem;
+	line-height: 1.1rem;
+	text-align: center;
+	color: #ef4a65;
+	background: #fff;
+	border: 1px solid #ef4a65;
+	border-radius: 0.12rem;
+	font-size: 0.56rem;
+	margin-top: 0.3rem;
+}
+.link{
+	display: block;
+	margin: 0 auto;
+	width: 14rem;
+	height: 1.76rem;
+	line-height: 1.76rem;
+	text-align: center;
+	background: #fe647c;
+	color: #fff;
+	font-size: 0.7rem;
+	border-radius: 0.12rem;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>指南解读-电子书列表</title>
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="../../../../Public/Expert/css/ceses/zhiNanJieDu.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header class="ui-header"> <i class="ui-icon-return" onClick="history.back()"></i> </header>
+<div class="Tab_CaiDan"> <a href="#" class="curr">电子书</a> <a href="#">视频列表</a></div>
+<div class="bookList">
+        <div class="pad_15 mainCon">
+                <div class="book_top">
+                        <div class="book_img"><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></div>
+                        <div class="book_tit">
+                                <h2>当减肥开始交罚人家基督教第三开始交罚人家基督罚人家基督教第三开始交罚人家基督教第三</h2>
+                                <span class="time">出版时间：2015.10.30</span><span class="compile">编著：成军</span></div>
+                </div>
+        </div>
+        <div class="mainCon videoInfo">
+                <h2 class="title_h2 ">推荐</h2>
+        </div>
+        <div class="clear"></div>
+        <div class="tabCon pad_15">
+                <ul>
+                        <li class="sectionsList">
+                                <h3>第一章      当减肥开始交罚人家</h3>
+                                <ul class="sections" style=" display:block;">
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                </ul>
+                        </li>
+                        <li class="sectionsList">
+                                <h3>第二章      当减肥开始交罚人家</h3>
+                                <ul class="sections">
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                </ul>
+                        </li>
+                        <li class="sectionsList">
+                                <h3>第三章      当减肥开始交罚人家</h3>
+                                <ul class="sections">
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                </ul>
+                        </li>
+                        <li class="sectionsList">
+                                <h3>第四章      当减肥开始交罚人家</h3>
+                                <ul class="sections">
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span><span class="ui-icon-video jiangJie">有视频讲解</span></a></li>
+                                        <li><a href="#"><span>第一节      电视剧后发生的合法亣哈哈</span></a></li>
+                                </ul>
+                        </li>
+                </ul>
+        </div>
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script>
+$(function(){
+$('.tabCon li h3').click(function(){
+	$(this).parent('li').siblings().children('.sections').slideUp();
+			$(this).parent('li').siblings().children('h3').removeClass('bg');
+			if($(this).siblings('.sections').is(':visible')){
+				$(this).removeClass('bg');
+				$(this).siblings('.sections').slideUp();
+				}else{
+				$(this).addClass('bg');
+				$(this).siblings('.sections').slideDown();	
+					}
+			})
+})	
+</script>
+<include file="Public:tj" /></body>
+</html>

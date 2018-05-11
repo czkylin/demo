@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="百倍爱心卡" />
+	<meta name="description" content="" />
+	<title>百倍爱心-智能手机健康管理套装</title>
+	<style type="text/css">
+		*{padding: 0;margin:0;}
+		img {border-width: 0; vertical-align: middle;}
+		a{text-decoration:none;border:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;outline:none;}
+		.zntz-con{margin-bottom: 1.96rem;}
+		.zntz-btn{width: 100%;height: 1.96rem; line-height: 1.96rem; font-size: .72rem; color: #ffffff;position: fixed;left: 0;bottom: 0;overflow: hidden;}
+		.zntz-btn span{width: 35%;height:100%;display:block;text-align: center; background: #945e21;float: left;}
+		.zntz-btn a{width: 65%;height:100%;display:block;text-align: center;background: #fa9d34; color: #ffffff;float: right;}
+	</style>
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	<section class="zntz-con">
+		<img src="/weixin/Public/Member/images/huzhu/share_zntz/zntz01.jpg" width="100%;">
+		<img src="/weixin/Public/Member/images/huzhu/share_zntz/zntz02.jpg" width="100%;">
+		<img src="/weixin/Public/Member/images/huzhu/share_zntz/zntz03.jpg" width="100%;">
+		<img src="/weixin/Public/Member/images/huzhu/share_zntz/zntz04.jpg" width="100%;">
+		<img src="/weixin/Public/Member/images/huzhu/share_zntz/zntz05.jpg" width="100%;">
+	</section>
+	<div class="zntz-btn">
+		<span>￥1880元</span>
+		<a href="/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=share_zntz'));?>&sale_type={:C("SALE_TYPE_8")}&user_name={:I('get.user_name','')}">立即购买</a>
+	</div>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		//微信分享
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '用智能设备，享智慧健康';
+        var wx_share_desc = '享受智能生活，体验健康未来，百倍爱心智能手机健康管理套装，你的健康，随处查看。';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_zntz/icon.png";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_zntz&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_zntz&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+	<!-- CNZZ统计代码 -->
+	<div style="height:0px;overflow:hidden;"></div>
+	<!-- CNZZ统计代码  百倍爱心宣四单独统计-->
+	<div style="height:0px;overflow:hidden;"></div>
+</body>
+</html>

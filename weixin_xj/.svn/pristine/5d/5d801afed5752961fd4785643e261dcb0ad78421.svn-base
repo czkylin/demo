@@ -1,0 +1,93 @@
+<footer id="over_footer">
+
+		<a class="over_footer_shouye" href="{:U('Member/Index/index')}">首页</a>
+
+		<a class="over_footer_zixun" href="{:U('Member/Doc/doc_list')}">咨询</a>
+
+		<a class="over_footer_yuepian" href="{:U('Member/Hos/hos_list','serve_id=29')}">阅片</a>
+
+		<a class="over_footer_dingdan_dd" href="{:U('Member/Order/order_list')}">订单</a>
+
+		<a class="over_footer_geren" href="{:U('Member/User/user_info')}">个人中心</a>
+
+</footer>
+<include file="tj.html" />
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+
+	<p class="msgtishi"  id="msg"></p>
+
+</div>
+
+<script>
+
+	var shouye = $("#over_footer .over_footer_shouye"),zixun = $("#over_footer .over_footer_zixun"),yuepian = $("#over_footer .over_footer_yuepian"),dingdan_dd = $("#over_footer .over_footer_dingdan_dd"),geren = $("#over_footer .over_footer_geren");
+
+	$(function()
+
+	{
+
+		if(over_footer==1)
+
+		{
+
+			shouye.removeClass("over_footer_shouye").addClass("over_footer_shouye_on");
+
+		};
+
+		if(over_footer==2)
+
+		{
+
+			zixun.removeClass("over_footer_zixun").addClass("over_footer_zixun_on");
+
+		};
+
+		if(over_footer==3)
+
+		{
+
+			yuepian.removeClass("over_footer_yuepian").addClass("over_footer_yuepian_on");
+
+		};
+
+		if(over_footer==4)
+
+		{
+
+			dingdan_dd.removeClass("over_footer_dingdan_dd").addClass("over_footer_dingdan_dd_on");
+
+		};
+
+		if(over_footer==5)
+
+		{
+
+			geren.removeClass("over_footer_geren").addClass("over_footer_geren_on");
+
+		}
+
+	})
+
+</script>
+
+<script>
+
+    function showmsg(){
+
+        $('#msg').show();
+
+        $('#msg').html('暂未开放！');
+
+        setTimeout(function(){fail();},2000);
+
+        return false;
+
+    }
+
+    function fail(){
+
+        $('#msg').hide()
+
+    }
+
+</script>

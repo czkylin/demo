@@ -1,0 +1,20 @@
+body{background:#fff;font-size:16px;}
+input{-webkit-appearance:none;outline:none;border-width:0;}
+.unit{padding:.5rem;width:11rem;}
+.unit:nth-child(1){border-bottom:10px solid #e7e7e7;}
+.unit h2{font-size:18px;padding-bottom:20px;font-weight:normal;}
+.price{border-bottom:1px solid #999;}
+.price strong{font-size:40px;display:block;width:2rem;}
+.price input{display:block;width:9rem;font-size:16px;height:46px;}
+.unit p{font-size:14px;padding-top:10px;line-height:20px;}
+.unit em{font-style:normal;color:#999;}
+.unit em span{color:#f00;}
+.unit p a{color:#039edc;}
+.confirm{background:#ef4a65;color:#fff;height:40px;line-height:40px;font-size:16px;width:100%;display:block;margin-top:20px;}
+.sec li{border-bottom:1px solid #e7e7e7;padding:.3rem;}
+.sec li.tit{background:#e7e7e7;}
+.sec li h3{font-weight:normal;}
+.sec p:nth-child(1){padding-bottom:.3rem;}
+.sec p small{color:#999;}
+.sec p b{ font-weight: normal; font-size:12px; color: #999; margin-left: 20px; }
+.pleft,.pright{width:50%;}

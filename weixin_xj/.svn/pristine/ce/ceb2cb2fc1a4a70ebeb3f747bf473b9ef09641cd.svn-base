@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>新增续方</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/chufang/cf_lst.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body class="addy">
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">新增续方</h2>
+    </header>
+    <section class="unit">
+        <div class="basic box">
+            <span>姓名：范强</span>
+            <span>性别：男</span>
+            <span>年龄：36</span>
+        </div>
+        <div class="basic">
+            <h3>诊断信息：</h3>
+            <textarea name="" id="" cols="30" rows="3">心脏病,头疼眩晕,心率不齐。心脏病,头疼眩晕,心率不齐。</textarea>
+        </div>
+        <div class="medical clear">
+            <span class="fl">药店：</span>
+            <select name="" id="" class="fr">
+                <option value="药店1">药店1</option>
+                <option value="药店2">药店2</option>
+                <option value="药店3">药店3</option>
+            </select>
+        </div>
+    </section>
+    <section class="drugs">
+        <h2>R：</h2>
+        <div class="drug">
+            <h3>速效救心丸</h3>
+            <div class="main box">
+                <div class="image box">
+                    <label>
+                        <input type="checkbox" />
+                        <i class="ui-icon-unchecked-s"></i>
+                    </label>
+                    <label>
+                        <img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%" />
+                    </label>
+                </div>
+                <div class="content">
+                    <p class="box">
+                        <em>数量：</em>
+                        <i class="reduce"></i>
+                        <strong class="num">11</strong>
+                        <i class="add"></i>
+                        <strong>盒</strong>
+                    </p>
+                    <p class="box">
+                        <em>用量：</em>
+                        <i class="reduce"></i>
+                        <strong class="num">0</strong>
+                        <i class="add"></i>
+                        <strong>次/日</strong>
+                    </p>
+                    <p class="box">
+                        <em></em>
+                        <i class="reduce"></i>
+                        <strong class="num">0</strong>
+                        <i class="add"></i>
+                        <strong>片/日</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="drug">
+            <h3>心脑疏通胶囊</h3>
+            <div class="main box">
+                <div class="image box">
+                    <label>
+                        <input type="checkbox" />
+                        <i class="ui-icon-unchecked-s"></i>
+                    </label>
+                    <label>
+                        <img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%" />
+                    </label>
+                </div>
+                <div class="content">
+                    <p class="box">
+                        <em>数量：</em>
+                        <i class="reduce"></i>
+                        <strong class="num">1</strong>
+                        <i class="add"></i>
+                        <strong>盒</strong>
+                    </p>
+                    <p class="box">
+                        <em>用量：</em>
+                        <i class="reduce"></i>
+                        <strong class="num">0</strong>
+                        <i class="add"></i>
+                        <strong>次/日</strong>
+                    </p>
+                    <p class="box">
+                        <em></em>
+                        <i class="reduce"></i>
+                        <strong class="num">0</strong>
+                        <i class="add"></i>
+                        <strong>片/日</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-right"><a href="javascript:;" class="addm text-center">增加药店</a></div>
+    </section>
+    <footer class="footer">
+        <button class="btn pink text-center">提交</button>
+    </footer>
+</body>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script>
+    $('.content i').click(function(){
+        var n = 0;
+        if($(this).hasClass('reduce')){
+            n = parseInt($(this).next().html());
+            $(this).next().html((n-1)<0?0:(n-1));
+        }else{
+            n = parseInt($(this).prev().html());
+            $(this).prev().html((n+1));
+        }
+    })
+</script>
+</html>

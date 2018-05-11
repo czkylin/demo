@@ -1,0 +1,13 @@
+<volist name="act_list" id="vo"> 
+<li>
+	<a href="index.php?m=Expert&c=Jd&a=jd_info&record_id={$vo.RECORD_ID}&type_id={$type_id}" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+	</a>
+	<h3>{$vo.ACT_TITLE}</h3>
+	<p><span>
+	    <?php echo date("Y-m-d",strtotime($vo['ACT_START_DATE']));?>至<?php echo date("Y-m-d",strtotime($vo['ACT_END_DATE']));?>
+	</span></p>
+	<a href="index.php?m=Expert&c=Jd&a=jd_info&record_id={$vo.RECORD_ID}&type_id={$type_id}">
+	    <img src="{$vo.ACT_PIC}" alt="">
+	</a>
+</li>∮
+</volist>     

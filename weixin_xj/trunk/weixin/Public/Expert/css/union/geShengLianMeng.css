@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+.pad_top { padding-top: 0; }
+.mainCon { border-top: 7.5px solid #ebebeb; }
+/*电子书*/
+.Tab_CaiDan { width: 100%; height: 40px; }
+.Tab_CaiDan a { width: 50%; display: block; border: 1px solid #ff647c; -webkit-box-sizing: border-box; box-sizing: border-box; float: left; height: 38px; line-height: 38px; text-align: center; color: #333333; font-size: 14px; }
+.Tab_CaiDan a:last-child { border-left: 0; }
+.Tab_CaiDan .curr { background: #ff647c; color: #fff; }
+.gslmLabel { width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.gslmLabel .labelCon { width: 91%; height: 40px; float: left; overflow-x: scroll; overflow-y: hidden; }
+.gslmLabel .labelCon a { height: 30px; line-height: 30px; float: left; margin-right: 10px; margin-top: 5px; color: #333; padding: 0 5px; }
+.gslmLabel .labelCon a.curr { background: #ff647c; color: #fff; }
+.lianMeng_list { width: 100%; }
+.lianMeng_list li { position: relative; border-bottom: 1px solid #cacdcc; padding: 15px 0; }
+.lianMeng_list li a.pic { display: block; position: absolute; top: 20px; width: 85px; height: 55px; }
+.lianMeng_list li a img { width: 85px; height: 55px; }
+.lianMeng_list li:last-child { border-bottom: none; }
+.lianMeng_list li .lm_right { padding-left: 95px; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.lianMeng_list li .lm_right h2 { font-size: 16px; font-weight: normal; height: 24px; line-height: 24px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 100%; }
+.lianMeng_list li .lm_right h2 a { color: #060606; }
+.lianMeng_list li .lm_right p { width: 100%; height: 36px; overflow: hidden; line-height: 20px; }
+.lianMeng_list li .lm_right p a { color: #666; }
+/*详细页*/
+.lianMeng_info h1 { }
+.lianMeng_info .quarry { margin: 10px 0; }
+.lianMeng_info .quarry span { color: #666; }
+.lianMeng_info .quarry .ower { margin-left: 20px; color: #ff647c; }
+.lianMeng_info p { margin-bottom: 15px; line-height: 20px; }
+.lianMeng_info img { width: 100%; margin-bottom: 15px; }
+/*各省联盟介绍列表*/
+
+.geShengLianMeng_list .geShengLianMeng_list { width: 100%; }
+.geShengLianMeng_list li { position: relative; border-bottom: 1px solid #cacdcc; padding: 15px 0; }
+.geShengLianMeng_list li .pic { display: block; position: absolute; width: 100px; height: 66px; overflow:hidden; }
+.geShengLianMeng_list li .pic img { width: 100%; height: auto; }
+.geShengLianMeng_list li:last-child { border-bottom: none; }
+.geShengLianMeng_list li .lm_right { padding-left: 108px;-webkit-box-sizing:border-box;  box-sizing: border-box; }
+.geShengLianMeng_list li .lm_right h2 { font-size: 14px; font-weight: normal; height: 40px; line-height: 20px; text-overflow: ellipsis; width: 100%; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 2; -webkit-box-flex: 2;}
+.mainCon .geShengLianMeng_list li .lm_right h2 a{ color: #060606; width: 100%; height:40px; line-height:20px; }
+.geShengLianMeng_list li .lm_right .sponsor { margin-top:5px; font-size:12px; height: 20px; margin-right: 10px; }
+.geShengLianMeng_list li .lm_right { padding-left: 108px; width: 100%; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.geShengLianMeng_list li .lm_right h2 { font-size: 14px; font-weight: normal; height: 48px; line-height: 24px; text-overflow: ellipsis; width: 100%; display: -webkit-box; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; -webkit-line-clamp: 2; -webkit-box-flex: 2;}
+.geShengLianMeng_list li .lm_right h2 a { color: #060606; }
+.geShengLianMeng_list li .lm_right .sponsor { margin-top: 5px; height: 20px; margin-right: 10px; }
+/*详细页*/
+.geShengLianMeng_info h1 { }
+.geShengLianMeng_info .quarry { margin: 10px 0; }
+.geShengLianMeng_info .quarry span { color: #666; }
+.geShengLianMeng_info .quarry .ower { margin-left: 20px; color: #ff647c; }
+.geShengLianMeng_info p { margin-bottom: 15px; line-height: 20px; }
+.geShengLianMeng_info img { width: 100%; margin-bottom: 15px }
+.geShengLianMeng_info .ui-table { margin-bottom: 15px; }
+.geShengLianMeng_info .ui-table td { background: #e6e6e6; line-height: 24px; border-bottom: 2px solid #fff; text-align: left; padding: 10px; color: #666; }
+.geShengLianMeng_info .ui-table td:last-child { text-align: right; }

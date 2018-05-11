@@ -1,0 +1,305 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonTable/table.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/hezuo.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+<title>医院签约信息</title>
+<!--meta-->
+</head>
+<body>
+<h1>医院签约信息</h1>
+
+
+<!--医院模块 start-->
+<div class="hezuoBox">
+	<h2>{$info.HOS_NAME}</h2>
+	<div class="hezuoHos">
+		<img src="{$info.HOS_PIC}" >
+		<p>等级：{$info.LEVEL_NAME}</p>
+		<p>类型：{$info.TYPE_NAME}</p>
+		<p>地址：{$info.PROVINCE_NAME}-{$info.CITY_NAME}{$info.DISTRICT_NAME}</p>
+	</div>
+</div>
+<!--医院模块 end-->
+<!--科室模块 start-->
+<div class="hezuoKeShiBox">	
+             <!--一组科室 start-->
+             <table class="mar_bot15">
+				<tr>
+                	<td style="border-bottom: none;" rowspan="12" class="keshiL">
+               		  <if condition="$info['HOS_XY']['0']['HAVE_YW'] eq 0">
+                            <span class="ktyw1">
+                            </if>
+                            <if condition="$info['HOS_XY']['0']['HAVE_YW'] eq 1 && $info['HOS_XY']['0']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['0']['SBQY_FLAG'] eq '未签约' ">
+                            <span class="ktyw1 on">
+                            </if>
+                            <if condition="$info['HOS_XY']['0']['HAVE_YW'] eq 1 && $info['HOS_XY']['0']['SBQY_FLAG'] eq '已签约'  ">
+                            <span class="ktyw1 onHong">
+                            </if>
+                            <if condition="$info['HOS_XY']['0']['HAVE_YW'] eq 1 && $info['HOS_XY']['0']['SFXY_FLAG'] eq '已签约' && $info['HOS_XY']['0']['SBQY_FLAG'] eq '未签约' ">
+                            <span class="ktyw1 onCheng">
+                            </if>
+                        </span>眼科
+                	</td>
+                <th class="fs16" colspan="4">申请表</th>
+                </tr>
+				<tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+                <if condition="$info['HOS_XY']['0']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+                <tr><td>{$info.HOS_XY.0.SQB_FLAG}</td><td>{$info.HOS_XY.0.SQB_DATE}</td><td>{$info.HOS_XY.0.SQB_NAME}</td><td>{$info.HOS_XY.0.SQB_CHECK_FLAG}</td></tr>
+                </if>
+				<tr><th class="fs16" colspan="4">三方协议</th></tr>
+				<tr><th>审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.0.SFXY_FLAG}</td><td>{$info.HOS_XY.0.SFXY_DATE}</td><td>{$info.HOS_XY.0.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.0.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号:<if condition="$info['HOS_XY']['0']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.0.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+				<tr><td>资料状态</td><td>{$info.HOS_XY.0.ZLSJ_FLAG}</td><td>{$info.HOS_XY.0.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.0.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.0.SBQD_FLAG}</td><td>{$info.HOS_XY.0.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.0.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.0.SBKC_FLAG}</td><td>{$info.HOS_XY.0.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.0.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.0.SBQY_FLAG}</td><td>{$info.HOS_XY.0.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.0.SBQY_DATE}</td></tr>
+			</table>
+			 <!--一组科室 end-->
+             <table class="mar_bot15">
+                <tr>
+                	<td style="border-bottom: none;" rowspan="12" class="keshiL">
+               		  	<if condition="$info['HOS_XY']['1']['HAVE_YW'] eq 0">
+                        <span class="iconXinXueGuan">
+                        </if>
+                        <if condition="$info['HOS_XY']['1']['HAVE_YW'] eq 1 && $info['HOS_XY']['1']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['1']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconXinXueGuan on">
+                        </if>
+                        <if condition="$info['HOS_XY']['1']['HAVE_YW'] eq 1 && $info['HOS_XY']['1']['SBQY_FLAG'] eq '已签约' ">
+                        <span class="iconXinXueGuan onHong">
+                        </if>
+                        <if condition="$info['HOS_XY']['1']['HAVE_YW'] eq 1 && $info['HOS_XY']['1']['SFXY_FLAG'] eq '已签约' && $info['HOS_XY']['1']['SBQY_FLAG'] eq '未签约'  ">
+                        <span class="iconXinXueGuan onCheng">
+                        </if></span>心血管
+                	</td>
+                	<th class="fs16" colspan="4">申请表</th>
+                </tr>
+				<tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+                <if condition="$info['HOS_XY']['0']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+                <tr><td>{$info.HOS_XY.0.SQB_FLAG}</td><td>{$info.HOS_XY.0.SQB_DATE}</td><td>{$info.HOS_XY.0.SQB_NAME}</td><td>{$info.HOS_XY.0.SQB_CHECK_FLAG}</td></tr>
+                </if>
+				<tr><th class="fs16" colspan="4">三方协议</th></tr>
+                
+                <tr><th >审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.1.SFXY_FLAG}</td><td>{$info.HOS_XY.1.SFXY_DATE}</td><td>{$info.HOS_XY.1.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.1.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号:<if condition="$info['HOS_XY']['0']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.0.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+				<tr><td>资料状态</td><td>{$info.HOS_XY.1.ZLSJ_FLAG}</td><td>{$info.HOS_XY.1.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.1.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.1.SBQD_FLAG}</td><td>{$info.HOS_XY.1.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.1.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.1.SBKC_FLAG}</td><td>{$info.HOS_XY.1.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.1.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.1.SBQY_FLAG}</td><td>{$info.HOS_XY.1.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.1.SBQY_DATE}</td></tr>
+			</table>
+			 <!--一组科室 start-->
+             <table class="mar_bot15">
+				<tr>
+                    <td style="border-bottom: none;" rowspan="12" class="keshiL">
+                        <if condition="$info['HOS_XY']['2']['HAVE_YW'] eq 0">
+                        <span class="iconEBH">
+                        </if>
+                        <if condition="$info['HOS_XY']['2']['HAVE_YW'] eq 1 && $info['HOS_XY']['2']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['2']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconEBH on">
+                        </if>
+                        <if condition="$info['HOS_XY']['2']['HAVE_YW'] eq 1 && $info['HOS_XY']['2']['SBQY_FLAG'] eq '已签约'   ">
+                        <span class="iconEBH onHong">
+                        </if>
+                        <if condition="$info['HOS_XY']['2']['HAVE_YW'] eq 1 && $info['HOS_XY']['2']['SFXY_FLAG'] eq '已签约' && $info['HOS_XY']['2']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconEBH onCheng">
+                        </if></span>耳鼻喉
+                    </td>
+                    <th class="fs16" colspan="4">申请表</th>
+				</tr>
+                <tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<if condition="$info['HOS_XY']['2']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+              	<tr><td>{$info.HOS_XY.2.SQB_FLAG}</td><td>{$info.HOS_XY.2.SQB_DATE}</td><td>{$info.HOS_XY.2.SQB_NAME}</td><td>{$info.HOS_XY.2.SQB_CHECK_FLAG}</td></tr>
+				</if>
+                <tr><th class="fs16" colspan="4">三方协议</th></tr>
+                <tr><th >审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.2.SFXY_FLAG}</td><td>{$info.HOS_XY.2.SFXY_DATE}</td><td>{$info.HOS_XY.2.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.2.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号：<if condition="$info['HOS_XY']['2']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.2.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+                <tr><td>资料状态</td><td>{$info.HOS_XY.2.ZLSJ_FLAG}</td><td>{$info.HOS_XY.2.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.2.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.2.SBQD_FLAG}</td><td>{$info.HOS_XY.2.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.2.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.2.SBKC_FLAG}</td><td>{$info.HOS_XY.2.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.2.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.2.SBQY_FLAG}</td><td>{$info.HOS_XY.2.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.2.SBQY_DATE}</td></tr>	
+			</table>
+              <!--一组科室 end-->
+             
+             
+			 <!--一组科室 start-->
+             <table class="mar_bot15">
+				<tr>
+                    <td style="border-bottom: none;" rowspan="12" class="keshiL">
+                        <if condition="$info['HOS_XY']['3']['HAVE_YW'] eq 0">
+                        <span class="iconFuKe">
+                        </if>
+                        <if condition="$info['HOS_XY']['3']['HAVE_YW'] eq 1 && $info['HOS_XY']['3']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['3']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconFuKe on">
+                        </if>
+                        <if condition="$info['HOS_XY']['3']['HAVE_YW'] eq 1 && $info['HOS_XY']['3']['SBQY_FLAG'] eq '已签约'  ">
+                        <span class="iconFuKe onHong">
+                        </if>
+                        <if condition="$info['HOS_XY']['3']['HAVE_YW'] eq 1 && $info['HOS_XY']['3']['SFXY_FLAG'] eq '已签约' && $info['HOS_XY']['3']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconFuKe onCheng">
+                        </if></span>妇科
+                    </td>
+                     <th class="fs16" colspan="4">申请表</th>
+				</tr>
+                <tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<if condition="$info['HOS_XY']['3']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+              	<tr><td>{$info.HOS_XY.3.SQB_FLAG}</td><td>{$info.HOS_XY.3.SQB_DATE}</td><td>{$info.HOS_XY.3.SQB_NAME}</td><td>{$info.HOS_XY.3.SQB_CHECK_FLAG}</td></tr>
+				</if>
+                <tr><th class="fs16" colspan="4">三方协议</th></tr>
+                <tr><th >审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.3.SFXY_FLAG}</td><td>{$info.HOS_XY.3.SFXY_DATE}</td><td>{$info.HOS_XY.3.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.3.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号：<if condition="$info['HOS_XY']['3']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.3.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+                <tr><td>资料状态</td><td>{$info.HOS_XY.3.ZLSJ_FLAG}</td><td>{$info.HOS_XY.3.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.3.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.3.SBQD_FLAG}</td><td>{$info.HOS_XY.3.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.3.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.3.SBKC_FLAG}</td><td>{$info.HOS_XY.3.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.3.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.3.SBQY_FLAG}</td><td>{$info.HOS_XY.3.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.3.SBQY_DATE}</td></tr>
+			</table>
+                
+			 <!--一组科室 end-->
+			 <!--一组科室 start-->
+             <table class="mar_bot15">
+				<tr>
+                    <td style="border-bottom: none;" rowspan="12" class="keshiL">
+                        <if condition="$info['HOS_XY']['4']['HAVE_YW'] eq 0">
+                        <span class="iconZhongLiu">
+                        </if>
+                        <if condition="$info['HOS_XY']['4']['HAVE_YW'] eq 1 && $info['HOS_XY']['4']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['4']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconZhongLiu on">
+                        </if>
+                        <if condition="$info['HOS_XY']['4']['HAVE_YW'] eq 1 && $info['HOS_XY']['4']['SBQY_FLAG'] eq '已签约'   ">
+                        <span class="iconZhongLiu onHong">
+                        </if>
+                        <if condition="$info['HOS_XY']['4']['HAVE_YW'] eq 1 && $info['HOS_XY']['4']['SFXY_FLAG'] eq '已签约' && $info['HOS_XY']['4']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconZhongLiu onCheng">
+                        </if></span>肿瘤
+                    </td>
+					 <th class="fs16" colspan="4">申请表</th>
+				</tr>
+                <tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<if condition="$info['HOS_XY']['4']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+              	<tr><td>{$info.HOS_XY.4.SQB_FLAG}</td><td>{$info.HOS_XY.4.SQB_DATE}</td><td>{$info.HOS_XY.4.SQB_NAME}</td><td>{$info.HOS_XY.4.SQB_CHECK_FLAG}</td></tr>
+				</if>
+                <tr><th class="fs16" colspan="4">三方协议</th></tr>
+                <tr><th >审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.4.SFXY_FLAG}</td><td>{$info.HOS_XY.4.SFXY_DATE}</td><td>{$info.HOS_XY.4.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.4.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号：<if condition="$info['HOS_XY']['4']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.4.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+                <tr><td>资料状态</td><td>{$info.HOS_XY.4.ZLSJ_FLAG}</td><td>{$info.HOS_XY.4.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.4.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.4.SBQD_FLAG}</td><td>{$info.HOS_XY.4.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.4.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.4.SBKC_FLAG}</td><td>{$info.HOS_XY.4.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.4.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.4.SBQY_FLAG}</td><td>{$info.HOS_XY.4.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.4.SBQY_DATE}</td></tr>
+			</table>
+			 <!--一组科室 end-->
+			 <!--一组科室 start-->
+            <table class="mar_bot15">
+				<tr>
+                    <td style="border-bottom: none;" rowspan="12" class="keshiL">
+                        <if condition="$info['HOS_XY']['5']['HAVE_YW'] eq 0">
+                        <span class="iconGanBing ">
+                        </if>
+                        <if condition="$info['HOS_XY']['5']['HAVE_YW'] eq 1 && $info['HOS_XY']['5']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['5']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconGanBing on">
+                        </if>
+                        <if condition="$info['HOS_XY']['5']['HAVE_YW'] eq 1 && $info['HOS_XY']['5']['SBQY_FLAG'] eq '已签约'   ">
+                        <span class="iconGanBing onHong">
+                        </if>
+                        <if condition="$info['HOS_XY']['5']['HAVE_YW'] eq 1 && $info['HOS_XY']['5']['SFXY_FLAG'] eq '已签约' && $info['HOS_XY']['5']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconGanBing onCheng">
+                        </if></span>肝病
+                    </td>
+					 <th class="fs16" colspan="4">申请表</th>
+				</tr>
+                <tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<if condition="$info['HOS_XY']['5']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+              	<tr><td>{$info.HOS_XY.5.SQB_FLAG}</td><td>{$info.HOS_XY.5.SQB_DATE}</td><td>{$info.HOS_XY.5.SQB_NAME}</td><td>{$info.HOS_XY.5.SQB_CHECK_FLAG}</td></tr>
+				</if>
+                <tr><th class="fs16" colspan="4">三方协议</th></tr>
+                <tr><th >审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.5.SFXY_FLAG}</td><td>{$info.HOS_XY.5.SFXY_DATE}</td><td>{$info.HOS_XY.5.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.5.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号：<if condition="$info['HOS_XY']['5']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.5.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+                <tr><td>资料状态</td><td>{$info.HOS_XY.5.ZLSJ_FLAG}</td><td>{$info.HOS_XY.5.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.5.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.5.SBQD_FLAG}</td><td>{$info.HOS_XY.5.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.5.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.5.SBKC_FLAG}</td><td>{$info.HOS_XY.5.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.5.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.5.SBQY_FLAG}</td><td>{$info.HOS_XY.5.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.5.SBQY_DATE}</td></tr>
+			</table>
+			 <!--一组科室 end-->
+			 <!--一组科室 start-->
+             <table class="mar_bot15">
+				<tr>
+                    <td style="border-bottom: none;" rowspan="12" class="keshiL">
+                        <if condition="$info['HOS_XY']['6']['HAVE_YW'] eq 0">
+                        <span class="iconNaoCuZhong">
+                        </if>
+                        <if condition="$info['HOS_XY']['6']['HAVE_YW'] eq 1 && $info['HOS_XY']['6']['SFXY_FLAG'] eq '未签约' && $info['HOS_XY']['6']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconNaoCuZhong on">
+                        </if>
+                        <if condition="$info['HOS_XY']['6']['HAVE_YW'] eq 1 && $info['HOS_XY']['6']['SBQY_FLAG'] eq '已签约'  ">
+                        <span class="iconNaoCuZhong onHong">
+                        </if>
+                        <if condition="$info['HOS_XY']['6']['HAVE_YW'] eq 1 && $info['HOS_XY']['6']['SFXY_FLAG'] eq '已签约'  && $info['HOS_XY']['6']['SBQY_FLAG'] eq '未签约' ">
+                        <span class="iconNaoCuZhong onCheng">
+                        </if></span>脑卒中
+                    </td>
+					 <th class="fs16" colspan="4">申请表</th>
+				</tr>
+                <tr><th >提交状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<if condition="$info['HOS_XY']['6']['SQB_FLAG'] eq '未提交'">
+                <tr><td></td><td></td><td></td><td></td></tr>
+                <else/>
+              	<tr><td>{$info.HOS_XY.6.SQB_FLAG}</td><td>{$info.HOS_XY.6.SQB_DATE}</td><td>{$info.HOS_XY.6.SQB_NAME}</td><td>{$info.HOS_XY.6.SQB_CHECK_FLAG}</td></tr>
+				</if>
+                <tr><th class="fs16" colspan="4">三方协议</th></tr>
+                <tr><th >审核状态</th><th >签约日期</th><th >对接人</th><th >协议编号</th></tr>
+				<tr><td>{$info.HOS_XY.6.SFXY_FLAG}</td><td>{$info.HOS_XY.6.SFXY_DATE}</td><td>{$info.HOS_XY.6.SFXY_CREATE_USER}</td><td>{$info.HOS_XY.6.SFXY_CODE}</td></tr>
+				<tr><th class="fs16" colspan="4">设备租赁<em>（协议编号：<if condition="$info['HOS_XY']['6']['SBQY_CODE'] eq '' ">暂无<else/>{$info.HOS_XY.6.SBQY_CODE}</if>）</em></th></tr>
+				<tr><th >包含项目</th><th >提交状态</th><th >审核状态</th><th >日期</th></tr>
+                <tr><td>资料状态</td><td>{$info.HOS_XY.6.ZLSJ_FLAG}</td><td>{$info.HOS_XY.6.ZLSJ_CHECK_FLAG}</td><td>{$info.HOS_XY.6.ZLSJ_DATE}</td></tr>
+				<tr><td>清单状态</td><td>{$info.HOS_XY.6.SBQD_FLAG}</td><td>{$info.HOS_XY.6.SBQD_CHECK_FLAG}</td><td>{$info.HOS_XY.6.SBQD_DATE}</td></tr>
+				<tr><td>考察状态</td><td>{$info.HOS_XY.6.SBKC_FLAG}</td><td>{$info.HOS_XY.6.SBKC_CHECK_FLAG}</td><td>{$info.HOS_XY.6.SBKC_DATE}</td></tr>
+				<tr><td>签约状态</td><td>{$info.HOS_XY.6.SBQY_FLAG}</td><td>{$info.HOS_XY.6.SBQY_CHECK_FLAG}</td><td>{$info.HOS_XY.6.SBQY_DATE}</td></tr>
+			</table>
+                
+                
+			 <!--一组科室 end-->
+			 </table>
+</div>
+<!--科室模块 end-->
+<!--通底的引用开始-->
+<!--通底的引用结束-->
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

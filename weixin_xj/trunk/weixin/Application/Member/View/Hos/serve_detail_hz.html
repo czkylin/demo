@@ -1,0 +1,183 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/portal.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/hos_list.min.css" type="text/css" rel="stylesheet"/>
+
+<!-- title -->
+
+<title>服务详情</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c">
+<div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;position:inherit;">
+        <div class="experts">
+                <div class="nav_tit">
+                        <h2>{$hos.HOS_NAME}</h2>
+                </div>
+                <div data-role="content" class="ui-content" role="main">
+                        <div id="js-list" class="list">
+                                <ul>
+                                        <li style=" border-bottom: 1px dashed #cccccc; padding-bottom:15px; overflow:hidden;"> <a href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos.HOS_ID}" style=" margin-bottom:0; border-bottom:none;"> <span class="img"> <img src="{$hos.HOS_PIC}"  alt="{$hos.HOS_NAME}" class="g-left expert-img"/></span> <span class="meta"><strong>{$hos.HOS_NAME}</strong><b class="yue_b">{$hos.LEVEL_NAME}</b> <span>{$hos.HOS_DESC}</span> </span> 
+                                                
+                                                <!--<span class="yue_jiage">￥{$hos.SERVE_MONEY}元</span>--> 
+                                                
+                                                </a> </li>
+                                </ul>
+                        </div>
+                </div>
+                <div class="nav_tit2 ">
+                        <h2>医院信息</h2>
+                </div>
+                <div class="yiyuan_wap" style=" padding:0 10px;">
+                        <div class="wap_left">
+                                <h2>{$hos.HOS_NAME}</h2>
+                                <p>{$hos.HOS_ADDRESS}</p>
+                        </div>
+                        <div class="wap_right"> <a><img src="/weixin/Application/Member/View/images/icon/tele.png"></a> </div>
+                </div>
+                <div class="nav_tit">
+                        <h2>简介</h2>
+                </div>
+                <div class="jianjie">
+                        <h2>{$hos.SERVE_NAME}</h2>
+                        <p>{$hos.SERVE_CONTENT}</p>
+                        <a href="#">查看图文详情</a> </div>
+                <div class="nav_tit3">
+                        <h2>使用流程</h2>
+                </div>
+                <div class="liucheng"> <img src="{$hos.FLOW_PIC}"> </div>
+                
+                <!--预约日期-->
+                
+                <form action="/weixin/index.php?m=Member&c=Hos&a=serve_buy" method="post"  onSubmit="return sub()">
+                        <div class="yyyuepian"> <span class="xuanze_rq">选择日期</span>
+                                <div class="index_list_img">
+                                        <volist name="date_list" id="date1" empty="暂时没有数据">
+                                                <input type="radio" value="{$date1}" name="order_date" id="type-{$key}" >
+                                                <label for="type-{$key}" ><span>{$date1}</span></label>
+                                        </volist>
+                                </div>
+                        </div>
+                        <if condition="$exp_list neq '' ">
+                                <div class="yyyuepian"> <span class="xuanze_rq">选择专家</span>
+                                        <div class="xuanzeZhuanjia">
+                                                <select id='expselect' name="expert_id">
+                                                        <option value="">请选择医生</option>
+                                                        <volist name="exp_list" id="v" empty="暂时没有数据">
+                                                                <option value="{$v.EXPERT_ID}">{$v.EXPERT_NAME}</option>
+                                                        </volist>
+                                                </select>
+                                                <span>请选择专家<span class="value"></span></span> </div>
+                                </div>
+                                <else />
+                        </if>
+                        <div class="cjjilu">
+                                <input type='hidden' name='serve_id' value="{$hos.SERVE_ID}">
+                                <input type='hidden' name='serve_name' value="{$hos.SERVE_NAME}">
+                                <input type='hidden' name='hos_id' value="{$hos.HOS_ID}">
+                                <input type='hidden' name='serve_money' value="{$hos.SERVE_MONEY}">
+                                <input type='hidden' name='money' id="money" value="{$hos.SERVE_MONEY}">
+                                <div class="liji_con">
+                                        <button type="submit" class="goumai">立即购买</button>
+                                </div>
+                        </div>
+                </form>
+        </div>
+</div>
+
+<!--通底的引用开始--> 
+
+<include file="Public:footer_fd" /> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Member/js/list.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Member/js/top.min.js" type="text/javascript"></script> 
+<script type="text/javascript">//每个医生的服务价格放在这个数组里
+
+(function(){
+
+	var priceObj  = {$array_price}; 
+
+	$('#expselect').on('change', function(){ 
+
+        var    _this = $(this), 
+
+                value = _this.val(), 
+
+                priceStr = '请选择专家'; 
+
+        if(value != ''){ 
+
+                priceStr = '专家服务费'+priceObj[value]+'元';
+
+                $("#money").val(priceObj[value]);
+
+        }
+
+        _this.next().show().text(priceStr); 
+
+ 
+
+    }); 
+
+
+
+})();
+
+
+
+function sub()
+
+	{
+
+		var sendBox = $("#expselect").val();
+
+		if(sendBox=="")
+
+		{
+
+			alert("请选择专家！");
+
+			document.getElementById("expselect").focus();   
+
+			return false;
+
+		}
+
+	}
+
+
+
+</script> 
+<script>
+
+	var over_footer = '3';
+
+</script> 
+
+<!--通底的引用结束--> 
+
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

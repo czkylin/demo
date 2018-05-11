@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的工作室</title>
+    <link rel="stylesheet" href="/weixin/Public/Home/css/zhengcejiedu/mbase.min.css?<?php echo time();?>.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/sweetalert.css">
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Member/css/swiper.min.css" type="text/css" rel="stylesheet">
+    <style>
+        header {
+            border-width: 0px;
+        }
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 4 + 'px';
+    </script>
+</head>
+<!-- ?time={$time}.css -->
+<body class="mine">
+<!-- <a href="{:U('Home/User/howzhuan')}" class="zhuan" id="zhuan">如何赚积分？<span id="zhuan-btn"></span></a> -->
+    <header id="header" class="myPic clearfix">
+        <div class="headImg">
+            <if condition="($my_info['USER_PIC'] eq '')">
+                <a href="/weixin/index.php?m=Home&c=User&a=band_phone"><img src="/weixin/Application/Home/View/images/dtdoctor.png" /></a>
+                <!--判断出 认证且通过审核  自己的头像  需要后台审核后头像采用  链接为个人设置-->
+                <else />
+                <a href="#"><img src="{$my_info.USER_PIC}" /></a>
+            </if>
+        </div>
+        <h2 class="text-center" style="display:none;">hi,
+            <if condition="$my_info['REAL_NAME'] eq ''">您好
+            <elseif condition="$my_info['REAL_NAME'] eq '000000000'" />游客
+            <else />
+                {$my_info.REAL_NAME}
+            </if>
+        </h2>
+        <if condition="$user['error_code'] eq ''">
+            <nav>
+                <div><strong style="text-align: left; font-size: 14px; padding: 0;">{$user['CENTER_NAME']}</strong></div>
+                <ol class="clearfix">
+                    <li class="clearfix"> <a href="{:U('Home/User/jifen_list')}" class="ques">当月积分</a> <a href="{:U('Home/User/jifen_list')}" class="ques"><strong class="ques">
+                            <if condition="!$user['JIFEN_NUM']">
+                               0
+                            <else />
+                             {$user['JIFEN_NUM']}
+                            </if>
+                    </strong></a> </li>
+                    <li class="clearfix">
+                        <a href="{:U('Home/Doc/phb_list')}" class="ranks">积分排名</a>
+                        <a href="{:U('Home/Doc/phb_list')}" class="ranks">
+                            <if condition="!$user['JIFEN_RANK']">
+                               <strong class="ranks">暂无排名</strong>
+                            <else />
+                                <strong class="ranks">第{$user['JIFEN_RANK']}名</strong>
+                            </if>
+                        </a>
+                    </li>
+                </ol>
+            </nav>
+        <else/>
+            <a href="#" class="nomes">未绑定药店或未录入公司系统用户！</a>
+        </if>
+    </header>
+    <section class="achievement">
+        <div class="title"><h2>我的成绩</h2><a href="{:U('Home/Baibei/rank_list')}">查看排名>></a></div>
+        <div class="achieve-wrap clearfix">
+            <div class="achieve1">
+                <p>直接销售<br>线上：{$myrank.ONLINEUP}张,线下：{$myrank.ONLINEDOWN|default="0"}张</p>
+            </div>
+            <div class="achieve2">
+                <p>间接销售</p>
+                <p>{$myrank.SECONDNUMS|default="0"}张<!-- ，{$myrank.THREEENUMS|default="0"}张 --></p>
+            </div>
+        </div>
+    </section>
+    <section class="swiper-container banner" style="font-size: 0;">
+    	<div class="swiper-wrapper">
+            <a class="swiper-slide" href="{:U('Home/Baibei/ka_list2',array('path'=>'运营工作爱脑卡代言人'))}">
+                <img src="/weixin/Public/Member/images/huzhu/ainaoka/ainaoka.jpg" alt="">
+            </a>
+            <a class="swiper-slide" href="{:U('Home/Baibei/ka_list',array('path'=>'运营工作代言人'))}">
+                <img src="/weixin/Public/Home/images/banner/baibei.jpg" alt="">
+            </a>
+        </div>
+    </section>
+    <article id="page" class="order">
+        <section class="iList">
+            <ul>
+                <li>
+                    <a href="{:U('Home/Baibei/shop')}" data-level="2">
+                        <em>
+                            <i class="icon8"></i>
+                            <span>百倍爱心卡商城</span>
+                        </em>
+                    </a>
+                </li>
+                 <li>
+                    <a href="{:U('Home/Zd/rank_list')}" data-level="2">
+                        <em>
+                            <i class="icon13"></i>
+                            <span>终端售卡排行</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Baibei/daiyan_list')}" data-level="2">
+                        <em>
+                            <i class="icon13"></i>
+                            <span>我的代言成果</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Baibei/fx')}" data-level="2">
+                        <em>
+                            <i class="icon14"></i>
+                            <span>我的销售结构</span>
+                        </em>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="{:U('Home/BaoZ/bz_info')}" data-level="2">
+                        <em>
+                            <i class="icon11"></i>
+                            <span>百倍爱心助手</span>
+                        </em>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:U('Home/BaoZ/bz_list')}" data-level="2">
+                        <em>
+                            <i class="icon7"></i>
+                            <span>百倍爱心助手成果</span>
+                        </em>
+                    </a>
+                </li>
+                <li class="hot">
+                    <a href="{:U('Member/Huzhu/fenxiang',array('user_id'=>$user_info[user_id],'link_mobile'=>$user_info[link_mobile],'homeid'=>$openid,'user_name'=>$user_info[user_name],'type'=>'Home','path'=>'运营工作室传递'))}" data-level="2">
+                        <em>
+                            <i class="icon2"></i>
+                            <span>百倍爱心传递</span>
+                        </em>
+                    </a>
+                </li>
+                <li class="hot">
+                    <a href="{:U('Member/Huzhu/share_init',array('user_id'=>$user_info[user_id],'link_mobile'=>$user_info[link_mobile],'user_name'=>$user_info[user_name],'type'=>'Home','homeid'=>$openid,'path'=>'运营工作室一'))}" data-level="2">
+                        <em>
+                            <i class="icon15"></i>
+                            <span>百倍爱心宣一</span>
+                        </em>
+                    </a>
+                </li>
+
+            </ul>
+            <ul>
+                <li class="hot">
+                    <a href="{:U('Member/Huzhu/share_yf',array('user_id'=>$user_info[user_id],'link_mobile'=>$user_info[link_mobile],'user_name'=>$user_info[user_name],'type'=>'Home','homeid'=>$openid,'path'=>'运营工作室二'))}" data-level="2">
+                        <em>
+                            <i class="icon16"></i>
+                            <span>百倍爱心宣二</span>
+                        </em>
+                    </a>
+                </li>
+                <li class="hot">
+                    <a href="{:U('Member/Huzhu/share_parent',array('user_id'=>$user_info[user_id],'link_mobile'=>$user_info[link_mobile],'user_name'=>$user_info[user_name],'type'=>'Home','homeid'=>$openid,'path'=>'运营工作室三'))}" data-level="2">
+                        <em>
+                            <i class="icon17"></i>
+                            <span>百倍爱心宣三</span>
+                        </em>
+                    </a>
+                </li>
+                <li class="hot">
+                    <a href="{:U('Member/Huzhu/share_des',array('user_id'=>$user_info[user_id],'link_mobile'=>$user_info[link_mobile],'user_name'=>$user_info[user_name],'type'=>'Home','homeid'=>$openid,'path'=>'运营工作室四'))}" data-level="2">
+                        <em>
+                            <i class="icon18"></i>
+                            <span>百倍爱心宣四</span>
+                        </em>
+                    </a>
+                </li>
+                <li class="hot">
+                    <a href="{:U('Member/Huzhu/share_5',array('user_id'=>$user_info[user_id],'link_mobile'=>$user_info[link_mobile],'user_name'=>$user_info[user_name],'type'=>'Home','homeid'=>$openid,'path'=>'运营工作室宣五'))}" data-level="2">
+                       <em>
+                        <i class="icon19"></i>
+                        <span>百倍爱心宣五</span>
+                    </em>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                 <li>
+                    <a href="{:U('Home/User/My_performance')}" data-level="2">
+                        <em>
+                            <i class="icon10"></i>
+                            <span>我的营业额</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Hos/hos_list')}" data-level="2">
+                        <em>
+                            <i class="icon1" ></i>
+                            <span>会诊医院</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/User/get_yd_list')}" data-level="2">
+                        <em>
+                            <i class="icon5"></i>
+                            <span>合作药店</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/User/band_phone')}" data-level="2">
+                        <em>
+                            <i class="icon3"></i>
+                            <span>手机绑定</span>
+                        </em>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="{:U('Home/User/my_yd_list')}" data-level="2">
+                        <em>
+                            <i class="icon12"></i>
+                            <span>我的药店</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/User/tj_expert_list')}" data-level="2">
+                        <em>
+                            <i class="icon6"></i>
+                            <span>我的医生</span>
+                        </em>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:U('Home/User/tj_member_list')}" data-level="2">
+                        <em>
+                            <i class="icon21"></i>
+                            <span>我的会员</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Order/order_list')}" data-level="2">
+                        <em>
+                            <i class="icon22"></i>
+                            <span>我的订单</span>
+                        </em>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+               <!--  <li>
+                    <a href="{:U('Home/Cf/cf_list')}" data-level="2">
+                        <em>
+                            <i class="icon9"></i>
+                            <span>我的药店处方</span>
+                        </em>
+                    </a>
+                </li>   -->
+                <li>
+                    <a href="{:U('Home/User/my_hos_list')}" data-level="2">
+                        <em>
+                            <i class="icon4"></i>
+                            <span>我的医院</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Doc/doc_info')}" data-level="2">
+                        <em>
+                            <i class="icon23"></i>
+                            <span>医生申请助手</span>
+                        </em>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="{:U('Home/Payment/mypayment')}" data-level="2">
+                        <em>
+                            <i class="icon24"></i>
+                            <span>我的收入</span>
+                        </em>
+                    </a>
+                </li> -->
+                 <li>
+                    <a href="" data-level="2" id="jyhksr">
+                        <em>
+                            <i class="icon30"></i>
+                            <span>经营回款收入</span>
+                            <div id="wzx_openid" style="display: none;">{$openid}</div>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Return/assistant')}" data-level="2">
+                        <em>
+                            <i class="icon30"></i>
+                            <span>经营回款助手</span>
+                        </em>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li id="kk">
+                    <a href="{:U('Home/User/expert')}" data-level="2">
+                        <em>
+                            <i class="icon25"></i>
+                            <span>服务专家</span>
+                        </em>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:U('Home/User/zg')}" data-level="2">
+                        <em>
+                            <i class="icon26"></i>
+                            <span>药品专柜</span>
+                        </em>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:U('Home/Shouce/caiye')}" data-level="2">
+                        <em>
+                            <i class="icon27"></i>
+                            <span>VIP卡服务</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Shouce/smallBook')}" data-level="2">
+                        <em>
+                            <i class="icon28"></i>
+                            <span>VIP使用说明</span>
+                        </em>
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="{:U('Home/Shouce/zheye')}" data-level="2">
+                        <em>
+                            <i class="icon29"></i>
+                            <span>软件使用手册</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={:C('M_APPID')}&redirect_uri=http%3a%2f%2fwx-heartorg.yk2020.com%2fweixin%2findex.php%3fm%3dMember%26c%3dPresale%26a%3dpresale%26homeid%3d{$openid}&response_type=code&scope=snsapi_base&state=1" data-level="2">
+                        <em>
+                            <i class="icon30"></i>
+                            <span>预售申请</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Home/Train/index')}" data-level="2">
+                        <em>
+                            <i class="icon20"></i>
+                            <span>微课堂</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Referral/referral')}" data-level="2">
+                        <em>
+                            <i class="icon20"></i>
+                            <span>转诊申请</span>
+                        </em>
+                    </a>
+                </li>
+
+            </ul>
+            <ul>
+                <li>
+                    <a href="{:U('Referral/referral_list')}" data-level="2">
+                        <em>
+                            <i class="icon20"></i>
+                            <span>转诊申请列表</span>
+                        </em>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Referral/referral_list_info')}" data-level="2">
+                        <em>
+                            <i class="icon34"></i>
+                            <span>转诊统计</span>
+                        </em>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </article>
+    <!-- 传值 -->
+    <input type="hidden" id="data_code" value="{$code}" />
+    <input type="hidden" id="data_bandCode" value="{$bandCode}" />
+    <include file="Public:footer_fd" />
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+
+</body>
+<script src="/weixin/Public/Home/js/sweetalert.min.js"></script>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Member/js/swiper.min.js"></script>
+<script type="text/javascript">
+window.onload = function() {
+  var mySwiper = new Swiper ('.swiper-container', {
+	autoplay: 3000,//可选选项，自动滑动
+    direction: 'horizontal',
+    loop: true,
+
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+  })
+}
+</script>
+<script>
+
+    $("#jyhksr").click(function(){
+
+        var wzx_openid = $("#wzx_openid").text();
+        console.log(wzx_openid);
+        if(wzx_openid == 'oxcEqwOh2vtgnyw0SHnWPoEDgbG8' || wzx_openid == 'oxcEqwG9G1sxDFWQN9pPxD1H2wxs' || wzx_openid == 'oxcEqwIODpYUC3tVS5YGBQPsslvQ' || wzx_openid == 'oxcEqwIdfKYd-C6J8-QN9k4Xn6KE' || wzx_openid == 'oxcEqwPl1pbbxv_Vg0l1j1aj3GlI')
+        {
+            $("#jyhksr").attr('href',"{:U('Home/BaoZ/income')}");
+            return true;
+        }
+        else
+        {
+            alert("您暂无权限查看相应数据");
+            return false;
+        }
+
+    })
+    var $li = document.querySelectorAll('.iList li');
+    var $code = document.getElementById('data_code').value;
+    var $bandCode = document.getElementById('data_bandCode').value;
+    var arr = [];
+    var iX = 0
+        , iY = 0;
+    for (var i = 0; i < $li.length; i++) {
+        arr.push($li[i]);
+    }
+    arr.forEach(function (value, index) {
+        value.addEventListener('touchstart', function (ev) {
+            iX = ev.changedTouches[0].pageX;
+            iY = ev.changedTouches[0].pageY;
+            if (this.className != 'current') {
+                this.getElementsByTagName('i')[0].style.color = '#d62c77';
+                this.getElementsByTagName('span')[0].style.color = '#d62c77';
+            }
+        });
+        value.addEventListener('touchmove', function (ev) {
+            //ev.preventDefault();
+            var iDisX = ev.changedTouches[0].pageX
+                , iDisY = ev.changedTouches[0].pageY;
+            if ((iDisX != 0 || iDisY != 0) && this.className != 'current') {
+                this.getElementsByTagName('i')[0].style.color = 'rgba(0, 0, 0, 0.5)';
+                this.getElementsByTagName('span')[0].style.color = '#666';
+            }
+        });
+        value.addEventListener('touchend', function () {
+            if (this.className != 'current') {
+                this.getElementsByTagName('i')[0].style.color = 'rgba(0, 0, 0, 0.5)';
+                this.getElementsByTagName('span')[0].style.color = '#666';
+            }
+            if ($bandCode == 6) {
+                //ev.preventDefault();
+            }
+        });
+        value.getElementsByTagName('a')[0].onclick = function () {
+            //alert(this.dataset.level)
+            if ($bandCode == 6 && this.dataset.level > 0) {
+                swal({
+                    title: "未注册"
+                    , text: ""
+                    , type: "warning"
+                    , showCancelButton: true
+                    , cancelButtonText: "取消"
+                    , confirmButtonColor: "#DD6B55"
+                    , confirmButtonText: "去注册"
+                    , closeOnConfirm: false
+                }, function () {
+                    window.location = '/weixin/index.php?m=Home&c=User&a=band_phone'
+                });
+                return false;
+            }
+            if ($bandCode == 1 && ($code == 0 || $code == 3) && this.dataset.level > 1) {
+                swal({
+                    title: "未认证"
+                    , text: ""
+                    , type: "warning"
+                    , showCancelButton: true
+                    , cancelButtonText: "确定"
+                    , confirmButtonColor: "#DD6B55"
+                    , confirmButtonText: "去认证"
+                    , closeOnConfirm: false
+                }, function () {
+                    window.location = '/weixin/index.php?m=Home&c=User&a=band_phone'
+                });
+                return false;
+            }
+        }
+    });
+    //如何赚积分关闭
+    var oBtn = document.getElementById("zhuan-btn");
+    var oZhuan = document.getElementById("zhuan");
+    oBtn.addEventListener("touchend", function () {
+        oZhuan.style.display = 'none';
+    }, false);
+
+    var Register = '{$myrank.error_code|default="0"}';
+    if(Register=="00010"){
+        alert("去公众号信息窗口提交本人所在公司、中心、部门及自己的姓名和手机号！");
+    }
+</script>
+</html>

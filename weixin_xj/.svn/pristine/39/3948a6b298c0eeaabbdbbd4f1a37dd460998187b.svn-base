@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+body { margin: 0; padding: 0; background-color: #e5e5e5; font-family: "微软雅黑"; }
+ul, li, h1, h2, h3, h4, sapn, dl, dd, dr, dt, i, em { list-style: none; margin: 0; padding: 0; font-style: normal; text-decoration: none; }
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+/*绑定手机*/
+.bangding_top { width: 100%; height: 140px; }
+.touxiang { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto; padding-top: 20px; }
+.touxiang img { width: 80px; height: 80px; border-radius: 50%; }
+.touxiang p { width: 100%; height: 30px; overflow: hidden; line-height: 30px; text-align: center; margin-top: 10px; color: #fff; font-size: 20px; }
+.bangding_bot { margin-top: 25px; }
+.dengluInfo { width: 100%; height: 40px; line-height: 30px; padding-top: 220px; text-align: center; background: url(../images/gongzuoshi/dengluLogo.jpg) no-repeat center 50px; background-size: 120px; color: #999; }
+.dengluInfo p { margin: 0; }
+.dengluCon { width: 90%; margin: 0 auto; }
+.dengluCon label { padding-left: 31px; background: url(../images/yonghu/ico1.png) no-repeat 13px center #f7f7f7; background-size: 16px; display: block; min-height: 60px; margin-bottom: 0px; }
+.dengluCon label input { color: #ccc; box-shadow: none; }
+.dengluCon .dengluName { margin-bottom: 2px; }
+.dengluCon .dengluName input { float: left; display: block; width: 10em; width: 45%; padding-left: 5px; margin-right: 5px; background: #f7f7f7; }
+.dengluCon .dengluMa a { background-color: #6cb937; color: #fff; display: block; float: left; margin: 15px 0 0 5px; padding: 10px 10px; font-size: 12px; }
+.dengluCon .dengluPass { background-image: url(../images/yonghu/ico3.png); margin-bottom: 2px; }
+.dengluCon .dengluMa { background-image: url(../images/yonghu/ico2.png); padding-bottom: 0; margin-bottom: 2px; }
+.dengluCon label.xieyi { text-align: center; background-image: none; margin-top: 20px; line-height: 30px; height: 30px; width: 100%; vertical-align: middle; background: none; padding-left: 0; margin-top: 0; display: block; }
+.dengluCon label.xieyi input { background-image: none; margin: 0; line-height: 30px; width: 8%; margin-top: 17px; float: left; }
+.dengluCon label.xieyi .xieyi_con { margin: 0 auto; width: 67%; display: block; overflow: hidden; height: 50px; }
+.dengluCon label.xieyi b { font-weight: normal; color: #666666; margin-left: 10px; font-size: 12px; line-height: 30px; height: 25px; display: block; float: left; margin-top: 12px; overflow: hidden; }
+.dengluCon .dengluMa input { float: left; }
+.dengluCon .dengluMa img { float: left; margin: 10px 0 0 5px; width: 80px; }
+.dengluCon label input { background: #f7f7f7; border: 0; color: #999; height: 25px; padding: 0; line-height: 25px; margin: 18px 0; width: 55%; font-family: "微软雅黑"; padding-left: 5px; font-size: 14px; }
+.dengluCon .yishengDL { display: block; text-align: center; height: 35px; line-height: 35px; color: #fff; background-color: #ff647c; margin-top: 50px; font-size: 16px; border-radius: 5px }
+.dengluCon span { color: #999999; font-size: 10px; float: right; line-height: 30px; }
+.dengluCon span img { width: 110px; }
+/*登陆注册*/
+.dengluCon2 label { padding-left: 0; background: #f7f7f7; background-size: 23px; display: block; min-height: 60px; margin-bottom: 0px; border-radius: 0px 0px 8px 8px; }
+.dengluCon2 .dengluName2 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; border-radius: 8px 0px 0px 0px; }
+.dengluCon2 .dengluName2 b img { margin: 17px 0 0 19px; width: 19px; height: 25px; }
+.dengluCon2 .dengluName2 { margin-bottom: 2px; border-radius: 8px 8px 0px 0px; }
+.dengluCon2 .dengluName2 input { float: left; display: block; width: 10em; width: 45%; padding-left: 10px; margin-right: 5px; background: #f7f7f7; color: #cccccc; }
+.dengluCon2 .dengluPass { background-image: none; margin-bottom: 2px; border-radius: 0px 0px 8px 8px; }
+.dengluCon2 .dengluPass2 input { background: url(../images/yonghu/ico4.png) right no-repeat; background-repeat: no-repeat; }
+.dengluCon2 .dengluPass2 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; border-radius: 0px 0px 0px 8px; }
+.dengluCon2 .dengluPass2 b img { margin: 17px 0 0 19px; width: 19px; height: 20px; }
+.dengluCon2 .dengluPass b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; border-radius: 0px 0px 0px 8px; }
+.dengluCon2 .dengluPass b img { margin: 17px 0 0 19px; width: 19px; height: 20px; }
+.dengluCon2 .yishengDL2 { display: block; text-align: center; height: 35px; line-height: 35px; color: #fff; background-color: #6abd43; margin-top: 50px; font-size: 16px; border-radius: 5px }
+.wangji a { color: #999999; font-size: 14px; float: right; }
+.dengluCon2 .dengluMa2 { background-image: none; padding-bottom: 0; margin-bottom: 0px; border-radius: 0px 0px 8px 8px; }
+.dengluCon2 .dengluMa2 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; border-radius: 0px 0px 0px 8px; }
+.dengluCon2 .dengluMa2 b img { margin: 19px 0 0 19px; width: 19px; height: 20px; }
+.dengluCon2 .dengluPass3 { background-image: none; margin-bottom: 2px; }
+.dengluCon2 .dengluPass3 b { background: #d9d9d9; float: left; width: 60px; display: block; height: 60px; }
+.dengluCon2 .dengluPass3 b img { margin: 18px 0 0 19px; width: 19px; height: 20px; }
+.dengluCon .dengluMa2 input { width: 46%; float: left; }
+.dengluCon .dengluMa2 a { background-color: #6cb937; color: #fff; display: block; float: left; margin: 15px 0 0 5px; padding: 10px 10px; font-size: 12px; }
+/*绑定成功*/
+.bangdingcg { margin-top: 50px; text-align: center; }
+.bangdingcg img { width: 30%; margin: 0 auto; }
+.bangdingcg h2 { color: #666666; font-size: 18px; font-weight: normal; font-family: "微软雅黑"; margin-top: 30px; }
+.bangdingcg p { color: #666666; font-size: 16px; width: 65%; margin: 0 auto; line-height: 30px; margin-top: 30px; font-family: "微软雅黑"; }
+.bangdingcg b { width: 100%; font-size: 18px; color: #333333; display: block; font-weight: normal; line-height: 30px; font-family: "微软雅黑"; }
+.bangdingcg em a { width: 100%; font-size: 18px; color: #ff647c; line-height: 30px; font-family: "微软雅黑"; }
+.dengluCon .yzmName input { box-shadow: none; background-color: rgba(255,255,255,0.1); border: 0; color: #999; height: 25px; padding: 0 0 0 5px; line-height: 25px; margin: 18px 0; margin-right: 5px; width: 45%; font-size: 14px }
+.dengluCon .yzmName { padding-left: 31px; background: url(../images/yonghu/ico1.png) 13px center no-repeat #f7f7f7; background-size: 16px; display: block; min-height: 60px; margin-bottom: 0 }
+.dengluCon .yzmName { margin-bottom: 2px }
+.dengluCon .yzmName span { padding: 13px 10px 10px 0; }

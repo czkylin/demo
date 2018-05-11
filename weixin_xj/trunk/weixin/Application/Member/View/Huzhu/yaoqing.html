@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>邀请</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/insurance.min.css">
+</head>
+<body>
+<div>
+        <div class="insurance-mod-invite">
+                <div class="invite-info"> <img src="/weixin/Public/Member/images/huzhu/touxiang.jpg" width="95" height="96" alt=""/>
+                        <p>我是<span>凯旋</span></p>
+                        <p>邀请你一起加入轻松互助会员<br>
+                                会员患病 众人救助 互助共济</p>
+                </div>
+                <div class="diamond"></div>
+                <div class="invite-insurance">
+                        <div class="headline">微爱大病互助行动</div>
+                        <div class="invite-img"> <img src="/weixin/Public/Member/images/huzhu/invite.png" width="112" height="82" alt=""/> </div>
+                        <div class="invite-content">
+                                <p>· 预存10元即可加入</p>
+                                <p>· 保障30种重大疾病</p>
+                                <p>· 会员患病 众人救助 共同分担</p>
+                                <p>· 累计已有超过400万用户加入</p>
+                        </div>
+                </div>
+                <div class="invite-record"> </div>
+        </div>
+        <div class="invite-envelope">
+                <div class="invite-bg1"> <img src="/weixin/Public/Member/images/huzhu/invite-envelope-bg.png" alt="" width="98%"> </div>
+                <div class="invite-bg2"> <img src="/weixin/Public/Member/images/huzhu/invite-envelope.png" alt="" width="96%"> </div>
+        </div>
+</div>
+<footer class="qsc-bar bar-fixed guarantee-bar "> <a href="jiaruxingdong.html" class="bar-item active invite-bar"> <span>使用凯旋的3元特权加入</span> </a> </footer>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/insurance.min.js"></script> 
+<script>
+    $(function () {
+        $('.guarantee-faq .item header').on('click', function (event) {
+            event.preventDefault();
+            var showLogistics = $(event.target).parents('.guarantee-faq .item') ? $(event.target).parents('.guarantee-faq .item') : $(event.target);
+            $(showLogistics).hasClass('active') ? $(showLogistics).removeClass('active') : $(showLogistics).addClass('active').siblings().removeClass('active');
+        });
+    });
+</script>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HMO售卡</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<style>
+		*{margin:0; padding: 0;}
+		body,html{height: 100%; overflow: hidden;}
+		#main{height: 100%; width: 100%;}
+	</style>
+</head>
+<body>
+	<div id="main"></div>
+
+		
+	<script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+   	<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+   	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+   	<script>
+   		window.onload = function(){
+
+   			myChartFn()
+
+   			function myChartFn(){
+   				var myChart = echarts.init(document.getElementById('main'));
+
+	   			option = {
+				    backgroundColor: '#1b1b1b',
+				    title : {
+				        text: 'HMO售卡总数量',
+				        left: 'center',
+				        textStyle : {
+				            color: '#fff'
+				        }
+				    },
+				    tooltip : {
+				        formatter: "{a} <br/>{c} {b}"
+				    },
+				    series : [
+				        {
+				            name:'HMO售卡总数量',
+				            type:'gauge',
+				            min:0,
+				            max:8000000,
+				            splitNumber:10,
+				            radius: '60%',
+				            axisLine: {            // 坐标轴线
+				                lineStyle: {       // 属性lineStyle控制线条样式
+				                    color: [[0.09, 'lime'],[0.82, '#1e90ff'],[1, '#ff4500']],
+				                    width: 3,
+				                    shadowColor: '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            axisLabel: {            // 坐标轴小标记
+				                textStyle: {       // 属性lineStyle控制线条样式
+				                    fontWeight: 'bolder',
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            axisTick: {            // 坐标轴小标记
+				                length :15,        // 属性length控制线长
+				                lineStyle: {       // 属性lineStyle控制线条样式
+				                    color: 'auto',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            splitLine: {           // 分隔线
+				                length :25,         // 属性length控制线长
+				                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+				                    width:3,
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            pointer: {           // 分隔线
+				                shadowColor : '#fff', //默认透明
+				                shadowBlur: 5
+				            },
+				            title : {
+				                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+				                    fontWeight: 'bolder',
+				                    fontSize: 20,
+				                    fontStyle: 'italic',
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            detail : {   //data的数据显示
+				                shadowColor : '#fff', //默认透明
+				                shadowBlur: 5,
+				                offsetCenter: [0, '50%'],       // x, y，单位px
+				                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+				                    fontWeight: 'bolder',
+				                    color: '#fff'
+				                }
+				            },
+				            data:[{value: 2000000, name: 'HMO售卡总数量'}]
+				        },
+				        {
+				            name:'百倍爱心卡',
+				            type:'gauge',
+				            center : ['22%', '55%'],    // 默认全局居中
+				            radius : '40%',
+				            min:0,
+				            max:2700000,
+				            endAngle:15,
+				            splitNumber:5,
+				            axisLine: {            // 坐标轴线
+				                lineStyle: {       // 属性lineStyle控制线条样式
+				                    color: [[0.29, 'lime'],[0.86, '#1e90ff'],[1, '#ff4500']],
+				                    width: 2,
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            axisLabel: {            // 坐标轴小标记
+				                textStyle: {       // 属性lineStyle控制线条样式
+				                    fontWeight: 'bolder',
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            axisTick: {            // 坐标轴小标记
+				                length :12,        // 属性length控制线长
+				                lineStyle: {       // 属性lineStyle控制线条样式
+				                    color: 'auto',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            splitLine: {           // 分隔线
+				                length :20,         // 属性length控制线长
+				                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+				                    width:3,
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            pointer: {
+				                width:5,
+				                shadowColor : '#fff', //默认透明
+				                shadowBlur: 5
+				            },
+				            title : {
+				                offsetCenter: [0, '-30%'],       // x, y，单位px
+				                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+				                    fontWeight: 'bolder',
+				                    fontStyle: 'italic',
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            detail : {
+				                //backgroundColor: 'rgba(30,144,255,0.8)',
+				               // borderWidth: 1,
+				                borderColor: '#fff',
+				                shadowColor : '#fff', //默认透明
+				                shadowBlur: 5,
+				                width: 80,
+				                height:30,
+				                offsetCenter: [0, '20%'],       // x, y，单位px
+				                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+				                    fontWeight: 'bolder',
+				                    color: '#fff'
+				                }
+				            },
+				            data:[{value: 750000, name: '百倍爱心卡售卡数量'}]
+				        },
+				        {
+				            name:'肝保卡售卡数量',
+				            type:'gauge',
+				            center : ['77%', '55%'],    // 默认全局居中
+				            radius : '40%',
+				            min:0,
+				            max:200000,
+				            startAngle:160,
+				            endAngle:-60,
+				            splitNumber:5,
+				            axisLine: {            // 坐标轴线
+				                lineStyle: {       // 属性lineStyle控制线条样式
+				                    color: [[0.2, 'lime'],[0.8, '#1e90ff'],[1, '#ff4500']],
+				                    width: 2,
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            axisTick: {            // 坐标轴小标记
+				                length :12,        // 属性length控制线长
+				                lineStyle: {       // 属性lineStyle控制线条样式
+				                    color: 'auto',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            axisLabel: {
+				                textStyle: {       // 属性lineStyle控制线条样式
+				                    fontWeight: 'bolder',
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            splitLine: {           // 分隔线
+				                length :15,         // 属性length控制线长
+				                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+				                    width:3,
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            pointer: {
+				                width:2,
+				                shadowColor : '#fff', //默认透明
+				                shadowBlur: 5
+				            },
+				            title : {
+				                offsetCenter: [0, '-30%'],       // x, y，单位px
+				                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+				                    fontWeight: 'bolder',
+				                    fontStyle: 'italic',
+				                    color: '#fff',
+				                    shadowColor : '#fff', //默认透明
+				                    shadowBlur: 10
+				                }
+				            },
+				            detail : {
+				                borderColor: '#fff',
+				                shadowColor : '#fff', //默认透明
+				                shadowBlur: 5,
+				                width: 80,
+				                height:30,
+				                offsetCenter: [0, '20%'],       // x, y，单位px
+				                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+				                    fontWeight: 'bolder',
+				                    color: '#fff'
+				                }
+				            },
+				            data:[{value: 53000, name: '肺保卡售卡数量'}]
+				        }
+				    ]
+				};
+				/*setInterval(function (){
+				    option.series[0].data[0].value = Math.round(Math.random()*1000000);
+				    option.series[1].data[0].value = Math.round(Math.random()*700000);
+				    option.series[2].data[0].value = Math.round(Math.random()*200000);
+				    myChart.setOption(option);
+				},2000)*/
+
+	   			myChart.setOption(option);
+
+   			}
+	   			
+   		}
+   	</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<volist name="referral_list" id="referral">
+    <a href="{:U('Home/referral/referral_list_details',array('create_date'=>$referral['CREATE_DATE']))}">
+    <li>
+        <div>{$referral.CREATE_DATE}</div>
+        <div class="count">{$referral.COUNT}例</div>
+        <div class="arrows">
+          <span class="bot"></span>
+          <span class="top"></span>
+        </div>
+    </li>
+  </a>∮
+</volist>

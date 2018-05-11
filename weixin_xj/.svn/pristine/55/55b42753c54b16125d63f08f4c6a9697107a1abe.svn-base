@@ -1,0 +1,173 @@
+
+<html class="ui-mobile">
+<head>
+<link rel="stylesheet" href="/weixin/Public/Member/css/xinjie/portal.min.css" type="text/css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/xinjie/yuyuetijian.min.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<style>
+.sInfo section{display:box;display:-webkit-box;padding-bottom:5px;}
+.sInfo span{display:block;width:30%;text-align:right;vertical-align:middle;height:30px;line-height:30px;padding:0 10px 0 0;}
+.sInfo input{border-radius:6px;background:#f0f0f0;border:2px solid #ccc;padding:5px;height:31px;}
+</style>
+<title>预约体检</title>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="rgb(240, 240, 240);">
+<div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+    <div class="shoushu">
+        <div class="similar-item ele_p">预约体检</div>
+        <div class="det_read_p bak_none" style="padding-bottom:0;">
+            <p>预约体检是远程心血管网为实现远程个性化的健康管理服务推出的一站式健康管理信息化平台，依托于北京阜外心血管病健康管理中心心脏专科体检院所高超的技术和先进的医疗设备，着眼于为公众提供品质优良的心脏健诊服务。<b>体检内容详情请咨询：400-656-2020</b></p>
+        </div>
+    </div>
+    <br>
+    <form class="dengluCon" id="form">
+        <div class="sInfo">
+            <section>
+                <span>姓名</span>
+                <input type="text" name="name" id="name" placeholder="请填写您的姓名" value="{$member_name}" class="in_biaodan"/>
+            </section>
+            <div id="na" style="text-align:center;color:red;font-size=6"></div>
+            <section>
+                <span>手机号</span>
+                <input type="text" name="mobile" id="mobile" placeholder="请填写您的手机号" value="{$member_mobile}" class="in_biaodan"/>
+            </section>
+            <div id="ph" style="text-align:center;color:red;font-size=6"></div>
+        </div>
+        <input type="hidden" name="jibing" value="预约体检"/>
+    </form>
+    <div data-role="content" class="ui-content ui-content-padding" role="main">
+        <div class="det_read_con">
+            <div class="expert">
+                <div class="booking_button"><a href="javascript:void(0)" onClick="sub()">在线申请</a></div>
+               
+                <div class="clear"></div>
+                <div class="ele_con">
+                    <div class="ele_top">
+                        <h2>视频咨询能做什么</h2>
+                    </div>
+                    <ul class="ele_bottom"> 
+                    <li>
+                    	<img src="/weixin/Public/Member/images/xj/tu1.png">
+                        <p>提供专业、个性化的体检方案</p>
+                    </li>
+                    <li>
+                    	<img src="/weixin/Public/Member/images/xj/tu2.png">
+                        <p>优质的体检医院服务团队</p>
+                    </li>
+                    <li>
+                    	<img src="/weixin/Public/Member/images/xj/tu3.png">
+                        <p>专业疾病风险评估</p>
+                    </li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="similar-items">
+                    <div class="similar-item liucheng">服务流程</div>
+                    <ul class="box">
+                        <li>
+                            <div class="similar-item similar-item_white">1提交体检申请</div>
+                            <p class="similar-item similar-item_white son" style=" display:none; background:#f0f0f0;">输入个人信息，提交表单</p>
+                        </li>
+                        <li>
+                            <div class="similar-item similar-item_white">2客服联系</div>
+                            <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">客服收到体检申请后会在第一时间与您沟通相关事宜</p>
+                        </li>
+                        <li>
+                            <div class="similar-item similar-item_white">3安排时间体检</div>
+                            <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">为患者安排医院体检时间</p>
+                        </li>
+                        <li>
+                            <div class="similar-item similar-item_white">4总检咨询</div>
+                            <p class="similar-item similar-item_white" style=" display:none; background:#f0f0f0;">体检完成医生给出专业评估及总检咨询服务</p>
+                        </li>
+                    </ul>
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+    <div class="hide" style=" width:0; height:0; overflow:hidden; text-indent:-9999;"> 
+        <script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script> 
+        <script type="text/javascript">
+        $(function(){
+            $('.box>li').click(function(){
+                $(this).siblings().children('p').slideUp();
+                $(this).children('p').slideToggle();
+                })
+            })
+        </script>
+        <script>
+        $(function(){
+            $('.scroll_position_bg').css({
+                width:$('#scroll_position').width()
+            });
+        });
+
+    function sub()
+    {  
+        var name = $("#name").val();
+        var mobile = $("#mobile").val();
+        var from_flag = $("#from_flag").val();
+        var mobileRule = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/; 
+        if(name=="")
+        {
+            $("#na").html("姓名不能为空");
+            return false;
+        }
+        $("#na").html("");
+        if(mobile=="")
+        {
+            $("#ph").html("电话号码不能为空");
+            return false;
+        }
+        $("#ph").html("");
+
+        if(!mobileRule.test(mobile))
+
+        {
+            $("#ph").html("请正确填写电话号码");
+            return false;
+        }
+        $("#ph").html("");
+            var str_data = $("#form").serialize();
+            $.ajax({
+                type: "POST",
+                url: "{:U('Operation/serveroperation_add')}",
+                async: true,
+                data: str_data,
+                success: function(msg)
+                {
+                    switch (msg) 
+                    {
+                        case '1':
+                            alert("提交成功！");
+                            location.href="/weixin/";
+                            break;
+                        default:
+                            alert("系统繁忙，请稍后再试！");
+                            break;
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) 
+                {   
+                    alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+                }
+            });
+    }
+</script> 
+    </div>
+</div>
+<div class="ui-loading-screen" style="display: none;"></div>
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default" style=" width:0; height:0; overflow:hidden; text-indent:-9999;"><span class="ui-icon ui-icon-loading"></span>
+    <h1>载入中...</h1>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

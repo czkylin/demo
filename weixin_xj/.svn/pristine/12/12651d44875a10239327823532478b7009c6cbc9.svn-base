@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <style>
+html, body { height: 100%; }
+body { font-size: 14px; color: #333; }
+article { height: 90%; background: url(/weixin/Public/Member/images/huzhu/book/border.jpg) no-repeat center center; background-size: 92%; }
+section { width: 6rem; margin: 0 auto; padding-top: 2rem; }
+.user_pic { width: 60px; height: 60px; border: 1px solid #4994b3; border-radius: 60px; background: #fff; overflow: hidden; margin: 20px auto; }
+section p { line-height: 22px; text-indent: 2em; text-align: justify; text-justify: inter-word; }
+section p.no { text-indent: 0; }
+.con_zi { padding: 0 30px; }
+.con_zi p { line-height: 24px; }
+.con_zi a { border: 1px solid #ff647c; font-size: 12px; color: #ff647c; text-align: center; padding: 10px 25px; border-radius: 3px; margin: 20px auto; display: block; width: 4rem; margin-bottom: 100px; margin-top: 40px; }
+.con_zi a i { background: url(/weixin/Public/Member/images/icon/jiao.jpg) no-repeat; background-size: 10px; width: 13px; height: 9px; display: inline-block; }
+footer { position: fixed; bottom: 0; left: 0; width: 100%; }
+footer a { width: 100%; color: #fff; line-height: 50px; display: block; font-size: 20px; background: #e76814; text-align: center; }
+</style>
+    <title>百倍爱心卡会员证书</title>
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+    </head>
+    <body>
+<article id="art">
+            <section class="center">
+                <div>
+                            <h2 class="text-center"><img src="/weixin/Public/Member/images/huzhu/book/font.png" width="70%" /></h2>
+                            <p class="no" style="padding-top: 2em;">尊敬的<!--{$bx_info.0.PERSON_NAME}-->：</p>
+                            <br>
+                            <p>您于{$bx_info.0.BUY_DATE|Dtodiy='Y年m月d日',###}购买百倍爱心卡，恭喜您成为第{$bx_info.0.NUM}位会员！</p>
+                            <p>感谢您加入百倍爱心卡慢病管理！</p>
+                            <br>
+                            <p class="text-right">生效日期：2016.11.12</p>
+                            <p class="text-right">失效日期：2017.06.12</p>
+                            <p class="no">特颁此证</p>
+                            <br>
+                            
+                            <p class="text-right"><img src="/weixin/Public/Member/images/huzhu/book/banner.png" width="50%" /></p>
+                            <p class="text-right">北京远程视界科技集团荣誉出品</p>
+                    </div>
+        </section>
+    </article>
+<div class="con_zi">
+            <p>我是***，我已为家人***购买百倍爱心卡，我为百倍爱心卡代言！买了百倍爱心卡，做冠心病支架介入手术、心脏搭桥手术、心律失常介入射频消融手术最高援助10万！大家赶紧加入吧</p>
+            <a href="#"><i></i>了解百倍爱心卡详情</a> </div>
+<footer class="box"> <a href="/weixin/index.php?m=Member&amp;c=Huzhu&amp;a=wxlogin&amp;user_id=3572&amp;link_mobile=15101612857&amp;attach=share_7&amp;user_name=5LiB5paH5rab" class="text-center">立即加入</a> </footer>
+</body>
+</html>

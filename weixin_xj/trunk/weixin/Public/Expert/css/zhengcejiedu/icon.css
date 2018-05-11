@@ -1,0 +1,7 @@
+@font-face {
+ font-family: 'wxfont';
+ src:  url('/weixin/Public/Common/css/commonFont/iconfont-full.woff') format('woff'),
+        url('iconfont-full.ttf') format('truetype'),
+        url('iconfont-full.fcp') format('fcp'),
+        url('iconfont-full.otf') format('otf');
+}  

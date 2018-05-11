@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+body { margin: 0; padding: 0; background-color: #e5e5e5; font-family: "微软雅黑"; }
+ul, li, h1, h2, h3,h4, span, dl, dd, dr, dt { list-style: none; margin: 0; padding: 0; font-style: normal; text-decoration: none; }
+a { text-decoration: none; font-size: 14px; color:#333; }
+a:hover { text-decoration: none; }
+a:active {color:#fff;text-decoration:none;}
+span { color: #999999; }
+p { margin: 0; padding: 0; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+.bgChui { background-color: #e5e5e5; }
+.colorHui { color: #a2a2a2; }
+.colorHuang { color: #ff9600; }
+.padLR60 { padding-left: 60px; padding-right: 60px; }
+.lanse { color: #3399ff; }
+.header { height: 40px; background-color: #2b7ce5; }
+.header h1 { font-size: 18px; font-family: "微软雅黑"; font-weight: normal; color: #fff; text-align: center; line-height: 40px; margin: 0; }
+
+
+/*订单列表*/
+.dingdan_top{ height:30px; background:#fff;border-bottom:1px solid #e3e3e3;  padding-top:10px; padding-bottom:0; position:relative;}
+.dingdan_top ul{ font-size:16px; margin-bottom:0; position:absolute; left:5px; bottom:0px; font-weight:700; text-align:center; box-shadow:none;}
+.dingdan_top ul li{ display:inline; border-bottom:0; float:left; height:26px; padding:0 8px;}
+.dingdan_top ul li .link_no{ display:block; height:18px; line-height:18px;padding:0; padding-bottom:12px; position:relative; white-space:nowrap; color:#3c3c3c; }
+.dingdan_top ul li .link_no i{ background:#e7e7e7; color:#e7e7e7; font-size:0; height:14px; margin-top:2px; position:absolute; right:-7px; top:2px; width:1px; font-style:normal; z-index:100;}
+.dingdan_top ul li .link_no em{ font-style:normal; color: #f40; font-weight:100;}
+.dingdan_top ul li .link_no span{ color:#666;}
+.dingdan_top ul li.selected a span{color: #f40;}
+.dingdan_top ul li.selected{ border-bottom:2px solid #f40;}
+.dingdan_list{ background:#fff;}
+.dingdan_list dl{ padding:10px 3%; border-bottom:1px solid #e3e3e3;}
+.dingdan_list dl dt{ width:20%; height:80px; float:left;}
+.dingdan_list dl dt span{width:60px; background:#ccc; display:block; height:60px; }
+.dingdan_list dl dd{ width:74%;height:80px; float:right; position:relative; }
+.dingdan_list dl dd h2{ font-size:14px; color:#333; line-height:26px;}
+.dingdan_list dl dd p{ font-size:12px; color:#999; line-height:20px;}
+.dingdan_list dl dd span{ position:absolute; left:0; bottom:0; font-size:12px; color:#999;}
+.dingdan_list .chose_fuwu{ display:none;}
+.dingdan_list .list_show{ display:block;}
+/*订单详情*/
+.xq1{  padding:1rem 0px; border-bottom:1px dashed #D1D0D0; padding-top:1.5rem; height:100px;  margin:0px 15px;margin-bottom:1rem;}
+.xq1 .xq1_l{ width:30%; padding-left:0.5rem; float:left;}
+.xq1 .xq1_l span{ width:80px; height:80px; display:block; overflow:hidden;}
+.xq1 .xq1_l i{width:80px; height:20px; font-style:normal; display:block; line-height:20px; margin-top:0.5rem; text-align:center;}
+.xq1 .xq1_r{ width:62%; float:right;}
+.xq1 .xq1_r h2{ font-size:16px; line-height:22px; color:#333; margin-bottom:0.5rem;}
+.xq1 .xq1_r p{ font-size:14px; color:#999; line-height:20px; margin-bottom:0.5rem;}
+.xq1 .xq1_r p.yp_pritice{ font-size:18px; padding-left:0.5rem; border-left:1px solid #DFDCDC;color:#f40; }
+.xq1 .xq1_r p.yp_pritice span{ font-size:12px;text-decoration:line-through; padding-left:0.5rem;  }
+.xq2 h2{ height:30px; line-height:30px; background:#f2f0f0; font-size:14px; border-left:5px solid #317be8; color:#333; padding:5px 0; padding-left:10px; font-weight:normal;}
+.xq2 ul{ padding:0px 15px; font-size:12px; box-shadow:none;}
+.xq2 ul li{ height:40px; line-height:40px; padding:0; color:#999; border-bottom:1px solid #f2f0f0; font-size:12px;}
+.xq2 ul li.no_bor{ border-bottom:0;}
+.xq3 h2{ height:30px; line-height:30px; background:#f2f0f0; font-size:14px; border-left:5px solid #6abd43; color:#333; padding:5px 0; padding-left:10px;}
+.xq3 .hosinfor{ margin:1rem 0.8rem; padding:0.5rem 0; border-bottom:1px solid #c9c9c9;border-top:1px solid #c9c9c9;}
+.xq3 .hosinfor dt{ width:80%; float:left;}
+.xq3 .hosinfor dt h2{ font-size:16px; height:20px; line-height:20px; margin-top:5px; background:none; border:0; padding:0; color:#333;}
+.xq3 .hosinfor dt p{ font-size:12px; height:30px; line-height:30px;}
+.xq3 .hosinfor dt p span.dizhi{ width:20px; height:20px; overflow:hidden;}
+.xq3 .hosinfor dd{ width:19%; height:50px; float:right; border-left:1px solid #c9c9c9;}
+.xq3 .hosinfor dd span{ width:40px; display:block; height:40px; overflow:hidden; margin-left:0.5rem; padding-top:0.3rem;}
+.xq3 .hosinfor dd span img{ width:100%; height:auto;}
+.xq4 h2{ height:30px; line-height:30px; background:#f2f0f0; font-size:14px; border-left:5px solid #f84b23; color:#333; padding:5px 0; padding-left:10px;}
+.xq4 .jianjie{ padding:15px; }
+.xq4 .jianjie h2{ background:0; font-size:16px;  height:20px; border:0; padding:0; }
+.xq4 .jianjie p{ font-size:12px; margin-top:0.5rem; color:#999; line-height:18px; }
+.xq4 .jianjie a{ width:70%; text-align:center; line-height:26px; height:26px; color:#f40; border:1px solid #f40; border-radius:4px; display:block; margin:1rem auto;}
+.dingdan_list .quantity{ color:#ff6600; font-style:normal;}
+/*订单反馈*/
+.tijiao_jieguo{  padding:1rem 0px;padding-top:1.5rem; height:100px;  margin:0px 15px;margin-bottom:1rem;}
+.tijiao_jieguo h2.wancheng{ background:url(../images/wancheng.png) no-repeat left center; background-size:40px; width:70%; padding-left:55px; font-size:24px; height:60px; line-height:60px; font-weight:normal;}
+.tijiao_jieguo p{ font-size:16px; color:#898989; margin-top:10px;}
+.dingdan_jieguo ul li span{ color:#ff0000;}
+
+.tijiao_jieguo h2.shibai{ background:url(../images/shibai.png) no-repeat left center; background-size:40px; width:70%; padding-left:55px; font-size:24px; height:60px; line-height:60px; font-weight:normal;}
+.chongxin a{ width:90%; height:40px; line-height:40px; background:#517ac0; text-align:center; color:#fff; display:block; margin:20px auto; border-radius:5px;}
+
+
+
+
+
+
+
+

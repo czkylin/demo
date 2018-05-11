@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/order/order_state.css">
+<title>付款成功</title>
+</head>
+<body>
+	<div class="bar"></div>
+	<div class="success">
+		<img src="/weixin/Public/Member/images/order/dui.jpg" alt="">
+		<p>您已付款成功</p>
+	</div>
+	<if condition="($array[0]['ORDER_NAME'] neq '在线咨询') && ($array[0]['ORDER_NAME'] neq '购买百倍爱心卡')">
+	<div class="tit">
+		<p class="title-des">请医院/药店工作人员扫以下二维码进行验证核销</p>
+		<img src="http://weixin.yk2020.com/program/get_qrcode.aspx?qrcode={$array.0.ORDER_CODE}" alt="">
+	</div>
+	</if>
+	<h1>订单详情</h1>
+	<ul class="detail">
+		<li>订单状态：{$array.0.ORDER_STATUS}--
+	    	<if condition="$array[0][O2O_FLAG] eq '1' ">已核销
+	    	<elseif condition="$array[0][O2O_FLAG] eq '2'"/>已过期
+	    	<else />
+				<if condition="($array[0][ORDER_NAME] eq '在线咨询') OR ($array[0][ORDER_NAME] eq '购买百倍爱心卡')">
+		      		无需核销
+	      		<else />
+	      			待核销
+	      		</if>
+	      </if>
+      	</li>
+		<li>订单名称：{$array.0.ORDER_NAME}</li>
+		<li>下单时间：{$array.0.CREATE_DATE}</li>
+		<li>订单号：{$array.0.ORDER_ID}</li>
+		<if condition="$array[0]['ORDER_NAME'] neq '购买百倍爱心卡'">
+			<li>咨询医生：{$array.0.EXPERT_NAME}</li>
+		</if>
+		<li>会员姓名：{$array.0.MEMBER_NAME}</li>
+		<if condition="($array[0]['ORDER_NAME'] neq '在线咨询') && ($array[0]['ORDER_NAME'] neq '购买百倍爱心卡')">
+			<li>预约医院：{$array.0.HOS_NAME}</li>
+			<li>医院地址：{$array.0.HOS_ADDRESS}</li>
+			<li>联系电话：{$array.0.HOS_PHONE}</li>
+		</if>
+		<li>订单价格：<span>{$array.0.ORDER_MONEY|round=2}元</span></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="Keywords" content="页面关键字" />
+    <meta name="description" content="页面描述" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Home/css/presale.css">
+    <title>预售申请</title>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body> 
+    <nav>
+        <ol class="box">
+            <li><a href="{:U('Member/Presale/presale',array('homeid'=>$homeid))}" class="text-center active">预售申请</a></li>
+            <li><a href="{:U('Home/Presale/detail',array('homeid'=>$homeid))}" class="text-center">申请明细</a></li>
+        </ol>
+    </nav>
+    <article id="app" class="app">
+        <section>
+            <ul>
+                <li class="box">
+                    <span>申请人：</span>
+                    <input type="text" placeholder="请输入内容" class="names" value="{$my_info['REAL_NAME']}" readonly />
+                </li>
+                <li class="box sel">
+                    <span>申请终端：</span>
+                    <select name="" id="hospitals">
+                        <if condition="!$yd_list">
+                            <option value="">暂无数据</option>
+                        <else />
+                            <volist name="yd_list" id="yd">
+                                <option value="{$yd['HOS_ID']}">{$yd['HOS_NAME']}</option>
+                            </volist>
+                        </if>
+                    </select>
+                </li>
+                <li class="box">
+                    <span>外部申请人：</span>
+                    <input type="text" placeholder="请输入内容(选填)" class="outer" />
+                </li>
+                <li class="box">
+                    <span>外部申请人手机号：</span>
+                    <input type="tel" placeholder="请输入内容(选填)" class="outerphone" />
+                </li>
+                <li class="box">
+                    <span>预售类型：</span>
+                    <!-- <label for="yes">
+                        <input type="radio" name="type" id="yes" checked value="1"/>
+                        <i></i>
+                        可退
+                    </label> -->
+                    <label for="no">
+                        <input type="radio" name="type" id="no" value="2" checked/>
+                        <i></i>
+                        不可退
+                    </label>
+                </li>
+            </ul>
+            <div class="hr"></div>
+            <ul>
+                <li class="box sel">
+                    <em>*</em>
+                    <span>申请物品：</span>
+                    <select name="" id="cards">
+                        <option value="1" data-price="200">百倍爱心卡</option>
+                        <option value="9" data-price="980">高血压健康管理套装</option>
+                        <option value="2" data-price="1380">腕表套装</option>
+                        <!-- <option value="购买VIP心脑护照卡" data-price="9900">购买VIP心脑护照卡</option> -->
+                    </select>
+                </li>
+                <li class="box">
+                    <em>*</em>
+                    <span>申请数量：</span>
+                    <input type="tel" class="num" value="1" />
+                </li>
+            </ul>
+            <div class="hr"></div>
+            <p class="clear">
+                <span class="fl">支付金额</span>
+                <strong class="fr"><small>￥</small>0</strong>
+            </p>
+            <a href="javascript:;" class="text-center" id="up">提交</a>
+        </section>
+    </article>
+    <form action="{:U('Presale/presale_add')}" id="form" method="post">
+        <input type="hidden" id="homeid" name="homeid"value="{$homeid}" />
+        <input type="hidden" id="user_id" name="user_id" value="{$my_info['USER_ID']}" />
+        <input type="hidden" id="name" name="name" />
+        <input type="hidden" id="hospital" name="hospital" />
+        <input type="hidden" id="outerName" name="outerName" />
+        <input type="hidden" id="outerPhone" name="outerPhone" />
+        <input type="hidden" id="types" name="types" />
+        <input type="hidden" id="applyCard" name="applyCard" />
+        <input type="hidden" id="applyNum" name="applyNum" />
+        <input type="hidden" id="price" name="price" />
+    </form>
+    <div id="mask" class="mask center">
+        <div class="dialog">
+            <p class="text-center"></p>
+            <a class="text-center" href="javascript:;">确定</a>
+        </div>
+    </div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+    $('.app strong').html('<small>￥</small>'+$('#cards option:selected').data('price'));
+    
+    $('.dialog a').click(function(){
+        $(this).parent().removeClass('scale');
+        $(this).parents('#mask').removeClass('visible');
+    });
+    
+    $('.num').keyup(function(){
+        var price = $('#cards option:selected').data('price');
+        
+        if(isNaN($(this).val().trim())){
+            $(this).val(!isNaN($(this).val().split('')[0])?parseFloat($(this).val()):0); 
+        }
+        $('.app strong').html('<small>￥</small>' + price*Math.floor($(this).val()));
+    });
+    
+    $('#cards').change(function(){
+        var money = $(this).find('option:selected').data('price'),
+            num = $('.num').val();
+        $('.app strong').html('<small>￥</small>' + money*Math.floor(num));
+    });
+    //提交数据
+    $('#up').click(function(){
+        //如果输入外部申请人手机号则判断手机号的格式正确与否，不输入不判断
+        if(!(/^1[34578]\d{9}$/.test($('.outerphone').val())) && $('.outerphone').val().trim() != ''){
+            $('#mask').addClass('visible');
+            $('.dialog').addClass('scale').find('p').html('手机号格式有误，请重新输入');
+            return false;
+        }
+        //判断申请数量是否大于0
+        if($('.num').val() < 20){
+            $('#mask').addClass('visible');
+            $('.dialog').addClass('scale').find('p').html('申请数量不能小于20');
+            return false;
+        }
+        //提交数据
+        $('#name').val($('.names').val());
+        $('#hospital').val($('#hospitals option:selected').val());
+        $('#outerName').val($('.outer').val());
+        $('#outerPhone').val($('.outerphone').val());
+        $('#types').val($('.app input[type="radio"]:checked').val());
+        $('#applyCard').val($('#cards option:selected').val());
+        $('#applyNum').val(Math.floor($('.num').val()));
+        $('#price').val($('.app strong').html().split('</small>')[1]);
+        console.log($('#name').val());
+        console.log($('#hospital').val());
+        console.log($('#outerName').val());
+        console.log($('#outerPhone').val());
+        console.log($('#types').val());
+        console.log($('#applyCard').val());
+        console.log($('#applyNum').val());
+        console.log($('#price').val());
+        $('#form').submit();
+    });
+</script>
+</html>

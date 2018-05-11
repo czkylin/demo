@@ -1,0 +1,66 @@
+<html class="ui-mobile">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png">
+    <!--CSS库文件-->
+    <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet" />
+    <!--CSS当前页面文件-->
+    <link href="/weixin/Public/Member/css/dingdan.min.css" type="text/css" rel="stylesheet" />
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+    <title>我的阅片管理</title>
+</head>
+<body style=" background:#fff">
+    <div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style=" background:#fff">
+        <if condition="empty($yuepian_list)">
+            <div style=" text-align: center;">
+                <br/> 
+                <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+                <i style=" line-height: 30px;">暂无数据</i>
+            </div>
+        <else />
+            <div class="diandan_list" id="diandan_list">
+                <ul id="order-list">
+                    <volist name="yuepian_list" id="order" empty="暂时没有数据">
+                        <li>
+                            <!-- <if condition="$order.SJ_TYPE eq '0'">
+    				<a href="{:U('Member/Order/order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE']))}">
+    				<else/>
+    				<a href="{:U('Member/Order/hos_order_detail',array('order_id'=>$order['ORDER_ID'],'sj_type'=>$order['SJ_TYPE']))}">
+    				</if> -->
+                            <!-- <img src="{$order['SERVE_PIC']}" width="40px" height="40px" /> -->
+                            <a href="{:U('Member/User/yuepian_detail',array('yp_id'=>$order['YP_ID']))}">
+                                <h2>医院：{$order['HOS_NAME']}</h2><i class="tongguo">专家：{$order['EXPERT_NAME']}</i> <i class="tongguo"> 阅片量：{$order['PIC_NUM']}</i>
+                                <h3>阅片建议：{$order['EXPERT_DESC']}</h3>
+                                <!-- <span>{$order['CREATE_DATE']}</span> -->
+                                <!-- SERVE_PIC -->
+                            </a>
+                        </li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+            <div id="current_pagenum" style="display:none">2</div>
+        </if>
+    </div>
+    <!--通底的引用开始-->
+    <include file="Public:footer_fd" />
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+    <script>
+        var over_footer = '4';
+        function load_more() {
+            loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=User&a=yuepian_list_append', '#order-list');
+        }
+    </script>
+    <!--通底的引用结束-->
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

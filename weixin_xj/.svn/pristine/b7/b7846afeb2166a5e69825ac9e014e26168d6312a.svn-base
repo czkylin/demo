@@ -1,0 +1,29 @@
+<volist name="data" id='vo'>
+	<li>
+		<h3>{$vo.PERSON_NAME}</h3>
+		<div class="list-des">
+			<p>性别：{$vo.PERSON_SEX}</p>
+			<p>年龄：{$vo.PERSON_AGE}岁</p>
+			<p>手机号：{$vo.PERSON_MOBILE}</p>
+		</div>
+		<br>
+		<volist name="vo.PERSON_CASES" id="v">
+			<div class="list-main clearfix">
+				<div class="main-con">
+					<p>名称：{$v.CASE_TITLE}</p>
+					<p>描述: 
+						<if condition="$v['CASE_DESC'] eq ''">暂无
+						<else />{$v.CASE_DESC}
+						</if>
+					</p>
+				</div>
+				<div class="main-img">
+					<if condition="$v['CASE_PIC'] eq ''">
+					<else /><img src="{$v.CASE_PIC}" alt="">
+					</if>	
+				</div>
+			</div>
+			<br>
+		</volist>
+	</li>∮
+</volist>	

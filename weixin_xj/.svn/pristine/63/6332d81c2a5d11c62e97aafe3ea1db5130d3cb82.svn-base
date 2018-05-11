@@ -1,0 +1,28 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/weixin/Application/Member/View/css/bootstrap.min.css" type="text/css">
+<link type="text/css" rel="stylesheet" href="/weixin/Application/Member/View/css/iconfont/ux_1439282084_8082368/demo.css"/>
+<link type="text/css" rel="stylesheet" href="/weixin/Application/Member/View/css/iconfont/ux_1439282084_8082368/iconfont.css"/>
+<title>信息错误</title>
+<style>
+#guanbi { background: #ff647c; border: medium none; border-radius: 5px; color: #fff; display: block; font-family: "微软雅黑"; font-size: 14px; height: 35px; line-height: 30px; text-align: center; width: 30%; position: absolute; left: 35%; }
+</style>
+</head>
+
+<body>
+<div class="" style=" width: 100%;  margin-top: 40%; z-index: 999; text-align:center;"> <i class="iconfont" style=" color:#999999;">&#xe610;</i>
+        <p style=" font-size:20px; margin-bottom:20px;">{$error_msg}</p>
+        <input type="button" value="关闭本窗口" onclick="WeixinJSBridge.call('closeWindow');" id="guanbi" />
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

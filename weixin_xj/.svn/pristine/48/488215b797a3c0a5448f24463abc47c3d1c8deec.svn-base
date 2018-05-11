@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>提现</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/tixian.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<form method="post" action="{:U('Expert/Payment/add_card_do')}" onsubmit=" return sub() ">
+	<ul class="info-list">
+		<li>
+			<span><i>*</i>真实姓名:</span>
+			<input type="text" name="real_name" id="real_name">
+		</li>
+		<li>
+			<span><i>*</i>身份证号:</span>
+			<input type="text" name="id_card" id="id_card">
+		</li>
+		<li>
+			<span><i>*</i>开户银行:</span>
+			<input type="text" name="bank_name" id="bank_name">
+		</li>
+		<li>
+			<span><i>*</i>银行卡号:</span>
+			<input type="text" name="card_num" id="card_num">
+		</li>
+		<li>
+			<span><i>*</i>手机号码:</span>
+			<input type="text" name="link_mobile" id="link_mobile">
+		</li>
+	</ul>
+	<input type="submit" class="info-submit" value="确认并提交">
+	<!-- <a href="javascript:;" class="info-submit">确认并提交</a> -->
+	</form>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+ <script>
+
+  function sub(){
+
+  	 var real_name = $("#real_name").val();
+  	 var id_card = $("#id_card").val(); 
+  	 var bank_name = $("#bank_name").val();
+  	 var card_num = $("#card_num").val();
+  	 var link_mobile = $("#link_mobile").val();
+
+  	 if(real_name==""){
+
+  	 	alert("姓名为必填参数！");
+  	 	$("#real_name").focus();
+  	 	return false;
+
+  	 }else if(!isCard(id_card)){
+
+  	 	alert("身份证号格式错误！");
+  	 	$("#id_card").focus();
+  	 	return false;
+
+  	 }else if(bank_name==""){
+
+  	 	alert("开户银行为必填参数！");
+  	 	$("#bank_name").focus();
+  	 	return false;
+
+  	 }else if(!iscard_num(card_num)){
+
+  	 	alert("银行卡号格式错误！");
+  	 	$("#card_num").focus();
+  	 	return false;
+
+  	 }else if(!isPhone(link_mobile)){
+
+  	 	alert("手机号码格式错误！");
+  	 	$("#link_mobile").focus();
+  	 	return false;
+  	 }
+  	
+  }
+
+   function isPhone(ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isCard(ssn) //检查身份证号是否匹配正则表达式
+    {
+
+        var re = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function iscard_num(ssn) //检查银行卡号是否匹配正则表达式
+    {
+
+        var re = /^(\d{16}|\d{19})$/;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+ </script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Common/css/common/mobi-reset.css">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/nurse/order-member.css">
+<title>订单详情</title>
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+</head>
+<body>
+	<!-- <p class="stati">共有<span>2</span>位就诊人</p> -->
+	<ul id="list">
+		<volist name="cdata" id="info">
+			<li>
+				<span>{$info.PERSON_NAME}</span>
+				<i>性别：{$info.PERSON_SEX} 年龄：{$info.PERSON_AGE}岁</i>
+				<a href="javascript:;" class="choose">选择</a>
+				<input id="person_id" value="{$info.RECORD_ID}" type="hidden">
+			</li>
+		</volist>
+		
+	</ul>
+	<a href="{:U('User/jzr_add','huzhu=2')}" class="link">添加家庭成员</a>
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		var member = {
+			name:null,
+			id:null
+		};
+		$('#list > li').click(function(){
+			member.name = $(this).find('span').html();
+			member.id = $(this).find('input').val();
+			localStorage.setItem('person_name', member.name);
+			localStorage.setItem('person_id', member.id);
+			window.location.href = localStorage.getItem('url1');
+		});
+
+
+	</script>
+</body>
+</html>

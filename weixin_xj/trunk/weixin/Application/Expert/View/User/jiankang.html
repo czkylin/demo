@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>一体机档案</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/jiankang.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<ul id="control" class="clear">
+		<li>一体机档案</li>
+	</ul>
+	
+	<div id="box">
+		<ul class="content" id="content1">
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>4,'member_id'=>$member_id))}" class="clear">
+					<span>身高体重</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>0,'member_id'=>$member_id))}" class="clear">
+					<span>血糖</span>
+					<b>></b>
+				</a>
+			</li>
+			
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>1,'member_id'=>$member_id))}" class="clear">
+					<span>血氧</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>2,'member_id'=>$member_id))}" class="clear">
+					<span>血压</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>3,'member_id'=>$member_id))}" class="clear">
+					<span>心电</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>5,'member_id'=>$member_id))}" class="clear">
+					<span>尿常规</span>
+					<b>></b>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="{:U('Expert/User/jk_info',array('tj_type'=>6,'member_id'=>$member_id))}" class="clear">
+					<span>体温</span>
+					<b>></b>
+				</a>
+			</li>
+		</ul>
+		
+	</div>
+<div id="emptyData"></div>
+<div id="current_pagenum" style="display:none">2</div>
+	<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

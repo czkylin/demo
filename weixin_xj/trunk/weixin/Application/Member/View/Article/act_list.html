@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>心血管知识</title>
+    <!--CSS库文件-->
+    <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <!--CSS当前页面文件-->
+    <link href="/weixin/Public/Expert/css/union/gongYiCiShan.css" type="text/css" rel="stylesheet" /> </head>
+<body>
+    <script type="text/javascript">
+        //截取标签
+        window.onload = function () {}
+    </script>
+    <div class="pad_15 mainCon pad_top">
+        <ul class="gycs_list" id="act-list">
+            <volist name="act_list" id="act" empty="暂时没有数据">
+                <li>
+                    <h2><a href="{:U('Article/act_info',array('type_id'=>$type_id,'record_id'=>$act['RECORD_ID']))}" >{$act['ACT_TITLE']}</a></h2>
+                    <div class="time">
+                        <!-- <span>{$act['CREATE_DATE']|Dtodiy='Y-m-d',###}至{$act['ACT_END_DATE']|Dtodiy='Y-m-d',###}</span> -->
+                        <span>{$act['CREATE_DATE']|Dtodiy='Y-m-d',###}</span>
+                    </div>
+                    <a href="{:U('Article/act_info',array('record_id'=>$act['RECORD_ID']))}" class="pic"> <img src="{$act['ACT_PIC']}">
+                        <div class="img-mask">
+                            <p class="mask-tit">心血管知识 </p>
+                            <p class="mask-des">
+                                <?php echo strip_tags(html_entity_decode($act['ACT_DESC']))?>
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </volist>
+        </ul>
+        <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+        <div id="current_pagenum" style="display:none">2</div>
+        <div id="current_province" style="display:none">{$province_id}</div>
+        <div id="current_type_id" style="display:none">{$type_id}</div>
+    </div>
+    <!--通底的引用开始-->
+    <!-- <include file="Public:footer_fd" />  -->
+    <script>
+        var over_footer = '1';
+    </script>
+    <!--通底的引用结束-->
+    <!--Js库文件-->
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+    <!--加载更多-->
+    <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script>
+    <script>
+        function search_list(greate_date, province_id) {
+            if (province_id != '') {
+                $('#current_province').text(province_id);
+            }
+            if ($('#current_province').text() == '0') {
+                $('#current_province').text('');
+            }
+            $('#current_pagenum').text('1');
+            $('#act-list').html('');
+            $('.ui-jiazai').children('a').text('加载更多');
+            loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=Article&a=act_list_append&type_id=' + $('#current_type_id').text() + '&province_id=' + $('#current_province').text() + '', '#act-list');
+        }
+        
+        var onOff = true;
+        window.onscroll = function(){
+            load_more('#act-list');
+        }
+        function load_more(obj)
+        {	
+            if(!onOff) return;
+            if($(obj).height() <= $(document).scrollTop() + $(window).height()){
+                onOff = !onOff;
+                loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=Article&a=act_list_append&type_id=' + $('#current_type_id').text() + '&province_id=' + $('#current_province').text() + '', '#act-list');
+            }
+        }
+        /*function load_more() {
+            loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=Article&a=act_list_append&type_id=' + $('#current_type_id').text() + '&province_id=' + $('#current_province').text() + '', '#act-list');
+        }*/
+    </script>
+    <include file="Public:tj" />
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+    <div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

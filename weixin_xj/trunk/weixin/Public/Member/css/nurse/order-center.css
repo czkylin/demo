@@ -1,0 +1,83 @@
+/*state*/
+#state{
+	border-bottom: 1px solid #e7e7e7;
+}
+#state li{
+	height: 1.8rem;
+	line-height: 1.8rem;
+	text-align: center;
+	font-size: 0.64rem;
+	color: #333333;
+	width: 25%;
+	float: left;
+	display: block;
+	border-bottom: 0.08rem solid #fff;
+}
+#state li.active{
+	color: #ef4a65;
+	border-bottom: 0.08rem solid #ef4a65;
+}
+/*order*/
+.order{}
+.order .time{
+	padding: 0 .48rem;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 0.52rem;
+	color: #333;
+	border-bottom: 1px solid #e7e7e7;
+}
+.order .state{
+	float: right;
+}
+.order .state.red{
+	color: #fe0101;
+}
+.order .state.green{
+	color: #4db000;
+}
+.order .state.orange{
+	color: #ff6d00;
+}
+.order .con{
+	padding: 0.2rem 0.48rem;
+	background: #f5f5f5;
+}
+.order .con h3{
+	font-size: 0.6rem;
+	color: #333;
+	line-height: 1rem;
+}
+.order .con p{
+	font-size: 0.56rem;
+	color: #666666;
+	line-height: 1rem;
+}
+.order .btn{
+	padding: 0.5rem 0.48rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+.order .btn .cancel{
+	float: left;
+	width: 3rem;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	border: 1px solid #cccccc;
+	border-radius: 0.1rem;
+	font-size: 0.52rem;
+	color: #666;
+	margin-left: 0.4rem;
+}
+.order .btn .gopay,.order .btn .again,.order .btn .cuidan{
+	float: left;
+	width: 3rem;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: center;
+	border: 1px solid #ef4a65;
+	border-radius: 0.1rem;
+	font-size: 0.52rem;
+	color: #ef4a65;
+	margin-left: 0.4rem;
+}

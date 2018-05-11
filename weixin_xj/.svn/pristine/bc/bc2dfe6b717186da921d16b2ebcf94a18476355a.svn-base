@@ -1,0 +1,204 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!-- CSS公共 -->
+<link rel="stylesheet" href="/weixin/Public/Common/css/commonIcon/icon.css">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/jtys/index.css" type="text/css" rel="stylesheet"/>
+
+<title>VIP会员服务</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+	<!-- header -->
+	
+	<div class="header">
+		<div class="touxiang">
+			<if condition="($big['EXPERT_SEX'] eq '男') && ($big['SMALL_PIC'] eq '')">
+                                                
+                <img src="/weixin/Public/Expert/images/yonghu/boy.png" width="60" height="60">
+            <elseif condition="($big['EXPERT_SEX'] eq '女') && ($big['SMALL_PIC'] eq '')"/>
+
+                <img src="/weixin/Public/Expert/images/yonghu/girl.png"  width="60" height="60">
+            <else />
+                <img src="{$big['SMALL_PIC']}" width="60" height="60">
+            </if>
+			<i></i>
+		</div>
+		<p class="des1"><span>{$big[EXPERT_NAME]}</span><i>{$big[EXPERT_ROLE]}</i></p>
+		<p class="des2">{$big[HOS_NAME]}</p>
+	</div>
+	<div style="display: none;" id="expert_id">{$big[EXPERT_ID]}</div>
+		
+	<!-- server -->
+	<div class="server">
+		<ul class="clear server-list">
+			<li>
+				<a href="{:U('Member/Consult/consult_details',array('expert_id'=>$big['EXPERT_ID'],'consult_id'=>'0'))}">
+					<p>咨询服务</p>
+					<span>图文咨询，充分沟通</span>
+				</a>
+			</li>
+			<li>
+				<a href="{:U('Member/User/fuwu_list',array('expert_id'=>$big[EXPERT_ID]))}">
+					<p>服务预约</p>
+					<span>直接预约，高效直接</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- person server -->
+	<if condition="empty($small)">
+
+	<else />
+		<div class="personal">
+			<div class="des clear">
+				<div class="touxiang">
+					<if condition="($small[EXPERT_SEX] eq '男') && ($small[SMALL_PIC] eq '')">
+	                                                
+	                <img src="/weixin/Public/Expert/images/yonghu/boy.png" width="60" height="60">
+	            <elseif condition="($small[EXPERT_SEX] eq '女') && ($small[SMALL_PIC] eq '')"/>
+	                <img src="/weixin/Public/Expert/images/yonghu/girl.png"  width="60" height="60">
+	            <else />
+	                <img src="{$small[SMALL_PIC]}" width="60" height="60">
+	            </if>
+					<i></i>
+				</div>
+				<div class="con">
+					<p><b>{$small[EXPERT_NAME]}</b> <i>{$small[EXPERT_ROLE]}</i></p>
+					<span>{$small[HOS_NAME]}</span>
+				</div>
+			</div>
+			<ul class="clear des-list">
+				<li>
+					<a href="{:U('Member/Consult/consult_details',array('expert_id'=>$small['EXPERT_ID'],'consult_id'=>'0'))}">
+						<p>咨询服务</p>
+						<span>图文咨询，充分沟通</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</if>
+	<!-- card server -->
+	<!-- <div class="card">
+		<div class="des clear">
+			<div class="touxiang">
+				<img src="/weixin/Public/Member/images/jtys/index/touxiang.jpg" alt="">
+				<i></i>
+			</div>
+			<div class="con">
+				<p><b>刘冰</b></p>
+				<span>QQ:4535788245</span>
+			</div>
+			<div class="tel">
+				电话：<a href="tel:13261175139;">13261175139</a>
+			</div>
+		</div>
+	</div> -->
+	<!-- zixun -->
+	<div class="zixun">
+		<div class="zixun-tit">
+			<h2>我的咨询</h2>
+			<a href="{:U('Member/Doc/doc_consult_list',array('doc_id'=>$big[EXPERT_ID]))}">查看全部咨询</a>
+		</div>
+		<volist name="consult_list" id="consult" empty="暂无数据" offset='0' length='5'>
+			
+				<div class="zixun-con">
+					<div class="yisheng">
+						<if condition="$consult['REP_FALG'] eq '已回复'">
+							<if condition="($consult['EXPERT_SEX'] eq '男') && ($consult['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')">
+	                                                
+	                            <img src="/weixin/Public/Expert/images/yonghu/boy.png" width="60" height="60">
+	                        <elseif condition="($consult['EXPERT_SEX'] eq '女') && ($consult['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')"/>
+
+	                            <img src="/weixin/Public/Expert/images/yonghu/girl.png"  width="60" height="60">
+	                        <else />
+	                            <img src="{$consult.SMALL_PIC}" width="60" height="60">
+	                        </if>
+                        <else />
+							
+							<img src="{$user_info.MEMBER_PIC}" width="60" height="60">
+                        </if>
+                        
+							<div class="yisheng-con">
+								<if condition="$consult['REP_FALG'] eq '未回复'">
+									<span>{$user_info[MEMBER_NAME]}:</span>
+									<i class="red">未回复</i>
+								<else />
+									<span>{$consult[EXPERT_NAME]}:</span>
+									<i class="blue">已回复</i>
+								</if>
+							</div>
+						
+					</div>
+					<div class="huanzhe">
+						<p class="huanzhe-con limit"><a href="/weixin/index.php?m=Member&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID']}" style='display: block'>{$consult[CONSULT_CONTENT]}</a></p>
+						<div class="btn-wrap">
+							<i class="ui-icon-unfold con-btn"></i>
+						</div>
+						<span>{$consult[CONSULT_DATE]}</span>
+					</div>
+				</div>
+		</volist>
+	</div>			
+
+	
+<include file="Public:footer_bottom" />
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+	$(".con-btn").attr("onOff",'true');
+	$(".con-btn").on('touchend',function(){
+		if( $(this).attr("onOff") == 'true' ){
+			$(this).parent().prev().removeClass("limit");
+			$(this).css("transform","rotate(-180deg)");
+			$(this).parent().css("text-align","inherit");
+			$(this).attr("onOff",'false');
+			console.log(1);
+		}else{
+			$(this).parent().prev().addClass("limit");
+			$(this).css("transform","rotate(0)");
+			$(this).parent().css("text-align","right");
+			$(this).attr("onOff",'true');
+		}
+	});
+
+	//文字添加
+	// var arr = [
+	// 	{
+	// 		'title':"在线咨询",
+	// 		"des":"图文资讯，充分沟通"
+	// 	},
+	// 	{
+	// 		'title':"语音电话",
+	// 		"des":"直接语音，高效直接"
+	// 	},
+	// 	{
+	// 		'title':"视频咨询",
+	// 		'des':"直接视频，高效直接"
+	// 	}
+	// ];
+
+	// $(".server-list li").each(function(index){
+	// 	var str = arr[index].des;
+	// 	$(this).find('span').html(str);
+	// })
+	// $(".des-list li").each(function(index){
+	// 	var str = arr[index].des;
+	// 	$(this).find('span').html(str);
+	// })
+</script>
+
+<!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->     
+     <div style="height:0px;overflow:hidden;">
+         <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?>
+     </div>
+</body>
+</html>

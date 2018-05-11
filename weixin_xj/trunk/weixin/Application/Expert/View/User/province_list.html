@@ -1,0 +1,142 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--分享页面样式调用-->
+<link href="/weixin/Public/Expert/css/zhuanjiagongzuoshi/zhuanjiagongzuoshi.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<title>完善信息</title>
+</head>
+<body >
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+	<p style=" background:#666; color:#fff; line-height:50px;width:200px; height: auto; text-align:center; margin: 0 auto; padding: 10px;display: none;" id="msg"></p>
+</div>
+<div class="gp GJ_Gp g-items gp-profile-auth" id="hos" >
+	<ul id="test">
+		<li class="avatar">
+			<label class="sz_city">选择省份:</label>
+			<select id="s_province" name="s_province"  onchange="get_city(this.value)">
+				<option value="kong">请选择</option>
+				<volist name='data' id='value'>
+					<option value="{$value.PROVINCE_ID}">{$value.PROVINCE_NAME}</option>
+				</volist>
+			</select>  
+		</li>
+		<li class="avatar">
+			<label class="ghgl">选择市区:</label>
+			<select id="s_city" name="s_city"  onchange="get_hos(this.value)">
+				<option value="kong">请选择</option>
+			</select>
+		</li>
+		<li class="avatar" id="test1">
+			<label class="ghgl" >选择医院:</label>
+			<select id="hos_id" name="hos_id" >
+				<option value="kong">请选择</option>
+			</select>      
+		</li>
+        <li class="newyy avatar" style="display:none" >
+        <label class="ghgl" >新增医院:</label>
+        <input type="text" placeholder="请输入医院名称" id="newyy">
+   		</li>
+	</ul>
+<input type="hidden" id="truename" value="{$url_data.truename}"/>
+<input type="hidden" id="zhic" value="{$url_data.zhic}"/>
+<div class="xuanze_wanc"><a href="#" onClick="selhos()">完成</a></div>
+</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+	
+ 	$("#hos_id").change(function(){ 
+	 //alert();
+		var hos_id = $('#hos_id').val();	
+		if (hos_id=='0'){
+		$('.newyy').show();
+		}else
+		{
+		$('.newyy').hide();
+		}
+		 
+	 }); 
+
+
+
+/*$("#hos_id").delegate("option","click",function(){
+	alert();
+  var hos_id = $('#hos_id').val();	
+		if (hos_id=='0'){
+		$('.newyy').show();
+		}else
+		{
+		$('.newyy').hide();
+		}
+});
+
+
+
+$("select").delegate("option","onchange",function(){
+	alert();
+  $("p").slideToggle();
+});*/
+
+
+// 获取市
+    function get_city(val){
+        $.ajax({
+            type: "POST", 
+            url: "{:U('User/city_list')}", 
+            data: "province_id="+val,
+            error: function (XMLHttpRequest, textStatus, errorThrown) {},
+            success: function (msg){
+                $('#s_city').html(msg);//追加市内容
+                $('#hos_id').html('<option value="kong">请选择</option>');
+            }
+        });
+    }
+// 获取医院
+    function get_hos(val){
+        $.ajax({
+            type: "POST", //用POST方式传输
+            url: "{:U('User/hos_list')}", 
+            data: "city_id="+val,
+            error: function (XMLHttpRequest, textStatus, errorThrown) { },
+            success: function (msg){
+                $('#hos_id').html(msg);
+            }
+        });
+    }
+// 返回完善信息页面
+    function selhos(){
+        var truename = $('#truename').val();
+        var pro = $('#s_province').val();
+        var city = $('#s_city').val();
+        var hos_id = $('#hos_id').val();
+        var hosname=$("#hos_id").find("option:selected").text();
+        var zhic = $('#zhic').val();
+		if (hos_id=='0'){
+			hosname=$("#newyy").val();
+			}
+        location.href = '?m=expert&c=user&a=band_name&truename='+truename+'&pro='+pro+'&city='+city+'&hos_id='+hos_id+'&hosname='+hosname+'&zhic='+zhic
+    }
+    function fail(){
+        $('#msg').hide();
+    }
+	
+
+	
+	 
+
+
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html class="ui-mobile">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/xinjie/daoyi.min.css" type="text/css">
+    <script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+    <!--<script src="/weixin/Public/Member/js/hhSwipe.js"></script>-->
+    <meta name="share-title" content="">
+    <title>导医陪同-远程心界</title>
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:rgb(240, 240, 240);">
+    <div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+        <div data-role="content" class="ui-content" role="main">
+            <div class="experts">
+                <div class="top"> <span class="guahao"><a href="#">导医陪同</a></span> </div>
+                <div class="scroll relative">
+                    <div class="scroll_box" id="scroll_img">
+                        <ul class="scroll_wrap">
+                            <li>
+                                <a href="#"><img src="/weixin/Public/Member/images/xj/banner1.jpg" /></a>
+                            </li>
+                            <!--<li>
+                                <a href="#"><img src="/weixin/Public/Member/images/xj/banner2.jpg" /></a>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <!--<ul class="scroll_position" id='scroll_position'>
+                        <li class="on"><a href="javascript:void(0);">1</a></li>
+                        <li><a href="javascript:void(0);">2</a></li>
+                    </ul>-->
+                </div>
+                <h2>服务介绍</h2>
+                <p>一站式陪诊服务”为患者提供候诊陪同、
+                    <br> 划价、交费、取送化验单、指引就诊等，
+                    <br> 免去患者不熟悉环境和就诊流程，
+                    <br> 白跑冤枉路,尊重关怀患者，让患者省心看病。 </p>
+                <div class="load-more" id="js-load-more" style="display: block;"> <a href="/dyptlist/" data-role="button" data-theme="b2" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-btn-up-b2 ui-shadow ui-btn-corner-all"><span class="ui-btn-inner ui-btn-corner-all"> <span class="ui-btn-text" id="button">在线申请</span> </span></a> </div>
+                <!--  <div class="button">
+		<span class="online"><a href="service_process.html">服务流程</a></span>
+    	<span class="phone"><a  href="/daoyipeitongHtml/">精选案例</a></span>        
+            </div>-->
+
+                <ul class="index_list">
+                    <li>
+                        <div class="index_list_box">
+                            <a href="service_process.html">
+                                <div class="index_list_img">
+                                    <p><img src="/weixin/Public/Member/images/xj/ico.png" /></p>
+                                    <p>服务流程</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="index_list_box">
+                            <a href="/chenggonganli/daoyipeitong/">
+                                <div class="index_list_img">
+                                    <p><img src="/weixin/Public/Member/images/xj/ico2.png" /></p>
+                                    <p>精选案例</p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <div class="clearfix"></div>
+                </ul>
+                <script src='/plus/ad_js.php?aid=30' language='javascript'></script>
+            </div>
+        </div>
+        <!-- analytics code -->
+        <div class="hide">
+            <script src="http://s95.cnzz.com/z_stat.php?id=1253891981&web_id=1253891981" language="JavaScript"></script>
+            <!--<script src="/weixin/Public/Member/js/gundong.js"></script>-->
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

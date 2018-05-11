@@ -1,0 +1,15 @@
+*{margin:0;padding:0;}
+li{list-style:none;}
+a{text-decoration:none;}
+i{ font-style:normal;}
+img{border-width:0;vertical-align:middle;}
+.clear{overflow:hidden;}
+.box{display:box;display:-webkit-box;}
+.center{display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.flex{display:flex;display:-webkit-flex;}
+.text-center{text-align:center;}
+.text-left{text-align:left;}
+.text-right{text-align:right;}
+.fl{float:left;}
+.fr{float:right;}
+.flexWrap{display:flex;display:-webkit-flex;flex-wrap:wrap;}

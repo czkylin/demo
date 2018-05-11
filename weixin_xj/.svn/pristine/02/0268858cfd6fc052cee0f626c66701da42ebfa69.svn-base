@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+body{ font-family:"微软雅黑";}
+.pay_all{ width:100%; height:auto;}
+.pay_icon{ width:100%; height:auto; padding:20px 0; background:#eee; text-align:center;}
+.pay_icon img{ width:25%; height:auto; margin-bottom:20px;}
+.pay_icon span{ display:block; text-align:center; font-size:18px; color:#333;}
+.dingdan_info{ padding:0px 15px;}
+.dingdan_info p{ border-bottom:1px solid #e7e7e7; height:40px; line-height:40px; font-size:16px; color:#333;}
+.dingdan_info p span{ color:#666;}
+.dingdan_info p i{ color:#f00;}
+.dingdan_info p:last-of-type{ border-width:0;}
+.wanc_zt{ padding:15px 0px 20px; overflow:hidden;}
+.wanc_zt a{ width:46%; height:32px; color:#ef4a65; line-height:32px; font-size:16px; display:block; float:left; text-align:center; border:1px solid #ef4a65; border-radius:5px;}
+.wanc_zt a.back{ float:right;}
+.gefm,.gefm img{ width:100%; height:auto;}
+.gefm a{ display:block;}-
+.tj_more{ padding:15px 15px 30px;}
+.tj_more h2,.tj_more h2 img{ width:100%; height:auto;}
+.tj_list{ width:100%; height:auto; overflow:hidden; margin-top:10px;}
+.tj_list li{ width:48%; height:auto; margin-bottom:25px; float:left; margin-right:4%;}
+.tj_list li img{ width:100%; height:auto;}
+.tj_list li a{ display:block;}
+.tj_list li:nth-child(2n){ margin-right:0;}
+
+
+
+
+
+
+
+
+
+
+
+

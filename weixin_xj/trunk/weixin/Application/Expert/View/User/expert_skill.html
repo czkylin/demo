@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--分享页面样式调用-->
+<link href="/weixin/Public/Expert/css/zhuanjiagongzuoshi/zhuanjiagongzuoshi.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<title>擅长</title>
+</head>
+<body>
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+	<p style=" background:#666; color:#fff; line-height:50px;width:200px; height: auto; text-align:center; margin: 0 auto; padding: 10px;display: none;" id="msg"></p>
+</div>
+<form action="{:U('User/expert_update_info')}" method="post" id="form" name="form">
+	<div class="gp-quankezixun-zixun">
+		<div class="g-list shadow">
+			<div class=" item both content">
+				<textarea placeholder="请输入您的擅长，越详细越方便患者咨询" name="column_value" id="v_content">{$skill}</textarea>
+			</div>
+		</div>
+	</div>
+	<p class="shanchang">擅长更改后经审核通过，将在专家工作室展示</p>
+	<div class="queding">
+		<a href="#" onclick="checkform()">完成</a>
+	</div>
+	<input type="hidden" name="column_name" id="column_name" value="expert_skill">
+</form>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+function checkform()
+{
+	var v_content = $.trim($('#v_content').val());
+	if(v_content==''){
+		alert('擅长不能为空,请填写!');
+		return false;
+	}
+	else
+	{
+		form.submit()
+	}
+}
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

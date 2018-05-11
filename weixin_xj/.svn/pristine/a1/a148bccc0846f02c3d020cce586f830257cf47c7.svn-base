@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="/weixin/Public/Expert/css/consult/consult_add.css" type="text/css" rel="stylesheet"/>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize=document.documentElement.clientWidth/10 + "px";
+</script>
+<title>远程会诊</title>
+</head>
+<body>
+	<ul class="list">
+		<li>
+			<span>选择专家：</span>
+			<a href="javascript:;"><input type="text" readonly="readonly" placeholder="请选择"></a>
+		</li>
+		<li>
+			<span>选择患者：</span>
+			<a href="javascript:;"><input type="text" readonly="readonly" placeholder="请选择"></a>
+		</li>
+		<li>
+			<span>会诊时间：</span>
+			<a href="javascript:;"><input type="text" readonly="readonly" placeholder="请选择" class="text"></a>
+		</li>
+	</ul>
+	<div class="description">
+		<p>描述</p>
+		<textarea name="" id="" cols="30" rows="10"></textarea>
+	</div>
+	<a href="javascript:;" class="link">发起问诊</a>
+</body>
+</html>

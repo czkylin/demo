@@ -1,0 +1,21 @@
+<volist name="list" id="list">
+
+<a href="/weixin/index.php?m=Member&c=Operation&a=operation_detail&oid={$list['ORDER_ID']}">
+
+	<li>
+        <if condition="($list['HOS_PIC'] eq '')"><img src="/weixin/Application/Member/View/images/icon/operation.png" width="60px"  height="60px"/>
+            <else/>
+            <img src="{$list['HOS_PIC']}" width="60px"  height="60px"/>
+            </if>
+
+		<h2>{$list['HOS_NAME']}</h2><i class="tongguo">{$list['ORDER_STATUS']}</i>
+
+		<h2>{$list['MEMBER_NAME']}&nbsp;&nbsp;{$list['ORDER_NAME']}</h2> 
+
+		<span>预约时间：{$list['ORDER_DATE']}</span>
+
+	</li>
+
+</a>∮
+
+</volist>

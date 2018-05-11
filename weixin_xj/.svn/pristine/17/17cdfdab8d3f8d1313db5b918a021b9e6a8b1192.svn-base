@@ -1,0 +1,35 @@
+<volist name="cf_list" id="cf">
+		<li>
+			<a class="list_img" href="{:U('Home/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'order_status'=>$cf['ORDER_STATUS'],'cf_pic'=>$cf['CF_PIC']))}">
+            <if condition="$cf['CF_PIC'] neq '' ">
+            <img src="{$cf['CF_PIC']}" width="40px" height="40px" />
+            </if>
+            </a>
+            <div class="list_txt">
+                <h3><span>患者：{$cf['MEMBER_NAME']}<b></b></span></h3>
+                <p><a href="{:U('Home/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID']))}">{$cf['CF_CONTENT']}</a></p>
+                <h4><span>处方状态：{$cf['ORDER_STATUS']}</span><time>{$cf['CREATE_DATE']}</time></h4>
+                <h4><span>处方价格：{$cf.ORDER_MONEY}元</span></h4>
+            </div>
+            <a class="list_right" href="{:U('Home/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID']))}"></a>
+
+		</li>∮
+</volist>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

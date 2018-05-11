@@ -1,0 +1,279 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/zhuanjia.min.css" type="text/css" rel="stylesheet"/>
+<title>医生简介</title>
+</head>
+
+<body >
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+  <p class="msgtishi"  id="msg"></p>
+</div>
+<div class="zhuanjiaInfo">
+  <div class="zhuanjiaInfoCon">
+    <div class="yuyueL"> 
+      
+      <!--<span class="liang">预约量：<span class="colorHuang">78</span></span><br>--> 
+      
+      <span class="liang">咨询量：<span class="colorHuang">{$doc['ZX_COUNT']+17}</span></span></div>
+    <div class="zhuanjiaInfoConImg"> <img src="{$doc.SMALL_PIC}" height="70" width="70" /> </div>
+    <div class="zhuanjiaInfoConTxt">
+      <h2>{$doc.EXPERT_NAME}</h2>
+      <p></p>
+      <p>{$doc.HOS_NAME}&nbsp;&nbsp;{$doc.DEP_NAME}</p>
+      <p id="content"> <a href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id={$doc.EXPERT_ID}">专家工作室</a> </p>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="content">
+  <div class="jianjieCon jianjie01">
+    <h3>{$doc.HOS_NAME}   {$doc.DEP_NAME}</h3>
+  </div>
+  <div class="jianjieCon jianjie02">
+    <h3 class="con_h3">擅长</h3>
+    <p> {$doc.EXPERT_SKILL} </p>
+  </div>
+  <div class="jianjieCon jianjie03">
+    <h3 class="con_h3">简介</h3>
+    <p>{$doc.EXPERT_DESC|DeleteHtml=###|msubstr=0,500,'utf-8',false}...</p>
+  </div>
+</div>
+<?php include_once("templets/footer_fd.html");?>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script>
+
+
+function gz()
+
+
+{
+
+
+	var getName = $('#ysname').val()
+
+
+	var doc_id = $('#doc_id').val()
+
+
+	//alert(getName)
+
+
+	//return false
+
+
+	$.ajax
+
+
+	({
+
+
+		type: "POST", //用POST方式传输
+
+
+		url: 'doc_gzs.php', //目标地址
+
+
+		data: "dopost=ajax_cklogin",
+
+
+		error: function (XMLHttpRequest, textStatus, errorThrown) { },
+
+
+		success: function (msg)
+
+
+		{
+
+
+			if(msg=='no')
+
+
+			{
+
+
+				location.href = 'index1.php'
+
+
+				return false;
+
+
+			}
+
+
+			else
+
+
+			{
+
+
+				$.ajax({
+
+
+					type: "POST", //用POST方式传输
+
+
+					url: 'doc_gzs.php', //目标地址
+
+
+					data: "dopost=ajax_gz&doc_id="+doc_id+"&getName="+getName,
+
+
+					error: function (XMLHttpRequest, textStatus, errorThrown) { },
+
+
+					success: function (msg)
+
+
+					{
+
+
+						if(msg=='no')
+
+
+						{
+
+
+							$('#msg').show();
+
+
+							$('#msg').html('系统繁忙，请稍候再试！');
+
+
+							setTimeout(function(){fail();},1000);
+
+
+							return false
+
+
+						}
+
+
+						if(msg=='guanzhu')
+
+
+						{
+
+
+							$('#msg').show();
+
+
+							$('#msg').html('关注成功');
+
+
+							setTimeout(function(){success();},1000);
+
+
+							return false
+
+
+						}
+
+
+						if(msg=='quxiao')
+
+
+						{
+
+
+							$('#msg').show();
+
+
+							$('#msg').html('已取消关注');
+
+
+							setTimeout(function(){fail();},1000);
+
+
+							return false
+
+
+						}
+
+
+					}
+
+
+				});
+
+
+			}
+
+
+		}
+
+
+	});
+
+
+}
+
+
+
+
+
+function fail()
+
+
+{
+
+
+	$('#gz').hide();
+
+
+	$('#ygz').show()
+
+
+	$('#content').html('<a class="guanzhu marright20" onclick="gz()" id="gz">+关注</a><a href="doc_gzs.php?mid=<?php echo $mid;?>">专家工作室 ></a>')
+
+
+	$('#msg').hide();
+
+
+}
+
+
+
+
+
+
+
+
+function success()
+
+
+{
+
+
+	$('#gz').hide();
+
+
+	$('#ygz').show()
+
+
+	$('#content').html('<a class="marright20" onclick="gz()" id="ygz" >已关注</a><a href="doc_gzs.php?mid=<?php echo $mid;?>">专家工作室 ></a>')
+
+
+	$('#msg').hide();
+
+
+}
+
+
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

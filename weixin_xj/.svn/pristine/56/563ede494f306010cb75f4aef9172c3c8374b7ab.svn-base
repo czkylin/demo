@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>期刊杂志列表页</title>
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="../../../../Public/Expert/css/college/qiKanZaZhi.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header class="ui-header"> <i class="ui-icon-return" onClick="history.back()"></i> </header>
+<div class="line"></div>
+<div class="pad_15 pad_top">
+        <div class="ui-search">
+                <div class="ui-searchtxt">
+                        <input type="text" value="请输入内容">
+                </div>
+                <input type="buttom" value="搜索" class="ui-btn-search">
+        </div>
+        <div class="qiKan_list">
+        	<dl>
+            	<dt><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></dt>
+                <dd>为蛇若何收费人话输入费人话输入费人话输入法核为蛇若何收费人话输入费人话输入费人话输入法核</dd>
+                <dd class="date">月刊</dd>
+            </dl>
+            <dl>
+            	<dt><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></dt>
+                <dd>为蛇若何收费人话输入法核</dd>
+                <dd class="date">月刊</dd>
+            </dl>
+            <dl>
+            	<dt><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></dt>
+                <dd>为蛇若何收费人话输入法核</dd>
+                <dd class="date">日刊</dd>
+            </dl>
+            <dl>
+            	<dt><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></dt>
+                <dd>为蛇若何收费人话输入法核</dd>
+                <dd class="date">季刊</dd>
+            </dl>
+            <dl>
+            	<dt><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></dt>
+                <dd>为蛇若何收费人话输入法核</dd>
+                <dd class="date">月刊</dd>
+            </dl>
+            <dl>
+            	<dt><img src="/weixin/Public/Expert/images/ganBingXueYuan/qikan.png"></dt>
+                <dd>为蛇若何收费人话输入法核</dd>
+                <dd class="date">月刊</dd>
+            </dl>
+        </div>
+</div>
+<include file="Public:tj" /></body>
+</html>

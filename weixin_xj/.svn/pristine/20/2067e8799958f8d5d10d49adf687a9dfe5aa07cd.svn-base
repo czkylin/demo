@@ -1,0 +1,148 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Expert/css/footer/footer_v2.css" type="text/css" rel="stylesheet">
+<!--分享页面样式调用-->		
+<link href="/weixin/Public/Expert/css/fenXiang/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/fenXiang/zhuanjia.min.css" type="text/css" rel="stylesheet"/>
+<title>修改病例信息</title>
+<style>
+	form{margin: 0;}
+	.gp-quankezixun-zixun .item.content textarea{width: 75%; border: 1px solid #DDDDDD; border-radius: 3px;}
+	.g-image-upload-box{margin-bottom: 10px;}
+	.gp-quankezixun-zixun .item.content{padding: 10px 2%;}
+	#bingli_name{height: 30px; border-radius: 3px;}
+	.g-btn-padding{background: none;}
+	.g-btn-padding #submit{height: 50px; background: #ff647c; border: none; color: #fff; font-size: 20px;}
+	.g-btn-padding{padding: 0;}
+</style>
+</head>
+<body>
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+<p class="msgtishi"  id="msg"></p>
+</div>
+<div id="J_QK_zixun" class="gp GJ_Gp gp-quankezixun-zixun" style="padding-bottom: 10px;">
+	<form method="POST" name="form" id="form" action="" enctype='multipart/form-data'>
+		<div class="g-list shadow">
+			<input type="hidden" name="case_id" value="{$bingli_info['CASE_ID']}"/>
+			<div class=" item both content">
+				病例名称：<input type="text" value="{$bingli_info['CASE_TITLE']}" name="bingli_name" id="bingli_name"/>
+			</div>
+			<div class="item both content">
+				病例描述：<textarea placeholder="请输入内容！" name="bingli_ms" id="bingli_ms">{$bingli_info['CASE_DESC']}</textarea>
+			</div>
+			<div class="item both uploader">
+				<div style="width:350px;margin:0px auto; text-align: center;">
+					<img src="{$bingli_info['CASE_PIC']}" id="pre_pic" width="300">
+				</div>
+			</div>
+		</div>
+		<div class="g-btn-padding" style="width:100%">
+			<input type="hidden" value="1" class="J_HiddenConsultLimit">
+			<input type="button" id="submit" value="提交" class="ui-btn-purchase-blue" onClick="return sub()" style=" display:block;width:100%"/>
+		</div><!-- gbn gbt-pri-->
+	</form>
+</div>
+<script type="text/javascript" src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/mobileFix.mini.js?v=8d13c59"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/exif.js?v=c65d9ea"></script>
+<script type="text/javascript" src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a"></script>
+<script type="text/javascript">
+function sub()
+{
+	var bingli_name = $("#bingli_name").val();
+	var imgbase64 = $("#imgbase64").val();
+	var bingli_ms = $("#bingli_ms").val();
+
+	if(bingli_name == "")
+	{
+		alert("请输入就诊名称！");
+		$("#bingli_name").focus();
+		return false;
+	}
+	if(bingli_ms == "")
+	{
+		alert("请输入就诊描述！");
+		$("#bingli_ms").focus();
+		return false;
+	}
+	if(imgbase64 == '')
+	{
+		alert("请添加图片！");
+		return false;
+	}
+	else
+	{
+		var str_data = $("#form").serialize();
+		$.ajax({
+			type: "POST",
+            url: "{:U('Member/User/bingli_update_ok')}",
+            async: true,
+            data: str_data,
+            success: function(msg)
+            {
+            	switch (msg)
+            	{
+	                case '1':
+	                    alert("修改成功！");
+	                    window.self.location=document.referrer;
+	                    return;
+	                    break;
+	                case '2':
+	                    alert("请添加图片！");
+	                    return;
+	                    break;
+	                default:
+	                    alert("系统繁忙，请稍后再试！");
+	                    return;
+	                    break;
+            	}
+        	},
+        	error: function(XMLHttpRequest, textStatus, errorThrown) 
+            {	
+            	alert("网络不稳定,请稍后再试或者重新刷新页面！");
+                // alert("绑定失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+            }
+        })
+    }
+}
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+{
+	lrz(input_file.files[0],
+	{
+		width:500,
+		before: function()
+		{
+			document.querySelector(press_status).innerHTML = "压缩处理开始，请稍后...";
+		},
+		fail: function(err)
+		{
+			document.querySelector(press_status).innerHTML = err;
+		},
+		always: function()
+		{
+			document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+		},
+		done: function (results)
+		{
+			document.querySelector(imgbase64).innerHTML = results.base64;//返回base64字符串，放置到textarea区域
+			document.querySelector(pre_pic).src = results.base64;//展示预览图片
+		}
+	});
+}
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>医生集团</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/medical/medical.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <header class="status">
+        <div class="st box">
+            <div class="left box">
+                <div class="img"><img src="/weixin/Public/Expert/images/teams/user.png" width="100%" /></div>
+                <div class="txt">
+                    <h3>赵琳</h3>
+                    <em>主任医师</em>
+                </div>
+            </div>
+            <div class="right">
+                <!-- 待审核 -->   
+                <i class="wait">待审核</i>
+                <!-- 已通过 -->
+                <!--<i class="ok">已通过</i>-->
+                <!-- 未通过 -->
+                <!--<i class="wait">未通过</i>-->
+            </div>
+        </div>
+    </header>
+    <article>
+        <section class="block">
+            <div class="tm">
+                <h2>基本信息</h2>
+                <p>
+                    <span><strong>执业地点：</strong>四川省第四人民医院</span>
+                    <span><strong>科室：</strong>心外科</span>
+                </p>
+            </div>
+        </section>
+        <section class="block">
+            <div class="tm">
+                <h2>擅长</h2>
+                <p>心血管疾病的诊治，尤其为高血压、冠心病、心率失常、心功能不全患者提出合理治疗方案。</p>
+            </div>
+        </section>
+        <section class="block">
+            <div class="tm">
+                <h2>简介</h2>
+                <p>四川医学院毕业，本科学历。198年参加工作以来一直从事外科工作，具有丰富的临床经验，兼职残疾人康复协会委员，获省、市科技进步奖3项，在国家和升级刊物上发表论文30余篇。研究方向：心脑血管手术，康复治疗等。</p>
+            </div>
+        </section>
+        <section class="block noLine">
+            <div class="tm">
+                <h2>审核意见</h2>
+                <p><b>科室不符</b></p>
+            </div>
+        </section>
+    </article>
+</body>
+</html>

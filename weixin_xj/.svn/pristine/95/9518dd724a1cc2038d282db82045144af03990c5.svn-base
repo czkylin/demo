@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+* { margin: 0; padding: 0; border: 0; }
+html, body { font-family: "微软雅黑" Arial, Helvetica, sans-serif; font-size: 16px; color: #666; }
+body { width: 100%;}
+body { background: none; }
+.main_card { min-width: 1000px; }
+img { border: none; vertical-align: sub; height:100%;}
+span { font-weight: normal; }
+ul, li { list-style: none; margin: 0; padding: 0; }
+a { cursor: pointer; color: #666; outline: none; text-decoration: none; font-weight: normal; }
+a:hover { text-decoration: none; color: #3385ff; }
+.clear { clear: both; }
+body { position: relative; }
+h2 { font-family: '幼圆'; font-size: 38px; font-weight: normal; }
+.mar_top { margin-top: 105px; }
+.page { width: 100%; height: 100%; position: absolute; }
+.page .wrap { height:100%; overflow: hidden; width:100%; text-align:center; position:relative; }
+.page-current { z-index: 1; }
+.hide { display: none; }
+
+/*上下滑动*/
+/*.up_down { width: 100%; height: auto; position: fixed; text-align: center; top: 90%; z-index: 999; }
+.up_down span { width: 21px; height: 26px; display: inline-block; }
+.up_down .black { width: 2.8%; height: 0; overflow: hidden; padding-top: 5.4%; z-index: 3; position: relative; margin-left: 48.5%; }
+.up_down .black em { width: 3px; height: 0; overflow: hidden; padding-top: 3px; position: absolute; bottom: 84%; left: 47%; display: block; margin-left: -10%; background-color: #000; display: block; -webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; -webkit-animation: fadein 1.5s infinite; animation: fadein 1.5s infinite; }
+h2 img{}*/
+
+.con{ position:relative;}
+.con img{ width:100%; height:auto;}
+.con a{ background:#d53434; width:120px; height:40px; line-height:40px; color:#fff;text-align:center; border-radius:5px;}
+.con .zixun1{ position:absolute; top:69% ; left:33%;}
+.con .zixun2{ position:absolute;top:94% ; left:33%;}
+.con .zixun3{ position:absolute;top:97.5% ; left:33%;background:#f97119;}
+.con .zixun4{ position:absolute;top:48% ; width:150px; left:28%; background:none; border:1px solid #fff;}
+.con .zixun5{ position:absolute;top:97.5% ; width:150px; left:28%;background:none; border:1px solid #fff;}
+.con .erweima{ position:absolute;top:43% ; left:28.5%; width:150px; height:150px; }
+

@@ -1,0 +1,77 @@
+a{
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+.clearfix:after{content: '';display: block; clear: both;}
+.user-title{padding: 10px 24px; background: url(/weixin/Public/Member/images/gerenzhongxin/header-bg.jpg) no-repeat; background-size: 100% 100%; position: relative; overflow: hidden;}
+.user-title .touxiang{width: 1.172rem; height: 1.172rem; position: relative; z-index: 5; text-align: center; margin: 0 auto; background: url(/weixin/Public/Member/images/gerenzhongxin/touxiang-quan.png) no-repeat center; background-size: 1.172rem 1.172rem;}
+.user-title .touxiang img{width: 0.616rem; height: 0.616rem; border-radius: 0.616rem; border: 3px solid #fff; margin-top: 0.28rem;}
+.user-title .touxiang .name{position: absolute; bottom: 5px; left: 0; display: block; width: 100%; text-align: center; font-size: 16px; color: #fff;}
+.user-title .touxiang .name span{width: 0.1rem; height: 0.1rem; display: inline-block; background:no-repeat center; background-size: 0.1rem;}
+.user-title .touxiang .name span.nan{background-image: url(/weixin/Public/Member/images/gerenzhongxin/nan.png);}
+.user-title .touxiang .name span.nv{background-image: url(/weixin/Public/Member/images/gerenzhongxin/nv.png);}
+.user-title .tel{ position: relative; z-index: 5; width: 100%; height: 0.18rem; line-height: 0.18rem; text-align: center; font-size: 14px; color: #fff;}
+.user-title .reg-time{ position: relative; z-index: 5; width: 100%; height: 0.18rem; line-height: 0.18rem; text-align: center; font-size: 14px; color: #fff;}
+.user-title .mask{display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; z-index: 1; width: 100%; height: 100%;}
+
+
+.hot{border-bottom: 10px solid #eeeeee;}
+.hot .hot-title{display:block; border-bottom: 1px solid #e0e0e0; padding:14px 24px; background:#fff; border-radius:0;color: #333; overflow:hidden;position:relative; padding-bottom:0;}
+.hot .hot-title span{float:left; width:30px;}
+.hot .hot-title span img{width:20px; height:20px;}
+.hot .hot-title b{font-size: 14px; color: #333; font-weight:normal; display:block; margin-left:30px; padding-bottom:14px;}
+.hot .hot-title i{position:absolute; top:15px; right:25px;}
+.hot .hot-title i img{width:8px;}
+.hot-list{padding: 10px 0;}
+.hot-list li,.hot-list li a{float: left; display: block; text-align: center;}
+.hot-list li a{width: 100%;}
+.hot-list li{width: 20%;}
+.hot-list li img{width: 36%;}
+.hot-list li p{color: #999999; font-size: 12px; line-height: 20px; text-align: center;}
+
+.info1-des1,.info1-des2,.info2-des1,.info2-des2,.info2-des3,.info2-des4,.info2-des5{padding:14px 0 0 30px; background: url(/weixin/Public/Member/images/gerenzhongxin/bl.png) no-repeat 1px center; background-size:20px; }
+.info1-des1 a,.info1-des2 a,.info2-des1 a,.info2-des2 a,.info2-des3 a,.info2-des4 a,.info1-des5 a,.info1-des6 a,.info1-des7 a,.info1-des8 a,.info2-des5 a{padding-bottom: 14px; display: block; font-size: 14px; color: #333; background:#fff url(/weixin/Public/Member/images/gerenzhongxin/youjiantou.jpg) no-repeat right 0; border-bottom: 1px solid #e0e0e0;}
+.info1-des5{padding:14px 0 0 30px; background: url(/weixin/Public/Member/images/gerenzhongxin/bl2.png) no-repeat 1px center; background-size:21px;}
+.info1-des6{padding:14px 0 0 30px; background: url(/weixin/Public/Member/images/gerenzhongxin/cy.png) no-repeat 1px center; background-size:22px;}
+.info1-des7{padding:14px 0 0 30px; background: url(/weixin/Public/Member/images/gerenzhongxin/fw.png) no-repeat 1px center; background-size:22px;}
+.info1-des8{padding:14px 0 0 30px; background: url(/weixin/Public/Member/images/gerenzhongxin/jf.png) no-repeat 1px center; background-size:20px;}
+.info2-des4 a{border-bottom: none;}
+.info1-des2{background:url(/weixin/Public/Member/images/gerenzhongxin/jzr.png) no-repeat 0 center; background-size:24px;}
+.info2-des1{background:url(/weixin/Public/Member/images/gerenzhongxin/cf.png) no-repeat 0 center; background-size:20px;}
+.info2-des2{background:url(/weixin/Public/Member/images/gerenzhongxin/yp.png) no-repeat 0 center; background-size:20px;}
+.info2-des3{background:url(/weixin/Public/Member/images/gerenzhongxin/dd.png) no-repeat 0 center; background-size:22px;}
+.info2-des4{background:url(/weixin/Public/Member/images/gerenzhongxin/ys.png) no-repeat 0 center; background-size:20px;}
+.info2-des5{background:url(/weixin/Public/Member/images/gerenzhongxin/zh.png) no-repeat 0 center; background-size:20px;}
+.info2{border-bottom: 0; margin-bottom: 0;}
+
+
+.info1,.info2{border-bottom: 10px solid #eeeeee; padding: 0 0 0 24px; }
+.info1{padding:0;}
+.info1 a,.info2 a{ display:block; padding:14px 0; background:#fff; border-radius:0;color: #333; overflow:hidden;position:relative; padding-bottom:0; border-bottom: 1px solid #e0e0e0;}
+.info1 a{padding:14px 0 14px 24px;}
+.info1 a:last-child,.info2 a:last-child{border-bottom: none;}
+.info1 span,.info2 span{ float:left; width:30px;}
+.info1 span img,.info2 span img{ width:20px; height:20px;}
+.info1 b,.info2 b{font-size: 14px; color: #333; font-weight:normal; display:block; margin-left:30px; padding-bottom:14px; }
+.info1 b{padding-bottom:0;}
+.info1 i,.info2 i{ position:absolute; top:15px; right:24px;}
+.info1 i img,.info2 i img{width: 8px;}
+.info2 b span{ float:none;}
+.info1 a:last-child b{ border:0;}
+.info2 a:last-child b{ border:0;}
+
+
+
+.hezuoHos { padding: 20px 12px 20px 120px; height: auto;  position: relative; background-color: #f5f5f5; -webkit-box-sizing: border-box; box-sizing: border-box; height:105px;}
+.hezuoHos .yiyuanpic { position: absolute; left: 12px; top:20px; width: 102px; height: 64px; max-height: 64px;border-radius: 5px; overflow:hidden; }
+.hezuoHos .yiyuanpic img{width: 100%; border-radius: 5px; }
+.hezuoHos .yiyuanpic b{width: 20px; height: 20px; background: url(/weixin/Public/Member/images/icon/new.png) no-repeat; background-size: 20px; position: absolute; left: 0; top: 0;}
+.hezuoHos p { line-height: 24px; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; color: #666; }
+.hezuoHos .hezuoHosdes p{ margin: 0 2px; }
+.hezuoHos p b { font-weight: normal; float: right; }
+.hezuoHos .juli{font-size: 12px; position: absolute; top: 0px; right: 8px; color: #666; padding-left: 10px; background: url(/weixin/Public/Member/images/icon/address.png) no-repeat 1px center; background-size: 8px;}
+.hezuoHosdes{height: 20px; overflow: hidden;}
+.hezuoHosdes p{float: left;}
+
+
+
+

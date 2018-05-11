@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- flexible动态设置 meta viewport-->
+<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+<script src="/weixin/Public/Common/js/flexible.js"></script>
+<link href="/weixin/Public/Expert/css/consult/launch_consult.css" type="text/css" rel="stylesheet"/>
+<title>发起会诊</title>
+</head>
+<body>
+	<h1><p><span>会诊</span></p></h1>
+	<ul class="list clear">
+		<li>
+			<a href="javascript:;">
+				<h2>发起会诊</h2>
+				<p>与好友研讨病症</p>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<h2>发起会诊</h2>
+				<p>与好友研讨病症</p>
+			</a>
+		</li>
+	</ul>
+</body>
+</html>

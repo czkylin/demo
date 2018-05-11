@@ -1,0 +1,284 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #fff;
+	overflow: hidden;
+}
+img{
+	vertical-align: top;
+}
+/*page1*/
+.page1{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/bg1.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page1-text{
+	position: absolute;
+	top: 4.5rem;
+	left: 2.14rem;
+}
+.page1 .p1,.page1 .p2,.page1 .p3,.page1 .p4{
+	display: block;
+	width: 1.3rem;
+	height: 1.3rem;
+	float: left;
+	margin-left: 0.12rem;
+	opacity: 0;
+}
+.page1 .p1{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20161001/jiu.jpg) no-repeat;
+	background-size: 1.3rem;
+}
+.page1 .p2{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/yue.jpg) no-repeat;
+	background-size: 1.3rem;
+}
+.page1 .p3{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/zhi.jpg) no-repeat;
+	background-size: 1.3rem;
+}
+.page1 .p4{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/xing.jpg) no-repeat;
+	background-size: 1.3rem;
+}
+.page1-tit{
+	position: absolute;
+	top: 6.25rem;
+	left: 2.14rem;
+}
+.page1 .p5,.page1 .p6,.page1 .p7{
+	display: block;
+	float: left;
+	width: 1.6rem;
+	height: 2rem;
+	margin-left: 0.2rem;
+	opacity: 0;
+}
+.page1 .p5{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/ban.jpg) no-repeat;
+	background-size: 1.6rem;
+}
+.page1 .p6{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/jiang.jpg) no-repeat;
+	background-size: 1.6rem;
+}
+.page1 .p7{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/li.jpg) no-repeat;
+	background-size: 1.6rem;
+}
+.page1 .huatong{
+	width: 1.27rem;
+	height: 2.93rem;
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/scene_micphone.png) no-repeat;
+	background-size: 1.27rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -0.635rem;
+	bottom:4rem;
+	opacity: 0;
+}
+.page1 .shandian1{
+	width: 0.72rem;
+	height: 0.4rem;
+	position: absolute;
+	left: 3.2rem;
+	bottom:6.5rem;
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/scene_soundicon.png) no-repeat;
+	background-size: 0.72rem;
+	opacity: 0;
+}
+.page1 .shandian2{
+	width: 0.72rem;
+	height: 0.4rem;
+	position: absolute;
+	right: 3.2rem;
+	bottom:6.9rem;
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/scene_soundicon.png) no-repeat;
+	background-size: 0.72rem;
+	opacity: 0;
+}
+
+.page1 .main-text{
+	width: 6.4rem;
+	height: 0.67rem;
+	position: absolute;
+	left: 1.8rem;
+	bottom: 1.3rem;
+	opacity: 0;
+}
+.page1 .main-text img{
+	width: 100%;
+}
+
+.page1.animate .p1{
+	animation:bounceIn 0.2s 0.4s forwards;
+	-webkit-animation:bounceIn 0.2s 0.4s forwards;
+}
+.page1.animate .p2{
+	animation:bounceIn 0.2s 0.6s forwards;
+	-webkit-animation:bounceIn 0.2s 0.6s forwards;
+}
+.page1.animate .p3{
+	animation:bounceIn 0.2s 0.8s forwards;
+	-webkit-animation:bounceIn 0.2s 0.8s forwards;
+}
+.page1.animate .p4{
+	animation:bounceIn 0.2s 1s forwards;
+	-webkit-animation:bounceIn 0.2s 1s forwards;
+}
+.page1.animate .p5{
+	animation:bounceIn 0.2s 1.2s forwards;
+	-webkit-animation:bounceIn 0.2s 1.2s forwards;
+}
+.page1.animate .p6{
+	animation:bounceIn 0.2s 1.4s forwards;
+	-webkit-animation:bounceIn 0.2s 1.4s forwards;
+}
+.page1.animate .p7{
+	animation:bounceIn 0.2s 1.6s forwards;
+	-webkit-animation:bounceIn 0.2s 1.6s forwards;
+}
+.page1.animate .huatong{
+	animation:fadeIn 0.4s 1.8s linear forwards;
+	-webkit-animation:fadeIn 0.4s 1.8s linear forwards;
+}
+.page1.animate .shandian1{
+	animation:fadeIn 1.2s 2s linear infinite;
+	-webkit-animation:fadeIn 1.2s 2s linear infinite;
+}
+.page1.animate .shandian2{
+	animation:fadeIn 1.4s 2.2s linear infinite;
+	-webkit-animation:fadeIn 1.4s 2.2s linear infinite;
+}
+.page1.animate .main-text{
+	animation:zoomIn 0.4s 2.2s forwards;
+	-webkit-animation:zoomIn 0.4s 2.2s forwards;
+}
+/*page2*/
+.page2{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20161001/bg2.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page2 .pic1{
+	width: 9.3rem;
+	margin: 2.5rem auto 0;
+	position: relative;
+}
+.page2 .pic1 img{
+	width: 100%;
+	height: 12.14rem;
+}
+.page2 .pic1 span{
+	position: absolute;
+	right: 0;
+	bottom: 0.5rem;
+	display: block;
+	width: 2.56rem;
+	text-align: center;
+	height: 1rem;
+	line-height: 1rem;
+	background: #b72b1a;
+	color: #e2cba1;
+	font-size: 0.67rem;
+}
+.page2 .jifen,.page2 .jiangjin{
+	font-size: 0.67rem;
+	color: #a5200a;
+	font-weight: bold;
+}
+.page2 .jifen{
+	position: absolute;
+	left: 0.67rem;
+	bottom: 1.1rem;
+}
+.page2 .jiangjin{
+	position: absolute;
+	right: 0.9rem;
+	bottom: 1.1rem;
+}
+
+/*page3*/
+.page3{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20161001/bg3.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page3 .jifen,.page3 .jiangjin,.page3-1 .jifen,.page3-1 .jiangjin,.page3-2 .jifen,.page3-2 .jiangjin{
+	font-size: 0.67rem;
+	color: #a5200a;
+	font-weight: bold;
+}
+.page3 .jifen,.page3-1 .jifen,.page3-2 .jifen{
+	position: absolute;
+	left: 0.67rem;
+	bottom: 1.1rem;
+}
+.page3 .jiangjin,.page3-1 .jiangjin,.page3-2 .jiangjin{
+	position: absolute;
+	right: 0.9rem;
+	bottom: 1.1rem;
+}
+
+/*page3-1*/
+.page3-1{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20161001/bg3-1.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+/*page3-2*/
+.page3-2{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20161001/bg3-2.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+
+/*page4*/
+.page4{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/bg4.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+/*page5*/
+.page5{
+	background: url(/weixin/Public/Home/images/zhuanti/zt20160901/bg5.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page5 .biaoti{
+	width: 8.95rem;
+	margin: 1rem auto 2rem;
+}
+.page5 .biaoti img{
+	width: 100%;
+}
+.page5 .renwu{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 9.64rem;
+	transform:translateX(100%);
+	-webkit-transform:translateX(100%);
+}
+.page5 .renwu img{
+	width: 100%;
+}
+.page5 .more{
+	width: 3.7rem;
+	margin: 0 auto;
+	position: relative;
+}
+.page5 .more img{
+	opacity: 0;
+	width: 100%;
+}
+.page5.animate .renwu{
+	animation:slideInRight 0.6s 0.2s forwards;
+	-webkit-animation:slideInRight 0.6s 0.2s forwards;
+}
+.page5.animate .more img{
+	animation:flash 2.4s 1s linear infinite;
+	-webkit-animation:flash 2.4s 1s linear infinite;
+}

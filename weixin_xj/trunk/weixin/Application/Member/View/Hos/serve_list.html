@@ -1,0 +1,127 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/portal.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Member/css/stylev3.css" type="text/css" rel="stylesheet"/>
+
+<style>
+        .open_service .ser_right .jiage button{
+                background: none;
+                color: #ff7200;
+                border:1px solid #ff7200;
+        }
+        .open_service ul li{
+                border-bottom: 1px solid #b6b6b6;
+                padding-bottom: 10px;
+        }
+        .open_service ul li:last-of-type{
+                border-bottom: none;
+        }
+        .open_service .ser_right{
+            float: left; 
+            margin-left: 1%;   
+        }
+        .open_service .ser_right div:nth-of-type(1){
+            line-height: 16px;
+        }
+        @media screen and (max-width:320px){
+            .open_service .ser_right{float: right;}
+            .open_service .ser_right div:nth-of-type(1){
+                overflow: hidden;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 5;
+                min-height: 100px;
+                line-height: 20px;
+            }
+        }
+
+</style>
+<!-- title -->
+
+<title>开通服务</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:rgb(240, 240, 240);" >
+<div  id="gp-experts"  class="ui-page ui-body-c ui-page-active" style="min-height: 480px; position:inherit;">
+        <div data-role="content" class="ui-content" role="main">
+                <div class="head">
+                        <div class="hos_deil">
+                                <h2>{$hos_name}</h2>
+                        </div>
+                        <ul>
+                                <li><a class="curr" href="#">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos1_2.png"></p>
+                                        <p class=" mat_10 font14">开通服务</p>
+                                        </a></li>
+                                <li><a href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos_id}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos2.png"></p>
+                                        <p class=" mat_10 font14">医院详情</p>
+                                        </a></li>
+                                <li><a href="/weixin/index.php?m=Member&c=Hos&a=jiaotong&hos_id={$hos_id}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos3.png"></p>
+                                        <p class=" mat_10 font14">交通路线</p>
+                                        </a></li>
+                                <!-- <li><a href="/weixin/index.php?m=Member&c=Hos&a=ry_list&hos_id={$hos_id}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos4.png"></p>
+                                        <p class=" mat_10 font14">医院荣誉</p>
+                                        </a></li> -->
+                                <li><a href="/weixin/index.php?m=Member&c=Hos&a=doc_list&hos_id={$hos_id}">
+                                        <p><img src="/weixin/Application/Member/View/images/hos/hos5.png"></p>
+                                        <p class=" mat_10 font14">专业医生</p>
+                                        </a></li>
+                        </ul>
+                </div>
+                <if condition="empty($serve_list)">
+                    <div class="nodetail">
+                            <img src="/weixin/Public/Common/images/icon/icon1.png" alt="">
+                            <i>暂无数据</i>
+                    </div>
+                <else />
+                <div class="open_service">
+                        <ul>
+                                <volist name="serve_list" id="serve" empty="暂时无数据">
+                                    <if condition="($serve['SERVE_ID'] eq 25) or ($serve['SERVE_ID'] eq 29)">
+                                        <li>
+                                                <div class="left ser_left"> <img src="{$serve.SERVE_PIC}">
+                                                        <p>{$serve.SERVE_NAME}</p>
+                                                </div>
+                                                <div class="ser_right">
+                                                        <div style="color:#666; font-size:12px;">{$serve['SERVE_CONTENT']|htmlspecialchars_decode} </div>
+                                                        <div class="jiage"> <b>￥{$serve.SERVE_MONEY}</b> <a href="/weixin/index.php?m=Member&c=Hos&a=serve_detail&hos_id={$hos_id}&serve_id={$serve['SERVE_ID']}">
+                                                                <button type="submit" class="goumai">立即购买</button>
+                                                                </a> </div>
+                                                </div>
+                                        </li>
+                                    </if>
+                                </volist>
+                        </ul>
+                </div>
+                </if>
+        </div>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>

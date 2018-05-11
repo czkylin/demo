@@ -1,0 +1,18 @@
+/*common css*/
+body{font-family: Microsoft Yahei,SimSun,Helvetica;}
+li{list-style: none;}
+img{vertical-align: top;}
+*{margin: 0; padding: 0;}
+a{text-decoration: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.clear:after{content: '';display: block; clear: both;}
+/*main css*/
+h1{padding: 0 .32rem; margin-top: .4rem; margin-bottom: 1rem;}
+h1 p{padding: .4rem 0; border-bottom: 1px solid #e7e7e7; font-size: 16px; color: #333; }
+h1 p span{display: block;border-left: 4px solid #4891ef;text-indent: .5em;}
+.list{padding: 0 .32rem;}
+.list li{float: left; width: 50%; padding-left: 1.25rem; box-sizing:border-box; -webkit-box-sizing:border-box;}
+.list li:nth-of-type(1){background: url(/weixin/Public/Expert/images/consult/icon_luanch.png) no-repeat 0.25rem center; background-size: 0.8rem; border-right: 1px solid #ececec;}
+.list li:nth-of-type(2){background: url(/weixin/Public/Expert/images/consult/icon_huizhen.png) no-repeat 0.25rem center; background-size: 0.8rem;}
+.list li a{display: block;}
+.list li h2{font-weight: normal; font-size: 16px; color: #333;}
+.list li p{font-size: 14px; color: #a3a3a3;}

@@ -1,0 +1,46 @@
+
+  <!-- 底部start -->
+    <div class="footer">
+      <div class="ft_top clear">
+        <div class="w1200">
+          <ul>
+            <li><a href="">诊疗项目</a></li>
+            <li><a href="/Service/minSug">糖网</a></li>
+            <li><a href="/Service/cataract">白内障</a></li>
+            <li><a href="/Service/fundusDiseases">眼底病</a></li>
+            <li><a href="/Service/optometry">眼视光</a></li>
+          </ul>
+          <ul>
+            <li><a href="">便捷服务</a></li>
+            <li><a href="/Contact/guide/">来院路线</a></li>
+            <li><a href="http://pbt.zoosnet.net/LR/Chatpre.aspx?id=PBT44701575&lng=cn&p=%e9%a2%84%e7%ba%a6%e4%b8%93%e5%ae%b6">在线咨询</a></li>
+            <li><a href="http://pbt.zoosnet.net/LR/Chatpre.aspx?id=PBT44701575&lng=cn&p=%e9%a2%84%e7%ba%a6%e4%b8%93%e5%ae%b6">预约挂号</a></li>
+          </ul>
+          <ul>
+            <li><a href="">聚焦圣康华</a></li>
+            <li><a href="/Focus/intro">圣康华简介</a></li>
+            <li><a href="/Focus/news">媒体报道</a></li>
+          </ul>
+          <div class="text">
+            <p class="title">服务热线</p>
+            <strong>400-656-2020</strong>
+            <p class="range">周一至周五 8:00-17:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="ft_bottom">Copyright © 2016 北京远程新华网络技术有限公司 版权所有 京ICP备14009444-1</div>
+    </div>
+    <div style="width:0; height:0px; overflow:hidden;"><script src="https://s19.cnzz.com/z_stat.php?id=1271236175&web_id=1271236175" language="JavaScript"></script><div>
+    <script language="javascript" src="http://pbt.zoosnet.net/JS/LsJS.aspx?siteid=PBT44701575&float=1&lng=cn"></script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4b0a00a669721496ca7a8bc6d4cf58f9";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+  <!-- 底部end -->

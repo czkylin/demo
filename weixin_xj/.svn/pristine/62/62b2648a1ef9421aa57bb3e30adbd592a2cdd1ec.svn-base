@@ -1,0 +1,15 @@
+<volist name="hos_list" id="hos">
+        <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}"> <span class="img"> <img src="{$hos['HOS_PIC']}"  alt="{$hos['HOS_NAME']}" class="g-left expert-img"/> </span> <span class="meta">
+                <div class="name_dj"> <strong class="mingcheng">{$hos['HOS_NAME']}</strong> <i>{$hos['LEVEL_NAME']}</i> </div>
+                <p class="hos_jj">{$hos['HOS_DESC']}</p>
+                <div class="juti_info"> <span>{$hos['PROVINCE_NAME']} {$hos['CITY_NAME']}</span> <span style="margin-right:0;">{$hos['GM_NUM']}人购买</span> <span style="float:right;">{$hos['JL']}km</span> </div>
+                </span> </a>
+                <div class="kt_service">
+                        <volist name="hos['HOS_SERVES']" id="serve">
+                                <if condition="$serve['HAVE_SERVE'] eq 0"> <a class="service weikaitong">{$serve['SERVE_NAME']}</a>
+                                        <else />
+                                        <a class="service" href="/weixin/index.php?m=Member&c=Hos&a=serve_detail&serve_id={$serve['SERVE_ID']}&hos_id={$hos['HOS_ID']}">{$serve['SERVE_NAME']}</a> </if>
+                        </volist>
+                </div>
+        </li>
+        ∮ </volist>

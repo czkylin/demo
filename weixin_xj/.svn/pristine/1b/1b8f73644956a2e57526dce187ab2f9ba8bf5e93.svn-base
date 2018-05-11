@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>处方信息详情</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+</head>
+<body class="huise">
+<div class="chufang_con">
+	<div class="chufang_txt">
+		<p>{$cf_content}</p>
+	</div>
+	<div class="chufang_img">
+	<a><img src="{$cf_pic}" width="95px" height="90px"  />&nbsp;&nbsp;点击放大</a>
+	</div>
+</div>
+<form action="{:U('Cf/add_ok')}" method="post" name="form" onSubmit="return check_input(this)" id="form1">
+	<div class="chanpin daixuan">
+		<h2>处方对应的产品</h2>
+		<ul>
+			<volist name='product_list' id='product'>
+			<li>
+				<label class="ui-icon-unchecked-s xz xuanze" for="type-{$product.PRODUCT_ID}" ></label>
+				<input type="checkbox" name="product[]" onClick="price_count(this);" value="{$product.PRODUCT_ID}" PJS="{$product.PRODUCT_MONEY}" P_NUM="{$product.PRODUCT_NUM}" id="type-{$product.PRODUCT_ID}" style="display:none" />
+				<h3>{$product.TY_NAME} ￥{$product.PRODUCT_MONEY}</h3>
+				<input type="hidden" name="num_{$product.PRODUCT_ID}" value="{$product.PRODUCT_NUM}"/>
+				<input type="hidden" name="money_{$product.PRODUCT_ID}" value="{$product.PRODUCT_MONEY}"/>
+				<label>
+                    <span class="num"><span>{$product.PRODUCT_NUM}</span></span>
+                </label>
+			</li>
+			</volist>
+			<li>
+				<input type="hidden" name="record_id" value="{$record_id}">
+				<input type="hidden" name="order_status" value="{$order_status}">
+				<h2 >总价 ￥<span name="all_price" id="all_price">0</span></h2>
+			</li>
+		</ul>
+	</div>
+	<div class="yaodian">
+		<h2>选择购买的药店</h2>
+		<div class="ui-search">
+        <div class="ui-searchtxt">
+			<input class="left" type="text" name="hos_name" id="hos_name" value="" placeholder="请输入药店名称"/>
+            </div>
+            <input class="right ui-btn-search" onClick="search_list('',document.all.hos_name.value);" type="button" value="搜索"/>
+		</div>
+    <h3 id="yaodian"><span id="diqu">选择地区</span><span id="fujin">附近</span></h3>
+      <div class="diqu diquxuanze">
+		<div class="hos_search">
+			<div class="sear">
+				<div class="tiaojian"> 
+					<i></i>
+					<a href="javascript:void(0);" onClick="search_list('0',document.all.hos_name.value);">全部</a>
+					<volist name="province_list" id="province" empty="暂时没有数据">
+					<a href="javascript:void(0);" onClick="search_list('{$province['PROVINCE_ID']}',document.all.hos_name.value);">{$province['PROVINCE_NAME']}</a>
+					</volist>
+				</div>
+			</div>
+		</div>
+      </div>
+        
+         <ul class="fujin" id="yd-list">
+			<volist name="yd_list" id="yd" empty="暂时没有数据">
+			<li>
+				<img src="{$yd['HOS_PIC']}">
+				<h4>{$yd['HOS_NAME']}</h4>
+				<p>{$yd['PROVINCE_NAME']}{$yd['CITY_NAME']}<span>{$yd['GM_NUM']}人购买</span><b>{$yd['JL']}km</b></p>
+				<input type="radio" value="{$yd['HOS_ID']}" name="hos_id" id="type-{$yd['HOS_ID']}" >
+				<label for="type-{$yd['HOS_ID']}" class="ui-icon-checked-s" ></label>
+			</li>
+			</volist>
+		</ul>
+        
+		<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+		<div id="current_pagenum" style="display:none">2</div>
+		<div id="current_province" style="display:none"></div>
+		<div id="current_name" style="display:none"></div>
+	</div>
+	<div class="zhifu">
+		<a class="on ui-btn-store-purchase" href="javascript:gopay()">立即支付</a>
+	</div>
+</form>
+<div class="zhezhao">
+	<b></b>
+	<span></span>
+	<img src="{$cf_pic}">
+</div>
+
+<!--Js库文件--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<!--Exif.js 读取图像的元数据 --> 
+<script src="/weixin/Public/Common/js/exif.js " type="text/javascript"></script> 
+<!--lrz.min.js 压缩图片 --> 
+<script src="/weixin/Public/Expert/js/lrz.min.js" type="text/javascript"></script>
+<!--加载更多-->
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script type="text/javascript">
+
+/*选择药店与地区筛选切换*/ 
+   $("#diqu").on('click', function(){ 
+   	 $(".tiaojian").show();
+        var index =  $(".yaodian h3 span").index(this),$div = $(this).parent().siblings(".diquxuanze");		
+        $div.eq(index).show().siblings(".diquxuanze").hide();
+    })
+  /*地区选择*/
+    $(".diqu a").on('click', function(){ 
+       var txt = $(this).text(), spantxt = $("#yaodian").find("span").eq(0);
+       spantxt.text(txt);
+       $(".tiaojian").hide();
+
+    })
+/*加载更多*/
+function search_list(province_id,hos_name)
+{
+	if (province_id != '')
+	{
+		$('#current_province').text(province_id);
+	}
+	$('#current_name').text(encodeURI(hos_name));
+	if ($('#current_province').text() == '0')
+	{
+		$('#current_province').text('');
+	}
+	$('#current_pagenum').text('1');
+	$('#yd-list').html('');
+	$('.ui-jiazai').children('a').text('加载更多');
+
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Cf&a=cf_detail_append&hos_name='+$('#current_name').text()+'&province_id='+$('#current_province').text()+'','#yd-list');
+}
+
+function load_more()
+{
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Cf&a=cf_detail_append&hos_name='+$('#current_name').text()+'&province_id='+$('#current_province').text()+'','#yd-list');
+}
+
+function gopay()
+{
+	$("#form1").submit();
+}
+
+function check_input()
+{
+	var val = $('input:checkbox[name="product[]"]:checked').val(); 
+	if(val == null)
+	{
+		alert('购买的药品不能为空请选择,请填写!');
+		return false;
+	}
+	var val = $('input:radio[name="hos_id"]:checked').val(); 
+	if(val == null)
+	{
+		alert('购买药品的药店不能为空请选择,请填写!');
+		return false;
+	}
+}
+
+function check_all()
+{
+	$("#all_price").html("0");
+	$('input:checkbox[name="product[]"]').attr("checked",true);
+	for (var i = 0; i < form.elements.length; i ++)
+	{
+		var e = form.elements[i];
+		if (e.name == 'product[]')
+		{
+			price_count(e);
+		}
+	}
+}
+
+function price_count(p)
+{
+	var product_price = p.attributes['PJS'].nodeValue;
+	var product_num = p.attributes['P_NUM'].nodeValue;
+	if(p.checked == true)
+	{
+		$("#all_price").html($("#all_price").html() - product_price*product_num*(-1));
+	}
+	else
+	{
+		$("#all_price").html($("#all_price").html() - product_price*product_num);
+	}
+}
+
+/*药店选择*/
+$('.yaodian').delegate('ul.fujin li label','click',function()
+{
+	$(this).addClass("xuanze").parent().siblings().children("label").removeClass("xuanze");
+})
+
+
+/*药品选择*/
+$(".daixuan ul li .xz").click(function()
+{
+	var yaopin = $(this), k = $(this).siblings(".xuanze").length;
+	if(yaopin.hasClass("xuanze"))
+	{
+		yaopin.removeClass("xuanze")
+	}
+	else
+	{
+		yaopin.addClass("xuanze")
+	}
+})
+/*处方图片浮层*/
+$(".chufang_img a").click(function()
+{
+	$(".zhezhao").show();
+})
+$(".zhezhao b").click(function()
+{
+	$(".zhezhao").hide();
+})
+</script>
+<script>
+check_all();
+</script>
+</body>
+</html>

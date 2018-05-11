@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Home/css/zhuanti/zt20161102.css">
+	<title>十月运营之星</title>
+	<script>
+		document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 10 + "px";
+	</script>
+</head>
+<body>
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        <div class="swiper-slide page1">
+	        	<div class="page1-text">
+	        		<i class="p1"></i>
+	        		<i class="p2"></i>
+	        		<i class="p3"></i>
+	        		<i class="p4"></i>
+	        	</div>
+	        	<div class="page1-tit">
+	        		<i class="p5"></i>
+	        		<i class="p6"></i>
+	        		<i class="p7"></i>
+	        	</div>
+	        	<div class="huatong"></div>
+	        	<div class="shandian1"></div>
+	        	<div class="shandian2"></div>
+	        	<div class="main-text">
+	        		<img src="/weixin/Public/Home/images/zhuanti/zt20160901/main-text.png" alt="">
+	        	</div>
+	        </div>
+	        <div class="swiper-slide page2">
+	        	
+	        </div>
+
+	        <div class="swiper-slide page3">
+	        	
+	        </div>
+
+			<div class="swiper-slide page3-1">
+	        	
+	        </div>
+			<div class="swiper-slide page3-2">
+	        	
+	        </div>
+			<div class="swiper-slide page3-3">
+	        	
+	        </div>
+            <div class="swiper-slide page3-4">
+	        	
+	        </div>
+            <div class="swiper-slide page3-5">
+	        	
+	        </div>
+            <div class="swiper-slide page3-6">
+	        	
+	        </div>
+            <div class="swiper-slide page3-7">
+	        	
+	        </div>
+            <div class="swiper-slide page3-8">
+	        	
+	        </div>
+            <div class="swiper-slide page3-9">
+	        	
+	        </div>
+            <div class="swiper-slide page3-10">
+	        	
+	        </div>
+            <div class="swiper-slide page3-11">
+	        	
+	        </div>
+            <div class="swiper-slide page3-12">
+	        	
+	        </div>
+	        <div class="swiper-slide page4"></div>
+	        <div class="swiper-slide page5">
+	        	<div class="biaoti">
+	        		<img src="/weixin/Public/Home/images/zhuanti/zt20160901/biaoti.png" alt="">
+	        	</div>
+	        	<div class="renwu">
+	        		<img src="/weixin/Public/Home/images/zhuanti/zt20160901/renwu.png" alt="">
+	        	</div>
+	        	<div class="more">
+	        		<img src="/weixin/Public/Home/images/zhuanti/zt20160901/more.png" alt="">
+	        	</div>
+	        </div>
+	    </div>    
+	</div>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+	<script>
+		 var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		    height : window.innerHeight,
+		    //Swiper初始化了	
+		    onInit: function(swiper){
+		      //alert(swiper.activeIndex);提示Swiper的当前索引
+		      $(".swiper-slide").eq(swiper.activeIndex).addClass("animate");
+		    },
+		    //Swiper切换结束后触发
+		    onSlideChangeEnd: function(swiper){
+		      $(".swiper-slide").removeClass('animate');
+		      $(".swiper-slide").eq(swiper.activeIndex).addClass('animate');
+		    }
+		  })       
+	</script>
+</body>
+</html>

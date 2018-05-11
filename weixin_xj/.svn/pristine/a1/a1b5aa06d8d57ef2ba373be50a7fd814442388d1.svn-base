@@ -1,0 +1,22 @@
+<volist name="wk_list" id="vo">
+  <li class="show_con">
+  <a href="/weixin/index.php?m=Home&c=Train&a=info&wk_id={$vo['WK_ID']}">
+    <img src="{$vo.WK_IMG}">
+    <div class="show_right">
+      <h2>{$vo.WK_NAME}&nbsp;&nbsp;({$vo.LEVEL1_NAME})</h2>
+      <div class="con_miaoshu">
+          <span class="name">{$vo.CREATE_NAME}</span><span class="tuijian"><i class="ui-icon-voice"></i><b>推荐语音</b></span><span class="guanli">{$vo['CREATE_DATE']}</span>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td><i class="ui-icon-like"></i> {$vo.DZ_NUM} 赞 </td>
+          <!--   <td><i class="ui-icon-fire"></i> 746 热度 </td> -->
+            <td><i class="ui-icon-comment"></i> {$vo.REPLY_NUM} 评论 </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </a>
+  </li>∮                                                                                                 
+</volist>

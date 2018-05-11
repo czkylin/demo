@@ -1,0 +1,1170 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class UserController extends Controller
+{
+	public function band_phone()
+	{
+		//平台access_token
+		$token = A_token();
+		
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		$flag = band_status();
+		if($flag=="true")
+		{
+			$this->display("band_success");
+		}else
+		{
+
+			//获取会员的头像及昵称
+			$url = C("PATH_URL")."/interface/yc_hos/wx_user_info.aspx?access_token=".$token;
+			$data = array
+			(
+				"openid"=>"$openid"
+			);
+			$json=json_encode($data);
+			$user_info = json_decode(post_json($url,$json),true);
+			$user['HEADIMGURL'] = $user_info['HEADIMGURL'];
+			$user['NICKNAME'] = $user_info['NICKNAME'];
+			$this->assign('user',$user);
+			$this->display(); // 输出模板
+		}
+	}
+
+	// //绑定手机号
+	// public function band_phone_add()
+	// {
+	// 	$link_phone = I('post.link_mobile');//获取post变量
+	// 	$sms_code=I('post.sms_code');
+
+	// 	$token = A_token();
+
+	// 	//提交手机号信息
+	// 	$url = C("PATH_URL")."/interface/yc_hos/phone_band.aspx?Access_token=".$token;
+		
+	// 	//获取openid
+	// 	include MODULE_PATH.'/Common/open_id.php';
+	// 	$data = array
+	// 	(
+	// 		"openid"=>"$openid",
+	// 		"link_phone"=>"$link_phone",
+	// 		"sms_number"=>"$sms_code"
+	// 	);
+	// 	$json=json_encode($data);
+	// 	$doc_info = json_decode(post_json($url,$json),true);
+	// 	if ($doc_info['info_flag'] != "")
+	// 	{
+	// 		echo  $doc_info['info_flag'];
+	// 	}
+	// 	else
+	// 	{
+	// 		if($doc_info['error_code']){
+	// 			echo $doc_info['error_code'];
+	// 		}else{
+	// 			echo "服务器错误";
+	// 		}
+	// 	}
+	// }
+
+	public function band_name()
+	{
+		//平台access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+		
+		//获取医院列表
+		$url = C("PATH_URL")."/interface/yc_hos/hospital_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"hos_name"=>"$hos_name",
+			"page_num" => "1",
+			"page_rows" => "200",
+			"hos_type"=>"$hos_type"
+		);
+		$json=json_encode($data);
+		$hos_list = json_decode(post_json($url,$json),true);
+		$this->assign('hos_list',$hos_list);// 赋值数据集
+		$this->display(); // 输出模板
+	}
+
+	//绑定手机号
+	public function band_name_add()
+	{
+		//平台access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$real_name = $_POST['real_name'];//获取get变量
+		$hos_id = $_POST['hos_id'];
+		
+		//获取医生详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/user_info_add.aspx?Access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"real_name"=>"$real_name",
+			"hos_id"=>"$hos_id"
+		);
+		$json=json_encode($data);
+		$user_info = json_decode(post_json($url,$json),true);
+		if($user_info['error_code'] == "ok")
+		{
+			$this->redirect('?m=Home&c=User&a=band_success');
+		}
+		else
+		{
+			$this->error();
+		}
+	}
+
+	public function band_success()
+	{
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$this->display(); // 输出模板
+	}
+
+	//我的工作室首页
+	public function mywork_house()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$token_id = I("get.token_id",C('H_TOKEN_ID'));
+		$jifen_date = date("Y-m");
+
+		//验证手机是否绑定
+		$bandCode = band_phone_code();
+
+		//验证申请状态
+		$phoneCode = phone_status();
+
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_jf_total.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"token_id"=>"$token_id",
+			"jifen_date"=>"$jifen_date"
+		);
+		$json=json_encode($data);
+		$mylist =json_decode(post_json($url,$json),true);
+		// var_dump($url,$json,post_json($url,$json));
+
+		$mylist['JIFEN_RANK'] = $mylist['JIFEN_RANK'] ? $mylist['JIFEN_RANK'] : 0 ;
+		$mylist['JIFEN_NUM'] = $mylist['JIFEN_NUM'] ? $mylist['JIFEN_NUM'].'分' : '暂未参加' ;
+		// var_dump($url,$json,$mylist);
+
+		//获取个人信息
+		$url = C("PATH_URL")."/interface/yc_hos/user_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$my_info = json_decode(post_json($url,$json),true);
+		// var_dump($mylist);
+
+
+		//获取分享需用手机号
+		$url = C("PATH_URL")."/interface/yc_hos/get_sale_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$user_info = json_decode(post_json($url,$json),true);
+		if($user_info['user_name']){
+			$user_info['real_name'] = $user_info['user_name'];
+			$user_info['user_name'] = base64_encode($user_info['user_name']);
+		}
+
+		//百倍爱心卡自己的排行
+		$url = C('PATH_URL')."/interface/yc_hos/jyzr_sale_info.aspx?access_token=".$token;
+		$myrank = json_decode(post_json($url,$json),true);
+		// var_dump($url,$json,post_json($url,$json));
+		$this->assign('myrank',$myrank);
+		$this->assign('openid',$openid);
+
+		//判断当前用户是否绑定过患者端
+		$url = C("PATH_URL")."/interface/yc_hos/band_member.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"token_id"=>C("M_TOKEN_ID")
+		);
+		$json=json_encode($data);
+		$band = json_decode(post_json($url,$json),true);
+		$isband=0;
+		if(isset($band['band_flag']) && $band['band_flag']=='true'){
+			$isband=1;
+		}
+
+		$this->assign('band',$isband);// 分享需用自己信息
+		$this->assign('user_info',$user_info);// 分享需用自己信息
+		$this->assign('user',$mylist);// 自己信息
+		$this->assign('my_info',$my_info);// 首页需用自己信息
+		$this->display(); // 输出模板
+	}
+
+	//获取发展会员数据
+	public function member_num()
+	{
+		//平台access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单列表满足查询条件的
+		$url = C("PATH_URL")."/interface/yc_hos/member_count.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$member_count = json_decode(post_json($url,$json),true);
+		$member['tj_count'] = $member_count['tj_count'];
+		$member['zc_count'] = $member_count['zc_count'];
+		$this->assign('member',$member);
+		$this->display(); // 输出模板
+	}
+
+	//个人中心
+	public function user_info()
+	{
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单列表满足查询条件的
+		$url = C("PATH_URL")."/interface/yc_hos/user_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+
+		$user_info = json_decode(post_json($url,$json),true);
+		$user['USER_ID'] = $user_info['USER_ID'];
+		$user['USER_NAME'] = $user_info['USER_NAME'];
+		$user['REAL_NAME'] = $user_info['REAL_NAME'];
+		$user['HOS_NAME'] = $user_info['HOS_NAME'];
+		$user['USER_PIC'] = $user_info['USER_PIC'];
+		$user['LINK_MOBILE'] = $user_info['LINK_MOBILE'];
+		$user['CREATE_DATE'] = $user_info['CREATE_DATE'];
+		$user['HOS_TYPE'] = $user_info['HOS_TYPE'];
+		$this->assign('member_pic_encode',urlencode(passport_encrypt($user['USER_PIC'], "123")));
+		$this->assign('user',$user);
+		$this->display(); // 输出模板
+	}
+
+	//修改会员头像
+	public function edit_face()
+	{	
+
+		$user_pic = I('get.user_pic', '');
+		$this->assign('user_pic',passport_decrypt($user_pic, "123"));
+		$this->display();
+	}
+
+	//修改基本信息
+	public function edit_name()
+	{
+		$data['truename'] = I('get.truename','');
+		$this->assign('data',$data);
+		$this->display();
+	}
+
+		//修改信息
+	public function user_edit_info()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$column_value = I('post.column_value', '');
+		$column_name = I('post.column_name', '');
+
+		//获取医生详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/user_edit_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"column_name"=>"$column_name",
+			"column_value"=>"$column_value"
+		);
+		$json=json_encode($data);
+		$update_info = json_decode(post_json($url,$json),true);
+		$this->redirect('?m=Home&c=User&a=user_info');
+	}
+
+	//修改所在医院
+	public function edit_hos()
+	{
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+		$hos_name = I('get.hos_name', '');
+		$hos_type = I('get.hos_type', '');
+		//获取医院列表
+		$url = C("PATH_URL")."/interface/yc_hos/hospital_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"hos_name"=>"$hos_name",
+			"page_num" => "1",
+			"page_rows" => "5",
+			"hos_type"=>"$hos_type"
+
+		);
+		$json=json_encode($data);
+		$hos_list = json_decode(post_json($url,$json),true);
+		$this->assign('hos_list',$hos_list);// 赋值数据集
+		$this->assign('data',$data);
+		$this->assign('hos_name',$hos_name);
+		$this->assign('hos_type',$hos_type);
+		$this->display();
+	}
+
+	//修改医院加载更多
+	public function edit_hos_append()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+		//获取医院列表
+		$url = C("PATH_URL")."/interface/yc_hos/hospital_list.aspx?access_token=".$token;
+		$page_num = I('get.page_num', '2');
+		$hos_name = I('get.hos_name', '');
+		$hos_type = I('get.hos_type', '');
+		$data = array
+		(
+			"openid"=>"$openid",
+			"hos_name"=>"$hos_name",
+			"page_num" => "$page_num",
+			"page_rows" => "5",
+			"hos_type"=>"$hos_type"
+
+		);
+		$json=json_encode($data); 
+		$hos_list = json_decode(post_json($url,$json),true);
+		$this->assign('hos_list',$hos_list);
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+	//修改会员头像
+	public function edit_face_ok()
+	{
+		//新方法
+		$imgbase64 = $_POST['imgbase64'];//获取base64图片字符串
+		if(empty($imgbase64))
+		{
+			//上传错误提示错误信息
+			$this->redirect('?m=Home&c=User&a=user_info');
+			//echo "空值";
+		}
+
+		//匹配出图片的格式 
+		if (preg_match('/^(data:\s*image\/(\w+);base64,)/',$imgbase64, $result))
+		{
+			$type = $result[2]; //图片类型
+			$type = str_replace("jpeg","jpg", $type);
+			$new_file = "./Public/Uploads/case/".date("Y-m-d")."/".time().".{$type}";//保存名称、文件名
+			
+			if (is_dir(dirname($new_file)) == false)
+			{
+				mkdir(dirname($new_file), 0777, true);
+			}
+
+			$base64 = base64_decode(str_replace($result[1],"",$imgbase64));//去除头部无用信息
+
+					if (preg_match('/^(data:\s*image\/(\w+);base64,)/',$imgbase64, $result))
+		{
+			$type = $result[2]; //图片类型
+			$type = str_replace("jpeg","jpg", $type);
+			
+			$new_file = "./Public/Uploads/home_face/".date("Y-m-d")."/".time().".{$type}";//保存名称、文件名
+			
+			if (is_dir(dirname($new_file)) == false)
+			{
+				mkdir(dirname($new_file), 0777, true);
+			}
+
+			$base64 = base64_decode(str_replace($result[1],"",$imgbase64));//去除头部无用信息
+
+			if (file_put_contents($new_file, $base64))
+			{
+				$x1 = I('post.x1', '');
+				if ($x1 != "")
+				{
+					$y1 = I('post.y1', '');
+					$rec_width = I('post.rec_width', '');
+					$rec_height = I('post.rec_height', '');
+					$prepic_width = I('post.prepic_width', '');
+
+					//处理图片
+					$image = new \Think\Image(); 
+					$image->open($new_file);
+
+					$real_width = $image->width();
+
+					$scale_ratio = $real_width / $prepic_width;
+
+					//按照坐标裁剪图并保存
+					$image->crop($rec_width * $scale_ratio, $rec_height * $scale_ratio, $x1 * $scale_ratio, $y1 * $scale_ratio, $rec_width * $scale_ratio, $rec_height * $scale_ratio)->save($new_file);
+				}
+
+				//平台access_token
+				$token = A_token();
+
+
+				//获取openid
+				include MODULE_PATH.'/Common/open_id.php';
+
+				//验证手机是否绑定
+				include MODULE_PATH.'/Common/check_band.php';
+
+				$user_pic = "http://".$_SERVER['HTTP_HOST'].str_replace("./Public/","/weixin/Public/",$new_file);
+
+				//获取订单列表满足查询条件的
+				$url = C("PATH_URL")."/interface/yc_hos/face_edit.aspx?access_token=".$token;
+				$data = array
+				(
+					"openid"=>"$openid",
+					"user_pic"=>"$user_pic"
+				);
+				
+				$json=json_encode($data);
+				$case_add = json_decode(post_json($url,$json),true);
+				if($case_add['error_code'] == "ok")
+				{
+					$this->redirect('?m=Home&c=User&a=user_info');
+				}
+				else
+				{
+					$this->redirect('?m=Home&c=User&a=user_info');
+				}
+			}
+			else
+			{
+				$this->redirect('?m=Home&c=User&a=user_info');
+			}
+		}else
+			{
+				//上传错误提示错误信息
+				$this->redirect('?m=Home&c=User&a=user_info');
+				//echo "存文件失败";
+			}
+		}
+		else
+		{
+			//上传错误提示错误信息
+			$this->redirect('?m=Home&c=User&a=user_info');
+			//echo "匹配失败";
+		}
+	}
+
+	
+	// //绑定手机号发送验证码
+	// public function send_msm()
+	// {
+	// 	$link_mobile = I('post.link_mobile', '');
+	// 	$error_code = post_code_home($link_mobile); 
+	// 	echo $error_code;
+	// 	exit;
+	// }
+	
+	//绑定手机号发送验证码
+	public function send_msm()
+	{
+		$link_mobile = I('post.link_mobile');
+		$type = I('post.type', '1');
+		$error_code = post_code1($link_mobile,$type);
+		echo $error_code;
+		exit;
+	}
+	
+	//绑定手机号
+	public function band_phone_add()
+	{
+		$link_phone = I('post.link_mobile');//获取post变量
+		$sms_code=I('post.sms_code');
+		$token = A_token();
+
+		//提交手机号信息
+		$url = C("PATH_URL")."/interface/yc_hos/phone_band.aspx?Access_token=".$token;	
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		$data = array
+		(
+			"openid"=>"$openid",
+			"link_phone"=>"$link_phone",
+			"sms_number"=>"$sms_code"
+		);
+		$json=json_encode($data);
+		$doc_info = json_decode(post_json($url,$json),true);
+		if ($doc_info['info_flag'] != "")
+		{
+
+			echo $doc_info['info_flag'];
+		}
+		else
+		{
+			if($doc_info['error_code'])
+            {
+				echo $doc_info['error_code'];
+			}
+			else
+			{
+				echo "服务器错误";
+			}
+		}
+	}
+
+	//生成验证码
+	public function verify() {
+		$Verify =     new \Think\Verify();
+		// 设置验证码字符为纯数字
+		$Verify->codeSet = '0123456789'; 
+		$Verify->useNoise = false;
+		$Verify->fontSize = 12;
+		$Verify->length   = 4;
+		$Verify->entry();
+	}
+
+	//积分明细
+	public function jifen_list()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		$token_id = I("get.token_id",C('H_TOKEN_ID'));
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_jf_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1",
+			"token_id"=>"$token_id"
+		);
+		$json=json_encode($data);
+		$jifen_list = json_decode(post_json($url,$json),true);
+		$this->assign('jifen_list',$jifen_list);
+		$this->display(); // 输出模板
+	}
+
+	//积分明细加载更多
+	public function jifen_list_append()
+	{
+		$page_num = I('get.page_num','2');
+		//获取平台的access_token
+		$token = A_token();
+		$token_id = I("get.token_id",C('H_TOKEN_ID'));
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_jf_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num",
+			"token_id"=>"$token_id"
+		);
+
+		$json=json_encode($data);
+		$jifen_list = json_decode(post_json($url,$json),true);
+
+		$this->assign('jifen_list',$jifen_list);
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+	//推荐患者明细
+	public function tj_member_list()
+	{
+		//获取平台的access_token
+		$token = A_token();
+
+		$token_id = I("get.token_id",C('M_TOKEN_ID'));
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_member_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1",
+			"token_id"=>"$token_id"
+		);
+		$json=json_encode($data);
+		$member_list = json_decode(post_json($url,$json),true);
+		//print_R($member_list);
+		$this->assign('member_list',$member_list);
+		$this->display(); // 输出模板
+	}
+
+	public function member_list_append()
+	{
+		
+		$token_id = I("get.token_id",C('M_TOKEN_ID'));
+		$page_num = I('get.page_num','2');
+
+		//获取平台的access_token
+		$token = A_token();
+	
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_member_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num",
+			"token_id"=>"$token_id"
+		);
+		$json=json_encode($data);
+		$member_list = json_decode(post_json($url,$json),true);
+		$this->assign('member_list',$member_list);
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+	//推荐医生明细
+	public function tj_expert_list()
+	{
+		$token_id = I("get.token_id",C('D_TOKEN_ID'));
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_expert_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1",
+			"token_id"=>"$token_id"
+		);
+		$json=json_encode($data);
+		$expert_list = json_decode(post_json($url,$json),true);
+
+		$this->assign('expert_list',$expert_list);
+		$this->display(); // 输出模板
+	}
+
+	//我推荐申请的医生
+	public function mydoc_list()
+	{
+		$token_id = I("get.token_id",C('D_TOKEN_ID'));
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取我推荐的医生
+		$url = C("PATH_URL")."/interface/yc_hos/doc_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1",
+			"token_id"=>"$token_id"
+		);
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		$this->assign("doc_list",$data);
+		$this->display();
+	}
+
+	//我推荐申请的医生
+
+	public function mydoc_list_append(){
+
+		//获取平台的access_token
+		$token = A_token();
+
+		$page_num = I('get.page_num','2');
+		$token_id = I("get.token_id",C('H_TOKEN_ID'));
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取我推荐的医生
+		$url = C("PATH_URL")."/interface/yc_hos/doc_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num",
+			"token_id"=>"$token_id"
+		);
+
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		//print_R($data);die;
+		$this->assign("doc_list",$data);
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+	public function expert_list_append()
+	{
+		//获取平台的access_token		
+		$token = A_token();
+
+		$token_id = I("get.token_id",C('D_TOKEN_ID'));
+		$page_num = I('get.page_num','2');
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yjzr_expert_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num",
+			"token_id"=>"$token_id"
+		);
+		$json=json_encode($data);
+		$expert_list = json_decode(post_json($url,$json),true);
+		$this->assign('expert_list',$expert_list);
+
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+	public function my_hos_list()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/jyzr_hos_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+		);
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		if($data['error_code']=="")
+		{
+			$this->assign("hos_list",$data);
+		}
+		$this->display();;
+
+	}
+
+	public function my_yd_list(){
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/jyzr_yd_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		if($data['error_code']=="")
+		{
+			$this->assign("hos_list",$data);
+		}
+		$this->display();
+
+	}
+
+
+	public function get_yd_list(){
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yd_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1"
+		);
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		if($data['error_code']=="")
+		{
+			$this->assign("yd_list",$data);
+		}
+		$this->display();
+
+	}
+
+	public function get_yd_list_append()
+	{
+
+		$page_num = I('get.page_num','2');
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/yd_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num"
+		);
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		//print_R($data);die;
+		if($data['error_code']=="")
+		{
+			$this->assign("yd_list",$data);
+		}
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+
+	//我的营业额
+
+	public function My_performance()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/money_total_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1"
+		);
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		$this->assign("data_list",$data);
+		$this->display();
+
+	}
+	
+	//推荐会员消费明细
+
+	public function money_list()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/tj_money_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1"
+		);
+
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+
+		if($money_list['error_code']=="")
+		{
+			$this->assign('money_list',$data);
+		}
+		$this->display();
+	}
+
+
+	//推荐会员消费明细加载更多
+
+	public function money_list_append()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		$page_num = I("get.page_num","2");
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/tj_money_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num"
+		);
+
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+
+		if($money_list['error_code']=="")
+		{
+			$this->assign('money_list',$data);
+		}
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+
+	//百倍爱心卡消费明细
+
+	public function hz_order_list()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/hz_order_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1"
+		);
+
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+		if($data['error_code']=="")
+		{
+			$this->assign('hz_order_list',$data);
+		}
+		$this->display();
+	}
+
+
+	//百倍爱心卡消费明细加载更多
+
+	public function hz_order_list_append()
+	{
+		
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$page_num = I("get.page_num","2");	
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/hz_order_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num"
+		);
+
+		$json=json_encode($data);
+		$data = json_decode(post_json($url,$json),true);
+
+		if($data['error_code']=="")
+		{
+			$this->assign('hz_order_list',$data);
+		}
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+
+
+	//推荐医生消费明细
+	public function doc_money_list()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//获取平台的access_token
+		$token = A_token();
+
+		//获取积分详细信息
+		$url = C("PATH_URL")."/interface/yc_hos/tj_doc_money_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"1",
+		);
+
+		$json=json_encode($data);
+		$money_list = json_decode(post_json($url,$json),true);
+
+		if($money_list['error_code']=="")
+		{
+			$this->assign('money_list',$money_list);
+		}
+
+		$this->display();
+	}
+
+	//推荐会员消费明细加载更多
+	public function doc_money_list_append()
+	{
+		$token = A_token();
+		$page_num = I('get.page_num', '');
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单列表满足查询条件的
+		$url = C("PATH_URL")."/interface/yc_hos/tj_doc_money_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num"=>"$page_num"
+		);
+
+		$json=json_encode($data);
+		$money_list = json_decode(post_json($url,$json),true);
+		
+		if($money_list['error_code']=="")
+		{
+			$this->assign('money_list',$money_list);
+		}
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+	}
+	
+	//如何赚积分
+	public function howzhuan()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		$this->display();
+	}
+	
+	
+	//奖励制度
+	public function jianglizd()
+	{
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		
+		$this->display();
+	}
+
+	public function expert()
+	{
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$this->display();
+	}
+
+	public function zg()
+	{
+		include MODULE_PATH.'/Common/open_id.php';
+		
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$this->display();
+	}
+
+
+	//2017经营回款收入
+	public function incomes()
+	{
+		$this->display();
+	}
+
+	//2017经营回款收入
+	public function incomes_ajax()
+	{
+		
+		//获取平台的access_token
+		$token = A_token();
+
+		//经营回款收入
+		$url = C("PATH_URL")."/interface/yc_hos/incomes.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid"
+		);
+		$json=json_encode($data);
+		$res =json_decode(post_json($url,$json),true);
+
+		// var_dump(post_json($url,$json));
+		$this->ajaxReturn($res);
+	}
+}

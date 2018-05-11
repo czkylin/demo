@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>药店注册</title>
+	<!-- 开关样式 -->
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/inserthtml.com.radios.css">
+  <link href="/weixin/Public/Member/css/huzhu/iosSelect.css" type="text/css" rel="stylesheet" />
+	<!-- 当前页样式 -->
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/huzhu/yaodian_register.css">
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	<div class="box">
+		<form action="" name="" method="post" id="form1">
+			<ul>
+				<li class="kf_type kf_type1">
+					<span>客服类型</span>
+					<input type="radio" id="yd" name="kflx" checked="checked" />
+					<label for="yd" class="active">药店</label>
+					<input type="radio" id="zs" name="kflx" />
+					<label for="zs">诊所</label>  
+				</li>
+				<li>
+					<p>基数信息</p>
+				</li>
+				<li>
+					<span>客户名称</span>
+					<input type="text" name="kh_name" id="kh_name" placeholder="必填">
+				</li>
+				<li>
+	        <div class="con_input" id="select_contact">
+	            <span style="float: left">客户地址</span>
+	            <div class="pc-box">
+	                <input type="hidden" name="contact_province_code" data-id="0001" id="contact_province_code" value="" data-province-name="">
+	                <input type="hidden" name="contact_city_code" id="contact_city_code" value="" data-city-name="">
+	                <input type="hidden" name="contact_district_code" id="contact_district_code" value="" data-city-name="">
+	                <span style="display: block;" data-city-code="2" data-province-code="2" data-district-code="6" id="show_contact">请选择</span>
+	            </div>
+	            <em class="jzr_info"></em>
+	        </div>
+				</li>
+				<li>
+					<span>详细地址</span>
+					<input type="text" name="xx_adress" placeholder="选填">
+				</li>
+				<li>
+					<span>店内固话</span>
+					<input type="text" name="phone" placeholder="选填">
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<p>法定代表人信息</p>
+				</li>
+				<li>
+					<span>法定代表人姓名</span>
+					<input type="text" name="fddb_name" id="fddb_name" placeholder="必填">
+				</li>
+				<li class="mw_box">
+					<span>手机号</span>
+					<input type="text" maxlength="11" name="m_phone" id="m_phone" placeholder="必填">
+					<span>微信号</span>
+					<input type="text" name="weixin" placeholder="选填">
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<p>其他信息</p>
+				</li>
+				<li>
+					<span>是否愿意公开价格</span>
+					<div class="holder">
+						<div class="center">
+							<input type="checkbox" id="checkbox-10-1" /><label for="checkbox-10-1"></label>
+						</div>
+					</div>
+				</li>
+				<li class="kf_type kf_type2">
+					<span>单体还是连锁</span>
+					<input type="radio" id="dt" name="dt_ls" checked="checked" />
+					<label for="dt" class="active">单体</label>
+					<input type="radio" id="ls" name="dt_ls" />
+					<label for="ls">连锁</label>  
+				</li>
+				<li>
+					<span>是否支持医保</span>
+					<div class="holder">
+						<div class="center">
+							<input type="checkbox" id="checkbox-10-2" /><label for="checkbox-10-2"></label>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="ul4">
+				<li>
+					<p>证件信息</p>
+				</li>
+				<li>
+					<div class="l_w1 f_l">
+						<span>许可证号</span>
+						<input type="text" name="xk_numb" id="xk_numb" placeholder="必填">
+					</div>
+					<div class="l_w2 f_r">
+						<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+							<input type="file" name="img1" class="up_img J_FileInput file-input fileupload" accept="image/*" onChange="imgPreview(this);" id="fileInput1">
+						</div> 	
+						<a href="javascript:;" class="file_btn"  onclick="fileInput1.click()"></a>
+						<div class="pic_group">
+		          <input type="hidden" id="imgbase64"  name="img1-1" />
+	          </div>
+						<div class="img_box"></div>
+					</div>
+				</li>
+				<li>
+					<div class="l_w1 f_l">
+						<span>营业执照号</span>
+						<input type="text" name="yy_numb" id="yy_numb" placeholder="必填">
+					</div>
+					<div class="l_w2 f_r">
+						<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+							<input type="file" name="img2" class="up_img J_FileInput file-input fileupload"  id="fileInput2" class="up_img" accept="image/*" onChange="imgPreview(this);">
+						</div> 	
+						<a href="javascript:;" class="file_btn"  onclick="fileInput2.click()"></a>
+						<div class="pic_group">
+		          <input type="hidden" id="img2base64"  name="img2-1" />
+	          </div>
+						<div class="img_box"></div>
+					</div>
+				</li>
+				<li>
+					<div class="l_w1 f_l">
+						<span>GSP号</span>
+						<input type="text" name="gsp_numb" id="gsp_numb" placeholder="必填">
+					</div>
+					<div class="l_w2 f_r">
+						<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+							<input type="file" name="img3" class="up_img J_FileInput file-input fileupload" accept="image/*" onChange="imgPreview(this);" id="fileInput3">
+						</div> 	
+						<a href="javascript:;" class="file_btn"  onclick="fileInput3.click()"></a>
+						<div class="pic_group">
+		          <input type="hidden" id="img3base64"  name="img3-1" />
+	          </div>
+						<div class="img_box"></div>
+					</div>
+				</li>
+				<li>
+					<div class="l_w f_l">
+						<span>门头照<em>(选填)</em></span>
+						<div class="l_w2 f_l">
+							<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+								<input type="file" name="img4" class="up_img J_FileInput file-input fileupload" accept="image/*" onChange="imgPreview(this);" id="fileInput4">
+							</div> 	
+							<a href="javascript:;" class="file_btn"  onclick="fileInput4.click()"></a>
+							<div class="pic_group">
+			          <input type="hidden" id="img4base64"  name="img4-1" />
+		          </div>
+							<div class="img_box img_box2"></div>
+						</div>
+					</div>
+					<div class="l_w f_r">
+						<span>店铺陈列照<em>(选填)</em></span>
+						<div class="l_w2 f_l">
+							<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+								<input type="file" name="img5" class="up_img J_FileInput file-input fileupload" accept="image/*" onChange="imgPreview(this);" id="fileInput5">
+							</div> 	
+							<a href="javascript:;" class="file_btn"  onclick="fileInput5.click()"></a>
+							<div class="pic_group">
+			          <input type="hidden" id="img5base64"  name="img5-1" />
+		          </div>
+							<div class="img_box img_box2"></div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<span>备注</span>
+					<input type="text" name="beizhu" id="beizhu" placeholder="选填">
+				</li>
+			</ul>
+			<a href="javascript:;" class="btn">提交</a>
+		</form>
+	</div>
+	<div class="bigImg">
+		<div class="bg1"></div>
+	</div>
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/modernizr.js"></script>
+<script type="text/javascript" src="/weixin/Public/Member/js/huzhu/iscroll.js"></script>
+<script type="text/javascript" src="/weixin/Public/Member/js/huzhu/areaData_v2.js"></script>
+<script type="text/javascript" src="/weixin/Public/Member/js/huzhu/iosSelect.js"></script>
+<script type="text/javascript">
+  $('.kf_type').find('label').click(function(){
+  	$(this).addClass('active');
+  	$(this).siblings().removeClass('active');
+  });
+
+	//检验手机
+  function isMobile(str)
+  {
+      var reg=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+      if(reg.test(str))
+      {
+          return true;
+      }
+      else
+      {
+          return false;
+      }
+  }
+
+	function check_form()
+	{
+		var kh_name = $("#kh_name").val();
+		var fddb_name = $("#fddb_name").val();
+		var m_phone = $("#m_phone").val();
+		var xk_numb = $("#xk_numb").val();
+		var yy_numb = $("#yy_numb").val();
+		var gsp_numb = $("#gsp_numb").val();
+		var contact_province_code = $("#contact_province_code").val();
+		var img1 = $("#imgbase64").val();
+		var img2 = $("#img2base64").val();
+		var img3 = $("#img3base64").val();
+		if(kh_name == '')
+    {
+      alert("请填写客户名称！");
+      $("#kh_name").focus();
+      return false;
+    }
+    if(/[0-9\s]/gi.test(kh_name))
+    {
+      alert("客户名称不能输入数字和空格");
+      $("#kh_name").focus();
+      return false;
+    }
+		if(fddb_name == '')
+    {
+      alert("请填写法定代表人姓名！");
+      $("#fddb_name").focus();
+      return false;
+    }
+    if(/[0-9\s]/gi.test(fddb_name))
+    {
+      alert("法定代表人姓名不能输入数字和空格");
+      $("#fddb_name").focus();
+      return false;
+    }
+
+      if(m_phone == '')
+      {
+          alert("手机号不能为空！");
+          $("#m_phone").focus();
+          return false;
+      }
+
+      if(!isMobile(m_phone))
+      {
+          alert("手机号有误！");
+          $("#m_phone").focus();
+          return false;
+      }
+
+      if(xk_numb == '')
+      {
+          alert("许可证号不能为空！");
+          $("#xk_numb").focus();
+          return false;
+      }
+      
+      if(yy_numb == '')
+      {
+          alert("营业执照号不能为空！");
+          $("#yy_numb").focus();
+          return false;
+      }
+      
+      if(gsp_numb == '')
+      {
+          alert("GSP号不能为空！");
+          $("#gsp_numb").focus();
+          return false;
+      }
+      
+      if(contact_province_code == '')
+      {
+          alert("请选择地址");
+          $("#show_contact").click();
+          return false;
+      }
+      
+      if(img1 == '' || img2 == '' || img3 == '')
+      {
+          alert("添加图片");
+          return false;
+      }
+      return true;
+	}
+
+	$('.btn').click(function(){
+		if(check_form()){
+			$('#form1').submit();
+		}
+	});
+
+
+  function imgPreview(fileDom){
+      //判断是否支持FileReader
+      if (window.FileReader) {
+          var reader = new FileReader();
+      } else {
+          alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+      }
+
+      //获取文件
+      var file = fileDom.files[0];
+      var imageType = /^image\//;
+      //是否是图片
+      if (!imageType.test(file.type)) {
+          alert("请选择图片！");
+          return;
+      }
+
+      //读取完成
+      reader.onload = function(e) {
+          //获取图片dom
+          //var img = document.getElementById("preview");
+          if($(fileDom).parent().siblings('div.img_box').children().children().children('img').length>=1){
+            alert('最多上传1张');
+          }else{
+            $(fileDom).parent().siblings('div.img_box').append('<div class="img_li"><div class="img_wrap"><img onClick="bigImgShow(this);" src="'+e.target.result+'" /></div><i onclick="removeImg(this)"></i></div>')//展示图片
+            $(fileDom).parent().siblings('.pic_group').find('input').val($(fileDom).parent().siblings('div.img_box').children().children().children('img').attr('src'));
+          }
+          //图片路径设置为读取的图片
+          //img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+  }
+
+	function bigImgShow(obj){
+		$('.bigImg').show();
+		$('.bigImg').append('<img src="'+$(obj).attr('src')+'"/>');
+	}
+	$('.bigImg').click(function(){
+		$(this).hide();
+		$('.bigImg>img').remove();
+	});
+
+  function removeImg(obj){
+    $(obj).parent().parent().siblings('div.J_UploadBtn').find('input').val("");
+    $(obj).parent().parent().siblings('div.pic_group').find('input').val("");
+    $(obj).parent().remove();
+  }
+
+</script>
+<script type="text/javascript">
+    var selectContactDom = $('#select_contact');
+    var showContactDom = $('#show_contact');
+    var contactProvinceCodeDom = $('#contact_province_code');
+    var contactCityCodeDom = $('#contact_city_code');
+    var contactDistrictCodeDom = $('#contact_district_code');
+    selectContactDom.bind('click', function () {
+        var sccode = showContactDom.attr('data-city-code');
+        var scname = showContactDom.attr('data-city-name');
+        var oneLevelId = showContactDom.attr('data-province-code');
+        var twoLevelId = showContactDom.attr('data-city-code');
+        var threeLevelId = showContactDom.attr('data-district-code');
+        
+        var iosSelect = new IosSelect(3,
+                [iosProvinces, iosCitys, iosCountys],
+                {
+                    title: '地址选择',
+                    itemHeight: 35,
+                    relation: [1, 1, 0, 0],
+                    oneLevelId: oneLevelId,
+                    twoLevelId: twoLevelId,
+                    threeLevelId: threeLevelId,
+                    callback: function (selectOneObj, selectTwoObj, selectThreeObj) {
+                       // alert(selectThreeObj.id);
+                        contactProvinceCodeDom.val(selectOneObj.id);
+                        contactProvinceCodeDom.attr('data-province-name', selectOneObj.value);
+                        contactCityCodeDom.val(selectTwoObj.id);
+                        contactCityCodeDom.attr('data-city-name', selectTwoObj.value);
+                        $("#contact_district_code").val(selectThreeObj.id);
+                        //contactDistrictCodeDom.val(selectThreeObj.id);
+                       // contactDistrictCodeDom.attr('data-district-name', selectThreeObj.value);
+                        showContactDom.attr('data-province-code', selectOneObj.id);
+                        showContactDom.attr('data-city-code', selectTwoObj.id);
+                        showContactDom.attr('data-district-code', selectThreeObj.id);
+                        showContactDom.html(selectOneObj.value + ' ' + selectTwoObj.value + ' ' + selectThreeObj.value);
+                    }
+                });
+    });
+
+		window.alert = function(name){
+			var iframe = document.createElement("IFRAME");
+			iframe.style.display="none";
+			iframe.setAttribute("src", 'data:text/plain,');
+			document.documentElement.appendChild(iframe);
+			window.frames[0].window.alert(name);
+			iframe.parentNode.removeChild(iframe);
+		}
+</script>
+</body>
+</html>

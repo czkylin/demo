@@ -1,0 +1,17 @@
+<volist name="kc_list" id="vo">
+    <section>
+        <div class="lt">
+            <div class="lImg">
+                <img src="{$vo.BOOK_PIC}" />
+            </div>
+            <div class="lTxt">
+                <p>{$vo.BOOK_NAME}</p>
+                <p>
+                    <i>{$vo.PIONT_NUM}</i>
+                    <em>更新完成</em>
+                </p>
+            </div>
+        </div>
+        <a href="index.php?m=Expert&c=Class&a=studyDetail&book_id={$vo.BOOK_ID}"></a>
+    </section>∮
+</volist>

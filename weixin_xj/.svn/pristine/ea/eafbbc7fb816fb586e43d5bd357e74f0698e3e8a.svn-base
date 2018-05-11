@@ -1,0 +1,45 @@
+*{ margin: 0; padding: 0; }
+a{ text-decoration: none; border:none; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color:transparent; outline:none; }
+ul,li{ list-style: none; }
+em,i{ font-style: normal; }
+body{ background: #f5f5f5; }
+.f_l{ float: left; }
+.f_r{ float: right; }
+.box{ font-size: .6rem; color: #333; }
+.box ul{ background: #fff; margin-bottom: .4rem; border-top: 1px solid #e7e7e7; }
+.box ul:last-child{ padding-bottom: 2rem; margin: 0; }
+.box li{ line-height: 1.8rem; border-bottom: 1px solid #e7e7e7; padding: 0 .5rem; overflow: hidden; }
+.box li span{ display: inline-block; margin-right: 1.2rem; }
+.box li input{ border: none; outline:none; width: 55%; }
+.box li p{ color: #999 }
+.kf_type input{ display: none; }
+.kf_type label{ display: inline-block; width: 2.7rem; height: 1.1rem; border: 1px solid #f24862; border-radius: 50px; line-height: 1.1rem;
+  text-align: center; margin-right: .6rem; color: #f24862; }
+.kf_type label.active{ color: #fff; background: #f24862; }
+.box .mw_box span{ margin-right: .5rem; }
+.box .mw_box input{ width: 30%; }
+.holder{ float: right; height: 100%; }
+.ul4 li{ line-height: 1rem; padding: .4rem .5rem; }
+.l_w{ width: 50%; }
+.l_w1{ width: 60%; }
+.box .l_w1 input{ width: 85%; }
+.l_w2{ width: 40%; overflow: hidden; }
+.up_img{ display: none; }
+.file_btn{ display: block; width: 2.06rem; height: 2.06rem; background: url("/weixin/Public/Member/images/huzhu/up_img.jpg") no-repeat center;
+  background-size: 100% 100%; }
+.l_w2 .file_btn{ float: right; }
+.l_w .file_btn{ margin-left: .5rem; }
+.jzr_info{ width: .1rem; height: .7rem; background: url('/weixin/Public/Member/images/huzhu/right_arrow.png') no-repeat right center; 
+  background-size: 100% 100%; padding-right: 10px; font-size: 16px; float: right; margin-top: .6rem; }
+.pc-box{ float: left; }
+.img_box img{ width: 2.06rem; height: 2.06rem; }
+.img_wrap{ position: relative; }
+.img_box i{ display: block; width: .6rem; height: .6rem; margin: 0px; background: url("/weixin/Public/Member/images/huzhu/delete.png") #fff; 
+  position: absolute; top: 0rem; right: -.3rem; background-size: 100% 100%;}
+.img_li { width: 1.8rem; height: 1.8rem; position: relative; float: left; margin-right: 10px; z-index: 999;}
+.bigImg{position: fixed;top: 0; left: 0;width: 100%;height: 100%; display: none; z-index: 9999;}
+.bg1{width: 100%;height: 100%;background: #000; opacity: .8; -webkit-opacity: .8;position: absolute;top: 0; left: 0;}
+.bigImg img{width: 80%;z-index: 2; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.l_w { position: relative; }
+.l_w2 .img_box2{ position: absolute; top: 1.1rem; left: 3.8rem; }
+.btn{ display: block; width: 100%; height: 1.6rem; line-height: 1.6rem; text-align: center; color: #fff; background: #f24862; }

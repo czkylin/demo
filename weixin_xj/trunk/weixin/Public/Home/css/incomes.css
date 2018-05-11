@@ -1,0 +1,169 @@
+body{color:#fff;font-size:20px;background: #000;}
+.wrap{margin:20px auto 0;}
+.w190{margin:20px auto 0;width:190px;}
+.hr{height:90px;width:100%;}
+.bg{background:#000 url(/weixin/Public/Home/images/incomes/bg.jpg) no-repeat center 0;background-size:contain;height:100%;}
+/*.main{width:1920px;margin:0 auto;padding-top:120px;}*/
+.main{width:1920px;margin:0 auto;padding-top:40px;}
+.returnMoney{width:240px;position:relative;}
+
+.returnMoney.hmo{top: 308px; left:0;}
+.returnMoney.big{width:250px; height: 236px; position: fixed; bottom: 470px; right:274px;}
+.returnMoney.big .txt{left: 58px; top:-18px;}
+.returnMoney.others{top: 296px; left: 0;}
+
+.r2{width:auto;margin-top:-50px;margin-left:20px;}
+.outer{background:url(/weixin/Public/Home/images/incomes/outerring.png) no-repeat;width:190px;height:190px;position:relative;margin:0 auto;}
+.o2{background-image:url(/weixin/Public/Home/images/incomes/round.png);width:378px;height:354px;}
+.inner{position:absolute;top:0;left:50%;width:190px;height:190px;margin-left:-95px;background:url(/weixin/Public/Home/images/incomes/innerring.png) no-repeat center center;}
+.txt{position:absolute;top:0;left:0;width:100%;height:68px;padding:61px 0;}
+.txt p{font-size:32px;line-height:34px;}
+.input{position:relative;height:44px;overflow:hidden;}
+.tLeft{background:url(/weixin/Public/Home/images/incomes/left.jpg) no-repeat;width:10px;height:44px;}
+.tRight{background:url(/weixin/Public/Home/images/incomes/right.jpg) no-repeat;width:8px;height:44px;}
+.num{background:url(/weixin/Public/Home/images/incomes/center.jpg) repeat-x;height:44px;color:#f0d100;}
+.w190 .num{width:172px;}
+.num b{font-size:18px;display:inline-block;vertical-align:text-top;line-height:40px;margin-left:5px;}
+.num strong{font-size:20px;display:inline-block;vertical-align:text-top;line-height:44px;height:44px;margin-right:10px;/* transition:.3s;-webkit-transition:.3s; */}
+.unit{position:relative;}
+.unit.angiocarpy{left: 238px; top:16px;}
+.unit.angiocarpy .list{background-size: 95% 78%;}
+.top{height:62px;position:absolute;top:-56px;left:63px;width:391px;}
+.top.t2{width:580px;}
+.arrowLeft{background:url(/weixin/Public/Home/images/incomes/arrowleft.png) no-repeat;width:23px;height:62px;}
+.arrowRight{background:url(/weixin/Public/Home/images/incomes/arrowRight.png) no-repeat;width:23px;height:62px;}
+.sum{background:url(/weixin/Public/Home/images/incomes/arrCenter.png) repeat-x;height:62px;width:345px;}
+.sum span{display:inline-block;line-height:62px;font-size:20px;}
+.sum.s2{width:530px;}
+.sum .input{margin-top:9px;}
+.list{background:url(/weixin/Public/Home/images/incomes/unit.png) no-repeat;width:478px;height:262px;padding:75px 10px 0 44px;background-size:95% 100%;}
+.list.u2{background-image:url(/weixin/Public/Home/images/incomes/u2.png);width:624px;padding-top:50px;}
+.list.u2 .lis{margin-left:20px;}
+.list span{margin-top:10px;}
+.list.secondLine{background-size: 95% 78%;}
+.lis{padding:6px 0;}
+.eyeCard{margin-top: 40px;}
+.femailCard{margin-top: 40px;}
+.move{animation:move 2s infinite;-webkit-animation:move 2s infinite;}
+.moveRevers{animation:move 2s infinite;-webkit-animation:move 2s infinite;animation-direction:alternate;-webkit-animation-direction:alternate;}
+.moveInversion{animation:moveInversion 2s infinite;-webkit-animation:moveInversion 2s infinite;}
+.moveReversInversion{animation:moveInversion 2s infinite;-webkit-animation:moveInversion 2s infinite;animation-direction:alternate;-webkit-animation-direction:alternate;}
+.moveBig{animation:move 2s infinite;-webkit-animation:move 2s infinite; }
+.arrow{width:100%;height:59px;background:url(/weixin/Public/Home/images/incomes/arrow.png) no-repeat center center;position:fixed;left:0;top:50%;}
+.upDown{animation:upDown 2s infinite;-webkit-animation:upDown 2s infinite;}
+@keyframes move{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+@-webkit-keyframes move{
+    0%{
+        -webkit-transform:rotateZ(0);
+    }
+    100%{
+        -webkit-transform:rotateZ(360deg);
+    }
+}
+@keyframes moveRevers{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+@-webkit-keyframes moveRevers{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+
+@keyframes moveInversion{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(-360deg);
+    }
+}
+@-webkit-keyframes moveInversion{
+    0%{
+        -webkit-transform:rotateZ(0);
+    }
+    100%{
+        -webkit-transform:rotateZ(-360deg);
+    }
+}
+@keyframes moveReversInversion{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(-360deg);
+    }
+}
+@-webkit-keyframes moveReversInversion{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(-360deg);
+    }
+}
+
+@keyframes moveBig{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+@-webkit-keyframes moveBig{
+    0%{
+        -webkit-transform:rotateZ(0);
+    }
+    100%{
+        -webkit-transform:rotateZ(360deg);
+    }
+}
+@keyframes moveReversBig{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+@-webkit-keyframes moveReversBig{
+    0%{
+        transform:rotateZ(0);
+    }
+    100%{
+        transform:rotateZ(360deg);
+    }
+}
+@keyframes upDown{
+    0%{
+        transform:translate3d(0,-50px,0);
+    }
+    100%{
+        transform:translate3d(0,0,0);
+        opacity:0;
+    }
+}
+@-webkit-keyframes upDown{
+    0%{
+        -webkit-transform:translate3d(0,-50px,0);
+    }
+    100%{
+        -webkit-transform:translate3d(0,0,0);
+        opacity:0;
+    }
+}

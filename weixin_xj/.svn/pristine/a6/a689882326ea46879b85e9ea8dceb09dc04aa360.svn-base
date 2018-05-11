@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/tijian.css">
+<script>
+	 document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px'
+</script>
+<title>体检报告</title>
+</head>
+<body>
+	<div class="main clear">
+		<div class="con clear">
+			<div class="shengao clear">
+				<img src="/weixin/Public/Member/images/user/nv.png" alt="">
+				<span><i>180cm</i></span>
+			</div>
+			<div class="tizhong">
+				<img src="/weixin/Public/Member/images/user/tanhuang.png" alt="">
+				<span>75KG</span>
+			</div>
+		</div>
+		<div class="des-list">
+			<ul>
+				<li class="clear">
+					<span class="fei"></span>
+					<div class="des">
+						<p>1.38mmol/L</p>
+						<b>甘油三脂（TG）</b>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<p>1.38mmol/L</p>
+						<b>尿酸（UA）</b>
+					</div>
+				</li>
+
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<p>1.38mmol/L</p>
+						<b>空腹血糖（FPG）</b>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<p>1.38mmol/L</p>
+						<b>总胆固醇（TC）</b>
+					</div>
+				</li>
+
+				<li class="clear">
+					<span class="zc"></span>
+					<div class="des">
+						<p>0mmHg</p>
+						<b>体检血压</b>
+					</div>
+				</li>
+				<li class="clear">
+					<span class="fei"></span>
+					<div class="des">
+						<p>23.1</p>
+						<b>BMI</b>
+					</div>
+				</li>
+			</ul>
+			<p class="time">2016-10-16 09:32:56</p>
+		</div>
+	</div>
+	<ul class="list1">
+		<li><a href="javascript:;" class="clear"><span>查看身体系统</span><i></i></a></li>
+		<li><a href="javascript:;" class="clear"><span>医生汇总分析</span><i></i></a></li>
+		<li><a href="javascript:;" class="clear"><span>您的全部检查项</span></a></li>
+	</ul>
+	<ul class="list2">
+		<li>
+			<a href="javascript:;">
+				<span>血糖</span>
+				<i>未见异常</i>
+			</a>
+		</li>
+		<li class="fei">
+			<a href="javascript:;">
+				<span>血氧</span>
+				<i>异常</i>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<span>血压</span>
+				<i>未见异常</i>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<span>心率</span>
+				<i>未见异常</i>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<span>身高、体重</span>
+				<i>未见异常</i>
+			</a>
+		</li>
+		<li class="fei">
+			<a href="javascript:;">
+				<span>尿常规</span>
+				<i>异常</i>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<span>体温</span>
+				<i>未见异常</i>
+			</a>
+		</li>
+	</ul>
+	<div class="yichang">
+		<a href="javascript:;">
+			<span>异常汇总项</span>
+		</a>
+	</div>
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script>
+		$(function(){
+			setTimeout(function(){
+				var iH = $(".shengao").find('img').css('height');
+				var iH1 = (parseFloat(iH)-30)/2;
+				$(".shengao").find('span').css('height',iH);
+				$(".shengao").find('span').find("i").css('top',iH1);
+			},50)	
+		})
+	</script>
+</body>
+</html>

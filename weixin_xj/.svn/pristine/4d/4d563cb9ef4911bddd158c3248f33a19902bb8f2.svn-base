@@ -1,0 +1,7 @@
+<volist name="video_list" id="video">
+    <dl>
+        <dt><a href="{:U('Unexp/sect_info',array('s_id'=>$video['SECT_ID']))}"><img src="{$video['VIDEO_IMG']}"></a></dt>
+        <dd><a href="{:U('Unexp/sect_info',array('s_id'=>$video['SECT_ID']))}">{$video['SECT_TITLE']}</a></dd>
+        <dd class="ui-icon-video">{$video['PIONT_NUM']}</dd>
+    </dl>∮
+</volist>

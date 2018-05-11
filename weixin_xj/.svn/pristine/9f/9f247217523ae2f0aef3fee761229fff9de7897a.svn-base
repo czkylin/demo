@@ -1,0 +1,48 @@
+<html class="ui-mobile">
+
+<head>
+
+<!--css-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- title -->
+
+<title>远程眼科运营端</title>
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="share-title" content="">
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/portal.minv2.css" type="text/css" rel="stylesheet"/>
+
+<link href="/weixin/Public/Home/css/operation.min.css" type="text/css" rel="stylesheet"/>
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:rgb(240, 240, 240);">
+
+	<div data-role="content" class="ui-content" role="main">
+
+		<div class="order-status">
+
+			<div class="error_img"><img src="/weixin/Application/Home/View/images/icon/true.png"alt=""/></div>
+
+		</div>
+
+		<div class="suc_back"> <a href="/weixin/index.php?m=Home&c=Order&a=case_list" class="ui-btn"><span class="ui-btn-inner ui-btn-corner-all">返回</span></a> </div>
+
+	</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+
+</html>

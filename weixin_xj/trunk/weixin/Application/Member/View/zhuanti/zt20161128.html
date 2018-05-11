@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/zhuanti/zt20161128.css">
+	<script>
+		(function(){
+			var html = document.documentElement;
+			var iWidth = html.getBoundingClientRect().width;
+			html.style.fontSize = iWidth/15 + "px";
+		})()
+	</script>
+	<title>百倍爱心卡</title>
+</head>
+<body>
+	<h1>护心大行动·爱心同传递</h1>
+	<h2>百倍爱心卡  火热售卖中</h2>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p1.jpg">
+		<p>工作人员正在认真核对线下填表会员信息<br>瞧这一摞厚厚的会员申请表。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p2.jpg">
+		<p>药店内被百倍爱心卡吸引的顾客真不少<br>大家争相询问、了解百倍爱心卡服务的相关内容<br>工作人员一一给予耐心的解答。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p3.jpg">
+		<p>购买百倍爱心卡的同时，会员纷纷体验了健康<br>一体机的几项体检服务，并对这种健康体检活动<br>赞不绝口。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p4.jpg">
+		<p>工作人员正在热心的帮助会员填写百倍爱心卡<br>的申请表，填表的同时，仍然耐心的为<br>会员讲解疑问。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p5.jpg">
+		<p>一张张百倍爱心卡售卡支付成功<br>也标志着我们对会员的服务正在扬帆起航，加油!</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p6.jpg">
+		<p>百倍爱心卡怎么样，老百姓说好才是真的好<br>为老百姓踏踏实实做实事儿，我们一直在努力!</p>
+	</article>
+	<footer>未完待续...</footer>
+	<a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=wxlogin" class="link">立即加入</a>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '护心大行动·爱心同传递';
+        var wx_share_desc = '百倍爱心卡,火热售卖中。';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/baozhang/top_ban.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_init',
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_init',
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+</body>
+</html>

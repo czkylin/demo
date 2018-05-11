@@ -1,0 +1,43 @@
+body{background:#f6f6f6;font-size:14px;-webkit-tap-highlight-color:transparent;}
+a{-webkit-tap-highlight-color:transparent;}
+.login{padding:1rem 0.5rem 0;}
+.login h3{font-weight:normal;padding:1rem 0 0;color:#999;font-size:14px;}
+.login h3 i{color:#333;margin-top:.2rem;}
+.phone{position:relative;}
+.phone input{border-width:0;outline:none;padding:0.5rem;width:10rem;-webkit-appearance:none;height:24px;font-size:18px;letter-spacing:4px;background:none;border-bottom:1px solid #ccc;}
+.goon{display:block;color:#fff;background:#d7d7d7;border-radius:4px;line-height:24px;height:24px;margin-top:.8rem;font-size:18px;padding:.5rem 0;}
+.success{background:#bb4257;}
+.code{-webkit-appearance:none;border-width:0;background:none;color:rgba(0,0,0,0);width:1px;height:1px;outline:none; position: absolute; top:-1000px; left:-11000px;}
+.code_lst{width:10rem;margin:0 auto;position: relative;}
+.code_lst li{width:2rem;height:2rem;border:1px solid #fff;border-radius:2px;color:#bb4257;margin:0 0.25rem;line-height:2rem;background:#fff;text-align:center;font-size:24px; position: relative;}
+.btnSendCode{color:#e90000;font-weight:normal;font-size:14px;display:block;padding:.5rem 0;}
+.yuedu{margin-top:.5rem;}
+.yfsdxm{position:fixed;top:-40px;left:0;width:100%;line-height:40px;text-align:center;background:#f7ba2a;color:#ff4949;transition:.5s;-webkit-transition:.5s;}
+.down{transform:translate3d(0,40px,0);-webkit-transform:translate3d(0,40px,0);}
+article{position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:none;}
+article h2{font-weight:600;font-size:18px;line-height:60px;}
+.article{width:90%;margin:0 auto;height:70%;overflow:auto;}
+article a{background:#ff7f35;line-height:40px;width:60%;margin:.5rem auto;display:block;color:#fff;}
+article p{padding-bottom:10px;color:#666;}
+.cursor-blink {display: inline-block; background-color: red; height: 30px; position: relative; top: 7px; width:1px; animation: blink 1s infinite;-webkit-animation: blink 1s infinite;}
+.say{margin-right:.5rem;display:inline-block;line-height:40px;color:#e90000;}
+@keyframes blink {
+    0%, 100% {
+        background-color: #000;
+        color: #aaa;
+    }
+    50% {
+        background-color: #fff;
+        color: #000;
+    }
+}
+@-webkit-keyframes blink {
+    0%, 100% {
+        background-color: #000;
+        color: #aaa;
+    }
+    50% {
+        background-color: #fff;
+        color: #000;
+    }
+}

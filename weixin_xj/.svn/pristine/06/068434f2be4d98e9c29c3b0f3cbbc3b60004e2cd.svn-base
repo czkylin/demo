@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>申请手术</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/chufang/cf_lst.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body class="grey" id="lixianglist">
+    <header>
+        <a class="ui-icon-prev" href="javascript:history.go(-1)"></a>
+        <h2 class="text-center">申请手术</h2>
+    </header>
+    <!-- <section class="unit box">
+        <div class="search box">
+            <i class="ui-icon-search"></i>
+            <input type="text" placeholder="请输入患者的姓名" id="search"/>
+        </div>
+        <button class="sr pink" onclick="ajaxsear()">搜索</button>
+    </section> -->
+    <div class="maindes">
+        <p>全国心脑远程联盟的手术申请是为医生提供手术申请的功能，线上申请，线下去基地医院进行手术，为更多的患者解决心脏疾病。</p>
+    </div>
+<if condition="empty($ss_list)">
+    <div style=" text-align: center;    margin-top: 150px;">
+        <br/> 
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+    </div>
+<else />
+    <div class="chufang_list">
+    <volist name="ss_list" id="ss" empty="暂时没有数据">
+        <section class="unit">
+            <header class="box">
+                <if condition="$ss['APPLY_ZT'] eq '是'">
+                	<h2  >已申请</h2>               
+	            <else />	                 
+	            </if>       
+            </header>
+            <div class="ct box">
+                <div class="cLeft box">
+                    <div class="ctxt">
+                        <p class="clearfix"><strong>医院名称：</strong><em>{$ss.HOS_NAME}</em></p>
+                        <p class="clearfix"><strong>医院地址：</strong><em>{$ss.HOS_ADDRESS}</em></p>
+                        <p class="clearfix"><strong>手术日期：</strong><em>{$ss.QD_DATE|Dtodiy="Y-m-d",###}</em></p>
+                        <p class="clearfix"><strong>手术备注：</strong><em>
+                        <if condition="$ss['SS_DESC'] eq ''">
+                            <em>暂无</em>
+                        <else />
+                                <em>{$ss.SS_DESC}</em>
+                        </if>
+                        </em></p>
+                    </div>
+                </div>
+            </div>
+            <if condition="$ss['APPLY_ZT'] eq '是'">
+               
+                 <a href="/weixin/index.php?m=Expert&c=Declare&a=myapply_list" class="color1 text-center go" >查看详情</a>
+            <else />
+                <a href="/weixin/index.php?m=Expert&c=Declare&a=apply_add&id={$ss.SS_ID}" class="color1 text-center go" >立即申请</a>
+            </if>       
+        </section>       
+    </volist>
+    </div>
+    <div class="ui-jiazai">
+    <a href="javascript:void(0);" onclick="load_more();">加载更多</a>
+    </div>
+   <div id="current_pagenum" style="display:none">2</div>
+</if>
+
+   <!--Js库文件--> 
+    <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+   <!--加载更多-->
+    <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+<script>
+
+    var onOff = true;
+        window.onscroll = function(){
+            load_more('.chufang_list');
+        }
+
+        function load_more(obj)
+        {   
+            if(!onOff) return;
+            if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height()){
+                onOff = !onOff;
+                loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Declare&a=apply_list_append','#cf-list');
+            }
+        }
+
+       
+
+
+
+        // var pushArr = [];
+        // $('.go').each(function(index){
+        //     $(this).click(function(){
+        //         pushArr.length = 0;
+        //         var arr = $(this).siblings(".ct").find('p');
+
+        //         for( var i=0;i<arr.length;i++ ){
+        //             var iEm = arr[i].getElementsByTagName("em")[0];
+        //             var str = iEm.innerHTML;
+        //             pushArr.push(str);
+        //         }
+        //         alert(pushArr[0]);
+        //     })
+        // })
+
+        $(window).scroll(function(){
+            if( $(document).scrollTop() >= 44 ){
+                $('.maindes').css("top",0);
+            }else if($(document).scrollTop() == 0){
+                $('.maindes').css("top",44);
+            }else{
+                $('.maindes').css("top",44 - $(document).scrollTop());    
+            }
+        })
+
+</script>
+</body>
+</html>

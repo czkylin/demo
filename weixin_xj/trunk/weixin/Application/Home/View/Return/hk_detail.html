@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Home/css/return/assistant.css">
+<title>经营回款助手详情</title>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 15 + 'px';
+</script>
+</head>
+<body>
+	<section class="assistant bottomcolor">
+		<ul class="list">
+			<li class="hos_select">
+				<span>医院：</span>
+				<div>
+					<p class="color333">{$hk_detail['HOS_NAME']}</p>
+				</div>
+			</li>
+			<li class="return">
+				<span>手术回款额：</span>
+				<p>{$hk_detail['YL_MONEY']}</p>
+				<i>元</i>
+			</li>
+			<li class="return">
+				<span>耗材回款额：</span>
+				<p>{$hk_detail['HC_MONEY']}</p>
+				<i>元</i>
+			</li>
+			<li class="time">
+				<span>申请时间：</span>
+				<div>{$hk_detail['CREATE_DATE']}</div>
+			</li>
+		</ul>
+	</section>
+	<section class="review">
+		<ul>
+			<li>
+				<span>总监审核人：</span>
+				<p>{$hk_detail['REAL_NAME']}</p>
+				<if condition="$hk_detail['CHECK_FLAG'] eq '通过'">
+					<i class="success">{$hk_detail['CHECK_FLAG']}</i>
+				<elseif condition="$hk_detail['CHECK_FLAG'] eq '拒绝'"/>
+					<i class="unsuccess">{$hk_detail['CHECK_FLAG']}</i>
+				<else />
+					<i class="unsuccess" style="color: #3591F9">{$hk_detail['CHECK_FLAG']}</i>
+				</if>
+			</li>
+			<li>
+				<span>省总审核人：</span>
+				<p>{$hk_detail['REAL_NAME5']}</p>
+				<if condition="$hk_detail['CHECK5_FLAG'] eq '通过'">
+					<i class="success">{$hk_detail['CHECK5_FLAG']}</i>
+				<elseif condition="$hk_detail['CHECK5_FLAG'] eq '拒绝'"/>
+					<i class="unsuccess">{$hk_detail['CHECK5_FLAG']}</i>
+				<else />
+					<i class="unsuccess" style="color: #3591F9">{$hk_detail['CHECK5_FLAG']}</i>
+				</if>
+			</li>
+			<li>
+				<span>财务审核人：</span>
+				<p>{$hk_detail['REAL_NAME2']}</p>
+				<if condition="$hk_detail['CHECK2_FLAG'] eq '通过'">
+					<i class="success">{$hk_detail['CHECK2_FLAG']}</i>
+				<elseif condition="$hk_detail['CHECK2_FLAG'] eq '拒绝'"/>
+					<i class="unsuccess">{$hk_detail['CHECK2_FLAG']}</i>
+				<else />
+					<i class="unsuccess" style="color: #3591F9">{$hk_detail['CHECK2_FLAG']}</i>
+				</if>
+			</li>
+			<li>
+				<span>经管部审核人：</span>
+				<p>{$hk_detail['REAL_NAME3']}</p>
+				<if condition="$hk_detail['CHECK3_FLAG'] eq '通过'">
+					<i class="success">{$hk_detail['CHECK3_FLAG']}</i>
+				<elseif condition="$hk_detail['CHECK3_FLAG'] eq '拒绝'"/>
+					<i class="unsuccess">{$hk_detail['CHECK3_FLAG']}</i>
+				<else />
+					<i class="unsuccess" style="color: #3591F9">{$hk_detail['CHECK3_FLAG']}</i>
+				</if>
+			</li>
+			<li>
+				<span>拒绝理由：</span>
+				<p>
+					<if condition="empty($hk_detail['CHECK_DESC'])">
+						{$hk_detail['CHECK_DESC']}
+		            <elseif condition="empty($hk_detail['CHECK_DESC5'])" />
+		            	{$hk_detail['CHECK_DESC5']}
+	            	<elseif condition="empty($hk_detail['CHECK_DESC2'])" />
+		            	{$hk_detail['CHECK_DESC2']}
+	            	<elseif condition="empty($hk_detail['CHECK_DESC3'])" />
+		            	{$hk_detail['CHECK_DESC3']}
+		            </if>
+				</p>
+			</li>
+		</ul>
+	</section>
+	<section class="foot">
+		<a href="/weixin/index.php?m=Home&c=Return&a=hk_list" class="see">查看经营回款助手成果</a>
+		<!-- <a href="javascript:;" class="sub">重新提交</a> -->
+	</section>
+	<script src="/weixin/Public/Home/js/jquery.min.js"></script>
+	<script>
+		//自动填写申请时间
+		(function(){
+			var iTime = new Date();
+			var iYear = iTime.getFullYear();
+			var iMon = iTime.getMonth() + 1;
+			var iDate = iTime.getDate();
+			$('.time > div').html(iYear + "-" + iMon + "-" + iDate);
+		})();
+	</script>	
+</body>
+</html>

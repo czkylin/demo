@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>个人中心 </title> 
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/user/zhuce.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="shenhetongguo"> 
+<p class="center"><img src="/weixin/Public/Expert/images/zhuce/cgimg.png"></p>
+<h1>恭喜！审核通过!</h1>
+<p>您好！您已成为“全国亚太肝病诊疗技术联盟”会员。我们已审核通过，并且为您颁发会员证书。</p>
+<p><img src="/weixin/Public/Expert/images/zhuce/huiyuanzhengshu.jpg"></p>
+</div>
+</body>
+</html>

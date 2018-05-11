@@ -1,0 +1,22 @@
+<volist name="vo.PERSON_CASES" id="v">
+	<div class="list-main clearfix">
+		<div class="main-img">
+			<if condition="$v['CASE_PIC'] eq ''">
+			<else /><img src="{$v.CASE_PIC}" alt="">
+			</if>	
+		</div>
+		<div class="main-con">
+			<p>名称：{$v.CASE_TITLE}</p>
+			<p>描述: 
+				<if condition="$v['CASE_DESC'] eq ''">暂无
+				<else />{$v.CASE_DESC}
+				</if>
+			</p>
+			<p>时间:{$v.CREATE_DATE}</p>
+		</div>
+	</div>
+	<div class="xiugai clearfix">
+		<p><a href="{:U('Member/User/bingli_update',array('record_id'=>$case['RECORD_ID'],'case_id'=>$v['CASE_ID'],'case_desc'=>$v['CASE_DESC'],'case_title'=>$v['CASE_TITLE'],'case_pic'=>$v['CASE_PIC']))}">修改病例</a></p>
+		<div><a href="javascript:void(0)" class="bingli_del">删除病例</a><div style="display: none;">{$v['CASE_ID']}</div></div>
+	</div>∮
+</volist>	

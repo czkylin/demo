@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Expert/css/footer/footer.css" type="text/css" rel="stylesheet"/>
+<!--CSS当前页面文件-->
+<!-- title -->
+<title>免费筛查</title>
+<style type="text/css">
+body{ width: 100%; margin: 0 auto; max-width: 600px; padding: 0 10px; -webkit-box-sizing:border-box;box-sizing:border-box; }
+h1 img{ width: 100%; }
+h2{ font-size: 16px; color: #333; line-height: 24px; padding: 10px 0;}
+h3{ font-size: 14px; color: #333; line-height: 24px; }
+p{  font-size: 12px; color: #333; line-height: 24px; }
+p img{ width: 60%; }
+</style>
+<!--meta-->
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="background:#fff;" >
+<h1><img src="/weixin/Public/Expert/images/weiGuanWang/mianfeishaicha01.jpg" alt="免费筛查"></h1>
+<h2>一、乙肝五项是指</h2>
+<p><img src="/weixin/Public/Expert/images/weiGuanWang/mianfeishaicha02.jpg" alt="乙肝五项是指"></p>
+<h2>二、丙肝</h2>
+<p>丙肝一般指丙型病毒性肝炎</p>
+<h3>筛查内容</h3>
+<p><b>1.肝功能</b><br>
+包括血清ALT、AST,总胆红素、直接胆红素、间接胆红素，白蛋白、球蛋白，胆碱酯酶、碱性磷酸酶、转肽酶等。<br>
+<b>2.丙肝病毒抗体</b><br>
+抗HCV。<br>
+<b>3.丙肝病毒定量</b><br>
+血清HCVRNA，了解丙肝病毒复制的活跃程度。<br>
+<b>4.影像学</b><br>
+腹部肝胆脾超声检查了解肝脏有无慢性损伤。必要时行腹部增强CT或MRI检查,以了解病情损伤程度。<br>
+<b>5.肝脏瞬时弹性波扫描</b><br>
+是一种无创检查可用于慢性丙型肝炎患者肝脏纤维化程度评估</p>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>药店产品列表</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/store/store.css" rel="stylesheet" type="text/css">
+ <link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet" />
+</head>
+<body style="background:#fff;">
+<div class="search">
+        <form>
+                <input class="left" type="text"  name="product_name" id="product_name" value="{$product_name}" placeholder="搜索店内药品"/>
+                <input class="ui-btn-search right" onClick="search_list('',document.all.product_name.value,'');" type="button" value="搜索"/>
+        </form>
+</div>
+<div class="experts" style=" margin-top:56px;">
+        <div class="xuanze" style="display:none">
+			<a href="#" class="fenlei con_con">商品分类</a>
+				<ul class="fenlei_con">
+					<li><a onClick="search_list('',document.all.product_name.value,'');">全部</a></li>
+					<volist name="type_list" id="type" empty="暂时没有数据">
+					<li><a onClick="search_list('',document.all.product_name.value,{$type['STYPE_ID']});">{$type['TYPE_NAME']}</a></li>
+					</volist>
+                </ul>
+           <a href="#" class="paixun con_con">智能排序</a>
+           		<ul class="paixun_con">
+					 <li><a class="" onClick="search_list('',document.all.product_name.value,'desc');">价格从高到低</a></li>
+                     <li><a onClick="search_list('',document.all.product_name.value,'asc');">价格从低到高</a></li>
+                </ul>
+                     
+        </div>
+        
+        <div class="sp_list" id="product-list">
+                <volist name="product_list" id="product">
+                        <div class="sp_info">
+                                <div class="sp_img"> 
+                                <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=product_content&product_id={$product['PRODUCT_ID']}&hos_id={$product['HOS_ID']}">
+                                 <img src="{$product['PRODUCT_PIC']}" width="318" height="278" /> </a> </div>
+                                <p>{$product['TY_NAME']}</p>
+                                <div class="sp_xinxi"> 
+                                        <!--<span class="sj_dz">北京</span>--> 
+                                </div>
+                                <div class="sp_price">
+                                    <span class="xianjia">¥{$product['PRODUCT_MONEY']}</span>
+                                    <span class="qianjia">¥{$product['PRODUCT_MONEY']}</span>
+                                    <b>&gt;</b>
+                                </div>
+                        </div>
+                </volist>
+        </div>
+        <div class="che"><a href="{:U('Member/Yd/cart_list')}"><img src="/weixin/Application/Member/View/images/store/che.png"></a></div>
+</div>
+<div class="ui-jiazai" style=" height:120px;"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+<div id="current_pagenum" style="display:none">2</div>
+<div id="current_hos_id" style="display:none"></div>
+<div id="current_name" style="display:none">{$product_name}</div>
+<div id="current_money_sort" style="display:none">{$money_sort}</div>
+<div id="current_type" style="display:none"></div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Member/js/store.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load_more.js?v=1.10" type="text/javascript"></script> 
+<script>
+var over_footer = '0';
+function search_list(hos_id,product_name,type_id)
+{
+
+	$('#current_type').text(type_id);
+
+	$('#current_name').text(encodeURI(product_name));
+	$('#current_hos_id').text(encodeURI(hos_id));
+
+	$('#current_pagenum').text('1');
+	$('#product-list').html('');
+	$('.ui-jiazai').children('a').text('加载更多');
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Yd&a=search_product_list_append&type_id='+$('#current_type').text()+'&product_name='+$('#current_name').text()+'','#product-list');
+}
+
+function load_more()
+{
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Yd&a=search_product_list_append&type_id='+$('#current_type').text()+'&money_sort='+$('#current_money_sort').text()+'&product_name='+$('#current_name').text()+'','#product-list');
+}
+</script> 
+<!--通底的引用开始--> 
+<include file="Public:footer_fd" /> 
+<!--通底的引用结束-->
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

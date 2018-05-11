@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <title>我为自己代言</title>
+  <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+  <link rel="stylesheet" href="/weixin/Public/Member/css/cropper.css">
+  <style>
+      /*.container{height:80%;} */ 
+    img {
+      max-width: 100%;
+    }
+      .cropper-view-box{background:url(/weixin/Public/Member/images/crop/border0.png) no-repeat;background-size:contain;}
+      .cropper-view-box img{position:relative;z-index:-1;}
+  </style>
+  <script>
+  document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';  
+  </script>
+</head>
+<body>
+   <article>
+       <section><a href="javascript:;"></a></section>
+       <section>
+            <div class="container">
+                <div id="pic" class="pic">
+                  <img id="image" src="/weixin/Public/Member/images/crop/demo.jpg" alt="Picture">
+                </div>
+                <!--<a href="javascript:;" id="download" download="1.jpg">下载</a>-->
+            </div>
+            <footer class="text-center">
+                <a href="javascript:;"><label for="inputImage">上传图片</label></a>
+                <input type="file" class="sr-only" id="inputImage" name="file" accept="image/*"/>
+                <a href="javascript:;" id="crop">确认合成</a>
+            </footer>
+       </section>
+       <section>
+            <div class="container">
+                <div id="result" class="result text-center"></div>
+            </div>
+            <footer class="text-center">
+                <a href="javascript:;"><label for="inputImage">重新上传</label></a>
+                <a href="javascript:;" id="dow">长按图片保存</a>
+            </footer>
+       </section>
+   </article>
+   <div id="music" class="music"><img src="/weixin/Public/Member/images/crop/music.png" width="100%" /></div>
+   <audio style="display:none; height: 0" id="bg-music" preload="auto" src="/weixin/Public/Member/images/crop/music.mp3" loop></audio>
+   <div id="mask" class="mask center">
+       <div class="alert">
+           <p>长按保存  晒代言</p>
+           <a href="javascript:;">确定</a>
+       </div>
+   </div>
+    <img src="/weixin/Public/Member/images/crop/border0.png" id="flower" style="display:none;" />
+  <!-- Scripts -->
+  <script src="/weixin/Public/Common/js/jquery.min.js"></script>
+  <script src="/weixin/Public/Member/js/cropper.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script>
+      var arrImg = ['/weixin/Public/Member/images/crop/border1.png','/weixin/Public/Member/images/crop/border2.png','/weixin/Public/Member/images/crop/border3.png','/weixin/Public/Member/images/crop/border4.png'];
+      $('.container').css('height',$(window).height()-$('footer').outerHeight());
+      //console.log($('#pic').height())
+        $('#image').cropper({
+            viewMode: 1,
+            dragMode: 'move',
+            aspectRatio: 0.75,
+            autoCropArea: 1,
+            restore: false,
+            guides: false,
+            highlight: false,
+            cropBoxMovable: false,
+            cropBoxResizable: false
+        });
+        var image = document.getElementById('pic').getElementsByTagName('img').item(0);
+        var inputImage = document.getElementById('inputImage');
+        var uploadedImageURL;
+        var uploadedImageType = 'image/jpeg';
+        var croppedCanvas;
+        var roundedCanvas;
+        inputImage.onchange = function () {
+            var files = this.files;
+            var file;
+            document.getElementById('flower').src = arrImg[Math.round(Math.random()*3)];
+            document.querySelector('.cropper-view-box').style.background = 'url('+document.getElementById('flower').src+') no-repeat';
+            file = files[0];
+
+            if (/^image\/\w+/.test(file.type)) {
+              uploadedImageType = file.type;
+
+              if (uploadedImageURL) {
+                URL.revokeObjectURL(uploadedImageURL);
+              }
+
+              image.src = uploadedImageURL = URL.createObjectURL(file);
+              $('#image').cropper('destroy');
+              $('#image').cropper({
+                viewMode: 1,
+                dragMode: 'move',
+                aspectRatio: 0.75,
+                autoCropArea: 1,
+                restore: false,
+                guides: false,
+                highlight: false,
+                cropBoxMovable: false,
+                cropBoxResizable: false,
+                ready: function(){
+                    document.getElementById('flower').src = arrImg[Math.round(Math.random()*3)];
+            document.querySelector('.cropper-view-box').style.background = 'url('+document.getElementById('flower').src+') no-repeat';
+            document.querySelector('.cropper-view-box').style.backgroundSize = 'contain';
+                }
+              });
+              inputImage.value = null;
+                if($('section:nth-child(2)').css('display') == 'none'){
+                    $('section:nth-child(2)').show();
+                }
+            } else {
+              window.alert('Please choose an image file.');
+            }
+          }
+          $('#crop').click(function(){   
+                croppedCanvas = $('#image').cropper('getCroppedCanvas');
+                $('#result').html('<img src="' + getCanvas(croppedCanvas).toDataURL() + '">');
+                $(this).parents('section').fadeOut(); //$('#download').attr('href',croppedCanvas.toDataURL(uploadedImageType));
+          });
+         /*$('#download').click(function(){
+             var type = 'jpg';
+             download(type);
+         });*/
+        
+        //下载
+        /*$('#dow').click(function(){
+            //alert('长按保存  晒代言');
+            $('#mask').addClass('show');
+        });*/
+        $('.alert a').click(function(){
+            $('#mask').removeClass('show');
+        })
+      
+        $('section:first-child a').click(function(){
+            $(this).parents('section').fadeOut();
+        })  
+      
+        //播放音乐
+        var audio = document.getElementById('bg-music');
+        document.addEventListener('DOMContentLoaded', function () {
+            function audioAutoPlay() {
+                audio.play();
+                document.addEventListener("WeixinJSBridgeReady", function () {
+                    audio.play();
+                }, false);
+            }
+            audioAutoPlay();
+        });
+        $('#music').click(function(){
+            if(audio.paused){
+                $(this).find('img').attr('src','/weixin/Public/Member/images/crop/music.png');
+                audio.play();
+            }else{
+                $(this).find('img').attr('src','/weixin/Public/Member/images/crop/music_close.png');
+                audio.pause();
+            }
+        })
+         //图片下载操作,指定图片类型
+        function download(type) {
+            //设置保存图片的类型
+            var imgdata = $('#result img').attr('src');
+            //var imgdata = croppedCanvas.toDataURL(type);
+            //将mime-type改为image/octet-stream,强制让浏览器下载
+            var fixtype = function (type) {
+                type = type.toLocaleLowerCase().replace(/jpg/i, 'jpeg');
+                var r = type.match(/png|jpeg|bmp|gif/)[0];
+                return 'image/' + r;
+            }
+            imgdata = imgdata.replace(fixtype(type), 'image/octet-stream')
+            //将图片保存到本地
+            var saveFile = function (data, filename) {
+                var link = document.createElement('a');
+                link.href = data;
+                link.download = filename;
+                var event = document.createEvent('MouseEvents');
+                event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                link.dispatchEvent(event);
+            }
+            var filename = new Date().toLocaleDateString() + '.' + type;
+            saveFile(imgdata, filename);
+        }
+      
+        function getCanvas(sourceCanvas) {
+          var canvas = document.createElement('canvas');
+          var context = canvas.getContext('2d');
+          var width = $('.cropper-view-box').width();
+          var height = $('.cropper-view-box').height();
+          var img = document.getElementById('flower');
+            
+          //img.src = arrImg[Math.round(Math.random()*3)];
+          canvas.width = width;
+          canvas.height = height;
+          context.drawImage(sourceCanvas, 0, 0, width, height);
+          context.drawImage(img, 0, 0, width, height);
+
+          return canvas;
+        }
+      
+        //微信分享
+        wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '我为自己代言';
+        var wx_share_desc = '你有你的个性，我有我的价值观，我是远程人，我为自己代言';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/crop/share.jpg";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=index&a=imgUpload&user_id={:I("get.user_id","0")}&type={:I("get.type","Member")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                     set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=index&a=imgUpload&user_id={:I("get.user_id","0")}&type={:I("get.type","Member")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+  </script>
+  <div style="height:0px;overflow:hidden;"><script src="https://s22.cnzz.com/z_stat.php?id=1262906490&web_id=1262906490" language="JavaScript"></script></div>
+</body>
+</html>

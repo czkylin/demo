@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="护心大行动·爱心同传递百倍爱心卡火热售卖中">
+<meta name="keywords" content="百倍爱心卡" />
+	<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css?time={$time}.css">
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/zhuanti/zt20161128.css?<?php echo time();?>.css">
+	<script>
+		(function(){
+			var html = document.documentElement;
+			var iWidth = html.getBoundingClientRect().width;
+			html.style.fontSize = iWidth/15 + "px";
+		})()
+	</script>
+	<title>百倍爱心卡 火热传递中</title>
+</head>
+
+<body>
+	<nav id="nav" class="nav clear">
+        <span class="fl">最新数据：</span>
+        <div class="people fl">
+                <ul class="box">
+                    <li class="box">
+                    <!-- <volist name="buy_list" id="buy">
+                        <em>{$buy.PERSON_NAME|msubstr=0,1,'utf-8',false}**&nbsp;{$buy.PERSON_MOBILE|substr=0,3}****{$buy.PERSON_MOBILE|substr=-4}</em>
+                    </volist> -->
+                    <em>总资金：{$bx_list.all_money}元</em>
+                    <em>今日增长资金：{$bx_list.day_all_money}元</em>
+                    <em>已加入会员：{$bx_list.hy_num}人</em>
+                    <em>今日增长会员：{$bx_list.day_hy_num}人</em>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+	<h1>护心大行动·爱心同传递</h1>
+	<h2>百倍爱心卡  火热售卖中</h2>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p7.jpg" alt="百倍爱心卡火热传递中">
+		<p>药店售卡现场人流涌动，场面热闹<br>人们纷纷表示百倍爱心卡非常贴近百姓需求<br>让百姓受益。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p1.jpg" alt="百倍爱心卡火热传递中">
+		<p>工作人员正在认真核对线下填表会员信息<br>瞧这一摞厚厚的会员申请表。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p2.jpg" alt="百倍爱心卡火热传递中">
+		<p>药店内被百倍爱心卡吸引的顾客真不少<br>大家争相询问、了解百倍爱心卡服务的相关内容<br>工作人员一一给予耐心的解答。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p3.jpg" alt="百倍爱心卡火热传递中">
+		<p>购买百倍爱心卡的同时，会员纷纷体验了健康<br>一体机的几项体检服务，并对这种健康体检活动<br>赞不绝口。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p4.jpg" alt="百倍爱心卡火热传递中">
+		<p>工作人员正在热心的帮助会员填写百倍爱心卡<br>的申请表，填表的同时，仍然耐心的为<br>会员讲解疑问。</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p5.jpg" alt="百倍爱心卡火热传递中">
+		<p>一张张百倍爱心卡售卡支付成功<br>也标志着我们对会员的服务正在扬帆起航，加油!</p>
+	</article>
+	<article>
+		<img src="/weixin/Public/Member/images/zhuanti/zt20161128/p6.jpg" alt="百倍爱心卡火热传递中">
+		<p>百倍爱心卡怎么样，老百姓说好才是真的好<br>为老百姓踏踏实实做实事儿，我们一直在努力!</p>
+	</article>
+	<footer>
+        <span>￥200</span>
+         <a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I('get.user_id','0')}&link_mobile={:I('get.link_mobile','0')}&sale_type={:C("SALE_TYPE_1")}&attach=<?php echo urlencode(base64_encode('m='.$type.'&c=Huzhu&a=fenxiang'));?>&user_name={:I('get.user_name','')}" class="link">立即加入</a>
+    </footer>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="/weixin/Public/Common/js/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+    function set_log(act){
+        var type = "{$type}"+"_fenxiang";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '护心大行动·爱心同传递';
+        var wx_share_desc = '百倍爱心卡,火热售卖中。';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_icon/chuandi.png";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=fenxiang&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=fenxiang&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+<script>
+var h = $('#nav ul').html();
+var w = 0;
+$('#nav em').each(function(){
+    w += $(this).outerWidth() + 20;
+})
+$('#nav ul').append(h).width(w);
+var iNow = 0;
+setInterval(function(){
+    $('#nav ul').css({
+        'transform': 'translate3d(-'+iNow+'px,0,0)',
+        '-webkit-transform': 'translate3d(-'+iNow+'px,0,0)'
+    });
+    iNow++;
+    if(iNow > $('#nav li').width()){
+        iNow = 0;
+    }
+},30);
+</script>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+<!-- CNZZ统计代码  百倍爱心卡传递单独统计-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260887026).'" width="0" height="0"/>';?></div>
+</body>
+</html>

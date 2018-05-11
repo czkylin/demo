@@ -1,0 +1,17 @@
+<volist name="fuwu_info" id="fuwu" empty="">
+    <section class="unit">
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <div class="ctxt">
+                    <p>真实姓名：{$fuwu.REAL_NAME}</p>
+                    <p>服务昵称：{$fuwu.MEMBER_NAME}</p>
+                    <p>服务名称：{$fuwu.SERVE_NAME}</p>
+                    <p>服务医生：{$fuwu.EXPERT_NAME}</p>
+                    <p>服务卡号：{$fuwu.CARD_NUMBER}</p>
+                    <p>服务时间：{$fuwu.SERVE_DATE|Dtodiy="Y-m-d H:i",###}</p>
+                </div>
+            </div>
+        </div>
+    </section>∮
+</volist>

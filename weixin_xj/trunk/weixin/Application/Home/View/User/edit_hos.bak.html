@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>所属医院{$data.hos_name}</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+</head>
+<body class="huise">
+<form action="/weixin/index.php?m=Home&c=User&a=user_edit_info" method="post" onSubmit="return sub()">
+
+        <div class="chanpin">
+
+                <h3> 
+                    <input type="radio" name="hos_type" id="hos_type" <if condition="$hos_type eq '0'"> checked="checked" <else/></if> value="0"/> 医院用户
+                    <label class="xingbie <if condition="$hos_type eq '0'"> on <else/></if> " for="hos_type"></label>
+                </h3>
+                <h3>
+                    <input type="radio" name="hos_type" id="hos_type" <if condition="$hos_type eq '1'"> checked="checked" <else/></if> value="1"> 药店用户
+                    <label class="xingbie <if condition="$hos_type eq '0'"> on <else/></if> " for="hos_type"></label>
+                </h3>
+                <div class="ui-search">
+                        <div class="ui-searchtxt">
+                                <input class="left" placeholder="输入医院名称/药店名称" type="text" name="name" id="name"/>
+                        </div>
+                        <input class="right ui-btn-search" onClick="search_list(document.all.name.value,'document.all.hos_type.value');" type="button" value="搜索"/>
+                </div>
+                <ul id="plist">
+              		<volist name='hos_list' id='hos' key="k">
+                            <li id="y_{$hos['HOS_ID']}">
+                                    <label class="ui-icon-unchecked-s xz xuanze" for="week1_{$hos['HOS_ID']}" ></label>
+                                    <input type="checkbox" name="column_value" id="week1_{$hos['HOS_ID']}" onClick="checkproduct({$hos['HOS_ID']})" value="{$hos['HOS_ID']}" style="display:none;" />
+                                      <h3>{$hos['HOS_NAME']}</h3>
+                            </li>
+                    </volist>
+                </ul>
+                <ul id="list">
+                    
+                </ul>
+                <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+        </div>
+        <div id="current_name" style="display:none">{$hos_name}</div>
+         <div id="current_type" style="display:none">{$hos_type}</div>
+        <div id="current_pagenum" style="display:none">2</div>
+        <div class="tijiao">
+        <input type="hidden" name="column_name" id="column_name" value="hos_id">
+                <button class="ui-btn-purchase-blue">提交</button>
+        </div>
+</form>
+
+<!--Js库文件--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/mobileFix.mini.js " type="text/javascript"></script> 
+<!--Exif.js 读取图像的元数据 --> 
+<script src="/weixin/Public/Common/js/exif.js " type="text/javascript"></script> 
+<!--lrz.min.js 压缩图片 --> 
+<script src="/weixin/Public/Expert/js/lrz.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script type="text/javascript">
+function checkproduct(id){  
+	var ids = "#"+"y_"+id; 
+	var week = "#"+"week1_"+id;
+	var y_id = "y_"+id;
+	$(week).attr('checked',true);
+	if($(week).is(':checked')){
+         if($("#plist li").length!=1){
+            var html = "<li id="+y_id+">"+$(ids).html()+"</li>";
+            $('#list').html('');
+            $('#plist').append(html);
+         }else if($("#plist li").length==1){
+            var html = "<li id="+y_id+">"+$(ids).html()+"</li>";
+            $('#list').html('');
+             $('#plist li').remove();
+            $('#plist').append(html);
+         }else{
+            //$(ids).remove();
+            $('#plist li').remove();
+        }
+	
+	}else{
+        $(ids).remove();
+    }
+}
+function search_list(name)
+{ 
+	$('#current_name').text(encodeURI(name));
+	$('#current_pagenum').text('1');
+	$('#list').html('');
+	$('.ui-jiazai').children('a').text('加载更多');
+	loadmore('#current_pagenum','/weixin/index.php?m=Home&c=User&a=edit_hos_append&hos_name='+$('#current_name').text()+'&hos_type='+$('input:radio:checked').val(),'#list');
+}
+
+function load_more()
+{
+	loadmore('#current_pagenum','/weixin/index.php?m=Home&c=User&a=edit_hos_append&name='+$('#current_name').text()+'&hos_type='+$('input:radio:checked').val(),'#list');
+}
+
+
+
+
+/*药品选择*/
+
+$('#list').delegate('li .xz','click',function()
+{
+	var yaopin = $(this), k = $(this).siblings(".xuanze").length;
+	if(yaopin.hasClass("xuanze"))
+	{
+		yaopin.removeClass("xuanze")
+	}
+	else
+	{
+		yaopin.addClass("xuanze")
+	}
+})
+
+
+
+function sub()
+{
+	
+	var val = $('input:checkbox[name="column_value"]:checked').size(); 
+	if(val == 0)
+	{
+		alert('推荐药品不能为空请选择,请填写!');
+		return false;
+	}
+}
+
+
+</script>
+</body>
+</html>

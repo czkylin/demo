@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>奖励制度</title>
+<link href="/weixin/Public/Home/css/zhengcejiedu/jianglizd.css" type="text/css" rel="stylesheet">
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+</script>
+</head>
+<body>
+	<img src="/weixin/Public/Home/images/jianglizhidu/img1.jpg" alt="">
+	<img src="/weixin/Public/Home/images/jianglizhidu/img2.jpg" alt="">
+	<img src="/weixin/Public/Home/images/jianglizhidu/img3.jpg" alt="">
+	<img src="/weixin/Public/Home/images/jianglizhidu/img4.jpg" alt="">
+	<a href="{:U('Home/Doc/phb_list')}" class="link">我的积分排行</a>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

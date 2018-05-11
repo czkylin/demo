@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>服务详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    
+
+    <if condition="$sever_info['SERVE_SORT'] eq '1'">
+        <header>
+            <img src="/weixin/Public/Member/images/eight/d1.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>一年内6次预约北京专家视频会诊咨询</p>
+                <p class="grey"><i></i>提前5个工作日预约，服务时长为10分钟以内</p>
+                <p class="grey"><i></i>通过机器人端远程进行/手机、PAD终端设备</p>
+                <p class="grey"><i></i>客服中心、北京三甲医院专家</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员拨打400-656-2020/使用APP患者端/机器人端进行预约对应时间的北京专家视频会诊服务；</p>
+                <p class="grey">2.拨打400-656-2020/APP患者端/机器人端反馈预约申请结果（成功/不成功—提出建议日期）；</p>
+                <p class="grey">3.在约定时间内完成会诊；</p>
+                <p class="grey">4.客服进行视频会诊满意度调查。</p>
+            </div>
+        </section>
+    <elseif condition="$sever_info['SERVE_SORT'] eq '2'" />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d2.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>每月2次私人家庭医生咨询会诊回访</p>
+                <p class="grey"><i></i>时间： 每月初和月中</p>
+                <p class="grey"><i></i>工具： 电话/APP患者端/机器人端远程进行</p>
+                <p class="grey"><i></i>谁做： 心界会员管理中心</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员管理中心对通过电话对会员进行定期回访；</p>
+                <p class="grey">2.会员管理中心对会员进行病理建议、用药提示、日常护理等回访；</p>
+                <p class="grey">3.回访人员将每次会诊结果反馈至集团云平台。</p>
+            </div>
+        </section>
+    <elseif condition="$sever_info['SERVE_SORT'] eq '3'" />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d3.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>一年内2次北京三甲医院专家预约挂号服务</p>
+                <p class="grey"><i></i>时间： 提前10个工作日预约</p>
+                <p class="grey"><i></i>工具： 患者终端/电话预约</p>
+                <p class="grey"><i></i>谁做： 客服中心</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员拨打400-656-2020/患者终端设备申请预约挂号服务；</p>
+                <p class="grey">2.客服跟资源建设部进行对接，确认挂号结果；</p>
+                <p class="grey">3.客服人员确定挂号结果反馈至会员，在会员希望日期未挂号成功的，可协助挂其他的会员接受的日期/医院/专家；</p>
+                <p class="grey">4.会员更改或取消挂号，需至少提前五个工作日反馈公司客服部，五个工作日内不接受取消或更改服务；</p>
+                <p class="grey">5.挂号成功后，会员在对应日期来京就诊。</p>
+            </div>
+        </section>
+    <elseif condition="$sever_info['SERVE_SORT'] eq '4'" />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d4.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>一年内2次北京三甲医院专家远程阅片诊断服务</p>
+                <p class="grey"><i></i>时间： 提前3个工作日预约</p>
+                <p class="grey"><i></i>工具： 患者终端设备、专家医生端PAD</p>
+                <p class="grey"><i></i>谁做： 客服中心、北京三甲医院专家</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员在我公司合作的基地医院进行拍片（费用自理）；</p>
+                <p class="grey">2.会员拨打400-656-2020或通过患者终端设备预约专家远程阅片诊断服务的时间；</p>
+                <p class="grey">3.专家用医生端的PAD进行远程阅片，撰写阅片结果，反馈至患者端设备或微信公众号提醒会员查看；</p>
+                <p class="grey">4.会员通过患者端设备或微信公众号获取诊断结果。</p>
+            </div>
+        </section>
+    <elseif condition="$sever_info['SERVE_SORT'] eq '5'" />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d5.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>一年内2次北京三甲医院专家远程会诊服务</p>
+                <p class="grey"><i></i>时间： 提前10个工作日预约</p>
+                <p class="grey"><i></i>工具： 会诊基地远程设备</p>
+                <p class="grey"><i></i>谁做： 客服、北京三甲医院专家</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员在我公司合作的基地医院进行拍片；</p>
+                <p class="grey">2.会员拨打400-656-2020或通过患者终端设备预约远程会诊服务的时间；</p>
+                <p class="grey">3.北京专家在会诊中心进行多方会诊，并撰写会诊结果反馈患者端设备或微信公众号提醒会员查阅；</p>
+                <p class="grey">4.会员接收和查看会诊结果；</p>
+                <p class="grey">5.会员更改或取消此项服务，需至少提前五个工作日反馈公司客服中心，五个工作日内不接受取消或更改服务。</p>
+            </div>
+        </section>
+    <elseif condition="$sever_info['SERVE_SORT'] eq '6'" />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d6.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>一年内2次定点机构健康体检服务</p>
+                <p class="grey"><i></i>时间： 会员自定，无需预约</p>
+                <p class="grey"><i></i>工具： 健康一体机</p>
+                <p class="grey"><i></i>谁做： 客服中心、一体机设备处的经营人员</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员拨打400-656-2020查询体检地址；</p>
+                <p class="grey">2.前往我公司投放一体机设备的基地医院或药店，经营人员协助会员进行一体机设备体检；</p>
+                <p class="grey">3.健康一体机可以进行心电图、心率、血压、体温、血氧饱和度、脉率、尿常规、血糖、身高体重等9项进行检查；</p>
+                <p class="grey">4.会员可当时或通过患者终端设备查看体检结果；</p>
+            </div>
+        </section>
+    <elseif condition="$sever_info['SERVE_SORT'] eq '7'" />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d7.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>一年内2次专家健康评估和健康指导</p>
+                <p class="grey"><i></i>时间： 提前3个工作日预约</p>
+                <p class="grey"><i></i>工具： 健康一体机</p>
+                <p class="grey"><i></i>谁做： 北京专家医生</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员在我公司投放一体机设备的基地医院或药店进行体检；</p>
+                <p class="grey">2.会员体检结果将反馈至专家医生PAD端；</p>
+                <p class="grey">3.专家医生根据会员体检的结果进行评估及健康指导；</p>
+                <p class="grey">4.专家医生通过PAD端反馈至会员，会员在APP患者端、微信患者端查看。</p>
+            </div>
+        </section>
+    <else />
+       <header>
+            <img src="/weixin/Public/Member/images/eight/d8.jpg" width="100%" />
+        </header>
+        <section class="explain">
+            <h2>服务说明</h2>
+            <div class="ex-child">
+                <p>配备远程家庭医疗陪护机器人全年服务</p>
+                <p class="grey"><i></i>时间： 使用权一年</p>
+                <p class="grey"><i></i>工具： 远程家庭医疗陪护机器人/健康一体机</p>
+                <p class="grey"><i></i>谁做： 对应设备</p>
+                <p class="grey">流程：</p>
+                <p class="grey">1.会员选定需要的设备；</p>
+                <p class="grey">2.公司调试、设置（信息注册）成功后寄发设备；</p>
+                <p class="grey">3.会员收到设备开始使用；</p>
+                <p class="grey">4.会员可以通过医疗陪护机器人/健康一体机进行为期一年的身体健康管理。</p>
+            </div>
+        </section>
+    </if>
+    <if condition="$sever_info['PERIOD_NUM'] lt '1' || $sever_info['YUYUE_FLAG'] eq '0'">
+
+    <else />
+        <div class="yy clear">
+            <a href="tel:4006562020" class="phone fl"></a>
+            <a href="{:U('User/fuwu_yuyue',array('serve_id'=>$sever_info['SERVE_ID'],'expert_id'=>$expert_id,'serve_name'=>$sever_info['SERVE_NAME']))}" class="text-center yya fr">立即预约</a>
+        </div>
+    </if>
+</body>
+</html>

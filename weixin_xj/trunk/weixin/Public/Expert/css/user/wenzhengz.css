@@ -1,0 +1,27 @@
+/*common*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+body { line-height: 1; background-color: #f6f6f6; font-family:'微软雅黑';}
+:focus { outline: 1; }
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+li { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+a { margin: 0; padding: 0; border: 0; font-size: 100%; vertical-align: baseline; background: transparent; text-decoration: none; }
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted #000; cursor: help; }
+table { border-collapse: collapse; border-spacing: 0; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #cccccc; margin: 1em 0; padding: 0; }
+input, select { vertical-align: middle; }
+.fl { float: left; }
+.fr { float: right; }
+.clear:after { content: ''; display: block; clear: both; }
+/*main*/
+.title { font-size: 0.68rem; color: #333; height: 2.15rem; line-height: 2.15rem; text-align: center; }
+.main { width: 14rem; margin: 0 auto; padding: 0.5rem; background: #fff;  overflow:hidden; margin-bottom:0.5rem; }
+.main b{ float:left; background:#a5a5a5; border-radius:3px; width:26px; height:26px; font-weight:normal; color:
+#fff; font-size:16px; text-align:center; line-height:26px; margin-right:8px; }
+.main h2{ float:left; font-size:16px; line-height:24px; color:#333; font-weight:normal; }
+.main p{ display:block; color:#333; font-size:16px; float:left; line-height:28px; text-indent:2em; margin-top:10px;} 
+.main b.aa{ background:#ffa516;}

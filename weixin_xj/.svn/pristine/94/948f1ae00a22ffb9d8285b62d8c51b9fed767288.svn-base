@@ -1,0 +1,302 @@
+/*commom*/
+*{margin: 0; padding: 0;}
+html,body{overflow: hidden; height: 100%; background: #dfd2b5;}
+img{vertical-align: top;}
+a{text-decoration: none;}
+li{list-style: none;}
+/*loading page*/
+#loading{
+	width: 100%;
+	height: 100%;
+	background: #dfd2b5;
+	position: relative;
+}
+#loading span{
+	display: block;
+	color: #461c16;
+	font-size: 50px;
+	font-weight: 600;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 30%;
+}
+/*music*/
+#music{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: url(/weixin/Public/Home/images/zhuanti/first/music.png) no-repeat;
+	width: 30px;
+	height: 30px;
+	z-index: 20;
+	background-size: 30px;
+	display: none;
+}
+#music.rotate{
+	animation:music 3s 0.2s infinite;
+	-webkit-animation:music 3s 0.2s infinite;
+}
+@keyframes music{
+	0%{
+		transform:rotate(0);
+	}
+	100%{
+		transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes music{
+	0%{
+		-webkit-transform:rotate(0);
+	}
+	100%{
+		-webkit-transform:rotate(360deg);
+	}
+}
+/*arrow*/
+@keyframes arrowMove{
+	0%{
+		transform:translate(0,0);
+		opacity: 1;
+	}
+	60%{
+		transform:translate(0,10px);
+		opacity: 0.4;
+	}
+	100%{
+		transform:translate(0,20px);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes arrowMove{
+	0%{
+		-webkit-transform:translate(0,0);
+		opacity: 1;
+	}
+	60%{
+		-webkit-transform:translate(0,10px);
+		opacity: 0.4;
+	}
+	100%{
+		-webkit-transform:translate(0,20px);
+		opacity: 0;
+	}
+}
+.arrow{
+	width: 42px;
+	height: 26px;
+	position: absolute;
+	left: 50%;
+	bottom: 60px;
+	margin-left: -21px;
+	background: url(/weixin/Public/Home/images/zhuanti/first/arrow.png) no-repeat;
+	background-size: 42px;
+	animation:arrowMove 0.8s linear infinite;
+	-webkit-animation:arrowMove 0.8s linear infinite;
+}
+/*page1*/
+.page1{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg1.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page1 img{
+	width: 100%;
+}
+.page1 .text1{
+	position: absolute;
+	width: 42%;
+	top: 50%;
+	left: 29%;
+}
+.page1 .text2{
+	position: absolute;
+	width: 41%;
+	top: 60%;
+	left: 13%;
+	opacity: 0;
+}
+.page1 .text3{
+	position: absolute;
+	width: 30%;
+	top: 59%;
+	right: 12%;
+	opacity: 0;
+}
+.page1.animate .text2{
+	animation:fadeInLeft 0.6s 0.2s forwards;
+	-webkit-animation:fadeInLeft 0.6s 0.2s forwards;
+}
+.page1.animate .text3{
+	animation:zoomIn 1.4s 0.8s infinite;
+	-webkit-animation:zoomIn 1.4s 0.8s infinite;
+}
+/*page2*/
+.page2{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg2.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+/*page3*/
+.page3{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg3.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+/*page4*/
+.page4{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg4.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+/*page5*/
+.page5{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg5.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page5 img{
+	width: 100%;
+}
+.page5 .text1{
+	position: absolute;
+	width: 9.5%;
+	right: 33%;
+	top: 20%;
+	opacity: 0;
+}
+.page5 .text2{
+	position: absolute;
+	width: 34%;
+	left: 16%;
+	top: 20%;
+	opacity: 0;
+}
+.page5 .ma{
+	position: absolute;
+	right: 8%;
+	bottom: 4.5%;
+	width: 48%;
+	opacity: 0;
+}
+
+.page5.animate .ma{
+	animation:fadeIn 0.4s 0.1s forwards;
+	-webkit-animation:fadeIn 0.4s 0.1s forwards;
+}
+.page5.animate .text1{
+	animation:fadeIn 0.6s 0.4s forwards;
+	-webkit-animation:fadeIn 0.6s 0.4s forwards;
+}
+.page5.animate .text2{
+	animation:fadeIn 1s 1s forwards;
+	-webkit-animation:fadeIn 1s 1s forwards;
+}
+/*page6*/
+.page6{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg6.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page6 img{
+	width: 100%;
+}
+.page6 .page6-img{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 94.5%;
+	opacity: 0;
+}
+.page6.animate .page6-img{
+	animation:fadeInRight 0.4s 0.2s forwards;
+	-webkit-animation:fadeInRight 0.4s 0.2s forwards;
+}
+/*page7*/
+.page7{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg7.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+/*page8*/
+.page8{
+	background: url(/weixin/Public/Home/images/zhuanti/first/cf/bg8.jpg) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+.page8 img{
+	width: 100%;
+}
+.page8 .text2,.page8 .text3,.page8 .text4,.page8 .text5{
+	position: absolute;
+	top: 20%; 
+	width: 6%;
+	opacity: 0;
+}
+.page8 .text1{
+	position: absolute;
+	right:24%;
+	top: 20%; 
+	width: 7%;
+	opacity: 0;
+}
+.page8 .text2{
+	right:37%;
+}
+.page8 .text3{
+	right:46%;
+}
+.page8 .text4{
+	right:55%;
+}
+.page8 .text5{
+	right:64%;
+}
+@-webkit-keyframes fadeInRight1{
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(12%, 0, 0);
+    transform: translate3d(12%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRight1{
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(12%, 0, 0);
+    transform: translate3d(12%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.page8.animate .text1{
+	animation:fadeIn 0.8s 0.2s forwards;
+	-webkit-animation:fadeIn 0.8s 0.2s forwards;
+}
+.page8.animate .text2{
+	animation:fadeInRight1 0.8s 1s forwards;
+	-webkit-animation:fadeInRight1 0.8s 1s forwards;
+}
+.page8.animate .text3{
+	animation:fadeInRight1 0.8s 1.8s forwards;
+	-webkit-animation:fadeInRight1 0.8s 1.8s forwards;
+}
+.page8.animate .text4{
+	animation:fadeInRight1 0.8s 2.6s forwards;
+	-webkit-animation:fadeInRight1 0.8s 2.6s forwards;
+}
+.page8.animate .text5{
+	animation:fadeInRight1 0.8s 3.4s forwards;
+	-webkit-animation:fadeInRight1 0.8s 3.4s forwards;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <title>服务详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/eight.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <img src="/weixin/Public/Member/images/eight/detail.jpg" width="100%" />
+    </header>
+    <section class="explain">
+        <h2>服务说明</h2>
+        <div class="ex-child">
+            <p>一年内2次定点机构健康体检服务</p>
+            <p class="grey"><i></i>时间： 会员自定，无需预约</p>
+            <p class="grey"><i></i>工具： 健康一体机</p>
+            <p class="grey"><i></i>谁做： 客服中心、一体机设备处的经营人员</p>
+            <p class="grey">流程：</p>
+            <p class="grey">1.会员拨打400客服电话查询体检地址；</p>
+            <p class="grey">2.前往我公司投放一体机设备的基地医院或药店，经营人员协助会员进行一体机设备体检；</p>
+            <p class="grey">3.健康一体机可以进行心电图、心率、血压、体温、血氧饱和度、脉率、尿常规、血糖、身高体重等9项进行检查；</p>
+            <p class="grey">4.会员可当时或通过患者终端设备查看体检结果；</p>
+        </div>
+    </section>
+    <div class="yy clear">
+        <a href="tel:4006562020" class="phone fl"></a>
+        <a href="#" class="text-center yya fr">立即预约</a>
+    </div>
+</body>
+</html>

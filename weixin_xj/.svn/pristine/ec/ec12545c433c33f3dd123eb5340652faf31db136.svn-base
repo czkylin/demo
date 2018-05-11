@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>{$act_info[0]['ACT_TITLE']}</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/union/gongYiCiShan.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="pad_15 mainCon">
+        <div class="huoDongTongZhi_info">
+            <h1>{$act_info[0]['ACT_TITLE']}</h1>
+            <div class="quarry"><span class="time">{$act_info[0]['CREATE_DATE']|Dtodiy='Y.m.d',###}</span></div>
+            <p class="main-con">
+            	{$act_info[0]['ACT_DESC']|htmlspecialchars_decode|Strimgurl='/upload','http://weixin.yk2020.com/upload',###}
+            </p>   
+       </div>
+</div>
+<div class="ad" style="border-top:5px solid #ebebeb; margin-bottom:15px;">
+	<div class="ad-wrap" style="padding:0 15px;">
+		<h3 style="line-height:30px; font-size:16px;">健康推荐</h3>
+	    <a href="http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_yf"><img src="/weixin/Public/Member/images/article/baibei.png" alt="" style="width:100%; display:block; margin:0 auto;"></a>
+	</div>
+</div>
+<!--通底的引用开始-->
+<!-- <include file="Public:footer_fd" />  -->
+<script>var over_footer = '1';</script>
+<!--通底的引用结束--> 
+<include file="Public:tj" /></body>
+</html>

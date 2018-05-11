@@ -1,0 +1,77 @@
+.swiper-container{position: relative; width: 100%; height: auto; min-width: 1200px;}
+.swiper-wrapper{width: 100%; height: auto;}
+.swiper-slide,.swiper-slide img{width: 100%; height: auto;}
+.swiper-pagination.swiper-pagination-bullets{position: absolute; bottom: 36px; z-index: 999;}
+.swiper-pagination{z-index: 999;}
+.w1120{width: 1120px; margin: 0 auto;}
+.w920{width: 920px; margin: 0 auto;}
+h2{line-height: 60px; text-align: center; font-size: 26px; color: #333333;}
+h2 em{padding: 14px 0; border-bottom: 3px solid #077478;}
+p{font-size: 14px; color: #666666;}
+.con p.title{width: 920px; margin: 40px auto 68px; line-height: 30px; text-align: center;}
+.banner{height: 420px; min-width: 1200px; background: url('/Public/images/keyService/consultationCentre/banner.jpg') no-repeat center; background-size: cover; overflow: hidden; color: #077478;}
+.banner .title{margin: 132px 0 0 60px; font-size: 30px; }
+.banner .title em{padding: 14px 0; border-bottom: 3px solid #077478;}
+.banner .desc{margin: 20px 0 0 64px; font-size: 56px;}
+.con{width: 100%; padding-top: 72px; overflow: hidden; min-width: 1200px; box-sizing: border-box;}
+.con1{height: 792px; background: #f5f5f5;}
+.box{width: 320px; height: 370px; margin-right: 50px; float: left; position: relative;}
+.box p{width: 100%; height: 100%; padding: 0 20px; color: #ffffff; box-sizing: border-box;}
+.box p span{display: inline-block; text-indent: 28px; line-height: 20px;}
+.box p:nth-child(1){line-height: 370px; text-align: center; font-size: 22px;}
+.box p:nth-child(2){background: #077478;}
+.box:nth-of-type(1) p:nth-child(1){width: 100%; height: 100%; background: url('/Public/images/keyService/consultationCentre/pic1.jpg') no-repeat center;}
+.box:nth-of-type(1) p:nth-child(2) span:nth-child(1){margin-top: 78px;}
+.box:nth-of-type(2) p:nth-child(1){width: 100%; height: 100%; background: url('/Public/images/keyService/consultationCentre/pic2.jpg') no-repeat center;}
+.box:nth-of-type(2) p:nth-child(2) span:nth-child(1){margin-top: 46px;}
+.box:nth-of-type(3) p:nth-child(1){width: 100%; height: 100%; background: url('/Public/images/keyService/consultationCentre/pic3.jpg') no-repeat center;}
+.box:nth-of-type(3) p:nth-child(2) span:nth-child(1){margin-top: 130px;}
+.list {
+  position: absolute;
+}
+.flip.in {
+  -webkit-animation-name: flipintoright;
+  -webkit-animation-duration: 225ms;
+  animation-name: flipintoright;
+  animation-duration: 225ms;
+}
+.flip.out {
+  -webkit-transform: rotateY(-90deg) scale(.9);
+  -webkit-animation-name: flipouttoleft;
+  -webkit-animation-duration: 175ms;
+  transform: rotateY(-90deg) scale(.9);
+  animation-name: flipouttoleft;
+  animation-duration: 175ms;
+}
+.flip {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateX(0);
+    backface-visibility: hidden;
+    transform: translateX(0);
+}
+.out {
+    -webkit-animation-timing-function: ease-in;
+    -webkit-animation-duration: 225ms;
+    animation-timing-function: ease-in;
+    animation-duration: 225ms;
+}
+.con2{height: 792px;}
+.con2 .swiper-slide dl{margin-top: 40px; width: 100%; height: 440px;}
+.con2 .swiper-slide dt{position: relative; margin: 0 110px 0 40px; width: 480px; height: 400px; float: left;}
+.con2 .swiper-slide dt img{width: 100%; height: auto;}
+.con2 .swiper-slide dt img.text{position: absolute; left: -20px; top: -40px; width: 94px; height: 94px;}
+.con2 .swiper-slide dd{width: 570px; float: left;}
+.con2 .swiper-slide dd p.desc{margin: 20px 0 50px 0; font-size: 18px;}
+.con2 .swiper-slide dd p.item{line-height: 30px;}
+.con2 .swiper-pagination{top: 400px; left: 678px; width: 46px;}
+.con2 .swiper-pagination span{width: 7px; height: 6px; margin: 0 6px 0 0 !important;}
+.con2 .swiper-pagination span:nth-child(4){margin: 0 !important;}
+.con2 .swiper-button-prev,.con2 .swiper-button-next{top: 426px; width: 28px; height: 28px; background-size: 100%;}
+.con2 .swiper-button-prev{left: 630px; background-image: url('/Public/images/keyService/consultationCentre/img1.png');}
+.con2 .swiper-button-next{left: 742px; background-image: url('/Public/images/keyService/consultationCentre/img2.png');}
+.con3{height: 814px; background: url('/Public/images/keyService/consultationCentre/pic12.jpg') no-repeat center; background-size: cover;}
+.con3 .content{padding: 30px 76px 0 28px; margin-right: 120px; width: 400px; height: 420px; background: #ffffff; float: left; box-sizing: border-box;}
+.con3 .content:nth-of-type(2){margin: 0; padding-right: 34px;}
+.con3 .content p.iTitle{height: 70px; line-height: 70px; font-size: 18px; text-align: center;}
+.con3 .content p.item{line-height: 24px;}
+.con4{height: 966px; text-align: center;}

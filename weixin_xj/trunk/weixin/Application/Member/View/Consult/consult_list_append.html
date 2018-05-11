@@ -1,0 +1,24 @@
+<volist name="consult_list" id="consult">
+        <li> <a href="/weixin/index.php?m=Member&c=Consult&a=consult_details&consult_id={$consult['CONSULT_ID']}">
+                <div class="zixun_left"> <span> 
+                <if condition="($consult['EXPERT_SEX'] eq '男') && ($consult['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')">
+                                                
+                    <img src="/weixin/Public/Expert/images/yonghu/boy.png" width="60" height="60">
+                <elseif condition="($consult['EXPERT_SEX'] eq '女') && ($consult['SMALL_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')"/>
+
+                    <img src="/weixin/Public/Expert/images/yonghu/girl.png"  width="60" height="60">
+                <else />
+                    <img src="{$consult.SMALL_PIC}" width="60" height="60">
+                </if>
+
+                <if condition="$consult['REP_FALG'] eq '已回复'"> <b></b>
+                    <else/>
+                </if>
+                        </span> </div>
+                <div class="zixun_right">
+                        <h3>{$consult['EXPERT_NAME']}医生</h3>
+                        <div class="right_center"><span>{$consult['CONSULT_DATE']}</span><b>{$consult['REP_FALG']}</b></div>
+                        <p>{$consult['CONSULT_CONTENT']}</p>
+                </div>
+                </a> </li>
+        ∮ </volist>

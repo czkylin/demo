@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>活动通知详细页</title>
+<!--CSS库文件-->
+<link href="../../../../Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<link href="../../../../Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="../../../../Public/Expert/css/union/huoDongTongZhi.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<header class="ui-header"> <i class="ui-icon-return" onClick="history.back()"></i> </header>
+<div class="pad_15 mainCon">
+        <div class="huoDongTongZhi_info">
+                <h1> 2015年9月19日远程肝脏疾病精准诊疗技术平台中心在北京成立。 </h1>
+                <div class="quarry"><span class="ui-icon-pin line_hei">&nbsp;</span><span class="address">西班牙（巴斯罗那）</span><span class="time">会议时间：2015-9-19</span></div>
+                <!--小标题-->
+                <h2>国际肝病会议将于2016年4月13-17日在西班牙（巴塞罗那）召开。</h2>
+                <table class="ui-table ui-border-tb" >
+                        <tbody>
+                                <tr>
+                                        <th width="130">一、大会源流：</th>
+                                        <td></td>
+                                </tr>
+                                <tr>
+                                        <td colspan="2">1966年4月23日和24日欧洲肝病研究协会由医学博士Prof. Gustav-Adolf Martini创办德国马尔堡欧洲肝病研究协会简称EASL（European Association For The Study Of The Liver），在自欧洲肝病学会成立49年来，它已经从一个首次会议仅有70位学者的小规模组织，一跃成为欧洲领先的肝病研究学会。 <img src="/weixin/Public/Expert/images/geShengLianMeng/img1.jpg" title="" alt=""></td>
+                                </tr>
+                                <tr>
+                                        <th>二、主办单位：</th>
+                                        <td>欧洲肝病研究协会主席：Markus Peck-Radosavljevic
+                                                欧洲肝病研究协会副主席：Laurent Castera </td>
+                                </tr>
+                                <tr>
+                                        <th>三、组委会成员：</th>
+                                        <td>欧洲肝病研究协会主席：Markus Peck-Radosavljevic
+                                                欧洲肝病研究协会副主席：Laurent Castera </td>
+                                </tr>
+                                <tr>
+                                        <th>四、组织单位：</th>
+                                        <td>欧洲肝病研究协会主席：Markus Peck-Radosavljevic
+                                                欧洲肝病研究协会副主席：Laurent Castera </td>
+                                </tr>
+                                <tr>
+                                        <th>五、活动地点：</th>
+                                        <td>欧洲肝病研究协会主席：Markus Peck-Radosavljevic
+                                                欧洲肝病研究协会副主席：Laurent Castera </td>
+                                </tr>
+                                <tr>
+                                        <th>六、出团时间：</th>
+                                        <td>欧洲肝病研究协会主席：Markus Peck-Radosavljevic
+                                                欧洲肝病研究协会副主席：Laurent Castera </td>
+                                </tr>
+                        </tbody>
+                </table>
+                <div>
+                        <p>医学会议中心联系方式：联系电话：010-82319999-2215、2216联系邮箱：yixuehuiyi@med66.com</p>
+                </div>
+                <div class=""> <a href="" class="ui-btn-purchase-default">点击报名</a> </div>
+        </div>
+</div>
+<include file="Public:tj" /></body>
+</html>

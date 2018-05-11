@@ -1,0 +1,52 @@
+<volist name="ss_list" id="ss">
+    <section class="unit">
+        <header class="box">
+            <h2>{$ss.PROJECT_NAME}</h2>
+            <p class="text-right"><span class="warn">
+            <if condition="$ss['CHECK_FLAG'] eq '0'">
+            待审
+            <elseif condition="$ss['CHECK_FLAG'] eq '1'"/>
+            通过
+            <else/>
+            拒绝
+            </if>
+            </span></p>
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="ctxt">
+                    <p class="clearfix"><strong>医院名称：</strong><em>{$ss.HOS_NAME}</em></p>
+                    <p class="clearfix"><strong>医院地址：</strong><em>{$ss.HOS_ADDRESS}</em></p>
+                    <p class="clearfix"><strong>描述：</strong>
+                        <if condition="$ss['CHECK_DESC'] eq ''">
+                            <em>暂无</em>
+                        <else />
+                            <em>{$ss.CHECK_DESC}</em>
+                        </if>
+                    </p>
+                    <p class="clearfix"><strong>申请时间：</strong><em>{$ss.APPLY_DATE}</em></p>
+                    <p class="clearfix"><strong>手术时间：</strong><em>{$ss.QD_DATE}</em></p>
+                    <p class="clearfix"><strong>审核时间：</strong><em>{$ss.CHECK_DATE}</em></p>
+                </div>
+            </div>
+        </div>
+    </section>∮
+</volist>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

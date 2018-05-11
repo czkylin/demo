@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<script src="/weixin/Public/Common/css/Swiper/swiper.min.css"></script>
+<link rel="stylesheet" href="/weixin/Public/Member/css/art.css">
+<title>百倍爱心卡让爱延续……</title>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';    
+</script>
+</head>
+<body>
+    <article>
+        <section class="swiper-container">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide text-center"></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/bj.png" width="80%" ></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/heb.png" width="80%"></li>
+                <li class="swiper-slide text-center" data-index="2"><img src="/weixin/Public/Member/images/art/nmg.png" width="80%"></li>
+                <li class="swiper-slide text-center" data-index="1"><img src="/weixin/Public/Member/images/art/hb.png" width="80%"></li>
+                <li class="swiper-slide text-center" data-index="3"><img src="/weixin/Public/Member/images/art/hn.png" width="80%"></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/nx.png" width="80%"></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/sd.png" width="80%"></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/zj.png" width="80%"></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/tj.png" width="80%"></li>
+                <li class="swiper-slide text-center"><img src="/weixin/Public/Member/images/art/sc.png" width="80%"></li>
+                <li class="swiper-slide text-center center" data-index="4">
+                    <p class="text-center"><img src="/weixin/Public/Member/images/art/continue.png" width="100%"></p>
+                </li>
+            </ul>
+        </section>
+        <div class="sign">
+            <p>
+                <span class="links text-center">
+                    <a href="http://mp.weixin.qq.com/s/2ov15D3x-N7ddAngv4VqUg">了解详情</a>
+                    <a href="javascript:;" class="next">下一例</a>
+                </span>
+            </p>
+        </div>
+        <div class="sign">
+            <p>
+                <span class="links text-center">
+                    <a href="http://mp.weixin.qq.com/s/pafXxkDLOkaV-vlnF-vsSA">了解详情</a>
+                    <a href="javascript:;">继续前行</a>
+                </span>
+            </p>
+        </div>
+        <div class="sign">
+            <p>
+                <span class="links text-center">
+                    <a href="http://hmo.yc999120.com/m/view.php?aid=84">了解详情</a>
+                    <a href="javascript:;">继续前行</a>
+                </span>
+            </p>
+        </div>
+        <div class="sign">
+            <p>
+                <span class="links text-center">
+                    <a href="http://hmo.yc999120.com/m/view.php?aid=90">了解详情</a>
+                    <a href="javascript:;">继续前行</a>
+                </span>
+            </p>
+        </div>
+        <div class="bird" id="bird"><img src="/weixin/Public/Member/images/art/bird.gif" width="100%" /></div>
+    </article>
+    <div id="music" class="music"><img src="/weixin/Public/Member/images/art/music.png" width="100%" /></div>
+    <audio style="display:none; height: 0" id="bg-music" preload="auto" src="/weixin/Public/Member/images/art/music.mp3" loop></audio>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    //微信分享
+    wx.config({
+        debug: false,
+        appId: '<?php echo $appId;?>',
+        timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+        nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    var wx_share_title = '百倍爱心卡让爱延续……';
+    var wx_share_desc = '百倍爱心卡公益行动，很多地方已经受到了援助，只要需要，百倍爱心卡必到！';
+    var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/art/200.jpg";
+
+    wx.ready(function() {
+        wx.onMenuShareTimeline({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_9900_1&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                 set_log('朋友圈');
+            },
+            cancel: function() {}
+        });
+        wx.onMenuShareAppMessage({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_9900_1&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                set_log('微信');
+            },
+            cancel: function() {}
+        });
+    });
+    
+    //播放音乐
+    var audio = document.getElementById('bg-music');
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    $('#music').click(function(){
+        if(audio.paused){
+            $(this).find('img').attr('src','/weixin/Public/Member/images/art/music.png');
+            audio.play();
+        }else{
+            $(this).find('img').attr('src','/weixin/Public/Member/images/art/music_close.png');
+            audio.pause();
+        }
+    });
+    
+    window.onload = function(){
+        var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'vertical',
+            onlyExternal : true,
+            speed: 5000,
+            //autoplay: 1000,
+            onInit: function(swiper){
+                swiper.slideNext();
+            },
+            onSlideChangeEnd: function(swiper){
+                var index = $('.swiper-slide-active').data('index');
+                if(index){
+                    $('#bird img').attr('src','/weixin/Public/Member/images/art/bird.png');
+                    switch(index){
+                        case 2:
+                            $('.sign').eq(1).addClass('down');
+                            break;
+                        case 3:
+                            $('.sign').eq(3).addClass('down');
+                            break;
+                        case 1:
+                            $('.sign').eq(0).addClass('down');
+                            //$('.sign').eq(2).addClass('down');
+                            break;
+                    }
+                }else{
+                    swiper.slideNext();
+                }
+            }
+        });
+
+        $('.links a:nth-child(2)').click(function(){
+            $('.sign').removeClass('down');
+            if(!$(this).hasClass('next')){
+                $('#bird img').attr('src','/weixin/Public/Member/images/art/bird.gif');
+                mySwiper.slideNext();
+            }else{
+                //$('#bird img').attr('src','/weixin/Public/Member/images/art/bird.png');
+                $('.sign').eq(2).addClass('down');
+            }
+        })
+    }
+</script>
+</html>

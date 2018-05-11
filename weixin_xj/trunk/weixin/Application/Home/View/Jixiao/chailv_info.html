@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>差旅费详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <style>
+        body{height:100%;}
+        #list li p{width: auto;}
+        #list li i{position:absolute; right: 0; top: 0; width: 60%; font-style: normal; }
+        .clearfix:after{content: ""; display: block; clear: both;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+
+<body class="data">
+    <article id="page" class="dataList">
+        <h2 class="text-center">差旅费申请详情</h2>
+        <section>
+            <ul id="list">
+                <li data-name="bir">
+                    <p>出发日期</p>
+                    <i>{$cl.OUT_DATE|Dtodiy='Y-m-d',###}</i>
+                </li>
+                <li data-name="bir">
+                    <p>返回日期</p>
+                    <i>{$cl.RETURN_DATE|Dtodiy='Y-m-d',###}</i>
+                </li>
+                <li>
+                    <p>出差天数</p>
+                    <i>{$cl.OUT_DAY}</i>
+                </li>
+                <li>
+                    <p>交通费</p>
+                    <i>{$cl.JTF_MONEY}</i>
+                </li>
+                <li>
+                    <p>市内交通费</p>
+                    <i>{$cl.SNJTF_MONEY}</i>
+                </li>
+                <li>
+                    <p>住宿费</p>
+                    <i>{$cl.ZSF_MONEY}</i>
+                </li>
+                <li>
+                    <p>餐费</p>
+                    <i>{$cl.CF_MONEY}</i>
+                </li>
+                <li>
+                    <p>会议费</p>
+                    <i>{$cl.HYF_MONEY}</i>
+                </li>
+                <li>
+                    <p>快递费</p>
+                    <i>{$cl.KDF_MONEY}</i>
+                </li>
+                <li>
+                    <p>办公费</p>
+                    <i>{$cl.BGF_MONEY}</i>
+                </li>
+                <li>
+                    <p>补助</p>
+                    <i>{$cl.BZF_MONEY}</i>
+                </li>
+                <li>
+                    <p>金额小计</p>
+                    <i>{$cl.TOTAL_MONEY}</i>
+                </li>
+                <li style="height: auto; display: block;" class="clearfix">
+                    <p style="float:left;">出差事由</p>
+                    <i style="float: right; position: relative;">{$cl.OUT_DESC}</i>
+                </li>
+                <li>
+                    <p>预借金额</p>
+                    <i>{$cl.YJ_MONEY}</i>
+                </li>
+                <li>
+                    <p>退回金额</p>
+                    <i>{$cl.TH_MONEY}</i>
+                </li>
+                <li>
+                    <p>补领金额</p>
+                    <i>{$cl.BL_MONEY}</i>
+                </li>
+                <li>
+                    <p>单据</p>
+                    <i>{$cl.BX_NUM}</i>
+                </li>
+                <li>
+                    <p>财务审核</p>
+                    <if condition="$cl.CHECK5_FLAG eq 0">
+                        <i>未审核</i>
+                    <elseif condition="$cl.CHECK5_FLAG eq 1"/>
+                        <i style="color: green">已审核</i>
+                    <elseif condition="$cl.CHECK5_FLAG eq 2"/>
+                        <i style="color: red">审核拒绝</i>
+                    <else />
+                    </if>
+                </li>
+                <li>
+                    <p>放款状态</p>
+                    <if condition="$cl.CHECK6_FLAG eq 0">
+                        <i>未放款</i>
+                    <elseif condition="$cl.CHECK6_FLAG eq 1"/>
+                        <i style="color: green">已放款</i>
+                    <elseif condition="$cl.CHECK6_FLAG eq 2"/>
+                        <i style="color: red">拒绝放款</i>
+                    </if> 
+                </li>
+            </ul>
+        </section>
+    </article>
+<!--cnzz统计代码添加日期：2016.06.16    李伟添加 --> <div style="height:0px;overflow:hidden;">
+<?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259579504).'" width="0" height="0"/>';?>
+</div></body>
+</html>

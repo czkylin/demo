@@ -1,0 +1,15 @@
+.page, .page-group{background-color: #fff; padding: 0 2.5%;}
+.page{padding-top: 10px;}
+*{padding: 0; margin: 0;}
+li{list-style: none;}
+a{text-decoration: none; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.address {height: 41px; line-height: 40px; font-size: 15px; border-bottom: 1px solid #e7e7e7; overflow: hidden;}
+.address span{float: left; color: #333;}
+.address input{float: left; width: 65%; height: 40px; border: none; color: #999; overflow: hidden;}
+.address1 input{background: url(/weixin/Public/Expert/images/payment/arrow.jpg) no-repeat right center; background-size: 8px 15px;}
+h3{height: 40px; line-height: 40px; font-size: 15px; color: #333; margin-top: 10px;}
+.list{ margin-bottom: 75%;}
+.list li{height: 70px; width: 100%; background-color: #f5f5f5; margin-bottom: 20px; line-height: 70px; text-align: center; color: #ef4a65; font-size: 20px; background-image: url(/weixin/Public/Expert/images/payment/radio1.png); background-repeat: no-repeat; background-position: 20px center; background-size: 18px 18px;}
+.list li.active{background-image: url(/weixin/Public/Expert/images/payment/radio2.png); background-size: 18px 18px;}
+.sub{ position: absolute; bottom: 40px; left: 2.5%; width: 95%; height: 40px; line-height: 40px; text-align: center; background-color: #eb5376; color: #fff; font-size: 15px; border: none; border-radius: 4px;}
+.list li.noactive{background-image: none;}

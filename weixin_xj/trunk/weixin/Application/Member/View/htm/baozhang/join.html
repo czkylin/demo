@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <title>百倍爱心卡</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/100card.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+    <article class="center">
+        <div>
+            <section class="text-center">
+                <img src="/weixin/Public/Member/images/100card/info.png" width="50%" />
+            </section>
+            <section class="forms">
+                <form action="url">
+                    <div class="label box">
+                        <span>姓名</span>
+                        <input type="text" id="name" />
+                    </div>
+                    <div class="info text-right"><i></i></div>
+                    <div class="label box">
+                        <span>手机</span>
+                        <input type="tel" id="phone" />
+                    </div>
+                    <div class="info text-right"><i></i></div>
+                    <div class="label box">
+                        <span>身份证</span>
+                        <input type="text" id="idCard" />
+                    </div>
+                    <div class="info text-right"><i></i></div>
+                    <br>
+                    <br>
+                    <a href="javascript:;" class="text-center" id="join">立即加入</a>
+                </form>
+            </section>
+        </div>
+    </article>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+   var reg = /^[1-9]{1}[0-9]{14}$|^[1-9]{1}[0-9]{16}([0-9]|[xX])$/;
+    
+    $('#join').click(function(){
+        if($('#name').val().trim() == ''){
+            $('#name').parent().next().find('i').html('请输入姓名');
+            return false;
+        }else{
+           $('#name').parent().next().find('i').html(''); 
+        }
+        
+        if(!(/^1[34578]\d{9}$/.test($('#phone').val()))){
+            $('#phone').parent().next().find('i').html('手机号码有误，请重填');
+            return false;
+        }else{
+            $('#phone').parent().next().find('i').html('');
+        }
+        
+        if(!reg.test($('#idCard').val())){
+            $('#idCard').parent().next().find('i').html('身份证号有误，请重填');
+            return false;
+        }else{
+            $('#idCard').parent().next().find('i').html('');
+        }
+        $('form').submit();
+    })
+</script>
+</html>

@@ -1,0 +1,66 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/weixin/Public/Member/css/photoswipe.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/default-skin.css">
+<!--CSS当前页面文件-->
+<link rel="stylesheet" href="/weixin/Public/Member/css/clinic/clinic.css">
+<script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 20 + 'px';
+</script>
+<!-- title -->
+<title>会诊详情</title>
+<!--meta-->
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+	<div class="huizhen_jg">
+    	<div class="con_hzjg">
+        	<h2 class="yi">已支付</h2>
+            <div class="con_jg">
+            	<div class="touxiang">
+                	<img src="/weixin/Public/Member/images/default/dfboy.png">
+                </div>
+                <div class="xinxi">
+                    <p>发起医生：<span>某某</span></p>
+                    <p>会诊专家：<span>某某</span></p>
+                    <p><b>2016-11-03</b></p>
+                </div>
+            </div>
+            <div class="chakan">
+            	<a href="#">查看结果</a>
+            </div>
+        </div>
+        <div class="con_hzjg">
+        	<h2 class="wei">未支付</h2>
+            <div class="con_jg">
+            	<div class="touxiang">
+                	<img src="/weixin/Public/Member/images/default/dfboy.png">
+                </div>
+                <div class="xinxi">
+                    <p>发起医生：<span>某某</span></p>
+                    <p>会诊专家：<span>某某</span></p>
+                    <p><b>2016-11-03</b></p>
+                </div>
+            </div>
+            <div class="chakan">
+            	<a href="#">去支付</a>
+            </div>
+        </div>
+    </div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<!--通底的引用结束-->
+
+</body>
+</html>

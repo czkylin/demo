@@ -1,0 +1,40 @@
+<html class="ui-mobile">
+<head>
+
+<!--css-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- title -->
+
+<title>发展会员</title>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/portal.minv2.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Home/css/operation.min.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c" style="background:#fff;">
+<div class="hk_wc">
+        <div class="huikui" style="font-size:0.8rem;">个人发展会员数</div>
+        <br clear="all"/>
+</div>
+<div class="ui-content" style="background:#fff;">
+        <div class="order-status">
+                <div class="huiyuan_img"><img src="/weixin/Application/Home/View/images/huiyuan.png"alt=""/></div>
+        </div>
+</div>
+<div class="num_people">{$member.zc_count}<br/>
+        注册总人数</div>
+<div class="num_people red_people">{$member.tj_count}<br/>
+        发展总人数</div>
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

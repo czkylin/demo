@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no' />
+<meta name='X-UA-Compatible' content='IE=edge,chrome=1' />
+<title>远程视界集团 - 微信公众号</title>
+<meta name="description" content="" >
+<meta name="keywords" content="" >
+<meta name="copyright" content="">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/jituan.css" />
+<script type="text/javascript" src="/weixin/Public/Member/js/jituan.js"></script>
+</head>
+<body>
+<!--header-->
+<div class="newwx">
+    <div class="newwx_topbar">
+        <div class="w1">
+            <div class="newwx_topbar_box">
+                <h1 class="newwx_logo fl">
+                    <a href="http://weixin-yk.yk2020.com/weixin/index.php?m=Member&c=index&a=index">
+                        <img src="/weixin/Public/Member/images/jituan/logo.png" alt="远程视界" />
+                    </a>
+                </h1>
+                <div class="newwx_topbar_direct fr">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="newwx_nav">
+        <div class="w1">
+            <div class="newwx_nav_box">
+                <a href="javascript:;" class="newwx_nav_menu j_newwx_nav_menu" ><i></i></a>
+                <ul class="newwx_nav_list">
+                    <li class="nav_a"><a href="#">首页</a></li>
+                    <li class="nav_b"><a href="#">应用中心</a></li>
+                    <li class="nav_c"><a href="#">微信公众号</a></li>
+                    <li class="nav_d"><a href="#">常见问题</a></li>
+                    <li class="nav_e"><a href="#">人才招聘</a></li>
+                    <li class="nav_f"><a href="#">无线团队</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+</div>
+
+<script>
+    /*下拉菜单*/
+    $(".j_newwx_nav_menu").click(function(){
+        var _self = $(this).parents(".newwx_nav_box");
+        if( !_self.hasClass("nav_open") ){
+            $(".newwx_nav_box").removeClass("nav_open");
+            _self.addClass("nav_open");
+        }else{
+            _self.removeClass("nav_open");
+        }
+    });
+
+</script>
+    <div class="w1">
+    <div class="content_box m_mb80">
+        <div class="title">
+            <h3>微信公众号</h3>
+        </div>
+        <div class="left">
+            <div class="left_c">
+                <ul class="weixin_list">
+                    <li class="clearfix active">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ycykyslogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ycykys2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程视界专家</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzU4Njc0OQ==&mid=503745623&idx=1&sn=c97261661295f359d92cd1fe7d396bd9#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ycykys</p>
+                            <p><span>功能介绍：</span>小远是专为医生打造的实名注册学习、工作平台，以让医生更方便的提升自己和提高工作效率为服务目的</p>
+                            <p><span>微信认证：</span>北京远程视界眼科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ycsjyklogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/erweima.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程视界</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzAxNDAxODM5Nw==&mid=503273299&idx=1&sn=57a409b860aa1471f0a558835158a99f#rd"  target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ycsjyk</p>
+                            <p><span>功能介绍：</span>“远程视界”，一个眼疾患者检查、治疗与交流的平台。在这里有全面的护眼与眼疾治疗方案。权威专家远程阅片、远程会诊，帮您解决眼部疾病问题。关注“远程视界，关爱眼睛健康”。</p>
+                            <p><span>微信认证：</span>北京远程视界眼科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ykyunyinglogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ykyunying2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程视界运营</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzI5MjAyNDA1MQ==&mid=311673418&idx=1&sn=993c205460912518a205233117a2c1ec#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ykyunying</p>
+                            <p><span>功能介绍：</span>“远程视界运营”，一个管理远程世界眼科旗下所有产品与交流的平台。</p>
+                            <p><span>微信认证：</span>北京远程视界眼科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/yksj360logo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/yksj3602.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程视界管理</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzA5Mzg2MTgyNw==&mid=502656622&idx=1&sn=3f9997e41be18599621c5b222381c74e#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>yksj360</p>
+                            <p><span>功能介绍：</span>“远程视界管理”是北京远程视界眼科医院管理有限公司为公司全体员工和代理商进行资讯和公司要闻推送的信息平台。主要宣传公司声音、反映行业动态、表达员工工作和生活感悟，是服务员工的新阵地。</p>
+                            <p><span>微信认证：</span>北京远程视界眼科医院管理有限公司</p>
+                        </div>
+                    </li>
+                   
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/yc999120logo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/yc9991202.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程心界</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MjM5MDU0MTMyOA==&mid=502435003&idx=1&sn=8fb57990505de15e2210298a8dadea8d#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>yc999120</p>
+                            <p><span>功能介绍：</span>“远程心界”心血管远程治疗平台，在这里有全面的心血管信息与专家，帮您解决心血管疾病，关注“远程心界”，关爱身体健康。</p>
+                            <p><span>微信认证：</span>北京远程心界医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ycxjzjlogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ycxjzj2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程心界专家</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIyNDAyNzU4OQ==&mid=100000002&idx=1&sn=f740fdf274a32a878e9b5a616582a5c3#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ycxjzj</p>
+                            <p><span>功能介绍：</span>远程心血管医生平台，实名注册学习与工作，让心血管医生在线充电、提升自己。</p>
+                            <p><span>微信认证：</span>北京远程心界医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <!--<li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ycytlllogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ycytll2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程亚太联盟</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzA3OTQ3ODU1OQ==&mid=501892644&idx=1&sn=6f0e0d69d201b1e0490a1684f1ea2f32#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ycytll</p>
+                            <p><span>功能介绍：</span>基于远程医疗服务新模式下，以肝病精准诊疗技术的提升为目标，通过远程肝病学院与远程协作医院积极探索、发展各种远程医疗服务新模式，利用远程医疗系统发挥大医院优质医疗资源的辐射、带动作用，学科帮扶，更好地为边远地区患者和基层医务人员服务。</p>
+                            <p><span>微信认证：</span>北京远程亚太联盟医院管理有限公司</p>
+                        </div>
+                    </li>-->
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/apaldorglogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/apaldorg2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>北京亚太肝病诊疗技术联盟</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzA3MDU1Mzc3MQ==&mid=502841149&idx=1&sn=990233dbcc8e7f7bedcc51e292ee95b2#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>apaldorg</p>
+                            <p><span>功能介绍：</span>开展肝病诊疗临床技术的研发；推动肝病产业技术的科研成果转化；研究和探索肝病诊疗的服务新模式；促进医改及医疗新体制的转变；举办专业技术培训、咨询及会展；出版编辑学术刊物；承担政府委托事项；开展国际交流与合作。</p>
+                            <p><span>微信认证：</span>北京亚太肝病诊疗技术联盟</p>
+                        </div>
+                    </li>-->
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/yczwfklogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/yczwfk2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程中卫</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIwNjA5MDg1MQ==&mid=501714537&idx=1&sn=ad4c859681ba7a08553036701fdef22f#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>yczwfk</p>
+                            <p><span>功能介绍：</span>“远程中卫”，一个集妇科疾病患者检查、治疗与交流的平台。这里有全面的女性健康知识与妇科疾病治疗方案。妇科权威专家远程阅片、远程会诊，帮您解决妇科疾病问题。“关注远程中卫，关爱女性健康”。</p>
+                            <p><span>微信认证：</span>北京远程中卫妇科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/yczkfwlogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/yczkfw2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程中科</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIwNTAzMzYyNg==&mid=503646667&idx=1&sn=d0aa06d0f55c61c3dec33bff7a97cff3#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>yczkfw</p>
+                            <p><span>功能介绍：</span>“远程中科”是北京远程中科耳鼻喉科医院管理有限公司为公司全体员工和客户进行资讯和公司要闻推送的信息平台。致力于宣传公司声音、反应行业动态、传递耳鼻咽喉健康知识。</p>
+                            <p><span>微信认证：</span>北京远程中科耳鼻喉科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ycebyhzjlogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ycebyhzj2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程中科专家</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIyOTAzNDE5MA==&mid=502329272&idx=1&sn=ccd50b46cff854cd5c17da0ac646cc40#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ycebyhzj</p>
+                            <p><span>功能介绍：</span>专为专家打造的实名注册学习、工作平台，以让医生更方便的提升自己和提高工作效率为服务目的，为医护工作者提供病例上传、分享、交流、互助等服务。</p>
+                            <p><span>微信认证：</span>北京远程中科耳鼻喉科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/yczkzxlogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/yczkzx2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程中科咨询</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIwMDUxNzU5MA==&mid=100000003&idx=1&sn=eb5f11bf8f1b8aaf9eb61eedfdd99352#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>yczkzx</p>
+                            <p><span>功能介绍：</span>“远程中科咨询”您身边的耳鼻喉科专家，有深度、有温度、有专 业度,关注我们与百万医护轻松交流!</p>
+                            <p><span>微信认证：</span>北京远程中科耳鼻喉科医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/chinabjtsclogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/chinabjtsc2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程京卫卒中中心</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIwOTIzNDMzNg==&mid=506341395&idx=1&sn=65f4dae5e5422c4d2c372b616da2f80a#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>chinabjtsc</p>
+                            <p><span>功能介绍：</span>开展“全国远程脑卒中医疗联合体O2O平台”业务，包括远程影像诊断、远程视频会议、远程医疗指导等移动互联网医疗，向基层输出优质医疗资源，使病人享受专家的治疗，节省患者的费用，解决了老板姓看病难、看病贵，提升了当地医生的医疗技术水平，造福了社会。</p>
+                            <p><span>微信认证：</span>北京远程京卫医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ycjwzllogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ycjwzl2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程金卫</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIzNjExOTk4NQ==&mid=100000003&idx=1&sn=6ce58d27ad4158fd728e669518ffc922#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ycjwzl</p>
+                            <p><span>功能介绍：</span>北京远程金卫肿瘤医院管理有限公司</p>
+                            <p><span>微信认证：</span>北京远程金卫肿瘤医院管理有限公司</p>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="weixin_btn"></div>
+                        <div class="weixin_img">
+                            <img src="/weixin/Public/Member/images/jituan/ychsjklogo.png">
+                        </div>
+                        <div class="weixin_qrcode">
+                            <img src="/weixin/Public/Member/images/jituan/ychsjk2.png">
+                        </div>
+                        <div class="weixin_info">
+                            <h3>远程慧视</h3>
+                            <a href="http://mp.weixin.qq.com/s?__biz=MzIzMjIwNDY3MQ==&mid=100000003&idx=1&sn=239247167ab4dc1da7c947ff04b210ff#rd" target="_blank" class="btn">关注</a>
+                            <p><span>微信号：</span>ychsjk</p>
+                            <p><span>功能介绍：</span>一款基于线上线下的健康类互联网产品，协助药店提供健康服务需求的第三方电子商务公众服务平台。公司拥有平台、产品、服务三维一体的移动医疗生态圈，为消费者提供更加便捷的购药、医疗咨询、医疗就诊等服务体验。</p>
+                            <p><span>微信认证：</span>北京远程慧视健康科技有限公司</p>
+                        </div>
+                    </li>
+                </ul>                       
+            </div>
+        </div>
+        <div class="right">
+            <div class="welcome">
+                <img src="/weixin/Public/Member/images/jituan/right02.jpg?t=1461136464505">
+                <h3>关注公众号</h3>
+                <p>你知道北京远程视界集团旗下共有多少个微信公众账号吗?</p>
+                <p> 远程视界集团 · 微信公众号全集如下，打造多方位专科专病微信矩阵集结号——</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.weixin_list li').click(function(){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+        }else{
+            $(this).addClass('active');
+        }
+    });
+
+</script>
+
+</body>
+</html>

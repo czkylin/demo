@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/info.css">
+    <title>我的代言成果</title>
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+    <section>
+        <div class="unit box">
+            <div class="img"><img src="" width="100%" /></div>
+            <div class="txt">
+                <p class="nick_name">
+                    <span>昵称</span>
+                    <span>会员姓名：张三</span>
+                </p>
+                <p class="member_name">
+                    <span>保障人姓名：张三</span>
+                </p>
+                <p class="person_mobile">
+                    <span>保障人手机号：132****6119</span>
+                </p>
+            </div>
+        </div>
+        <i class="ok">已付款</i>
+    </section>
+    <section>
+        <div class="unit box">
+            <div class="img"><img src="" width="100%" /></div>
+            <div class="txt">
+                <p class="nick_name">
+                    <span>昵称</span>
+                    <span>会员姓名：张三</span>
+                </p>
+                <p class="member_name">
+                    <span>保障人姓名：张三</span>
+                </p>
+                <p class="person_mobile">
+                    <span>保障人手机号：132****6119</span>
+                </p>
+            </div>
+        </div>
+        <i class="ok">已付款</i>
+    </section>
+    <section>
+        <div class="unit box">
+            <div class="img"><img src="" width="100%" /></div>
+            <div class="txt">
+                <p class="nick_name">
+                    <span>昵称</span>
+                    <span>会员姓名：张三</span>
+                </p>
+                <p class="member_name">
+                    <span>保障人姓名：张三</span>
+                </p>
+                <p class="person_mobile">
+                    <span>保障人手机号：132****6119</span>
+                </p>
+            </div>
+        </div>
+        <i class="wait">待付款</i>
+    </section>
+    <section>
+        <div class="unit box">
+            <div class="img"><img src="" width="100%" /></div>
+            <div class="txt">
+                <p class="nick_name">
+                    <span>昵称</span>
+                    <span>会员姓名：张三</span>
+                </p>
+                <p class="member_name">
+                    <span>保障人姓名：张三</span>
+                </p>
+                <p class="person_mobile">
+                    <span>保障人手机号：132****6119</span>
+                </p>
+            </div>
+        </div>
+        <i class="wait">待付款</i>
+    </section>
+</body>
+</html>

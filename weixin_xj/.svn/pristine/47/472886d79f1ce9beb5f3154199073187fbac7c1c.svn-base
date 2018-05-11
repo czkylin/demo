@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>阅片/手术量数据展示</title>
+   <script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+   <script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+</head>
+<body style="height: 100%; margin:0;">
+    <div id="main" style="height:100%;"></div>
+  <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var app = {};
+    var month = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+    var yuepian = [1000,3050,4500,5000,5300,5600,6500,6800,7000,6800,6900,7000];
+    var shoushu = [100,200,300,350,400,320,450,600,500,670,650,700];
+
+    var json = {
+                "month":["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+                "yuepian":[1000,3050,4500,5000,5300,5600,6500,6800,7000,6800,6900,7000],
+                "shoushu":[100,200,300,350,400,320,450,600,500,670,650,700]
+                }
+
+    option = {
+        title: {
+            text: '阅片/手术量数据展示',
+            textStyle: {
+                fontSize: 28
+            }
+        },
+        grid: {  
+            left: '8%',  
+            top: '10%',  
+            bottom: '1%',  
+            containLabel: true  
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#283b56'
+                }
+            },
+            axisPointer: {
+                animation: false
+            }
+        },
+        legend: {
+            data:['阅片量', '手术量']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        dataZoom: {
+            show: false,
+            start: 0,
+            end: 100
+        },
+        xAxis: [
+            {
+            name: '月份',
+            data: ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+            axisTick: {
+                alignWithLabel: true
+            },
+            nameTextStyle: {
+                fontSize: 18
+            },
+            },{}
+        ],
+        yAxis: [
+            {
+                name: '阅片/手术量（例）'
+            },{}
+        ],
+        series: [
+            {
+                name:'阅片量',
+                type:'bar', 
+                data:[1000,3050,4500,5000,5300,5600,6500,6800,7000,6800,6900,7000]
+            },
+            {
+                name:'手术量',
+                type:'line',
+                data:[100,200,300,350,400,320,450,600,500,670,650,700]
+            }
+        ]
+    };
+    var data0 = option.series[0].data;
+    var data1 = option.series[1].data;
+    function circulationData(){
+        for(var i = 0 ; i < json.month.length; i++){  
+            var j = 0 , a = 0 , b = 0;   
+        　　setTimeout(function(){
+
+                    option.xAxis[0].data.push(json.month[j++]);
+                    option.xAxis[0].data.shift();
+
+                    data0.shift();
+                    data0.push(yuepian[a++]);
+
+                    data1.shift();
+                    data1.push(shoushu[b++]);
+
+                    myChart.setOption(option); 
+
+        　　},i*3000);  
+        }
+    } 
+    circulationData(); 
+    setInterval(function(){
+        circulationData();
+    },(month.length+1)*3000);   
+
+     myChart.setOption(option);
+</script>
+</body>
+</html>

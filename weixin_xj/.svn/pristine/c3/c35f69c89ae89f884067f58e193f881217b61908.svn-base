@@ -1,0 +1,67 @@
+<volist name="daiyan_list" id="daiyan">
+    <section>
+            <div class="unit box">
+                <div class="img">
+                    <if condition="empty($daiyan[HEADIMGURL])">
+                        <img src="/weixin/Application/Home/View/images/dtdoctor.png" width="100%" />
+                    <else />
+                        <img src="{$daiyan[HEADIMGURL]}" width="100%" />
+                    </if>
+                </div>
+                <div class="txt">
+                    <p class="nick_name">
+                        <span>{$daiyan.NICKNAME}</span>
+                        <span>会员姓名：{$daiyan.MEMBER_NAME}</span>
+                    </p>
+                    <p class="member_name">
+                        <span>保障人姓名：{$daiyan.PERSON_NAME}</span>
+                    </p>
+                    <p class="person_mobile">
+                        <span>保障人手机号：{$daiyan.PERSON_MOBILE}</span>
+                    </p>
+                </div>
+            </div>
+            <if condition="$daiyan[ORDER_STATUS] eq '已付款'">
+                <i class="ok">{$daiyan.ORDER_STATUS}</i>
+            <else />
+                <i class="wait">{$daiyan.ORDER_STATUS}</i>
+            </if>
+        </section>
+        <figure>
+            <p class="person_mobile">
+                <span>配送状态：
+                <if condition="empty($daiyan[WL_CODE]) && ($daiyan[ZT_FLAG] eq '快递')">
+                    未发货
+                <else />
+                    <i class="ok">已发货</i>-{$daiyan.ZT_FLAG}
+                </if>
+                </span>
+            </p>
+            <if condition="$daiyan[ZT_FLAG] eq '快递'">
+                <p class="person_mobile">
+                    <span>物流编号：{$daiyan.WL_CODE|default="暂无"}</span>
+                </p>
+            <else />
+                <p class="person_mobile">
+                    <span>自提时间：
+                        <if condition="!empty($daiyan[WL_CODE])">
+                            {$daiyan.ZT_DATE|Dtodiy='Y-m-d',###}
+                        <else />
+                            暂无
+                        </if>
+                    </span>
+                </p>
+            </if>
+            <p class="person_mobile">
+                <span>购买类型：{$daiyan.SALE_TYPE}</span>
+            </p>
+            <p class="person_mobile">
+                <span>购买卡号：{$daiyan.CARD_NUMBER|default="暂无"}</span>
+            </p>
+            <if condition="$daiyan[ORDER_STATUS] eq '已付款' && empty($daiyan[CARD_NUMBER])">
+                <a href="javascript:;" onclick="buy(this);">添加卡号</a>
+                <input type="hidden" class="buy_id" value="{$daiyan[BUY_ID]}">
+            </if>
+        </figure>
+        <div class="divide"></div>∮
+</volist>

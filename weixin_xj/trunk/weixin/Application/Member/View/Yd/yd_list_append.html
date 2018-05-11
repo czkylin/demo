@@ -1,0 +1,22 @@
+<volist name="yd_list" id="yd">
+	<li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name={$yd['HOS_NAME']}&hos_id={$yd['HOS_ID']}&hos_pic={$yd['HOS_PIC']}"> <span class="img"> <img src="{$yd['HOS_PIC']}"> </span> <span class="meta">
+	        <div class="name_dj"> <strong class="mingcheng">{$yd['HOS_NAME']}</strong> </div>
+	        <div class="juti_info"> <span>{$yd['PROVINCE_NAME']} {$yd['CITY_NAME']}</span> <span style="margin-right:0;">{$yd['GM_NUM']}人购买</span> <span style="float:right;">{$yd['JL']}km</span> </div>
+	        </span> </a>
+	        <div class="jindian"> <!-- <a href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name={$yd['HOS_NAME']}&hos_id={$yd['HOS_ID']}&hos_pic={$yd['HOS_PIC']}">进店逛逛</a> -->
+	        
+	        <a href="/weixin/index.php?m=Member&c=Yd&a=doc_list&hos_id={$yd['HOS_ID']}">进店逛逛</a> 
+
+	        </div>
+	        <div class="shangpin">
+	                <volist name="yd['HOS_PRODUCTS']" id="product">
+	                        <dl>
+	                                <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=product_content&product_id={$product['PRODUCT_ID']}&hos_id={$yd['HOS_ID']}">
+	                                <dt><img src="{$product['PRODUCT_PIC']}"></dt>
+	                                <dd>￥{$product['PRODUCT_MONEY']}</dd>
+	                                </a>
+	                        </dl>
+	                </volist>
+	        </div>
+	</li>∮
+</volist>

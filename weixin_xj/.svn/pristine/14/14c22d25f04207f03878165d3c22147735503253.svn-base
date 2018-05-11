@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>我的积分</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/aboult.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px'
+    </script>
+</head>
+<body>
+    <header class="dDetail">
+        <a href="index.php?m=Expert&c=User&a=mywork_house" class="icon">&#xf62b;</a>
+        <h2>我的积分</h2>
+    </header>
+    <article class="wxjf">
+        <section>
+            <div class="share">
+                <div class="sLeft"><span>我的二维码</span><img src="/weixin/Public/Expert/images/zhengcejiedu/cd.jpg" /></div>
+                <div class="sRight"><a href="http://weixin.yk2020.com/program/yunying_xj_qrcode.aspx?token_id={:C('D_TOKEN_ID')}&open_id={$openid}">分享二维码</a></div>
+            </div>
+            <p>分享二维码给好友注册即可为您赢取50积分</p>
+        </section>
+        <section>
+            <ul>
+              <!--   <li>
+                    <p><i class="icon">&#xf680;</i>签到送5分</p>
+                    <p>
+                       <a href="javascript:;" class="qd">签到</a>
+
+                    </p>
+                </li> -->
+                <li>
+                    <p><i class="icon">&#xf681;</i>我的积分</p>
+                    <p>
+                        <span>{$jifen.JF_NUM}分</span>
+                    </p>
+                </li>
+                <li>
+                    <p><i class="icon">&#xf682;</i>积分流水</p>
+                    <p>
+                        <i class="icon corner">&#xf600;</i>
+                    </p>
+                    <a href="{:U('Expert/User/jifen_list')}"></a>
+                </li>
+                <li>
+                    <p><i class="icon">&#xf683;</i>如何赚积分</p>
+                    <p>
+                        <i class="icon corner">&#xf600;</i>
+                    </p>
+                    <a href="{:U('Expert/User/howPoint')}"></a>
+                </li>
+            </ul>
+        </section>
+    </article>
+    <section id="mask" class="smask">
+        <div class="dialog">
+            <a href="javascript:;" class="get text-center">完成</a>
+        </div>
+    </section>
+   <include file="Public:footer_bottom" />
+    <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script>
+var $qd = document.querySelector('.qd'),
+    $mask = document.getElementById('mask'),
+    $dialog = document.querySelector('.dialog');
+    $get = document.querySelector('.get');
+    
+$qd.onclick = function(){
+    if(this.className != 'qd old'){
+        $mask.className = 'smask active';
+        $dialog.className = 'dialog scale';
+    }
+}
+
+$mask.onclick = function(){
+    $mask.className = 'smask';
+    $dialog.className = 'dialog';
+    $qd.innerHTML = '已签到';
+    $qd.className = 'qd old';
+}
+
+$dialog.onclick = function(ev){
+    ev.stopPropagation();
+}
+
+$get.onclick = function(){
+    $mask.className = 'smask';
+    $dialog.className = 'dialog';
+    $qd.innerHTML = '已签到';
+    $qd.className = 'qd old';
+}
+</script>
+</html>

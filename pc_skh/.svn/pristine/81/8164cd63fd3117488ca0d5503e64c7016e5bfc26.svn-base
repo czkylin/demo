@@ -1,0 +1,48 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+use Think\Log;
+class IndexController extends Controller
+{
+	public function index()
+	{
+		$token = A_token();
+        $jiekou = 'http://weixin.yk2020.com';
+        $url = $jiekou."/interface/yc_doc/union_act_all.aspx?access_token=".$token;
+        $data = array
+        (
+            "type_id"=>"11111",
+            "province_id"=>'',
+            "page_num"=>"1",
+            "page_rows"=>"6",
+            "sort_type"=>'',
+        );
+        $json=json_encode($data);
+        $hdList = json_decode(post_json($url,$json),true);
+        $this->assign('hdList',$hdList);
+		$this->display();
+	}
+
+	 //文章内容
+    public function arcinfo()
+    {
+        $id = I('artid')?I('artid'):69468752;
+        //文章接口数据
+        $token = A_token();
+        $jiekou = 'http://weixin.yk2020.com';
+        $url = $jiekou."/interface/yc_doc/union_act_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "record_id"=>$id,
+        );
+        $json=json_encode($data);
+        $arcinfo = json_decode(post_json($url,$json),true);
+        $arcinfo[0]['ACT_DESC'] = htmlspecialchars_decode($arcinfo[0]['ACT_DESC']);
+        $arcinfo[0]['ACT_DESC'] = str_replace('src="', 'src="http://weixin.yk2020.com', $arcinfo[0]['ACT_DESC']);
+        //文章接口数据
+        $this->assign('arcinfo',$arcinfo);
+        $this->display();
+    }
+
+
+}

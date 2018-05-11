@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>账单</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/insurance.min.css">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+</head>
+<body ontouchstart="" style="background:#fff;">
+<div class="mod-insurance-bill">
+        <if condition="empty($zd_list)">
+                <div style=" text-align: center;">
+                        <br/> 
+                        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+                        <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+                </div>
+        <else />
+                <table class="bill-table">
+                        <volist name="zd_list" id="zhangdan">
+                                <tbody>
+                                        <tr>
+                                                <td><p>{$zhangdan.DATE_XQ}</p>
+                                                        <p>{$zhangdan.DATE_NY}</p></td>
+                                                <if condition="$zhangdan['BUY_ID'] neq '' ">
+                                                <td class="avatar"><i class="icon icon2 icon-pay bank-weixin"></i></td>
+                                                <td class=""><strong>{$zhangdan.MONEY}元</strong>
+                                                        <p>购买ID:{$zhangdan.BUY_ID}</p></td>
+                                                <else />
+                                                <td class="avatar"><i class="icon icon-pay bank-weixin"></i></td>
+                                                <td class=""><strong>{$zhangdan.MONEY}元</strong>
+                                                        <p>被资助人:
+                                                        <?php echo mb_substr($zhangdan['PERSON_NAME'],0,1,'utf-8');?>**
+                                                        </p></td>
+                                                </if>
+                                        </tr>
+                                </tbody>
+                        </volist>
+                </table>
+                <div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>  
+                <div id="current_pagenum" style="display:none">2</div>
+        </if>
+</div>
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+<script type="text/javascript">
+
+var onOff = true;
+window.onload = function()
+{
+    window.onscroll();
+}
+window.onscroll = function () 
+{
+    load_more('.bill-table');
+}
+function load_more(obj) 
+{
+    if (!onOff) return;
+    if ($(obj).height() <= $(document).scrollTop() + $(window).height()) {
+        onOff = !onOff;
+        loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=Huzhu&a=zhangdan_append&person_id='+{$person_id},'.bill-table');
+    }
+}
+
+</script>
+<div id="cli_dialog_div"></div>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

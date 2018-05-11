@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>差旅费申请</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <style>
+        body{height:100%;}
+        #list li p{width: auto;}
+        #list li input{position:absolute; right: 0; top: 0; width: 60%;}
+        #list li textarea{position:absolute; right: 0; top:5px; width: 60%;height: 80px;}
+        #out_date,#return_date{background: url(/weixin/Public/Member/jixiao/down.png) no-repeat center right; background-size: 20px;}
+        #list li #out_date,#list li #return_date{line-height: 40px;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+
+<body class="data">
+    
+        <article id="page" class="dataList">
+            <h2 class="text-center">差旅费申请</h2>
+            <section>
+                <form action="/weixin/index.php?m=Member&c=Jixiao&a=chailv_add" method="POST" id="form">
+                    <input type="hidden" name="total_money" value="" id="total_money" placeholder="0"/>
+                    <ul id="list">
+                        <li data-name="bir">
+                            <p>出发日期</p><i class="star">*</i>
+                            <input type="date" id="out_date" name="out_date" />
+                        </li>
+                        <li data-name="bir">
+                            <p>返回日期</p><i class="star">*</i>
+                            <input type="date" id="return_date" name="return_date" />
+                        </li>
+                        <li>
+                            <p>出差天数</p><i class="star">*</i>
+                            <input type="text" maxlength="2" name="out_day" id="out_day" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>交通费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="jtf_money" id="jtf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>市内交通费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="snjtf_money" id="snjtf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>住宿费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="zsf_money" id="zsf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>餐费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="cf_money" id="cf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>会议费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="hyf_money" id="hyf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>快递费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="kdf_money" id="kdf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>办公费</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="bgf_money" id="bgf_money" value="" placeholder="0"/>
+                        </li>
+                        <li class="money">
+                            <p>补助</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="bzf_money" id="bzf_money" value="" placeholder="0"/>
+                        </li>
+                        <li>
+                            <p>金额小计</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="" value="0" disabled id="total" placeholder="0"/>
+                        </li>
+                        <li style="height: 90px">
+                            <p>出差事由</p><i class="star">*</i>
+                            <textarea type="text" maxlength="1000" name="out_desc" id="out_desc" value="" height="80px" placeholder="请输入内容！" style="border-color:#d3d3d3; "/></textarea>
+                        </li>
+                        <li>
+                            <p>预借金额</p>
+                            <input type="" maxlength="10" name="yj_money" id="yj_money" value="0" placeholder="0"/>
+                        </li>
+                        <li>
+                            <p>退回金额</p>
+                            <input type="" maxlength="10" name="th_money" id="th_money" value="0" placeholder="0"/>
+                        </li>
+                        <li>
+                            <p>补领金额</p><i class="star">*</i>
+                            <input type="text" maxlength="10" name="bl_money" id="bl_money" value="" placeholder="0"/>
+                        </li>
+                        <li>
+                            <p>单据</p>
+                            <input type="" maxlength="10" name="bx_num" id="bx_num" value="0" placeholder="0"/>
+                        </li>
+                    </ul>
+                </form>
+            </section>
+            <div class="hContent">
+                <button id="tijiao" class="text-center">提交</button>
+            </div>
+        </article>
+    <div style="position:fixed; left:0; right:0; top:0; bottom:0; display:none; background:#000; opacity:0.7; z-index:999" id="hui"></div>
+    <style>
+        .tt {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100000;
+            visibility: hidden;
+        }
+        
+        .tt.active {
+            display: box;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            visibility: visible;
+        }
+    </style>
+    
+</body>
+<script src="/weixin/Public/Expert/js/info.js"></script>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Expert/js/swiper.jquery.js"></script>
+<script>
+    var countall = 0;
+
+    $("#list li[class=money]").each(function(){
+
+        $(this).children("input[type=text]").change(function(){
+
+            $("#list li[class=money]").each(function(){
+
+              var count = parseFloat($(this).children("input[type=text]").val());
+
+              if( isNaN(count) ){
+                count = 0;
+              }
+              countall += count;
+
+            });
+
+            countall = Math.round(countall*100)/100;
+
+            $("#total").val(countall);
+            $("#total_money").val(countall);
+
+            countall = 0;
+        });
+    });
+
+
+    $("#tijiao").click(function(){
+        if($("#out_date").val() == '')
+        {
+            alert("出发日期不能为空！");
+            $("#out_date").focus()
+            return;
+        }
+
+        if($("#return_date").val() == '')
+        {
+            alert("返回日期不能为空！");
+            $("#return_date").focus()
+            return;
+        }
+
+        var out_date = $("#out_date").val();
+        var return_date = $("#return_date").val();
+
+        out_date = Date.parse(new Date(out_date))/1000;
+        return_date = Date.parse(new Date(return_date))/1000;
+        if(parseFloat(return_date) < parseFloat(out_date))
+        {
+            alert("返回日期不能小于出发日期！");
+            $("#out_date").focus();
+            return false;
+        }
+
+        if($("#out_day").val() == '')
+        {
+            alert("出差天数不能为空！");
+            $("#out_day").focus()
+            return;
+        }
+
+        if($("#jtf_money").val() == '')
+        {
+            alert("交通费不能为空！");
+            $("#jtf_money").focus()
+            return;
+        }
+
+        if($("#jtf_money").val() !== '')
+        {
+            if(!isJine($("#jtf_money").val()))
+            {
+                alert("交通费格式不正确！");
+                $("#jtf_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#snjtf_money").val() == '')
+        {
+            alert("市内交通费不能为空！");
+            $("#snjtf_money").focus()
+            return;
+        }
+
+        if($("#snjtf_money").val() !== '')
+        {
+            if(!isJine($("#snjtf_money").val()))
+            {
+                alert("市内交通费格式不正确！");
+                $("#snjtf_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#zsf_money").val() == '')
+        {
+            alert("住宿费不能为空！");
+            $("#zsf_money").focus()
+            return;
+        }
+
+        if($("#zsf_money").val() !== '')
+        {
+            if(!isJine($("#zsf_money").val()))
+            {
+                alert("住宿费格式不正确！");
+                $("#zsf_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#cf_money").val() == '')
+        {
+            alert("餐费不能为空！");
+            $("#cf_money").focus()
+            return;
+        }
+
+        if($("#cf_money").val() !== '')
+        {
+            if(!isJine($("#cf_money").val()))
+            {
+                alert("餐费格式不正确！");
+                $("#cf_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#hyf_money").val() == '')
+        {
+            alert("会议费不能为空！");
+            $("#hyf_money").focus()
+            return;
+        }
+
+        if($("#hyf_money").val() !== '')
+        {
+            if(!isJine($("#hyf_money").val()))
+            {
+                alert("会议费格式不正确！");
+                $("#hyf_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#kdf_money").val() == '')
+        {
+            alert("快递费不能为空！");
+            $("#kdf_money").focus()
+            return;
+        }
+
+        if($("#kdf_money").val() !== '')
+        {
+            if(!isJine($("#kdf_money").val()))
+            {
+                alert("快递费格式不正确！");
+                $("#kdf_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#bgf_money").val() == '')
+        {
+            alert("办公费不能为空！");
+            $("#bgf_money").focus()
+            return;
+        }
+
+        if($("#bgf_money").val() !== '')
+        {
+            if(!isJine($("#bgf_money").val()))
+            {
+                alert("办公费格式不正确！");
+                $("#bgf_money").focus()
+                return;
+            }
+            
+        }
+
+
+        if($("#bzf_money").val() == '')
+        {
+            alert("补助费不能为空！");
+            $("#bzf_money").focus()
+            return;
+        }
+
+        if($("#bzf_money").val() !== '')
+        {
+            if(!isJine($("#bzf_money").val()))
+            {
+                alert("补助费格式不正确！");
+                $("#bzf_money").focus()
+                return;
+            }
+            
+        }
+        if($("#bl_money").val() == '')
+        {
+            alert("补领金额不能为空！");
+            $("#bl_money").focus()
+            return;
+        }
+
+        if($("#bl_money").val() !== '')
+        {
+            if(!isJine($("#bl_money").val()))
+            {
+                alert("补领金额格式不正确！");
+                $("#bl_money").focus()
+                return;
+            }
+            
+        }
+        
+        if($("#yj_money").val() >= 10000)
+        {
+            alert("预借金额超出限制！");
+            $("#yj_money").focus()
+            return;
+        }
+
+        if($("#yj_money").val() !== '')
+        {
+            if(!isJine($("#yj_money").val()))
+            {
+                alert("预借金额格式不正确！");
+                $("#yj_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#th_money").val() >= 10000)
+        {
+            alert("退回金额超出限制！");
+            $("#th_money").focus()
+            return;
+        }
+
+        if($("#th_money").val() !== '')
+        {
+            if(!isJine($("#th_money").val()))
+            {
+                alert("退回金额格式不正确！");
+                $("#th_money").focus()
+                return;
+            }
+            
+        }
+
+        if($("#bx_num").val() !== '')
+        {
+            if(!isInt($("#bx_num").val()))
+            {
+                alert("单据格式不正确！");
+                $("#bx_num").focus()
+                return;
+            }
+            
+        }
+        if($("#out_desc").val() == '')
+        {
+            alert("出差事由不能为空！");
+            $("#out_desc").focus()
+            return;
+        }
+        else
+        {
+            $("#form").submit();
+            // var str_data = $("form").serialize();
+
+            // alert(str_data);
+        }
+    });
+
+
+    function isJine (ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re=/^\d+(\.\d{1,2})?$/;
+        if(re.test(ssn))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function isInt (ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re=/^\d?$/;
+        if(re.test(ssn))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    function isMail(ssn) //检查邮箱是否匹配正则表达式
+    {
+        var re = /^[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+((\.[0-9a-zA-Z_-]{2,3}){1,2})$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isPhone(ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    var h4 = '',h5 = '';
+    for(var i=0;i<=23;i++){
+        if(i < 10){
+            i = '0'+i;
+        }
+        h4 += '<div class="swiper-slide text-center">'+i+'</div>';
+    }
+    for(var i=0;i<=59;i++){
+        if(i < 10){
+            i = '0'+i;
+        }
+        h5 += '<div class="swiper-slide text-center">'+i+'</div>';
+    }
+
+    $('#s9 .swiper-wrapper,#s11 .swiper-wrapper').append(h4);
+    $('#s10 .swiper-wrapper,#s12 .swiper-wrapper').append(h5);
+
+    var mySwiper0 = new Swiper('#s0',{
+        direction: 'vertical',
+        slidesPerView : 3,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    });
+    var mySwiper4 = new Swiper('#s7',{
+        direction: 'vertical',
+        slidesPerView : 2,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+    var mySwiper5 = new Swiper('#s8',{
+        direction: 'vertical',
+        loop: true,
+        slidesPerView : 3,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+    var mySwiper6 = new Swiper('#s5',{
+        direction: 'vertical',
+        slidesPerView : 3,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+    var mySwiper7 = new Swiper('#s9',{
+        direction: 'vertical',
+        loop: true,
+        slidesPerView : 5,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+    var mySwiper8 = new Swiper('#s10',{
+        direction: 'vertical',
+        loop: true,
+        slidesPerView : 5,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+    var mySwiper9 = new Swiper('#s11',{
+        direction: 'vertical',
+        loop: true,
+        slidesPerView : 5,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+    var mySwiper10 = new Swiper('#s12',{
+        direction: 'vertical',
+        loop: true,
+        slidesPerView : 5,
+        centeredSlides : true,
+        slideActiveClass : 'slideActive',
+        observer: true
+    }); 
+
+    //是否为闰年    
+    function is_leap(year) { 
+        res = year%100==0?res=(year%400==0?1:0):(year%4==0?1:0);
+        arr=[31,28+res,31,30,31,30,31,31,30,31,30,31];
+        //return arr;
+    }
+</script>
+
+
+</html>

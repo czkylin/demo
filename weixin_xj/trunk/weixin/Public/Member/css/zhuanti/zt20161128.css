@@ -1,0 +1,21 @@
+/*reset css*/
+*{margin: 0; padding: 0;}
+a{-webkit-tap-highlight:rgba(0,0,0,0);}
+body,html{background: #fff;}
+/*main css*/
+h1{padding: 1.5rem 0.48rem 0; color: #cc1c62; font-size: 0.72rem; line-height: 1.04rem; background: #ededed;}
+h2{padding: 0 0.48rem 0.72rem; color: #999; font-size: 0.48rem; line-height: 0.78rem; background: #ededed;}
+article img{width: 100%;}
+article p{font-size: 0.68rem; color: #333; text-align: center; padding: 1rem 0; line-height: 0.92rem;}
+footer{position:fixed;bottom:0;left:0;width:100%; display: flex; display: -webkit-flex;}
+footer span{flex:0 0 100px; -webkit-flex:0 0 100px; width:100px; text-align: center; line-height: 50px; background: #ff8400; color:#fff;}
+footer a{color:#fff;line-height:50px;display:block; font-size:20px;background:#bf1b20; flex:1; -webkit-flex:1; text-align: center;}
+
+
+.fl{float: left;}
+.nav ul li{ font-size: 16px; }
+.nav{position:fixed;top:0;left:0;background:rgba(0,0,0,0.3);width:13.75rem;padding:10px 0.625rem; z-index: 10000;}
+.nav .people{overflow:hidden;position:relative;width:10rem;height:18px;}
+.nav ul{height:18px;position:absolute;top:0;left:0;}
+.nav span{color:#f70a0a;display:inline-block;width:3.75rem;font-size:16px; }
+.nav em{color:#fff;font-style:normal;margin:0 10px;display:block; font-size: 16px;}

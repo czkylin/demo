@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="cache-control" content="public">
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="share-title" content="">
+        <title>千县万医--视频列表</title>
+        <!--CSS库文件-->
+        <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+        <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+        <link href="/weixin/Public/Common/css/commonLabel/label.css" type="text/css" rel="stylesheet" >
+        <!--CSS当前页面文件-->
+        <link href="/weixin/Public/Expert/css/ceses/zhuanJiaJiangZuo.css" type="text/css" rel="stylesheet"/>
+        <style>
+            #listTop img{position: absolute; left: 0; top: 0; height: 100%; z-index: 5;}
+        </style>
+    </head>
+    <body>
+        <div class="line"></div>
+        <div class="gslmLabel">
+            <div style=" width:15px; height:10px; float:left;"></div>
+            <div style=" " class="labelCon">
+                <div style=" width:700px;">
+                    <a href="javascript:void(0);" onClick="search_list('','');" class="ui-label-s">智能排序</a>
+                    <volist name="type_list" id="type" >
+                        <a href="javascript:void(0);" onClick="search_list('','{$type['TYPE_ID']}');" class="ui-label-s">{$type['TYPE_NAME']}</a>
+                   </volist>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div style=" width:15px; height:10px; float:left;"></div>
+        </div>
+        <div class="videoList">
+    		<div class="listTop" id="listTop" style="height:auto;">
+                <volist name="lect_tj" id="video" empty="暂无推荐内容">
+                    <img src="{$video['VIDEO_IMG']}" id="mask">
+                    <div id="willesPlay">
+                        <div class="playContent">
+                            <video id="playVideo" height="100%" width="100%">
+                                <source src="{$video['VIDEO_URL']}" type="video/mp4">
+                            </video>
+                            <!-- <div class="playTip glyphicon ui-icon-stop-active" style="display: none;"></div> -->
+                        </div>
+                    </div>
+                   <!--  <a href="{:U('Unexp/lect_info',array('s_id'=>$video['SECT_ID']))}">{$video['SECT_NAME']}</a>  -->
+                </volist>
+            </div>
+            <div class="video_list" id="video-list">
+                <volist name="lect_list" id="lect" >
+                    <dl>
+                        <dt><a href="{:U('Unexp/lect_info',array('s_id'=>$lect['SECT_ID']))}"><img src="{$lect['VIDEO_IMG']}"></a></dt>
+                        <dd class="hei_40"><a href="{:U('Unexp/lect_info',array('s_id'=>$lect['SECT_ID']))}">{$lect['SECT_NAME']}</a></dd>
+                        <dd>{$lect['EXPERT_NAME']}</dd>
+                        <dd class="ui-icon-video">{$lect['PIONT_NUM']}</dd>
+                    </dl>
+                </volist>
+            </div>
+            <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+            <div id="current_pagenum" style="display:none">2</div>
+    	    <div id="current_type_id" style="display:none">{$type_id}</div>
+        </div>
+        <!--通底的引用开始-->
+        <include file="Public:footer_fd" /> 
+        <script>var over_footer = '1';</script>
+        <!--通底的引用结束--> 
+        <script src="/weixin/Public/Expert/js/video/willesPlay.js" type="text/javascript" charset="utf-8"></script>
+
+        <!--Js库文件--> 
+        <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+        <!--加载更多-->
+        <!--<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script>-->
+        <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script>
+        <script>
+            (function(){
+                $('#mask').on('click',function(){
+                    $(this).animate({'opacity':0},function(){
+                        $('#mask').hide()
+                    });
+                    $('#playVideo').get(0).play();
+                })
+            })();
+                
+
+        	function search_list(greate_date,type_id)
+        	{
+        		if (type_id != '')
+        		{
+        			$('#current_type_id').text(type_id);
+        		}
+        		
+        		if ($('#current_type_id').text() == '0')
+        		{
+        			$('#current_type_id').text('');
+        		}
+        		
+        		$('#current_pagenum').text('1');
+        		$('#listTop').addClass('disno');
+        		$('#video-list').html('');
+        		$('.ui-jiazai').children('a').text('加载更多');
+        		loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Unexp&a=lect_list_append&type_id='+$('#current_type_id').text()+'','#video-list');
+        	}
+            var onOff = true;
+            window.onscroll = function(){
+                load_more('.videoList');
+            }
+        	function load_more(obj)
+        	{	
+                if(!onOff) return;
+        		if($(obj).height()+$('.gslmLabel').height() <= $(document).scrollTop() + $(window).height()){
+                    onOff = !onOff;
+                    loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Unexp&a=lect_list_append&type_id='+$('#current_type_id').text()+'','#video-list');
+                }
+        	}
+        	/*function load_more(obj)
+        	{	
+        		
+                    loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Unexp&a=lect_list_append&type_id='+$('#current_type_id').text()+'','#video-list');
+                
+        	}*/
+        </script>
+        <include file="Public:tj" />
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+    </body>
+</html>

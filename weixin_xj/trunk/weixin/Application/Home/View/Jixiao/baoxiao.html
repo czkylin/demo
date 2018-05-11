@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>费用报销申请</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <style>
+        body{height:100%;}
+        #list{margin-bottom: 10px;}
+        #list li p{width: auto;}
+        #list li input{position:absolute; right: 0; top: 0; width: 60%;}
+        #list li textarea{position:absolute; right: 0; top:5px; width: 60%;height: 80px;}
+        #loan_date{background: url(/weixin/Public/Member/jixiao/down.png) no-repeat center right; background-size: 20px;}
+        #list li #loan_date{line-height: 40px;}
+        .itable-tit{height: 40px; line-height: 40px; text-align: center; margin-bottom: 5px;}
+        ol.itable{width: 90%; margin: 0 auto 20px; border: 1px solid #ccc;}
+        ol.itable li{width: 100%; height: 30px; line-height: 30px; display: inherit;}
+        ol.itable li span{height: 30px; float: left; border-right: 1px solid #ccc;}
+        ol.itable li.th1{line-height: 40px; height: 40px;}
+        ol.itable li.th1 span{height: 40px; text-align: center; font-weight: 600;}
+        ol.itable li span:nth-of-type(1){width: 16%; text-align: center;}
+        ol.itable li span:nth-of-type(2){width: 50%;}
+        ol.itable li span:nth-of-type(3){width: 30%;}
+        ol.itable li span:last-child{border-right: none;}
+        ol.itable li span input{width: 100%; border: none; height: 30px; line-height: 30px; text-indent: 1em;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+
+<body class="data">
+    <article id="page" class="dataList">
+        <h2 class="text-center">费用报销申请</h2>
+        <section>
+            <form action="/weixin/index.php?m=Home&c=Jixiao&a=baoxiao_add" method="POST" id="form" enctype="multipart/form-data">
+                <ul id="list">
+                    <li class="money jine">
+                        <p>预借金额</p><i class="star">*</i>
+                        <input type="text" maxlength="10" name="money_advance" id="money_advance" value="" placeholder="0"/>
+                    </li>
+                    <li class="money jine">
+                        <p>退回金额</p><i class="star">*</i>
+                        <input type="text" maxlength="10" name="money_return" id="money_return" value="" placeholder="0"/>
+                    </li>
+                    <li class="money jine">
+                        <p>补领金额</p><i class="star">*</i>
+                        <input type="text" maxlength="10" name="money_replace" id="money_replace" value="" placeholder="0"/>
+                    </li>
+                    <li class="money">
+                        <p>单据张数</p><i class="star">*</i>
+                        <input type="text" maxlength="10" name="er_count" id="er_count" value="" placeholder="0"/>
+                    </li>
+                    <li class="money" style="border-bottom: none;">
+                        <p>附单据</p><i class="star" style="position: absolute; top: 18px; right: 0; font-size: 12px;">('jpg', 'png', 'jpeg')</i>
+                        <input type="file" accept="image/*" capture="camera" name="er_file" id="er_file" style="margin-top: 8px;" onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');"/>
+                    </li>
+                    <div id="pre" style="display: none;text-align:center;"> <img src="" id="pre_pic" width="30%" zht="1" style="margin:4px auto;"> </div>
+                    <div id="press_status" style="display: none;"></div>
+                    <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+                </ul>
+                <p class="itable-tit">批量增加费用项目信息</p>
+                <ol class="itable">
+                    <li class="th1">
+                        <span>流水</span>
+                        <span>费用项目</span>
+                        <span>费用金额(元)</span>
+                    </li>
+                    <li class="input">
+                        <span>1</span>
+                        <span><input type="text" name="er_content1" id="er_content1" class="er_content" value=""></span>
+                        <span><input type="text" name="er_money1" id="er_money1" class="er_money"></span>
+                    </li>
+                    <li class="input">
+                        <span>2</span>
+                        <span><input type="text" name="er_content2" id="er_content2" class="er_content"></span>
+                        <span><input type="text" name="er_money2" id="er_money2" class="er_money"></span>
+                    </li>
+                    <li class="input">
+                        <span>3</span>
+                        <span><input type="text" name="er_content3" id="er_content3" class="er_content"></span>
+                        <span><input type="text" name="er_money3" id="er_money3" class="er_money"></span>
+                    </li>
+                    <li class="input">
+                        <span>4</span>
+                        <span><input type="text" name="er_content4" id="er_content4" class="er_content"></span>
+                        <span><input type="text" name="er_money4" id="er_money4" class="er_money"></span>
+                    </li>
+                    <li class="input">
+                        <span>5</span>
+                        <span><input type="text" name="er_content5" id="er_content5" class="er_content"></span>
+                        <span><input type="text" name="er_money5" id="er_money5" class="er_money"></span>
+                    </li>
+                </ol>
+                <input type="hidden" name="file" id="file">
+            </form>
+        </section>
+        <div class="hContent">
+            <button id="tijiao" class="text-center">提交</button>
+        </div>
+    </article>
+</body>
+<script src="/weixin/Public/Member/js/jquery.form.min.js" type="text/javascript"></script> 
+<script type="text/javascript" src="/weixin/Application/Member/View/js/mobileFix.mini.js?v=8d13c59"></script>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script type="text/javascript" src="/weixin/Application/Member/View/js/exif.js?v=c65d9ea"></script> 
+<script type="text/javascript" src="/weixin/Application/Member/View/js/lrz.min.js?v=b542f0a"></script>
+<script> 
+
+    $("#pre_pic").click(function(){
+        var zht = $(this).attr('zht');
+        if(zht=='1')
+        {
+            $("#pre_pic").attr("width","95%");
+            $("#pre_pic").attr("zht","2");
+        }
+        else
+        {
+            $("#pre_pic").attr("width","30%");
+            $("#pre_pic").attr("zht","1");
+        }
+    });
+    function press_img(input_file, imgbase64, pre_pic, press_status)
+
+    {
+
+        $("#pre").css('display','block');
+        lrz(input_file.files[0],
+
+        {
+
+            width:500,
+
+            before: function()
+
+            {
+
+                document.querySelector(press_status).innerHTML = "压缩处理开始，请稍后...";
+
+            },
+
+            fail: function(err)
+
+            {
+
+                document.querySelector(press_status).innerHTML = err;
+
+            },
+
+            always: function()
+
+            {
+
+                document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+
+            },
+
+            done: function (results)
+
+            {
+
+                document.querySelector(imgbase64).innerHTML = results.base64;//返回base64字符串，放置到textarea区域
+
+                document.querySelector(pre_pic).src = results.base64;//展示预览图片
+
+            }
+
+        });
+
+    }
+
+    $("#tijiao").click(function(){
+
+        var er_file = $("#er_file").val();
+
+        $("#file").val(er_file);
+
+        if($("#money_advance").val() == '')
+        {
+            alert("预借金额不能为空！");
+            $("#money_advance").focus()
+            return;
+        }
+
+        if($("#money_advance").val() !== '')
+        {
+            if(!isJine($("#money_advance").val()))
+            {
+                alert("预借金额格式不正确！");
+                $("#money_advance").focus()
+                return;
+            }
+        }
+        if($("#money_return").val() == '')
+        {
+            alert("退回金额不能为空！");
+            $("#money_return").focus()
+            return;
+        }
+
+        if($("#money_return").val() !== '')
+        {
+            if(!isJine($("#money_return").val()))
+            {
+                alert("退回金额格式不正确！");
+                $("#money_return").focus()
+                return;
+            }
+        }
+
+        if($("#money_replace").val() == '')
+        {
+            alert("补领金额不能为空！");
+            $("#money_replace").focus()
+            return;
+        }
+
+        if($("#money_replace").val() !== '')
+        {
+            if(!isJine($("#money_replace").val()))
+            {
+                alert("补领金额格式不正确！");
+                $("#money_replace").focus()
+                return;
+            }
+        }
+        if($("#er_count").val() == '')
+        {
+            alert("单据张数不能为空！");
+            $("#er_count").focus()
+            return;
+        }
+        if($("#er_count").val() !== '')
+        {
+            if(!isInt($("#er_count").val()))
+            {
+                alert("单据张数格式不正确！");
+                $("#er_count").focus()
+                return;
+            }
+        }
+        if($("#er_money1").val() !== "")
+        {
+            if(!isJine($("#er_money1").val()))
+            {
+                alert("费用金额格式不正确！");
+                $("#er_money1").focus()
+                return;
+            } 
+        }
+
+        if($("#er_money2").val() !== "")
+        {
+            if(!isJine($("#er_money2").val()))
+            {
+                alert("费用金额格式不正确！");
+                $("#er_money2").focus()
+                return;
+            } 
+        }
+
+        if($("#er_money3").val() !== "")
+        {
+            if(!isJine($("#er_money3").val()))
+            {
+                alert("费用金额格式不正确！");
+                $("#er_money3").focus()
+                return;
+            } 
+        }
+
+        if($("#er_money4").val() !== "")
+        {
+            if(!isJine($("#er_money4").val()))
+            {
+                alert("费用金额格式不正确！");
+                $("#er_money4").focus()
+                return;
+            } 
+        }
+
+        if($("#er_money5").val() !== "")
+        {
+            if(!isJine($("#er_money5").val()))
+            {
+                alert("费用金额格式不正确！");
+                $("#er_money5").focus()
+                return;
+            } 
+        }
+
+        //判断一个不能为空
+        if( $("#er_content1").val() == "" || $("#er_money1").val() == ""){
+
+            alert('请至少填写全第一行流水!');
+        }
+
+        else
+        {
+            $("#form").submit();
+        }
+        
+    });
+
+
+    function isJine (ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re=/^\d+(\.\d{1,2})?$/;
+        if(re.test(ssn))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function isInt (ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re=/^\d*?$/;
+        if(re.test(ssn))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
+    function isMail(ssn) //检查邮箱是否匹配正则表达式
+    {
+        var re = /^[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+((\.[0-9a-zA-Z_-]{2,3}){1,2})$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isPhone(ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>
+
+
+</html>

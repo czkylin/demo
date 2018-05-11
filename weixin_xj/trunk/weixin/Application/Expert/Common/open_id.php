@@ -1,0 +1,23 @@
+<?php
+//$openid = I('get.openid','oSY_-vv7pkcA0WjKTtrJuvvSaOnE');
+$openid = I('get.openid', 'o044Ms8FI2jw2XdR-LQCc9LH7PL0');//许
+if ($openid == "")
+{
+	$openid = I('get.open_id', '');
+}
+
+if ($openid == "")
+{
+	$openid = I('session.d_openid', '');
+}
+else
+{
+	$_SESSION['d_openid'] = $openid;
+}
+
+if ($openid == "")
+{
+	$code = I('get.code', '');
+	$openid = get_doc_openid($code);
+	$_SESSION['d_openid'] = $openid;
+}

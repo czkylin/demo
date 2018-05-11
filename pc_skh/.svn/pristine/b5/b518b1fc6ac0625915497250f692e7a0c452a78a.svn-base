@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>北京圣康华</title>
+  <!-- 公共样式 -->
+  <link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+  <!-- 当前样式 -->
+  <link rel="stylesheet" href="/Public/css/focus/newsDetail.css">
+</head>
+<body>
+  <!-- 头部start -->
+  <include file="Public:header"/>
+  <!-- 头部end -->
+  <div class="banner con">
+    <div class="w1200">
+      <div class="title">公司动态</div>
+      <div class="desc">Company News</div>
+    </div>
+  </div>
+  <div class="nav con">
+    <div class="w1080">
+      <a href="">首页</a><span>></span><a href="">新闻动态</a><span>></span><a href="">{$arcinfo['ACT_TITLE']}</a>
+    </div>
+  </div>
+  <div class="con1 con">
+      <h2>{$arcinfo['ACT_TITLE']}</h2>
+      <div class="title">
+        <div class="title1 fl">发布时间： <span>{$arcinfo['CREATE_DATE']|Dtodiy="Y-m-d",###}</span></div>
+        <div class="title2 fl">编辑： <span>燕子</span></div>
+        <div class="title3 fr">
+          <span class="phone fl">手机查看</span>
+          <ul class="fl fz">
+            <li class="fl">大</li>
+            <li class="fl active">中</li>
+            <li class="fl">小</li>
+          </ul>
+          <div class="QRcode">
+            <img src="/Public/images/focus/newsDetail/img2.png" alt="">
+            <span>扫描二维码 手机上观看</span>
+          </div>
+        </div>
+      </div>
+      <div class="text">
+        <p>{$arcinfo['ACT_DESC']}</p>
+        <p class="last"><span>温馨提示：</span>以上资料仅供参考，具体情况请免费咨询在线专家   <a href="">立即咨询</a></p>
+        <p class="bottom"><a href=""><span>上一篇：</span>白癜风是一种慢性病</a> <a href=""><span>下一篇：</span>白癜风是一种慢性病</a></p>
+      </div>
+  </div>
+  <!-- 底部start -->
+  <include file="Public:footer"/>
+  <!-- 底部end -->
+  <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var fz = document.getElementsByClassName('fz')[0];
+    var oLi = fz.getElementsByTagName('li');
+    var p = document.getElementsByTagName('p');
+    var phone = document.getElementsByClassName('phone')[0];
+    var QRcode = document.getElementsByClassName('QRcode')[0];
+    for(var i=0; i<oLi.length; i++) {
+      oLi[i].index = i;
+      oLi[i].onclick = function() {
+        for(var i=0; i<oLi.length; i++) {
+          oLi[i].classList.remove('active');
+        }
+        this.classList.add('active');
+        console.log(this.index);
+        if(this.index == 0) {
+          for(var i=0; i<p.length; i++) {
+            p[i].classList.remove('font1', 'font2', 'font3');
+            p[i].classList.add('font1');
+          }
+        } else if(this.index == 1) {
+          for(var i=0; i<p.length; i++) {
+            p[i].classList.remove('font1', 'font2', 'font3');
+            p[i].classList.add('font2');
+          }
+        } else if(this.index == 2) {
+          for(var i=0; i<p.length; i++) {
+            p[i].classList.remove('font1', 'font2', 'font3');
+            p[i].classList.add('font3');
+          }
+        }
+      }
+    }
+    phone.onmouseover = function() {
+      QRcode.classList.add('active');
+    }
+    phone.onmouseout = function() {
+      QRcode.classList.remove('active');
+    }
+  </script>
+</body>
+</html>

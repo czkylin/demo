@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="Keywords" content="页面关键字" />
+<link href="/weixin/Public/Member/css/huzhu/assistance.css" rel="stylesheet" type="text/css">
+<title>援助流程</title>
+</head>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/16 + 'px';
+</script>
+<body>
+<div class="main2">
+	<p>百倍爱心卡申请援助流程</p><br>
+    <p>1.会员手术前须向客服中心做术前备案，否则不予援助
+客服电话400-656-2020</p>
+    <p>2.客服中心查询确认基地医院能否开展手术，推荐医院</p>
+    <p>3.会员术后第一时间关注心脑管家微信公众号，经营主任协助会
+员2周内提交申请援助材料</p>
+    <p>4.客服中心进行材料初步审核，通过后，将纸质援助资料转交给
+第三方权威调查机构进行调查</p>
+    <p>5.基金会对会员援助申请材料进行深度调查</p>
+    <p>6.基金会对援助申请材料审核无误后，医院对会员发放援助金</p>
+    <p>7.会员确认收款，并填写服务确认函（援助完毕）</p>
+</div>
+</body>
+</html>

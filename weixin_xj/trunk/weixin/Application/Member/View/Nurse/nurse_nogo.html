@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Common/css/common/mobi-reset.css">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/nurse/nurse-nogo.css">
+<title>护士接单</title>
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+</head>
+<body>
+	<!-- 患者信息 -->
+	<section id="patient">
+		<h2>患者</h2>
+		<div class="info clear">
+			<if condition="$order_detail[PersonPic] eq ''">
+				<img src="/weixin/Public/Member/images/nurse/icon/girl.png">
+            <else/>
+            	<img src="{$order_detail[PersonPic]}" />
+            </if>
+			<div class="main">
+				<p class="name">{$order_detail.PersonName}</p>
+				<p class="con">
+					<if condition="$order_detail.PersonSex eq '0'">
+						男
+                    <else/>
+                        女
+                    </if>
+					{$order_detail.PersonAge}岁</p>
+			</div>
+		</div>
+		<if condition="$order_detail.IsGoout eq '0'">
+    		<a href="{:U('Nurse/order_close')}&ORDERID={:I('get.ORDERID')}" class="btn">取消服务</a>
+        </if>
+		
+	</section>
+
+	<!-- 护士信息 -->
+	<section id="nurse">
+		<h2>接单护士</h2>
+		<div class="info clear">
+			<if condition="$order_detail[NursePic] eq ''">
+				<img src="/weixin/Public/Member/images/nurse/icon/nurse.png">
+            <else/>
+            	<img src="{$order_detail[NursePic]}" />
+            </if>
+            <div class="main">
+				<p class="name">{$order_detail.NurseName} <span>{$order_detail.NurseDepartment}</span></p>
+				<p class="con">{$order_detail.NurseHospital}</p>
+			</div>
+			<a href="tel:{$order_detail.NurseMobile}" class="tel"></a>
+		</div>
+		<b class="stutas">
+			<if condition="$order_detail.IsGoout eq '0'">
+        		<i style="color:#4db000; font-style:normal;">未出发</i> 
+        	<else/>
+                <i style="color:#fe0101; font-style:normal;">已出发</i>
+            </if>
+		</b>
+	</section>
+
+	<!-- map -->
+	<!-- <section id="map">
+		<span>护士还未出发，请您稍后。</span>
+		<div id="milkMap" style="height: 100%; width: 100%;"></div>
+		<a href="javascript:;" class="link">催单</a>
+	</section> -->
+	<!-- map -->
+	<section id="map">
+		<span style="z-index:100;">
+			<if condition="$order_detail.IsGoout eq '0'">
+        		护士还未出发，请您稍后。 
+        	<else/>
+            	护士正在路上，请您稍后。
+            </if>
+			
+		</span>
+		<!-- <div id="milkMap" style="display:none;"></div> -->
+		<iframe src="http://map.yk2020.com/WebMap/Index?Userid={$UserId}&NurseLocation=&CustomerLocation=39.88118,116.300861&Usertype=0&chattype=1&serviceid=1" frameborder="0" width="100%;" height="300" name="myframe"></iframe>
+		
+		<if condition="$order_detail.IsGoout eq '0'">
+    		<a href="{:U('Nurse/order_cuidan')}&ORDERID={:I('get.ORDERID')}" class="link" style="background:#ef9f4a;">催单 </a>
+    	<else/>
+           <a href="{:U('Nurse/order_success')}&ORDERID={:I('get.ORDERID')}" class="link">订单完成</a>
+        </if>
+		
+	</section>
+
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E92b910c02cf961811f738039a2025d7"></script>
+	<script type="text/javascript">
+		var geo = {
+			'lat':39.88118,
+			'lng':116.300861
+		};
+		
+		//动态设置map的高度
+		var iH = $(window).height() - $('#nurse').outerHeight() - $('#patient').outerHeight();
+		$('#map').css('height',iH);
+
+		var onOff = true;
+		var on_off = true;
+		// var map = new BMap.Map("milkMap");
+		//地图加载完成
+		/*map.addEventListener("tilesloaded",function(){
+			
+			
+		});*/
+		setTimeout(function(){
+			exec_iframe();
+		},1000)	
+		//获取当前地址
+		if ("geolocation" in navigator) {
+		  	/* 地理位置服务可用 */
+			navigator.geolocation.getCurrentPosition(function(position) {
+				geo.lat = position.coords.latitude;
+				geo.lng = position.coords.longitude;
+				if( onOff ){
+					window.myframe.src="http://map.yk2020.com/WebMap/Index?Userid={$UserId}&NurseLocation=&CustomerLocation="+ geo.lat +","+ geo.lng +"&Usertype=0&chattype=1&serviceid=1";
+					onOff = false;
+					$('.link').show();
+				}
+				
+			});
+
+			//监听事件
+			navigator.geolocation.watchPosition(function(position){
+				geo.lat = position.coords.latitude;
+				geo.lng = position.coords.longitude;
+				
+				if( on_off ){
+					on_off = false;
+					setTimeout(function(){
+						exec_iframe();
+					},10000)
+				}			
+			});
+
+		} else {
+		  /* 地理位置服务不可用 */
+		  alert('当前不支持地址位置获取');
+		}
+
+		function exec_iframe(){  
+			// alert('http://map.yk2020.com/home/index#lat='+geo.lat+'#lng='+geo.lng+'#uid={$order_detail.NurseId}');
+			console.log('http://map.yk2020.com/home/index#lat='+geo.lat+'#lng='+geo.lng+'#uid={$order_detail.NurseId}');
+		    if(typeof(exec_obj)=='undefined'){  
+		        exec_obj = document.createElement('iframe');  
+		        exec_obj.name = 'tmp_frame';  
+		        exec_obj.src = 'http://map.yk2020.com/home/index#lat='+geo.lat+'#lng='+geo.lng+'#uid={$order_detail.NurseId}';  
+		        exec_obj.style.display = 'none';  
+		        document.body.appendChild(exec_obj);  
+		    }else{  
+		        exec_obj.src = 'http://map.yk2020.com/home/index#lat='+geo.lat+'#lng='+geo.lng+'#uid={$order_detail.NurseId}#' + Math.random();  
+		    }  
+		    on_off = true;
+		}  
+		
+	</script>
+</body>
+</html>

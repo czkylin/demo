@@ -1,0 +1,455 @@
+*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0);vertical-align:baseline;}
+html{height:100%;}
+body{font-family:"microsoft Yahei";color:#333;}
+body.apply{background:url(/weixin/Public/Expert/images/zhengcejiedu/apply.jpg) repeat-y center 0;background-size:cover;height:100%;}
+body.bind{background:url(/weixin/Public/Expert/images/zhengcejiedu/bindPhone.jpg) repeat-y center 0;background-size:cover;height:100%;}
+
+body.mine{height:100%;}
+body.data{background:#ebebeb;color:#333;}
+body.job{height:100%;background:#ebebeb;}
+li{list-style:none;}
+a{text-decoration:none;}
+img{border:none;vertical-align:middle;}
+.clearfix:after{content: ""; display: block; clear: both;}
+
+input,textarea{outline:none;box-shadow:none;-webkit-appearance: none;border-radius:0px;}
+input[type="checkbox"]{-webkit-appearance:checkbox;}
+input[type="date"]{-webkit-appearance: none;}
+::-webkit-input-placeholder{color:#ccc;}
+::-webkit-inner-spin-button { visibility: hidden; }
+::-webkit-calendar-picker-indicator {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: inset 0 1px #fff, 0 1px #eee;
+    background-color: #eee;
+    background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6);
+    color: #666;
+}
+.text-center{text-align:center;}
+.icon{
+    font-family:"wxfont" !important;
+    font-size:30px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+header{width:100%;background:#fff;border-bottom:.2rem solid #ebebeb;}
+
+.ops{width:90%;margin:0 auto 50px;color:#fff;font-size:16px;padding-bottom:50px;}
+.page{width:100%;}
+.page section{width:2.8rem;height:.65rem;margin:0 auto;display:box;display:-webkit-box;padding:.2rem 0;overflow:hidden;border-bottom:1px dotted #d7d7d7;position:relative;}
+.mt{margin-top:40px;}
+.page section.grade,.page section.swiper-wrapper{border-bottom:0px;padding:0;display:block;width:100%;height:auto;}
+.page section.grade h1{font-size:16px;width:100%;margin-top:.16rem;text-indent:1em;}
+.page section.swiper-wrapper{margin-bottom:50px;display:box;display:-webkit-box;overflow:visible;}
+.page section.grade i{display:inline-block;border-left:2px solid #64bbff;height:14px;margin-right:.05rem;vertical-align:baseline;}
+.page section.grade em{display:inline-block;font-style:normal;vertical-align:top;text-indent:0;margin-top:-0.02rem;}
+.page section a{position:absolute;top:0;left:0;width:100%;height:100%;}
+.list{margin-top:.1rem;width:3rem;width:100%;height:1.3rem;position:relative;overflow:hidden;background:url(/weixin/Public/Expert/images/zhengcejiedu/logo.png) no-repeat center center;background-size:39px;}
+.list img{width:100%;vertical-align:top;}
+.list a{background:rgba(0,0,0,0.5);color:#fff;display:box;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;}
+.list div{width:90%;}
+.list strong,.list span{color:#fff;width:100%;display:block;font-weight:normal;margin:.05rem 0;}
+.list strong{font-size:16px;}
+.list span{font-size:12px;}
+.text{width:1.8rem;height:auto;}
+.img{width:1rem;height:.65rem;overflow:hidden;background:#e8e8e8 url(/weixin/Public/Expert/images/zhengcejiedu/logo.png) no-repeat center center;background-size:39px;}
+.img img{width:100%;display:box;display:-webkit-box;}
+.text h2{font-size:16px;font-weight:normal;line-height:20px;width:90%;height:40px;overflow:hidden;}
+.text p{display:box;display:-webkit-box;margin-top:.2rem;}
+.text strong,.text em{font-size:12px;font-weight:normal;font-style:normal;color:#666;margin-right:1em;display:block;}
+.more{width:100%;text-align:center;color:#efefef;height:.4rem;line-height:.4rem;font-size:16px;}
+.head h1{font-size:18px;padding:.16rem 0;font-weight:normal;}
+.head section{width:100%;width:3rem;height:1.3rem;overflow:hidden;position:relative;}
+.head section video{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;transition:.5s;-webkit-transition:.5s;}
+.head section img{width:100%;vertical-align:top;}
+.page nav{height:40px;}
+.page nav ol{width:100%;display:box;display:-webkit-box;}
+.page nav li{width:50%;font-size:16px;background:#dcdcdc;height:40px;line-height:40px;transition:.5s;-webkit-transition:.5s;}
+.page nav li.swiper-pagination-bullet-active{color:#fff;background: #ff647c;}
+.swiper-slide dt{position:relative;font-size:16px;padding:.14rem 20% 0.14rem 0;border-bottom:1px solid #c9c9c9;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;width:80%;}
+.swiper-slide dt:before{position:absolute;right:0;top:50%;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #666;content:'';margin-top:-4px;border-top-width:0px;}
+.swiper-slide dt:after{position:absolute;right:0;top:50%;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #fff;content:'';margin-top:-2px;border-top-width:0px;}
+.swiper-slide dt.active:before{position:absolute;right:0;top:50%;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #666;content:'';margin-top:-2px;border-bottom-width:0px;}
+.swiper-slide dt.active:after{position:absolute;right:0;top:50%;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #fff;content:'';margin-top:-4px;border-bottom-width:0px;}
+.swiper-slide dl{width:90%;margin:0 auto;}
+.swiper-slide li a{font-size:15px;color:#666;position:static;padding:.1rem 0;border-bottom:1px dotted #d7d7d7;width:100%;display:block;}
+.swiper-slide header{border-width:0px;}
+.swiper-slide h3{background:#ebebeb;font-size:16px;text-indent:1em;height:40px;line-height:40px;font-weight:normal;}
+.section{background:#fff;font-size:15px;color:#666;background:#fff;width:90%;margin:0 auto;}
+.section p{line-height:40px;}
+.section p.lh{line-height:20px;margin:.1rem 0;}
+.section header{padding:.2rem 0;border-bottom:1px solid #c9c9c9;display:box;display:-webkit-box;}
+.hd{background:none;border-width:0px;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;height:1.5rem;}
+.section footer p{height:auto;line-height:20px;text-indent:2em;margin:.1rem 0;}
+.sPic{border-radius:.5rem;width:.5rem;height:.5rem;overflow:hidden;}
+.sPic img{width:100%;}
+.sTxt{margin-left:.2rem;padding:.05rem 0;}
+.sTxt p{font-size:18px;color:#333;font-weight:bold;height:24px;line-height:24px;}
+.sTxt small,.sTxt em,.sTxt span{font-size:14px;font-weight:normal;font-style:normal;color:#666;}
+.sTxt small{margin-left:.06rem;}
+.sTxt span{margin-left:.14rem;}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:10;}
+.dWrap{position:fixed;bottom:0;left:0;opacity:0;transform:translate3d(0,100%,0);-webkit-transform:translate3d(0,100%,0);transition:.5s;-webkit-transition:.5s;z-index:10;background:#fff;width:100%;height:2rem;}
+.dl{width:100%;overflow:hidden;}
+.dialog{display:box;display:-webkit-box;height:1.6rem;position:relative;}
+.dialog .swiper-container{margin:0;}
+#s1{width:1rem;margin-left:.3rem;}
+#s2{width:.4rem;}
+#s3{width:1rem;margin-right:.3rem;}
+#s0,#s4,#s5,#s6,#s8{height:1.36rem;background:#eee;}
+#s7{height:.6rem;background:#eee;}
+#s0 .swiper-wrapper,#s4 .swiper-wrapper,#s5 .swiper-wrapper,#s6 .swiper-wrapper,#s7 .swiper-wrapper,#s8 .swiper-wrapper{width:90%;padding:0 5%;}
+#s9 .swiper-wrapper,#s10 .swiper-wrapper,#s11 .swiper-wrapper,#s12 .swiper-wrapper{padding:0;width:100%;}
+#s9 .ss,#s10 .ss,#s11 .ss,#s12 .ss{border-width:0px;}
+.dialog .swiper-slide,.ss{display:box;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;color:#333;transition:.2s;-webkit-transition:.2s;font-size:18px;}
+.ss{border-bottom:1px dotted #d3d3d3;}
+.slideActive{font-weight:bold;font-size:22px;color:#333;}
+.mask{position:absolute;top:0;left:0;width:100%;height:100%;background:-webkit-gradient(linear, 0% 100%, 0% 0%, from(rgb(255, 255, 255)), color-stop(0.48, rgba(245, 245, 245, 0)), color-stop(0.52, rgba(255, 255, 255, 0)), to(rgb(255, 255, 255)));z-index:1;}
+.line{position:absolute;top:.64rem;left:0;width:100%;height:.32rem;border-top:1px solid #c6c6c6;border-bottom:1px solid #c6c6c6;}
+.dl h2{font-size:16px;font-weight:normal;width:100%;height:.4rem;line-height:.4rem;}
+.ops section{margin-top:.1rem;}
+.ops section ul{border-top:1px solid #fff;border-bottom:1px solid #fff;}
+.ops section li{padding:.1rem 0;text-indent:10px;font-size:16px;border-bottom:1px dotted #fff;position:relative;}
+.ops section li:last-child{border-bottom-width:0px;}
+.ops section li a{position:absolute;top:0;left:0;width:100%;height:100%;}
+.ops section li input{background:none;border:none;color:#fff;-webkit-appearance:none;width:60%;}
+::-webkit-inner-spin-button{-webkit-appearance: none;}
+.ops section strong{font-weight:normal;}
+.ops section h2{font-weight:normal;margin:.2rem 0 0.1rem;font-size:16px;}
+.ops section h3{font-weight:normal;margin:.1rem 0;font-size:15px;}
+.ops section h3 em{display:inline-block;font-style:normal;vertical-align:top;text-indent:0;margin-top:-0.02rem;}
+.ops section h3 i{display:inline-block;border-left:2px solid #64bbff;height:14px;margin-right:.05rem;vertical-align:baseline;}
+.ops section p.lt{font-size:14px;color:#ccc;}
+.bindP{height:100%;}
+.bindP.toTop{transform:translate3d(0,-100px,0);-webkit-transform:translate3d(0,-100px,0);}
+.bindP section{width:90%;margin:0 auto;}
+.check{border:1px solid #64bbff;height:14px;line-height:20px; width:14px;vertical-align:middle;display:block;}
+.agreement{margin:.2rem auto;}
+.ops label{position:relative;display:box;display:-webkit-box;height:16px;overflow:hidden;display:inline-block;vertical-align:middle;margin-right:.05rem;margin-bottom:4px;}
+.ops label input{position:absolute;top:-100px;left:-100px;}
+.ops label input:checked~i{background: #ff647c;}
+.ops label span{vertical-align:bottom;height:12px;line-height:12px;font-size:14px;display:block;margin-left:.1rem;margin-top:.02rem;}
+.ops .agree{background:#ff7f35;display:block;width:60%;height:34px;line-height:34px;margin:0 auto;color:#fff;text-align:center;border-radius:2px;}
+.return{transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);opacity:1;}
+.ok{width:100%;background:#fff;display:box;display:-webkit-box;}
+.ok a{font-size:16px;height:.4rem;line-height:.4rem;display:block;text-align:left;color:#666;width:1.4rem;}
+.ok a:nth-child(1){padding-left:.1rem;}
+.ok a:nth-child(2){color:#64bbff;text-align:right;padding-right:.1rem;}
+#type,#city,#hosiptal,#province,#nn,#position{height:1.35rem;}
+#bir{height:1.6rem;}
+#ns{height:.9rem;}
+#nn{height:.6rem;}
+#zc{height:1.65rem;}
+#w1,#w2{height:1.8rem;}
+#wstart,#wend{display:box;display:-webkit-box;height:1.5rem;}
+#w1 .swiper-container,#w2 .swiper-container{width:50%;margin:0;}
+.dl ul{width:90%;height:.96rem;padding:0 5%;background:#eee;overflow:auto;}
+.dl li{border-bottom:1px dotted #d3d3d3;font-size:18px;height:40px;line-height:40px;}
+#w1 .swiper-slide,#w2 .swiper-slide{display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.dl li:last-child{border-bottom-width:0px;}
+.opacity{position:fixed;top:0;left:0;background:rgba(0,0,0,0);width:100%;height:100%;visibility:hidden;transition:.2s;-webkit-transition:.2s;}
+.opacity.show{visibility:visible;background:rgba(0,0,0,0.4);}
+.explain{background:#fff;width:100%;height:100%;padding:0 5% 10%;visibility:hidden;position:absolute;top:-100%;left:0;padding:0;opacity:0;z-index:10;transition:.5s;-webkit-transition:.5s;}
+.explain h2{font-size:18px;text-align:center;height:60px;line-height:60px;font-weight:bold;}
+.explain h3{font-size:16px;line-height:60px;}
+.explain p{font-size:14px;color:#666;padding-bottom:10px;}
+.explain a{font-size:16px;color:#fff;background:#ff7f35;display:block;height:40px;line-height:40px;width:60%;margin:.2rem auto;}
+.explain article{position:relative;width:100%;height:100%;}
+.explain .article{width:90%;height:70%;overflow:auto;margin:0 auto;}
+.explain i{position:absolute;left:0.15rem;top:21px;border-radius:.2rem;width:.2rem;height:.2rem;border:1px solid #333;}
+.explain i:before,.explain i:after{position:absolute;left:50%;top:50%;width:.1rem;height:2px;background: #333;content:'';transform:rotate(45deg);-webkit-transform:rotate(45deg);margin-left:-0.05rem;margin-top:-1px;}
+.explain i:after{transform:rotate(-45deg);-webkit-transform:rotate(-45deg);}
+.move{transform:translate3d(0,100%,0);-webkit-transform:translate3d(0,100%,0);visibility:visible;opacity:1;}
+.headPic{width:.8rem;height:.8rem;overflow:hidden;position:relative;border-radius:.8rem;}
+.headPic img{position:absolute;top:0;left:0;width:100%;}
+.form{padding-bottom:20px;}
+.form .fList{border:1px solid #fff;}
+.form input{background:none;color:#fff;font-size:14px;border-width:0px;padding:5%;display:block;width:60%;}
+.form input[type="number"]{width:90%;}
+.form span,.form a{display:block;width:30%;height:100%;overflow:hidden;color:#fff;font-size:16px;text-align:center;background:rgba(255,255,255,0.6);}
+.form span img{width:100%;vertical-align:top;}
+.form label{display:box;display:-webkit-box;height:.4rem;line-height:.4rem;border-bottom:1px dotted #bac1c2;}
+.form label:last-child{border-bottom-width:0px;}
+.form a.go{height:34px;line-height:34px;background:#ff7f35;width:70%;margin:40px auto 0;border-radius:2px;}
+.header{display:box;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;background:#ebebeb;padding:.2rem 0;}
+.header .search{display:box;display:-webkit-box;}
+.header i{display:block;width:.16rem;height:100%;background:#fff url(/weixin/Public/Expert/images/zhengcejiedu/icon_search.png) no-repeat 0.06rem center;background-size:0.16rem 0.16rem;padding-left:.1rem;}
+.header a{display:block;border:1px solid #ccc;border-right-width:0px;height:30px;border-radius:2px 0 0 2px;}
+.header input{width:200px;height:30px;border:1px solid #ccc;border-left-width:0px;display:block;border-radius:0 2px 2px 0;}
+.order section{background:#fff;border-bottom:.18rem solid #ebebeb;}
+.order section.iList{border-width:0px;}
+.order section h2{font-size:18px;height:50px;line-height:50px;font-weight:normal;}
+.oList ul{border:1px solid #ccc;width:90%;margin:0 auto;}
+.oList li{border-bottom:1px dotted #d7d7d7;font-size:16px;height:40px;line-height:40px;padding:0 10px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.oList li:last-child{border-bottom-width:0px;}
+.oList strong{color:#666;font-weight:normal;}
+.myPic{
+    background: -webkit-linear-gradient(top, #bf385b 10%,#cf4961 50%,#f79867 100%);
+    padding-top:.25rem;
+}
+.myPic h2{color:#fff;font-size:16px;height:40px;line-height:40px;font-weight:normal;}
+.headImg{margin:0 auto;width:.8rem;height:.8rem;border-radius:.8rem;position:relative;}
+.headImg img{width:.8rem;height:.8rem;border-radius:.8rem;vertical-align:top;}
+.headImg i{position:absolute;top:.76rem;height:.15rem;margin-left:-0.25rem;font-size:12px;font-style:normal;text-align:center;line-height:.15rem;display:block;color:#fff;border-radius:10px;width:.5rem;}
+.headImg i.ino{background:#ffcc00;left:50%;}
+.headImg i.sus{color:#6c6;right:-0.2rem;top:0;font-size:30px;}
+.myPic ol{ padding:.1rem 0 0.05rem; width: 2.2rem; margin: 0 auto;}
+.myPic li{width:1.1rem; }
+.myPic li:nth-of-type(1){float: left; }
+.myPic li:nth-of-type(2){float: right; }
+.myPic a{font-size:16px;color:#fff; opacity: 1; display:block;height:24px;line-height:24px;position:relative;}
+.myPic a.yue{display: block; margin-top: 5px; height: 20px; line-height: 20px; padding: 0 4px; border:1px solid rgba(255,255,255,0.6); border-radius: 4px;  color: #ffd308;}
+/*.myPic a.ques:before{content:'';background:url(/weixin/Public/Expert/images/zhengcejiedu/ing.png) no-repeat;background-size:0.3rem 0.24rem;position:absolute;top:-0.02rem;right:0.1rem;width:.3rem;height:.12rem;}*/
+.myPic a.ques{position:relative; float: left;}
+.myPic a.ranks{float: right;}
+.myPic strong.ques{float: left; text-decoration: underline;}
+.myPic strong.ranks{float: right; text-decoration: underline;}
+.myPic .suoshu{height: 24px;}
+.myPic .suoshu{font-size: 12px; color: #fff; line-height: 24px; height: 24px;}
+.myPic a.nomes{display: block; text-align: center; padding-bottom: 10px;}
+.suoshu{text-align: center;}
+.myPic nav{padding-bottom: 10px;}
+.myPic a.ques i.icon{position:absolute;top:-0.1rem;right:0.2rem;font-size:20px;color:#ffa36e;}
+.myPic a.setting{position:absolute;right:.1rem;top:.1rem;font-size:24px;}
+.myPic strong{font-size:14px;height:24px;line-height:24px;display:block;text-align:center;font-weight:normal; color: #fff; overflow: hidden; white-space:nowrap; text-overflow:ellipsis; padding: 0 5px; }
+.footer{position:fixed;bottom:0;left:0;width:100%;}
+.footer nav{border-top:1px solid #ccc;background:#fff;}
+.footer ul{display:box;display:-webkit-box;}
+.footer li{width:25%;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.footer li a{display:block;width:100%;height:.4rem;color:#333;position:relative;padding:.05rem 0;}
+.footer li i,.footer li span{display:block;width:100%;text-align:center;}
+.footer i.ih{margin-left:0;}
+.footer li i{height:.2rem;}
+.footer li span{font-size:14px;height:.2rem;line-height:.28rem;}
+
+.br span{color:#ff7f35;font-size:16px;display:block;height:100%;margin-left:.1rem;}
+.pwd{position:relative;}
+.pwd i{position:absolute;top:45%;right:10px;width:30px;height:30px;margin-top:-8px;z-index:2;color:#999;font-size:26px;}
+.pwd i.active{color:#333;}
+.pwd input[type="text"]{display:none;}
+section.login label{display:box;display:-webkit-box;}
+section.login label input{width:20px;height:20px;}
+section.login label span{font-size:16px;display:block;margin-left:10px;margin-top:-4px;color:#666;}
+.forget{width:50%;display:box;display:-webkit-box;text-align:center;margin:0 auto;}
+.forget a{color:#ff7f35;font-size:16px;display:block;width:100%;text-align:center;}
+.forget a:nth-child(2){margin-left:10px;}
+section.login .verify{display:box;display:-webkit-box;}
+section.login .verify input{width:1.5rem}
+section.login .verify strong{width:.88rem;display:block;background:#ff7f35;color:#fff;font-size:16px;margin-left:0.1rem;line-height:.189rem;height:.189rem;padding:0.11rem 0;text-align:center;font-weight:normal;border-radius:2px;}
+section.login .verify em{display:block;width:.88rem;margin-left:0.1rem;height:100%;height:.41rem;}
+section.login .verify em img{vertical-align:top;width:100%;height:100%;}
+.chengG em{display:block;font-size:100px;text-align: center;color:#22ac38;}
+.chengG em.icol{color:#ff0000;}
+.telPhone{color:#ff7f35;font-weight:normal;}
+.order{padding-bottom:.5rem;}
+.order ul{display:box;display:-webkit-box; overflow: hidden;}
+.order li{width:1rem;height:1rem;text-align:center; border-right:1px solid #e0e0e0; border-bottom:1px solid #e0e0e0; box-sizing:border-box; -webkit-box-sizing:border-box;}
+.order li.current i,.order li.current span{color:#ccc;}
+.order li a{color:#666;width:1rem;height:1rem;display:block;display:box;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;}
+.order li i{display:block;height:44px; width: 44px; margin:0 auto;position:relative; }
+.order li i.icon1{background: url(/weixin/Application/Home/View/images/icon/icon1.png) no-repeat center; background-size: 26px;}
+.order li i.icon2{background: url(/weixin/Application/Home/View/images/icon/icon2.png) no-repeat center 10px; background-size: 28px;}
+.order li i.icon3{background: url(/weixin/Application/Home/View/images/icon/icon3.png) no-repeat center; background-size: 18px;}
+.order li i.icon4{background: url(/weixin/Application/Home/View/images/icon/icon4.png) no-repeat center; background-size: 28px;}
+.order li i.icon5{background: url(/weixin/Application/Home/View/images/icon/icon5.png) no-repeat center; background-size: 24px;}
+.order li i.icon6{background: url(/weixin/Application/Home/View/images/icon/icon6.png) no-repeat center; background-size: 20px;}
+.order li i.icon7{background: url(/weixin/Application/Home/View/images/icon/icon7.png) no-repeat center; background-size: 28px;}
+.order li i.icon8{background: url(/weixin/Application/Home/View/images/icon/icon8.png) no-repeat center; background-size: 22px;}
+.order li i.icon9{background: url(/weixin/Application/Home/View/images/icon/icon9.png) no-repeat center; background-size: 28px;}
+.order li i.icon10{background: url(/weixin/Application/Home/View/images/icon/icon10.png) no-repeat center; background-size: 24px;}
+.order li i.icon11{background: url(/weixin/Application/Home/View/images/icon/icon11.png) no-repeat center; background-size: 26px;}
+
+
+.order li i em{position:absolute;top:-0.09rem;right:-.14rem;background:url(/weixin/Public/Expert/images/zhengcejiedu/ing.png) no-repeat 0 -0.12rem;width:.3rem;height:.2rem;background-size:0.3rem 0.24rem;}
+.order li span{font-size:14px;display:block;text-align:center;font-style:normal; color: #333333;}
+.footer li.active i,.footer li.active span{color:#64bbff;}
+.dataList h2{font-size:16px;height:50px;line-height:50px;font-weight:normal;position:relative;}
+.dataList h2 a{position:absolute;right:.2rem;top:0;color:#3f3f3f;}
+.dataList section{background:#fff;font-size:16px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin-bottom:20px;}
+.dataList section ul{width:90%;margin:0 auto;}
+.dataList section li{height:40px;line-height:40px;border-bottom:1px dotted #d7d7d7;display:box;display:-webkit-box;position:relative;}
+.dataList section li:last-child{border-bottom-width:0px;}
+.dataList section li p{width:50%;}
+.dataList section li span{color:#666;}
+.dataList section li input{width:50%;height:100%;border-width:0px;display:block;font-size:14px;}
+.dataList section li a.icon{position:absolute;top:0;right:0;color:#ccc;}
+.dataList section.band{width:100%;margin-bottom:0;}
+.dataList section.band h2{font-size:18px;}
+.dataList section.band ul{display:box;display:-webkit-box;width:100%;}
+.dataList section.band li{border-width:0px;width:1rem;display:block;height:auto;padding:20px 0;position:relative;}
+.dataList section.band a,.dataList section.band span{display:block;text-align:center;width:100%;height:30px;}
+.dataList section.band span{color:#999;}
+.dataList section.band a.wx{background:url(/weixin/Public/Expert/images/zhengcejiedu/wx.png) no-repeat;background-size:30px;width:30px;margin:10px auto 0;}
+.dataList section.band a.qq{background:url(/weixin/Public/Expert/images/zhengcejiedu/qq.png) no-repeat;background-size:30px;width:30px;margin:10px auto 0;}
+.dataList section.band a.wb{background:url(/weixin/Public/Expert/images/zhengcejiedu/wb.png) no-repeat;background-size:30px;width:30px;margin:10px auto 0;}
+.dataList section.band a.wx.old{background-image:url(/weixin/Public/Expert/images/zhengcejiedu/wx-old.png)}
+.dataList section.band a.qq.old{background-image:url(/weixin/Public/Expert/images/zhengcejiedu/qq-old.png)}
+.dataList section.band a.wb.old{background-image:url(/weixin/Public/Expert/images/zhengcejiedu/wb-old.png)}
+.dataList section.band i{position:absolute;left:.1rem;top:0;font-size:16px;height:20px;line-height:20px;color:#999;font-style:normal;display:none;}
+.dataList section.band i.bShow{display:block;}
+.picImg{width:.4rem;height:.4rem;border-radius:.4rem;overflow:hidden;display:block;}
+#imgChanged{display:box;display:-webkit-box;padding:10px;position:relative;}
+.picImg img{width:100%;}
+.changed{position:absolute;right:.2rem;top:50%;display:block;height:20px;line-height:20px;margin-top:-10px;color:#64bbff;}
+.aside{position:fixed;bottom:0;left:0;width:100%;}
+.or{position:relative;text-align:center;width:100%;height:.2rem;line-height:.2rem;font-size:16px;}
+.or:before,.or:after{position:absolute;top:0.1rem;height:0.1rem;content:'';width:45%;border-top:1px solid #333;}
+.or:before{left:0;}
+.or:after{right:0;}
+.user{display:box;display:-webkit-box;width:100%;font-size:16px;}
+.user p{width:50%;}
+.user a{text-align:left;display:inline-block;width:1rem;margin:0 .2rem;font-size:16px;color:#333;height:40px;}
+.user p:nth-of-type(1) a{padding-left:.1rem;position:relative;}
+.user p:nth-of-type(1) a:before{position:absolute;left:0;top:.03rem;content:'';width:.1rem;height:.1rem;background:url(/weixin/Public/Expert/images/zhengcejiedu/fork.png) no-repeat;background-size:cover;}
+.have{width:100%;font-size:16px;}
+.have a{color:#ff7f35;}
+
+.menu{position:fixed;top:0;left:0;width:100%;border-bottom:1px solid #ccc;font-size:16px;padding:20px 0;background:#fff;z-index:3;}
+.menu ul{display:box;display:-webkit-box;}
+.menu li{width:50%;height:60px;box-sizing:border-box;-webkit-box-sizing:border-box;position:relative;}
+.menu li i,.menu li span{display:block;}
+.menu li a{position:absolute;top:0;left:0;width:100%;height:100%;}
+.menu li i{display:block;background:url(/weixin/Public/Expert/images/zhengcejiedu/class.png) no-repeat;width:.2rem;height:.2rem;background-size:100% 200%;margin:0 auto;}
+.menu li span{padding-top:10px;}
+.menu li:nth-child(2){border-left:1px solid #ccc;}
+.menu li:nth-child(2) i{background-position:0 -0.2rem;}
+#lList{width:100%;font-size:16px;padding:101px 0 0;}
+#lList h2{font-size:16px;font-weight:normal;text-indent:.05rem;padding:.1rem 0 .1rem 0;color:#999;}
+#lList section{border-bottom:1px solid #f0f0f0;position:relative;}
+#lList section a{position:absolute;top:0;left:0;width:100%;height:100%;}
+#lList section:nth-last-of-type{border-bottom-width:0px;}
+#lList .lt{padding:.1rem .05rem;display:box;display:-webkit-box;position:relative;height:0.56rem;}
+#lList .lt strong{position:absolute;top:.1rem;left:.05rem;color:#fff;width:.3rem;height:.16rem;line-height:.16rem;background:#bd0911;text-align:center;font-size:12px;}
+.lImg{width:1rem;height:0.56rem;overflow:hidden;background:url(/weixin/Public/Expert/images/zhengcejiedu/logo.png) no-repeat center center;background-size:30%;}
+.lImg img{width:100%;}
+.lTxt{padding:0 .05rem;width:1.8rem;height:0.56rem;}
+.lTxt p:nth-child(1){text-overflow:ellipsis; overflow:hidden; white-space:nowrap;width:1.8rem;height:0.28rem;}
+.lTxt p:nth-child(2){display:box;display:-webkit-box;height:0.14rem;padding-top:0.14rem;}
+.lTxt i,.lTxt em{font-style:normal;display:block;width:50%;vertical-align:bottom;}
+.lTxt em{text-align:right;color:#999;}
+.lTxt i{color:#ccc;text-indent:.14rem;position:relative;font-size:14px;}
+.lTxt i:before{width:.1rem;height:.1rem;content:'';position:absolute;left:0;top:.02rem;background:url(/weixin/Public/Expert/images/zhengcejiedu/men.png) no-repeat;background-size:cover;}
+#load{width:100%;font-size:16px;display:block;height:40px;line-height:40px;padding-bottom:.5rem;color:#ccc;}
+
+.user p:nth-of-type(2){text-align:right;}
+.user p:nth-of-type(2) a{text-align:right;}
+
+.guide-list{padding: 15px 10px 0;}
+.guide-list li{width: 47%; margin-bottom: 15px;} 
+.guide-list li img{width: 100%;}
+
+.contxt-list{position: relative;}
+.contxt-list li{padding: 5px 10px 10px; background: #fff; margin-bottom: 11px;}
+.contxt-list li h3{padding-left: 10px; font-size: 13px; line-height: 26px; color: #000;}
+.contxt-list li p{color: #ccc; margin-bottom: 15px;}
+.contxt-list .img{display: block; border: 1px solid #ccc;}
+.contxt-list .img img{ width: 100%;}
+
+#line,#line .swiper-wrapper,#line .swiper-slide{height:100%;}
+#line .swiper-wrapper{transition:.5s;-webkit-transition:.5s;}
+#line .swiper-slide{transform:scale3d(0.8,0.8,0.8);-webkit-transform:scale3d(0.8,0.8,0.8);transition:.5s;-webkit-transition:.5s;}
+#line .swiper-slide.sActive{transform:scale3d(1,1,1);-webkit-transform:scale3d(1,1,1);}
+#line .swiper-slide{background:#ebebeb;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+#line .unit{background:#fff;width:90%;height:90%;border-radius:8px;}
+.sTop{border-radius:8px 8px 0 0;overflow:hidden;height:2rem;background:#ebebeb;}
+.sTop img{width:100%;vertical-align:top;}
+.sBottom{border-radius:0 0 8px 8px;height:50%;background:#fff;}
+.sBottom h2{font-size:18px;background:#fff;height:60px;line-height:60px;margin-bottom:.8rem;font-weight:normal;}
+.sBottom span{height:80px;line-height:80px;text-align:center;position:relative;}
+.sBottom span:before{position:absolute;bottom:-30px;left:0;border-bottom:1px solid #ccc;content:'';width:100%;}
+.sBottom p{color:#666;font-size:16px;}
+
+header.dDetail h2{font-weight:normal;width:100%;text-align:center;}
+header.dDetail i,header.dDetail span,header.dDetail a{position:absolute;}
+header.dDetail a{top:.2rem;left:.1rem;color:#fff;}
+header.dDetail span{position:absolute;top:.44rem;left:0;width:100%;text-align:center;}
+header.dDetail i{position:absolute;top:.24rem;right:.1rem;width:.2rem;height:.17rem;background:url(/weixin/Public/Expert/images/zhengcejiedu/collect.png) no-repeat;background-size:100% 200%;transition:.5s;-webkit-transition:.5s;}
+header.dDetail i.active{background-position:0 -0.17rem;}
+.dContent{padding-bottom:10px;}
+.dContent .sec{width:90%;margin:40px auto;}
+.dContent h2{font-size:16px;font-weight:normal;margin-bottom:30px;}
+.dContent p{font-size:16px;line-height:24px;margin-top:10px;color:#666;margin-bottom:30px;}
+.dContent img{width:100%;margin-bottom:30px;display:block;}
+.dContent section:nth-of-type(1) p{font-size:14px;}
+#.vList a.old{color:#999;}
+#vList a.active{color:#64bbff;}
+#pos_video{position:absolute;top:0;left:0;width:100%;height:100%;}
+.star{color:#ef0909;font-style:normal;}
+#code{padding-bottom:20px;}
+#code img{width:80%;vertical-align:top;margin:.2rem auto;display:block;}
+
+.confirm{width:100%;height:.3rem;position:relative;}
+.confirm p{width:100%;font-size:16px;height:100%;line-height:100%;border-bottom:1px solid #ccc;box-sizing:border-box;-webkit-box-sizing:border-box;display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.confirm a{font-size:16px;color:#333;position:absolute;right:0;top:0;width:.4rem;height:.3rem;line-height:.3rem;text-align:center;}
+#birs{height:40px;line-height:40px;}
+
+.statement{background:#f2f2f2;font-size:14px;width:90%;margin:0 auto;padding:.1rem 0;}
+.statement h2{font-size:16px;font-weight:normal;}
+.statement p{width:90%;margin:10px auto 0;}
+#code p:nth-child(3){color:#9d9d9d;font-size:14px;width:90%;margin:0 auto;padding-bottom:.2rem;}
+#code p:nth-child(4){color:#333;font-size:14px;width:90%;margin:0 auto;padding-bottom:.2rem;}
+#top{color:#9d9d9d;text-align:center;width:60%;margin:0 auto;border:1px solid #333;border-radius:50px;font-size:16px;display:block;padding:.05rem 0}
+
+
+.agrees{width:100%;height:20px;display:box;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;}
+.agrees div{height:100%;display:box;display:-webkit-box;}
+.agrees input,.agrees span{display:block;vertical-align:middle;}
+.agrees input{margin-right:10px;height:18px;margin-top:2px;background:#fff;}
+.agrees span{font-size:16px;height:20px;line-height:20px;color:#999;}
+.forget { width: 50%; display: box; display: -webkit-box; text-align: center; margin: 0 auto }
+.forget a { color: #ff7f35; font-size: 16px; display: block; width: 100%; text-align: center }
+.forget a:nth-child(2) { margin-left: 10px }
+/*注册*/
+.login_logo { height: 60px; border-bottom: 1px solid #d4d4d4; background: -webkit-linear-gradient(top, #fff, #eee); background: linear-gradient(to bottom, #fff, #eee); display: block; }
+.login_logo span { display: block; width: 100%; background: url(/weixin/Public/Member/images/zhuce/logo.png) no-repeat center; height: 60px; text-align:right; line-height:0.4rem; font-size:0.12rem;}
+.login_logo span a{ color:#0066c0; padding-right:0.15rem; }
+.yuedu p { font-size: 14px; text-align:center;}
+.yuedu p a{color: #0066c0;}
+section.login .yuedu{ height:30px; line-height:30px;}
+section.login .yuedu input { float: left; margin-top:9px; background:#fff; width: 14px; height: 14px;}
+
+.box_login{ background:#fff; border:1px solid #dddddd; border-radius:0.05rem; padding:0.1rem; margin-bottom:0.1rem; margin-top:0.1rem;}
+.box_login .verify em{ width:100%;}
+section.login { width: 90%; margin: 0 auto }
+section.login h1 { font-size: 20px; padding-bottom: .1rem }
+section.login form { padding-top: .08rem }
+section.login input { border: .01rem solid #ccc; display: block; width: 2.48rem; height: .19rem; line-height: .19rem; padding: .1rem; font-size: 20px; color: #666; letter-spacing: 2px }
+section.login label { display: box; display: -webkit-box }
+section.login label input { width: 20px; height: 20px }
+section.login .phone input { border: .01rem solid #ccc; display: block; width: 2.25rem; height: .19rem; line-height: .19rem; padding: .1rem; font-size: 16px; color: #666; border-radius:2px;}
+section.login .message input { border-radius:2px; border: .01rem solid #ccc; display: block; width: 1.25rem; height: .19rem; line-height: .19rem; padding: .1rem; font-size: 16px; color: #666;}
+section.login label span { font-size: 16px; display: block; margin-left: 10px; margin-top: -4px; color: #666 }
+
+section.login .verify { display: box; display: -webkit-box; margin-top:0.1rem; }
+section.login .nember { display: box; display:inherit;}
+section.login .box_login p{ font-size:0.1rem; color:#0066c0; text-align:center; margin-top: 16px;}
+
+section.login .nember input { border-radius:2px; width:1.27rem; position:relative; z-index:999; }
+section.login .verify strong { width: .89rem; display: block; background: #ff647c; color: #fff; font-size: 16px; margin-left: .1rem; line-height: .20rem; height: .20rem; padding: .1rem 0; text-align: center; font-weight: 400; border-radius: 2px }
+section.login .verify em { display: block; width:30%; height: 100%; height: .39rem ;border: .01rem solid #ccc; border-left:none;}
+section.login .verify em img { vertical-align: top; width: 100%; height: 100% }
+.ts{width:100%;font-size:14px;position:fixed;bottom:20px;left:50%;margin-left:-1.4rem;}
+.ts span { color: #0066c0 }
+.hContent button:disabled{color:#ccc;}
+.hContent a.nomargin{margin-top:0;}
+.hContent { width: 100%; margin: 0 auto; padding: .05rem 0 }
+.hContent h2 { color: #333; font-size: 18px; font-weight: 400; height: 30px; line-height: 30px; margin-bottom: .05rem }
+.hContent p, .list strong, .ops, .page section.grade h1 { font-size: 16px }
+.hContent p { color: #666; text-indent: 2em; line-height: 24px }
+.hContent a, .hContent button { display: block; color: #fff; background: #ff647c; width: 100%; font-size: 20px; line-height: 50px; height: 50px; border-radius: 2px; box-shadow: none; -webkit-appearance: none; border-width: 0 }
+@keyframes show{
+    100%{
+        height: 30px;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes show{
+    100%{
+        height: 30px;
+        opacity: 1;
+    }
+}
+.zhuan{opacity: 0; display: block; height: 0px; line-height: 30px; font-size: 15px; color: #000; position: relative; text-align: center; background: #fcf2e0; animation:show 0.5s 0.5s forwards; -webkit-animation:show 0.5s 0.5s forwards;}
+.zhuan span{position: absolute; width: 18px; height: 18px; background: url(/weixin/Application/Home/View/images/icon/close.png) no-repeat; background-size: 16px; right: 10px; top: 8px;}

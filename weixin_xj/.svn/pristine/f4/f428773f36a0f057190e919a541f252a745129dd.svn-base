@@ -1,0 +1,320 @@
+/*common*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+    background-color: #f6f6f6;
+}
+
+:focus {
+	outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+li {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clear:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+/*tixian1*/
+.tianjia{
+    width: 74%;
+    border: 1px solid #c3c3c3;
+    border-radius: 10px;
+    margin: 85px auto 0;
+    background: #fff;
+    text-align: center;
+}
+.tj-icon{
+    width: 18%;
+    margin: 25px auto 10px;
+}
+.tianjia h2{
+    font-size: 15px;
+    color: #333333;
+    margin-bottom: 35px;
+}
+.tianjia .confirm,.tianjia .add{
+    display: block;
+    width: 80%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 4px;
+    margin: 0 auto 15px;
+}
+.tianjia .confirm{
+    background-color: #cacaca;
+}
+.tianjia .add{
+    background-color: #ff5f79;
+}
+/*tixian2*/
+.info-list{
+    padding: 0 2.5%;
+    margin: 30px 0 50px 0;
+}
+.info-list li{
+    height: 40px;
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.info-list li span{
+    width: 27%;
+    line-height: 40px;
+    float: left;
+    text-align: right;
+    position: relative;
+}
+.info-list li span i{
+    position: absolute;
+    color: #ff0000;
+    left: 8px;
+    top: 0;
+    font-style: normal;
+}
+.info-list li input{
+    height: 38px;
+    border: 1px solid #dddddd;
+    background: #fff;
+    line-height: 38px;
+    float: right;
+    width: 70%;
+    font-size: 14px;
+    color: #333333;
+    text-indent: 1em;
+}
+.info-submit{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff5f79;
+    border-radius: 2px;
+    font-size: 15px;
+}
+/*tianxian3*/
+.bank-mes{
+    width: 90%;
+    margin: 15px auto 60px;
+    border-radius: 2px;  
+    background: #fff;
+    padding: 2.5%;
+}
+.bank-name,.qian{
+    height: 40px;
+}
+.bank-name{
+    border-bottom: 1px solid #e0e0e0;
+}
+.bank-name span,.qian span{
+    float: left;
+    font-size: 15px;
+    line-height: 40px;
+    color: #333;
+}
+.bank-name i,.qian input{
+    background: none;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 1em;
+    float: left;
+    width: 60%;
+    border: none;
+    outline: none;
+    font-style: normal;
+    font-size: 15px;
+}
+.bank-name i{
+    color: #ff5f79;
+    opacity: 0.8;
+}
+.next{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff5f79;
+    border-radius: 2px;
+    font-size: 15px;
+}
+/*tianxia4*/
+.bank-info{
+    display: block;
+    width: 91.2%;
+    margin: 20px auto 10px;
+}
+.agreement{
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+.agreement a{
+    color: #199cee;
+}
+.agreement input{
+    position: relative;
+    top: -1px;
+}
+.tx{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff5f79;
+    border-radius: 2px;
+    font-size: 15px; 
+}
+/*tixian5*/
+.success{
+    text-align: center;
+}
+.success-icon{
+    width: 17%;
+    margin: 40px auto 10px;
+}
+.tj-txt{
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 35px;
+}
+.success ul{
+    width: 90%;
+    margin: 0 auto 50px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 2.5%;
+}
+.success ul li{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.success ul li span{
+    float: left;
+    text-align: left;
+    color: #666;
+}
+.success ul li b{
+    float: right;
+    text-align: right;
+    color: #333;
+    font-weight: normal;
+}
+.success .next{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff5f79;
+    border-radius: 2px;
+    font-size: 15px; 
+}

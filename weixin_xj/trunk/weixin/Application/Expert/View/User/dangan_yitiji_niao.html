@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan_yitiji_detail.css"  type="text/css" rel="stylesheet">
+<title>检查详情-尿常规</title>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+</script>
+<style>
+	.detail li{padding:0;}
+</style>
+</head>
+<body>
+
+<!--尿常规   警告提示 color_ts   严重警告color_jg-->
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="niaochanggui">
+		<div class="con">
+			<h2 class="tit6">尿常规</h2>
+		</div>
+		<ul class="detail detail_ncg">
+			<volist name="jk_info" id="jk">
+				<li>
+					<a href="javascript:;" class="clear">
+						<div class="sidebar">
+							<p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						</div>
+						<ol>
+							<li><div class="box ndy"><p>尿胆原<br><span>{$jk.URO}</span><br><i></i></p></div></li>
+							<li><div class="box qx"><p>潜血<br><span>{$jk.BLD}</span><br><i></i></p></div></li>
+							<li><div class="box dhs"><p>胆红素<br><span>{$jk.BIL}</span><br><i></i></p></div></li>
+							<li><div class="box tt"><p>酮体<br><span>{$jk.KET}</span><br><i></i></p></div></li>
+							<li><div class="box ptt"><p>葡萄糖<br><span>{$jk.GLU}</span><br><i></i></p></div></li>
+							<li><div class="box dbz"><p>蛋白质<br><span>{$jk.PRO}</span><br><i></i></p></div></li>
+							<li><div class="box ph"><p>PH<br><span>{$jk.PH}</span><br><i></i></p></div></li>
+							<li><div class="box xsy"><p>亚硝酸盐<br><span>{$jk.NIT}</span><br><i></i></p></div></li>
+							<li><div class="box bxb"><p>白细胞<br><span>{$jk.WBC}</span><br><i></i></p></div></li>
+							<li><div class="box bz"><p>比重<br><span>{$jk.SG}</span><br><i></i></p></div></li>
+							<li><div class="box wss"><p>维生素C<br><span>{$jk.VC}</span><br><i></i></p></div></li>
+							<div class="clear"></div>
+						</ol>
+					</a>
+				</li>
+			</volist>
+			<!-- <li>
+				<div class="sidebar">
+					<p><b>10-13</b><br>16:45</p>
+				</div>
+				<ol>
+					<li><div class="box"><p>尿胆原<br>56</p></div></li>
+					<li><div class="box"><p>潜血<br>56</p></div></li>
+					<li><div class="box"><p>胆红素<br>56</p></div></li>
+					<li><div class="box"><p>酮体<br>56</p></div></li>
+					<li><div class="box"><p>葡萄糖<br>56</p></div></li>
+					<li><div class="box"><p>蛋白质<br>56</p></div></li>
+					<li><div class="box"><p>PH<br>56</p></div></li>
+					<li><div class="box"><p>亚硝酸盐<br>56</p></div></li>
+					<li><div class="box color_ts"><p>白细胞<br>56</p></div></li>
+					<li><div class="box"><p>比重<br>56</p></div></li>
+					<li><div class="box color_jg"><p>维生素C<br>56</p></div></li>
+					<div class="clear"></div>
+				</ol>
+			</li> -->
+		</ul>
+	</div>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+$(function(){
+	fn();
+})
+function fn(){
+	//尿胆原取值
+	$(".ndy").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== 'Normal'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//潜血
+	$(".qx").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//胆红素
+	$(".dhs").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//酮体
+	$(".tt").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//葡萄糖
+	$(".ptt").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//蛋白质
+	$(".dbz").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//PH
+	$(".ph").each(function(){
+		var shuzhi = parseFloat($(this).find("p").find('span').html());
+		if(shuzhi){
+			if(shuzhi <4.6){
+				$(this).addClass("color_jg");
+				$(this).find("p").find('i').html('偏酸');
+			}else if( shuzhi > 8.0){
+				$(this).addClass("color_ts");
+				$(this).find("p").find('i').html('偏碱');
+			}else{
+				$(this).find("p").find('i').html('正常');
+			}
+		}else{
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}
+	})
+	//亚硝酸盐
+	$(".xsy").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//白细胞
+	$(".bxb").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//比重
+	$(".bz").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '&gt;=1.030'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+	//维生素
+	$(".wss").each(function(){
+		var shuzhi = $(this).find("p").find('span').html();
+		if(shuzhi !== '-'){
+			$(this).addClass("color_ts");
+			$(this).find("p").find('i').html('异常');
+		}else{
+			$(this).find("p").find('i').html('正常');
+		}
+	})
+}
+	
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+function load_more(obj)
+{   
+    var tj_type = $("#tj_type").text();
+
+    if(!onOff) return;
+
+    if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+    {
+        onOff = !onOff;
+        loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&tj_type='+tj_type,'.detail',fn);
+    }
+}
+</script>
+</body>
+</html>

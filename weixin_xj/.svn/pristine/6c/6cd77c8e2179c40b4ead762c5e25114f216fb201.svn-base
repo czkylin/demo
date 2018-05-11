@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>心电阅片</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Expert/css/xdyp.css">    
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <div class="address">
+            <span>站点名称：</span>
+            <input type="text" readonly="true" name="ad2" value="{$xdyp_detail['HOS_NAME']}"/>
+        </div> 
+        <div class="address">
+            <span>金&nbsp;&nbsp;额：</span>
+            <input type="text" readonly="true" value="{$xdyp_detail['PAY_MONEY']}元"/>
+        </div> 
+        <h3>心电阅片包月时间</h3> 
+        <ul class="list">
+            <li class="noactive">
+                起始时间：<span>{$xdyp_detail['PAY_TIME']|Dtodiy='Y-m-d',###}</span>
+            </li>
+            <li class="noactive">
+                结束时间：<span>{$xdyp_detail['END_TIME']|Dtodiy='Y-m-d',###}</span>
+            </li>
+        </ul> 
+        <a href="{:U('Member/Order/xdyp')}&d_openid={$openid}" class="sub">再次购买</a>  
+    </div>
+</div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>  
+</script>
+</html>

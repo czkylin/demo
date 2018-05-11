@@ -1,0 +1,4 @@
+header { border-width: 0px; }
+.br { font-size: 14px; color: red }
+#code { padding-bottom: .1rem; }
+.ts { position: static; margin: 0 auto 5%; height: 30px; line-height: 30px; }

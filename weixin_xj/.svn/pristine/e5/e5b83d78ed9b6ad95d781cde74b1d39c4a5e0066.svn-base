@@ -1,0 +1,105 @@
+<html class="ui-mobile">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="cache-control" content="public">
+        <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="format-detection" content="telephone=no">
+        <!--公用样式调用-->
+        <link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+        <!--分享页面样式调用-->
+        <link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+        <link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+
+        <title>选择职称</title>
+    </head>
+    <body >
+        <div id="zc">
+            <div class="gp GJ_Gp g-items gp-profile-auth"> 
+        		<ul> 
+                    <li>
+                        <a href="#" >主任医师</a>
+                	</li>
+                    <li>
+                        <a href="#" >副主任医师</a>
+                	</li>
+                    <li>
+                        <a href="#" >主治医师</a>
+                	</li>
+                    <li>
+                        <a href="#" >住院医师</a>
+                	</li>
+                    <li class="link">
+                        <a href="#" class="g-arrow-r" >
+                        <label>其他</label>
+                    </a>
+                	</li>
+                </ul> 
+             </div>
+            <!--<div class="xuanze_wanc"><a href="javascript:void(0)" onclick="">完成</a></div>-->
+        </div>
+        <div id="qt" style="display: none;">
+            <div class="qita">
+                <input type="text" placeholder="请输入您的职称" id="zhic" style="height:40px; line-height:40px; padding:10px 10px">
+            </div>
+            <div class="xuanze_wanc"><a href="javascript:void(0)" onClick="finish()">完成</a></div>
+        </div>
+        <input type="hidden"  id="truename" value="{$data.truename}">
+        <input type="hidden"  id="hosname" value="{$data.hosname}">
+        <input type="hidden"  id="hos_id" value="{$data.hos_id}">
+        <input type="hidden"  id="keshi" value="{$data.keshi}">
+        <input type="hidden"  id="keshiname" value="{$data.keshiname}">
+        <input type="hidden"  id="pro" value="{$data.pro}">
+        <input type="hidden"  id="city" value="{$data.city}">
+        <script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/weixin/Public/Expert/js/erji_chengshi.js"></script>
+        <script type="text/javascript">
+        $(function(){
+            $('#zc ul li a').click(function(){
+    			var zhic = $(this).text();
+    			var hosname = $('#hosname').val();
+    			var hos_id = $('#hos_id').val();
+    			var truename = $('#truename').val()
+    			var keshi = $('#keshi').val()
+    			var keshiname = $('#keshiname').val()
+    			var pro = $('#pro').val()
+    			var city = $('#city').val()
+                if($(this).children('label').text()!='其他')
+                {
+                    location.href = '?m=expert&c=user&a=band_name&zhic='+zhic+'&truename='+truename+'&hos_id='+hos_id+'&hosname='+hosname+'&pro='+pro+'&city='+city+'&keshi='+keshi+'&keshiname='+keshiname
+                }
+                else
+                {
+                    qt()
+                }
+            });
+        })
+        function qt(){
+            $('#qt').show()
+            $('#zc').hide()
+        }
+    	function finish(){
+            if($("#zhic").val()=="")
+            {
+                alert("请填写职称！")
+            }
+            else
+    		{
+    		  var zhic = $("#zhic").val();
+    		  var hosname = $('#hosname').val();
+    		  var hos_id = $('#hos_id').val();
+    		  var truename = $('#truename').val()
+    		  var keshi = $('#keshi').val()
+    		  var keshiname = $('#keshiname').val()
+    		  var pro = $('#pro').val()
+    		  var city = $('#city').val()
+    		  location.href = '?m=expert&c=user&a=band_name&zhic='+zhic+'&truename='+truename+'&hos_id='+hos_id+'&hosname='+hosname+'&pro='+pro+'&city='+city+'&keshi='+keshi+'&keshiname='+keshiname
+    		}
+    	}
+        </script>
+        <include file="Public:tj" />
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+    </body>
+</html>

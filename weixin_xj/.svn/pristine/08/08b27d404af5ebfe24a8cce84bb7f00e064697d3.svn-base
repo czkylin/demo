@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>收支明细</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/details.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+	<ul id="control" class="clear">
+		<li <?php if($type==1){echo ' class="active"';}?>>总金额</li>
+		<li <?php if($type==2){echo ' class="active"';}?> >支出</li>
+	</ul>
+	<div class="btn">
+		<a href="{:U('Expert/Payment/money_card')}">提现</a>
+	</div>
+	<div id="box">
+		<ul class="content <?php if($type==1){echo 'active';}?>" id="content1">
+			<li class="clear">
+				<a href="/weixin/index.php?m=Expert&c=Payment&a=money_list&order_type=cf&jifen_date={$jifen_date}" class="clear">
+					<span>开处方</span>
+					<b>></b>
+					<i class="price">{$data.cf_money_piont|round=2}</i>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="/weixin/index.php?m=Expert&c=Payment&a=money_list&order_type=yp&jifen_date={$jifen_date}" class="clear">
+					<span>阅片</span>
+					<b>></b>
+					<i class="price">{$data.yp_money_piont|round=2}</i>
+				</a>
+			</li>
+			
+			<li class="clear">
+				<a href="/weixin/index.php?m=Expert&c=Payment&a=money_list&order_type=hyk&jifen_date={$jifen_date}" class="clear">
+					<span>会员卡</span>
+					<b>></b>
+					<i class="price">{$data.hyk_money_piont|round=2}</i>
+				</a>
+			</li>
+
+<!-- 新加的 -->
+			<li class="clear">
+				<a href="/weixin/index.php?m=Expert&c=Payment&a=money_list&order_type=ychz&jifen_date={$jifen_date}" class="clear">
+					<span>远程会诊</span>
+					<b>></b>
+					<i class="price">{$data.ychz_money_piont|round=2}</i>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="/weixin/index.php?m=Expert&c=Payment&a=money_list&order_type=tj_expert&jifen_date={$jifen_date}" class="clear">
+					<span>推荐医生</span>
+					<b>></b>
+					<i class="price">{$data.tj_expert_money_piont|round=2}</i>
+				</a>
+			</li>
+			<li class="clear">
+				<a href="/weixin/index.php?m=Expert&c=Payment&a=money_list&order_type=tj&jifen_date={$jifen_date}" class="clear">
+					<span>推荐患者</span>
+					<b>></b>
+					<i class="price">{$data.tj_money_piont|round=2}</i>
+				</a>
+			</li>
+<!-- 新加的 -->
+		</ul>
+		<ul class="content <?php if($type==2){echo 'active';}?>">
+		<volist name ="card_list" id="vo">
+			<li>
+				<a href="{:U('Expert/Payment/money_detail')}&order_id={$vo.TX_ID}&type=2">
+				<p class="title">{$vo.BANK_NAME} 尾号<?php echo substr($vo['CARD_NUM'],-4) ?><span>支</span></p>
+				<p class="time">{$vo.CREATE_DATE}</p>
+				<i>- {$vo.TX_MONEY}</i>
+				<em>
+				<if condition="$vo['CHECK_FLAG'] eq 1">
+					通过
+				<else />
+					暂未通过
+				</if>
+				</em>
+				</a>
+			</li>
+		</volist>
+		<div class="ui-jiazai">
+			<a href="javascript:void(0);" onclick="load_more();">加载更多</a>
+		</div>
+		</ul>
+	</div>
+<div id="emptyData"></div>
+<div id="current_pagenum" style="display:none">2</div>
+	<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/zepto.js"></script>
+	<script src="/weixin/Public/Common/js/touch.js"></script>
+	<!--加载更多-->
+    <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+	<script>
+		//tab
+		$('#control li').each(function(index){
+			$(this).on('touchend',function(){
+				$('#control li').each(function(index){
+					$(this).removeClass('active');
+				})
+				$(this).addClass('active');
+
+				$('.content').each(function(){
+					$(this).removeClass('active');
+				})
+				$('.content').eq(index).addClass('active');
+			})
+		})
+
+		var onOff = true;
+	    window.onload = function(){
+	        window.onscroll();
+	    }
+	    window.onscroll = function()
+	    {
+	        load_more('.chufang_list');
+	    }
+
+	    function load_more(obj)
+	    {   
+	        if(!onOff) return;
+	        if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+	        {
+	            onOff = !onOff;
+	            loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Payment&a=card_list_append&jifen_date={$jifen_date}','#ss_list',function(){
+	                $('.empty_data').css({'top':0,'z-index':-1});
+	            });
+	        }
+	    }
+	</script>
+	
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

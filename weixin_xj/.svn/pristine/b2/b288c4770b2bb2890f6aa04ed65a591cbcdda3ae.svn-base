@@ -1,0 +1,22 @@
+body{background:#762ccb;font-size:16px;}
+.main{width:12rem;padding:0.5rem;}
+.shop-group li{width:4rem;border-right:2px solid #762ccb;border-bottom:2px solid #762ccb;box-sizing:border-box;-webkit-box-sizing:border-box;height:9.7rem;overflow:hidden;}
+.shop-group li a{border-bottom:2px solid #762ccb;box-sizing:border-box;-webkit-box-sizing:border-box;display:block;}
+.shop-group li a:nth-child(2){border-bottom:0px solid #fff;}
+.shop-group li:nth-child(1) a{border-bottom-width:0;}
+.shop-group li:nth-child(2) a:nth-child(3),.shop-group li:nth-child(2) a:nth-child(4){border-bottom-width:0;}
+.shop-group li:nth-child(4){width:8rem;border-right:0px solid #fff;}
+.shop-group li:nth-child(4),.shop-group li:nth-child(5){height:3.3rem;}
+.shop-group li:nth-child(4) a,.shop-group li:nth-child(5) a{border-bottom-width:0;}
+.unit h2{background:url(/weixin/Public/Member/images/shoping/title.png) no-repeat;background-size:100% 700%;width:5rem;padding:.6rem;margin:.5rem auto 0.4rem;}
+.unit h2.c2{background-position:0 -1.2rem;}
+.unit h2.c3{background-position:0 -2.4rem;}
+.unit h2.c4{background-position:0 -3.6rem;}
+.unit h2.c5{background-position:0 -4.8rem;}
+.unit h2.c6{background-position:0 -6rem;}
+.unit h2.c7{background-position:0 -7.2rem;}
+.shop-gp li{width:6rem;border-right:2px solid #762ccb;box-sizing:border-box;-webkit-box-sizing:border-box;height:6.8rem;overflow:hidden;}
+.shop-gp li:last-child{border-right-width:0;}
+.other_a img{margin-bottom:2px;display:block;}
+.cart{position:fixed;bottom:60px;right:20px;background:url(/weixin/Public/Member/images/shoping/cart.png) no-repeat;background-size:cover;width:50px;height:50px;}
+.cart i{position:absolute;top:-6px;right:0;width:14px;height:14px;background:#f30;border-radius:50%;text-align:center;color:#fff;line-height:14px;font-size:12px;}

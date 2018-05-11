@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>检查详情-计步统计
+</title>
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link rel="stylesheet" href="/weixin/Public/Member/css/user/dangan.css">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+<if condition="empty($jk_info)">
+    <div style=" text-align: center;">
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+
+<div class="tongji_xx">
+		<h2>计步统计</h2>
+        <ul class="tongji_list">
+            <volist name="jk_info" id="jk">
+            	<li>
+                	<div class="riji">
+                    	<span>{$jk.MEASURE_DATE|Dtodiy="m-d",###} </span>
+                        <i>{$jk.MEASURE_DATE|Dtodiy="H:i",###}</i>
+                    </div>
+                    <div class="f_right">
+                    	<span>卡路里</span>
+                        <i>{$jk.CALORIES}J</i>
+                    </div>
+                    <div class="f_right">
+                    	<span>距离</span>
+                        <i>{$jk.DISTANCE}m</i>
+                    </div>
+                    <div class="f_right">
+                    	<span>步数</span>
+                        <i>{$jk.STEPCOUNT}步</i>
+                    </div>
+
+                </li>
+            </volist>
+        </ul>
+
+</div>
+<!-- 加载更多 -->
+    <div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.tongji_list');"></a></div>
+    <div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<div id="imei_type" style="display:none">{$imei_type}</div>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/zepto.js"></script>
+<!--加载更多-->
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var onOff = true;
+    window.onload = function(){
+        window.onscroll();
+    }
+
+    window.onscroll = function(){
+        load_more('.tongji_list');
+    }
+    function load_more(obj)
+    {
+
+        var tj_type = $("#tj_type").text();
+        var imei_type = $("#imei_type").text();
+        if(!onOff) return;
+        if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+        {
+            onOff = !onOff;
+            loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=dangan_detail_append&member_mobile={$member_mobile}&is_all={:I("is_all",'')}&tj_type='+tj_type+'&imei_type='+imei_type,'.tongji_list');
+        }
+    }
+
+	var onOffs = false;
+	$('.jiantou').on("touchend",function(){
+		if( onOffs ){
+			$(this).addClass("active");
+			$('.more-list').slideDown();
+		}else{
+			$(this).removeClass("active");
+			$('.more-list').slideUp();
+		}
+		onOffs = !onOffs;
+	})
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

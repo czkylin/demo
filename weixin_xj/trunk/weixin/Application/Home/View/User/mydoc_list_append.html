@@ -1,0 +1,31 @@
+<volist name="doc_list" id="doc">
+<li>
+	<dl style="height:82px;">
+		
+		<dd>
+			<span class="name">
+                医生姓名: {$doc['EXPERT_NAME']}
+				
+			</span>
+			<br>
+			<span class="add"> 
+                所属医院：{$doc['HOS_NAME']}
+				
+			</span>
+			<br>
+			<span class="time">
+			   申请时间：{$doc['CREATE_DATE']}
+			</span>
+            <span class="state">
+	           	<if condition="$doc['CHECK_FLAG'] eq 0">
+	                审核中
+	           	<elseif condition="$doc['CHECK_FLAG'] eq 1" />
+	                通过
+	           	<else />
+	                未通过
+	           </if>
+	        </span>
+		</dd>
+	</dl>
+</li>∮
+</volist>

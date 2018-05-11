@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/weixin/Public/Member/css/zhengcejiedu/expand_list.css">
+<title>分享赢爱心卡</title>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+</script>
+</head>
+<body>
+	<article>
+		<ul class="list">
+			<li class="clear">
+				<div class="selector active clear">
+					<span></span>
+					<img src="/weixin/Public/Member/images/huzhu/share_icon/parent.png" alt="">
+					<p>{$user_info.user_name}告诉您，百元送父母10万健康保障</p>
+				</div>
+				<a href="{:U('Member/Huzhu/share_parent',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name']))}" class="link"></a>
+			</li>
+			<li class="clear">
+				<div class="selector clear">
+					<span></span>
+					<img src="/weixin/Public/Member/images/huzhu/share_icon/share.png" alt="">
+					<p>好友{$user_info.user_name}喊你一起开始慢病管理啦！！</p>
+				</div>
+				<a href="{:U('Member/Huzhu/share_yf',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name']))}" class="link"></a>
+			</li>
+			<li class="clear">
+				<div class="selector clear">
+					<span></span>
+					<img src="/weixin/Public/Member/images/huzhu/share_icon/fenxiang.png" alt="">
+					<p>关爱身边人，{$user_info.user_name}送您10万健康保障</p>
+				</div>
+				<a href="{:U('Member/Huzhu/share_init',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name']))}" class="link"></a>
+			</li>
+			<li class="clear">
+				<div class="selector clear">
+					<span></span>
+					<img src="/weixin/Public/Member/images/huzhu/share_icon/chuandi.png" alt="">
+					<p>百倍爱心卡 火热传递中</p>
+				</div>
+				<a href="{:U('Member/Huzhu/fenxiang',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name']))}" class="link"></a>
+			</li>
+			<li class="clear" >
+				<div class="selector">
+					<span></span>
+					<img src="/weixin/Public/Member/images/huzhu/share_icon/share_des.png" alt="">
+					<p>号外号外！！好友{$user_info.user_name}喊你快来领取十万救助保障！</p>
+				</div>
+				<a href="{:U('Member/Huzhu/share_des',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name']))}" class="link"></a>
+			</li>
+			<li class="clear" >
+				<div class="selector">
+					<span></span>
+					<img src="/weixin/Public/Member/images/parent/pic01.jpg" alt="">
+					<p>感恩父母</p>
+				</div>
+				<a href="{:U('Member/Huzhu/share_5',array('user_id'=>$user_info['user_id'],'link_mobile'=>$user_info['link_mobile'],'user_name'=>$user_info['user_name']))}" class="link"></a>
+			</li>
+		</ul>
+		<a href="javascript:;" class="share">分享</a>
+	</article>
+	<div class="fenxiang_con">
+        <div class="fenxiang">
+        	<img src="/weixin/Public/Member/images/zhengcejiedu/fenxiang.png">
+        </div>    
+    </div>
+	<script type="text/javascript" src="/weixin/Public/Expert/js/jquery.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+		//tab
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+		var jsonMes = 
+			{
+				imgSrc : $('.selector').eq(0).find('img').attr('src'),
+				title : $('.selector').eq(0).find('p').html(),
+				link : $('.selector').eq(0).siblings().attr('href')
+			};
+
+		//IOS，默认选中项
+		if(window.webkit){
+			window.webkit.messageHandlers.pgy.postMessage({
+				imgSrc : $('.selector').eq(0).find('img').attr('src'),
+				title : $('.selector').eq(0).find('p').html(),
+				link : $('.selector').eq(0).siblings().attr('href')
+			}) 
+		}
+			
+		//Android,默认选中项
+		if(window.AndroidWebView){
+			var strMes = $('.selector').eq(0).find('img').attr('src') + "+" +$('.selector').eq(0).find('p').html() + "+" +$('.selector').eq(0).siblings().attr('href');	
+			window.AndroidWebView.showInfoFromJs(strMes);
+		}
+			
+
+			var wx_share_title = jsonMes.title;
+        	var wx_share_desc = '百倍爱心卡，老年人专属心血管保障。我觉得很适合您，抽空看看呗？';
+        	var wx_share_imgUrl = "http://wx-heartorg.yk2020.com"+jsonMes.imgSrc;
+	        wx.ready(function() {
+	            wx.onMenuShareTimeline({
+	                title: wx_share_title,
+	                desc: wx_share_desc,
+	                link: 'http://wx-heartorg.yk2020.com/'+jsonMes.link+'',
+	                imgUrl: wx_share_imgUrl,
+	                success: function() {
+
+	                },
+	                cancel: function() {}
+	            });
+	            wx.onMenuShareAppMessage({
+	                title: wx_share_title,
+	                desc: wx_share_desc,
+	                link: 'http://wx-heartorg.yk2020.com/'+jsonMes.link+'',
+	                imgUrl: wx_share_imgUrl,
+	                success: function() {
+	                    
+	                },
+	                cancel: function() {}
+	            });
+	        });
+
+		$('.selector').each(function(){
+			$(this).click(function(){
+				$('.selector').each(function(){
+					$(this).removeClass('active')
+				})
+				$(this).addClass('active');
+
+				var _this = this;
+
+				//PHP传值，微信调用
+				getMes(this);
+
+				//APP IOS传值
+				if(window.webkit){
+					getIOS(this);
+				}
+					
+
+				//APP Android 传值
+				if(window.AndroidWebView){
+					getAndroid(this);	
+				}
+					
+			})
+		})
+		
+		function getIOS( obj ){
+			window.webkit.messageHandlers.pgy.postMessage({
+				imgSrc : $(obj).find('img').attr('src'),
+				title : $(obj).find('p').html(),
+				link : $(obj).siblings().attr('href')
+			})
+		}
+
+		function getAndroid( obj ){
+			var strMes = $(obj).find('img').attr('src') + "+" + $(obj).find('p').html()+ "+" + $(obj).siblings().attr('href');
+			window.AndroidWebView.showInfoFromJs(strMes)
+		}
+
+		function getMes(obj){
+			jsonMes.imgSrc = $(obj).find('img').attr('src');
+			jsonMes.title = $(obj).find('p').html();
+			jsonMes.link = $(obj).siblings().attr('href');
+			var wx_share_title = jsonMes.title;
+        	var wx_share_desc = '百倍爱心卡，老年人专属心血管保障。我觉得很适合您，抽空看看呗？';
+        	var wx_share_imgUrl = "http://wx-heartorg.yk2020.com"+jsonMes.imgSrc;
+	        wx.ready(function() {
+	            wx.onMenuShareTimeline({
+	                title: wx_share_title,
+	                desc: wx_share_desc,
+	                link: 'http://wx-heartorg.yk2020.com/'+jsonMes.link+'',
+	                imgUrl: wx_share_imgUrl,
+	                success: function() {
+
+	                },
+	                cancel: function() {}
+	            });
+	            wx.onMenuShareAppMessage({
+	                title: wx_share_title,
+	                desc: wx_share_desc,
+	                link: 'http://wx-heartorg.yk2020.com/'+jsonMes.link+'',
+	                imgUrl: wx_share_imgUrl,
+	                success: function() {
+	                    
+	                },
+	                cancel: function() {}
+	            });
+	        });
+		}
+		
+		//share
+		$('.share').click(function(){
+			$('.fenxiang_con').show();
+			setTimeout(function(){
+				$('.fenxiang_con').hide();
+			},3000)
+		})
+
+		
+
+ 
+	</script>
+</body>
+</html>

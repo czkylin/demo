@@ -1,0 +1,193 @@
+﻿<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/portal.min.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/style.css">
+<title>远程心界</title>
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/portal.min.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/style.css">
+<link type="text/css" rel="stylesheet" href="/weixin/Public/Member/css/card/animations.css">
+
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="background:#fafafa" >
+
+    <div class="con">
+    <div class="overall_top_for_card">
+    	<div class="info_top">
+        	<ol class="info_title">
+           		<li class="li01">
+                	<img src="/weixin/Public/Member/images/card/index/card3.png"  alt=""/> 
+            	</li>
+            	<li>白金卡</li>
+            	<!--<li class="li03">
+                	<img src="/weixin/Public/Member/images/card/icon/car.png" width="45" height="45" alt=""/>
+                </li>-->
+            </ol>
+        </div>
+        <div class="tab">
+        	<ul>
+                <li><a href="{:U('Member/Card/card9800Information')}">商品信息</a></li>
+                <li><a href="{:U('Member/Card/Features9800')}">服务特色</a></li>
+                <li><a href="{:U('Member/Card/Process9800')}" class="cur">服务流程</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="product">
+        <!--服务特色start-->    
+            <div class="Service_process">
+            	
+            	<div class="process_con1 mar_top page page-1-1 page-current">
+                <div class="up_down">
+                	<span><img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/></span>
+                   <div class="black">
+                   	 <em></em>
+                     <em></em>
+                   </div>
+                    
+                </div>
+                	<div style="" class="wrap">
+                	<div class="process_con1_top">
+                    	<div class="move_equipment">
+                        </div>
+                        <span class="shebei">手机微信</span>
+                    </div>
+                    <div class="process_con2_down">
+                    
+                    	<div class="process_down_left">
+                        	
+                        	<p class="left_p1">打开远程心界</p>
+                        </div>
+                        <div class="process_down_right">
+                        	<ul>
+                            	<li>远程会诊</li>
+                            	<li>专家咨询</li>
+                            	<li class="last_li">完成预约</li>
+                            </ul>
+                        </div>
+                        <div class="null2"></div>
+                        <div class="process_erweima">
+                    	<img src="/weixin/Public/Member/images/card/process/erweima.jpg" width="213" height="213" alt=""/>
+                        <p>
+                        	<img src="/weixin/Public/Member/images/card/features/comment.png" width="151" height="48" alt=""/>
+                        </p>
+                    </div>
+                    </div>
+                    
+                 </div>
+                 </div>
+                <!--<div class="process_con1 mar_top page page-2-1 hide">
+                <div class="up_down">
+                	<span><img src="/weixin/Public/Member/images/card/icon/up_down.png" alt=""/></span>
+                   <div class="black">
+                   	 <em></em>
+                     <em></em>
+                   </div>
+                    
+                </div>
+                	<div style="" class="wrap">
+                	<div class="process_con1_top">
+                    	<div class="move_equipment">
+                        </div>
+                        <span class="shebei">手机微信</span>
+                    </div>
+                    <div class="process_con2_down">
+                    
+                    	<div class="process_down_left">
+                        	
+                        	<p class="left_p1">打开远程心界</p>
+                        </div>
+                        <div class="process_down_right">
+                        	<ul>
+                            	<li>预约挂号</li>
+                            	<li>远程会诊</li>
+                            	<li>专家咨询</li>
+                            	<li class="last_li">完成预约</li>
+                            </ul>
+                        </div>
+                        <div class="null2"></div>
+                        <div class="process_erweima">
+                    	<img src="/weixin/Public/Member/images/card/process/erweima.jpg" width="213" height="213" alt=""/>
+                        <p>
+                        	<img src="/weixin/Public/Member/images/card/features/comment.png" width="151" height="48" alt=""/>
+                        </p>
+                    </div>
+                    </div>
+                    
+                 </div>    
+                </div>-->
+                <div class="process_con3 mar_top page page-2-1 hide">
+                	<div style="" class="wrap">
+                	<div id="buy">
+                    	<div class="buy_top">
+                        	<div class="buy_top_left">
+                       			<img src="/weixin/Public/Member/images/card/process/card9800.png" width="236" height="132" alt=""/> </div>
+                            <div class="buy_top_right">
+                            	<h3>白金卡</h3>
+                                <p>经典健康管理套餐</p>
+                                <b>￥9800</b>
+                                <span>￥12000</span>
+                                
+                            </div>
+                        </div>
+                        <div class="buy_bottom" style=" display:none;">立即购买</div>
+                    </div>
+                    <div class="more_card">
+                    	<span class="more1">更多</span>
+                        <div class="index_bottom">
+        					<ul class="card_list" >
+            	
+                <a href="http://weixin-xinjie.yc999120.com/card/card980/card980Information.html">
+                	<li>
+               			<img src="/weixin/Public/Member/images/card/process/card980.png" width="110" height="70" alt=""/>
+                		<span>贵宾卡</span>
+                	</li>
+                </a>
+                <a href="http://weixin-xinjie.yc999120.com/card/card1980/card1980Information.html">
+                    <li>
+                        <img src="/weixin/Public/Member/images/card/process/card1980.png" width="110" height="70" alt=""/>
+                        <span>金卡</span>
+                    </li>
+                </a>
+                <a href="http://weixin-xinjie.yc999120.com/card/card9800/card9800Information.html">
+                    <li>
+                        <img src="/weixin/Public/Member/images/card/process/card9800.png" width="110" height="70" alt=""/>
+                        <span>白金卡</span>
+                    </li>
+                </a>
+                <a href="http://weixin-xinjie.yc999120.com/card/card99000/card99000Information.html">
+                    <li>
+                        <img src="/weixin/Public/Member/images/card/process/card99000.png" width="110" height="70" alt=""/>
+                        <span>钻石卡</span>
+                    </li>
+                </a>
+               
+            </ul>
+        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+<script src="/weixin/Public/Member/js/card/zepto.js"></script> 
+<script src="/weixin/Public/Member/js/card/touch.js"></script> 
+<script src="/weixin/Public/Member/js/card/index.js"></script> 
+
+<!-- analytics code -->
+<div class="hide"> 
+    <script src="http://s95.cnzz.com/z_stat.php?id=1253891981&web_id=1253891981" language="JavaScript"></script> 
+</div>
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span>
+    <h1>载入中...</h1>
+</div>
+<div class="ui-loading-screen" style="display: none;"> </div>
+</body>
+</html>

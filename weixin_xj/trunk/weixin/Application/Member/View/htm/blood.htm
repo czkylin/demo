@@ -1,0 +1,131 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/h5_bbaxktc.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/buy.css">
+<title>百倍爱心-高血压健康套装</title>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';    
+</script>
+    <script>
+
+        function set_log(act){
+        var type = "{$type}"+"_share_398";
+        var link_mobile = '{:I("get.link_mobile","")}';
+        var openid = "{$homeid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+        wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '血管轻松，健康保障！套装更优惠哦';
+        var wx_share_desc = '百倍爱心卡保健套餐，只为更好护住你的心！';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_icon/hlqz2.png";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_398&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                     set_log('朋友圈');
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_398&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name='+encodeURIComponent("{:I('get.user_name','')}"),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    set_log('微信');
+                },
+                cancel: function() {}
+            });
+        });
+    </script>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c" style="padding-bottom: 50px;">
+    <div class="ka_box">
+        <img src="/weixin/Public/Member/images/h5_blood/img0.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/h5_blood/img1.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/h5_blood/img2.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/h5_blood/img3.jpg" alt=""/>
+        <img src="/weixin/Public/Member/images/h5_blood/img5.jpg" alt=""/>
+        <footer>
+           <span class="link_1">¥398.00</span>
+            <a href="javascript:;" class="text-center" id="buy" style="background:#5789c6;">立即购买</a>
+        </footer>
+    </div>
+    <div id="mask" class="mask">
+        <div class="buy_list">
+            <h2 class="text-center"><i></i>汉林清脂胶囊</h2>
+            <section class="box">
+                <div class="choice">数量选择</div>
+                <div class="num">
+                    <span style="color:#5789c6;border-color:#5789c6;">2</span>
+                    <span>4</span>
+                    <span>6</span>
+                    <span>8</span>
+                    <span>10</span>
+                    <span>12</span>
+                    <span>14</span>
+                    <span>16</span>
+                    <span>18</span>
+                    <span>20</span>
+                </div>
+            </section>
+            <a href="#" class="purchase text-center" style="background:#5789c6;">立即购买</a>
+        </div>
+    </div>
+    <!-- CNZZ统计代码 -->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+    <!-- CNZZ统计代码  百倍爱心卡498健康套装 单独统计-->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1261123499).'" width="0" height="0"/>';?></div>
+</body>
+<script>
+$('#buy').click(function(){
+    $('#mask').addClass('visible');
+});
+    
+$('.buy_list h2 i').click(function(){
+    $('#mask').removeClass('visible');
+});
+    
+$('.num span').click(function(){
+   //$(this).addClass('active').siblings().removeClass('active'); 
+    $(this).css({
+        'color': '#5789c6',
+        'border-color': '#5789c6'
+    }).siblings().removeAttr('style');
+});
+</script>
+</html>

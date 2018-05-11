@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>提现</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/user/tixian.css">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize= document.documentElement.clientWidth / 16 + "px";
+</script>
+</head>
+<body>
+<form method="post" action="{:U('Expert/Payment/band_card_tx')}" onsubmit=" return check()">
+	<div class="bank-mes" style="margin-bottom:20px;">
+		<div class="bank-name">
+			<span>储蓄卡</span>
+			<i>{$bank_name}尾号{$card_num}</i>
+		</div>
+		<div class="qian">
+			<span>金额（元）</span>
+			<input type="text" name="total" placeholder="最多可提现{$total_money}元" id="total" onkeyup="clearNoNum(this)">
+			<input type="hidden" name="card_id" value="{$card_id}">
+			<input type="hidden" name="total_money" value="{$total_money}">
+		</div>	
+	</div>
+	<div class="agreement" style="margin-bottom:20px;">
+		<input type="checkbox" id="agree" checked="checked">
+		<label for="agree">我已阅读过<a href="/weixin/Application/Expert/View/Payment/tixiangz.html">《提现规则》</a></label>
+	</div>
+	<input type="submit" class="next"  value="申请提现">
+	<!-- <a href="javascript:;" class="next">申请提现</a> -->
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script>
+	function check()
+	{
+		var total= $("#total").val();
+
+			if (total > {$total_money})
+			{
+				alert("余额不足");
+		  	 	$("#total").focus();
+		  	 	return false;
+			}
+	}
+
+
+    function clearNoNum(obj)  
+	{  
+	   	obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符  
+	   	obj.value = obj.value.replace(/^\./g,"");  //验证第一个字符是数字而不是.  
+	  	obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的  
+	  	obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");  
+	  	obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');//只能输入两个小数  
+	} 
+</script>
+</html>

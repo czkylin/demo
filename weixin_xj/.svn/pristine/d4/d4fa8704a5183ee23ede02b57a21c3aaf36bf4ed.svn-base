@@ -1,0 +1,140 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+<!--CSS库文件-->
+<!-- <link rel="stylesheet" href="/weixin/Public/Member/css/base.css"> -->
+<title>百倍爱心卡商城</title>
+<style>
+body{ background:#fff; margin:0; }
+*{margin: 0; padding: 0;}
+a{text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+li{list-style:none;}
+.clear:after{display: block; content: '';clear: both;}
+.ka_box{ width:100%; height:auto;}
+.ka_box a{ width:100%; height:auto; display:block; margin-bottom:10px;}
+.ka_box a img{ width:100%; height:auto;}
+.list{ margin-bottom: 1.5rem;}
+.list li{width: 4.88rem; }
+.list li:nth-of-type(1){ float: left; margin-right: 0.18rem}
+.list li:nth-of-type(2){ float: left;}
+.list li:nth-of-type(3){ float: right;}
+.list .img{ height: 6.3rem; text-align: center; margin-bottom: 0.4rem;}
+.list li:nth-of-type(1) .img{background: #d7e9f5;}
+.list li:nth-of-type(2) .img{background: #f4f6e9;}
+.list li:nth-of-type(3) .img{background: #f9e2da;}
+.list .img img{}
+.list li:nth-of-type(1) .img img{display: inline-block; width: 4.1rem; margin-top: 1.6rem;}
+.list li:nth-of-type(2) .img img{display: inline-block; width: 4.52rem; }
+.list li:nth-of-type(3) .img img{display: inline-block; width: 3.98rem; margin-top: 1.6rem;}
+.list h3{color: #333; font-size: 0.52rem; line-height: 0.8rem;}
+.list p{color: #999999; font-size: 0.3rem; line-height: 0.8rem; height: 0.8rem; overflow: hidden;}
+.list span{display: block; font-size: 0.68rem; color: #de6416; font-weight: 600;}
+    .text-center{text-align:center;}
+</style>
+</head>
+<?php 
+        use Think\Log;
+        $log=new Log();
+        
+?>
+<body class="ui-mobile-viewport ui-overlay-c">
+<div class="ka_box">
+	<a href="/weixin/index.php?m=Member&c=Huzhu&a=share_init&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+   	    <img src="/weixin/Public/Member/images/shangcheng/ka1.jpg" alt="百倍爱心卡-100"/>
+    </a>
+    <a href="/weixin/index.php?m=Member&c=Huzhu&a=share_1280_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+   	    <img src="/weixin/Public/Member/images/shangcheng/ka2.jpg" alt="百倍爱心卡腕表三件-1280"/>
+    </a>
+    <!-- <a href="/weixin/index.php?m=Member&c=Huzhu&a=share_498_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name}">
+      	    <img src="/weixin/Public/Member/images/shangcheng/ka3.jpg" alt="百倍爱心卡清脂胶囊-498"/>
+   </a> -->
+</div>
+<ul class="list clear">
+	<li>
+		<a href="/weixin/index.php?m=Member&c=Huzhu&a=share_init&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+			<div class="img">
+				<img src="/weixin/Public/Member/images/huzhu/shop/img1.png" alt="">
+			</div>
+			<h3 class="text-center">百倍爱心卡</h3>
+			<p class="text-center">护心大行动 爱心同传递</p>
+			<span class="text-center">￥100</span>
+		</a>
+	</li>
+	<li>
+		<a href="/weixin/index.php?m=Member&c=Huzhu&a=share_1280_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+			<div class="img">
+				<img src="/weixin/Public/Member/images/huzhu/shop/img2.png" alt="">
+			</div>
+			<h3 class="text-center">百倍爱心卡</h3>
+			<p class="text-center">健康管理套装</p>
+			<span class="text-center">￥1280</span>
+		</a>
+	</li>
+	<li>
+		<a href="/weixin/index.php?m=Member&c=Huzhu&a=share_498_1&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}">
+			<div class="img">
+				<img src="/weixin/Public/Member/images/huzhu/shop/img3.png" alt="">
+			</div>
+			<h3 class="text-center">百倍爱心卡</h3>
+			<p class="text-center">健康保健套装</p>
+			<span class="text-center">￥498</span>
+		</a>	
+	</li>
+</ul>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript">
+		wx.config({
+            debug: false,
+            appId: '<?php echo $appId;?>',
+            timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+            nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+            signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '百倍爱心卡携套装震撼来袭！';
+        var wx_share_desc = '百倍爱心卡 礼物都给你备好了！全在这了！把“我”收了吧！你需要的全都有！';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/huzhu/share_icon/shop.png";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=shop&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}',
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    <?php
+
+                        $log->write($type."_shop {openid:".$homeid.",link_mobile:".$user_info['link_mobile'].",url_path:".$path."}","WXSHARE","","./Application/Runtime/Logs/share".date('Y-m-d').'.log');
+                    ?>;
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=shop&user_id={$user_info.user_id}&link_mobile={$user_info.link_mobile}&user_name={$user_info.user_name|URLencode}',
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    <?php
+
+                        $log->write($type."_shop {openid:".$homeid.",link_mobile:".$user_info['link_mobile'].",url_path:".$path."}","WXSHARE","","./Application/Runtime/Logs/share".date('Y-m-d').'.log');
+                    ?>;
+                },
+                cancel: function() {}
+            });
+        });
+	</script>
+</body>
+</html>

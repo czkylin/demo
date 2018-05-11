@@ -1,0 +1,166 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+    background: #f3f3f3;
+}
+
+:focus {
+	outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+li{
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+.bbn{
+    border-bottom: none !important;
+}
+.fontw{font-weight: 600;}
+/*main*/
+h1{
+    height: 1.7rem;
+    padding-left: 0.5rem;
+    line-height: 1.7rem;
+    font-size: 0.68rem;
+    color: #000;
+    background: #fff ;
+    border-bottom: 1px solid #d3d2d2;
+}
+h1 span{
+    float: left;
+}
+h1 i{
+    float: left;
+    width: 26px;
+    height: 19px;
+    margin-left: 10px;
+    margin-top: 5px;
+    background: url(/weixin/Public/Home/images/icon/xing.png) no-repeat;
+    background-size: 26px;
+}
+.yisheng,.huanzhe{
+    margin-bottom: 10px;
+}
+.yisheng h2,.huanzhe h2{
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    font-size: 0.7rem;
+    color: #000;
+    background: #fff;
+    position: relative;
+}
+.yisheng h2 span,.huanzhe h2 span{
+    width: 5px;
+    height: 0.7rem;
+    background: #ff647c;
+    position: absolute;
+    left: 0;
+}
+.yisheng h2 strong,.huanzhe h2 strong{
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #d3d2d2;
+}
+.con{
+    padding: 0 0.5rem;
+    background: #fff;
+}
+.con p{
+    font-size: 14px;
+    color: #000;
+    line-height: 25px;
+    font-weight: 400;
+    padding-top: 10px;
+    font-weight: 600;
+}
+.con ul{
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #d3d2d2;
+}
+.con ul li{
+    font-size: 14px;
+    color: #000;
+    line-height: 25px;
+}

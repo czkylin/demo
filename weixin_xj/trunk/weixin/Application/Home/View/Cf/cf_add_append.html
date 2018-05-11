@@ -1,0 +1,13 @@
+<volist name='product_list' id='product' key="k">
+	<li id="y_{$product.PRODUCT_ID}">
+		<label class="ui-icon-unchecked-s xz" for="week1_{$product.PRODUCT_ID}" ></label>
+		<input type="checkbox" name="product[]" id="week1_{$product.PRODUCT_ID}" onclick="checkproduct({$product.PRODUCT_ID})" value="{$product.PRODUCT_ID}" style="display:none" />
+		<h3>{$product.TY_NAME} ￥{$product.PRODUCT_MONEY}</h3>
+		<label>
+			<span class="jianshao"></span>
+			<span class="num"><span>1</span></span>
+			<span class="zengjia"></span>
+			<input name="num_{$product.PRODUCT_ID}" type="hidden" value="1">
+		</label>
+	</li>∮
+</volist>

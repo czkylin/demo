@@ -1,0 +1,9 @@
+<volist name="act_list" id="act">
+    <li> <a href="{:U('Union/act_info',array('type_id'=>$type_id,'record_id'=>$act['RECORD_ID']))}" class="pic">
+    <img src="{$act['ACT_PIC']}"></a>
+        <div class="lm_right">
+          <h2><a href="{:U('Union/act_info',array('record_id'=>$act['RECORD_ID']))}" >{$act['ACT_TITLE']}</a></h2>
+          <div class="time"> <span class="ui-icon-pin"></span><span>{$act['ACT_ADDRESS']}</span><span>{$act['CREATE_DATE']|Dtodiy='Y.m.d',###}</span></div>
+        </div>
+    </li>∮
+</volist>

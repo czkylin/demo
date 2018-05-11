@@ -1,0 +1,520 @@
+
+<html class="ui-mobile">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta http-equiv="cache-control" content="public">
+
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<meta name="share-title" content="">
+
+<link rel="apple-touch-icon-precomposed" href="http://weixin-yanke.yk2020.com/images/touch-icon.png" >
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet"/>
+
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet"/>
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Member/css/portal.min.css" type="text/css" rel="stylesheet"/>
+
+<link href="/weixin/Public/Member/css/hos_list.min.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/weixin/Public/Member/css/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/yd.css">
+
+<style>
+
+body{ position:relative;}
+
+.box{ position:absolute;  top:234px; left:0; right:0; bottom:0; display:none; z-index:100000;}
+
+</style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+
+<!-- title -->
+
+<title>医生列表</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c">
+<!-- 引导页 -->
+    <section class="swiper-container" id="line">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg1">
+                <div class="unit bg1 text-center">
+                    <img src="/weixin/Public/Member/images/yd/zx/pic1.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide bg2">
+                <div class="unit bg2 text-center">
+                    <img src="/weixin/Public/Member/images/yd/zx/pic2.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide bg3">
+                <div class="unit bg3 text-center"><img src="/weixin/Public/Member/images/yd/zx/pic3.png" alt="">
+                </div>
+                <div id="test" class="text-center">
+                    <strong class="experience">去咨询</strong><br><br>
+                    <label for=""><input type="checkbox" id="noShow"><span class="color2">不再显示</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="spa"></div>
+    </section>
+    <!--  end  -->
+<div data-role="page" data-title="" id="gp-experts" data-goto="" data-url="gp-experts" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 480px;">
+
+	<div class="experts" style="position:relative;">
+
+		<div class="hos_search">
+
+			
+
+			<div class="sear"> <span><b>选择疾病</b><i></i></span>
+
+				<div class="tiaojian">
+
+					<i></i>
+
+					<a href="javascript:void(0)" onClick="search_list('0','');">全部</a>
+
+					<a href="javascript:void(0);"onClick="search_list('3003','');">白内障</a><a href="javascript:void(0);"onClick="search_list('3004','');">老年性白内障</a><a href="javascript:void(0);"onClick="search_list('3005','');">糖尿病性白内障</a><a href="javascript:void(0);"onClick="search_list('3008','');">先天性白内障</a><a href="javascript:void(0);"onClick="search_list('3009','');">外伤性白内障</a><a href="javascript:void(0);"onClick="search_list('3014','');">青光眼</a><a href="javascript:void(0);"onClick="search_list('3016','');">近视</a><a href="javascript:void(0);"onClick="search_list('3019','');">远视</a><a href="javascript:void(0);"onClick="search_list('3021','');">斜视</a><a href="javascript:void(0);"onClick="search_list('3023','');">弱视</a><a href="javascript:void(0);"onClick="search_list('3024','');">散光</a><a href="javascript:void(0);"onClick="search_list('3027','');">眼底病</a><a href="javascript:void(0);"onClick="search_list('3030','');">上睑下垂</a><a href="javascript:void(0);"onClick="search_list('3033','');">慢性泪囊炎</a><a href="javascript:void(0);"onClick="search_list('3037','');">结膜病</a><a href="javascript:void(0);"onClick="search_list('3038','');">角膜病</a><a href="javascript:void(0);"onClick="search_list('3041','');">糖网</a><a href="javascript:void(0);"onClick="search_list('3217','');">眼科</a>
+				</div>
+
+			</div>
+
+			<div class="sear no_tab"> <span style="border-right:0;"><a href="javascript:void(0)" onClick="search_list();">智能排序</a></span> </div>
+
+		</div>
+
+		<div class="nav_tit">
+
+			<h2>医生列表</h2>
+
+		</div>
+
+		<div data-role="content" class="ui-content" role="main">
+
+			<div id="js-list" class="list">
+
+				<ul id="doc-list">
+
+					<li>
+
+						<a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id=3185">
+
+							<span class="img">
+
+								<img src="http://weixin.yk2020.com/upload/yc_doctor/user_281_s.jpg" style="height:60px; width:60px;"  alt="" class="g-left expert-img"/>
+
+							</span>
+
+							<span class="meta">
+
+								<div class="name_dj">
+
+									<strong class="mingcheng">刘熙朴</strong>
+
+									<i>北京圣康华眼科医院</i>
+
+								</div>
+
+								<p class="hos_jj" style=" margin-top:1px;">
+
+								眼科
+								/
+								主任医师、教授</p>
+
+								
+
+							</span>
+
+						</a>
+
+						<div class="kt_service">
+
+							          
+
+								<a class="service" style=" margin:0 10px 0 0" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id=3185">在线咨询</a>&nbsp;<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">语音电话</a>          
+
+								<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">视频咨询</a>          
+
+								
+						</div>
+
+					</li><li>
+
+						<a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id=9632">
+
+							<span class="img">
+
+								<img src="http://weixin-yk.yk2020.com/weixin/Public/Uploads/expert_face/2016-03-15/1458024777.jpg" style="height:60px; width:60px;"  alt="" class="g-left expert-img"/>
+
+							</span>
+
+							<span class="meta">
+
+								<div class="name_dj">
+
+									<strong class="mingcheng">李伟</strong>
+
+									<i>北京圣康华眼科医院</i>
+
+								</div>
+
+								<p class="hos_jj" style=" margin-top:1px;">
+
+								眼科
+								
+								住院医师</p>
+
+								
+
+							</span>
+
+						</a>
+
+						<div class="kt_service">
+
+							          
+
+								<a class="service" style=" margin:0 10px 0 0" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id=9632">在线咨询</a>&nbsp;<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">语音电话</a>          
+
+								<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">视频咨询</a>          
+
+								
+						</div>
+
+					</li><li>
+
+						<a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id=3187">
+
+							<span class="img">
+
+								<img src="http://weixin.yk2020.com/upload/yc_doctor/user_288_s.jpg" style="height:60px; width:60px;"  alt="" class="g-left expert-img"/>
+
+							</span>
+
+							<span class="meta">
+
+								<div class="name_dj">
+
+									<strong class="mingcheng">邹燕红</strong>
+
+									<i>北京同仁医院</i>
+
+								</div>
+
+								<p class="hos_jj" style=" margin-top:1px;">
+
+								眼科
+								
+								主任医师</p>
+
+								
+
+							</span>
+
+						</a>
+
+						<div class="kt_service">
+
+							          
+
+								<a class="service" style=" margin:0 10px 0 0" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id=3187">在线咨询</a>&nbsp;<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">语音电话</a>          
+
+								<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">视频咨询</a>          
+
+								
+						</div>
+
+					</li><li>
+
+						<a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id=51984">
+
+							<span class="img">
+
+								<img src="/weixin/Application/Expert/View/images/dtdoctor.png" style="height:60px; width:60px;"  alt="" class="g-left expert-img"/>
+
+							</span>
+
+							<span class="meta">
+
+								<div class="name_dj">
+
+									<strong class="mingcheng">郝明</strong>
+
+									<i>北京同仁医院</i>
+
+								</div>
+
+								<p class="hos_jj" style=" margin-top:1px;">
+
+								白内障中心
+								
+								主任医师</p>
+
+								
+
+							</span>
+
+						</a>
+
+						<div class="kt_service">
+
+							          
+
+								<a class="service" style=" margin:0 10px 0 0" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id=51984">在线咨询</a>&nbsp;<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">语音电话</a>          
+
+								<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">视频咨询</a>          
+
+								
+						</div>
+
+					</li><li>
+
+						<a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id=3434">
+
+							<span class="img">
+
+								<img src="http://weixin.yk2020.com/upload/yc_doctor/user_492_s.jpg" style="height:60px; width:60px;"  alt="" class="g-left expert-img"/>
+
+							</span>
+
+							<span class="meta">
+
+								<div class="name_dj">
+
+									<strong class="mingcheng">李新颖</strong>
+
+									<i>天津市武清区第二人民医院</i>
+
+								</div>
+
+								<p class="hos_jj" style=" margin-top:1px;">
+
+								眼科
+								
+								主治医师</p>
+
+								
+
+							</span>
+
+						</a>
+
+						<div class="kt_service">
+
+							          
+
+								<a class="service" style=" margin:0 10px 0 0" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id=3434">在线咨询</a>&nbsp;<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">语音电话</a>          
+
+								<a href="javascript:void(0)" class="service weikaitong"  style=" margin:0 10px 0 0">视频咨询</a>          
+
+								
+						</div>
+
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+
+		<div id="current_pagenum" style="display:none">2</div>
+
+		<div id="current_ill" style="display:none"></div>
+
+		<div id="current_free_flag" style="display:none"></div>
+
+		
+
+		
+
+		<!--预约日期-->
+
+	</div>
+
+</div>
+
+<!--通底的引用开始-->
+
+<footer id="over_footer">
+
+		<a class="over_footer_shouye" href="/weixin/index.php?m=Member&c=Index&a=index">微首页</a>
+
+		<a class="over_footer_zixun" href="/weixin/index.php?m=Member&c=Doc&a=doc_list">咨询</a>
+
+		<a class="over_footer_yuepian" href="/weixin/index.php?m=Member&c=Hos&a=hos_list&serve_id=1">阅片</a>
+
+		<a class="over_footer_dingdan_dd" href="/weixin/index.php?m=Member&c=Order&a=order_list">订单</a>
+
+		<a class="over_footer_geren" href="/weixin/index.php?m=Member&c=User&a=user_info">个人中心</a>
+
+</footer>
+
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+
+	<p class="msgtishi"  id="msg"></p>
+
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/swiper.jquery.js"></script>
+<script src="/weixin/Public/Member/js/yd.js"></script>
+<script>
+
+	var shouye = $("#over_footer .over_footer_shouye"),zixun = $("#over_footer .over_footer_zixun"),yuepian = $("#over_footer .over_footer_yuepian"),dingdan_dd = $("#over_footer .over_footer_dingdan_dd"),geren = $("#over_footer .over_footer_geren");
+
+	$(function()
+
+	{
+
+		if(over_footer==1)
+
+		{
+
+			shouye.removeClass("over_footer_shouye").addClass("over_footer_shouye_on");
+
+		};
+
+		if(over_footer==2)
+
+		{
+
+			zixun.removeClass("over_footer_zixun").addClass("over_footer_zixun_on");
+
+		};
+
+		if(over_footer==3)
+
+		{
+
+			yuepian.removeClass("over_footer_yuepian").addClass("over_footer_yuepian_on");
+
+		};
+
+		if(over_footer==4)
+
+		{
+
+			dingdan_dd.removeClass("over_footer_dingdan_dd").addClass("over_footer_dingdan_dd_on");
+
+		};
+
+		if(over_footer==5)
+
+		{
+
+			geren.removeClass("over_footer_geren").addClass("over_footer_geren_on");
+
+		}
+
+	})
+
+</script>
+
+<script>
+
+    function showmsg(){
+
+        $('#msg').show();
+
+        $('#msg').html('暂未开放！');
+
+        setTimeout(function(){fail();},2000);
+
+        return false;
+
+    }
+
+    function fail(){
+
+        $('#msg').hide()
+
+    }
+
+</script>
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+
+<script src="/weixin/Public/Member/js/list.js" type="text/javascript"></script>
+
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+
+<script>
+
+	 
+
+	var over_footer = '2';
+
+	function search_list(ill_id)
+
+	{	
+
+		if (ill_id != '')
+
+		{
+
+			$('#current_ill').text(ill_id);
+
+		}
+
+		
+
+		if ($('#current_ill').text() == '0')
+
+		{
+
+			$('#current_ill').text('');
+
+		}
+
+		$('#current_pagenum').text('1');
+
+		$('#doc-list').html('');
+
+		$('.ui-jiazai').children('a').text('加载更多');
+
+
+
+		loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Doc&a=doc_list_append&ill_id='+$('#current_ill').text()+'&free_flag='+$('#current_free_flag').text(),'#doc-list');
+
+	}
+
+
+
+	function load_more()
+
+	{
+
+		loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Doc&a=doc_list_append&ill_id='+$('#current_ill').text()+'&free_flag='+$('#current_free_flag').text(),'#doc-list');
+
+	}
+
+</script>
+
+<!--通底的引用结束-->
+
+</body>
+
+</html>

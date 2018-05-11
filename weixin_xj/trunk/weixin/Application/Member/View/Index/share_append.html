@@ -1,0 +1,21 @@
+<volist name="reply_list" id="reply">
+    <section>
+        <div class="user box">
+            <div class="img"><img src="{$reply['REPLY_ICON']}" width="100%" /></div>
+            <div class="txt">
+                <p>{$reply['REPLY_NAME']}</p>
+                <p>{$reply['REPLY_DATE']}</p>
+            </div>
+        </div>
+        <div class="page">
+            <p>{$reply['REPLY_DETAILS']}</p>
+            <if condition="$reply['REPLY_ANNEX']">
+                <div class="pic">
+                    <volist name="reply['REPLY_ANNEX']" id="reply_pic">
+                        <img src="{$reply_pic['reply_pic']}">
+                    </volist>
+                </div>
+            </if>
+        </div>
+    </section>∮
+</volist>

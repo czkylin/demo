@@ -1,0 +1,43 @@
+<volist name="data" id='vo'>
+	<li>
+		<!-- <h3><div style="display: none;">{$vo['RECORD_ID']}</div></h3> -->
+		<div class="list-des">
+			<p>{$vo.PERSON_NAME}</p>
+			<p>性别：{$vo.PERSON_SEX}</p>
+			<p>年龄：{$vo.PERSON_AGE}岁</p>
+			<if condition="!empty($vo[PERSON_CASES])">
+				<span class="blxq">显示病例</span>
+			</if>
+		</div>
+		<div class="btn-list clearfix">
+			<a class="fl" href="{:U('Member/User/bingli_add',array('record_id'=>$vo['RECORD_ID']))}">添加病例</a>
+			<a class="fl" href="{:U('Member/User/jzr_update',array('record_id'=>$vo['RECORD_ID']))}">修改就诊人</a>
+			<a class="fr jzr_del" href="javascript:void(0)">删除就诊人</a>
+			<div style="display: none;">{$vo['RECORD_ID']}</div>
+		</div>
+		<div class="bl-xiangqing">
+			<volist name="vo.PERSON_CASES" id="v">
+				<div class="list-main clearfix">
+					<div class="main-img">
+						<if condition="$v['CASE_PIC'] eq ''">
+						<else /><img src="{$v.CASE_PIC}" alt="">
+						</if>	
+					</div>
+					<div class="main-con">
+						<p>名称：{$v.CASE_TITLE}</p>
+						<p>描述: 
+							<if condition="$v['CASE_DESC'] eq ''">暂无
+							<else />{$v.CASE_DESC}
+							</if>
+						</p>
+						<p>时间:{$v.CREATE_DATE}</p>
+					</div>
+				</div>
+				<div class="xiugai clearfix">
+					<p><a href="{:U('Member/User/bingli_update',array('case_id'=>$v['CASE_ID']))}">修改病例</a></p>
+					<div><a href="javascript:void(0)" class="bingli_del">删除病例</a><div style="display: none;">{$v['CASE_ID']}</div></div>
+				</div>
+			</volist>
+		</div>
+	</li>∮
+</volist>	

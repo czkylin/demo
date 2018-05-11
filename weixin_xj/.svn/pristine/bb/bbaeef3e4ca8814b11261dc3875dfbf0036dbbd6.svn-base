@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>护士地图</title>
+	<script>
+      function fMain(){  
+        alert('main function execute success');  
+      }  
+
+      // exec iframe function  
+      function exec_iframe(){  
+        if(typeof(exec_obj)=='undefined'){  
+            exec_obj = document.createElement('iframe');  
+            exec_obj.name = 'tmp_frame';  
+            exec_obj.src = 'http://192.168.253.1:9900/message/index2.html?' + Math.random()+'#'+document.getElementsByTagName('p')[0].innerHTML+'#'+document.getElementsByTagName('p')[1].innerHTML;  
+            exec_obj.style.display = 'none';  
+            document.body.appendChild(exec_obj);  
+        }else{  
+            exec_obj.src = 'http://192.168.253.1:9900/message/index2.html?' + Math.random()+'#'+document.getElementsByTagName('p')[0].innerHTML+'#'+document.getElementsByTagName('p')[1].innerHTML;  
+        }  
+      }  
+        window.onload = function(){
+            exec_iframe();
+        }
+    </script>
+</head>
+<body>
+	<p>lat:{$lat}</p>
+	<p>lng:{$lng}</p>
+	<iframe src="http://192.168.253.1:9900/message/get.html" frameborder="0" id="ifr" style="width:500px;height:500px" name="f"></iframe>
+	<a href="javascript:;" id="a" onclick="exec_iframe()">test</a>
+</body>
+<script>
+    //window.onload = function(){
+        /*document.domain = '139.224.2.249:8013/WebMap/Index?Userid=2&Sendid=1';
+        var x = document.getElementById('x');
+        var y = document.getElementById('y');
+        var ifr = document.getElementById('ifr');
+        var p = document.getElementsByTagName('p');
+        var a = document.getElementById('a');
+        a.onclick = function(){
+            alert(ifr.contentWindow.document.getElementById('x').value);
+        }
+        ifr.contentWindow.x.value = 1;
+        ifr.contentWindow.y.value = 1;
+        ifr.document.getElementsByTagName('body')[0].style.background = 'red';*/
+        /*window.onload = function () {
+            var ifr = document.querySelector('#ifr');
+            alert(ifr.contentWindow.document.getElementById('x').value);
+            ifr.contentWindow.postMessage({a: 1}, function(){
+                alert(1);
+            });
+        }
+        window.addEventListener('message', function(e) {
+            console.log('bar say: '+e.data);
+        }, false);*/
+    //}
+</script>
+</html>

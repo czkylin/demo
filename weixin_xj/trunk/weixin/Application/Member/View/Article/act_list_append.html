@@ -1,0 +1,13 @@
+ <volist name="act_list" id="act">
+	 <li> 
+	<h2><a href="{:U('Article/act_info',array('type_id'=>$type_id,'record_id'=>$act['RECORD_ID']))}" >{$act['ACT_TITLE']}</a></h2>
+	<div class="time"><span>{$act['CREATE_DATE']|Dtodiy='Y-m-d',###}</span></div>
+	<a href="{:U('Article/act_info',array('record_id'=>$act['RECORD_ID']))}" class="pic">
+	<img src="{$act['ACT_PIC']}">
+	<div class="img-mask">
+		<p class="mask-tit">心血管知识</p> 
+		<p class="mask-des"> <?php echo strip_tags(html_entity_decode($act['ACT_DESC']))?></p>
+	</div>
+	</a>
+	</li>∮
+</volist>

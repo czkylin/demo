@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Common/css/common/mobi-reset.css">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/nurse/nurse-alreadygo.css">
+<title>护士接单</title>
+<script type="text/javascript">
+	(function(){
+		var html = document.documentElement;
+		html.style.fontSize = html.clientWidth / 15 + "px";
+	})()
+</script>
+</head>
+<body>
+	<!-- 患者信息 -->
+	<section id="patient">
+		<h2>患者</h2>
+		<div class="info clear">
+			<img src="/weixin/Public/Member/images/nurse/icon/girl.png">
+			<div class="main">
+				<p class="name">张春艳</p>
+				<p class="con">女  27岁</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- 护士信息 -->
+	<section id="nurse">
+		<h2>接单护士</h2>
+		<div class="info clear">
+			<img src="/weixin/Public/Member/images/nurse/icon/nurse.png">
+			<div class="main">
+				<p class="name">王雪 <span>中医肿瘤科</span></p>
+				<p class="con">北京健德门中医院</p>
+			</div>
+			<a href="tel:110" class="tel"></a>
+		</div>
+		<b class="stutas">未出发</b>
+	</section>
+
+	<!-- map -->
+	<section id="map">
+		<span>护士正在路上，请您稍后。</span>
+		<img src="/weixin/Public/Member/images/nurse/map.jpg">
+		<a href="javascript:;" class="link">订单完成</a>
+	</section>
+
+	<script type="text/javascript" src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		//动态设置map的高度
+		var iH = $(window).height() - $('#nurse').outerHeight() - $('#patient').outerHeight();
+		$('#map').css('height',iH);
+	</script>
+</body>
+</html>

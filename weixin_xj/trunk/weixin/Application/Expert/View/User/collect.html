@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>历史推荐明细</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/expand.css">
+    <style>
+        body {
+            font-size: 14px;
+            background: #f4f4f4;
+            margin:10px;
+        }
+
+        input,
+        select {
+            outline: medium none;
+            -webkit-appearance:none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="head">
+   		<h2><a href="{:U('Expert/User/expand')}"><img src="/weixin/Public/Expert/images/expand/fanhui.png"></a>推荐结果</h2>
+    </div>
+    <div>
+        <form method="post" action="/weixin/index.php?m=Expert&c=User&a=searchcount">
+            <span id="sleBG">   
+                <span id="sleHid">   
+                    <select name="search_month" id="search_month" class="select" onchange="show_month();">    
+                        <option selected="selected" value="2016年06月">2016年6月</option>    
+                        <option value="2016年05月">2016年5月</option>    
+                        <option value="2016年04月">2016年4月</option> 
+                        <option value="2016年03月">2016年3月</option>   
+                        <option value="2016年02月">2016年2月</option>   
+                        <option value="2016年01月">2016年1月</option>      
+                    </select>   
+                </span>
+            </span>
+        </form>
+    </div>
+    <section class="list">
+        <header>
+            <h2 class="text-center" id="collect">汇总</h2>
+            <div id="collect_list">
+                <p class="succ text-center">当月已成功认证<strong>{$ewm_tj_stat.tj_check}</strong>人</p>
+                <ul>
+                    <li class="box">
+                        <p>您推荐的已关注公共号</p>
+                        <p><strong>{$ewm_tj_stat.tj_subscribe}</strong>人</p>
+                    </li>
+                     <li class="box">
+                        <p>您推荐的所有提交资料</p>
+                        <p><strong>{$ewm_tj_stat.tj_apply}</strong>人</p>
+                    </li>
+                    <li class="box">
+                        <p>您推荐的用户待审核</p>
+                        <p><strong>{$ewm_tj_stat.tj_uncheck}</strong>人</p>
+                    </li>
+                    <li class="box">
+                        <p>您推荐的用户已认证</p>
+                        <p><strong>{$ewm_tj_stat.tj_check}</strong>人</p>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </section>
+
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+<script>
+    function show_month()
+    {
+        // $("#collect_list").remove();
+        var search_month = $('#search_month').val(); //月份
+       // alert(search_month);die;
+        $.ajax({
+            url : "/weixin/index.php?m=Expert&c=User&a=collect_search",
+            data:{"search_month":search_month},
+            type: "get",
+            async: true,
+            success:function(data)
+            {
+                $("#collect_list").remove();
+
+                var h = '';
+                h += '<div id="collect_list">';
+                h += '<p class="succ text-center">当月已成功认证<strong>'+data.tj_check+'</strong>人</p>';
+                h +='<ul>';
+                h += '<li class="box">';
+                h += '<p>您推荐的已关注公共号</p>';
+                h += '<p><strong>'+data.tj_subscribe+'</strong>人</p>';
+                h += '</li>';
+
+                h += '<li class="box">';
+                h += '<p>您推荐的所有提交资料</p>';
+                h += '<p><strong>'+data.tj_apply+'</strong>人</p>';
+                h += '</li>';
+
+
+                h += '<li class="box">';
+                h += '<p>您推荐的用户待审核</p>';
+                h += '<p><strong>'+data.tj_uncheck+'</strong>人</p>';
+                h += '</li>';
+
+                h += '<li class="box">';
+                h += '<p>您推荐的用户已认证</p>';
+                h += '<p><strong>'+data.tj_check+'</strong>人</p>';
+                h += '</li>';
+
+                h +='</ul>';
+                h +='</div>';
+                    
+                
+                
+                // var date = $("#search_month").val();
+                // alert(date); 
+
+                $("#collect").after(h);
+                // alert(data);
+
+
+                
+            },
+            cache: false,
+            timeout: 5000,
+            error: function(XMLHttpRequest, textStatus, errorThrown)
+            {
+                alert("数据加载失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+            }
+        });
+
+    }
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

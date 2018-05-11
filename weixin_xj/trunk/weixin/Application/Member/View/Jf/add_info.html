@@ -1,0 +1,156 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/weixin/Application/Member/View/css/bootstrap.min.css" type="text/css">
+<link type="text/css" rel="stylesheet" href="/weixin/Application/Member/View/css/zhuanjia.min.css"/>
+<script type="text/javascript" src="/weixin/Application/Member/View/js/jquery.min.js"></script>
+<script type="text/javascript" src="/weixin/Application/Member/View/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/weixin/Application/Member/View/js/mobileFix.mini.js?v=8d13c59"></script>
+<script type="text/javascript" src="/weixin/Application/Member/View/js/exif.js?v=c65d9ea"></script>
+<script type="text/javascript" src="/weixin/Application/Member/View/js/lrz.min.js?v=b542f0a"></script>
+<title>积分申报</title>
+</head>
+<body>
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+<p class="msgtishi"  id="msg"></p>
+</div>
+<div id="J_QK_zixun" class="gp GJ_Gp gp-quankezixun-zixun" style="padding-bottom: 10px;">
+	<form method="post" name="consult" action="/weixin/index.php?m=Member&c=Jf&a=add_ok" onSubmit="return sub()">
+		<div class="g-list shadow">
+			<div class=" item both content">
+			<select name="jf_type" onChange="get_jf_info(this.value);" style=" width:100%;">
+				<volist name="jf_list" id="jf" empty="暂时没有数据">
+				<option value="{$jf['RECORD_ID']}">{$jf['JIFEN_NAME']}</option>
+				</volist>
+			</select>
+			</div>
+			<div class=" item both content">
+				积分描述<div id="jf_info" style="width:100%; height:auto; line-height:26px; white-space:normal"></div>
+			</div>
+			<div class=" item both content">
+				积分倍数<input type="text" style="width:50px"  name="jifen_multi" value="1" onpropertychange="jf_count();" oninput="jf_count();" id="jifen_multi" onKeyUp="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+			(请输入数字)</div>
+			<div class=" item both content">
+				单项积分值<input type="text" style="width:50px"  name="jifen_value" onpropertychange="jf_count();" oninput="jf_count();" readonly id="jifen_value" />
+			</div>
+			<div class=" item both content">
+				总积分<input type="text" style="width:50px"   name="jifen_total" readonly id="jifen_total" />
+			</div>
+			<div class=" item both content">
+				<textarea placeholder="请输入内容描述！"  name="jifen_desc" id="jifen_desc"></textarea>
+			</div>
+			<div class="item both uploader">
+				<div class="g-image-upload-box">
+					<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+						<input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+					</div>
+				</div>
+				<div style="width:350px;margin:0px auto;">
+					<img src="" id="pre_pic" width="300">
+				</div>
+				<div id="press_status"></div>
+				<textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+				<div class="desc J_Showmeonfileuploaded">
+					<h3>上传图片资料</h3>
+					<p>上传相关截图图片</p>
+				</div>
+			</div>
+		</div>
+		<div class="g-btn-padding fixed">
+			<input type="hidden" value="1" class="J_HiddenConsultLimit">
+            <input type="hidden" name="tj_type" id='tj_type' value="{$tj_type}"/>
+			<input type="submit" value="提交" class="gbn gbt-pri"/>
+		</div>
+	</form>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+<script type="text/javascript">
+function sub()
+{
+	var sendBox = $("#jifen_desc").val();
+
+	if(sendBox == "")
+	{
+		alert("请输入内容！");
+		return false;
+	}
+}
+
+function jf_count()
+{
+	var value = consult.jifen_value.value;
+	var num = consult.jifen_multi.value;
+	$("#jifen_total").val(value*num);
+}
+
+function compute_total_price()
+{
+	var num = the_form.product_num.value;
+	var unit_price = the_form.product_price.value;
+	the_form.total_price.value = unit_price * num;
+	the_form.pay_money.value = the_form.total_price.value;
+}
+
+function get_jf_info(record_id)
+{
+	$.ajax({
+	url : "/weixin/index.php?m=Member&c=Jf&a=jf_info",
+	data:{"record_id":record_id},
+	type: "get",
+	async: true,
+	dataType: "json",
+	success:function(data)
+	{
+		if (data != "")
+		{
+			var temp = data.split(",");
+			$("#jifen_value").val(temp[0]);
+			$("#jf_info").html(temp[1]);
+		}
+		jf_count();
+	},
+	cache: false,
+	timeout: 5000,
+	error: function(XMLHttpRequest, textStatus, errorThrown)
+	{
+		alert("数据加载失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+	}
+	});
+}
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+{
+	lrz(input_file.files[0],
+	{
+		width:500,
+		before: function()
+		{
+			document.querySelector(press_status).innerHTML = "压缩处理开始，请稍后...";
+		},
+		fail: function(err)
+		{
+			document.querySelector(press_status).innerHTML = err;
+		},
+		always: function()
+		{
+			document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+		},
+		done: function (results)
+		{
+			document.querySelector(imgbase64).innerHTML = results.base64;//返回base64字符串，放置到textarea区域
+			document.querySelector(pre_pic).src = results.base64;//展示预览图片
+		}
+	});
+}
+</script>
+</html>
+<script>
+get_jf_info(consult.jf_type.value);
+</script>

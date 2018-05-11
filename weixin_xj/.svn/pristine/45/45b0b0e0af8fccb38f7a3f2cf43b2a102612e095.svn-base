@@ -1,0 +1,24 @@
+/*common css*/
+*{padding: 0; margin: 0;}
+body{background: #f0f0f0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{text-decoration: none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+i{font-style: normal;}
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{display: block; content: ""; clear: both;}
+b{font-weight: normal;}
+/*main*/
+.list{padding: 15px 3.2%; background: #fff; margin-bottom: 8px; position: relative;}
+.list .youxiang{margin-top: 5px; width: 45px; height: 45px; float: left; position: relative;}
+.list .youxiang img{width: 45px; height: 45px; border-radius: 45px;}
+.list .youxiang span{position: absolute; right: -5px; top: -5px; width: 16px; height: 16px; background: #e44647; color: #fff; text-align: center; line-height: 16px; border-radius: 16px;}
+.list .con{width: 68%; float: left; margin-left: 3%;}
+.list .con p{font-size: 14px;}
+.list .con .touxian{height: 28px; line-height: 28px;}
+.list .con .touxian span{color: #333;}
+.list .con .touxian b{color: #666666; margin-left: 8px;}
+.list .con .xixun{line-height: 28px;}
+.list .con .time{color: #666666;}
+.list .state{position: absolute; right: 3.2%; top: 15px; font-size: 12px; color: #ffa200;}

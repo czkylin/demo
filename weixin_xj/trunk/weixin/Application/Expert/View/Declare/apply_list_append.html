@@ -1,0 +1,50 @@
+<volist name="ss_list" id="ss" >
+    <section class="unit">
+        <header class="box">
+            <if condition="$ss['APPLY_ZT'] eq '是'">
+                <h2  >已申请</h2>               
+            <else />                     
+            </if>       
+        </header>
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="ctxt">
+                    <p class="clearfix"><strong>医院名称：</strong><em>{$ss.HOS_NAME}</em></p>
+                    <p class="clearfix"><strong>医院地址：</strong><em>{$ss.HOS_ADDRESS}</em></p>
+                    <p class="clearfix"><strong>手术日期：</strong><em>{$ss.QD_DATE|Dtodiy="Y-m-d",###}</em></p>
+                    <p class="clearfix"><strong>手术备注：</strong><em>
+                    <if condition="$ss['SS_DESC'] eq ''">
+                        <em>暂无</em>
+                    <else />
+                            <em>{$ss.SS_DESC}</em>
+                    </if>
+                    </em></p>
+                </div>
+            </div>
+        </div>
+        <if condition="$ss['APPLY_ZT'] eq '是'">
+           
+             <a href="/weixin/index.php?m=Expert&c=Declare&a=myapply_list" class="color1 text-center go" >查看详情</a>
+        <else />
+            <a href="/weixin/index.php?m=Expert&c=Declare&a=apply_add&id={$ss.SS_ID}" class="color1 text-center go" >立即申请</a>
+        </if>       
+    </section>∮
+</volist>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

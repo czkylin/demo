@@ -1,0 +1,77 @@
+<volist name="hos_list" id="hos" >
+    <li>
+        <div class="feng"></div>
+        <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}&province_name={$hos['PROVINCE_NAME']}">
+
+            <div class="hezuoHos-wrap">
+                <div class="hezuoHos">
+
+                    <div class="yiyuanpic">
+                        <img class="" src="{$hos['HOS_PIC']}" alt="{$hos['HOS_NAME']}" class="g-left expert-img" />
+                        <if condition="$hos['NEW_HOS'] eq '是'">
+                            <b></b>
+                        <else />
+
+                        </if>
+                    </div>    
+                    <h2 class="mingcheng"><i>{$hos['HOS_NAME']}</i> <span>医保</span></h2>
+
+                    <div class="hezuoHosdes">
+                        <p>{$hos['LEVEL_NAME']}</p>
+                        <p>{$hos['TYPE_NAME']}</p>
+                        <p>{$hos['PROVINCE_NAME']}</p>
+                    </div>
+
+                    <div class="xingji">
+                        <i>
+                            <b><img src="/weixin/Public/Member/images/icon/start.png" alt=""></b>
+                            <span style="display: none;">{$hos['FZ_NUM']/$hos['FM_NUM']}</span>
+                        </i> 
+                    </div>
+                        
+                    <p class="goumaishu">
+                        <b>
+                            <if condition="$hos['SERVE_NUM'] eq '0'">
+                            <else />
+                                月服务人数:{$hos['SERVE_NUM']}
+                            </if>
+                        </b>
+                    </p> 
+                    <div class="juli">{$hos['JL']}km</div>
+                    
+                </div> 
+                   
+            </div>
+            
+        </a>
+        <div class="kt_service" style=" margin:0; padding-top:10px;">
+            <volist name="hos['HOS_SERVES']" id="serve">
+            <!-- 如果服务为空 选择 价格不显示 -->
+                <if condition="$serve['HAVE_SERVE'] eq 0">
+                <else />
+                    <if condition="($serve['SERVE_ID'] eq 25) or ($serve['SERVE_ID'] eq 29)">
+                        <dl>
+                            <a href="/weixin/index.php?m=Member&c=Hos&a=serve_detail&serve_id={$serve['SERVE_ID']}&hos_id={$hos['HOS_ID']}"> <dt class="on">{$serve['SERVE_NAME']}</dt>
+                                <dd style="display:none;"><span class="fuwu fuwu{$serve['SERVE_ID']} on"></span></dd>
+                                <dd>￥{$serve['SERVE_MONEY']}</dd>
+                            </a>
+                        </dl>
+                    </if>
+                </if>
+            </volist>
+        </div>
+    </li>∮
+</volist>
+
+<script type="text/javascript">
+//判断评分数
+        $(".xingji").each(function(){
+            var iFen = $(this).find("span").html();
+            if(iFen == 0)
+            {
+                iFen = 5;
+            }
+            var iScale = iFen/5 >= 1 ? 1: iFen/5;
+            $(this).find("b").css("width",86*iScale);
+        })
+    </script>

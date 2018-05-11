@@ -1,0 +1,67 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+		<link type="text/css" rel="stylesheet" href="/weixin/Public/Common/css/commonFooter/footer.css" />
+		<link type="text/css" rel="stylesheet" href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" />
+		<title>个人中心首页</title>
+	</head>
+	<body>
+		<div class="gp GJ_Gp gp-profile g-items gp-profile_index">  
+			<div class="top">
+			    <a href="/weixin/index.php?m=expert&c=user&a=user_info"><img src="{$user_info.SMALL_PIC}" alt="{$user_info.EXPERT_SEX}"></a>
+				<h2>{$user_info.EXPERT_NAME}</h2>
+		 		<nav>
+		 			<span class="yszc">{$user_info.DEP_NAME}</span>
+		            <span class="ssyy">{$user_info.HOS_NAME|DeleteHtml=###|msubstr=0,10,'utf-8',false}</span>
+		            <span class="dqjf">积分：{$jifen['JF_NUM']}</span>
+		 		</nav>
+		 	</div>	
+			<ul>  
+				<li class="link link-ico">
+					<a class="g-arrow-r xm_num" href="/weixin/index.php?m=expert&c=user&a=xiaoxi_list"> 
+						<p>消息中心</p>
+						<if condition="$user eq '0'">
+		                	<span class="">0</span><!--当有未读消息时给span添加类名weidu_xinxi相反不添加-->
+						<else />
+							<span class="weidu_xinxi" style="width: 20px">0</span>
+						</if>
+					</a>
+				</li> 
+		        <li class="link link-ico">
+					<a class="g-arrow-r xm_num" id="gz" href="javascript:void(0)"> 
+		                <p>我关注的</p>
+		                <span style="color: #eee;width:60px"><b>暂未开放</b></span>
+					</a>
+				</li>  
+		        <li class="link link-ico">
+					<a class="g-arrow-r xm_num" id="cy" href="javascript:void(0)"> 
+		                <p>我参与的</p>
+		                <span style="color: #eee;width:60px"><b>暂未开放</b></span>
+					</a>
+				</li>
+		        <li class="link link-ico">
+					<a class="g-arrow-r xm_num" href="/weixin/index.php?m=expert&c=user&a=jifen_list"> 
+		                <p>我的积分</p>
+		                <span style="width: 20px">{$jifen['JF_NUM']}</span>
+					</a>
+				</li>
+		        <li class="link link-ico">
+					<a class="g-arrow-r xm_num" id="ry" href="javascript:void(0)"> 
+		                <p>荣誉称号</p>
+		                <span style="color: #eee;width:60px"><b>暂未开放</b></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+		<include file="Public:footer_fd" />
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

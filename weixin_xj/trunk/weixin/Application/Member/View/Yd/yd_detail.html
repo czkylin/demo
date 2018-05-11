@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>药店信息</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/yd/yd_detail.css">
+<script type="text/javascript">
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.getBoundingClientRect().width / 15 + "px";
+</script>
+</head>
+<body>
+	<header>
+		<img src="/weixin/Public/Member/images/yd/info/nopic.jpg">
+	</header>
+	<section>
+		<div class="base-info">
+			<h2>基本信息</h2>
+			<p>“康乐有道，盛事无忧”，“康盛堂”因此得名。 康盛堂大药房医药连锁有限公司于2002年7月在乐清诞生，迄今已发展拥有数十家直营门店和近百家OTC供应药柜的医药连锁企业“康乐有道，盛事无忧”，“康盛堂”因此得名。 康盛堂大药房医药连锁有限公司于2002年7月在乐清诞生，迄今已发展拥有数十家直营门店和近百家OTC供应药柜的医药连锁企业“康乐有道，盛事无忧”，“康盛堂”因此得名。 康盛堂大药房医药连锁有限公司于2002年7月在乐清诞生，迄今已发展拥有数十家直营门店和近百家OTC供应药柜的医药连锁企业</p>
+			<span></span>
+		</div>
+		<div class="add">
+			<h2>药店地址</h2>
+			<a href="javascript:;">北京市大兴区兴华中街214号<span></span></a>
+		</div>
+	</section>
+	<section>
+		<h2 class="yy-title">推荐医生</h2>
+		<ul id="doc-list">
+            <li>
+                <a class="yylist_a" href="javascript:;"> 
+                    <div class="docImg fl">
+	                    <span class="img"><img src="/weixin/Public/Expert/images/yonghu/boy.png" class="g-left expert-img"/></span>
+                        <?php    
+
+							$my=intval($doc['MY_NUM']); 
+							$hy=intval($doc['HY_NUM']);  
+							$cp=intval($doc['CP_NUM']); 
+							$sum = ($my*8+$hy*10+$cp*4)*60/(($my+$hy+$cp)*10);
+							$sum1 = round($sum,0);
+                            if($sum1 == 0)
+                            {
+                                $sum1 = 60;
+                            } 
+                            echo "<i><b style='width:".$sum1."px;'>
+                            <img src='/weixin/Public/Member/images/icon/start.png' /></b></i>";
+						?>												                                   
+                	</div> 
+                    <span class="meta fl">
+                        <div class="name_dj"> 
+                            <strong class="mingcheng"><em class="zc">姓名</em><em class="zc">职称</em><em class="count">浏览量：998</em></strong> 
+                            <strong class="mingcheng"><em class="zc">医院名</em><em class="zc">职务</em></strong> 
+                        </div>
+                        <p class="desc">擅长：吃</p>
+                    </span> 
+            	</a>
+                                    
+                <div class="kt_service">
+                    <a href="javascript:void(0)" class="service weikaitong" style=" margin:0 0 0 10px">在线咨询</a>
+                    <a class="service weikaitong" style=" margin:0 0 0 10px" href="javascript:;">视频咨询</a>
+                    <a class="service" style=" margin:0 0 0 10px" href="javascript:;">语音电话</a>
+                </div>
+        	</li>
+            
+		</ul>
+	</section>
+	<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			var onOff = true;
+			$('.base-info > span').on('touchend',function(){
+				if(onOff){
+					$('.base-info > p').css('display','block');
+					$('.base-info > p').css('overflow','auto');
+					$(this).addClass('up');
+				}else{
+					$('.base-info > p').css('display','-webkit-box');
+					$('.base-info > p').css('overflow','hidden');
+					$(this).removeClass('up');
+				}
+
+				onOff = !onOff;
+					
+			})
+		})()
+	</script>
+</body>
+</html>

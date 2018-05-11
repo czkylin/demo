@@ -1,0 +1,373 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+use Think\Log;
+class CarController extends Controller
+{
+	public function _initialize(){
+		$this->token = A_token();
+		include MODULE_PATH.'/Common/open_id.php';
+		$this->openid = $openid;
+	}
+	//商城首页
+	public function shoping(){
+		$link_mobile = I("get.link_mobile");
+		$userinfo = array();
+		if($link_mobile == '0' || !$link_mobile)
+		{
+			//验证手机是否绑定
+			include MODULE_PATH.'/Common/check_band.php';
+			$userinfo = $this->getData('','fxuserinfo');
+
+			if($userinfo['user_name'])
+			{
+				$userinfo['real_name'] = $userinfo['user_name'];
+				$userinfo['user_name'] = base64_encode($userinfo['user_name']);
+			}
+
+		}
+		else
+		{
+			$userinfo['link_mobile'] = I("get.link_mobile",'999');
+			$userinfo['user_id'] = I("get.user_id",'0');
+			$userinfo['user_name'] = I("get.user_name");
+		}
+		// var_dump($userinfo);
+		$this->assign('user_info',$userinfo);
+		$this->getShareinfo();
+
+		/*
+
+		分享日志参数
+
+		*/
+
+		$path = I("get.path","栏目菜单百倍商城");
+		$homeid = I("get.homeid") ? I("get.homeid") : $openid;
+		$type = I("get.type","Member");
+		$this->assign("path",$path);
+		$this->assign("type",$type);
+		$this->assign("homeid",$homeid);
+		/* end */
+
+		$this->display();
+	}
+	//加入购物车
+	public function addCar(){
+		$zt = band_member_status();
+		if($zt){
+			$data = $_POST;
+			$data['pay_num'] = 1;
+			$data['from_flag'] = 0;
+			$ret = $this->getData($data,'add');
+			if(isset($ret['error_code'])){
+				$ret['code'] = -1; 
+				$ret['msg'] = '添加失败，请刷新再试！';
+			}
+		}else{
+			$ret['code'] = $zt;
+		}
+		
+		$ret['code'] = $ret['code']?$ret['code']:1;
+		$ret['msg'] = $ret['msg']?$ret['msg']:'成功';
+		$this->ajaxReturn($ret);
+	}	
+
+	//购物车列表
+	public function listCar(){
+		include MODULE_PATH.'/Common/check_band.php';
+		$shop_list = $this->getData('','list');
+		$this->assign('shop_list',$shop_list);
+		$this->display('listcar');
+	}
+
+	
+	//购物车操作
+	public function opCar(){
+		include MODULE_PATH.'/Common/check_band.php';
+		$op = I("op",'change');
+		$pid = I('pid','1');
+		
+		if($pid==''){
+			$ret['code'] = 0;
+			$ret['msg'] = '请选择操作商品';
+		}
+		switch ($op) {
+			case 'change':
+				$data['item_id'] = $pid;
+				$data['order_num'] = I('num','1');
+				$retData = $this->getData($data,'change');
+				if($retData['error_code']!='ok'){
+					$ret['code'] = -1;
+					$ret['msg'] = '修改失败请刷新再试！！';
+				}
+				break;
+			case 'del':
+				$data['item_id'] = $pid;
+				$retData = $this->getData($data,'del');
+				if($retData['error_code']!='ok'){
+					$ret['code'] = -1;
+					$ret['msg'] = '删除失败请刷新再试！！';
+				}
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+		$ret['code'] = $ret['code']?$ret['code']:1;
+		$ret['msg'] = $ret['msg']?$ret['msg']:'成功';
+		$this->ajaxReturn($ret);
+	}
+
+
+	//购物车结算
+	public function payCar(){
+		include MODULE_PATH.'/Common/check_band.php';
+		$shop_id = I('shop_id');
+		$ids = explode(',',trim($shop_id,','));
+		$carlist = $this->getData('','list');
+		$subject = "商品采购";
+		foreach ($carlist as $v) {
+			if(in_array($v['COMMODITY_ID'],$ids)){
+				$list[] = $v;
+				$item_id .= $v['ITEM_ID'].',';
+				$cart_id = $v['CART_ID'];
+				$pay_money += $v['COMMODITY_MONEY']*$v['ORDER_NUM'];
+			}
+		}
+		$this->assign('list',$list);
+		$this->assign('item_id',trim($item_id,','));
+		$this->assign('subject',$subject);
+		$this->assign('from_flag',0);
+		$this->assign('pay_money',$pay_money);
+		$this->assign('cart_id',$cart_id);
+		$this->display('paycar');
+	}
+
+	//直接购买
+	public function goBuy(){
+		include MODULE_PATH.'/Common/check_band.php';
+		$shop_id = I('shop_id');
+		//获取详情
+		$post['commodity_id'] = $shop_id;
+		$info = $this->getData($post,'proinfo');
+		//生成订单
+		$data = array();
+		$data['commodity_id'] = $shop_id;
+		$data['pay_num'] = '1';
+		$data['pay_money'] = $info[0]['COMMODITY_MONEY'];
+		$data['from_flag'] = '0';
+		$rett = $this->getData($data,'corderone');
+
+		if(isset($rett['error_code'])){
+			$ret['code'] = -1; 
+			$ret['msg'] = '请检查后提交订单！！';
+		}else{
+			//获取用户信息
+			$userinfo = $this->getData('','userinfo');
+			//获取卡信息
+			if($userinfo['CARD_NUMBER']){
+				$cardinfo = $this->getCardinfo($userinfo['MEMBER_MOBILE']);
+			}
+			//调起支付
+			$post = array
+				(
+					"out_trade_no"=>$rett['order_id'],
+					"subject"=>"购买".$info[0]['COMMODITY_NAME'],
+					"total"=>$info[0]['COMMODITY_MONEY'],
+					"status"=>'9',
+					"card_number"=>$user_info['CARD_NUMBER'],
+					"card_money"=>$cardinfo['cur_money']
+				);
+				//dump($post);
+			$json= json_encode($post);
+			$json= urlencode(passport_encrypt($json, "123"));
+			$ret['json'] = $json;
+		}
+		
+		
+		$ret['code'] = $ret['code']?$ret['code']:1;
+		$ret['msg'] = $ret['msg']?$ret['msg']:'成功';
+		$this->ajaxReturn($ret);
+	}
+
+
+	//产品详情页
+	public function proInfo(){
+		$pid = I('pid','1');
+		$data['commodity_id'] = $pid;
+		$proinfo = $this->getData($data,'proinfo');
+		$this->getShareinfo();
+		$this->assign('proinfo',$proinfo[0]);
+		$this->display('proinfo');
+	}
+
+	//选择产品确定页
+	public function goPay(){
+		include MODULE_PATH.'/Common/check_band.php';
+		$postdata = $_POST;
+		$rett = $this->getData($postdata,'cordermore');
+		if(isset($rett['error_code'])){
+			echo "<script>alert('提交错误，请检查后提交！！');location.href='/weixin/index.php?m=Member&c=Car&a=listCar'</script>";
+		}else{
+			//获取用户信息
+			$userinfo = $this->getData('','userinfo');
+			//获取卡信息
+			if($userinfo['CARD_NUMBER']){
+				$cardinfo = $this->getCardinfo($userinfo['MEMBER_MOBILE']);
+			}
+			//调起支付
+			$data = array(
+				"out_trade_no"=>$rett['order_id'],
+				"subject"=>$postdata['subject'],
+				"total"=>$postdata['pay_money'],
+				"status"=>'9',
+				"card_number"=>$user_info['CARD_NUMBER'],
+				"card_money"=>$cardinfo['cur_money']
+			);
+			$json = json_encode($data);
+			$json = urlencode(passport_encrypt($json, "123"));
+			header("Location:/weixin/Application/Member/WxpayAPI/jsapi.php?json=".$json);
+		}
+		
+	}
+
+
+	//购物车商品数量
+	public function getNumcar(){
+		$item_id = I("item_id").",";
+		$ids = explode(',',$item_id);
+		$shop_list = $this->getData('','list');
+		$num = 0;
+		$flag = 1;
+		foreach($shop_list as $val){
+			$num +=$val['ORDER_NUM'];
+			if($val['ITEM_ID']==$ids[0]){
+				$flag = 0;
+			}
+		}
+		//是否刷新该页面
+		$ret['num'] = $num;
+		$ret['flag'] = $flag; 
+		$this->ajaxReturn($ret);
+	}
+
+	//接口
+	private function getData($data,$flag){
+		$url = '';
+		$token = $this->token;
+		$data['openid'] = $this->openid;
+		//C("PATH_URL",'http://192.168.100.228:8080');
+		switch ($flag) {
+			case 'list':
+				$url = C("PATH_URL")."/interface/yc_member/de_card_list.aspx?access_token=".$token;
+				break;
+			case 'del':
+				$url = C("PATH_URL")."/interface/yc_member/de_card_delete.aspx?access_token=".$token;
+				break;
+			case 'add':
+				$url = C("PATH_URL")."/interface/yc_member/de_card_add.aspx?access_token=".$token;
+				break;	
+			case 'change'://更改数量
+				$url = C("PATH_URL")."/interface/yc_member/de_card_update_num.aspx?access_token=".$token;
+				break;
+			case 'corderone'://单商品单数量
+				$url = C("PATH_URL")."/interface/yc_member/de_order_add.aspx?access_token=".$token;
+				break;	
+			case 'cordermore'://多商品多数量
+				$url = C("PATH_URL")."/interface/yc_member/de_order_card_add.aspx?access_token=".$token;
+				break;	
+			case 'proinfo'://多商品ID，ID
+				$url = C("PATH_URL")."/interface/yc_member/de_commodity_info.aspx?access_token=".$token;
+				break;
+			case 'userinfo'://多商品ID，ID
+				$url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+				break;
+			case 'cardinfo'://多商品ID，ID
+				$url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+				break;
+			case 'fxuserinfo'://分享用户信息
+				$url = C("PATH_URL")."/interface/yc_member/get_sale_info.aspx?access_token=".$token;
+				break;
+			default:
+				$url = C("PATH_URL")."/interface/yc_member/de_card_list.aspx?access_token=".$token;
+				break;
+		}
+
+		$json = json_encode($data);
+		//echo $json;
+		$ret = json_decode(post_json($url,$json),true);
+		return $ret;
+	}
+
+
+	 //获取卡余额
+	 private function getCardinfo($mobile){
+	 	$url = "http://weixin.yk2020.com/include/xfb_balancequery.aspx";
+        $data = array
+        (
+            "mobile"=>$mobile
+         );
+        $json=json_encode($data);
+        $card_yue = json_decode(post_json($url,$json),true);
+        return $card_yue;
+	 }
+	           
+	//分享参数
+	private function getShareinfo(){
+		//获取平台的access_token 
+		$token = $this->token;
+		//分享朋友圈
+		$appId=C('M_APPID');
+		$secret=C('M_SECRET');
+
+		$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    	$url1 = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    	$token = S("Member_access_token");
+
+    	if(empty($token)){
+
+	    	$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appId&secret=$secret";
+	    	$res = file_get_contents($url);
+	    	$res = json_decode($res,'true');
+	    	$token = $res['access_token'];
+	    	S("Member_access_token",$token,3600);
+   		 }
+
+   		$ticket = S("Member_ticket");
+
+   		if(empty($ticket)&&!empty($token))
+   		{
+
+   			$url= "https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=$token&type=jsapi";
+			$result = file_get_contents($url);
+			$result = json_decode($result,'true');
+			$ticket = $result['ticket'];
+			S("Member_ticket",$ticket,3600);
+
+   		}
+		
+		$NonceStr = createNonceStr();
+		$timestamp = time();
+		$string = "jsapi_ticket=$ticket&noncestr=$NonceStr&timestamp=$timestamp&url=$url1";
+    	$signature = sha1($string);
+
+    	$share = array(
+    		"appId" => $appId,
+    		"timestamp" => $timestamp,
+    		"signature" => $signature,
+    		"NonceStr" => $NonceStr
+		);
+		$this->assign("signature",$share['signature']);
+		$this->assign("NonceStr",$share['NonceStr']);
+		$this->assign("timestamp",$share['timestamp']);
+		$this->assign("appId",$share['appId']);
+	}
+
+
+
+ }
+
+ ?>

@@ -1,0 +1,160 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<title>个人信息</title>
+		<!--公用样式调用-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+		<link href="/weixin/Public/Common/css/commonFooter/footer.css" type="text/css" rel="stylesheet">
+
+		<!--分享页面样式调用-->
+		<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+		<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+		<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/weixin/Public/Expert/js/birthday.js"></script>
+		<script>  
+		$(function () 
+		{
+			$.ms_DatePicker
+			({
+				YearSelector: ".sel_year",
+				MonthSelector: ".sel_month",
+				DaySelector: ".sel_day"
+			});
+			$.ms_DatePicker();
+		});
+		</script>
+		<script type="text/javascript">
+		$(function()
+		{
+			var gh=$('footer a').eq(0).children('span').text();
+			var zx=$('footer a').eq(0).children('span').text();
+			var gr=$('footer a').eq(0).children('span').text();
+			if(gh>100)
+			{
+				$('footer a').eq(0).children('span').text('***');
+			}
+			if(gh>100)
+			{
+				$('footer a').eq(1).children('span').text('***');
+			}
+			if(gh>100)
+			{
+				$('footer a').eq(2).children('span').text('***');
+			}
+		});
+		</script>
+	</head>
+	<body>
+		<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile">  
+		<ul>
+			<li class="avatar ystx">
+				<label>头像</label>
+				<b class="jiantou touxiang">
+					<a href="/weixin/index.php?m=Expert&c=User&a=edit_face&user_pic={$member_pic_encode}">
+						<img  width="50" height="50" src="{$user.SMALL_PIC}" style='_margin-top:expression(( 180 - this.height ) / 2);' />
+					</a>
+				</b>
+			</li>
+			<li>
+				<label>姓名</label>   
+				<span class="right" style="line-height:20px;">{$user['EXPERT_NAME']}</span>
+			</li>
+			<li class="link">
+			<a href="javascript:void(0)" class="g-arrow-r">
+
+				<label>性别</label>   
+				<span class="right" style="line-height:20px;">{$user.EXPERT_SEX}</span>
+			</a>
+			</li>
+			<li class="link">
+				<if condition="$user.HOS_NAME eq '0'">
+					<a href="javascript:void(0)" class="g-arrow-r">
+						<label>医院</label>   
+						<span class="right yirenz" style="line-height:20px;" id="hos">审核中</span>
+					</a>
+				<else />
+					<a href="javascript:void(0)" class="g-arrow-r">
+						<label>医院</label>  
+						<span class="right yirenz" style="line-height:20px;" id="hos">{$user.HOS_NAME}</span>
+					</a>
+				</if>
+			</li>
+			<li class="link">
+				<if condition="$user.DEP_NAME eq '0'">
+					<a href="javascript:void(0)" class="g-arrow-r">
+						<label>科室</label>   
+						<span class="right yirenz" style="line-height:20px;">审核中</span>
+					</a>
+				<else />
+					<a href="javascript:void(0)"  class="g-arrow-r">
+						<label>科室</label>   
+						<span class="right yirenz" style="line-height:20px;">{$user.DEP_NAME}</span>
+					</a>
+				</if>
+			</li>
+			<li class="link">
+				<if condition="$user.EXPERT_RANK eq '0'">
+					<a href="javascript:void(0)" class="g-arrow-r">
+						<label>职称</label>   
+						<span class="right" style="line-height:20px;">审核中</span>
+					</a>
+				<else />
+					<a href="javascript:void(0)" class="g-arrow-r">
+						<label>职称</label>   
+						<span class="right" style="line-height:20px;">{$user.EXPERT_RANK}</span>
+					</a>
+				</if>
+			</li>
+			<li class="link">
+				<a href="javascript:void(0)" class="g-arrow-r">
+					<label class="nowidth">擅长</label>
+					<span class="right yirenz">{$user.EXPERT_SKILL|mb_substr=###,0,30}</span>
+				</a>
+			</li>
+			<li class="link">
+				<a href="javascript:void(0)" class="g-arrow-r">
+					<label class="nowidth">简介</label>
+					<span class="right yirenz">{$user.EXPERT_DESC|mb_substr=###,0,30}</span>
+				</a>
+			</li>
+			<li class="avatar ystx">
+				<label>签名</label>
+				<b class="jiantou touxiang">
+					<a href="/weixin/index.php?m=Expert&c=User&a=edit_sign&user_pic={$sign_pic_encode}">
+						<img  width="50" height="50" src="{$user.DOC_SIGNATURE}" style='_margin-top:expression(( 180 - this.height ) / 2);' />
+					</a>
+				</b>
+			</li>
+		</ul>
+		</div>
+		<input type="hidden" value="{$user.HOS_ID}" id="hos_id">
+		<!-- <input name='oldface' type='hidden' id='oldface' value='<?php echo $face; ?>' /> -->
+		<include file="Public:footer_fd" />
+		<script>
+		var over_footer = '5';
+		function keshi(){
+			var hos_id = $('#hos_id').val();
+			if(hos_id=='')
+			{
+				alert("请选择医院");
+				location.href = "?m=expert&c=user&a=expert_hos";
+				// return false;
+			}
+			else
+			{
+				location.href = "?m=expert&c=user&a=dep_name&hos_id="+hos_id;
+			}
+		}
+
+		</script>
+		<include file="Public:tj" />
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

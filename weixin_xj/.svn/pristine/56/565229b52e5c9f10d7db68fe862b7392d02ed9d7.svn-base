@@ -1,0 +1,1 @@
+.ui-label-s { line-height: 13px; display: inline-block; position: relative; padding:3px 0; color: #333; border: none; background: #eeeeee; border-radius: 3px; text-align:center;}

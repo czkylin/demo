@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+/*---提交阅片码--*/
+a { text-decoration: none; }
+.order-status .suc-mess { text-align: center; line-height: 24px; padding-bottom: 1.5rem; margin-top: 1.5rem; }
+.error_img img { width: 80px; height: auto; }
+.ui-btn { background: #a0a4b1; color: #fff; font-size: 1.6rem; border-radius: 3px; }
+.ui-btn-inner { font-size: 1.1rem; }
+.suc_back { padding-top: 6.5rem; clear: none; line-height: none; }
+.formline { line-height: none; }
+.yuema { padding-top: 3rem; margin: 0; }
+.yuema .yp_kuang { line-height: 20px; padding: 10px 0; border-radius: 3px; border: 0; text-align: center; width: 100%; margin-bottom: 2rem; background:#fff; border:1px solid #c9c9c9; }
+.yuema .sub_kuang { line-height: 20px; padding: 10px 0; border-radius: 3px; border: 0; text-align: center; width: 100%; color: #fff; margin-bottom:1.5rem; background: #6fba2b; }
+.more_img { margin-top:3rem; text-align: center; margin-bottom: 1.5rem; }
+.more_img img { width: 55%; height: auto; }
+.hk_wc { padding: 5px 15px; line-height: 30px; font-size: 1.0rem; border-bottom: 5px solid #e5e5e5; }
+.hk_wc a { color: #666; }
+.huikui { height: 30px; float: left; }
+.wancheng { height: 30px; float: right; }
+.chengg-mess { font-size: 1.2rem; text-align: center; line-height: 24px; margin-bottom: 4rem; }
+.chengg-mess i { color: #ff6600; font-style: normal; }
+.chengg-mess span { font-size: 1.0rem; }
+.continue_sub { width: 55%; height: 20px; line-height: 20px; padding: 5px 10px; font-size: 1.0rem; margin: auto; border: 1px solid #ff6600; text-align: center; border-radius: 5px; }
+.continue_sub a { color: #ff6600; }
+.sousuo { height: 26px; width: 56%; margin-top: 3px; float: right; }
+.sousuo .wenbk, .sousuo .ss_btn { float: right; height: 26px; }
+.sousuo .wenbk { width: 83%; border: 1px solid #d2d1d1; }
+.sousuo .ss_btn { width:20px; margin-left: 3%; margin-top:3px; border: 0; height: 20px; background: url(../images/sousuo.png) no-repeat; background-size: cover; padding: 0; }
+.huiyuan_img { margin-top: 3rem; text-align: center; margin-bottom: 3rem; }
+.huiyuan_img img { width: 24%; height: auto; }
+.num_people { width: 78%; height: 60px; background: #00a5dc; color: #fff; font-weight: bold; font-size: 18px; margin: auto; margin-bottom: 1rem; text-align: center; line-height: 26px; padding: 10px 0; }
+.num_people.red_people { background: #ff6600; }
+.sub_jieguo li { border-bottom: 1px solid #ccc; padding-top:1rem; }
+.sub_jieguo li .huiyuan_left { width: 60px; height: auto; float: left; }
+.sub_jieguo li .huiyuan_left img { width: 100%; height: auto; border-radius: 50%; }
+.sub_jieguo li .huiyuan_right { float: right; width: 76%; }
+.sub_jieguo li .huiyuan_right .right_top { font-size: 12px; padding-top: 0.5rem; }
+.sub_jieguo li .huiyuan_right .right_top .r_t_l { float: left; width: 170px; height: auto; }
+.sub_jieguo li .huiyuan_right .right_top .r_t_l p { color: #333; margin-bottom:0.1rem;  line-height: 16px; }
+.sub_jieguo li .huiyuan_right .right_top .r_t_l span { color: #999; line-height: 20px; }
+.sub_jieguo li .huiyuan_right .right_top .r_t_r { width: 50px; height: auto; float: right; }
+.sub_jieguo li .huiyuan_right .right_top .r_t_r p { color: #333; font-size: 18px; }
+.sub_jieguo li .huiyuan_right .right_top .r_t_r span { font-size: 14px; margin-top: 0.3rem; display: block; }
+.right_bot { margin-top: 1.5rem; }
+.right_bot .ti_jieguo { width: 120px; height: 26px; line-height: 26px; background: #e7e8e9; color: #333; text-align: center; margin-bottom: 2rem; border-radius: 2px; }
+.shangchuan { width: 100%; height: auto;margin-bottom: 2rem; display:none; }
+.shangchuan .ty_kuang { height: 100px; width: 100%; border: 0; background: #e7e8e9; }
+.shangchuan .wenjian { width: 70%; height: 26px; background: #ccc url(../images/yunying/wenjian.png) no-repeat 10px center; float: left; border: 0; }
+.shangchuan .image_sc { width: 29%; height: 26px; color: #fff; margin-left: 1%; float: right; border: 0; background: #ff6600; }
+.file { width: 70%; position: relative; display: inline-block; height: 26px; overflow: hidden; background: #ccc url(../images/yunying/wenjian.png) no-repeat 10px center; text-decoration: none; text-indent: 0; line-height: 20px; }
+.file input { width: 100%; height: 26px; position: absolute; background: #ccc; left: 0; top: 0; opacity: 0; }
+.jy_zhuangtai{ margin-bottom:1rem; display:inline-block; float:right; padding-right:1.5rem;}

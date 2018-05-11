@@ -1,0 +1,117 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--公用样式调用-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<!--分享页面样式调用-->
+<link href="/weixin/Public/Expert/css/gerenzhongxin/gerenzhongxin.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/gerenzhongxin/yishengbangzs.css" type="text/css" rel="stylesheet"/>
+<title>个人中心</title>
+</head>
+<body>
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 99999;">
+    <p style=" background:#666; color:#fff; line-height:25px;width:200px; height: auto; text-align:center; margin: 0 auto; padding: 10px;display: none;" id="msg"></p>
+</div>
+<div class="gp GJ_Gp gp-profile g-items gp-profile_index" style="padding-bottom: 60px; ">  
+    <div class="top">
+        <a href="javascript:void(0)">
+            <img src="{$data.SMALL_PIC}" style='_margin-top:expression(( 180 - this.height ) / 2);' />
+                <div class="bg_jiao">
+                <div class="zjxx">
+                    <h2>{$data.EXPERT_NAME}&nbsp;&nbsp;<span class="yishengch">{$data.EXPERT_RANK}</span></h2>
+                    <p>{$data.HOS_NAME}</p>
+                    <p>{$data.DEP_NAME}</p>
+                </div>
+            </div>
+        </a>
+        <nav>
+            <a onclick="show()" class="gzd">
+                <i></i>
+                <span>关注度</span>
+            </a>
+            <a onclick="show()" class="hzfk">
+                <i></i>
+                <span>患者反馈</span>
+            </a>
+            <a onclick="show()" class="wdfb">
+                <i></i>
+                <span>我的发布</span>
+            </a>
+        </nav>
+    </div>  
+    <ul>   
+        
+        <li class="link link-ico">
+            <!-- <a class="g-arrow-r gzz" href="geren_index.php?uid=mingpian"> -->
+            <a class="g-arrow-r gzz" onclick="show()">
+                <label class="nowidth">我的工作站</label>
+            </a>
+        </li> 
+    </ul>  
+    <ul>  
+         <li class="link link-ico">
+            <!-- <a class="g-arrow-r zyd" href="geren_index.php?uid=zhiyedian_list"> -->
+            <a class="g-arrow-r zyd" onclick="show()">
+                <label class="nowidth">我的执业点</label>
+            </a>
+        </li>  
+        <li class="link link-ico">
+            <a class="g-arrow-r sjgl"  onclick="show()">
+                <i class="icon-sz"></i>
+                <label class="nowidth" >时间管理</label>
+            </a>
+        </li>
+        <li class="link link-ico">
+            <!-- <a class="g-arrow-r fbgg" href="geren_index.php?uid=fabu"> -->
+            <a class="g-arrow-r fbgg" onclick="show()">
+                <i class="icon-sz"></i>
+                <label class="nowidth">发布公告</label>          
+            </a>
+        </li> 
+    </ul> 
+    <ul>   
+        
+        <li class="link link-ico">
+            <a class="g-arrow-r srjs" href="{:U('Order/money_sum')}">
+                <label class="nowidth">收入结算</label>
+            </a>
+        </li> 
+    </ul>  
+    <ul style="margin-bottom:20px;">   
+        
+        <li class="link link-ico">
+            <!-- <a class="g-arrow-r shezhi" href="geren_index.php?uid=zhanghu"> -->
+            <a class="g-arrow-r shezhi" onclick="show()">
+                <label class="nowidth">账户设置</label>
+            </a>
+        </li> 
+    </ul>   
+</div>  
+<footer>
+    <a class="shouye" href="{:U('Index/index')}">首页</a>
+    <a class="huanzhe" href="{:U('User/patient_list')}">患者</a>
+    <a class="wo">我</a>
+</footer>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script>
+    function show(){
+
+        $('#msg').show();
+        $('#msg').html('暂未开放！');
+        setTimeout(function(){fail();},2000);
+        return false;
+    }
+    function fail(){
+        $('#msg').hide()
+    }
+</script>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

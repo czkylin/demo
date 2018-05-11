@@ -1,0 +1,75 @@
+<volist name="jk_info" id="jk" empty="">
+    <section class="unit">
+        <div class="ct box">
+            <div class="cLeft box">
+                <div class="cimg"><img src="/weixin/Public/Expert/images/cf/cflogo.jpg" width="100%"></div>
+                <if condition="$tj_type eq 0">
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>血糖(mmol/L)：{$jk.GLUCOSE}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <elseif condition="$tj_type eq 1"/>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>血氧(%)：{$jk.OXYGEN}</p>
+                        <p>脉率(bpm)：{$jk.PULSERATE}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <elseif condition="$tj_type eq 2"/>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>收缩压(mmHg)：{$jk.SYSTOLIC}</p>
+                        <p>舒张压(mmHg)：{$jk.DIASTOLIC}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <elseif condition="$tj_type eq 3"/>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>心率(bpm)：{$jk.HR}</p>
+                        <p>P轴：{$jk.PAXIS}</p>
+                        <p>T轴：{$jk.TAXIS}</p>
+                        <p>QRS轴：{$jk.QRSAXIS}</p>
+                        <p>PR间期：{$jk.PR}</p>
+                        <p>QT间期：{$jk.QT}</p>
+                        <p>QTc间期：{$jk.QTC}</p>
+                        <p>QRS时限：{$jk.QRS}</p>
+                        <p>RV5值：{$jk.RV5}</p>
+                        <p>SV1值：{$jk.SV1}</p>
+                        <p>诊断结果：{$jk.DIAGNOSIS}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <elseif condition="$tj_type eq 4"/>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>身高(cm)：{$jk.HEIGHT}</p>
+                        <p>体重(kg)：{$jk.WEIGHT}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <elseif condition="$tj_type eq 5"/>
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>尿胆原(umol/L)：{$jk.URO}</p>
+                        <p>潜血：{$jk.BLD}</p>
+                        <p>胆红素(umol/L)：{$jk.BIL}</p>
+                        <p>酮体：{$jk.KET}</p>
+                        <p>葡萄糖(mmol/L)：{$jk.GLU}</p>
+                        <p>蛋白质：{$jk.PRO}</p>
+                        <p>PH：{$jk.PH}</p>
+                        <p>亚硝酸盐：{$jk.NIT}</p>
+                        <p>白细胞：{$jk.WBC}</p>
+                        <p>比重：{$jk.SG}</p>
+                        <p>维生素C：{$jk.VC}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                <else />
+                    <div class="ctxt">
+                        <p><strong>患者：</strong><em>{$jk.MEMBER_NAME}</em></p>
+                        <p>温度(°C)：{$jk.TEMPERATURE|round=1}</p>
+                        <p><span>检测时间：{$jk.EXAMTIME|Dtodiy="Y-m-d H:i",###}</span></p>
+                    </div>
+                </if>
+            </div>
+        </div>
+    </section>∮
+</volist>

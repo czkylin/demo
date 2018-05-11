@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>关注远程</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/aboult.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px'
+    </script>
+</head>
+<body>
+    <header class="dDetail">
+        <a href="index.php?m=Expert&c=User&a=Expert&c=User&a=" class="icon">&#xf62b;</a>
+        <h2>关注远程</h2>
+    </header>
+    <article class="wxjf">
+        <section class="text-center">
+            <img src="/weixin/Public/Expert/images/zhengcejiedu/logoBig.png" alt="" width="30%">
+        </section>
+        <section>
+            <ul>
+                <li>
+                    <p><i class="icon">&#xf684;</i>核心价值观</p>
+                    <p>
+                        <i class="icon corner">&#xf600;</i>
+                    </p>
+                    <a href="{:U('Expert/User/value')}"></a>
+                </li>
+                <li>
+                    <p><i class="icon">&#xf685;</i>版本历史</p>
+                    <p>
+                        <i class="icon corner">&#xf600;</i>
+                    </p>
+                    <a href="{:U('Expert/User/history')}"></a>
+                </li>
+            </ul>
+        </section>
+    </article>
+    <include file="Public:footer_bottom" />
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

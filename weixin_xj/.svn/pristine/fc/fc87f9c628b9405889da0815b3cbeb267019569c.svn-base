@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>身份认证</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <link href="/weixin/Public/Expert/css/user/zhuce.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/docInfo.css"/>
+    <style>
+        body {
+            height: 100%;
+        }
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+
+<body class="data">
+    <form action="" method="POST" id="myform" name="form">
+        <article id="page" class="dataList">
+            <h2 class="text-center">身份认证</h2>
+            <section>
+                <ul>
+                    <li>
+                        <p>姓名<i class="star">*</i></p>
+                        <input type="text" id="expert_name" maxlength="10" name="expert_name" placeholder="姓名" />
+                    </li>
+                    <li data-name="sex">
+                        <p>性别<i class="star">*</i></p>
+                        <input type="text" id="sex" name="sex" placeholder="男" readonly />
+                    </li>
+                    <li data-name="bir">
+                        <p>出生年月<!-- <i class="star">*</i> --></p>
+                        <input type="date" id="birs" name="birs" />
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>
+                        <p>医院<i class="star">*</i></p>
+                        <input type="text" id="hos_name" name="hos_name" placeholder="医院" />
+                    </li>
+                     <li>
+                        <p>科室<i class="star">*</i></p>
+                        <input type="text" id="dep_name" name="dep_name" placeholder="科室" />
+                    </li>
+                    <li>
+                        <p>职务职称:<i class="star">*</i></p>
+                        <select id="expert_role" name="expert_role" >
+                            <option value="住院医师">住院医师</option>
+                            <option value="主治医师">主治医师</option>
+                            <option value="副主任医师">副主任医师</option>
+                            <option value="主任医师">主任医师</option>
+                            <option value="实习医生">实习医生</option>
+                            <option value="基层医生">基层医生</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </li>
+
+                    <li data-name="position">
+                        <p>医生从业资格证<i class="star">*</i></p>
+                        <input type="text" id="ex_cid" name="ex_cid" placeholder="从业资格证编码" />
+                    </li>
+                    <li>
+                        <p>手机号<i class="star">*</i></p>
+                        <input type="tel" id="link_mobile" name="link_mobile" value="{$link_mobile}" placeholder="请输入手机号" maxlength="11" readOnly="true" />
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <div class="doc-pic">
+                    <p>医生照片</p>
+                    <div class="upload">
+                        <label for="pic"></label>
+                        <input type="file" id="pic" onchange="press_img(this,'#doc_img','#pre_pic','#press_status');">
+                        <img src="" id="pre_pic" width="200" name="img"><div id="press_status"></div>
+                        <textarea name="doc_img" id="doc_img" style="display:none"></textarea>
+                    </div>
+                </div>
+                <div class="doc-pic">
+                    <p>医师执业证书照片</p>
+                    <div class="upload">
+                        <label for="zhengshu"></label>
+                        <input type="file" id="zhengshu" onchange="press_img(this,'#ys_img','#ys_pic','#ys_status');">
+                        <img src="" id="ys_pic" width="200"><div id="ys_status"></div>
+                        <textarea name="ys_img" id="ys_img" style="display:none"></textarea>
+                    </div>
+                </div>
+                <div class="doc-pic">
+                    <p>工作证照片</p>
+                    <div class="upload">
+                        <label for="zheng"></label>
+                        <input type="file" id="zheng" onchange="press_img(this,'#gz_img','#gz_pic','#gz_status');">
+                        <img src="" id="gz_pic" width="200"><div id="gz_status"></div>
+                        <textarea name="gz_img" id="gz_img" style="display:none"></textarea>
+                    </div>
+                </div>
+                <div class="doc-pic">
+                    <p>医生签名照片<i class="star">*</i></p>
+                    <div class="upload">
+                        <label for="qianming"></label>
+                        <input type="file" id="qianming" onchange="press_img(this,'#qm_img','#qm_pic','#qm_status');">
+                        <img src="" id="qm_pic" width="200"><div id="qm_status"></div>
+                        <textarea name="qm_img" id="qm_img" style="display:none"></textarea>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <ul>
+                    <li data-name="introTel">
+                        <p>推荐人电话</p>
+                        <if condition="$tj_mobile eq '' ">
+                            <input type="tel" maxlength="11" id="tj_mobile" name="tj_mobile" />
+                        <else />
+                             <input type="tel" maxlength="11" id="tj_mobile" name="tj_mobile" value="{$tj_mobile}" placeholder="推荐人手机号" readOnly="true" />
+                        </if>
+                    </li>
+                </ul>
+            </section>
+            <div class="foot">
+                <p class="text-center">
+                    <input type="checkbox" class="ty" checked="checked" />同意<a href="/weixin/Application/Expert/View/User/user_xy.html">用户使用协议</a>和<a href="{:U('Expert/User/zhuce_xz')}">注册须知</a>
+                </p>
+            </div>
+                
+                <div class="sq_bottom">
+                    <div class="tijiao"><a href="javascript:void(0)" id="tijiao" style="width:100%;">提交申请表</a><!-- <a href="/weixin/index.php?m=Expert&c=User&a=zhuce_xz" class="chakan">查看注册须知</a>--> 
+                    </div>
+                </div>
+        </article>
+    </form>
+    <article class="opacity" id="opacity"></article>
+    <div class="dWrap" id="ns" data-name="nn">
+        <div class="confirm">
+            <p class="text-center">性别</p>
+            <a href="javascript:;">确定</a> </div>
+        <div class="dl" id="nn">
+            <section class="swiper-container" id="s7">
+                <div class="swiper-wrapper">
+                    <div class="ss swiper-slide text-center slideActive">男</div>
+                    <div class="ss swiper-slide text-center">女</div>
+                </div>
+                <div class="mask"></div>
+            </section>
+        </div>
+    </div>
+    <div style="position:fixed; left:0; right:0; top:0; bottom:0; display:none; background:#000; opacity:0.7; z-index:999" id="hui"></div>
+    <style>
+        
+        
+        .tc_con img {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+        
+        .tc_con .cgimg {
+            width: 137px;
+            height: 104px;
+            margin-top: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .tc_con p {
+            margin: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #333333;
+            font-size: 14px;
+        }
+        
+        .tc_con p span {
+            color: #f8b900;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .tc_con p b {
+            color: #0dab6e;
+            font-size: 14px;
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .cg1 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .cg1 img {
+            vertical-align: top;
+        }
+        
+        .tc_con .queding {
+            color: #666666;
+            font-size: 14px;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+            display: block;
+            line-height: 40px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .cg1 .text-center {
+            width: 100%;
+            height: 50%;
+        }
+        
+        .tt {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100000;
+            visibility: hidden;
+        }
+        
+        .tt.active {
+            display: box;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            visibility: visible;
+        }
+    </style>
+    <div class="tt">
+        <div class="tc_con" id="cg">
+            <div class="cg1">
+                <div class="text-center"> <img src="/weixin/Public/Expert/images/zhuce/cgimg.png" class="cgimg"> </div>
+                <p><span>恭喜！申请成功！</span>
+                    <br> 审核将在一个工作日内完成
+                    <br/> 欢迎加入全国心脑远程联盟 </p>
+                <a href="/weixin/index.php?m=Expert&c=User&a=shenHeZhong" class="queding">确定</a> </div>
+        </div>
+    </div>
+    <div class="tt">
+        <div class="tc_con" id="yj">
+            <div class="cg1">
+                <div class="text-center"> <img src="/weixin/Public/Expert/images/zhuce/yjimg.png"> </div>
+                <p>已经注册过，无需重复提交!</p>
+                <a href="/weixin/index.php?m=Expert&c=User&a=mywork_house" class="queding">确定</a> </div>
+        </div>
+    </div>
+    <div class="tt">
+        <div class="tc_con" id="fm">
+            <div class="cg1">
+                <div class="text-center"> <img src="/weixin/Public/Expert/images/zhuce/yjimg.png"> </div>
+                <p>抱歉！系统繁忙，稍后再试!</p>
+                <a href="/weixin/index.php?m=Expert&c=User&a=zhuce" class="queding">确定</a> </div>
+        </div>
+    </div>
+    <div class="tt">
+        <div class="tc_con" id="sbcs">
+            <div class="cg1">
+                <div class="text-center"> <img src="/weixin/Public/Expert/images/zhuce/sbimg.png"> </div>
+                <p>注册失败！
+                    <br> 参数错误或请重新 <b>关注公众号 </b> </p>
+                <a href="/weixin/index.php?m=Expert&c=User&a=zhuce" class="queding">确定</a> </div>
+        </div>
+    </div>
+    <div class="tt">
+        <div class="tc_con" id="sb">
+            <div class="cg1">
+                <div class="text-center"> <img src="/weixin/Public/Expert/images/zhuce/sbimg.png"> </div>
+                <p>注册失败！请重新<b>关注公众号 </b></p>
+                <a href="/weixin/index.php?m=Expert&c=User&a=zhuce" class="queding">确定</a> </div>
+        </div>
+    </div>
+    <div class="tt">
+        <div class="tc_con" id="sb2">
+            <div class="cg1">
+                <div class="text-center"> <img src="/weixin/Public/Expert/images/zhuce/sbimg.png"> </div>
+                <p>注册失败！请发送注册资料到公众号对话框</p>
+                <a href="/weixin/index.php?m=Expert&c=User&a=zhuce" class="queding">确定</a> </div>
+        </div>
+    </div>
+    <div class="tt">
+        <div class="tc_con" id="sb3">
+            <div class="cg1">
+                <div class="text-center"><img src="__PUBLIC__/Common/images/icon/loading.gif" style="width:32px; height:32px;display:inline-block;vertical-align:top;margin-top:40px;"></div>
+                <p>资料提交中...请稍等</p>
+            </div>
+        </div>
+    </div>
+    <div class="dl explain" data-name="explain">
+        <article>
+            <h2>注册须知</h2>
+            <div class="article">
+                <h3>1、背景优势：</h3>
+                <p>全国心脑远程联盟是一个为医生提供协作发展的平台。以医生集团为核心，开展“线上复诊”、“慢病管理”为主旨的家庭医生特色服务。为医生提供最新学术前沿资讯，跨地域学术交流的同时，严密保护医生隐私。</p>
+                <p>全国心脑远程联盟致力于为医患之间提供“远程阅片、电子处方、坐诊手术、家庭医生”等多种服务模式，使医生多点执业、分级诊疗成为现实，为心脑血管患者提供高效、优质、便捷的互联网医疗服务。</p>
+                <h3>2.会员享有：</h3>
+                <p>A.联盟头条:掌握集团实时新闻 了解最新医疗政策</p>
+                <p>B.名医风采:收集专科名医事迹 展示医疗学术成果</p>
+                <p>C.医学专题:汇集国内医学现状 网络业内医学巨献</p>
+                <p>D.病例展示:收集优质病例资源 丰富专科诊疗经验</p>
+                <p>E.活动会议:掌握线下学术交流 把握行业最新动态</p>
+                <p>F.千县万医:直击专家学术课程 提升自我医学经验</p>
+                <p>G.医生工作站:记录在线工作明细 浏览订单处方详情</p>
+                <p>H.推荐二维码:推荐好友即得积分 机制健全奖励丰厚</p>
+                <p>I.分享医生圈:业内专家分享交流 得百家智慧之精华</p>
+                <p>J.积分排行榜:当前排名实时查看 积分凭证获取收益</p>
+                <h3>3.注册条件：</h3>
+                <p>A.所属机构：申请的医疗机构必须是国内具有正规资质的二甲级及以上公立医院的心脑血管相关科室医生或医务工作者。</p>
+                <p>B.执业资质：拥有国家认证的医生执业资格证。</p>
+                <h3>4.注册流程：</h3>
+                <p>A.申请人关注“全国心脑远程联盟”公众号，并点击会员申请，绑定手机号。</p>
+                <p>B.申请人填写《全国心脑远程联盟——注册申请表》，填写完毕，提交，等待审核。</p>
+                <p>C.工作人员与医生打电话核实信息，确认信息无误后，审核通过。</p>
+                <p>D.系统提示审核通过，并颁发会员证书。</p>
+                <p>E.完成会员注册。</p>
+            </div>
+            <a href="javascript:;" class="text-center">OK</a> <i></i> </article>
+    </div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script type="text/javascript" src="/weixin/Public/Expert/js/mobileFix.mini.js?v=8d13c59"></script>
+<script src="/weixin/Public/Expert/js/exif.js?v=c65d9ea" type="text/javascript"></script>
+<script src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a" type="text/javascript"></script>
+<script src="/weixin/Public/Expert/js/jquery.min.js"></script>
+<script src="/weixin/Public/Expert/js/swiper.jquery.js"></script>
+<script>
+
+    function press_img(input_file, imgbase64, pre_pic, press_status)
+    {
+        lrz(input_file.files[0], {
+            width:500,
+            before: function() 
+            {
+                document.querySelector(press_status).innerHTML="压缩处理开始，请稍后...";
+            },
+            fail: function(err) 
+            {
+                document.querySelector(press_status).innerHTML=err;
+            },
+            always: function() 
+            {
+                document.querySelector(press_status).innerHTML="";
+            },
+            done: function (results) 
+            {
+                document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+                document.querySelector(pre_pic).src=results.base64;//展示预览图片
+                $(pre_pic).siblings("label").css("background-image",'none');
+            }
+        });
+    }
+
+
+    $('.agrees input').change(function () {
+        if ($(this).is(':checked')) {
+            $('#tijiao').attr('disabled', false);
+        } else {
+            $('#tijiao').attr('disabled', true);
+        }
+    });
+
+    $('.agrees span').click(function () {
+        $('body').height('100%');
+        $('html,body').css('overflow', 'hidden');
+        $('.explain').addClass('move');
+    });
+
+    $('.explain i,.explain a').click(function () {
+        $('body').height('auto');
+        $('html,body').css('overflow', 'auto');
+        $('.explain').removeClass('move');
+    })
+
+    $("#tijiao").click(function () {
+
+        var expert_name = $.trim($('#expert_name').val()); //医生名字
+        var sex = $.trim($('#sex').val()); //性别
+        var birs = $.trim($('#birs').val()); //出生年月日
+        var hos_name = $.trim($('#hos_name').val()); //医院
+        var dep_name = $.trim($('#dep_name').val()); //科室
+        var expert_role = $.trim($('#expert_role').val()); //职务职称
+        var ex_cid = $.trim($('#ex_cid').val()); //从业资格证
+        var link_mobile = $.trim($('#link_mobile').val()); //手机号
+        var tj_mobile = $.trim($('#tj_mobile').val()); //推荐人手机号
+        var doc_img = $('#doc_img').text();  //医生照片
+        var qm_img = $('#qm_img').text();  //医生签名
+        if(!$('.ty').prop('checked')){
+            alert('请先同意用户协议和注册须知');
+            return false; 
+        }
+        if (expert_name == '')
+        {
+            alert('姓名不能为空！');
+            document.getElementById("expert_name").focus();
+            return false;
+        }
+        if (sex == '')
+        {
+            alert('性别不能为空！');
+            document.getElementById("sex").focus();
+            return false;
+        }
+        // if (birs == '')
+        // {
+        //     alert('出生年月不能为空！');
+        //     document.getElementById("birs").focus();
+        //     return false;
+        // }
+        if (hos_name == '')
+        {
+            alert('医院名称不能为空！');
+            document.getElementById("hos_name").focus();
+            return false;
+        }
+        if (dep_name == '')
+        {
+            alert('科室不能为空！');
+            document.getElementById("dep_name").focus();
+            return false;
+        }
+        if(expert_role=='')
+        {
+            alert('职务职称不能为空！');
+            document.getElementById("expert_role").focus(); 
+            return false;
+        }
+        if (ex_cid == '')
+        {
+            alert('从业资格证不能为空');
+            document.getElementById("ex_cid").focus();
+            return false;
+        }
+        if( $("#ex_cid").val().length >27)
+        {
+            alert('从业资格证编码长度小于27');
+            return false;
+        }
+        if (qm_img == '')
+        {
+            alert('医生签名不能为空！');
+            document.getElementById("qm_img").focus();
+            return false;
+        }
+        if (!isPhone(link_mobile))
+        {
+            alert("您的电话格式不正确！");
+            document.getElementById("link_mobile").focus();
+            return false;
+        }
+        else 
+        {
+            $('tt').eq(0).addClass('active');
+            $("#sb3").css('display', 'block');
+            var str_data = $("form").serialize();
+            $.ajax({
+                type: "POST"
+                , url: "/weixin/index.php?m=Expert&c=User&a=zhuce_cg"
+                , async: true
+                , data: str_data
+                , success: function (msg) {
+                    $('tt').eq(0).css('display', 'none');
+                    $("#sb3").css('display', 'block');
+                    //alert(msg);
+                    switch (msg) {
+                    case '1': //注册成功
+                        $('.tt').eq(0).addClass('active');
+                        $("#cg").css('display', 'block');
+                        $("input[type=reset]").trigger("click"); //触发reset按钮  
+                        $('#hui').css('display', 'block');
+                        return;
+                        break;
+                    case '2': //已经注册过
+                        $('.tt').eq(1).addClass('active');
+                        $("#yj").css('display', 'block');
+                        $('#hui').css('display', 'block');
+                        document.getElementById("link_mobile").focus();
+                        //return false;
+                        break;
+                    case '3': //参数错误或请重新关注公众号
+                        $('.tt').eq(3).addClass('active');
+                        $("#sbcs").css('display', 'block');
+                        $('#hui').css('display', 'block');
+                        return false;
+                        break;
+                    case '4': //请重新关注公众号
+                        $('.tt').eq(4).addClass('active');
+                        $("#sb").css('display', 'block');
+                        $('#hui').css('display', 'block');
+                        return false;
+                        break;
+                    case '5': //抱歉！系统忙，请稍后
+                        $('.tt').eq(2).addClass('active');
+                        $("#fm").css('display', 'block');
+                        $('#hui').css('display', 'block');
+                        return false;
+                        break;
+                    default: //错误！请直接发送资料到公众号 
+                        $('.tt').eq(5).addClass('active');
+                        $("#sb2").css('display', 'block');
+                        $('#hui').css('display', 'block');
+                        return false;
+                        break;
+                    }
+                }, 
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    $('tt').eq(0).css('display', 'none');
+                    $("#sb3").css('display', 'block');
+                    alert("已提交过申请！ ");
+                }
+            });
+        }
+        return false;
+    });
+
+    function isMail(ssn) //检查邮箱是否匹配正则表达式
+    {
+        var re = /^[0-9a-zA-Z_-]+@[0-9a-zA-Z_-]+((\.[0-9a-zA-Z_-]{2,3}){1,2})$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isPhone(ssn) //检查手机是否匹配正则表达式
+    {
+
+        var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+        if (re.test(ssn)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    $(function () {
+        /*$('#beginTime').date();
+        $('#endTime').date({
+            theme: "datetime"
+        });*/
+    });
+</script>
+<script>
+    var h4 = ''
+        , h5 = '';
+    for (var i = 0; i <= 23; i++) {
+        if (i < 10) {
+            i = '0' + i;
+        }
+        h4 += '<div class="swiper-slide text-center">' + i + '</div>';
+    }
+    for (var i = 0; i <= 59; i++) {
+        if (i < 10) {
+            i = '0' + i;
+        }
+        h5 += '<div class="swiper-slide text-center">' + i + '</div>';
+    }
+
+    $('#s9 .swiper-wrapper,#s11 .swiper-wrapper').append(h4);
+    $('#s10 .swiper-wrapper,#s12 .swiper-wrapper').append(h5);
+
+    var mySwiper0 = new Swiper('#s0', {
+        direction: 'vertical'
+        , slidesPerView: 3
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper4 = new Swiper('#s7', {
+        direction: 'vertical'
+        , slidesPerView: 2
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper5 = new Swiper('#s8', {
+        direction: 'vertical'
+        , loop: true
+        , slidesPerView: 3
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper6 = new Swiper('#s5', {
+        direction: 'vertical'
+        , slidesPerView: 3
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper7 = new Swiper('#s9', {
+        direction: 'vertical'
+        , loop: true
+        , slidesPerView: 5
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper8 = new Swiper('#s10', {
+        direction: 'vertical'
+        , loop: true
+        , slidesPerView: 5
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper9 = new Swiper('#s11', {
+        direction: 'vertical'
+        , loop: true
+        , slidesPerView: 5
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+    var mySwiper10 = new Swiper('#s12', {
+        direction: 'vertical'
+        , loop: true
+        , slidesPerView: 5
+        , centeredSlides: true
+        , slideActiveClass: 'slideActive'
+        , observer: true
+    });
+
+    //是否为闰年    
+    function is_leap(year) {
+        res = year % 100 == 0 ? res = (year % 400 == 0 ? 1 : 0) : (year % 4 == 0 ? 1 : 0);
+        arr = [31, 28 + res, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        //return arr;
+    }
+</script>
+<script src="/weixin/Public/Expert/js/info.js"></script>
+
+</html>

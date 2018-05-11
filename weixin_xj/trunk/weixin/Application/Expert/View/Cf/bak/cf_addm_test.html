@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>开处方</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+<style>
+.xzyd a
+{	border-bottom: 1px solid #e5e5e5;
+    color: #333;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px; 
+	padding-left: 20px;
+}
+.xzyd a:hover
+{ color:#F00;
+	}
+</style>
+</head>
+<body class="huise">
+<form method="post" name="consult" action="/weixin/index.php?m=Expert&c=Cf&a=tj_ok" onSubmit="return sub()">
+         <div style=" height:30px;">
+               <input type="text" id="member_phone"  name="member_phone"  maxlength="11" placeholder="请输入患者手机号" oninput="checkphone()">
+               <span id="phonemsg" style="font-size:12px; color:#F00"></span>
+        </div>
+
+         <div style=" height:30px;">
+               <input type="text"  placeholder="请输入患者姓名" name="member_name" id="member_name" oninput="cleartext('cfmsg')">
+               <span id="cfmsg" style="font-size:12px; color:#F00"></span>
+        </div>
+        <div class="txt">
+                <textarea placeholder="请输入处方描述内容！" name="consultContent" id="v_content"></textarea>
+        </div>
+        <div class="item both uploader">
+                <div class="g-image-upload-box">
+                        <div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+                                <input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onChange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+                        </div>
+                </div>
+                <div style="margin:0 auto;"> <img src="/weixin/Public/Expert/images/cf/icon_img.jpg" id="pre_pic" style="width:100%;"> </div>
+                <img src="" id="pre_pic" width="100">
+                <div id="press_status"></div>
+                <textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+                <div class="desc J_Showmeonfileuploaded">
+                	<b>上传处方图片<br>
+                        病情资料</b>
+                </div>
+        </div>
+         <div class="chanpin">
+     		<h3>药店</h3>
+            <div class="xzyd">
+                <select name="yd_id" id="yd_id_y" onChange="search_list(this.value,'')">
+                <option value ="345597" >威海高寿堂医药连锁有限公司</option><option value ="236944" >堂泰医药连锁农民大药房</option><option value ="368902" >万荣县城镇益寿药店</option><option value ="318660" >广饶健生药店</option><option value ="892587" >新泰市禹贤堂医药有限公司</option><option value ="356329" >郏县济民药店</option><option value ="417934" >天津市济民堂医药连锁有限公司</option><option value ="318895" >河北健康人医药连锁有限公司（总店）</option><option value ="318860" >广饶福仁堂药店</option><option value ="357128" >无极县仁和药店</option><option value ="351129" >远程慧视</option><option value ="258642" >堂泰医药连锁交通大厦店</option><option value ="503304" >舞钢市健民大药房</option><option value ="356766" >郏县诚信大药房</option>                </select>
+			</div>
+        </div>
+        
+        <div class="chanpin">
+                <h3>选择药品</h3>
+                <div class="ui-search">
+                        <div class="ui-searchtxt">
+                                <input class="left" placeholder="输入药品名称" type="text" name="name" id="name"/>
+                        </div>
+                        <input class="right ui-btn-search" onClick="search_list('',document.all.name.value);" type="button" value="搜索"/>
+                </div>
+                <ul id="plist">
+                </ul>
+                <ul id="list">
+                                        </ul>
+                <div class="ui-jiazai" style="display:none"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>    
+        </div>
+        
+        <div id="current_name" style="display:none"></div>
+        <div id="current_pagenum" style="display:none">2</div>
+        <div id="yd_id" style="display:none"></div>
+        <div class="tijiao">
+                <button class="ui-btn-purchase-blue">提交</button>
+        </div>
+</form>
+
+<!--Js库文件--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/mobileFix.mini.js " type="text/javascript"></script> 
+<!--Exif.js 读取图像的元数据 --> 
+<script src="/weixin/Public/Common/js/exif.js " type="text/javascript"></script> 
+<!--lrz.min.js 压缩图片 --> 
+<script src="/weixin/Public/Expert/js/lrz.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js " type="text/javascript"></script> 
+<script type="text/javascript">
+
+function checkproduct(id){  
+//alert(id);
+	
+
+	var ids = "#"+"y_"+id; 
+	var week = "#"+"week1_"+id;
+	var y_id = "y_"+id;
+
+	//选中隐藏
+	$(ids).hide();
+
+	$(week).attr('checked',true);
+	if($(week).is(':checked')){
+		var html = "<li id="+y_id+">"+$(ids).html()+"</li>";
+		alert(id);
+		//$('#list').html('');
+		$('#plist').append(html);
+
+	}else{
+		$(ids).remove();
+		
+	}
+}
+function search_list(yd_id,name)
+{	
+	//每次选中重新加载一次
+	//$('#plist').html("");
+
+	$('.ui-jiazai').css('display','block');
+	
+	if (yd_id != '')
+	{
+		$('#yd_id').text(yd_id);
+	}else
+	{	
+		var yd_id;
+		yd_id = $('#yd_id_y option:selected').val();
+		$('#yd_id').text(yd_id);
+	}
+	$('#current_name').text(encodeURI(name));
+	$('#current_pagenum').text('1');
+	$('#list').html('');
+	$('.ui-jiazai').children('a').text('加载更多');
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=yaopin_list_append&name='+$('#current_name').text()+'&yd_id='+$('#yd_id').text()+'','#list');
+}
+
+
+
+function load_more()
+{	
+	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=Cf&a=yaopin_list_append&name='+$('#current_name').text()+'&yd_id='+$('#yd_id').text()+'','#list');
+}
+
+window.onbeforeunload   =   function()   { 
+//document.getElementById('#list li label  input').value = "1";
+
+$("#list li label input").val(1);
+} 
+/*购买药品数量*/
+$('.chanpin').delegate('ul#list li label .jianshao','click',function(){
+    var _this   = $(this),
+        $num    = _this.next().find('span').eq(0),
+        n       = $num.text(),
+        count   = parseInt(n)-1 > 0 ? parseInt(n)-1 : 1;
+		$num.text(count);
+		//alert(count)
+		$(this).siblings('input').attr("value",count);
+});
+$('.chanpin').delegate('ul#list li label .zengjia','click',function(){
+    var _this   = $(this),
+        $num    = _this.prev().find('span').eq(0), 
+        n       = $num.text(),
+        count   = parseInt(n)+1;
+    $num.text(count);
+	$(this).siblings('input').val(count);
+});
+$('.chanpin').delegate('ul#plist li label .jianshao','click',function(){
+    var _this   = $(this),
+        $num    = _this.next().find('span').eq(0),
+        n       = $num.text(),
+        count   = parseInt(n)-1 > 0 ? parseInt(n)-1 : 1;
+        $num.text(count);
+		$(this).siblings('input').attr("value",count);
+});
+$('.chanpin').delegate('ul#plist li label .zengjia','click',function(){
+    var _this   = $(this),
+        $num    = _this.prev().find('span').eq(0), 
+        n       = $num.text(),
+        count   = parseInt(n)+1;
+       $num.text(count);
+	   $(this).siblings('input').val(count);
+
+});
+
+/*药品选择*/
+
+$('#list').delegate('li .xz','click',function()
+{
+	var yaopin = $(this), k = $(this).siblings(".xuanze").length;
+	if(yaopin.hasClass("xuanze"))
+	{
+		yaopin.removeClass("xuanze")
+	}
+	else
+	{
+		yaopin.addClass("xuanze")
+	}
+})
+
+/*点击传图片，图片显示，文字消失*/
+$(".g-image-upload-box").click(function(){
+	$("#pre_pic").show();
+	$(".J_Showmeonfileuploaded").hide();
+})
+
+
+function sub()
+{
+	var sendBox = $("#v_content").val();
+	var imgbase64 = $("#imgbase64").val();
+	var member_phone = $("#member_phone").val();
+	var re=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+    if(!re.test(member_phone))
+    {	
+        $("#phonemsg").html("手机号格式不正确");
+        return false;
+    }
+   
+	if(sendBox == "")
+	{
+		alert("请输入处方描述内容！");
+		return false;
+	}
+	if(imgbase64=="")
+	{
+		alert("请上传处方图片！");
+		return false;
+	}
+
+	var val = $('input:checkbox[name="product[]"]:checked').size(); 
+	if(val == 0)
+	{
+		alert('推荐药品不能为空请选择,请填写!');
+		return false;
+	}
+}
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+{
+	lrz(input_file.files[0], {
+		width:500,
+		before: function() {
+			document.querySelector(press_status).innerHTML="压缩处理开始，请稍后...";
+		},
+		fail: function(err) {
+			document.querySelector(press_status).innerHTML=err;
+		},
+		always: function() {
+			document.querySelector(press_status).innerHTML="压缩处理完毕，可以开始上传";
+		},
+		done: function (results) {
+			
+			document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+			document.querySelector(pre_pic).src=results.base64;//展示预览图片
+		}
+	});
+}
+
+var onOff = true;    
+//检查手机号是否注册过
+function checkphone()
+{
+	  var str_data = $("form").serialize();
+	  var  member_phone = $("#member_phone").val();
+	  var re=/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/i;
+	  if(!re.test(member_phone))
+	  {
+		  $("#phonemsg").html("手机号格式不正确");
+		  return false;
+	  }else
+	  {
+		    cleartext('phonemsg');
+			//请求是否存在手机号开始
+			$.ajax({
+			type: "POST",
+			url: "/weixin/index.php?m=Expert&c=Cf&a=checkphone",
+			async: true,
+			data: str_data,
+			success: function(msg)
+			{	
+				  switch (msg) 
+					{
+					case "0":	//注册成功
+					$("#cfmsg").html("患者未注册，请补全姓名");
+					$("#member_name").val("");
+					return false;
+					break;
+					case "1":	//有用户，但未填写姓名
+					$("#cfmsg").html("请补全患者姓名");
+					$("#member_name").val("");
+					return false;
+					break;
+					default:	
+					$("#member_name").val(msg);
+					$("#cfmsg").html("");
+					return false;
+					break;
+					}
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown) 
+			{	
+				alert("失败，请重新加载，错误代码：" + XMLHttpRequest.readyState);
+			}
+		   });
+		  //请求手机结束
+	  }
+	  
+}
+function cleartext(tsextid)
+{
+  var tsextid= "#" + tsextid;
+  $(tsextid).html("");
+}
+
+
+</script>
+</body>
+</html>

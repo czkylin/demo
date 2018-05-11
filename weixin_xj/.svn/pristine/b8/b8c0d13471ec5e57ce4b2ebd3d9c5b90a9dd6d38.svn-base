@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>无标题文档</title>
+</head>
+<link href="/weixin/Public/Home/css/kalist.css" type="text/css" rel="stylesheet" >
+<body>
+<div class="det">
+	<h2>12月6日 山东、安徽多地药店筛查活动火热进行中</h2>
+    <div class="del_con">
+    	<img src="/weixin/Public/Home/images/kalist/1.jpg">
+        <p>山东漱玉平民大药房董家镇店筛查活动火热进行中</p>
+        <img src="/weixin/Public/Home/images/kalist/2.jpg">
+        <p>山东菏泽市牡丹区健康万里行筛查活动现场</p>
+        <img src="/weixin/Public/Home/images/kalist/3.jpg">
+        <p>安徽合肥筛查活动正在进行时</p>
+        <img src="/weixin/Public/Home/images/kalist/4.jpg">
+        <p>百倍爱心卡的工作人员正在给药店员工进行培训</p>
+    </div>
+    <br><br>
+    <a href="#" class="jiaru">立即分享</a>
+</div>
+</body>
+</html>

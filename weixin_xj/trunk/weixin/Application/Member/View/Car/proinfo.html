@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>{$proinfo.COMMODITY_NAME}</title>
+	<style type="text/css">
+		*{padding: 0;margin:0;}
+		img {border-width: 0; vertical-align: middle;}
+		a{text-decoration:none;border:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;outline:none;}
+		.xtsz-con{margin-bottom: 1.96rem;}
+		.xtsz-btn{width: 100%;height: 1.96rem; line-height: 1.96rem; font-size: .72rem; color: #ffffff;position: fixed;left: 0;bottom: 0;overflow: hidden;}
+		.xtsz-btn span{width: 35%;height:100%;display:block;text-align: center; background: #ffcc01;float: left;}
+		.xtsz-btn a{width: 65%;height:100%;display:block;text-align: center;background: #f86923; color: #ffffff;float: right;}
+	</style>
+	<script type="text/javascript">
+
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+	</script>
+</head>
+<body>
+	<section class="xtsz-con">
+		{$proinfo.SHOW_DESC|htmlspecialchars_decode}
+	</section>
+
+	<div style="width: 100%;position: fixed;left: 0;bottom: 0;display:-webkit-box;">
+		<span style="width:4rem;display:block;line-height:40px;font-size:14px;color:#666;background:#f1f1f1;text-align:center;">￥{$proinfo.COMMODITY_MONEY}元</span>
+		<a href="javascript:;" style="width:4rem;display:block;line-height:40px;font-size:14px;color:#fff;background:#efa34a;text-align:center;" onclick="addcar()">加入购物车</a>
+		<a href="javascript:;" style="width:4rem;display:block;line-height:40px;font-size:14px;color:#fff;background:#ef4a65;text-align:center;" onclick="gobuy()">立即购买</a>
+		<img id="img" class="fly" src="{$proinfo.COMMODITY_COVER}" style="position:absolute;left:50%;bottom:10px;margin-left:-10px;z-index:-1;" width="20px">
+	</div>
+	<a id="cart" href="{:U("Car/listCar")}" style="position:fixed;bottom:60px;right:20px;background:url(/weixin/Public/Member/images/shoping/cart.png) no-repeat;background-size:cover;width:50px;height:50px;">
+		<i style="position:absolute;top:-6px;right:0;width:16px;height:16px;background:#f30;border-radius:50%;text-align:center;color:#fff;line-height:16px;font-size:12px;font-style:normal;" id="cnum"></i>
+		<input id="num" value="" type="hidden">
+	</a>
+	<form id="subinfo" method="post" action='{:U("Car/goBuy")}'>
+        <input type="hidden" name="shop_id" value="{$proinfo.COMMODITY_ID}" id="shop_id">
+    </form>
+		<input type="hidden" value="{$openid}" id="openid">
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Member/js/initCart.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">	
+	checklogin();
+	//直接购买
+	function gobuy(){
+		checklogin();
+		var shop_id = $("#shop_id").val();
+		$.post('{:U("Car/goBuy")}',{'shop_id':shop_id},function(ret){
+			if(ret.code==1){
+				window.location.href="/weixin/Application/Member/WxpayAPI/jsapi.php?json="+ret.json;
+			}else{
+				alert(ret.msg);
+			}
+		});
+	}
+	//加入购物车
+	function addcar(){
+		checklogin();
+		var pid = {$proinfo.COMMODITY_ID};
+		var pay_money = {$proinfo.COMMODITY_MONEY};
+		$.post('{:U("Car/addCar")}',{'commodity_id':pid,'pay_money':pay_money},function(ret){
+			if(ret.code==1){
+				fly();
+			}else if(ret.code=='3'){
+				window.location.href="/weixin/index.php?m=Member&c=Follow&a=index";
+			}else if(ret.code=='false'){
+				window.location.href="/weixin/index.php?m=Member&c=User&a=band_phone";
+			}else{
+				alert(ret.msg);
+			}
+		});
+	}
+
+	function checklogin(){
+		var openid = $("#openid").val();
+		if(openid == 100){
+			window.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid={:C('M_APPID')}&redirect_uri=http%3a%2f%2fwx-heartorg.yk2020.com%2fweixin%2findex.php%3fm%3dMember%26c%3dCar%26a%3dproinfo%26pid%3d{$pid}&response_type=code&scope=snsapi_base&state=1#wechat_redirect"
+		}
+	}
+	//微信分享
+	wx.config({
+	    debug: false,
+	    appId: '<?php echo $appId;?>',
+	    timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+	    nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+	    signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+	    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+	});
+
+	var wx_share_title = '{$proinfo.COMMODITY_NAME}';
+	var wx_share_desc = '{$proinfo.COMMODITY_INFO}';
+	var wx_share_imgUrl = '{$proinfo.COMMODITY_COVER}';
+	wx.ready(function() {
+    wx.onMenuShareTimeline({
+        title: wx_share_title,
+        desc: wx_share_desc,
+        link: 'http://xinjie.yk2020.com/weixin/index.php?m=Member&c=Car&a=proInfo&pid={$proinfo.COMMODITY_ID}&share_type=share',
+        imgUrl: wx_share_imgUrl,
+        success: function() {
+
+        },
+        cancel: function() {}
+    });
+    wx.onMenuShareAppMessage({
+        title: wx_share_title,
+        desc: wx_share_desc,
+        link: 'http://xinjie.yk2020.com/weixin/index.php?m=Member&c=Car&a=proInfo&pid={$proinfo.COMMODITY_ID}&share_type=share',
+        imgUrl: wx_share_imgUrl,
+        success: function() {
+
+        },
+        cancel: function() {}
+    });
+}); 
+	$(function(){
+		$.post('{:U("Car/getNumcar")}',{},function(ret){
+			$("#cnum").html(ret.num);
+			$("#num").val(ret.num);
+		});
+	});
+</script>
+<!-- 统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

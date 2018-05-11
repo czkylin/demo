@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>会诊成员</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zj/zj.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body class="grey">
+    <article>
+        <!-- 会诊专家待确认 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">会诊专家待确认</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;">取消会诊</a>
+            </div>  
+        </section>
+
+        <!-- 会诊专家已通过 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">会诊专家已通过</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;">取消会诊</a>
+            </div>  
+        </section>
+
+        <!-- 专家未通过 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">专家未通过</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;">取消会诊</a>
+            </div>  
+        </section>
+
+        <!-- 患者已支付 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">患者已支付</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;">取消会诊</a>
+            </div>  
+        </section>
+
+        <!-- 患者取消的订单 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">患者取消的订单</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+        <!-- 患者未支付 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">患者未支付</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;">取消会诊</a>
+            </div>  
+        </section>
+
+        <!-- 取消的订单 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="wait text-right">取消的订单</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+        <!-- 会诊中 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="ing text-right">会诊中</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;" class="blue">查看诊断报告</a>
+            </div> 
+        </section>
+
+        <!-- 会诊成功 -->
+        <section class="sec">
+            <p class="text-center time">09:34</p>
+            <div class="zoom">
+                <header>
+                    <div class="box">
+                        <span>郝彤彤</span>
+                        <em>女  27</em>
+                        <i class="text-right green">会诊成功</i>
+                    </div>
+                    <p>详情：<b>发生的方式看附件是快递放假时看附件是快递费</b></p>
+                </header>
+                <footer class="box">
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                    <div class="nr box">
+                        <div class="imgs"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" /></div>
+                        <div class="txts">
+                            <h2>名字<small>主任医师</small></h2>
+                            <span>长阳县医院</span>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <div class="btn">
+                <a href="javascript:;" class="blue">查看诊断报告</a>
+            </div> 
+        </section>
+    </article>
+</body>
+</html>

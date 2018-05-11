@@ -1,0 +1,38 @@
+<volist name="expert_list" id="doc">
+    <li>
+        <a class="yylist_a" style=" margin-bottom:6px;" href="/weixin/index.php?m=Member&c=Doc&a=doc_detail&doc_id={$doc['EXPERT_ID']}"> 
+           <span class="img">
+               <img src="{$doc['SMALL_PIC']}" style="height:60px; width:60px;" class="g-left expert-img"/>
+                <?php    
+     
+                  $my=intval($doc['MY_NUM']); 
+                  $hy=intval($doc['HY_NUM']);  
+                  $cp=intval($doc['CP_NUM']); 
+                  $sum = ($my*8+$hy*10+$cp*4)*60/(($my+$hy+$cp)*10);
+                  $sum1 = round($sum,0);   
+                  if($sum1 == 0)
+                  {
+                      $sum1 = 50;
+                  }                               
+                  echo "<i><b style='width:".$sum1."px;'><img src='/weixin/Public/Member/images/icon/start.png' /></b></i>";
+                ?>  
+           </span> 
+           <span class="meta">
+            <div class="name_dj"> 
+                <strong class="mingcheng"><em class="zc">{$doc['EXPERT_NAME']}</em><em class="zc">{$doc['EXPERT_RANK']}</em><em class="count">浏览量：{$doc['POINT_NUM']+97}</em></strong> 
+                <strong class="mingcheng"><em class="zc">{$doc['HOS_NAME']}</em><em class="zc">{$doc['DEP_NAME']}</em></strong> 
+            </div>
+            <p class="desc">擅长：{$doc['EXPERT_SKILL']}
+                <if condition=" $doc['EXPERT_SKILL'] eq '' ">
+                    暂无
+                </if>
+            </p>
+            </span> 
+        </a>                               
+        <div class="kt_service">
+            < <div class="kt_service">   
+              <a class="service" style=" margin:0 0 0 10px" href="/weixin/index.php?m=Member&c=Doc&a=doc_consult&doc_id={$doc['EXPERT_ID']}">在线咨询</a>       
+            </div>
+        </div>
+    </li>∮
+</volist>

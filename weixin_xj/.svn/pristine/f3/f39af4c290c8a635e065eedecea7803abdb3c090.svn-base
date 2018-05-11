@@ -1,0 +1,25 @@
+/*reset*/
+body,body *{margin: 0; padding: 0;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+li{list-style: none;}
+img{vertical-align: top;}
+.clear:after{content: ''; display: block; clear: both;}
+/*list*/
+.list{}
+.list li{padding: 0.544rem 0.384rem 0.768rem; border-bottom: 1px solid #e7e7e7;}
+.list a{display: block;}
+.list a>img{float: left; display: block; width: 2rem; height: 1.68rem; margin-right: 0.48rem; border-radius: 3px;}
+.list .con{float: left; width: 6.5rem;}
+.list .con h2{font-size: 0.448rem; color: #000;}
+.list .con p{height: 0.8rem; line-height: 0.8rem; font-size: 0.416rem; color: #999; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.list .code{float: right; width: 1rem; text-align: center; height: 1.68rem;}
+.list .code img{width: 0.64rem; height: 0.64rem;}
+/*pop*/
+#pop{position: fixed; left: 0; top: 0; z-index:10; height: 100%; width: 100%; display: none;}
+#pop .mask{position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; background: rgba(0,0,0,0.7);}
+#pop .close{position: absolute; right: 0; top: -1.152rem; display: block; width: 1rem; height: 1rem; background: url(/weixin/Public/Member/images/huzhu/close.png) no-repeat center; background-size: 0.8rem; }
+#pop .pop-content{width: 8rem; margin: 3.5rem auto; background: #fff; border-radius: 10px; position: relative; z-index: 11;}
+#pop .pop-main{border-bottom: 1px solid #e7e7e7; padding: 0.8rem 0.8rem 0;}
+#pop .pop-main img{width: 6.4rem; height: 6.4rem; display: block;}
+#pop .pop-main p{height: 1.2rem; line-height: 1.2rem; text-align: center; font-size: 0.48rem; color: #666666;}
+#pop .pop-des{height: 1.12rem; line-height: 1.12rem; text-align: center; font-size: 0.384rem; color: #999;}

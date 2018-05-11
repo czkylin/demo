@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>推荐积分</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/expand.css">
+    
+</head>
+
+<body style=" background:#f4f4f4;">
+   <div class="head">
+   		<h2><a href="{:U('Expert/User/expand')}"><img src="/weixin/Public/Expert/images/expand/fanhui.png"></a>推荐结果</h2>
+   </div>
+   <div class="con">
+   		<div class="con_top">
+        	<p>本月己成功推荐<span>{$tj_apply}人</span></p>
+        </div>
+        <div class="con_bot">
+        	<p><a href="{:U('Expert/User/collect')}">历史推荐明细</a></p>
+        </div>
+   </div>
+     <!--微信全国眼科远程医疗联盟  cnzz统计代码，修改日期2016.06.17郑洁-马峰-->           <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259585801).'" width="0" height="0"/>';?></div>
+      <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+     </body>
+
+</html>

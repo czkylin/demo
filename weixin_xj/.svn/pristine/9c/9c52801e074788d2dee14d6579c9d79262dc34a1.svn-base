@@ -1,0 +1,168 @@
+body{background: #fff;}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.count{
+	padding: 0 24px;
+}
+.count p{
+	font-size: 14px;
+	color: #1a191e;
+	line-height: 30px;
+}
+.list{}
+.list li{
+	margin-bottom: 15px;
+	border-bottom: 1px solid #e0e0e0;
+} 
+.list li h3{
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	color: #000;
+}
+.list li h3 a{
+	font-weight: normal;
+	color: #333;
+	font-size: 14px;
+}
+.list .list-des{
+	padding: 0 24px;
+	height: 32px;
+	line-height: 32px;
+	margin-bottom: 5px;
+} 
+.list .list-des p{
+	font-size: 12px;
+	color: #333;
+	float: left;
+	margin: 0 5px;
+}
+.list .list-des p:nth-of-type(1){
+	font-weight: bold;
+	font-size: 15px;
+	margin:0 5px 0 0;
+}
+.list .list-main{
+	padding: 12px 24px;
+	background: #f6f6f6;
+	border: 1px solid #f9f9f9;
+} 
+.list .main-con{
+	float: left;
+	width: 65%;
+}  
+.list .main-con p{
+	line-height: 25px;
+	font-size: 14px;
+	color: #666;
+}  
+.list .main-con p:nth-of-type(1){
+	color: #333;
+	font-weight: bold;
+}
+.list .main-con p:nth-of-type(2){
+	max-height: 50px;
+	overflow: hidden;
+}
+.list .main-img{
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin-right: 8px;
+	overflow: hidden;
+}  
+.list .main-img img{
+	width: 100%;
+}  
+.imgshow{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.7);
+	display: none;
+}
+.imgshow span{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	color: #fff;
+	width: 35px;
+	height: 35px;
+	background: url(/weixin/Public/Expert/images/cf/icon_guanbi.jpg) no-repeat;
+	background-size: 35px;
+}
+.imgshow img{
+	width: 80%;
+	display: block;
+	margin: 15% auto 0;
+}
+.ui-jiazai{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.ui-jiazai a{
+	color: #999;
+}
+.list .xiugai{
+	padding: 5px 24px;
+}
+.list .xiugai div{
+	float: right;
+}
+.list .xiugai p{
+	float: right;
+	margin-left: 8px;
+}
+.list .xiugai div,.list .xiugai p{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border:1px solid #999;
+	border-radius: 3px;
+	width: 25%;
+}
+.list .xiugai p a,.list .xiugai div a{
+	color: #666;
+}
+.btn-list{
+	padding: 0 24px;
+	margin-bottom: 10px;
+}
+.btn-list a{
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	width: 25%;
+	text-align: center;
+	background-color: #ef4a65;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 12px;
+}
+.btn-list a:nth-of-type(2){
+	margin-left: 12.5%;
+}
+.chuangjian{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #FF647C;
+	color: #fff;
+	font-size: 14px;
+	left: 0;
+	bottom:0;
+}

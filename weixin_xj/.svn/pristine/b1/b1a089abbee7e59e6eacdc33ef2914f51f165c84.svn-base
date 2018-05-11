@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全国远程阅片</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<style>
+		*{margin:0; padding: 0}
+		body,html{height: 100%; overflow: hidden;}
+		#main{height: 100%}
+	</style>
+</head>
+<body>
+	<div id="main"></div>
+	<script type="text/javascript" src="/weixin/Public/Member/js/echarts.min.js"></script>
+   	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+   	<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+	<script>
+	window.onload = function(){
+
+			var myChart = echarts.init(document.getElementById('main'));
+
+			
+			var geoCoordMap = {
+			    "云南省昭通市彝良县人民医院":[104.058808,27.63601432],
+				"昭通市第二人民医院":[103.7164486,27.33878377],
+				"元阳县人民医院":[102.8455846,23.2271331],
+				"广南县人民医院":[105.0778343,24.05992714],
+				"建水县人民医院":[102.83012,23.63394],
+				"泸西县人民医院":[103.77502,24.53651],
+				"乌拉特前旗人民医院":[108.65304,40.72842],
+				"化德县医院":[41.90149,114.01343],
+				"察哈尔右翼中旗医院":[112.43474,41.48551],
+				"土默特左旗人民医院":[111.14951,40.72485],
+				"巴林左旗蒙医中医医院":[119.38438,43.97786],
+				"鄂尔多斯市中医医院":[109.80457,39.60141],
+				"吉林省敦化市医院":[128.22928,43.3721],
+				"宁夏青铜峡市人民医院":[106.1134,38.01043],
+				"临淄区人民医院":[118.30711,36.81295],
+				"山东省淄博市中医医院":[117.85,36.80143],
+				"淄博市博山区医院":[117.86135,36.51272],
+				"淄矿集团中心医院":[117.99376,36.63256],
+				"山东临沐县中医院":[118.62953,34.91957],
+				"安丘市人民医院":[119.2066,36.42319],
+				"临朐县中医院":[118.53511,36.51911],
+				"山东东营市广饶县中医院":[118.40399,37.05993],
+				"山东省滕州市中医医院":[117.16675,35.08425],
+				"无棣县中医院":[17.60939,37.75305],
+				"武城县中医院":[116.08848,37.21846],
+				"滨州市邹平县人民医院":[117.73534,36.88269],
+				"胶州市人民医院":[120.01763,36.28677],
+				"莒县中医医院":[118.84047,35.57139],
+				"金昌市第一人民医院":[102.0777,38.38171],
+				"徐闻县第二人民医院":[110.16478,20.32354],
+				"铜仁市人民医院A":[109.2358,27.78561],
+				"容城县人民医院":[115.86219,39.052],
+				"易县人民医院":[115.50607,39.35096],
+				"河北省保定市望都县医院":[115.13867,38.70878],
+				"河北省曲阳县人民医院":[114.69533,38.6208],
+				"河北省顺平县人民医院":[115.14369,38.85321],
+				"清苑县人民医院":[115.48762,38.76468],
+				"肃宁县人民医院":[115.83537,38.42214],
+				"平泉县人民医院":[117.5079,40.41893],
+				"承德县医院":[118.15804,40.75482],
+				"河北省围场满族蒙古族自治县医院":[117.76173,41.95962],
+				"河北省承德丰宁县医院":[116.65029,41.20217],
+				"临漳县人民医院":[114.60302,36.32816],
+				"永年县中医院":[114.49486,36.77352],
+				"河北邯郸市邯钢医院":[114.49102,36.59156],
+				"磁县人民医院":[114.39599,36.38507],
+				"魏县人民医院":[114.93097,36.36145],
+				"景县人民医院":[116.28878,37.69265],
+				"河北省故城县中医院":[115.97272,37.34708],
+				"衡水市安平县人民医院":[115.53436,38.22722],
+				"邢台县医院":[114.51542,37.10095],
+				"阜城县人民医院":[116.16786,37.87329],
+				"晋州市人民医院":[115.07014,38.03145],
+				"廊坊市安次区医院":[116.69607,39.51315],
+				"文安县中医医院":[116.46415,38.86606],
+				"永清县人民医院":[116.49796,39.31463],
+				"河北省大城县医院":[116.64357,38.69232],
+				"昌黎县人民医院":[119.17845,39.72824],
+				"秦皇岛市中医医院":[119.55504,39.93247],
+				"秦皇岛市抚宁区人民医院":[119.23527,39.88092],
+				"青龙满族自治县医院":[118.94718,40.40838],
+				"河北省沙河市人民医院":[114.51756,36.85726],
+				"河北省涿鹿县医院":[115.20467,40.37509],
+				"深州市医院":[115.20467,40.37509],
+				"井陉县中医院":[114.1407,38.0313],
+				"无极县医院":[114.96746,38.17675],
+				"河北省深泽县医院":[115.21288,38.18363],
+				"河北省藁城区中西医结合医院":[114.82606,38.02073],
+				"石家庄栾城区人民医院":[114.65246,37.88741],
+				"鹿泉人民医院":[114.30953,38.08844],
+				"河北省乐亭县医院":[118.90502,39.427],
+				"玉田县医院":[117.75609,39.88635],
+				"蠡县医院":[115.59798,38.49762],
+				"迁西县中医院":[118.3025,40.15931],
+				"任县人民医院":[114.68582,37.12873],
+				"南宫市人民医院":[115.39292,37.35504],
+				"清河县人民医院":[115.65958,37.05731],
+				"隆尧县医院":[114.77865,37.35793],
+				"嵩县人民医院":[112.08371,34.12922],
+				"栾川县人民医院":[111.6465,33.77956],
+				"河南汝阳县人民医院":[112.46833,34.15369],
+				"河南省洛阳新区人民医院":[112.48587,34.60396],
+				"洛阳市孟津县人民医院":[112.44388,34.82973],
+				"洛阳市第一人民医院":[112.48959,34.68534],
+				"偃师市中医院":[112.78106,34.72441],
+				"兰考县中心医院":[114.82377,34.83358],
+				"河南省灵宝市第一人民医院":[110.89084,34.52114],
+				"松阳县人民医院":[119.50007,28.44661],
+				"应城市人民医院":[113.5652,30.9414],
+				"石首市人民医院":[112.43058,29.71107],
+				"凌源钢城中心医院":[119.42205,41.26519],
+				"黑龙江省绥棱县人民医院":[127.10528,47.23892],
+				"樟树市人民医院":[115.54998,28.05801],
+				"武宁县人民医院":[115.11507,29.24282],
+				"江西省乐安县人民医院":[115.83787,27.4154],
+				"寻乌县人民医院":[115.65053,24.94989],
+				"江西省崇义县人民医院":[114.30399,25.69477],
+				"赣州市南康区第一人民医院":[114.76971,25.68115],
+				"万年县人民医院":[17.06473,28.68781],
+				"余干县人民医院":[116.68938,28.69989],
+				"鄱阳县人民医院":[116.69451,29.01381],
+				"壶关县人民医院":[113.20348,36.10827],
+				"山西省吕梁市人民医院":[111.143247,37.523821],
+				"左云县人民医院":[112.71334,40.01417],
+				"晋中市第三人民医院":[111.91041,37.01689],
+				"阳泉市第三人民医院":[113.58022,37.85132],
+				"山西省晋城市泽州县人民医院":[112.8328,35.49876],
+				"阳城县人民医院":[112.42535,35.48288],
+				"陵川县人民医院":[113.28225,35.77957],
+				"临汾市第二人民医院":[111.52521,36.08208],
+				"山西省吉县人民医院":[110.66688,36.08694],
+				"山西省翼城县人民医院":[111.72134,35.73816],
+				"曲沃县人民医院":[111.48528,35.64089],
+				"洪洞县人民医院":[111.65596,36.25436],
+				"蒲县人民医院":[111.09099,36.41231],
+				"山西省万荣县人民医院":[110.8445,35.41545],
+				"河津市人民医院":[110.72016,35.57473],
+				"山西省运城市绛县人民医院":[111.57987,35.48849],
+				"新绛县人民医院":[111.2201,35.63038],
+				"运城市稷山县人民医院":[110.97208,35.60102],
+				"西乡县中医院":[107.76146,32.98347],
+				"西安医学院附属宝鸡医院":[107.12019,34.34039],
+				"长武县人民医院":[107.79481,35.20245],
+				"丹凤县医院":[110.32761,33.69524],
+				"洛南县中医院":[110.1452,34.08666],
+				"陕西省吴起县人民医院":[108.20337,36.88995],
+				"陕西省延长县中医医院":[110.01589,36.58019],
+				"安康市人民医院":[109.01943,32.7055],
+				"岚皋县医院":[108.90419,32.30682],
+				"平利县人民医院":[109.35661,32.39294],
+				"旬阳县医院":[109.36634,32.8335],
+				"汉阴县人民医院":[108.51396,32.89157],
+				"石泉县医院":[108.24322,33.04065],
+				"陕西省宁陕县医院":[108.31504,33.31403],
+				"华县人民医院":[109.76724,34.51447],
+				"渭南市合阳县中医医院":[110.1527,35.23097],
+				"渭南市白水县医院":[109.58948,35.17897],
+				"澄城县医院":[109.94304,35.18768],
+				"蒲城县医院":[109.58401,34.95836],
+				"陕西省富平县人民医院":[109.18768,34.74938],
+				"定边县人民医院":[107.59915,37.5969],
+				"府谷县中医医院":[111.06161,39.03082],
+				"榆林市星元医院":[109.74453,38.29441],
+				"陕西省佳县人民医院":[110.49067,38.01821],
+				"陕西省绥德县医院":[110.25379,37.49893],
+				"靖边县人民医院":[108.80406,37.59746]
+			};
+
+			var data = [
+				{name:"云南省昭通市彝良县人民医院",value:"1"},
+				{name:"昭通市第二人民医院",value:"31"},
+				{name:"元阳县人民医院",value:"4"},
+				{name:"广南县人民医院",value:"6"},
+				{name:"建水县人民医院",value:"9"},
+				{name:"泸西县人民医院",value:"72"},
+				{name:"乌拉特前旗人民医院",value:"20"},
+				{name:"化德县医院",value:"139"},
+				{name:"察哈尔右翼中旗医院",value:"1"},
+				{name:"土默特左旗人民医院",value:"24"},
+				{name:"巴林左旗蒙医中医医院",value:"9"},
+				{name:"鄂尔多斯市中医医院",value:"33"},
+				{name:"吉林省敦化市医院",value:"45"},
+				{name:"宁夏青铜峡市人民医院",value:"26"},
+				{name:"临淄区人民医院",value:"5"},
+				{name:"山东省淄博市中医医院",value:"5"},
+				{name:"淄博市博山区医院",value:"3"},
+				{name:"淄矿集团中心医院",value:"20"},
+				{name:"山东临沐县中医院",value:"54"},
+				{name:"安丘市人民医院",value:"1"},
+				{name:"临朐县中医院",value:"13"},
+				{name:"山东东营市广饶县中医院",value:"2"},
+				{name:"山东省滕州市中医医院",value:"27"},
+				{name:"无棣县中医院",value:"1"},
+				{name:"武城县中医院",value:"10"},
+				{name:"滨州市邹平县人民医院",value:"2"},
+				{name:"胶州市人民医院",value:"13"},
+				{name:"莒县中医医院",value:"21"},
+				{name:"金昌市第一人民医院",value:"9"},
+				{name:"徐闻县第二人民医院",value:"24"},
+				{name:"铜仁市人民医院A",value:"241"},
+				{name:"容城县人民医院",value:"14"},
+				{name:"易县人民医院",value:"70"},
+				{name:"河北省保定市望都县医院",value:"17"},
+				{name:"河北省曲阳县人民医院",value:"141"},
+				{name:"河北省顺平县人民医院",value:"24"},
+				{name:"清苑县人民医院",value:"87"},
+				{name:"肃宁县人民医院",value:"44"},
+				{name:"平泉县人民医院",value:"111"},
+				{name:"承德县医院",value:"42"},
+				{name:"河北省围场满族蒙古族自治县医院",value:"7"},
+				{name:"河北省承德丰宁县医院",value:"6"},
+				{name:"临漳县人民医院",value:"73"},
+				{name:"永年县中医院",value:"167"},
+				{name:"河北邯郸市邯钢医院",value:"48"},
+				{name:"磁县人民医院",value:"26"},
+				{name:"魏县人民医院",value:"40"},
+				{name:"景县人民医院",value:"6"},
+				{name:"河北省故城县中医院",value:"334"},
+				{name:"衡水市安平县人民医院",value:"28"},
+				{name:"邢台县医院",value:"3"},
+				{name:"阜城县人民医院",value:"97"},
+				{name:"晋州市人民医院",value:"30"},
+				{name:"廊坊市安次区医院",value:"27"},
+				{name:"文安县中医医院",value:"59"},
+				{name:"永清县人民医院",value:"34"},
+				{name:"河北省大城县医院",value:"16"},
+				{name:"昌黎县人民医院",value:"99"},
+				{name:"秦皇岛市中医医院",value:"16"},
+				{name:"秦皇岛市抚宁区人民医院",value:"9"},
+				{name:"青龙满族自治县医院",value:"23"},
+				{name:"河北省沙河市人民医院",value:"27"},
+				{name:"河北省涿鹿县医院",value:"13"},
+				{name:"深州市医院",value:"35"},
+				{name:"井陉县中医院",value:"17"},
+				{name:"无极县医院",value:"76"},
+				{name:"河北省深泽县医院",value:"16"},
+				{name:"河北省藁城区中西医结合医院",value:"8"},
+				{name:"石家庄栾城区人民医院",value:"55"},
+				{name:"鹿泉人民医院",value:"2"},
+				{name:"河北省乐亭县医院",value:"17"},
+				{name:"玉田县医院",value:"18"},
+				{name:"蠡县医院",value:"32"},
+				{name:"迁西县中医院",value:"21"},
+				{name:"任县人民医院",value:"57"},
+				{name:"南宫市人民医院",value:"10"},
+				{name:"清河县人民医院",value:"153"},
+				{name:"隆尧县医院",value:"42"},
+				{name:"嵩县人民医院",value:"15"},
+				{name:"栾川县人民医院",value:"26"},
+				{name:"河南汝阳县人民医院",value:"74"},
+				{name:"河南省洛阳新区人民医院",value:"50"},
+				{name:"洛阳市孟津县人民医院",value:"14"},
+				{name:"洛阳市第一人民医院",value:"21"},
+				{name:"偃师市中医院",value:"59"},
+				{name:"兰考县中心医院",value:"7"},
+				{name:"河南省灵宝市第一人民医院",value:"89"},
+				{name:"松阳县人民医院",value:"5"},
+				{name:"应城市人民医院",value:"11"},
+				{name:"石首市人民医院",value:"19"},
+				{name:"凌源钢城中心医院",value:"2"},
+				{name:"黑龙江省绥棱县人民医院",value:"9"},
+				{name:"樟树市人民医院",value:"13"},
+				{name:"武宁县人民医院",value:"23"},
+				{name:"江西省乐安县人民医院",value:"2"},
+				{name:"寻乌县人民医院",value:"2"},
+				{name:"江西省崇义县人民医院",value:"4"},
+				{name:"赣州市南康区第一人民医院",value:"1"},
+				{name:"万年县人民医院",value:"25"},
+				{name:"余干县人民医院",value:"5"},
+				{name:"鄱阳县人民医院",value:"43"},
+				{name:"壶关县人民医院",value:"3"},
+				{name:"山西省吕梁市人民医院",value:"67"},
+				{name:"左云县人民医院",value:"4"},
+				{name:"晋中市第三人民医院",value:"11"},
+				{name:"阳泉市第三人民医院",value:"72"},
+				{name:"山西省晋城市泽州县人民医院",value:"95"},
+				{name:"阳城县人民医院",value:"18"},
+				{name:"陵川县人民医院",value:"6"},
+				{name:"临汾市第二人民医院",value:"28"},
+				{name:"山西省吉县人民医院",value:"3"},
+				{name:"山西省翼城县人民医院",value:"31"},
+				{name:"曲沃县人民医院",value:"4"},
+				{name:"洪洞县人民医院",value:"9"},
+				{name:"蒲县人民医院",value:"2"},
+				{name:"山西省万荣县人民医院",value:"19"},
+				{name:"河津市人民医院",value:"43"},
+				{name:"山西省运城市绛县人民医院",value:"7"},
+				{name:"新绛县人民医院",value:"20"},
+				{name:"运城市稷山县人民医院",value:"38"},
+				{name:"西乡县中医院",value:"4"},
+				{name:"西安医学院附属宝鸡医院",value:"5"},
+				{name:"长武县人民医院",value:"13"},
+				{name:"丹凤县医院",value:"21"},
+				{name:"洛南县中医院",value:"72"},
+				{name:"陕西省吴起县人民医院",value:"29"},
+				{name:"陕西省延长县中医医院",value:"1"},
+				{name:"安康市人民医院",value:"31"},
+				{name:"岚皋县医院",value:"1"},
+				{name:"平利县人民医院",value:"1"},
+				{name:"旬阳县医院",value:"1"},
+				{name:"汉阴县人民医院",value:"19"},
+				{name:"石泉县医院",value:"7"},
+				{name:"陕西省宁陕县医院",value:"3"},
+				{name:"华县人民医院",value:"1"},
+				{name:"渭南市合阳县中医医院",value:"18"},
+				{name:"渭南市白水县医院",value:"16"},
+				{name:"澄城县医院",value:"29"},
+				{name:"蒲城县医院",value:"1"},
+				{name:"陕西省富平县人民医院",value:"108"},
+				{name:"定边县人民医院",value:"14"},
+				{name:"府谷县中医医院",value:"1"},
+				{name:"榆林市星元医院",value:"3"},
+				{name:"陕西省佳县人民医院",value:"1"},
+				{name:"陕西省绥德县医院",value:"7"},
+				{name:"靖边县人民医院",value:"58"}
+			];
+
+			var convertData = function (data) {
+			    var res = [];
+			    for (var i = 0; i < data.length; i++) {
+			        var geoCoord = geoCoordMap[data[i].name];
+			        if (geoCoord) {
+			            res.push({
+			                name: data[i].name,
+			                value: geoCoord.concat(data[i].value)
+			            });
+			        }
+			    }
+			    return res;
+			};
+
+			var convertedData = [
+			    convertData(data),
+			    convertData(data.sort(function (a, b) {
+			        return b.value - a.value;
+			    }).slice(0, 6))
+			];
+
+
+			option = {
+			    backgroundColor: '#404a59',
+			    animation: true,
+			    animationDuration: 1000,
+			    animationEasing: 'cubicInOut',
+			    animationDurationUpdate: 1000,
+			    animationEasingUpdate: 'cubicInOut',
+			    title: [
+			        {
+			            text: '肿瘤远程会诊全国分布',
+			            subtext: '数据来源云平台',
+			            left: 'center',
+			            textStyle: {
+			                color: '#fff'
+			            }
+			        },
+			        {
+			            id: 'statistic',
+			            right: 120,
+			            top: 40,
+			            width: 100,
+			            textStyle: {
+			                color: '#fff',
+			                fontSize: 16
+			            }
+			        }
+			    ],
+			    toolbox: {
+			        iconStyle: {
+			            normal: {
+			                borderColor: '#fff'
+			            },
+			            emphasis: {
+			                borderColor: '#b1e4ff'
+			            }
+			        }
+			    },
+			    brush: {
+			        outOfBrush: {
+			            color: '#abc'
+			        },
+			        brushStyle: {
+			            borderWidth: 2,
+			            color: 'rgba(0,0,0,0.2)',
+			            borderColor: 'rgba(0,0,0,0.5)',
+			        },
+			        seriesIndex: [0, 1],
+			        throttleType: 'debounce',
+			        throttleDelay: 300,
+			        geoIndex: 0
+			    },
+			    geo: {
+			        map: 'china',
+			        top:'0',
+			        left: '0',
+			        right: '14%',
+			        center: [117.98561551896913, 31.205000490896193],
+			        zoom: 0.65,
+			        label: {
+			            emphasis: {
+			                show: false
+			            }
+			        },
+			        roam: true,
+			        itemStyle: {
+			            normal: {
+			                areaColor: '#323c48',
+			                borderColor: '#111'
+			            },
+			            emphasis: {
+			                areaColor: '#2a333d'
+			            }
+			        }
+			    },
+			    tooltip : {
+			        trigger: 'item'
+			    },
+			    grid: {
+			        right: 40,
+			        top: 100,
+			        bottom: 40,
+			        width: '30%'
+			    },
+			    xAxis: {
+			        type: 'value',
+			        scale: true,
+			        position: 'top',
+			        boundaryGap: false,
+			        splitLine: {show: false},
+			        axisLine: {show: false},
+			        axisTick: {show: false},
+			        axisLabel: {margin: 2, textStyle: {color: '#aaa'}},
+			    },
+			    yAxis: {
+			        type: 'category',
+			        name: '肿瘤远程会诊全国TOP 20',
+			        nameGap: 16,
+			        axisLine: {show: false, lineStyle: {color: '#ddd'}},
+			        axisTick: {show: false, lineStyle: {color: '#ddd'}},
+			        axisLabel: {interval: 0, textStyle: {color: '#ddd'}},
+			        data: []
+			    },
+			    series : [
+			        {
+			            name: 'pm2.5',
+			            type: 'scatter',
+			            coordinateSystem: 'geo',
+			            data: convertedData[0],
+			            symbolSize: function (val) {
+			                return Math.max(val[2] / 10, 8);
+			            },
+			            label: {
+			                normal: {
+			                    formatter: '{b}',
+			                    position: 'right',
+			                    show: false
+			                },
+			                emphasis: {
+			                    show: true
+			                }
+			            },
+			            itemStyle: {
+			                normal: {
+			                    color: '#ddb926'
+			                }
+			            }
+			        },
+			        /*{
+			            name: 'Top 5',
+			            type: 'effectScatter',
+			            coordinateSystem: 'geo',
+			            data: convertedData[1],
+			            symbolSize: function (val) {
+			                return Math.max(val[2] / 10, 8);
+			            },
+			            showEffectOn: 'emphasis',
+			            rippleEffect: {
+			                brushType: 'stroke'
+			            },
+			            hoverAnimation: true,
+			            label: {
+			                normal: {
+			                    formatter: '{b}',
+			                    position: 'right',
+			                    show: true
+			                }
+			            },
+			            itemStyle: {
+			                normal: {
+			                    color: '#f4e925',
+			                    shadowBlur: 10,
+			                    shadowColor: '#333'
+			                }
+			            },
+			            zlevel: 1
+			        },*/
+			        {
+			            id: 'bar',
+			            zlevel: 2,
+			            type: 'bar',
+			            symbol: 'none',
+			            itemStyle: {
+			                normal: {
+			                    color: '#ddb926'
+			                }
+			            },
+			            data: []
+			        }
+			    ]
+			};
+
+
+			myChart.on('brushselected', renderBrushed);
+
+			// myChart.setOption(option);
+
+			setTimeout(function () {
+			    myChart.dispatchAction({
+			        type: 'brush',
+			        areas: [
+			            {
+			                geoIndex: 0,
+			                brushType: 'polygon',
+			                coordRange: [[0,0],[0,800],[600,800],[600,0]],
+			                brushStyle:{
+			                	opacity:0
+			                }
+			            }
+			        ]
+			    });
+			}, 0);
+
+
+			function renderBrushed(params) {
+			    var mainSeries = params.batch[0].selected[0];
+
+			    var selectedItems = [];
+			    var categoryData = [];
+			    var barData = [];
+			    var maxBar = 20;
+			    var sum = 0;
+			    var count = 0;
+
+			    for (var i = 0; i < mainSeries.dataIndex.length; i++) {
+			        var rawIndex = mainSeries.dataIndex[i];
+			        var dataItem = convertedData[0][rawIndex];
+			        var pmValue = dataItem.value[2];
+
+			        sum += pmValue;
+			        count++;
+
+			        selectedItems.push(dataItem);
+			    }
+
+			    selectedItems.sort(function (a, b) {
+			        return b.value[2] - a.value[2];
+			    });
+
+			    for (var i = 0; i < Math.min(selectedItems.length, maxBar); i++) {
+			        categoryData.push(selectedItems[i].name);
+			        barData.push(selectedItems[i].value[2]);
+			    }
+
+			    this.setOption({
+			        yAxis: {
+			            data: categoryData
+			        },
+			        xAxis: {
+			            axisLabel: {show: !!count}
+			        },
+			        title: {
+			            id: 'statistic',
+			            // text: count ? '平均: ' + (sum / count).toFixed(4) : ''
+			        },
+			        series: {
+			            id: 'bar',
+			            data: barData.reverse()
+			        }
+			    });
+			}
+			
+			myChart.setOption(option);	
+	}
+		 
+	</script>
+</body>
+</html>

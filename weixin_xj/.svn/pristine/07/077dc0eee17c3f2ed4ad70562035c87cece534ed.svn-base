@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>百倍爱心卡集锦</title>
+</head>
+<link href="/weixin/Public/Home/css/kalist.css" type="text/css" rel="stylesheet" >
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script>
+
+    function set_log(act)
+    {
+        var type = "Home_bb_detail_102";
+        var link_mobile = '{:I("get.link_mobile","0")}';
+        var openid = "{$openid}";
+        var path = "{$path}";
+        $.ajax(
+                {
+                    type: "post",
+                    url: "/weixin/index.php?m=Member&c=Index&a=set_log",
+                    data: {'type':type,'openid':openid,'link_mobile':link_mobile,'url_path':path,'act':act},
+                    dataType: "json",
+                    success: function(data)
+                    {
+                        console.log('set_log:success');
+                    }
+            });
+    }
+
+    wx.config({
+        debug: false,
+        appId: '<?php echo $appId;?>',
+        timestamp: '<?php echo $timestamp;?>', // 必填,生成签名的时间戳
+        nonceStr:'<?php echo $NonceStr;?>', // 必填，生成签名的随机串
+        signature: '<?php echo $signature;?>',// 必填，签名，见附录1
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
+
+    var wx_share_title = '山东威海高寿堂医药连锁有限公司公益筛查活动火热进行中';
+    var wx_share_desc = '春风送暖，迎着春风，我们的健康万里行公益筛查活动势头益胜。山东威海高寿堂医药连锁有限公司公益筛查活动现场，前来参加此次活动的当地居民早早的就来到了现场。';
+    var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Home/images/kalist/314/f.jpg";
+
+    wx.ready(function() {
+        wx.onMenuShareTimeline({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Home&c=Baibei&a=bb_detail_314&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name={:I("get.user_name","")}',
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                set_log('朋友圈');
+            },
+            cancel: function() {}
+        });
+        wx.onMenuShareAppMessage({
+            title: wx_share_title,
+            desc: wx_share_desc,
+            link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Home&c=Baibei&a=bb_detail_314&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name={:I("get.user_name","")}',
+            imgUrl: wx_share_imgUrl,
+            success: function() {
+                set_log('微信');
+            },
+            cancel: function() {}
+        });
+    });
+
+</script>
+<body>
+<div class="det">
+	<h2>山东威海高寿堂医药连锁有限公司公益筛查活动火热进行中</h2>
+    <div class="del_con">
+    	<img src="/weixin/Public/Home/images/kalist/314/01.jpg">
+        <p style=" text-align:left; text-indent:2em;">春风送暖，迎着春风，我们的健康万里行公益筛查活动势头益胜。山东威海高寿堂医药连锁有限公司公益筛查活动现场，前来参加此次活动的当地居民早早的就来到了现场。</p>
+        <p style=" text-align:left; text-indent:2em;">现场参与活动的人员通过智能机器人，与专家进行了远程在线视频会诊。专家对人们提出的疑问，给与了专业的解答，获得了大家的一致认可及好评！</p>
+    </div>
+    <br><br>
+    <a href='/weixin/index.php?m=Member&c=Huzhu&a=wxlogin&user_id={:I("get.user_id","0")}&link_mobile={:I("get.link_mobile","0")}&user_name={:I("get.user_name","")}&sale_type={:C("SALE_TYPE_1")}&attach=<?php echo urlencode(base64_encode("m=Home&c=Baibei&a=bb_detail_314"));?>' class="jiaru">立即加入</a>
+</div>
+</body>
+</html>

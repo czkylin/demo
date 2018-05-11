@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>会员信息</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/baozhang/insurance.min.css">
+</head>
+<body ontouchstart="" style=" background:#fff;">
+<div class="content top bottom mod-member-info">
+        <div class="info-block m-t-5 m-b-5"> 会员No.003428968 </div>
+        <div class="qsc-list-group">
+                <div class="list-item"> <strong>姓名</strong> <span> <span class="text-default">朱凯璇</span> </span> </div>
+                <div class="list-item"> <strong>身份证</strong> <span> <span class="text-default">3412**********0738</span> </span> </div>
+                <div class="list-item" id="link-status-modal"> <strong>保障状态</strong> <span> <span class="text-warning f-16">观察期</span> <i class="list-arrow"></i> </span> </div>
+                <div class="list-item"> <strong>加入时间</strong> <span> <span class="text-default">2016-10-14</span> </span> </div>
+                <div class="list-item"> <strong>保障生效日期</strong> <span> <span class="text-default">2016-10-14</span> </span> </div>
+                <div class="list-item"> <strong>保障失效日期</strong> <span> <span class="text-default">2016-10-14</span> </span> </div>
+        </div>
+        <div class="info-block m-t-5 m-b-5"> 账户信息 </div>
+        <div class="qsc-list-group observed-members">
+         <a href="support" class="list-item"> <strong>预约健康服务</strong> <span><b>3</b> <i class="list-arrow"></i> </span> </a>
+         <a id="link-balance-modal" class="text-check list-item account-balance"> <strong>账户余额</strong> <strong class="text-success">200元</strong></a>
+         <a href="zhangdan.html" class="list-item" id="link-bill"> <strong>账单</strong> <span class="text-success f-16"> <i class="list-arrow"></i> </span> </a>
+         </div>
+        <div class="baozhang_but">
+        	<a class="btn btn-success" id="link-recharge" href="#">申请保障</a>
+            <a class="btn btn-success right" href="#">充值</a>
+            <a class="btn btn-success hui" id="link-recharge" href="#">申请保障</a>
+            <a class="btn btn-success right hui" href="#">充值</a>
+        </div>
+       
+        
+        <div class="qsc-modal in" id="status-modal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog middle middle-max">
+                        <div class="modal-content clearfix">
+                                <div class="modal-header text-center"> </div>
+                                <div class="modal-body">
+                                        <div> <span class="account-status enough">生效</span> <span class="account-status-content">您可以享受心脑保障。</span> </div>
+                                        <div> <span class="account-status low">观察期</span> <span class="account-status-content">又称等待期或免责期，是为了防止参与行动的会员明知道将发生风险事故，而马上加入以获得利益的行为。</span> </div>
+                                        <div> <span class="account-status not-enough">未参与</span> <span class="account-status-content">您还没有参与心脑保障。</span> </div>
+                                </div>
+                                <div class="modal-footer"> <a href="javascript:void(0);" class="btn btn-primary btn-lg btn-radius" data-dismiss="modal">我知道了</a> </div>
+                        </div>
+                </div>
+        </div>
+        
+</div>
+<script src="/weixin/Public/Member/js/baozhang/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/baozhang/jweixin-1.0.0.js"></script> 
+<script src="/weixin/Public/Member/js/baozhang/insurance.min.js"></script> 
+<script>
+    $(function(){
+	    $('#link-balance-modal').on('click', function(){
+		    $('#balance-modal').modal('show');
+	    });
+        $('#link-status-modal').on('click', function(){
+		    $('#status-modal').modal('show');
+	    });
+        $('#link-bill').on('click', function(){
+            window.location = 'http:\/\/insurance.qschou.com\/member\/payment?member=7b1066c252226e9a08c64e26422e825499b17795\x26insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5';
+        });
+        $('#link-recharge').on('click', function(e){
+            if( typeof(GlobalObj.isIOS) != 'undefined' && GlobalObj.isIOS && appVersion < 137) {
+                e.stopPropagation();
+                e.preventDefault();
+                alertMessage('对不起,您当前使用的app版本太低。如需使用该服务,请升级应用', 10000);
+            } else {
+                window.location = 'http:\/\/m.qschou.com\/insurance\/recharge?member=7b1066c252226e9a08c64e26422e825499b17795\x26insurance_uuid=9494537c-69e7-4008-8ee8-d87fb25302c5';
+            }
+        });
+    });
+</script>
+<div id="cli_dialog_div"></div>
+</body>
+</html>

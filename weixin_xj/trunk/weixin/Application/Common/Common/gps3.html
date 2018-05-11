@@ -1,0 +1,43 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js "></script>
+<title>获取地理位置</title>
+
+<!--meta-->
+
+</head>
+
+<body class="ui-mobile-viewport ui-overlay-c">
+<div style=" position:fixed; left:31%; top:45%; width:40%; text-align:center;"><img src="/weixin/Application/Member/View/images/icon/zb.gif" /><br>
+  获取地理位置....</div>
+<script>
+
+	function getLocation(){
+
+		var geolocation = new qq.maps.Geolocation("WHCBZ-YZZK3-AK43H-3A77M-KZ5O3-CCFNI", "mapqq");
+
+		geolocation.getLocation(showPosition, showErr);
+	}
+
+	function showPosition(position){
+
+		window.location.replace("/weixin/index.php?{$url_str}&lat=" + position.lat + "&lng=" + position.lng);
+
+	}
+
+	function showErr(){
+		window.location.replace("/weixin/index.php?{$url_str}&lat=0&lng=0");
+	}
+
+	getLocation();
+
+</script>
+</body>
+</html>

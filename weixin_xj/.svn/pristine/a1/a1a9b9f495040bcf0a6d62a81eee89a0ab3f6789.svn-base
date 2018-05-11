@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/cart.css">
+<style>
+    .nav a{width:2.4rem;} 
+    .money:first-of-type{margin-bottom:0;}
+</style>
+<title>确认订单</title>
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 12 + "px";
+</script>
+</head>
+<body>
+	<nav class="nav">
+	    <ul>
+	        <li><strong>支付方式</strong><i class="red">在线支付（支持微信支付）</i></li>
+	        <li><strong>配送方式</strong><i>快速配送</i></li>
+	    </ul>
+	</nav>
+	<article class="art">
+        <h2>商品</h2>
+	    <section class="box">
+	        <div class="img"><img src="/weixin/Public/Member/images/shoping/share/s1.jpg" width="100%" /></div>
+	        <div class="txts text-center center">百倍爱心高血压健康管理套装</div>
+	        <div class="count text-center center">980x1</div>
+	        <div class="price text-center center">980元</div>
+	    </section>
+	    <section class="box">
+	        <div class="img"><img src="/weixin/Public/Member/images/shoping/share/s2.jpg" width="100%" /></div>
+	        <div class="txts text-center center">百倍爱心高血压健康管理套装</div>
+	        <div class="count text-center center">980x1</div>
+	        <div class="price text-center center">980元</div>
+	    </section>
+	</article>
+	<div class="money fixed text-right">
+        <span><strong>总价：</strong><i>￥0元</i></span>
+	    <a href="javascript:void(0);" class="calcs" id="calcs">提交订单</a>
+    </div>
+    <a href="#" class="cart"><i>0</i></a>
+</body>
+<script src="/weixin/Public/Member/js/jquery.min.js"></script>
+<script>
+$('section').each(function(){
+    var index = $(this).index()+1;
+    $(this).find('label').attr('for','s'+index);
+    $(this).find('input[type="checkbox"]').attr('id','s'+index);
+}); 
+//总价
+var num = 0,checkNum = 0,amount = 0;
+$('section').each(function(){
+    wrtPrice(this);
+}); 
+    
+//数量加减
+$('.calc').click(function(){
+    num = 0;
+    checkNum = 0;
+    amount = 0;
+    if($(this).hasClass('reduce')){
+        $(this).next().html(parseFloat($(this).next().html())>1?parseFloat($(this).next().html())-1:1);
+    }
+    if($(this).hasClass('add')){
+        $(this).prev().html(parseFloat($(this).prev().html())+1);
+    }
+    $('section').each(function(){
+        wrtPrice(this);
+    });
+});
+
+function card_delete(order_id)
+{
+     $.ajax({
+        type: 'POST',
+        url:'{:U("shop/card_delete")}',
+        data:{'order_id':order_id},
+        success:function(msg)
+        {
+                if(msg=='ok')
+                {
+                   alert('删除成功');
+                }
+            }
+        });
+}
+//勾选选项
+$('.choice').click(function(){
+    if($(this).hasClass('all')){
+        if($(this).is(':checked')){
+            $('section').each(function(){
+                $(this).find('input').get(0).checked = 'checked';
+            })
+        }else{
+            //$('.choice').not('.all').attr('checked',false);
+            $('section').each(function(){
+                $(this).find('input').get(0).checked = '';
+            })
+        }
+    }
+});
+
+$('.choice').change(function(){
+    setTimeout(function(){
+        num = 0;
+        checkNum = 0;
+        amount = 0;
+        $('section').each(function(){
+            wrtPrice(this);
+        });
+    },300);
+});
+    
+//价格计算
+function wrtPrice(obj){
+    var n = parseFloat($(obj).find('.price').html())*parseFloat($(obj).find('.num strong').html());
+    $(obj).find('.total').html(n);
+    
+    if($(obj).find('.choice').is(':checked')){
+        num += n;
+        checkNum++;
+        amount += parseFloat($(obj).find('.num strong').html());
+    }
+    
+    if(checkNum == $('section').length){
+        $('.all').get(0).checked = 'checked';
+    }else{
+        $('.all').get(0).checked = '';
+    }
+    $('.money i').html('￥'+num+'元');
+    $('#amount').html(amount);
+}
+
+$("#calcs").click(function(){
+	var shop_id = '';
+    var order_id = '';
+    var shop_num = '';
+    $(".alone").each(function(){
+        if($(this).is(':checked'))
+        {
+           shop_id += $(this).next('.commodity_id').val()+","; 
+           order_id += $(this).parent().find('.order_id').val()+","; 
+           shop_num += $(this).parent().parent().next().next().next().find(".nums").text()+",";
+        }
+        
+    })
+    if(shop_id == ''){
+    	alert('商品不能为空')
+    	return false;
+    }
+
+    $.ajax({
+    type: 'POST',
+    url:'{:U("shop/add_order")}',
+    data:{'shop_id':shop_id,'order_id':order_id,'shop_num':shop_num},
+    success:function(msg)
+    {
+			if(msg!='0')
+            {
+				window.location.href='/weixin/index.php?m=Member&c=Order&a=order_buy&order_id='+msg;
+			}else{
+                
+            }
+		}
+	});
+});
+    
+$('.dels').click(function(){
+    $(this).parents('section').slideUp(function(){
+        $(this).remove();
+        num = 0;
+        checkNum = 0;
+        amount = 0;
+        $('section').each(function(){
+            wrtPrice(this);
+        });
+        if($('section').length == 0){
+            num = 0;
+            amount = 0;
+        }
+        $('.money i').html('￥'+num+'元');
+        $('#amount').html(amount);
+        if($('section').length <= 0){
+            $('article').append('<section class="text-center">购物车中还没有商品，赶紧选购吧！</section>');
+        }
+    });
+
+})
+</script>
+</html>

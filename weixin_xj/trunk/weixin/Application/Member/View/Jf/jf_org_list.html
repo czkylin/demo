@@ -1,0 +1,87 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content=""><!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/footer/footer_v2.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/css.css" type="text/css" rel="stylesheet"/>
+
+<!--css-->
+<link rel="stylesheet" href="/weixin/Application/Expert/View/css/css.css" type="text/css">
+<link rel="stylesheet" href="/weixin/Application/Expert/View/css/footer_v2.css" type="text/css">
+<!-- title -->
+<title>公司-积分列表</title>
+<style>
+.list_sec li div.pic span.fs14{ width:55px;}
+.list_sec li div.pic{ width:25%;}
+</style>
+<!--meta-->
+</head>
+<body>
+<header class="header">
+	<div class="bottom bottom2 pr">
+		<dl class="pa tar">
+			<dd>
+				<img src="{$user_info['HEADIMGURL']}"/>
+			</dd>
+			<dt>{$user_info['NICKNAME']}</dt>
+		</dl>
+	</div>
+</header>
+<div class="content mt65">
+	<ul class="list_fir list_sec" id="jf-list">
+		<li class="myself">
+			<div class="pic fl fs30">今天</div>
+			<section class="fr">
+				<a class="sc_pic" href="/weixin/index.php?m=Member&c=Jf&a=add_info&tj_type=jf_org_list"><img src="/weixin/Application/Expert/View/images/icon3.png"/></a>
+			</section>
+			<div class="clear"></div>
+		</li>
+		<volist name="jf_list" id="jf">
+		<li>
+			<div class="pic fl"><span class="fs14">{$jf['CREATE_DATE']}</span></div>
+			<section class="fr">
+				<div class="tw fs14">
+					<a href="#">
+						<if condition="$jf['JIFEN_PIC'] neq ''">
+						<img src="{$jf['JIFEN_PIC']}"/>
+						</if>
+						积分名称：{$jf['JIFEN_NAME']}<br>
+						积分值：{$jf['JIFEN_VALUE']}<br>
+						积分倍数：{$jf['JIFEN_MULTI']}<br>
+						积分总分：{$jf['JIFEN_SUM']}<br>
+						积分描述：{$jf['JIFEN_DESC']}
+						<div class="clear"></div>
+					</a>
+				</div>
+				<div class="time fs16 tar"><span class="fc2587c6">{$jf['CHECK_FLAG']}</span><!--<a {$str} class="fc2587c6" href="">删除</a>--></div>
+			</section>
+			<div class="clear"></div>
+		</li>
+		</volist>
+	</ul>
+</div>
+<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+
+<div id="current_pagenum" style="display:none">2</div>
+<include file="Public:footer_fd" />
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script>
+<script>
+	var over_footer = '3';
+	function load_more()
+	{
+		loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Jf&a=jf_org_list_append','#jf-list');
+	}
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Member/css/user/myaccount.css" type="text/css" rel="stylesheet" >
+<title>心脑护照卡服务</title>
+</head>
+<body>
+	<div class="detial">
+		<div class="ka">
+			<img src="/weixin/Public/Member/images/user/ka.jpg" alt="">
+			<h3>心脑护照卡</h3>
+			<span>储值卡</span>
+			<p>*** *** *** {$user_info.CARD_NUMBER|substr=(-4)}</p>
+		</div>
+		<ul class="ka-detial">
+			<li>
+				<span>购卡日期</span>
+				<i>
+				<if condition="$user_info['SALE_DATE'] eq ''">暂未购买
+				<else />
+					{$user_info.SALE_DATE}
+				</if>
+				</i>
+			</li>
+			<li>
+				<span>余额</span>
+				<i>￥{$card_yue['cur_money']|round=2}
+			</i>
+			</li>
+			<li>
+				<a href="{:U('Member/User/myAccount_list')}">
+					<span>账单</span>
+				</a>
+			</li>
+		</ul>
+		<a class="go" href="{:U('Member/User/myAccount_cz')}">充值</a>
+	</div>
+</body>
+</html>

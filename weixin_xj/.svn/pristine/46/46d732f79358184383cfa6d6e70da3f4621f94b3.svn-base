@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>关于我们</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/aboult.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px'
+    </script>
+</head>
+<body>
+    <header class="dDetail">
+        <a href="index.php?m=Expert&c=User&a=Expert&c=User&a=" class="icon">&#xf62b;</a>
+        <h2>关于我们</h2>
+    </header>
+    <article class="wxAll">
+        <!--<h2 class="text-center">微信公众号</h2>-->
+        <section>
+            <ul>
+                <li>
+                    <div class="left">
+                        <span></span>
+                    </div>
+                    <div class="right">
+                        <div class="rTop">
+                            <div class="rImg"><img src="/weixin/Public/Expert/images/zhengcejiedu/logoUs.jpg" /></div>
+                            <div class="rTxt">
+                                <p>全国眼科远程医疗联盟</p>
+                                <a href="http://mp.weixin.qq.com/s?__biz=MzAwMzU4Njc0OQ==&mid=503745623&idx=1&sn=c97261661295f359d92cd1fe7d396bd9#wechat_redirect" class="text-center">关注</a>
+                            </div>
+                        </div>
+                        <div class="rBottom">
+                            <h3><strong>微信号：</strong><i>ycykys</i></h3>
+                            <p>功能介绍：全国眼科远程医疗联盟是集合各大三甲医院眼科专家为主体，将优质的医疗服务集合，为眼科医生提供培训、交流、互动平台。</p>
+                        </div>
+                    </div>
+                </li>
+                <!--<li>
+                    <div class="left">
+                        <span class="add"></span>
+                    </div>
+                    <div class="right mini">
+                        <div class="rTop">
+                            <div class="rImg"><img src="/weixin/Public/Expert/images/zhengcejiedu/ycshjLogo.jpg" /></div>
+                            <div class="rTxt">
+                                <p>远程视界</p>
+                                <a href="http://mp.weixin.qq.com/s?__biz=MzAxNDAxODM5Nw==&mid=503273299&idx=1&sn=57a409b860aa1471f0a558835158a99f#wechat_redirect" class="text-center">关注</a>
+                            </div>
+                        </div>
+                        <div class="rBottom">
+                            <h3><strong>微信号：</strong><i>ycsjyk</i></h3>
+                            <p>
+                            功能介绍:"远程视界",一个眼疾患者检、治疗与交流的平台。在这里有全面的护眼与眼疾治疗方案。权威专家远程阅片、远程会诊，帮您解决眼部疾病问题。关注与“远程视界，关注眼睛健康"。
+                            </p>
+                        </div>
+                    </div>
+                </li>-->
+            </ul>
+        </section>
+    </article>
+    <article class="wxLight">
+        <img src="/weixin/Public/Expert/images/zhengcejiedu/light.jpg" />
+        <section>
+            <h2>全国眼科远程医疗联盟功能亮点</h2>
+            <div class="box">
+                <div class="title">
+                    <h4><span>千县万医</span></h4>
+                    <div class="imgtxt">
+                        <p><br>基地医生通过千县万医计划，进行学习，提高自身能力</p>
+                        <p class="other"><img src="/weixin/Public/Expert/images/zhengcejiedu/lPic3.jpg" /></p>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="box">
+                <div class="title">
+                    <h4><span>远程门诊</span></h4>
+                    <div class="imgtxt">
+                        <p class="other"><img src="/weixin/Public/Expert/images/zhengcejiedu/lPic1.jpg" /></p>
+                        <p>专家通过远程门诊，对基地医生转诊过来的患者进行进一步的会诊，对病例进行了详细的分析，并给予指导性的意见以及治疗方法</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="title">
+                    <h4><span>我的咨询</span></h4>
+                    <div class="imgtxt">
+                        <p class="other"><br>专家通过我的咨询功能，对患者线上提出的疑问进行解答</p>
+                        <p><img src="/weixin/Public/Expert/images/zhengcejiedu/lPic2.jpg" /></p>
+                    </div>
+                </div>
+            </div>-->
+            
+            <h2>联系与关注</h2>
+            <div class="address">
+                <p>地址：北京市西城区西直门外大街18号金贸大厦B座1017室</p>
+                <p>集团电话：400-656-2020</p>
+                <p>咨询微信号：ycsjwyt</p>
+                <p>咨询电话：17071492490</p>
+            </div>
+            <h2>意见与反馈</h2>
+            <div class="address">
+                <p>微信号：liweiziqiang</p>
+                <p>邮箱：qgykycyllm@163.com</p>
+            </div>
+        </section>
+        <div class="address">
+            <img src="/weixin/Public/Expert/images/zhengcejiedu/map.jpg" />
+        </div>
+    </article>
+    <include file="Public:footer_bottom" />
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Expert/js/aboult.js"></script>
+</html>

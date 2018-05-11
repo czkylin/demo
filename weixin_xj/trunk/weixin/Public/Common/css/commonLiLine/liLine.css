@@ -1,0 +1,12 @@
+/*!
+*  无序列表中LI 部分 线样式
+    21501119  书写   李伟  
+	感谢：郑洁  乔亚运 
+     
+*/
+ 
+ 
+
+.ui-liLine-solid li { border-bottom: solid 1px #eee; }
+.ui-liLine-dashed li { border-bottom: dashed 1px #eee; }
+.ui-liLine-solid li:last-child, .ui-liLine-dashed li:last-child { border: none; }

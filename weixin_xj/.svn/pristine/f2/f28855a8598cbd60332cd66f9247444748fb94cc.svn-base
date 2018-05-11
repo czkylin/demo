@@ -1,0 +1,69 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+<link type="text/css" rel="stylesheet" href="../../../../../Public/Expert/css/gerenzhongxin/gerenzhongxin.css" />
+<script type="text/javascript" src="../js/jquery.js"></script>
+<title>个人中心首页</title>
+</head>
+<body>
+<div class="gp GJ_Gp gp-profile g-items gp-profile_index" style="padding-bottom: 60px; ">  
+	<div class="top">
+			    <img src="http://img.guahao.cn/img/character/young-f-l.png" alt="女">
+			<h2>天线宝宝</h2>
+ 		<nav>
+ 			<span class="yszc">主治医生</span>
+            <span class="ssyy">北京地坛医院地坛医院...</span>
+            <span class="dqjf">积分：235</span>
+ 		</nav>
+ 	</div>	
+	<ul>   
+		
+		<li class="link link-ico">
+			<a class="g-arrow-r xm_num" href=""> 
+				<p>消息中心</p>
+                <span class="weidu_xinxi">2</span><!--当有未读消息时给span添加类名weidu_xinxi相反不添加-->
+			</a>
+		</li> 
+        <li class="link link-ico">
+			<a class="g-arrow-r xm_num" href=""> 
+                <p>我关注的</p>
+                <span>20</span>
+			</a>
+		</li>  
+        <li class="link link-ico">
+			<a class="g-arrow-r xm_num" href=""> 
+                <p>我参与的</p>
+                <span>20</span>
+			</a>
+		</li>  
+        <li class="link link-ico">
+			<a class="g-arrow-r xm_num" href=""> 
+                <p>我的积分</p>
+                <span>20</span>
+			</a>
+		</li>  
+        <li class="link link-ico">
+			<a class="g-arrow-r xm_num" href=""> 
+                <p>荣誉称号</p>
+                <span>20</span>
+			</a>
+		</li>  
+	</ul>  
+	  
+</div>  
+<!--<footer>
+<a class="shouye">微首页</a>
+<a class="zixun">咨询</a>
+<a class="yuepian">阅片</a>
+<a class="dingdan">订单</a>
+<a class="geren2">个人中心</a>
+</footer>
+-->
+</body>
+</html>

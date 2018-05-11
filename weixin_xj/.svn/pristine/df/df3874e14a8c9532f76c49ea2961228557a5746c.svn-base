@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no' />
+    <meta name='X-UA-Compatible' content='IE=edge,chrome=1' />
+    <title>提现流程</title>
+    <meta name="description" content="" >
+    <meta name="keywords" content="" >
+    <meta name="copyright" content="">
+    <link type="text/css" rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css" />
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+<body>
+<section>
+    <img src="/weixin/Public/Member/images/takeMoney/img1.jpg" width="100%" />
+    <img src="/weixin/Public/Member/images/takeMoney/img2.jpg" width="100%" />
+    <img src="/weixin/Public/Member/images/takeMoney/img3.jpg" width="100%" />
+</section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<volist name="order_list" id="order">
+	<div class="order">
+		<if condition="$order.STATESTATE eq '0'">
+            <a href="{:U('Nurse/order_wait',array('ORDERID'=>$order[ORDERID]))}">
+        <elseif condition="$order.STATESTATE eq '1'" />
+        	<a href="{:U('Nurse/nurse_nogo',array('ORDERID'=>$order[ORDERID]))}">
+        <else/>
+            <a href="{:U('Nurse/order_complete',array('ORDERID'=>$order[ORDERID]))}">
+        </if>
+			<input type="hidden" value="{$order.GOOUT}">
+			<div class="time">
+				{$order.SERVICEDATETIME|Dtodiy='Y年m月d日',###}
+				<if condition="$order.STATESTATE eq '0'">
+                    <span class="state red">等待接单</span>
+                <elseif condition="$order.STATESTATE eq '1'" />
+                	<if condition="$order.GOOUT eq '0'">
+                		<span class="state red">未出发 </span>
+                	<else/>
+	                    <span class="state red">已出发 </span>
+	                </if>
+                    <span class="state orange"> 接单成功</span>
+                <elseif condition="$order.STATESTATE eq '2'" />
+                    <span class="state green">患者完成</span>
+                <elseif condition="$order.STATESTATE eq '3'" />
+                    <span class="state green">订单完成</span>
+                <else/>
+                    <span class="state red">取消订单</span>
+                </if>
+			</div>
+			<div class="con">
+				<h3>预约{$order.SERVICENAME}</h3>
+				<p>服务费：{$order.SERVICEPRICE|default="0"}元</p>
+				<p>预约号：{$order.ORDERID}</p>
+				<p>服务时间：{$order.SERVICEDATETIME|Dtodiy='Y年m月d日 H:i:s',###}</p>
+			</div>
+		</a>
+		<!-- <div class="btn clear">
+			<a href="javascript:;" class="cancel">取消订单</a>
+			<a href="javascript:;" class="gopay">去支付</a>
+			<a href="javascript:;" class="again">再次享受</a>
+			<a href="javascript:;" class="cuidan">催单</a>
+		</div> -->
+	</div>∮
+</volist>

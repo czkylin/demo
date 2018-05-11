@@ -1,0 +1,265 @@
+
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>药店列表</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/store/store.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/weixin/Public/Member/css/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/yd.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+<body style="background:#fff;">
+<div class="search search2">
+       <!-- 引导页 -->
+    <section class="swiper-container" id="line">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide bg4">
+                <div class="unit bg4 text-center">
+                    <img src="/weixin/Public/Member/images/yd/yd/pic1.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide bg5">
+                <div class="unit bg5 text-center">
+                    <img src="/weixin/Public/Member/images/yd/yd/pic2.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide bg6">
+                <div class="unit bg6 text-center"><img src="/weixin/Public/Member/images/yd/yd/pic3.png" alt="">
+                </div>
+                <div id="test" class="text-center">
+                    <strong class="experience">去买药</strong><br><br>
+                    <label for=""><input type="checkbox" id="noShow"><span class="color2">不再显示</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="spa"></div>
+    </section>
+    <!--  end  -->
+        <div class="baobei"> <span><b id="baob">药品</b></span>
+                <div class="two"> <a class="baob">药品</a> <a class="dianp">药店</a> </div>
+        </div>
+        <input class="left" type="text" name="hos_name" id="hos_name" value="" placeholder="药品/药店"/>
+        <input class="right" onClick="search_list('',document.all.hos_name.value,'asc');" type="button" value="搜索"/>
+</div>
+<div class="experts">
+        <div class="hos_search">
+                <div class="sear"> <span> <b>智能排序</b> <i></i> </span>
+                        <div class="tiaojian"> <a class="" onClick="search_list('',document.all.hos_name.value,'desc','');">价格从高到低</a> <a onClick="search_list('',document.all.hos_name.value,'asc','');">价格从低到高</a> </div>
+                </div>
+                <div class="sear"> <span> <b><a class="" onClick="search_list('',document.all.hos_name.value,'','desc');">销量优先</a></b> </span> </div>
+                <div class="sear"> <span style=" border-right:0;"> <b>地区</b> <i></i> </span>
+                   <div class="diqu" style=" position:fixed; top:97px; bottom:0; overflow:auto;">
+                       <div><i></i><a style="border:0" href="javascript:void(0);" onClick="search_list('0',document.all.hos_name.value,'','');">全部</a>
+                            <a href="javascript:void(0);" onClick="search_list('2',document.all.hos_name.value,'','');">北京市</a><a href="javascript:void(0);" onClick="search_list('19',document.all.hos_name.value,'','');">天津市</a><a href="javascript:void(0);" onClick="search_list('36',document.all.hos_name.value,'','');">河北省</a><a href="javascript:void(0);" onClick="search_list('230',document.all.hos_name.value,'','');">山西省</a><a href="javascript:void(0);" onClick="search_list('372',document.all.hos_name.value,'','');">内蒙古自治区</a><a href="javascript:void(0);" onClick="search_list('496',document.all.hos_name.value,'','');">辽宁省</a><a href="javascript:void(0);" onClick="search_list('625',document.all.hos_name.value,'','');">吉林省</a><a href="javascript:void(0);" onClick="search_list('703',document.all.hos_name.value,'','');">黑龙江省</a><a href="javascript:void(0);" onClick="search_list('857',document.all.hos_name.value,'','');">上海市</a><a href="javascript:void(0);" onClick="search_list('875',document.all.hos_name.value,'','');">江苏省</a><a href="javascript:void(0);" onClick="search_list('1001',document.all.hos_name.value,'','');">浙江省</a><a href="javascript:void(0);" onClick="search_list('1114',document.all.hos_name.value,'','');">安徽省</a><a href="javascript:void(0);" onClick="search_list('1252',document.all.hos_name.value,'','');">福建省</a><a href="javascript:void(0);" onClick="search_list('1356',document.all.hos_name.value,'','');">江西省</a><a href="javascript:void(0);" onClick="search_list('1479',document.all.hos_name.value,'','');">山东省</a><a href="javascript:void(0);" onClick="search_list('1651',document.all.hos_name.value,'','');">河南省</a><a href="javascript:void(0);" onClick="search_list('1845',document.all.hos_name.value,'','');">湖北省</a><a href="javascript:void(0);" onClick="search_list('1975',document.all.hos_name.value,'','');">湖南省</a><a href="javascript:void(0);" onClick="search_list('2125',document.all.hos_name.value,'','');">广东省</a><a href="javascript:void(0);" onClick="search_list('2285',document.all.hos_name.value,'','');">广西壮族自治区</a><a href="javascript:void(0);" onClick="search_list('2425',document.all.hos_name.value,'','');">海南省</a><a href="javascript:void(0);" onClick="search_list('2459',document.all.hos_name.value,'','');">重庆市</a><a href="javascript:void(0);" onClick="search_list('2498',document.all.hos_name.value,'','');">四川省</a><a href="javascript:void(0);" onClick="search_list('2721',document.all.hos_name.value,'','');">贵州省</a><a href="javascript:void(0);" onClick="search_list('2824',document.all.hos_name.value,'','');">云南省</a><a href="javascript:void(0);" onClick="search_list('2978',document.all.hos_name.value,'','');">西藏自治区</a><a href="javascript:void(0);" onClick="search_list('3063',document.all.hos_name.value,'','');">陕西省</a><a href="javascript:void(0);" onClick="search_list('3191',document.all.hos_name.value,'','');">甘肃省</a><a href="javascript:void(0);" onClick="search_list('3304',document.all.hos_name.value,'','');">青海省</a><a href="javascript:void(0);" onClick="search_list('3358',document.all.hos_name.value,'','');">宁夏回族自治区</a><a href="javascript:void(0);" onClick="search_list('3391',document.all.hos_name.value,'','');">新疆维吾尔自治区</a><a href="javascript:void(0);" onClick="search_list('3512',document.all.hos_name.value,'','');">台湾省</a><a href="javascript:void(0);" onClick="search_list('3891',document.all.hos_name.value,'','');">香港特别行政区</a><a href="javascript:void(0);" onClick="search_list('3913',document.all.hos_name.value,'','');">澳门特别行政区</a>                       </div>
+                   </div>
+                </div>
+        </div>
+        <div class="dian_list">
+                <ul id="yd-list">
+                        <li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=三河市新宝德堂药店&hos_id=357118&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/357118/357118_1237.jpg"> <span class="img"> <img src="http://weixin.yk2020.com/upload/yaodian_pic/357118/357118_1237.jpg"> </span> <span class="meta">
+                                        <div class="name_dj"> <strong class="mingcheng">三河市新宝德堂药店</strong> </div>
+                                        <div class="juti_info"> <span>河北省 廊坊市</span> <span style="margin-right:0;">0人购买</span> <span style="float:right;">43.33km</span> </div>
+                                        </span> </a>
+                                        <div class="jindian"> <a href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=三河市新宝德堂药店&hos_id=357118&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/357118/357118_1237.jpg">进店逛逛</a> </div>
+                                        <div class="shangpin">
+                                                                                        </div>
+                                </li><li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=三河市燕郊宝德堂药店&hos_id=357111&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/357111/357111_1803.jpg"> <span class="img"> <img src="http://weixin.yk2020.com/upload/yaodian_pic/357111/357111_1803.jpg"> </span> <span class="meta">
+                                        <div class="name_dj"> <strong class="mingcheng">三河市燕郊宝德堂药店</strong> </div>
+                                        <div class="juti_info"> <span>河北省 廊坊市</span> <span style="margin-right:0;">0人购买</span> <span style="float:right;">43.45km</span> </div>
+                                        </span> </a>
+                                        <div class="jindian"> <a href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=三河市燕郊宝德堂药店&hos_id=357111&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/357111/357111_1803.jpg">进店逛逛</a> </div>
+                                        <div class="shangpin">
+                                                                                        </div>
+                                </li><li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=天津市济民堂医药连锁有限公司&hos_id=417934&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/417934/417934_1869.jpg"> <span class="img"> <img src="http://weixin.yk2020.com/upload/yaodian_pic/417934/417934_1869.jpg"> </span> <span class="meta">
+                                        <div class="name_dj"> <strong class="mingcheng">天津市济民堂医药连锁有限公司</strong> </div>
+                                        <div class="juti_info"> <span>天津市 天津市</span> <span style="margin-right:0;">0人购买</span> <span style="float:right;">91.62km</span> </div>
+                                        </span> </a>
+                                        <div class="jindian"> <a href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=天津市济民堂医药连锁有限公司&hos_id=417934&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/417934/417934_1869.jpg">进店逛逛</a> </div>
+                                        <div class="shangpin">
+                                                <dl>
+                                                                <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=product_content&product_id=136455&hos_id=417934">
+                                                                <dt><img src="http://weixin.yk2020.com/upload/product_pic/553.jpg"></dt>
+                                                                <dd>￥23</dd>
+                                                                </a>
+                                                        </dl>                                        </div>
+                                </li><li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=大城县新华东街百草堂药房&hos_id=359220&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/359220/359220_1883.jpg"> <span class="img"> <img src="http://weixin.yk2020.com/upload/yaodian_pic/359220/359220_1883.jpg"> </span> <span class="meta">
+                                        <div class="name_dj"> <strong class="mingcheng">大城县新华东街百草堂药房</strong> </div>
+                                        <div class="juti_info"> <span>河北省 廊坊市</span> <span style="margin-right:0;">0人购买</span> <span style="float:right;">109.21km</span> </div>
+                                        </span> </a>
+                                        <div class="jindian"> <a href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=大城县新华东街百草堂药房&hos_id=359220&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/359220/359220_1883.jpg">进店逛逛</a> </div>
+                                        <div class="shangpin">
+                                                                                        </div>
+                                </li><li> <a class="yylist_a" href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=蔚县知信药房连锁有限公司康安店&hos_id=430451&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/430451/430451_1854.jpg"> <span class="img"> <img src="http://weixin.yk2020.com/upload/yaodian_pic/430451/430451_1854.jpg"> </span> <span class="meta">
+                                        <div class="name_dj"> <strong class="mingcheng">蔚县知信药房连锁有限公司康安店</strong> </div>
+                                        <div class="juti_info"> <span>河北省 张家口市</span> <span style="margin-right:0;">0人购买</span> <span style="float:right;">111.90km</span> </div>
+                                        </span> </a>
+                                        <div class="jindian"> <a href="/weixin/index.php?m=Member&c=Yd&a=yd_product_list&hos_name=蔚县知信药房连锁有限公司康安店&hos_id=430451&hos_pic=http://weixin.yk2020.com/upload/yaodian_pic/430451/430451_1854.jpg">进店逛逛</a> </div>
+                                        <div class="shangpin">
+                                                                                        </div>
+                                </li>                </ul>
+        </div>
+</div>
+<div class="ui-jiazai" style=" height:120px;"><a href="javascript:void(0);" onClick="load_more();" >加载更多</a></div>
+<div id="current_pagenum" style="display:none">2</div>
+<div id="current_province" style="display:none"></div>
+<div id="current_name" style="display:none"></div>
+<div id="current_money_sort" style="display:none"></div>
+<div id="current_sale_sort" style="display:none"></div>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Member/js/store.js" type="text/javascript"></script> 
+<script src="/weixin/Public/Common/js/load_more.js?v=1.10" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/swiper.jquery.js"></script>
+<script src="/weixin/Public/Member/js/yd.js"></script>
+<script>
+var over_footer = '0';
+
+function search_list(province_id,hos_name,money_sort,sale_sort)
+
+{
+ var type= $("#baob").html();
+	if (province_id != '')
+	{
+		$('#current_province').text(province_id);
+	}
+	$('#current_money_sort').text(money_sort);
+	$('#current_sale_sort').text(sale_sort);
+	$('#current_name').text(encodeURI(hos_name));
+	if ($('#current_province').text() == '0')
+	{
+
+		$('#current_province').text('');
+
+	}
+
+	$('#current_pagenum').text('1');
+	$('#yd-list').html('');
+	$('.ui-jiazai').children('a').text('加载更多');
+	if(type=="药店")
+	{
+	  loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Yd&a=yd_list_append&sale_sort='+$('#current_sale_sort').text()+'&hos_name='+$('#current_name').text()+'&type=0'+'&province_id='+$('#current_province').text()+'','#yd-list');
+	}
+	else
+	{
+	  window.location.href = "/weixin/index.php?m=Member&c=Yd&a=search_product_list&product_name="+$('#current_name').text()+'&money_sort='+$('#current_money_sort').text()+'&hos_name='+$('#current_name').text();
+	}
+	
+}
+function load_more()
+{
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Yd&a=yd_list_append&sale_sort='+$('#current_sale_sort').text()+'&money_sort='+$('#current_money_sort').text()+'&hos_name='+$('#current_name').text()+'&province_id='+$('#current_province').text()+'','#yd-list');
+
+}
+</script>
+</body>
+<!--通底的引用开始-->
+<footer id="over_footer">
+
+		<a class="over_footer_shouye" href="/weixin/index.php?m=Member&c=Index&a=index">微首页</a>
+
+		<a class="over_footer_zixun" href="/weixin/index.php?m=Member&c=Doc&a=doc_list">咨询</a>
+
+		<a class="over_footer_yuepian" href="/weixin/index.php?m=Member&c=Hos&a=hos_list&serve_id=1">阅片</a>
+
+		<a class="over_footer_dingdan_dd" href="/weixin/index.php?m=Member&c=Order&a=order_list">订单</a>
+
+		<a class="over_footer_geren" href="/weixin/index.php?m=Member&c=User&a=user_info">个人中心</a>
+
+</footer>
+
+<div class="" style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+
+	<p class="msgtishi"  id="msg"></p>
+
+</div>
+
+<script>
+
+	var shouye = $("#over_footer .over_footer_shouye"),zixun = $("#over_footer .over_footer_zixun"),yuepian = $("#over_footer .over_footer_yuepian"),dingdan_dd = $("#over_footer .over_footer_dingdan_dd"),geren = $("#over_footer .over_footer_geren");
+
+	$(function()
+
+	{
+
+		if(over_footer==1)
+
+		{
+
+			shouye.removeClass("over_footer_shouye").addClass("over_footer_shouye_on");
+
+		};
+
+		if(over_footer==2)
+
+		{
+
+			zixun.removeClass("over_footer_zixun").addClass("over_footer_zixun_on");
+
+		};
+
+		if(over_footer==3)
+
+		{
+
+			yuepian.removeClass("over_footer_yuepian").addClass("over_footer_yuepian_on");
+
+		};
+
+		if(over_footer==4)
+
+		{
+
+			dingdan_dd.removeClass("over_footer_dingdan_dd").addClass("over_footer_dingdan_dd_on");
+
+		};
+
+		if(over_footer==5)
+
+		{
+
+			geren.removeClass("over_footer_geren").addClass("over_footer_geren_on");
+
+		}
+
+	})
+
+</script>
+
+<script>
+
+    function showmsg(){
+
+        $('#msg').show();
+
+        $('#msg').html('暂未开放！');
+
+        setTimeout(function(){fail();},2000);
+
+        return false;
+
+    }
+
+    function fail(){
+
+        $('#msg').hide()
+
+    }
+
+</script>
+<!--通底的引用结束-->
+</html>

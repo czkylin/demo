@@ -1,0 +1,79 @@
+.w1020{width: 1020px; margin: 0 auto;}
+h2{line-height: 60px; text-align: center; font-size: 26px; color: #333333;}
+h2 em{padding: 14px 0; border-bottom: 3px solid #077478;}
+p{font-size: 14px; color: #666666;}
+.banner{height: 420px; min-width: 1200px; background: url('/Public/images/service/cataract/banner.jpg') no-repeat center; background-size: cover; overflow: hidden; color: #077478;}
+.con{width: 100%; padding-top: 72px; overflow: hidden; min-width: 1200px; box-sizing: border-box;}
+.con1{height: 682px; background: #f5f5f5;}
+.con1 .picItem{display: block; margin: 82px 22px 0 0; float: left;}
+.con1 .picItem:nth-of-type(4){margin-right: 0;}
+.con1 form{display: block; clear: both; height: 262px;}
+.con1 .item{margin: 0 22px 78px 0; padding: 0 10px 0 20px; width: 283px; height: 80px; background: #ffffff; line-height: 68px; font-size: 14px; color: #333333; float: left; box-sizing: border-box;}
+.con1 .item:nth-child(4){margin-right: 0;}
+.con1 .item label{float: right;}
+.con1 .bottom{margin: 0 auto; width: 464px; height: 42px; clear: both; font-size: 14px;}
+.con1 .bottom input{width: 220px; height: 42px; background: #077478; color: #ffffff; border-radius: 10px; border: 0; float: left; cursor: pointer;}
+.con1 .bottom a{display: block; margin-left: 24px; width: 220px; height: 42px; background: #f5f5f5; float: left; color: #077478; border: 1px solid #077478; border-radius: 10px; box-sizing: border-box; text-align: center; line-height: 42px;}
+.con2{height: 650px; background: url('/Public/images/service/cataract/pic5.jpg') no-repeat center; background-size: cover;}
+.con2 dl{margin: 92px 96px 0 0; width: 184px; height: auto; float: left; text-align: center;}
+.con2 dl:nth-of-type(1){margin-left: 88px;}
+.con2 dl:nth-of-type(3){width: 210px;}
+.con2 dl:nth-of-type(4){margin-right: 0; width: 228px;}
+.con2 dl p.title{margin-top: 22px; line-height: 48px; text-align: center; font-size: 18px;}
+.con2 dl p.title em{padding: 10px 0; border-bottom: 1px solid #077478;}
+.con2 dl p.desc{margin-top: 24px;}
+.con3{height: 1007px; background: url('/Public/images/service/cataract/pic6.jpg') no-repeat center;}
+.con3 h2{color: #ffffff;}
+.con3 h2 em{border-color: #ffffff;}
+.con3 p.item{margin: 70px 220px 0 0; width: 400px; height: 56px; line-height: 56px; text-indent: 140px; float: left; background-size: 100%; color: #ffffff;}
+.con3 p.item:nth-of-type(3),.con3 p.item:nth-of-type(4){margin-top: 30px; margin-bottom: 40px;}
+.con3 p.item:nth-of-type(2),.con3 p.item:nth-of-type(4){margin-right: 0;}
+.con3 p.item:nth-of-type(1){background: url('/Public/images/service/cataract/img5.png') no-repeat center;}
+.con3 p.item:nth-of-type(2){background: url('/Public/images/service/cataract/img6.png') no-repeat center;}
+.con3 p.item:nth-of-type(3){background: url('/Public/images/service/cataract/img7.png') no-repeat center;}
+.con3 p.item:nth-of-type(4){background: url('/Public/images/service/cataract/img8.png') no-repeat center;}
+.con3 .question{height: 494px; background: #ffffff; clear: both; overflow: hidden;}
+.con3 .question .doc{margin-top: 10px; padding-left: 76px; line-height: 46px; background: url('/Public/images/service/cataract/icon.png') no-repeat 40px center; font-size: 12px; color: #666666;}
+.con3 .question .content{position: relative; margin-left: 76px; padding: 0 10px; width: 904px; height: 98px; background: #f1f1f1;}
+.con3 .question .content:before{content: ''; position: absolute; top: -10px; left: 8px; width: 0; height: 0; border-width: 5px; border-style: solid; border-color: transparent transparent #f1f1f1 transparent; }
+.con3 .question .content p.title{line-height: 34px; color: #077478; border-bottom: 1px dashed #dcdcdc;}
+.con3 .question .content p.desc{margin-top: 8px; line-height: 24px;}
+.con3 .question .content a{font-size: 14px; color: #077478;}
+.con4{height: 766px; background: #f5f5f5;}
+.con4 dl{position: relative; width: 340px; height: 400px; margin: 70px 58px 0 0; padding-top: 36px; background: #ffffff; float: left; text-align: center; box-shadow: 0 0 10px #f1f0f0; box-sizing: border-box;}
+.con4 dl:nth-of-type(1){margin-left: 30px;}
+.con4 dl:nth-of-type(3){margin-right: 30px;}
+.con4 dl img{width: 150px; height: auto;}
+.con4 dl p.title{margin: 20px 0 10px 0; font-size: 20px; color: #333333; font-weight: bold;}
+.con4 dl p.desc{width: 280px; margin: 0 auto; font-size: 14px; color: #666666;}
+.con4 dl p.text{width: 280px; margin: 22px auto 0; line-height: 22px; font-size: 14px; color: #333333;}
+.con4 dl a{position: absolute; bottom: -20px; left: 0; right: 0; margin: auto; display: inline-block; width: 120px; height: 40px; line-height: 40px; background: #f7922e; font-size: 14px; color: #ffffff; border-radius: 10px;}
+.con5{height: 626px; background: #ffffff;}
+.con5 .list{height: 74px; margin: 66px auto 0;}
+.con5 .list li{margin: 0 22px; height: 74px; line-height: 74px; float: left; font-size: 14px; font-weight: bold; cursor: pointer;}
+.con5 .list li:hover{color: #077478;}
+.con5 .list li.active{color: #077478;}
+.con5 .list li:nth-child(1){margin-left: 62px;}
+.con5 .qContent{display: none; position: relative; padding: 30px; width: 100%; height: 242px; border: 1px solid #077478; clear: both; box-sizing: border-box;}
+.con5 .qContent.active{display: block;}
+.con5 .qContent:before{content: ''; position: absolute; top: -20px; width: 0; height: 0; border-width: 10px; border-style: solid; border-color: transparent transparent #ffffff transparent; z-index: 999;}
+.con5 .qContent:after{content: ''; position: absolute; top: -22px; width: 0; height: 0; border-width: 11px; border-style: solid; border-color: transparent transparent #077478 transparent;}
+.con5 .qContent:nth-of-type(1):before{left: 84px;}
+.con5 .qContent:nth-of-type(1):after{left: 83px;}
+.con5 .qContent:nth-of-type(2):before{left: 200px;}
+.con5 .qContent:nth-of-type(2):after{left: 199px;}
+.con5 .qContent:nth-of-type(3):before{left: 314px;}
+.con5 .qContent:nth-of-type(3):after{left: 313px;}
+.con5 .qContent:nth-of-type(4):before{left: 448px;}
+.con5 .qContent:nth-of-type(4):after{left: 447px;}
+.con5 .qContent:nth-of-type(5):before{left: 598px;}
+.con5 .qContent:nth-of-type(5):after{left: 597px;}
+.con5 .qContent:nth-of-type(6):before{left: 742px;}
+.con5 .qContent:nth-of-type(6):after{left: 741px;}
+.con5 .qContent:nth-of-type(7):before{left: 882px;}
+.con5 .qContent:nth-of-type(7):after{left: 881px;}
+.con5 .qContent dt,.con5 .qContent dd{float: left;}
+.con5 .qContent dd{margin-left: 30px;}
+.con5 .qContent dd p{width: 746px; line-height: 24px;}
+.con5 .qContent dd p.indent{text-indent: 16px;}
+.con5 .qContent dd a{color: #077478;}

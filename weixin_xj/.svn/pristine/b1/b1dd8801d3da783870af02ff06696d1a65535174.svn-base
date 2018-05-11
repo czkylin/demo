@@ -1,0 +1,23 @@
+/*common css*/
+*{margin: 0; padding: 0;}
+img{vertical-align: top;}
+li{list-style: none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0); text-decoration: none;}
+i{font-style: normal;}
+.clear:after{display: block; content: ""; clear: both;}
+/*main*/
+.selector{padding: 10px 3.2%;  border-bottom: 1px solid #e7e7e7;}
+.selector li:nth-of-type(1){margin-bottom: 10px;}
+.selector li a{display: block; background: url(/weixin/Public/Member/images/user/quan.jpg) no-repeat right center; background-size: 16px;}
+.selector li.active a{display: block; background: url(/weixin/Public/Member/images/user/quan1.jpg) no-repeat right center; background-size: 16px;}
+.selector li .type{}
+.selector li .type img{float: left; width: 50px; height: 50px;}
+.selector li .type-des{float: left; margin-left: 3.5%;}
+.selector li .type-des p{height: 25px; line-height: 25px; font-size: 16px; color: #333;}
+.selector li .type-des span{display: block; height: 25px; line-height: 25px; font-size: 13px; color: #333;}
+.jie{padding: 10px 3.2%; margin-bottom: 10px; border-bottom: 1px solid #e7e7e7;}
+.jie p{font-size: 14px; color: #777777;}
+.jie div{height: 50px; line-height: 50px; color: #333;}
+.jie div span{font-weight: bold; float: left; height: 50px; line-height: 50px; font-size: 36px; width: 16%}
+.jie div input{ float: left; height: 50px; line-height: 50px; border: none; outline: none; background: none;font-size: 36px; width: 84%;}
+.sub{width: 93.6%; margin: 0 auto; border:none; background: #ff647c; outline: none; height: 40px; text-align: center; line-height: 40px; display: block; color: #fff; font-size: 14px; border-radius: 3px;}

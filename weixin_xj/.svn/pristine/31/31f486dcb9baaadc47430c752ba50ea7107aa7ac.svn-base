@@ -1,0 +1,904 @@
+<?php
+namespace Member\Controller;
+use Think\Controller;
+use Think\Log;
+class OrderController extends Controller
+{
+	//获取订单列表
+	public function order_list()
+	{
+		$token = A_token();
+		
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+		
+		//获取订单列表满足查询条件的
+		$order_status = I('get.order_status', '');
+		$o2o_flag = I('get.o2o_flag', '');
+		$act = I('get.act', '1');
+		$url = C("PATH_URL")."/interface/yc_member/order_list.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num" => "1",
+			"order_status" => "$order_status",
+			"o2o_flag" => "$o2o_flag"
+		);
+		$json=json_encode($data);
+		$order_list = json_decode(post_json($url,$json),true);
+		$count= count($order_list);
+
+		$this->assign('order_list',$order_list);// 赋值数据集
+		$this->assign('count',$count);
+		$this->assign('act',$act);
+		$this->assign('o2o_flag',$o2o_flag);
+		$this->assign('order_status',$order_status);
+		$this->display(); // 输出模板
+	}
+
+	//订单列表加载更多
+	public function order_list_append()
+	{
+		$token = A_token();
+		
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单列表满足查询条件的
+		$order_status = I('get.order_status', '');
+		$o2o_flag = I('get.o2o_flag', '');
+		$url = C("PATH_URL")."/interface/yc_member/order_list.aspx?access_token=".$token;
+		$page_num=$_GET['page_num'];
+		$data = array
+		(
+			"openid"=>"$openid",
+			"page_num" => "$page_num",
+			"order_status" => "$order_status",
+			"o2o_flag" => "$o2o_flag"
+		);
+		$json=json_encode($data);
+		$order['order_id'] = $order_id;
+		$this->assign('order',$order);
+		$order_list = json_decode(post_json($url,$json),true);
+		$this->assign('order_list',$order_list);
+		//输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+
+	}
+	//订单详细内容
+	public function order_detail()
+	{
+		$token = A_token();
+		
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单的详情页
+		$order_id = I('get.order_id', '');
+		$sj_type = I('get.sj_type', '');
+		$url = C("PATH_URL")."/interface/yc_member/order_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"order_id"=>"$order_id",
+			"sj_type"=>"$sj_type"
+		);
+		$json=json_encode($data);
+        
+		$array =json_decode(post_json($url,$json),true);
+		//print_r($array);die;
+		if(!$array[0][ORDER_ID])
+		{
+			 //echo "kong";die;
+			 header("Location:/weixin/index.php?m=Member&c=Order&a=order_list");
+		}
+		else
+		{
+			$this->assign('array',$array);
+			$this->display(); // 输出模板
+		}
+	}
+	//医院订单详细内容
+	public function hos_order_detail()
+	{
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单的详情页
+		$order_id = I('get.order_id', '');
+		$sj_type = I('get.sj_type', '');
+		$url = C("PATH_URL")."/interface/yc_member/order_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"order_id"=>"$order_id",
+			"sj_type"=>"$sj_type"
+		);
+		$json=json_encode($data);
+		$array =json_decode(post_json($url,$json),true);
+		if(!$array[0][ORDER_ID])
+		{
+			//echo "kong";die; 
+			header("Location:/weixin/index.php?m=Member&c=Order&a=order_list");
+		}
+		else
+		{
+			if($array[0]['ORDER_STATUS'] == "已付款")
+            {
+				$template_html = MODULE_PATH."View/Order/order_success.html";
+			}
+            else
+            {
+				if($array[0]['O2O_FLAG'] == 2)
+                {
+					$template_html = MODULE_PATH."View/Order/order_fail.html";
+				}
+                else
+                {
+                    $template_html = MODULE_PATH."View/Order/order_detail1.html";
+				}
+			}
+			// $template_html = MODULE_PATH."/View/Order/hos_order_detail.html";
+			// $template_html = MODULE_PATH."/View/Order/order_pay_dian.html";
+
+            if($sj_type == 4)
+            {
+                $template_html = MODULE_PATH."View/Order/order_detail2.html";
+            }
+
+            if($sj_type == 3)
+            {
+                // echo 22;die;
+                $template_html = MODULE_PATH."View/Order/order_detail3.html";
+            }
+            // echo $template_html;die;
+			$this->assign('array',$array);
+            $this->assign('sj_type',$sj_type);
+           // echo $template_html;
+			$this->display($template_html); // 输出模板
+		}
+	}
+
+	//会诊订单详细内容
+	public function hz_order_detail()
+	{
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单的详情页
+		
+		$hz_id = I('get.hz_id', '');
+		$order_id = I('get.order_id', '');
+		$sj_type = I('get.sj_type', '2');
+		$order_name = I('get.order_name','购买远程会诊服务');
+		$url = C("PATH_URL")."/interface/yc_member/hz_info.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"hz_id"=>"$hz_id",
+		);
+		$json=json_encode($data);
+		$array =json_decode(post_json($url,$json),true);       
+       // print_r($array);//die;
+		$this->assign('array',$array);
+		$this->assign('order_id',$order_id);
+        $this->assign('hz_id',$hz_id);
+		$this->assign('sj_type',$sj_type);
+		$this->assign('order_name',$order_name);
+
+		$this->display(); // 输出模板
+	}
+
+    //会诊列表
+    public function hz_list()
+    {
+        $token = A_token();
+
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        $page_num = 1;
+
+        //获取患者详细信息
+        $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid"
+        );
+        $json=json_encode($data);
+        $userinfo = json_decode(post_json($url,$json),true);
+
+        $member_id = $userinfo['MEMBER_ID'];
+
+        //获取我的会诊列表
+        $url = C("PATH_URL")."/interface/yc_member/ychz_list.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid",
+            "page_num"=>"1"
+        );
+        $json=json_encode($data);
+        $hz_list =json_decode(post_json($url,$json),true); 
+        $this->assign("hz_list",$hz_list);
+        $this->assign("userinfo",$userinfo);
+        $this->display();
+    }
+
+     // 会诊列表页--加载更多
+    public function  hz_list_append(){
+
+        $page_num=I('get.page_num','2');
+
+        $token = A_token();
+
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        //验证手机是否绑定
+        include MODULE_PATH.'/Common/check_band.php';
+
+         //获取患者详细信息
+        $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid"
+        );
+        $json=json_encode($data);
+        $userinfo = json_decode(post_json($url,$json),true);
+        $member_id = $userinfo['MEMBER_ID'];
+
+           //获取我的会诊列表
+        $url = C("PATH_URL")."/interface/yc_member/ychz_list.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid",
+             "page_num"=>"$page_num"
+        );
+        $json=json_encode($data);
+        $hz_list =json_decode(post_json($url,$json),true); 
+        $this->assign("hz_list",$hz_list);
+        $this->assign("userinfo",$userinfo);
+       //输出更多列表
+        include COMMON_PATH.'/Common/load_more.php';
+    }
+
+    //会诊报告
+    public function my_hz_detali()
+    {
+        $token = A_token();
+
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        $hz_id = I("get.hz_id",5743925);
+
+        $token = A_token();
+
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        //获取患者详细信息
+        $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid"
+        );
+        $json=json_encode($data);
+        $userinfo = json_decode(post_json($url,$json),true);
+
+        //获取我的会诊列表
+        $url=C("NEW_PATH_URL")."/ServieYunAPI/AppBaseService.asmx/GetConsultationResult"; 
+        $data = "access_token=".$token."&Consultationid=".$hz_id."&PageIndex=".$page_num."";
+        $object =json_decode(post_curl($url,$data),true);
+
+//            //获取我的会诊列表
+        $url = C("PATH_URL")."/interface/yc_member/ychz_result_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid",
+            "record_id"=>"$hz_id"
+        );
+        $json=json_encode($data);
+        $object = json_decode(post_json($url,$json),true);
+        $this->assign("hzdetail",$object);
+        $this->assign("userinfo",$userinfo);
+        $this->display();
+    }
+
+	function pay()
+	{
+
+        $token = A_token();
+
+          //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+		$order_id = I('post.order_id', '');
+		$price = I('post.price', '');
+		$serve_name = I('post.serve_name', '');
+		$time = I('post.time', '');
+		$consult_id = I('post.consult_id', '0');
+		$doc_id = I('post.doc_id', '');
+        $order_status = I('post.status', '');
+        $hz_id = I('post.hz_id', '');
+        $sj_type = I('post.sj_type', '');
+        $url = C("PATH_URL")."/interface/yc_member/order_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid",
+            "order_id"=>"$order_id",
+            "sj_type"=>"$sj_type"
+        );
+        $json=json_encode($data);
+        
+        $array =json_decode(post_json($url,$json),true);
+        if($array[0]['ORDER_STATUS']=="待付款")
+        {
+
+    		if($consult_id)
+            {
+    			$consult_id = 0;
+    		}
+    		//判断支付来源
+    		switch ($serve_name)
+    		{
+    			case "在线咨询":
+    			  $status = 0;
+    			  break;
+    			case "远程阅片":
+    			  $status = 1;
+    			  break;
+    			case "患者根据处方订单下单":
+    			  $status = 2;
+                  break;
+                case "购买电子处方":
+                  $status = 2;
+                  break;
+                case "购买远程会诊服务":
+                  $status = 4;
+    			  break;
+    			default:
+    			  $status = 9;//商城购买设备
+    		}
+
+              //判断卡状态
+            $sale_name = str_replace('购买','',$serve_name);
+            $url = C("PATH_URL")."/interface/yc_member/sale_type_status.aspx?access_token=".$token;
+            $data = array
+            (
+                "openid"=>"$openid",
+                "sale_name"=>"$sale_name"
+            );
+            $json=json_encode($data);
+            $sale_type_status =json_decode(post_json($url,$json),true);
+            if($sale_type_status['status'] =='ok')
+            {
+                $status = 6;
+            }
+
+    		if($doc_id)
+            {
+    			$doc_id = $doc_id;
+    		}
+            else
+            {
+    			$doc_id = 0;
+    		}
+ 
+
+            //获取当前用户 卡号 手机号 
+            $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+            $data = array
+            (
+                "openid"=>"$openid"
+            );
+            $json=json_encode($data);
+            $user_info = json_decode(post_json($url,$json),true);
+
+             //当前用户手机号
+            $mobile = $user_info['MEMBER_MOBILE'];
+            $card_number = $user_info['CARD_NUMBER'];
+
+            if($card_number)
+            {
+                //获取卡余额
+                $url = "http://weixin.yk2020.com/include/xfb_balancequery.aspx";
+                $data = array
+                (
+                    "mobile"=>"$mobile"
+                 );
+                $json=json_encode($data);
+                $card_yue = json_decode(post_json($url,$json),true);
+
+            }
+
+    		$data = array
+    		(
+    			"out_trade_no"=>$order_id,
+    			"subject"=>$serve_name,
+    			"total"=>$price,
+    			"consult_id"=>$consult_id,
+    			"status"=>$status,
+                "order_status"=>$order_status,
+    			"doc_id"=>$doc_id,
+                "card_number"=>$card_number,
+                "hz_id"=>$hz_id,
+                "card_money"=>$card_yue['cur_money']
+
+    		);
+    		$json= json_encode($data);
+            //echo $json;die;
+            //print_R($data);die;
+    		$json= urlencode(passport_encrypt($json, "123"));
+    		header("Location:/weixin/Application/Member/WxpayAPI/jsapi.php?json=$json");
+        }
+        else
+        {
+            echo "<script>alert('此订单不能支付！');location.href='/weixin/index.php?m=Member&c=Order&a=order_list';</script>";
+        }
+	}
+
+
+
+
+    //储值卡支付
+
+    public function order_card_pay()
+    {
+
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+
+        //获取订单的详情页
+        $order_id = I('post.order_id', '');
+        $card_number = I('post.card_number', '');
+        $order_money = I('post.order_money', '');
+        $available_amount = I('post.available_amount', '');
+        $order_status = I('post.order_status', '');
+        $pwd = I('post.pwd', '');
+
+        //获取当前用户 卡号 手机号 
+        $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$openid"
+        );
+        $json=json_encode($data);
+        $user_info = json_decode(post_json($url,$json),true);
+
+         //当前用户手机号
+        $mobile = $user_info['MEMBER_MOBILE'];
+
+        $url = "http://weixin.yk2020.com/include/xfb_consume.aspx";
+
+        $data = array
+        (
+            "mobile"=>"$mobile",
+            "tranamt"=>"$order_money",
+            "pwd"=>"$pwd",
+            "consume_code"=>"$order_id",
+            "merchid"=>"100806200100001", //商户编号
+            "termid"=>"00017068" //终端编号
+        );
+        $json=json_encode($data);
+        $pay =json_decode(post_json($url,$json),true);
+        $log=new Log();
+        $log->write("error_code++pay++".json_encode($pay)."+++++\n".$json);
+        $this->ajaxReturn(json_encode($pay));
+    }
+
+	//取消订单
+	function tpay()
+	{
+		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		//获取订单的详情页
+		$order_id = I('get.order_id', '');
+        $record_id = I('get.record_id', '');
+
+		$url = C("PATH_URL")."/interface/yc_member/order_delete.aspx?access_token=".$token;
+		$data = array
+		(
+			"openid"=>"$openid",
+			"order_id"=>"$order_id",
+            "record_id"=>"$record_id"
+		);
+		$json=json_encode($data);
+		$array =json_decode(post_json($url,$json),true);
+		echo $array['error_code'];
+	}
+
+	//预约体检
+	 public function yuyue_add()
+    {
+        //获取平台的access_token
+        $token = A_token();
+        
+      	//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		if($openid == "0" || $openid == " ")
+		{
+			
+			$this->redirect('?m=Member&c=Follow&a=index');
+		}
+
+        $this->display();
+    }
+
+    public function yuyue_add_two()
+    {
+        //获取平台的access_token
+        $token = A_token();
+
+        //获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+        $data['name'] = I('post.name','');
+        $data['sex'] = I('post.sex','');
+        $data['age'] = I('post.age','');
+        $data['mobile'] = I('post.mobile','');
+        $data['address'] = I('post.address','');
+        $data['order_type'] = I('post.order_type','');
+
+        if($data['sex'] == '1')
+        {
+            $data['sex_a'] = "女";
+        }
+        if($data['sex'] == '0')
+        {
+            $data['sex_a'] = "男";
+        }
+
+        $this->assign('data',$data);
+        $this->display();
+    }
+
+    public function yuyue_add_ok()
+    {
+        $member_name = I('post.name','');
+        $member_mobile = I('post.mobile','');
+        $member_age = I('post.age','');
+        $member_sex = I('post.sex','');
+        $order_province = I('post.address','');
+        $order_name = I('post.jibing','');
+        $ill_desc = I('post.miaoshu','');
+        $order_title = I('post.biaoti','');
+        $imgbase64 = I('post.imgbase64','');
+        $order_type = I('post.order_type','');
+
+        if(empty($imgbase64))
+        {
+            //上传错误提示错误信息
+            $pic_path = "";
+            //echo "空值";
+        }
+        else if(preg_match('/^(data:\s*image\/(\w+);base64,)/',$imgbase64, $result))
+        {
+            //匹配出图片的格式
+            $type = $result[2]; //图片类型
+            $type = str_replace("jpeg","jpg", $type);
+                
+            $new_file = "./Public/Uploads/yuyue/".date("Y-m-d")."/".time().".{$type}";//保存名称、文件名
+                
+            if (is_dir(dirname($new_file)) == false)
+            {
+                mkdir(dirname($new_file), 0777, true);
+            }
+
+            $base64 = base64_decode(str_replace($result[1],"",$imgbase64));//去除头部无用信息
+        
+            if (file_put_contents($new_file, $base64))
+            {
+                //处理图片
+                $image = new \Think\Image();
+                $image->open($new_file);
+                // 按照原图的比例生成一个最大为1000*1000的缩略图并保存
+                $image->thumb(1000, 1000)->save($new_file);
+                $pic_path = "http://".$_SERVER['HTTP_HOST'].str_replace("./Public/","./Public/",$new_file);
+            }
+        }
+
+        //获取平台的access_token
+        $token = A_token();
+
+        //获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+        //获取我要预约接口
+        $url = C("PATH_URL")."/interface/yc_member/post_info.aspx?access_token=".$token;
+        $data = array
+        (
+       	"openid"=>"$openid",
+            "member_name"=>"$member_name",  //患者姓名
+            "member_mobile"=>"$member_mobile",  //手机号
+            "member_age" => "$member_age",  //年龄
+            "member_sex" => "$member_sex", // 0男1女
+            "order_pic" => "$pic_path", //图片
+            "order_province" => "$order_province", //地址
+            "order_title" => "$order_title", //标题
+            "hos_name" => "", //医院名称
+            "doc_name" => "", //医生姓名
+            "order_date" => "", //就诊日期
+            "order_name" => "$order_name", //预约项目(所患疾病)
+            "order_type" => "$order_type", //预约类型
+            "ill_desc" => "$ill_desc", //描述
+            "from_flag" => "0", //订单来源，0微信公众号，1手机浏览器，2pc，3app
+            "yw_id" => C("YW_ID") //业务id    1是眼科   6是肝病
+        );
+
+        $json=json_encode($data);
+        $yuyue = json_decode(post_json($url,$json),true);
+        if($yuyue['error_code'] == 'ok')
+        {
+            echo "1";
+        }
+
+    }
+    // 预约服务列表页
+    public function  yuyue_list(){
+
+    	$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+        $url =C("PATH_URL")."/interface/yc_member/member_order_list.aspx?access_token=".$token;
+
+        $data = array
+        (
+        	"openid"=>"$openid",
+        	"page_num"=>"1",
+        );
+        $json=json_encode($data);
+        $yuyue_list = json_decode(post_json($url,$json),true);
+
+        $this->assign("yuyue_list", $yuyue_list);
+        $this->display();
+    }
+
+
+     // 预约服务列表页--加载更多
+    public function  yuyue_list_append(){
+
+    	$page_num=I('get.page_num','2');
+
+    		$token = A_token();
+
+		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+          $url =C("PATH_URL")."/interface/yc_member/member_order_list.aspx?access_token=".$token;
+
+            $data = array
+        (
+        	"openid"=>"$openid",
+        	"page_num"=>"$page_num",
+        );
+         $json=json_encode($data);
+        $yuyue_list = json_decode(post_json($url,$json),true);
+        // var_dump( $yuyue_list);die;
+        $this->assign("yuyue_list", $yuyue_list);
+       //输出更多列表
+		include COMMON_PATH.'/Common/load_more.php';
+    }
+    //预约服务详情页
+    public  function  yuyue_detail(){
+	   $token = A_token();
+    		//获取openid
+		include MODULE_PATH.'/Common/open_id.php';
+
+		//验证手机是否绑定
+		include MODULE_PATH.'/Common/check_band.php';
+
+		$record_id= I('get.record_id', '');
+		    	 // var_dump($record_id);die;
+
+          $url =C("PATH_URL")."/interface/yc_member/member_order_info.aspx?access_token=".$token;
+
+            $data = array
+        (
+          "openid"=>"$openid",
+        	"record_id"=>"$record_id",
+        );
+         $json=json_encode($data);
+     // var_dump($json);die;
+        $list= json_decode(post_json($url,$json),true);
+      // var_dump($list);die;
+        $this->assign("list", $list);
+        $this->display();
+
+    }
+
+    //预约心电阅片
+    public function xdyp()
+    {
+        $token = A_token();
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        //验证手机是否绑定
+        include MODULE_PATH.'/Common/check_band.php';
+
+        $d_openid= I('get.d_openid', '');
+
+        $this->assign("d_openid", $d_openid);
+        $this->display();
+
+    }
+
+    //预约心电阅片
+    public function xdyp_add()
+    {
+        $token = A_token();
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        //验证手机是否绑定
+        include MODULE_PATH.'/Common/check_band.php';
+
+        $d_openid = I('post.d_openid', '');
+        $ad2 = I('post.ad2', '');
+        $package = I('post.package','');
+        
+
+        $pay_money = $package == '0'?'150':'400';
+
+        $url =C("PATH_URL")."/interface/yc_member/hz_buy_xd_ok.aspx?access_token=".$token;
+
+        $data = array
+        (
+            "openid"=>"$d_openid",
+            "hos_name"=>"$ad2",
+            "buy_type"=>"$package",
+            "pay_money"=>"$pay_money",
+        );
+        $json=json_encode($data);
+        $pdata = post_json($url,$json);
+        $data = json_decode($pdata,true);
+        $order_sn = $data['order_id'];
+        $log = new Log();
+        $log->write("xdyp_pay_pdata".$pdata,"WXPAY","","./Application/Runtime/Logs/wxpay".date('Y-m-d').'.log');
+        $log->write("xdyp_pay_pdata".$json,"WXPAY","","./Application/Runtime/Logs/wxpay".date('Y-m-d').'.log');
+        if($order_sn == '')
+        {   
+            echo "<script> alert('提交失败！错误代码'".$data['error_code'].");window.history.back(-1);</script>";
+            return;
+        }
+        else
+        {
+            //获取当前用户 卡号 手机号 
+            $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+            $data = array
+            (
+                "openid"=>"$openid"
+            );
+            $json=json_encode($data);
+            $user_info = json_decode(post_json($url,$json),true);
+            //当前用户手机号
+            $mobile = $user_info['MEMBER_MOBILE'];
+            $card_number = $user_info['CARD_NUMBER'];
+            if($card_number)
+            {
+                //获取卡余额
+                $url = "http://weixin.yk2020.com/include/xfb_balancequery.aspx";
+                $data = array
+                (
+                    "mobile"=>"$mobile"
+                 );
+                $json=json_encode($data);
+                $card_yue = json_decode(post_json($url,$json),true);
+
+            }
+            $data = array
+            (
+                "out_trade_no"=>$order_sn,
+                "subject"=>"购买阅片包月服务",
+                "total"=>$pay_money,
+                "status"=>8,
+                "card_number"=>$card_number,
+                "card_money"=>$card_yue['cur_money']
+            );
+            $json= json_encode($data);
+            $json= urlencode(passport_encrypt($json, "123"));
+            header("Location:/weixin/Application/Member/WxpayAPI/jsapi.php?json=$json");
+        }
+    }
+
+
+
+    //预约心电阅片
+    public function xdyp_pay()
+    {
+        $token = A_token();
+        //获取openid
+        include MODULE_PATH.'/Common/open_id.php';
+
+        //验证手机是否绑定
+        include MODULE_PATH.'/Common/check_band.php';
+
+        $d_openid = I('post.d_openid','');
+        $order_sn = I('post.order_id','');
+
+        $url = C("PATH_URL")."/interface/yc_member/order_xd_detail.aspx?access_token=".$token;
+        $data = array
+        (
+            "openid"=>"$d_openid",
+            "order_id"=>"$order_sn"
+        );
+        $json = json_encode($data);
+        $xdyp_detail = json_decode(post_json($url,$json),true);
+        $pay_money = $xdyp_detail['PAY_MONEY'];
+        if($xdyp_detail['ORDER_STATUS']=="待付款")
+        {
+            //获取当前用户 卡号 手机号 
+            $url = C("PATH_URL")."/interface/yc_member/member_info.aspx?access_token=".$token;
+            $data = array
+            (
+                "openid"=>"$openid"
+            );
+            $json=json_encode($data);
+            $user_info = json_decode(post_json($url,$json),true);
+            //当前用户手机号
+            $mobile = $user_info['MEMBER_MOBILE'];
+            $card_number = $user_info['CARD_NUMBER'];
+            if($card_number)
+            {
+                //获取卡余额
+                $url = "http://weixin.yk2020.com/include/xfb_balancequery.aspx";
+                $data = array
+                (
+                    "mobile"=>"$mobile"
+                 );
+                $json=json_encode($data);
+                $card_yue = json_decode(post_json($url,$json),true);
+
+            }
+            $data = array
+            (
+                "out_trade_no"=>$order_sn,
+                "subject"=>"购买阅片包月服务",
+                "total"=>$pay_money,
+                "status"=>8,
+                "card_number"=>$card_number,
+                "card_money"=>$card_yue['cur_money']
+            );
+            $json= json_encode($data);
+            $json= urlencode(passport_encrypt($json, "123"));
+            header("Location:/weixin/Application/Member/WxpayAPI/jsapi.php?json=$json");
+        }
+    }
+
+
+}

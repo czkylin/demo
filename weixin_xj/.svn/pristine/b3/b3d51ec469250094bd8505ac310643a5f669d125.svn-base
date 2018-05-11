@@ -1,0 +1,23 @@
+/*!
+*  无序列表中LI 部分 线样式
+    21501119  书写   李伟  
+	感谢：郑洁  乔亚运 
+     
+*/
+ 
+ 
+
+/*列表页*/
+.list{ width: 100%; padding: 0 10px; background-color: #fff;}
+.list li{ width: 100%; position: relative; border-bottom: 1px solid #f4f4f4; margin-bottom: 20px; padding: 10px 70px; min-height: 100px;}
+.listLeft{ position: absolute; left: 0; width: 70px; overflow: hidden; text-align: center;}/*列表页图片位置设置*/
+.listLeft img{ border-radius:50%;}/*列表页圆形图片*/
+.listLeft p{ text-align: center; color: #999;}
+.listCon{ width: 100%;}/*主内容区域*/
+.listCon h2{text-overflow:ellipsis;white-space:nowrap;overflow:hidden; padding-bottom: 5px;}/*主内容区域--标题*/
+.listCon p{ position: relative;  color: #999; margin: 5px 0; overflow: hidden;}/*主内容区域--内容*/
+.listCon p a{ color: #999;}
+.listCon p span{ padding-right: 20px; text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}/*主内容区域--位置*/
+.listRight{ position: absolute; right:0;  top: 10px;}/*列表页右侧位置*/
+
+ 

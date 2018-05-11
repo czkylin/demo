@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+.pad_top { padding-top: 0; }
+.mainCon{ border-top:7.5px solid #ebebeb;}
+.title{ height:18px; padding:10px 0 5px 0;}
+.title span{ display:inline-block;height:18px; width:3px; background:#339966; margin-right:8px;}
+.title h1{ font-size:18px; line-height:18px; color:#333333}
+/*公益慈善*/
+.gycs_list{ width:100%; }
+.gycs_list li{ position:relative; padding:15px 0; margin-bottom: 12px;}
+.gycs_list li a.pic{ display:block; width: 100%; height: 100px; overflow: hidden; margin-top:5px; position: relative;}
+.gycs_list li .img-mask{position:absolute; left: 0; top: 0; background: rgba(0,0,0,0.6); width: 90%; height: 80px;  padding: 10px 5%;}
+.gycs_list li a img{ width:100%;}
+.gycs_list li:last-child{ border-bottom:none;}
+.gycs_list li .time span{color: #999;}
+.lm_right{padding-left:108px; width:100%;-webkit-box-sizing: border-box; box-sizing: border-box;}
+.gycs_list h2{ font-size:16px; font-weight:normal; height:24px; line-height:24px;text-overflow: ellipsis; overflow: hidden; width:100%;}
+.gycs_list h2 a{ color:#333333;}
+.gycs_list p{ width:100%; height:30px; overflow:hidden;}
+.gycs_list h3 a{ color:#060606}
+.img-mask .mask-tit{color: #fff; font-size: 14px; text-align: left; text-indent: 0.5em; line-height: 28px; width: 34%; height: 28px; background: url(/weixin/Public/Member/images/gongzuoshi/bg.png) no-repeat 0 center; background-size: cover;}
+.img-mask .mask-des{font-size: 12px; color: #fff; line-height: 20px; width: 100%; height: 40px; overflow: hidden; }
+
+.lm_right .time{ margin-top:10px; height:20px; margin-right:10px;}
+.gycs_list .lm_right .time span{ float:left; color:#999999; width: 52%; overflow: hidden;height: 20px;}
+.gycs_list .lm_right .time span:first-child{ color:#666; height:20px; line-height:20px; font-size:20px; width:22px;}
+.gycs_list .lm_right .time span:last-child{ display:inline-block;color:#666; width:34%; overflow:hidden;font-size:12px; height:15px; line-height:20px; float:right; text-align:right; }
+.ui-icon-pin{ line-height:20px;}
+.ui-icon-pin:before {color: #ff647c; width:32px; height:15px; display:inline-block; }
+.diZhi{ width:35%;overflow:hidden; height:16px; line-height:16px;}
+
+/*公益慈善详细页面*/
+.huoDongTongZhi_info{}
+.huoDongTongZhi_info h1{ font-size:16px;}
+.huoDongTongZhi_info p{ color:#666; }
+/*.huoDongTongZhi_info p img{ margin-left:-2em;}
+*/.huoDongTongZhi_info .quarry{ line-height:30px; height:30px; }
+.huoDongTongZhi_info .quarry .address{  float:left; line-height:30px; height:30px; display:block; background:url(/weixin/Public/ganbingWeixin/images/huoDongTongZhi/icon01.png) no-repeat left; padding-left:15px;color:#666; width:30%; overflow:hidden; color: #ff647c;}
+.huoDongTongZhi_info .quarry .time{  display:block;  color:#666; overflow:hidden; text-align:left; line-height:30px; height:30px; color: #ff647c;}
+.huoDongTongZhi_info img{ width:100%; margin:15px 0;}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>报销详情</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+    <style>
+        body{height:100%;}
+        #list li p{width: auto;}
+        #list li i{position:absolute; right: 0; top: 0; width: 60%; font-style: normal; }
+        .clearfix:after{content: ""; display: block; clear: both;}
+        .img-wrap{width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 10; background: rgba(0,0,0,0.7); display: none;}
+        .img-main{width: 100%; height: 100%; display: -webkit-box;-webkit-box-orient: horizontal;-webkit-box-pack: center;-webkit-box-align: center;display: box;box-orient: horizontal;box-pack: center;box-align: center; text-align: center;}
+        .img-wrap img{width: 100%;}
+    </style>
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+    </script>
+</head>
+
+<body class="data">
+    <article id="page" class="dataList">
+        <h2 class="text-center">报销申请详情</h2>
+        <section>
+            <if condition="!$baoxiao[0]">
+                <ul id="list">
+                    <li>
+                        <p>预借金额</p>
+                        <i>{$baoxiao.MONEY_ADVANCE}</i>
+                    </li>
+                    <li>
+                        <p>退回金额</p>
+                        <i>{$baoxiao.MONEY_RETURN}</i>
+                    </li>
+                    <li>
+                        <p>补领金额</p>
+                        <i>{$baoxiao.MONEY_REPLACE}</i>
+                    </li>
+                    <li>
+                        <p>单据张数</p>
+                        <i>{$baoxiao.ER_COUNT}</i>
+                    </li>
+                    <li>
+                        <p>费用项目</p>
+                        <i>{$baoxiao.ER_CONTENT}</i>
+                    </li>
+                    <li>
+                        <p>费用金额(元)</p>
+                        <i>{$baoxiao.ER_MONEY}</i>
+                    </li>
+                    <li>
+                        <p>总计项目金额：</p>
+                        <i>{$baoxiao['MONEY_SUM']}</i>
+                    </li>
+                    <li>
+                        <p>财务审核</p>
+                        <i>{$baoxiao.CHECK2_FLAG}</i>
+                    </li>
+                    <li>
+                        <p>放款状态</p>
+                        <i>{$baoxiao.CHECK6_FLAG}</i>
+                    </li>
+                    <li style="height: 120px;">
+                        <p>单据</p>
+                        <if condition="$baoxiao['ER_FILE'] neq ''">
+                            <i style="overflow: hidden;"><img src="{$baoxiao.ER_FILE}" style="height: 100px; margin-top: 10px;" id="dj-img"></i>
+                        <else />
+                            <i>暂无单据</i>
+                        </if>
+                    </li>
+                </ul>
+            <else />
+                <ul id="list">
+                    <li>
+                        <p>预借金额</p>
+                        <i>{$baoxiao.0.MONEY_ADVANCE}</i>
+                    </li>
+                    <li>
+                        <p>退回金额</p>
+                        <i>{$baoxiao.0.MONEY_RETURN}</i>
+                    </li>
+                    <li>
+                        <p>补领金额</p>
+                        <i>{$baoxiao.0.MONEY_REPLACE}</i>
+                    </li>
+                    <li>
+                        <p>单据张数</p>
+                        <i>{$baoxiao.0.ER_COUNT}</i>
+                    </li>
+                    
+                        <li>
+                            <p>费用项目</p><i>费用金额(元)</i>
+                            
+                        </li>
+                    <volist name="baoxiao" id="bx">
+                        <li>
+                            <p>{$bx.ER_CONTENT}</p><i>{$bx.ER_MONEY}</i>
+                        </li>
+                    </volist>
+                    <li>
+                        <p>总计项目金额：</p>
+                        <i>{$baoxiao.0.MONEY_SUM}</i>
+                    </li>
+                    <li>
+                        <p>财务审核</p>
+                        <i>{$baoxiao.0.CHECK2_FLAG}</i>
+                    </li>
+                    <li>
+                        <p>放款状态</p>
+                        <i>{$baoxiao.0.CHECK6_FLAG}</i>
+                    </li>
+                    <li style="height: 120px;">
+                        <p>单据</p>
+                        <if condition="$baoxiao[0]['ER_FILE'] neq ''">
+                            <i style="overflow: hidden;"><img src="{$baoxiao.0.ER_FILE}" style="height: 100px; margin-top: 10px;" id="dj-img"></i>
+                        <else />
+                            <i>暂无单据</i>
+                        </if>
+                    </li>
+                </ul>
+
+            </if>
+            <div class="img-wrap" id="img-wrap">
+                <div class="img-main">
+                    <img src="{$baoxiao.0.ER_FILE}" alt="">
+                </div>
+            </div>
+        </section>
+    </article>
+    <script>
+        var oBox = document.getElementById("img-wrap");
+        var oImg = document.getElementById("dj-img");
+
+
+        oImg.addEventListener('touchend',function(){
+            oBox.style.display = "block";
+        },false);
+
+        oBox.addEventListener('touchend',function(){
+            oBox.style.display = "none";
+        },false);
+
+    </script>
+</body>
+</html>

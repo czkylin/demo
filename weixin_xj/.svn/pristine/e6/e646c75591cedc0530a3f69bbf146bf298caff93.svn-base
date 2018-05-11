@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="为您和您的家人获取最高30万元大病保障金">
+<title>我的保障</title>
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/qscui.css">
+<link rel="stylesheet" href="/weixin/Public/Member/css/huzhu/insurance.min.css">
+</head>
+<body ontouchstart="" class="notice">
+<div class="content bottom">
+        <div class="mod-ensure"> <a href="{:U('Huzhu/jiaruxingdong')}" class="list-item list-thumb"> <strong> <i class="icon ensure-love"></i> 微爱大病互助行动 </strong> <span> 继续添加<i class="list-arrow"></i> </span> </a>
+                <div class="mod-ensure-card guide-bg"> <a href="javascript:void(0);" class="list-item"> <strong>张春艳</strong> </a>
+                        <div class="card">
+                                <div class="card-left">
+                                        <p>保障状态: 观察期</p>
+                                        <p>账户余额: 10元</p>
+                                        <span class="yellow">建议充值到50元，避免频繁充值</span> </div>
+                                <div class="card-right">
+                                        <p><a href="{:U('Huzhu/huiyuanxinxi')}" class="btn btn-primary">查看会员卡</a></p>
+                                        <p><a href="chongzhi.html" class="btn btn-primary">充值</a></p>
+                                </div>
+                        </div>
+                </div>
+                <div class="mod-ensure-card guide-bg"> <a href="javascript:void(0);" class="list-item"> <strong>曾衡</strong> </a>
+                        <div class="card">
+                                <div class="card-left">
+                                        <p>保障状态: 未激活</p>
+                                        <p>账户余额: 0元</p>
+                                        <span class="red">建议立刻充值加入</span> </div>
+                                <div class="card-right">
+                                        <p><a data-delete="#" class="btn btn-primary delete-member">删除</a></p>
+                                        <p><a href="{:U('Huzhu/jiaruxingdong')}" class="btn btn-primary">充值加入</a></p>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="footer-icon"></div>
+</div>
+<div class="qsc-modal dialog" id="delete-member" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog middle">
+                <div class="modal-content ">
+                        <div class="modal-header"></div>
+                        <div class="modal-body"> 确认删除吗？ </div>
+                        <div class="modal-footer clearfix" role="group">
+                                <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">取消</button>
+                                <a href=" " class="btn btn-primary btn-lg text-danger" id="confirmDeleteMember">确认删除</a>
+                                <input type="hidden" name="deleteURL" value="">
+                        </div>
+                </div>
+        </div>
+</div>
+<!-- <footer class="qsc-bar bar-fixed insurance-bar"> <a href="/home" class="bar-item"><i class="icon bar-plan"></i>加入计划</a> <a href="/member/publicity" class="bar-item"><i class="icon bar-notice"></i>互助公示</a> <a href="/vip" class="bar-item"><i class="icon bar-member"></i>会员专享</a> <a href="/members" class="bar-item active"><i class="icon bar-ensure"></i>我的保障</a> </footer> -->
+<script src="/weixin/Public/Member/js/huzhu/jquery.min.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/jweixin-1.0.0.js"></script> 
+<script src="/weixin/Public/Member/js/huzhu/insurance.min.js"></script>
+<div id="cli_dialog_div"></div>
+<!-- CNZZ统计代码 -->
+<div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

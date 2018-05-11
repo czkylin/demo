@@ -1,0 +1,117 @@
+*{margin:0;padding:0;}
+body{background:#fff;font-size:14px;color:#333;}
+li{list-style:none;}
+a{text-decoration:none;}
+.pink{background:#ff647c;color:#fff;}
+.grey{background:#f3f3f3;}
+.warn{color:#ff8400;}
+.suc{color:#666;}
+.color1{color:#ff647c}
+.clear{overflow:hidden;}
+.fl{float:left;}
+.fr{float:right;}
+.box{display:box;display:-webkit-box;}
+.center{display:box;display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;}
+.text-center{text-align:center}
+.text-left{text-align:left;}
+.text-right{text-align:right;}
+
+/* 续方详情 */
+header{background:#ff647c;color:#fff;position:relative;}
+header a{position:absolute;left:0;top:0;height:44px;line-height:44px;}
+header a.ui-icon-prev{color:#fff;}
+header h2{font-size:20px;font-weight:normal;height:44px;line-height:44px;}
+section{padding:0 .2rem;}
+section ul{border:1px solid #e0e0e0;box-sizing:border-box;-webkit-box-sizing:border-box;}
+section h2{font-size:24px;padding:20px 0;font-weight:600;}
+section li{border-bottom:1px solid #e0e0e0;}
+section li:last-child{border-bottom-width:0;}
+section strong{display:block;border-right:1px solid #e0e0e0;box-sizing:border-box;-webkit-box-sizing:border-box;padding:10px 5px;font-weight:normal;}
+section strong:last-child{border-right-width:0;}
+section .grey{background:#f9f9f9;}
+section .white{background:#fff;}
+section p.grey{padding:10px;}
+section b{font-size:20px;font-weight:600;}
+section .lst{padding:20px 10px;}
+section .lst p{margin-bottom:10px;}
+section .lst p:last-child{margin-bottom:0;}
+.people{padding:10px 0;}
+.people span{margin-left:10px;}
+.w10{width:10%;}
+.w20{width:20%;}
+.w25{width:25%;}
+.w125{width:12.5%;}
+.w1375{width:13.75%;}
+.w70{width:70%;}
+
+/* 新增续方 */
+body.addy{font-size:16px;}
+.unit{border-bottom:10px solid #f3f3f3;padding:.3rem .5rem;background:#fff;}
+.basic{padding-bottom:10px;border-bottom:1px solid #e7e7e7;}
+.basic span{display:block;height:20px;line-height:20px;}
+.basic span:nth-child(1){width:4rem;}
+.basic span:nth-child(2),.basic span:nth-child(3){width:2.5rem;}
+.basic h3{font-weight:normal;font-size:16px;height:40px;line-height:40px;}
+.basic textarea{background:#f3f3f3;border-width:0;outline:none;padding:3%;width:94%;font-size:14px;border-radius:4px;line-height:22px;}
+.medical{padding-top:10px;position:relative;}
+.medical:before{content:"";position:absolute;right:10px;top:50%;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #999;z-index:0;}
+.medical:after{content:"";position:absolute;top:45%;right:10px;border-left:8px solid transparent;border-right:8px solid transparent;border-top:10px solid #fff;z-index:0;}
+.medical span{width:20%;vertical-align:middle;margin-top:9px;}
+.medical select{width:80%;padding:8px 10px;border-color:#e0e0e0;border-radius:2px;outline:none;-webkit-appearance:none;background:#fff;font-size:16px;}
+.drugs{padding:.5rem;}
+.drugs h2{font-size:18px;padding:0;font-weight:normal;}
+.drug h3{padding:10px 0 20px;font-size:16px;font-weight:normal;}
+.main{padding-bottom:20px;border-bottom:1px solid #e7e7e7;}
+.image i{line-height:2rem;margin-top:1px;margin-right:12px;}
+.image label{width:1rem;height:2rem;position:relative;overflow:hidden;display:block;}
+.image label:nth-of-type(2){width:2rem;border:1px solid #e7e7e7;}
+.image input{display:none;}
+.image input:checked~i{color:#ff647c;border-color:#ff647c;}
+.image input:checked~i.ui-icon-unchecked-s:before{content:'\f602';}
+.content p{width:6rem;padding-bottom:20px;}
+.content em,.content i,.content strong{width:1.4rem;display:block;line-height:30px;height:30px;font-style:normal;font-size:14px;font-weight:normal;border-width:0;padding:0;text-align:center;}
+.content em{margin-left:10px;}
+.content strong:nth-of-type(2){text-align:left;text-indent:.3rem;}
+.content .select select{float:left;vertical-align:middle;border-width:0;line-height:30px;height:30px;font-size:14px;outline:none;}
+.content i{width:20px;height:20px;position:relative;border-radius:20px;border:1px solid #dadada;background:#fff;margin-top:4px;}
+.content i:before,.content i:after{position:absolute;top:50%;left:50%;width:10px;height:2px;margin-top:-1px;margin-left:-5px;background:#333;content:'';}
+.content i:nth-of-type(2):after{transform:rotateZ(-90deg);-webkit-transform:rotateZ(-90deg);}
+.addm{border-radius:30px;background:#fff;color:#ff8400;border:1px solid #ff8400;display:inline-block;width:4rem;height:30px;line-height:30px;margin-top:14px;}
+.footer{padding:.5rem;background:#fff;}
+.btn{color:#fff;display:block;height:44px;line-height:44px;border-radius:6px;width:100%;-webkit-appearance:none;border-width:0;outline:none;font-size:18px;}
+
+/* 处方列表 */
+.search{background:#f3f3f3;width:7rem;height:30px;line-height:30px;border-radius:4px;}
+.search input{-webkit-appearance:none;outline:none;height:20px;line-height:20px; display:block;border-width:0;background:none;width:6rem;padding:5px 0;}
+.search .ui-icon-search{color:#b6b6b6;line-height:30px;width:1rem;}
+.sr{width:1.6rem;margin-left:.4rem;-webkit-appearance:none;outline:none;border-width:0;height:30px;border-radius:4px;padding:8px 0;}
+.unit header{padding:0;background:#fff;line-height:40px;border-bottom:1px solid #e7e7e7;margin-bottom:12px;}
+section.unit header h2,section.unit header p{height:34px;line-height:34px;width:50%;padding:0;font-weight:normal;}
+section.unit header h2{color:#333;font-size:18px;}
+.cLeft{width:8rem;}
+.cRight{width:1rem;}
+.cimg{width:2rem;height:2rem;overflow:hidden;}
+.ct{position:relative;padding-bottom:8px;}
+.ct a{position:absolute;top:0;left:0;width:100%;height:100%;}
+.ctxt{width:5.6rem;padding-left:.4rem;}
+.ctxt p{padding-bottom:10px;color:#666;}
+section .ctxt strong{border-width:0;display:inline;padding:0;color:#333;}
+.ctxt em{font-style:normal;}
+.ctxt span{font-size:14px;color:#a6a6a6;}
+.go{display:block;border:1px solid #e0e0e0;height:36px;line-height:36px;border-radius:4px;font-size:16px;letter-spacing:10px;}
+
+/*手术立项列表 李茂改20160816*/
+#lixianglist .cLeft{width:9rem;}
+#lixianglist .clearfix:after{content: ''; display: block; clear: both;}
+#lixianglist section.unit header h2{font-weight: bold;}
+#lixianglist .ctxt{width: 8.6rem; padding: 0 0.2rem;}
+#lixianglist .go{border: 1px solid #ff647c; border-radius: 3px;}
+#lixianglist .ui-icon-arrow{color: #ff647c;}
+#lixianglist .ctxt p{line-height:20px; padding-bottom: 5px;}
+#lixianglist section .ctxt strong{float: left; width: 2.6rem;}
+#lixianglist .ctxt em{float: left; width: 6rem;}
+#lixianglist .ui-jiazai{height: 30px; line-height: 30px; margin-bottom: 30px; text-align: center;}
+#lixianglist .ui-jiazai a{color: #999;}
+#lixianglist .maindes{position: fixed; top:44px; left: 0; display: block; width: 90%; padding: 8px 5%; z-index: 99; background-color: #fff; transition:0.1s; -webkit-transition:0.1s;}
+#lixianglist .maindes p{width: 95%; border: 1px solid #ccc; border-radius: 3px; padding: 5px 2.5%; line-height: 0.8rem;}
+#lixianglist .chufang_list{margin-top: 125px;}

@@ -21,6 +21,7 @@
       document.write('<h1>hello</h1>')
     </script>
   </h1>
+  <p>原有内容</p>
 <script type="text/javascript">
   var obj = {
     name: 'zhangsan',
@@ -70,12 +71,102 @@ for(var i=0; i<forms.length; i++) {
   }
 }
 
-var phone = '010-82668155';
+var phone = '010-82668.155';
 console.log( isNaN(parseFloat(phone.substring(4))) );
-var reg = /^010-\d{8}$/;
+var reg = /^010-\d{9}$/;
 console.log(reg.test(phone));
 
+// $.ajax({
+//   url: '/path/to/file',
+//   type: 'default GET (Other values: POST)',
+//   dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+//   data: {param1: 'value1'}
+// })
+// .done(function() {
+//   console.log("success");
+// })
+// .fail(function() {
+//   console.log("error");
+// })
+// .always(function() {
+//   console.log("complete");
+// });
+document.write('现有内容')
 
+for(let i=0; i<3; i++) {
+    setTimeout(function() {
+      console.log(i);
+    }, 0)
+}
+
+function box(){
+    var arr = [];
+    for(var i=0;i<5;i++){
+        arr[i] = function(num){
+
+            return num;
+        }(i);
+    }
+    return arr;
+}
+console.log(box());
+console.log(box()[4]);
+
+
+function person(name, sex){
+        this.name=name;
+        this.sex=sex;
+}
+
+     person.prototype.showName=function(){
+           console.log(this.name);
+}
+     person.prototype.showSex=function(){
+          console.log(this.sex);
+}
+   ////////////////////////////////////////////////////
+
+     function worker(name,sex,job){
+        person.call(this,name,sex);//构造函数伪装   调用父级的构造函数--为了继承属性
+        this.job=job;
+}
+
+     //原型链  通过原型来继承父级的方法
+
+     for(attr in person.prototype){
+       worker.prototype[attr]=person.prototype[attr];
+}
+     worker.prototype.showJob=function(){
+         console.log(this.job);
+ }
+
+      var op=new person('blue','男');
+      var ow=new worker('blue','男','程序员');
+
+      op.showName();  //blue
+      op.showSex();  //男
+      ow.showName();  //blue
+      ow.showSex();  //男
+      ow.showJob();  //程序员
+
+    //继承的好处：父类新加的功能，子类也具备该功能，子类新加的功能不会影响父类的功能
+
+function fn({a, c}) {
+  console.log(a);    //1
+  console.log(c);    //3
+}
+fn({a: 1, b: 2, c: 3})
+
+function fn1(option) {
+  console.log(option.a);
+  console.log(option.b);
+  console.log(option.c);
+}
+fn1({a: 1, b: 2, c: 3})
+
+for(let o=9; o<11; o++) {
+  console.log(o);
+}
 </script>
 </body>
 </html>

@@ -1,0 +1,127 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icons.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/footer.min.css">
+<link href="/weixin/Public/Expert/css/dingdan/dingdan.css" type="text/css" rel="stylesheet"/>
+<style>
+.header{padding:.13rem 0;background: #ff647c;position:relative;height:auto;}    
+.header a.icon{left:.1rem;top:.13rem;font-size:30px;color:#fff;position:absolute;}    
+.header h2{width:100%;color:#fff;font-size:24px;text-align:center;height:26px;line-height:26px;}   
+.dingdan_list dl{ position:relative; }
+.more_bl{position:absolute; right:20px; top:1em; display:inline-block; width:5em; height:2em; line-height:2em; text-align:center; color: #0099ff; border-radius: 6px;}
+</style>
+<title>会员列表</title>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+</script>
+</head>
+<body>
+<header class="header">
+    <a href="index.php?m=Expert&c=User&a=mywork_house" class="icon">&#xf62b;</a>
+    <h2>会员列表</h2>
+</header>
+<div class="ui-search">
+         <div class="ui-searchtxt">
+              <input type="text" name="hos_name" id="hos_name" value="" placeholder="请输入医院名称">
+         </div>
+         <input type="button" class="ui-btn-search" onclick="search_list('','0','',document.all.hos_name.value);" readonly="" unselectable="on" value="搜索">
+</div>
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style="padding-bottom: 10px;">
+
+
+<if condition="empty($yd_list)">
+    <div style=" text-align: center;">
+        <br/> 
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+    </div>
+<else />
+	<div class="dingdan_list">
+		<div class="chose_fuwu list_show" id="order-list">
+		<volist name="yd_list" id="data" empty="$empty">
+			<dl>
+				<a href="/weixin/index.php?m=Expert&c=Jtys&a=consult_details&member_id={$data['MEMBER_ID']}&consult_id=0">
+					<dt>
+						<span>
+                        <b></b>
+                            <if condition="($data['MEMBER_SEX'] eq '未填写') && ($data['MEMBER_PIC'] eq '')">
+                                <img src="/weixin/Public/Expert/images/yonghu/girl.png" width="60" height="60"/>
+                            <elseif condition="($data['MEMBER_SEX'] eq '男') && ($data['MEMBER_PIC'] eq '')" />
+                                <img src="/weixin/Public/Expert/images/yonghu/boy.png" width="60" height="60"/>
+                            <elseif condition="($data['MEMBER_SEX'] eq '女') && ($data['MEMBER_PIC'] eq '')" />
+                                <img src="/weixin/Public/Expert/images/yonghu/girl.png" width="60" height="60"/>
+                            <else />
+                                <img src="{$data['MEMBER_PIC']}" width="60" height="60" />
+                            </if>
+                        </span>
+					</dt>
+					<dd>
+						<h2>{$data['MEMBER_NAME']}</h2>
+						<p>年龄：
+                        <if condition="$data['MEMBER_AGE'] eq ''">
+                            未填写
+                        <else />
+                            {$data['MEMBER_AGE']}
+                        </if>
+                        </p>
+                        <p>时间：{$data['CREATE_DATE']}</p>
+						<p>性别：{$data['MEMBER_SEX']}</p>
+
+					</dd>
+					<br clear="all" />
+				</a>
+                <a class="more_bl"  href="{:U('Expert/User/dangan',array('member_id'=>$data['MEMBER_ID'],'member_mobile'=>$data['MEMBER_MOBILE'],'isperson'=>1))}">查看档案></a>
+			</dl>
+		</volist>
+		</div>
+	</div>
+	<div class="ui-jiazai" >
+		<a href="javascript:void(0);" onClick="load_more();"></a>
+	</div>
+    <div id="emptyData"></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+</div>
+<!--通底的引用开始-->
+<include file="Public:footer_bottom" />
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+    var over_footer = '4';
+</script>
+<!--通底的引用结束-->
+<script>
+    var onOff = true;
+    window.onload = function(){
+        window.onscroll();
+    }
+    window.onscroll = function(){
+        load_more('#order-list');
+    }
+    function load_more(obj)
+    {	
+        if(!onOff) return;
+        if($(obj).height() <= $(document).scrollTop() + document.body.clientHeight){
+            onOff = !onOff;
+            loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=yd_detail_append','#order-list',function(){
+                $('.empty_data').css({'top':0,'z-index':-1});
+            });
+        }
+    }	
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<html class="ui-mobile">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta http-equiv="cache-control" content="public">
+
+<meta id="viewport" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="format-detection" content="telephone=no">
+
+<!--CSS库文件-->
+
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+
+<!--CSS当前页面文件-->
+
+<link href="/weixin/Public/Expert/css/zhuanjiagongzuoshi/zhuanjiagongzuoshi3.css" type="text/css" rel="stylesheet"/>
+
+<link href="/weixin/Public/Expert/css/zhuanjiagongzuoshi/zhuanjia.min.css" type="text/css" rel="stylesheet"/>
+<link href="/weixin/Public/Expert/css/consult/consult_details.css" type="text/css" rel="stylesheet"/>
+
+<title>医生咨询</title>
+
+<script>
+	document.getElementsByTagName('html')[0].style.fontSize=document.documentElement.clientWidth /16 +"px";
+</script>
+
+</head>
+
+<body style=" background-color:#fff;" onload="window.scrollTo(0,document.body.scrollHeight);">
+
+<div class="zixuncon">
+	<div class="zixuntop">
+		
+		<div class="mes clearfix">
+			<div class="touxiang">
+			<if condition="$tdata.MEMBER_PIC neq '' ">
+				<img src="{$tdata.MEMBER_PIC}" alt="">
+			<else/> 
+				<if condition="$tdata.MEMBER_SEX eq '女' ">
+					<img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png" alt="">
+				<else/>
+					<img src="/weixin/Public/Expert/images/fenXiang/dfboy.png" alt="">
+				</if>
+			</if>
+			</div>
+			<div class="des">
+				<h3>{$tdata.MEMBER_NAME}</h3>
+				<p>{$tdata.MEMBER_SEX}  {$tdata.MEMBER_AGE}岁  {$tdata.MEMBER_MOBILE}</p>
+			</div>
+			<a href="{:U('Expert/User/dangan',array('member_id'=>$tdata['MEMBER_ID'],'member_mobile'=>$tdata['MEMBER_MOBILE']))}">健康档案 ></a>
+		</div>
+
+		<div class="question clearfix">
+			<div class="question-title">Q:</div>
+			<div class="question-des">
+				<p>{$tdata.CONSULT_CONTENT}</p>
+				<if condition="$tdata.CONSULT_IMG neq '' ">
+					<div class="img-wrap">
+						<img src="{$tdata.CONSULT_IMG}" class="piece_lstw3-img"/>
+					</div>
+				</if>
+				<!-- <a href="{:U('Expert/Member/member_detail',array('member_id'=>$tdata['MEMBER_ID'],'member_mobile'=>$tdata['MEMBER_MOBILE']))}">以往病例 ></a> -->
+			</div>
+		</div>
+
+	</div>
+
+	<div class="response">
+		<volist name='data' id='v'>
+			<script>
+				console.log("{$v.REPLY_DATE}");
+			</script>
+		<!-- 医生咨询 -->
+		<div class="zixunbot">
+			<if condition="$v.ALIGN_TYPE eq 1">
+				<if condition="$v.REPLY_CONTENT neq '已开处方，请点击详细进行查看！'">
+					<div class="doctor_mes">
+						<div class="liaotian">
+							<div class="doctor_portait">
+								<a href="{:U('Expert/User/setting')}">
+									<if condition="($v['MEMBER_SEX'] eq '女') && ($v['USER_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')">
+										<img src="/weixin/Public/Expert/images/yonghu/girl.png" />
+									<elseif condition="($v['MEMBER_SEX'] eq '男') && ($v['USER_PIC'] eq '/weixin/Application/Expert/View/images/dtdoctor.png')" />
+										<img src="/weixin/Public/Expert/images/yonghu/boy.png" />
+									<else/>
+										<img src="{$v.USER_PIC}" alt="">
+									</if>
+									
+								
+								</a>
+							</div>
+							<div class="piece_lstw3">
+								<div class="textC">
+									<div class="times"><small>{$v.REPLY_DATE}</small></div>
+									<p>{$v.REPLY_CONTENT}</p>
+									<if condition="$v.REPLY_IMG neq '' ">
+									<img class="piece_lstw3-img" src="{$v.REPLY_IMG}" alt="">
+									</if>
+								</div>
+							</div>
+						</div>
+					</div>
+				<else/>
+					<div class="doctor-prescription">
+						<div class="liaotian">
+							<div class="piece_lstw2">
+								<div class="textC" style="overflow:hidden;">
+									<div class="left">
+									<img src="/weixin/Public/Expert/images/fenXiang/drug.png" alt="" class="drug"></div>
+									<div class="left">
+										<h2>处方已开</h2>
+										<p>请点击详情进行查看</p>
+									</div>
+									<a href="{:U('Cf/cf_list',array('member_id'=>$tdata['MEMBER_ID']))}" class="join"></a>
+								</div>
+							</div>
+							<div class="doctor_portait">
+								<a href="javascript:;">
+									<img src="{$v.USER_PIC}" alt="">
+								</a>
+							</div>
+						</div>
+					</div>
+				</if>
+
+			<else/>
+				<!-- 患者咨询 -->
+				<div class="patient_mes">
+					<div class="liaotian">
+						<div class="patient_portait">
+							<a href="{:U('Expert/Member/member_detail',array('member_id'=>$tdata['MEMBER_ID'],'member_mobile'=>$tdata['MEMBER_MOBILE']))}">
+								<if condition="$v.USER_PIC neq '' ">
+									<img src="{$v.USER_PIC}" alt="">
+								<else/>
+									<if condition="$tdata.MEMBER_SEX eq '女' ">
+										<img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png" alt="">
+									<else/>
+										<img src="/weixin/Public/Expert/images/fenXiang/dfboy.png" alt="">
+									</if>
+								</if>
+							</a>
+						</div>
+						<div class="piece_lstw2">
+							<div class="textC">
+								<div class="times">
+								<small>{$v.REPLY_DATE}</small>
+								</div>
+								<p>{$v.REPLY_CONTENT}</p>
+								<if condition="$v.REPLY_IMG neq '' ">
+								<img class="piece_lstw3-img" src="{$v.REPLY_IMG}" alt="">
+								</if>
+							</div>
+						</div>
+					</div>
+				</div>
+			</if>
+		</div>
+		</volist>
+
+	</div>
+
+	<a name="bottom"></a>
+	<div class="zixunbot" style="margin-bottom:50px;"></div>
+
+	<form method="post" action="/weixin/index.php?m=Expert&c=Consult&a=consult_response" enctype='multipart/form-data' onsubmit="return sub()">
+
+		<div class="input-controller J_Input_Ctrl" al-show="(status.code==0|| status.code==1)&amp;&amp; myself &amp;&amp; asknum&gt;0">
+
+		<div class="item both uploader"> 
+
+			<div class="ruko">
+				<if condition="$cf_kt_zt.CF_KT_FLAG eq 1">
+					<a href="/weixin/index.php?m=Expert&c=User&a=sfcf&member_id={$tdata.MEMBER_ID}&consult_id={$consult_id}"><span>处方</span></a>
+                <else />   
+                    <a href="javascript:alert('您暂无权限！')"><span>处方</span></a>
+                </if>
+                
+
+            </div>
+
+			<div class="g-image-upload-box">
+
+				<div class="J_UploadBtn upload-btn small" style="overflow: hidden;" >
+					<span>图片</span>
+					<input type="file" accept="image/*" capture="camera" class="J_FileInput file-input fileupload" name="mypic" id='fileupload' onchange="press_img(this,'#imgbase64','#pre_pic','#press_status');">
+
+				</div>
+
+			</div>
+
+			<img src="" id="pre_pic" width="200" style="display:none">
+
+			<div id="press_status"></div>
+
+			<textarea name="imgbase64" id="imgbase64" style="display:none"></textarea>
+
+			<div class="desc J_Showmeonfileuploaded" style="display:none">
+
+			<h3>上传图片资料</h3>
+
+			<p>病症部位，检查报告或者其他病情资料</p>
+
+		</div>
+
+		</div>
+
+			<input type="text" al-keyup="inputText($event)" name="consultContent" id="sendBox" placeholder="请输入内容" al-value="textMsg" class="nofixed text-input">
+
+			<input type="hidden" id="consult_id" name="consult_id" value="{$consult_id}">
+
+			<input type="submit" value="发送"  class="gbn gbt-pri"  />
+
+			<input type="hidden" id="doc_to_yd" value="{$doc_to_yd}" /><!-- 医生是否绑定药店 -->
+
+		</div>
+
+	</form>
+
+</div>
+
+<div class="img-scale">
+	<span>关闭图片</span>
+	<img src="" alt="">
+</div>
+
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/weixin/Public/Expert/js/mobileFix.mini.js?v=8d13c59"></script>
+
+<script src="/weixin/Public/Expert/js/exif.js?v=c65d9ea" type="text/javascript"></script>
+
+<script src="/weixin/Public/Expert/js/lrz.min.js?v=b542f0a" type="text/javascript"></script>
+
+<script>
+
+var $doc_to_yd = document.getElementById('doc_to_yd').value;
+
+$('.ruko').click(function(){
+	if($doc_to_yd == 00019){
+		// alert('未绑定药店,请联系客服400-656-2020转1');
+		// return false;
+	}
+})
+
+
+function sub()
+
+{
+
+	var sendBox = $("#sendBox").val();
+
+	if(sendBox == "")
+
+	{
+
+		alert("请输入内容！");
+
+		return false;
+
+	}
+
+}
+
+
+
+function press_img(input_file, imgbase64, pre_pic, press_status)
+
+{
+
+	lrz(input_file.files[0], 
+
+	{
+
+		width:200,
+
+		before: function()
+
+		{
+
+			document.querySelector(press_status).innerHTML="";
+
+		},
+
+		fail: function(err)
+
+		{
+
+			document.querySelector(press_status).innerHTML=err;
+
+		},
+
+		always: function()
+
+		{
+
+			document.querySelector(press_status).innerHTML="";
+
+		},
+
+		done: function (results)
+
+		{
+			document.querySelector(imgbase64).innerHTML=results.base64;//返回base64字符串，放置到textarea区域
+
+			//document.querySelector(pre_pic).src=results.base64;//展示预览图片
+
+		}
+
+	});
+
+}
+
+//图片放大
+$(".piece_lstw3-img").click(function(){
+	var iSrc = $(this).attr("src");
+	$('.img-scale img').attr("src",iSrc);
+	$(".img-scale").height($("body").height()).show();
+});
+$('.img-scale span').click(function(){
+	$(".img-scale").hide();
+})
+
+//动态设置咨询的高度
+window.onload = function(){
+	$(".zixunbot").eq(0).css("padding-top",$('.zixuntop').height() + 50);
+}
+
+ //时间
+
+       /* var str = $('.times small').html(),
+        	//获取
+            y = str.split(':')[0].split(' ')[0],
+            h = str.split(':')[0].split(' ')[1],
+            m = str.split(':')[1];
+        var s1 = new Date(str),
+            s2 = new Date();
+        var days = s2.getTime() - s1.getTime();
+        var time = parseInt(days / (1000 * 60 * 60 * 24));
+        console.log( time );
+        if(time == 0){
+            $('.times small').html((h>12?((parseInt(h)-12)+':'+m+' PM'):(h+':'+m+'AM')));
+        }else if(time == 1){
+            $('.times small').html('昨天 '+(h>12?((parseInt(h)-12)+':'+m+' PM'):(h+':'+m+'AM')));
+        }else if(time == 2){
+            $('.times small').html('前天 '+(h>12?((parseInt(h)-12)+':'+m+' PM'):(h+':'+m+'AM')));
+        }else{
+            $('.times small').html(str);
+        }	*/
+        //刷新时间
+        $('.times').each(function(){
+        	var str = $(this).find('small').html(),
+        		y = str.split(':')[0].split(' ')[0],
+            	h = str.split(':')[0].split(' ')[1],
+            	m = str.split(':')[1];
+            var s1 = new Date(y),
+            	s2 = new Date();
+	        var days = s2.getTime() - s1.getTime();
+	        var time = parseInt(days / (1000 * 60 * 60 * 24));
+	       // console.log( time );
+	        if(time == 0){
+	            $(this).find('small').html((h>12?((parseInt(h)-12)+':'+m+' PM'):(h+':'+m+'AM')));
+	        }else if(time == 1){
+	            $(this).find('small').html('昨天 '+(h>12?((parseInt(h)-12)+':'+m+' PM'):(h+':'+m+'AM')));
+	        }else if(time == 2){
+	            $(this).find('small').html('前天 '+(h>12?((parseInt(h)-12)+':'+m+' PM'):(h+':'+m+'AM')));
+	        }else{
+	            $(this).find('small').html(y);
+	        }	
+        })
+</script>
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

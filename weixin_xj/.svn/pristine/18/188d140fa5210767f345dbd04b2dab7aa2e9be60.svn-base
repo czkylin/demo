@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>期刊杂志详情页</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBack/back.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet" >
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Expert/css/college/qiKanZaZhi.css" type="text/css" rel="stylesheet"/>
+<script>
+response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+</script>
+</head>
+<body style="position:relative;">
+<div style="position:absolute; left:0; right:0; top:0; bottom:0; display:none; background:#000; opacity:0.7; z-index:999" id="beijing"></div>
+<div class="line"></div>
+<div class="bookList">
+        <div class="pad_15 mainCon">
+            <div class="qiKan_top">
+                <div class="qiKan_img"><img src="{$book[0]['BOOK_PIC']}" /></div>
+                <div class="qiKan_tit">
+                        <h2>{$book[0]['BOOK_NAME']}</h2><br/>
+                        <span>{$book[0]['BOOK_EDITER']}</span> 
+                        <if condition="$book[0]['BOOK_PDF'] EQ '' ">
+                        <a class="ui-btn-purchase-default xiazai" href="javascript:void(0)" onClick="showmsg()">点击下载整本杂志</a>
+                        <else /> 
+                        <a class="ui-btn-purchase-default xiazai djxz" href="javascript:void(0)" onClick="showmsg2()">点击下载整本杂志</a>
+                        </if> 
+                </div>
+            </div>
+        </div>
+        <div class="mainCon videoInfo">
+                <h2 class="title_h2 ">解读目录</h2>
+        </div>
+        <div class="clear"></div>
+        <div class="tabCon pad_15">
+                <ul>
+                 <volist name="chap_list" id="chap">
+                       <li class="sectionsList">
+                              <h3>{$chap['CHAP_NAME']}      {$chap['CHAP_TITLE']}</h3>
+                              <ul class="sections">
+                                  <volist name="chap['SECTS']" id="sects"> 
+                                  <li><a href="{:U('Unexp/sect_info',array('s_id'=>$sects['SECT_ID']))}"><span>{$sects['SECT_NAME']}     {$sects['SECT_TITLE']}</span>
+                                  <span class="jiangJie" <if condition="$sects['SECT_PDF'] EQ '' ">id="disnone"</if> ><b class="ui-icon-down"></b>&nbsp;</span></a></li>
+                                  </volist> 
+                              </ul>
+                        </li>
+                 </volist>
+                </ul>
+        </div>
+</div>
+<div class="pad_15"> 
+<if condition="$book[0]['BOOK_PDF'] EQ '' ">
+<a class="ui-btn-purchase-default djxz" href="javascript:void(0)" onClick="showmsg()">点击下载整本杂志</a>
+<else /> 
+<a class="ui-btn-purchase-default xiazai djxz" href="javascript:void(0)" onClick="showmsg2()">点击下载整本杂志</a>
+</if>
+</div>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script>
+$(function(){
+$('.tabCon li h3').click(function(){
+	$(this).parent('li').siblings().children('.sections').slideUp();
+			$(this).parent('li').siblings().children('h3').removeClass('bg');
+			if($(this).siblings('.sections').is(':visible')){
+				$(this).removeClass('bg');
+				$(this).siblings('.sections').slideUp();
+				}else{
+				$(this).addClass('bg');
+				$(this).siblings('.sections').slideDown();	
+					}
+			})
+})	
+</script>
+
+
+<script>
+    function showmsg(){
+        $('#msg').show();
+        $('#msg').html('抱歉，暂无内容！');
+        setTimeout(function(){fail();},2000);
+        return false;
+    }
+	
+    function fail(){
+        $('#msg').hide()
+    }
+	//跳转函数
+	function jump(count)
+	{
+		window.setTimeout(function()
+		{
+			count--;
+			if(count > 0)
+			{
+				var content=count;
+				$('#num').text(content);
+				jump(count); 
+			}
+			else
+			{
+				location.href="{:U('Unexp/sect_info',array('s_id'=>$chap_list[0]['SECTS'][0]['SECT_ID']))}";
+			}
+		}, 1000);
+	}
+</script>
+<script>
+$(function(){
+
+$('.djxz').click(function(){
+		$('#beijing').css('display','block');
+		$('.tanchu').css('display','block');
+		jump(10);
+		})		
+$('.tanchu span').click(function(){
+		$('#beijing').css('display','none');
+		$('.tanchu').css('display','none');
+		})		
+})	
+</script>
+<div class="tanchu" style=" display:none;">
+   <div style=" background:#fff; width: 80%; height:60%; position:absolute; top: 20%; left: 10%; z-index: 99999; text-align:center;">
+   		<br/>
+   		<img src="/weixin/Public/Expert/images/zhiNanJieDu/xiazai.jpg" style="width:15%;">
+    	<p style=" color:#747475; font-size:16px; text-align:center; margin: 0 20px;">文件过大！预览下载时间缓慢。<br/>我们将为您跳转到<br/>第一章第一节下载页！</p>
+    	<!--<span class="ui-icon-close-progress" style=" position:absolute; top:0; right:0;"></span>-->
+        <p style=" margin-top:20px;"><b style="font-weight:normal; color: #ff647c;" id="num"></b>秒后将自动跳转</p>
+        <a href="{:U('Unexp/sect_info',array('s_id'=>$chap_list[0]['SECTS'][0]['SECT_ID']))}" style=" display:block; width:20%; height:40px; line-height:40px; color:#fff; background: #ff647c; margin:20px auto; border-radius:3px; font-size:12px; padding:0 5px;">点击跳转</a>
+   </div>
+</div>
+<div  style=" width: 100%; position:fixed; top: 35%; left: 0; z-index: 999;">
+    <p style=" background:#666; color:#fff; line-height:25px;width:200px; height: auto; text-align:center; margin: 0 auto; padding: 10px;display: none;" id="msg"></p>
+</div>
+<include file="Public:tj" />
+ <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

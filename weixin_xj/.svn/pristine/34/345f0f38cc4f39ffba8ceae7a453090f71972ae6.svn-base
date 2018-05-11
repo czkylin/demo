@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet" />
+<link href="/weixin/Public/Member/css/user/dangan.css"  type="text/css" rel="stylesheet">
+<title>检查详情-睡眠监测</title>
+</head>
+<body>
+<!--体温-->
+<if condition="empty($sm_info)">
+    <div style=" text-align: center;"> 
+        <br>
+        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+        <i style=" line-height: 30px;">暂无数据</i>
+    </div>
+<else />
+	<div class="tiwen">
+		<div class="con">
+			<h2 class="tit7">睡眠监测</h2>
+			<p>新生儿平均每天睡16小时，婴儿睡眠时间逐渐缩短，至2岁时约睡9～12小时。成年人的睡眠时间因人而异，通常为6～9小时不等，一般认为7小时半是合适的。可是老年人的睡眠经常少到6小时。深度睡眠是睡眠的一个部分，深度睡眠也被称作是“黄金睡眠”，只占整个睡眠时间的25%。</p>
+		</div>
+		<ul class="detail detail_tw">
+			<!--<volist name="jk_info" id="jk">
+				<li>
+						<div class="right position box tiwenzhi">
+							<p>{$jk.TEMPERATURE|round=1}°C</p>
+							<span class="canshu">高烧</span>
+						</div>
+						<p><b>{$jk.EXAMTIME|Dtodiy="m-d",###}</b><br>{$jk.EXAMTIME|Dtodiy="H:i",###}</p>
+						<div class="clear"></div>
+				</li>
+			</volist>-->
+        <volist name="sm_info" id="sm">
+			 <li>
+				<!-- <div class="right  position box tiwenzhi">
+					<span class="canshu">良</span>
+				</div>
+                <div class="right sm_xq ">
+					<span class="sm_zhuangtai">深度睡眠</span>
+                    <span class="hour">3h</span>
+				</div> -->
+                <div class="right sm_xq tiwenzhi">
+					<span class="sm_zhuangtai">睡眠时长</span>
+                    <span class="sm_hour">{$sm.SLEEPLONG} </span>
+				</div>
+                <div class="right sm_xq">
+					<span class="sm_zhuangtai">结束时间</span>
+                    <i class="hour">{$sm.ENDTIME|Dtodiy="m-d",###} {$sm.ENDTIME|Dtodiy="H:i",###}</i>
+				</div>
+                <div class="right sm_xq">
+					<span class="sm_zhuangtai">开始时间</span>
+                    <i class="hour">{$sm.STARTTIME|Dtodiy="m-d",###} {$sm.STARTTIME|Dtodiy="H:i",###}</i>
+				</div>
+				<div class="data_w">
+                	<p><b>{$sm.MEASURE_DATE|Dtodiy="m-d",###}</b></p>
+					<p>{$sm.MEASURE_DATE|Dtodiy="H:i",###}</p>
+                </div>
+				<div class="clear"></div>
+			</li>
+        </volist>
+			<!--  <li>
+				<div class="right  position box tiwenzhi">
+					<span class="canshu">差</span>
+				</div>
+                <div class="right sm_xq ">
+					<span class="sm_zhuangtai">深度睡眠</span>
+                    <span class="hour">3h</span>
+				</div>
+                <div class="right sm_xq tiwenzhi">
+					<span class="sm_zhuangtai">睡眠时长</span>
+                    <span class="sm_hour">3h</span>
+				</div>
+                <div class="right sm_xq">
+					<span class="sm_zhuangtai">结束时间</span>
+                    <i class="hour">{$sm.ENDTIME|Dtodiy="m-d",###} {$sm.ENDTIME|Dtodiy="H:i:s",###}</i>
+				</div>
+                <div class="right sm_xq">
+					<span class="sm_zhuangtai">开始时间</span>
+                    <i class="hour">{$sm.STARTTIME|Dtodiy="m-d",###} {$sm.STARTTIME|Dtodiy="H:i:s",###}</i>
+				</div>
+				<p><b>10-13</b></p>
+				<p>16:45</p>
+				<div class="clear"></div>
+			</li> -->
+			
+			
+		</ul>
+	</div>
+    </if>
+	<!-- 加载更多 -->
+	<div class="ui-jiazai"><a href="javascript:void(0);" onClick="load_more('.detail');"></a></div>
+	<div id="current_pagenum" style="display:none">2</div>
+</if>
+<div id="tj_type" style="display:none">{$tj_type}</div>
+<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script> 
+<script src="/weixin/Public/Common/js/load.js" type="text/javascript"></script>
+<script>
+//体温，动态设置
+
+$(function(){
+	fn();
+})
+function fn(){
+	$('.detail_tw li').each(function() {
+        var shuzhi = parseFloat($(this).find(".sm_hour").html());
+		var $canshu = $(this).find(".canshu");
+		if(shuzhi >=8){
+			$canshu.html("良").addClass("color_liang");
+			
+		}else{
+			$canshu.html("异常").addClass("color_cha");
+		}
+    });
+}
+
+var onOff = true;
+</script>
+<if condition="$rownum neq 1">
+	<script>
+	window.onload = function(){
+	    window.onscroll();
+	}
+
+	window.onscroll = function(){
+	    load_more('.detail');
+	}
+	</script>
+</if>
+<script>
+
+// function load_more(obj)
+// {   
+//     var tj_type = $("#tj_type").text();
+
+//     if(!onOff) return;
+
+//     if($(obj).height()+$('header').outerHeight() <= $(document).scrollTop() + $(window).height())
+//     {
+//         onOff = !onOff;
+//         loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=dangan_detail_append&member_id={$member_id}&tj_type='+tj_type,'.detail',fn);
+//     }
+// }
+</script>
+<script>
+$(function(){
+	var hh=$('.sm_xq').eq(3).height();
+	$('.box').height(hh+16+'px');
+	$('.box').css('lineHeight',hh+16+'px');
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>会诊成员</title>
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zj/zj.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <article>
+        <section class="unit">
+            <h2>发起医生</h2>
+            <div class="content box">
+                <div class="img"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" width="100%" /></div>
+                <div class="txt">
+                    <h3>名字</h3>
+                    <p>医院名</p>
+                    <p>科室名</p>
+                </div>
+                <a href="#"></a>
+            </div>
+        </section>
+        <section class="unit">
+            <h2>参与医生</h2>
+            <div class="content box">
+                <div class="img"><img src="/weixin/Public/Expert/images/user/touxiang.jpg" width="100%" /></div>
+                <div class="txt">
+                    <h3>名字</h3>
+                    <p>医院名</p>
+                    <p>科室名</p>
+                </div>
+                <a href="#"></a>
+            </div>
+        </section>
+    </article>
+</body>
+</html>

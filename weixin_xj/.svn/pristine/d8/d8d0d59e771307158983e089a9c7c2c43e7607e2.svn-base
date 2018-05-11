@@ -1,0 +1,163 @@
+/*common*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+    background-color: #f6f6f6;
+}
+
+:focus {
+	outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+li {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clear:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+/*main*/
+.des{
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+    color: #999999;
+    padding-left: 2.5%;
+}
+.module{
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    padding: 0 2.5%;
+    border-bottom: 1px solid #e0e0e0;
+}
+.time,.title{
+    color: #000;
+    font-size: 15px;
+}
+.list{
+    padding: 0 2.5%;
+    background: #fff;
+}
+.list li{
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 13px;
+}
+.list li span{
+    float: left;
+    color: #999;
+}
+.total span{
+    float: left;
+    color: #000;
+}
+.list li b,.total b{
+    float: right;
+    color: #999;
+}
+.list li b i,.total b i{
+    font-style: normal;
+    color: #000;
+}
+.total{
+    padding: 0 2.5%;
+    background: #fff;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+}
+

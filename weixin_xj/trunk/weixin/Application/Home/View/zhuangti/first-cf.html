@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>电子处方第一位受益者！</title>
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/swiper.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Common/css/Swiper/animate.min.css">
+	<link rel="stylesheet" href="/weixin/Public/Home/css/zhuanti/first-cf.css">
+	<script>
+		document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 10 + "px";
+	</script>
+</head>
+<body>
+	<div class="wraper">
+		<div id="loading">
+			<span></span>
+		</div>
+		<div id="music" class="rotate">
+			<audio id="a1" src="/weixin/Public/Home/images/zhuanti/first/cf/music.mp3" loop autoplay></audio>
+		</div>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide page1">
+		        	<div class="text1"><img src="/weixin/Public/Home/images/zhuanti/first/cf/page1-text1.png" alt=""></div>
+		        	<div class="text2"><img src="/weixin/Public/Home/images/zhuanti/first/cf/page1-text2.png" alt=""></div>
+		        	<div class="text3"><img src="/weixin/Public/Home/images/zhuanti/first/cf/page1-text3.png" alt=""></div>
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page2">
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page3">
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page4">
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page5">
+		        	<div class="text1"><img src="/weixin/Public/Home/images/zhuanti/first/cf/page5-text1.png" alt=""></div>
+		        	<div class="text2"><img src="/weixin/Public/Home/images/zhuanti/first/cf/page5-text2.png" alt=""></div>
+		        	<div class="ma"><img src="/weixin/Public/Home/images/zhuanti/first/ma.png" alt=""></div>
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page6">
+		        	<div class="page6-img"><img src="/weixin/Public/Home/images/zhuanti/first/ren.png" alt=""></div>
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page7">
+		        	<div class="arrow"></div>
+		        </div>
+		        <div class="swiper-slide page8">
+		        	<div class="text1"><img src="/weixin/Public/Home/images/zhuanti/first/cf/end-text1.png" alt=""></div>
+		        	<div class="text2"><img src="/weixin/Public/Home/images/zhuanti/first/cf/end-text2.png" alt=""></div>
+		        	<div class="text3"><img src="/weixin/Public/Home/images/zhuanti/first/cf/end-text3.png" alt=""></div>
+		        	<div class="text4"><img src="/weixin/Public/Home/images/zhuanti/first/cf/end-text4.png" alt=""></div>
+		        	<div class="text5"><img src="/weixin/Public/Home/images/zhuanti/first/cf/end-text5.png" alt=""></div>
+		        </div>
+		    </div>    
+		</div>
+	</div>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Common/js/swiper.min.js"></script>
+	<script>
+		var imgArr = ['bg1.jpg','bg2.jpg','bg3.jpg','bg4.jpg','bg5.jpg','bg6.jpg','bg7.jpg','bg8.jpg'];
+		var Len = imgArr.length;
+		var iNow = 0;
+		var iRate = 0;
+		var viewHeight = $(window).height();
+
+		$("#loading").height(viewHeight);
+
+		for( var i=0;i<Len;i++ ){
+			var oImg = new Image();
+			oImg.src = "/weixin/Public/Home/images/zhuanti/first/cf/" + imgArr[i];
+			oImg.onload = function(){
+				iNow ++;
+				iRate = Math.round((iNow/Len)*100);
+				$("#loading > span").html(""+ iRate +"%");
+				if( iNow == Len ){
+					setTimeout(function(){
+
+						$("#loading").hide();
+
+						showMusic();
+
+						var mySwiper = new Swiper ('.swiper-container', {
+						    direction: 'vertical',
+						    height : window.innerHeight,
+						    //Swiper初始化了	
+						    onInit: function(swiper){
+						      //alert(swiper.activeIndex);提示Swiper的当前索引
+						      $(".swiper-slide").eq(swiper.activeIndex).addClass("animate");
+						    },
+						    //Swiper切换结束后触发
+						    onSlideChangeEnd: function(swiper){
+						      $(".swiper-slide").removeClass('animate');
+						      $(".swiper-slide").eq(swiper.activeIndex).addClass('animate');
+						    }
+						})    
+
+					},400)
+				}
+			}
+			oImg.onerror = function(){
+				var mySwiper = new Swiper ('.swiper-container', {
+				    direction: 'vertical',
+				    height : window.innerHeight,
+				    //Swiper初始化了	
+				    onInit: function(swiper){
+				      //alert(swiper.activeIndex);提示Swiper的当前索引
+				      $(".swiper-slide").eq(swiper.activeIndex).addClass("animate");
+				    },
+				    //Swiper切换结束后触发
+				    onSlideChangeEnd: function(swiper){
+				      $(".swiper-slide").removeClass('animate');
+				      $(".swiper-slide").eq(swiper.activeIndex).addClass('animate');
+				    }
+				}) 	
+			}
+				
+		}
+		function showMusic(){
+				var onOff = true;
+				var media = document.getElementById("a1");
+				$("#music").show().on("touchend",function(){
+					if( onOff ){
+						media.play();
+						$(this).addClass("rotate");
+					}else{
+						media.pause();
+						$(this).removeClass("rotate");
+					}
+					onOff = !onOff;
+				});
+
+			}
+	</script>	
+</body>
+</html>

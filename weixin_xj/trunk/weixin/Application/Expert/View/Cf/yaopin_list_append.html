@@ -1,0 +1,42 @@
+<volist name='product_list' id='product' key="k">
+	  <li id="y_{$product.PRODUCT_ID}">
+    <label class="ui-icon-unchecked-s xz" for="week1_{$product.PRODUCT_ID}" ></label>
+    <input type="checkbox" name="product[]" id="week1_{$product.PRODUCT_ID}" onclick="checkproduct({$product.PRODUCT_ID})" value="{$product.PRODUCT_ID}" style="display:none" />
+    <h3>{$product.TY_NAME}-{$product.PRODUCT_GG} ￥ {$product['PRODUCT_MONEY']|round=2} - {$product.PRODUCT_TYPE}</h3>
+        <div style=" height:40px;">
+            <div style="padding-right:30px;width:100px; line-height:40px">数量：</div>
+            <label  class="label1">
+                <span class="jianshao"></span>
+                <span class="num"><span>1</span></span>
+                <span class="zengjia"></span>
+                <input name="num_{$product.PRODUCT_ID}" type="hidden" value="1">
+            </label>
+        </div>
+        <div style=" height:40px; width:300px;">
+            <div style="padding-right:30px;width:100px; float:left; line-height:40px">用量：</div>
+             <label class="label2">
+                <span class="jianshao"></span>
+                <span class="num2"><span>1</span></span>
+                <span class="zengjia"></span>
+                <input name="yl_{$product.PRODUCT_ID}" type="hidden" value="1">
+            </label>
+            <div style="width:100px; float:right; line-height:40px;">次/日</div>
+        </div>
+        <div style=" height:40px; width:300px;">
+        <label class="label3">
+      <span class="jianshao"></span>
+      <span class="num3"><span>1</span></span>
+      <span class="zengjia"></span>
+      <input name="jl_{$product.PRODUCT_ID}" type="hidden" value="1" />
+    </label>
+          <div style="width:100px; float:right; line-height:40px;">
+                <select name="jldanwei" id="danwei_{$product.PRODUCT_ID}">
+                  <option value ="滴"  selected>滴</option>
+                  <option value ="粒">粒</option>
+                  <option value="袋">袋</option>
+                </select> /次
+      </div>
+        </div> 
+        <input name="dj_{$product.PRODUCT_ID}" id="ypdj" type="hidden" value="{$product.PRODUCT_MONEY}">
+  </li>∮
+</volist>

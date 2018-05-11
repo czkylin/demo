@@ -1,0 +1,33 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<!--CSS库文件-->
+<link rel="stylesheet" href="/weixin/Public/Member/css/base.css">
+<title>医院列表</title>
+<style>
+body{ background:#f4ebeb; margin:0; }
+.ka_box{ width:100%; height:auto;}
+.ka_box a{ width:100%; height:auto; display:block; margin-bottom:10px;}
+.ka_box a img{ width:100%; height:auto;}
+</style>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+<div class="ka_box">
+	<a href="">
+   	    <img src="/weixin/Public/Member/images/shangcheng/ka1.jpg" alt="百倍爱心卡-100"/>
+    </a>
+    <a href="">
+   	    <img src="/weixin/Public/Member/images/shangcheng/ka2.jpg" alt="百倍爱心卡腕表三件-1280"/>
+    </a>
+    <a href="">
+   	    <img src="/weixin/Public/Member/images/shangcheng/ka3.jpg" alt="百倍爱心卡清脂胶囊-498"/>
+    </a>
+</div>
+</body>
+</html>

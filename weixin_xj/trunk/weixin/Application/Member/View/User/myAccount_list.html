@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Member/css/user/myaccount_list.css"  type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<title>账单</title>
+</head>
+<body>
+	<h2><if condition="$type eq '1'">当天<else/>历史账单</if></h2>
+	<ul class="list" id="list">
+		<!--网上充值-->
+		<volist name='card_info' id='v' empty="暂无数据">
+		<li class="clear" >
+			<div class="date">
+				<p><?php echo substr($v['TRANDATE'],5,5);?></p>
+				<span><?php echo substr($v['TRANDATE'],11,5);?></span>
+			</div>
+			<!-- 会根据实际情况再做判断 -->
+			<if condition="$v['ONLINE'] eq '0' ">
+			<img src="/weixin/Public/Member/images/user/online.png" alt="">
+			<else/>
+			<img src="/weixin/Public/Member/images/user/pos.png" alt="">
+			</if>
+			<div class="price">
+				<p>
+                <switch name="v['TRANTYPE']" >
+                    <case value="1">-<!-- 消费 --></case>
+                    <case value="2"><!-- 退货 --></case>
+                    <case value="3"><!-- 撤销 --></case>
+                    <case value="27">-<!-- 转账 --></case>
+                    <case value="31"><!-- 预授权完成 --></case>
+                    <case value="32"><!-- 预授权撤销 --></case>
+                    <case value="23">+<!-- 充值 --></case>
+                    <case value="24"><!-- 撤销 --></case>
+                    <case value="36"><!-- 售卡 --></case>
+                    <case value="37">+<!-- 充值 --></case>
+                    <case value="38"><!-- 充值撤销 --></case>
+                    <case value="50"><!-- 充次 --></case>
+                    <case value="51"><!-- 充次撤销 --></case>
+                    <case value="202">+<!-- 充值 --></case>
+                    <case value="203"><!-- 充值撤销 --></case>
+                    <case value="204"><!-- 售卡 --></case>
+                    <case value="206">-</case>
+                    <case value="207"><!-- 撤销 --></case>
+                    <case value="208"><!-- 退货 --></case>
+                    <case value="220">+<!-- app会员卡充值 --></case>
+                    <case value="56">+<!-- 充值 --></case>
+                    <case value="48">-<!-- 消费 --></case>
+                    <case value="49"><!-- 消费撤销 --></case>
+                    <case value="61"><!-- 银行卡给会员卡充值 --></case>
+                    <case value="62"><!-- 补送 --></case>
+                    <case value="63"><!-- 银行卡给商户账户充值 --></case>
+                    <case value="64"><!-- 会员售卡（单卡） --></case>
+                    <default /> 
+                </switch>
+                {$v.TRANAMT}
+                </p>
+				<span>
+                <if condition="$v['ONLINE'] eq '0'">线上<else/>线下</if>
+                -
+                <switch name="v['TRANTYPE']" >
+                    <case value="1">消费</case>
+                    <case value="2">退货</case>
+                    <case value="3">撤销</case>
+                    <case value="27">转账</case>
+                    <case value="31">预授权完成</case>
+                    <case value="32">预授权撤销</case>
+                    <case value="23">充值</case>
+                    <case value="24">撤销</case>
+                    <case value="36">售卡</case>
+                    <case value="37">充值</case>
+                    <case value="38">充值撤销</case>
+                    <case value="50">充次</case>
+                    <case value="51">充次撤销</case>
+                    <case value="202">充值</case>
+                    <case value="203">充值撤销</case>
+                    <case value="204">售卡</case>
+                    <case value="206">消费</case>
+                    <case value="207">撤销</case>
+                    <case value="208">退货</case>
+                    <case value="220">app会员卡充值</case>
+                    <case value="56">充值</case>
+                    <case value="48">消费</case>
+                    <case value="49">消费撤销</case>
+                    <case value="61">银行卡给会员卡充值</case>
+                    <case value="62">补送</case>
+                    <case value="63">银行卡给商户账户充值</case>
+                    <case value="64">会员售卡（单卡）</case>
+                    <default /> 
+                </switch>
+                </span>
+			</div>
+		</li>
+		</volist>
+	</ul>
+	  <div class="ui-jiazai" >
+	 	<a href="javascript:void(0);" onClick="load_more();" >加载更多</a>
+	 </div>  
+   <div id="current_pagenum" style="display:none">2</div>
+   <script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+   <script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+   <script type="text/javascript">
+	   /*function load_more()
+		{	
+			loadmore('#current_pagenum','/weixin/index.php?m=Member&c=User&a=myAccount_list_append','#list');
+		}*/
+
+		var onOff = true;
+        window.onload = function()
+        {
+            window.onscroll();
+        }
+        window.onscroll = function () 
+        {
+            load_more('#list');
+        }
+        function load_more(obj) 
+        {
+            if (!onOff) return;
+            if ($(obj).height() <= $(document).scrollTop() + $(window).height()) {
+                onOff = !onOff;
+                loadmore('#current_pagenum', '/weixin/index.php?m=Member&c=User&a=myAccount_list_append&type='+{$type},'#list');
+            }
+        }
+
+   </script>
+</body>
+
+</html>
+<!--pos充值-->
+		<!--<li class="clear">
+			<div class="date">
+				<p>10-13</p>
+				<span>16:45</span>
+			</div>
+			<img src="/weixin/Public/Member/images/user/pos.png" alt="">
+			<div class="price">
+				<p>+0.09</p>
+				<span>POS机-充值</span>
+			</div>
+		</li> -->

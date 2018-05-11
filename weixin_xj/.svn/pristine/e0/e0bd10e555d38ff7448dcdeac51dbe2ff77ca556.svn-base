@@ -1,0 +1,10 @@
+<volist name="day_list" id="referral">
+  <section id="day_list">
+      <!-- <h2>北京海淀医院</h2> -->
+      <p><label>患者姓名：</label><span>{$referral.PERSON_NAME}</span></p>
+      <p><label>手机号码：</label><span>{$referral.PERSON_MOBILE}</span></p>
+      <p class="disc"><label>转诊描述：</label><span>{$referral.REFERRAL_DESC}</span></p>
+      <p class="clear"><label>转诊状态：</label><span class="finish">{$referral.REFERRAL_STATUS}</span></p>
+      <p class="last"><label>转诊医院：</label><span>{$referral.HOS_NAME}</span></p>
+  </section>∮
+</volist>

@@ -1,0 +1,61 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<title>完善信息</title>
+</head>
+
+<body>
+<form action="/weixin/index.php?m=Home&c=User&a=band_name_add" method="post" class="dengluCon">
+        <div class="gp GJ_Gp g-items gp-profile-auth">
+                <ul>
+                        <li>
+                                <input type="text" placeholder="填写姓名" id="real_name" name="real_name" class="weism">
+                        </li>
+                        <li class="avatar">
+                                <label class="ghgl" style="line-height:30px">选择医院:</label>
+                                <select class="chose_yh" name="hos_id" id="hos_id">
+                                        <option value="0">请选择医院</option>
+                                        <volist name="hos_list" id="hos" empty="暂时没有数据">
+                                                <option value="{$hos['HOS_ID']}">{$hos['HOS_NAME']}</option>
+                                        </volist>
+                                </select>
+                        </li>
+                </ul>
+        </div>
+        <div class="tuichu">
+                <input class="ui-btn-corner-all sub_kuang" type="submit" value="提交" onclick="check_input();"/>
+        </div>
+</form>
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<script language="javascript" type="text/javascript">
+
+function check_input()
+
+{
+
+	if($('#real_name').val()=="")
+
+	{
+
+		alert("请输入真实姓名！");
+
+		$("#real_name").focus();
+
+	}
+
+}
+
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?></div>
+</body>
+</html>

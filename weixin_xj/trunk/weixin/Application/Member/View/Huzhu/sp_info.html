@@ -1,0 +1,12 @@
+<html>
+
+<form action="{:U('Huzhu/sp_pay')}" method="post">
+    <input type="hidden" name="commodity_id" value="{$commodity_id}" />
+    <input type="hidden" name="price" value="{$price}" />
+</form>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+
+<script>
+    $("form").submit();
+</script>
+</html>

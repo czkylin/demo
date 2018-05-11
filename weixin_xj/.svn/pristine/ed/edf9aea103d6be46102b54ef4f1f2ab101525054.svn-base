@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<meta name="share-title" content="">
+<title>我的处方列表</title>
+<!--CSS库文件-->
+<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+<link href="/weixin/Public/Common/css/commonSearch/search.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonLoadMore/loadMore.css" type="text/css" rel="stylesheet">
+<link href="/weixin/Public/Common/css/commonFooter/footer_v2.min.css" type="text/css" rel="stylesheet">
+<!--CSS当前页面文件-->
+<link href="/weixin/Public/Member/css/chufang/chuFang.css" type="text/css" rel="stylesheet"/>
+</head>
+<body style="background:#ebebeb;">
+<div class="chufang_list" id="chufang_list" style="background:#ebebeb;">
+	<div class="tab-box">
+		<div class="tab1"><a href="{:U('Member/Order/order_list')}" ><span>我的订单</span></a></div>
+	    <div class="tab2"><a href="{:U('Member/Cf/cf_list')}"><span>我的处方</span></a></div>
+	</div>
+	<if condition="empty($cf_list)">
+		<div class="nodetail">
+			<img src="/weixin/Public/Common/images/icon/icon1.png" alt="">
+			<i>暂无数据</i>
+		</div>
+	<else />
+		<ul id="cf-list" style="background:#fff;">
+				<volist name="cf_list" id="cf">
+					<li>
+						<?php 
+							if($cf['ORDER_STATUS']=='未下单')
+							{
+
+								$cf['status']=1;
+							}
+						?>
+						<a class="list_img" href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID'],'order_status'=>$cf['status']))}">
+						<if condition="$cf['CF_PIC'] eq '' ">
+							<img src="/weixin/Public/Member/images/cf/cf_list.jpg" width="40px" height="40px" />
+						<else />
+							<img src="{$cf['CF_PIC']}" width="40px" height="40px" />
+						</if>
+						</a>
+						<div class="list_txt">
+							<h3><span>{$cf['HOS_NAME']}<b></b></span></h3>
+							<p><a href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID'],'order_status'=>$cf['status']))}">{$cf['CF_CONTENT']}</a></p>
+							<h4><span>处方状态：{$cf['ORDER_STATUS']}</span><time>{$cf['CREATE_DATE']}</time></h4>
+						</div>
+						<a class="list_right" href="{:U('Member/Cf/cf_detail',array('record_id'=>$cf['RECORD_ID'],'hos_id'=>$cf['HOS_ID'],'order_status'=>$cf['status']))}">
+						<if condition="$cf['ORDER_STATUS'] neq '已下单'">
+						<p class="xiadan">去下单</p>
+						</if>
+						</a>			
+					</li>
+				</volist> 	
+		</ul>
+		<div style="display: none;" id="expert_id">{$expert_id}</div>
+		<div class="ui-jiazai" ><a href="javascript:void(0);" onClick="load_more('#cf-list');">加载更多</a></div>
+		<div id="emptyData"></div>
+		<div id="current_pagenum" style="display:none">2</div>
+	</if>
+</div>
+<!--Js库文件--> 
+<script src="/weixin/Public/Common/js/jquery.min.js" type="text/javascript"></script> 
+<include file="Public:footer_fd" />
+<!--加载更多-->
+<script src="/weixin/Public/Common/js/load.js " type="text/javascript"></script> 
+<script>
+<!--通底定义-->
+var over_footer = '4';
+var onOff = true;
+    
+window.onload = function(){
+    window.onscroll();
+}
+window.onscroll = function(){
+    load_more('#cf-list');
+}
+function load_more(obj)
+{	
+	var expert_id = $("#expert_id").text();
+	if(!onOff) return;
+    if($(obj).height() <= $(document).scrollTop() + $(window).height()){
+        onOff = !onOff;
+	loadmore('#current_pagenum','/weixin/index.php?m=Member&c=Cf&a=cf_list_append&expert_id='+expert_id,'#cf-list',function(){
+                    $('.empty_data').css({'top':0,'z-index':-1});
+                });
+	}
+}
+
+function sub(cf_id)
+{
+	location.href="{:U('Member/Cf/xiadan')}&cf_id="+cf_id;
+}
+</script>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+</body>
+</html>

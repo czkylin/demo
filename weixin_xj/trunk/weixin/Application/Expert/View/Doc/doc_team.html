@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="public">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="share-title" content="">
+    <title>医生集团</title>
+    <link href="/weixin/Public/Common/css/commonIcon/icon.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/medical/medical.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+    </script>
+</head>
+<body>
+    <header class="head">
+        <ul class="box">
+            <li class="active"><a href="{:U('Expert/Doc/doc_team')}">医生集团</a></li>
+            <li><a href="{:U('Expert/Doc/mydoc_team')}">我的医生集团</a></li>
+        </ul>
+    </header>
+    <article class="ysjt">
+    <if condition="empty($doc_list)">
+        <div style=" text-align: center;">
+            <br/> 
+            <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+            <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+        </div>
+    <else />
+        <volist name="doc_list" id="doc">
+            <section class="unit">
+                <div class="team box">
+                    <div class="docImg"> <p><img src="{$doc.UNION_PIC}"></p></div>
+                    <div class="left">
+                        <h2>{$doc.UNION_NAME}</h2>
+                        <p>擅长：<?php echo htmlspecialchars_decode($doc['UNION_DESC']);?></p>
+                    </div>
+                    <div class="right text-right"><i class="ui-icon-arrow"></i></div>
+                </div>
+                <a href="{:U('Expert/Doc/doc_union')}&id={$doc.UNION_ID}"></a>
+            </section>
+         </volist>
+     </if>
+       
+    </article>
+</body>
+</html>

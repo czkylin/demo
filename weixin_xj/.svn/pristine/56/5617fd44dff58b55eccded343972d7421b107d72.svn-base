@@ -1,0 +1,17 @@
+<volist name="consult_list" id="data">
+	<a href="/weixin/index.php?m=Expert&c=Jtys&a=consult_details&consult_id={$data['CONSULT_ID']}">
+        <if condition="$data['RE_STATUS'] eq '已回复'">
+	        <li class="clear">
+	    <else />
+	    	<li class="active clear">
+	    </if>
+            <if condition="$data['TW_FLAG'] eq '1'">
+                <p class="ask">医生询问</p>
+            <else />
+                <p class="ask">患者咨询</p>
+            </if>
+	            <div class="info fl"><i></i>{$data['CONSULT_CONTENT']}</div>
+	            <div class="time fr">{$data['CONSULT_DATE']}</div>
+	     	</li>
+	</a>∮
+</volist>

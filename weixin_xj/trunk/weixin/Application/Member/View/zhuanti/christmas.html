@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="description" content="今年圣诞节送给父母最好的礼物，健康贴心的百倍爱心卡" />
+    <meta name="keywords" content="百倍爱心卡" />
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/basic.css">
+    <link rel="stylesheet" href="/weixin/Public/Common/css/common/pace-theme-material.css">
+    <link rel="stylesheet" href="/weixin/Public/Member/css/zhuanti/christmas.css">
+    <title>百倍爱心卡，爱心送父母</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        wx.config({
+            debug: false,
+            appId: '{:C("M_APPID")}',
+            timestamp: '1482290228', // 必填,生成签名的时间戳
+            nonceStr:'BD4QDyhR2H0Sy0am', // 必填，生成签名的随机串
+            signature: 'c92e0871bd2f9ffd5ff4303690b8284873d68da3',// 必填，签名，见附录1
+            jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+        var wx_share_title = '百倍爱心卡，爱心送父母';
+        var wx_share_desc = '今年圣诞节送给父母最好的礼物，健康贴心的百倍爱心卡';
+        var wx_share_imgUrl = "http://wx-heartorg.yk2020.com/weixin/Public/Member/images/zhuanti/christmas/share.png";
+
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_yf&user_id=0&link_mobile=0&user_name='+encodeURIComponent(""),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+
+                },
+                cancel: function() {}
+            });
+            wx.onMenuShareAppMessage({
+                title: wx_share_title,
+                desc: wx_share_desc,
+                link: 'http://wx-heartorg.yk2020.com/weixin/index.php?m=Member&c=Huzhu&a=share_yf&user_id=0&link_mobile=0&user_name='+encodeURIComponent(""),
+                imgUrl: wx_share_imgUrl,
+                success: function() {
+                    
+                },
+                cancel: function() {}
+            });
+        });
+
+    </script>
+    <script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/12 + 'px';
+    </script>
+</head>
+
+<body> 
+  <div class="slide_Box_mt"></div>
+   <img src="/weixin/Public/Member/images/zhuanti/christmas/snow.png" style="display:none;" id="imgs" />
+   <img src="/weixin/Public/Member/images/zhuanti/christmas/snow.png" style="display:none;" id="lis_flake" />
+    <article>
+        <section id="art">
+            <canvas id="sky"></canvas>
+            <canvas id="ground"></canvas>
+            <div id="mask" class="mask">
+                <div class="gift">
+                    <div class="gt">
+                        <div class="lid text-center"><img src="/weixin/Public/Member/images/zhuanti/christmas/lid.png" width="60%" /></div>
+                        <div class="boxs text-center">
+                            <img src="/weixin/Public/Member/images/zhuanti/christmas/box.png" width="60%" />
+                            <p class="happy">
+                                <img src="/weixin/Public/Member/images/zhuanti/christmas/happy.png" width="100%" />
+                                <a href="#">了解详情</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="hands text-center"><img src="/weixin/Public/Member/images/zhuanti/christmas/hands.png" width="60%" /></div>
+                </div>
+           </div>
+            <div class="snowman"><img src="/weixin/Public/Member/images/zhuanti/christmas/snowman.png" width="100%" /></div>
+        </section>
+    </article>
+    <div id="btn" class="btn"><img src="/weixin/Public/Member/images/zhuanti/christmas/btn.png" width="50%" /></div>
+    <!-- CNZZ统计代码 -->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145768).'" width="0" height="0"/>';?></div>
+    <!-- CNZZ统计代码  百倍健康维护单独统计-->
+    <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1261024279).'" width="0" height="0"/>';?></div>
+</body>
+<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+<script src="/weixin/Public/Common/js/pace.min.js"></script>
+<script>
+    paceOptions = {
+        restartOnRequestAfter: false
+    };
+    Pace.on('done', function () {
+        $('.pace').fadeOut();
+        var sky = document.getElementById('sky');
+        var ground = document.getElementById('ground');
+        var btn = document.getElementById('btn');
+        var mask = document.getElementById('mask');
+        var snowman = document.querySelector('.snowman');
+        var gifts = document.querySelector('.gift');
+        var gt = document.querySelector('.gt');
+        var lid = document.querySelector('.lid');
+        var boxs = document.querySelector('.boxs');
+        var hands = document.querySelector('.hands');
+        var happy = document.querySelector('.happy');
+        var ctx1 = sky.getContext('2d');
+        var ctx2 = ground.getContext('2d');
+        var art = document.getElementById('art');
+        var artW = art.offsetWidth;
+        var artH = art.offsetHeight / 2;
+        var img1 = new Image();
+        var img2 = new Image();
+        var img3 = new Image();
+        var img4 = new Image();
+        var img5 = new Image();
+        var img6 = new Image();
+        var img7 = new Image();
+        var img8 = new Image();
+        var img9 = new Image();
+        var img10 = new Image();
+        sky.width = ground.width = mask.width = artW;
+        sky.height = ground.height = mask.height = artH;
+        //双缓存
+        if (sky && ctx1) {
+            var _canvasBuffer = document.createElement('canvas');
+            _canvasBuffer.width = sky.width;
+            _canvasBuffer.height = sky.height;
+            _canvasBufferContext = _canvasBuffer.getContext('2d');
+        }
+        img1.src = '/weixin/Public/Member/images/zhuanti/christmas/sky.jpg';
+        img7.src = '/weixin/Public/Member/images/zhuanti/christmas/treeGift.png';
+        img1.onload = function () {
+            _canvasBufferContext.drawImage(img1, 0, 0, _canvasBuffer.width, _canvasBuffer.height);
+            ctx1.drawImage(_canvasBuffer, 0, 0);
+            _canvasBufferContext.drawImage(img2, 0, 0, _canvasBuffer.width, _canvasBuffer.height);
+            _canvasBufferContext.drawImage(img7, ground.width / 2, 0.6 * ground.height, 98, 103.5);
+            ctx2.drawImage(_canvasBuffer, 0, 0);
+        }
+        img2.src = '/weixin/Public/Member/images/zhuanti/christmas/ground.jpg';
+        img2.onload = function () {
+            ctx2.drawImage(img2, 0, 0, ground.width, ground.height);
+        }
+        img3.src = '/weixin/Public/Member/images/zhuanti/christmas/snow.png';
+        //清画布
+        function clear(ctx, name, img) {
+            ctx.clearRect(0, 0, name.width, name.height);
+            ctx.drawImage(img, 0, 0, name.width, name.height);
+        }
+        //下雪    
+        var snow1 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 0
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: 0.1
+            , ay: 2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    //this.ax = Math.ceil(Math.random()*5);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                //clear();
+                ctx.save();
+                ctx.drawImage(document.getElementById('imgs'), this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+                //ctx1.drawImage(_canvasBuffer, 0, 0);
+            }
+        };
+        var snow2 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 84
+            , dy: 10
+            , dw: 20
+            , dh: 20
+            , ax: -0.2
+            , ay: 2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    //this.ax = Math.ceil(Math.random()*2);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow3 = {
+            x: 84
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 120
+            , dy: 20
+            , dw: 20
+            , dh: 20
+            , ax: -0.3
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow4 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 300
+            , dy: 50
+            , dw: 20
+            , dh: 20
+            , ax: 0.4
+            , ay: 1.2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow5 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 50
+            , dy: 10
+            , dw: 20
+            , dh: 20
+            , ax: -0.1
+            , ay: 1.2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow6 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 100
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: 0
+            , ay: 3
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow7 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 200
+            , dy: 100
+            , dw: 20
+            , dh: 20
+            , ax: 0.1
+            , ay: 3
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow8 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 300
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: 0.1
+            , ay: 3
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow9 = {
+            x: 84
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 80
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: 0.2
+            , ay: 3
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow10 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 50
+            , dy: 200
+            , dw: 20
+            , dh: 20
+            , ax: -0.1
+            , ay: 3
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };   
+        var snow11 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 0
+            , dy: 20
+            , dw: 20
+            , dh: 20
+            , ax: 0.1
+            , ay: 2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    //this.ax = Math.ceil(Math.random()*5);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                //clear();
+                ctx.save();
+                ctx.drawImage(document.getElementById('imgs'), this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+                //ctx1.drawImage(_canvasBuffer, 0, 0);
+            }
+        };
+        var snow12 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 84
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: -0.2
+            , ay: 2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    //this.ax = Math.ceil(Math.random()*2);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow13 = {
+            x: 84
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 120
+            , dy: 10
+            , dw: 20
+            , dh: 20
+            , ax: -0.3
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow14 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 300
+            , dy: 320
+            , dw: 20
+            , dh: 20
+            , ax: 0.4
+            , ay: 1.2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow15 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 50
+            , dy: 120
+            , dw: 20
+            , dh: 20
+            , ax: -0.1
+            , ay: 1.2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow16 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 100
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: 0
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow17 = {
+            x: 42
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 200
+            , dy: 0
+            , dw: 20
+            , dh: 20
+            , ax: 0.1
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow18 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 300
+            , dy: 50
+            , dw: 20
+            , dh: 20
+            , ax: 0.1
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow19 = {
+            x: 84
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 80
+            , dy: 20
+            , dw: 20
+            , dh: 20
+            , ax: 0.2
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+        var snow20 = {
+            x: 0
+            , y: 0
+            , w: 42
+            , h: 39
+            , dx: 50
+            , dy: 30
+            , dw: 20
+            , dh: 20
+            , ax: -0.1
+            , ay: 1
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dy > sky.height || this.dx > sky.width) {
+                    this.dx = Math.ceil(Math.random() * 300);
+                    this.dy = 0;
+                    this.ax = -Math.ceil(Math.random() * 10);
+                    this.ay = Math.ceil(Math.random() * 10);
+                }
+                ctx.save();
+                ctx.drawImage(img3, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx.restore();
+            }
+        };
+
+        function snowSky() {
+            clear(ctx1, sky, img1);
+            snow1.fn(ctx1);
+            snow2.fn(ctx1);
+            snow3.fn(ctx1);
+            snow4.fn(ctx1);
+            snow5.fn(ctx1);
+            snow6.fn(ctx1);
+            snow7.fn(ctx1);
+            snow8.fn(ctx1);
+            snow9.fn(ctx1);
+            snow10.fn(ctx1);
+            window.requestAnimationFrame(snowSky);
+        }
+
+        function snowGround() {
+            ctx2.clearRect(0, 0, ground.width, ground.height);
+            ctx2.save();
+            ctx2.drawImage(img2, 0, 0, ground.width, ground.height);
+            ctx2.restore();
+            ctx2.save();
+            ctx2.drawImage(img7, ground.width / 2, 0.6 * ground.height, 98, 103.5);
+            ctx2.restore();
+            snow11.fn(ctx2);
+            snow12.fn(ctx2);
+            snow13.fn(ctx2);
+            snow14.fn(ctx2);
+            snow15.fn(ctx2);
+            snow16.fn(ctx2);
+            snow17.fn(ctx2);
+            snow18.fn(ctx2);
+            snow19.fn(ctx2);
+            snow20.fn(ctx2);
+            window.requestAnimationFrame(snowGround);
+        }
+        snowSky();
+        snowGround();
+        //车
+        img4.src = '/weixin/Public/Member/images/zhuanti/christmas/oldman.png';
+        img5.src = '/weixin/Public/Member/images/zhuanti/christmas/star.png';
+        img6.src = '/weixin/Public/Member/images/zhuanti/christmas/gift.png';
+        var run = {
+            x: 0
+            , y: 0
+            , w: 472
+            , h: 208
+            , dx: sky.width
+            , dy: sky.height - 100
+            , dw: 236
+            , dh: 104
+            , ax: -2
+            , ay: -2
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                ctx1.drawImage(img4, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+            }
+        };
+        var star = {
+            x: 0
+            , y: 0
+            , w: 25
+            , h: 24
+            , dx: 0
+            , dy: 50
+            , dw: 25
+            , dh: 24
+            , ax: 10
+            , ay: 10
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dx += this.ax;
+                this.dy += this.ay;
+                if (this.dx > (run.dx + 50) && this.dy > (run.dy + 50)) {
+                    gift.dx = this.dx;
+                    gift.dy = this.dy;
+                    this.dx = this.dy = -100;
+                    this.ax = this.ay = -1;
+                    drop();
+                    return;
+                }
+                ctx1.save();
+                ctx1.drawImage(img5, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx1.restore();
+            }
+        };
+        var gift = {
+            x: 0
+            , y: 0
+            , w: 147
+            , h: 133
+            , dx: 0
+            , dy: 0
+            , dw: 58.8
+            , dh: 53.2
+            , ax: 0
+            , ay: 5
+            , fn: function (ctx, callback) {
+                callback && callback();
+                this.dy += this.ay;
+                if (this.dy > sky.height) {
+                    setTimeout(function () {
+                        art.style.transform = art.style.webkitTransform = 'translate3d(0,-50%,0)';
+                    }, 1000);
+                    //snowGround();
+                }
+                ctx1.save();
+                ctx1.drawImage(img6, this.x, this.y, this.w, this.h, this.dx, this.dy, this.dw, this.dh);
+                ctx1.restore();
+                document.getElementById('btn').style.left = (10 + ground.width / 2) + 'px';
+                document.getElementById('btn').style.top = (20 + ground.height * 0.6) + 'px';
+            }
+        }
+        img8.src = '/weixin/Public/Member/images/zhuanti/christmas/oldwomen.png';
+        img9.src = '/weixin/Public/Member/images/zhuanti/christmas/oldwomen2.png';
+        img10.src = '/weixin/Public/Member/images/zhuanti/christmas/oldwomen3.png';
+        var oldwomen = {
+            x: 0
+            , y: 0.6 * ground.height
+            , w: 79.5
+            , h: 113.5
+            , ax: 1
+            , onOff: true
+            , fn: function () {
+                this.onOff = !this.onOff;
+                this.x += this.ax;
+                if (this.x >= ground.width * 0.3) {
+                    this.ax = 0;
+                    ctx2.save();
+                    ctx2.drawImage(img10, this.x, this.y, this.w, this.h);
+                    ctx2.restore();
+                    return;
+                }
+                ctx2.save();
+                if (this.onOff) {
+                    ctx2.drawImage(img8, this.x, this.y, this.w, this.h);
+                }
+                else {
+                    ctx2.drawImage(img9, this.x, this.y, this.w, this.h);
+                }
+                ctx2.restore();
+            }
+        }
+
+        function running() {
+            run.fn();
+            window.requestAnimationFrame(running);
+        }
+
+        function fly() {
+            star.fn();
+            window.requestAnimationFrame(fly);
+        }
+
+        function drop() {
+            gift.fn();
+            window.requestAnimationFrame(drop);
+        }
+
+        function go() {
+            oldwomen.fn();
+            window.requestAnimationFrame(go);
+        }
+
+        //监听礼物掉下来的时候第二屏开始下雪
+        art.addEventListener('transitionEnd', function () {
+            //snowGround();
+            go();
+            setTimeout(function () {
+                btn.className = 'btn active';
+                btn.style.left = ground.width / 2;
+                btn.style.left = ground.height * 0.6;
+            }, 800);
+            //snowSky = null;
+            //ctx1.clearRect(0, 0, 0, 0);
+        }, false);
+        art.addEventListener('webkitTransitionEnd', function () {
+            //snowGround();
+            go();
+            setTimeout(function () {
+                btn.className = 'btn active';
+                btn.style.left = ground.width / 2;
+                btn.style.left = ground.height * 0.6;
+            }, 800);
+            //snowSky = null;
+            //ctx1.clearRect(0, 0, 0, 0);
+        }, false);
+
+        //点击礼盒的效果
+        btn.onclick = function () {
+            img7.src = '';
+            img10.src = '';
+            this.style.opacity = 0;
+            snowman.style.opacity = 0;
+            mask.style.background = 'rgba(0,0,0,0.6)';
+            gifts.className = 'gift up';
+            this.style.display = 'none';
+        }
+
+        //开箱动画
+        gifts.addEventListener('transitionEnd',function(){
+            hands.className = 'hands text-center down';
+            gt.className = 'gt top';
+        },false);
+        gifts.addEventListener('webkitTransitionEnd',function(){
+            hands.className = 'hands text-center down';
+            gt.className = 'gt top';
+        },false);
+        gt.addEventListener('transitionEnd',function(){
+            hands.className = 'hands text-center down';
+            lid.className = 'lid text-center topup';
+            //setTimeout(function(){
+                happy.className = 'happy scale';
+            //},500)
+        },false);
+        gt.addEventListener('webkitTransitionEnd',function(){
+            hands.className = 'hands text-center down';
+            lid.className = 'lid text-center topup';
+            //setTimeout(function(){
+                happy.className = 'happy scale';
+            //},500)
+        },false);
+
+        //车和流行飞过
+        setTimeout(running, 1000);
+        setTimeout(fly, 3000);
+    })
+    
+</script>
+</html>

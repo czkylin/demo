@@ -1,0 +1,33 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="share-title" content="">
+		<!--公用样式调用-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<link href="/weixin/Public/Common/css/commonBtn/btn.css" type="text/css" rel="stylesheet">
+		<!--分享页面样式调用-->		
+		<link href="/weixin/Public/Expert/css/fenXiang/fenXiang.css" type="text/css" rel="stylesheet"/>
+		<!-- title -->
+		<title>病例详情</title>
+		<!--meta-->
+	</head>
+	<body>
+		<div class="tijiao tac">
+			<img src="/weixin/Application/Expert/View/images/icon7.png"/>
+			<p class="fs22 fc000">已提交成功！</p>
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td><a class="ui-btn-purchase-blue" href="/weixin/index.php?m=Expert&c=Share&a=add_info">继续分享</a></td>
+					<td><a class="ui-btn-purchase-blue" href="/weixin/index.php?m=Expert&c=Share&a=share_list&type_id=5">返回分享列表</a></td>
+					<td><a class="ui-btn-purchase-blue" href="/weixin/index.php?m=Expert&c=index&a=index">返回微官网</a></td>
+				</tr>
+			</table>
+		</div>
+		<footer class="footer"></footer>
+	</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>二次转诊</title>
+	<link rel="stylesheet" type="text/css" href="/weixin/Public/Member/css/referral.css">
+	<link rel="stylesheet" href="/weixin/Public/Member/css/pickout.min.css">
+	<script type="text/javascript">
+		document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/15 + 'px';
+	</script>
+</head>
+<body>
+	<form action="{:U('Referral/referral_add')}" method="POST" id="form" enctype="multipart/form-data">
+		<input type="hidden" name="person_name" value="{$referral_info['PERSON_NAME']}" />
+		<input type="hidden" name="person_mobile" value="{$referral_info['PERSON_MOBILE']}" />
+		<input type="hidden" name="person_idcard" value="{$referral_info['PERSON_IDCARD']}" />
+		<ul class="referral">
+			<li>
+				<p>姓名：<em>{$referral_info['PERSON_NAME']}</em></p>
+			</li>
+			<li>
+				<p>电话：<em>{$referral_info['PERSON_MOBILE']}</em></p>
+			</li>
+			<li>
+				<p>身份证号：<em>{$referral_info['PERSON_IDCARD']}</em></p>
+			</li>
+		</ul>
+		<ul class="referralInfo">
+			<li class="file-box">
+				<span>证件照片</span>
+				<a href="javascript:;" class="file-btn" onclick="fileInput.click()"><em></em><i>上传图片</i></a>
+				<input type="file" id="fileInput" name="photo[]">
+				<em id="myImg"></em>
+			</li>
+			<li>
+				<span>转诊医院</span>
+				<select name="hos_id" id="hospital" class="hospital pickout" placeholder="选择一个医院">
+					<volist name="hos_list" id="hos">
+						<option value="{$hos['HOS_ID']}">{$hos['HOS_NAME']}</option>
+					</volist>
+				</select>
+			</li>
+			<li>
+				<span>转诊理由</span>
+				<textarea class="area" name="referral_desc" id="referral_desc" maxlength="50" placeholder="50字以内"></textarea>
+				<i id="count"></i>
+			</li>
+			<li>
+				<input type="button" value="确认提交" class="re-btn" id="sub-re-btn">
+			</li>
+		</ul>
+	</form>
+	<script src="/weixin/Public/Common/js/jquery.min.js"></script>
+	<script src="/weixin/Public/Member/js/pickout.min.js"></script>
+	<script src="/weixin/Public/Member/js/verify.js"></script>
+	<script src="/weixin/Public/Member/js/referral.js"></script>
+	<script src="/weixin/Public/Member/js/upFile.js"></script>
+	<script>
+		pickout.to({
+			el:'.hospital', 
+			search: true
+		});
+		pickout.updated('.hospital');
+
+		$('#idNum').bind('input propertychange', function() {
+			IdentityCodeValid($('#idNum').val());
+		});
+
+		$("#sub-re-btn").click(function(){
+
+			if(check_form())
+			{
+				$("#form").submit();
+			}
+
+		});
+
+		var maxCount = 50;
+		$("#count").html(maxCount+'/'+maxCount);
+		$("#referral_desc").on('keyup', function() {
+		    var len = getStrLength(this.value);
+		    $("#count").html(maxCount-len+'/'+maxCount);
+		})
+		function getStrLength(str) { 
+		    var len = str.length; 
+		    var reLen = 0; 
+		    for (var i = 0; i < len; i++) {
+		      reLen++; 
+		    } 
+		    return reLen;    
+		}
+
+		function check_form()
+		{	
+			var person_idcard_pic = $("#fileInput").val();
+			var hos_id = $("#hospital").val();
+			var referral_desc = $("#referral_desc").val();
+
+	        if(person_idcard_pic == '')
+	        {
+	            alert("证件照不能为空！");
+	            return false;
+	        }
+	        if(hos_id == '')
+	        {
+	            alert("请选择转诊医院！");
+	            return false;
+	        }
+	        if(referral_desc == '')
+	        {
+	            alert("转诊理由不能为空！");
+	            $("#referral_desc").focus();
+	            return false;
+	        }
+
+	        return true;
+		}
+</script>
+</body>
+</html>

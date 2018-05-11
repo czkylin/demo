@@ -1,0 +1,91 @@
+<html class="ui-mobile">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="public">
+		<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<!--公用样式调用-->
+		<link href="/weixin/Public/Common/css/common/base.css" type="text/css" rel="stylesheet" >
+		<!--分享页面样式调用-->
+		<link rel="stylesheet" href="/weixin/Public/Expert/css/user/chakanbingli.css">
+		<script>
+			document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth / 16 + 'px';
+		</script>
+		<title>查看病例</title>
+	</head>
+	<body>
+	<if condition="empty($data)">
+	    <div style=" text-align: center;">
+	        <br/> 
+	        <img src="/weixin/Public/Common/images/icon/icon1.png"><br>
+	        <i style=" line-height: 30px;font-size:14px;font-style: normal;">暂无数据</i>
+	    </div>
+	<else />
+		<ul class="list" id="member_list">
+			<volist name="data" id='vo'>
+				<li>
+					<h3>{$vo.PERSON_NAME}</h3>
+					<div class="list-des">
+						<p>性别：{$vo.PERSON_SEX}</p>
+						<p>年龄：{$vo.PERSON_AGE}岁</p>
+						<p>手机号：{$vo.PERSON_MOBILE}</p>
+					</div>
+					<br>
+					<volist name="vo.PERSON_CASES" id="v">
+						<div class="list-main clearfix">
+							<div class="main-con">
+								<p>名称：{$v.CASE_TITLE}</p>
+								<p>描述: 
+									<if condition="$v['CASE_DESC'] eq ''">暂无
+									<else />{$v.CASE_DESC}
+									</if>
+								</p>
+							</div>
+							<div class="main-img">
+								<if condition="$v['CASE_PIC'] eq ''">
+								<else /><img src="{$v.CASE_PIC}" alt="">
+								</if>	
+							</div>
+						</div>
+						<br>
+					</volist>
+				</li>
+			</volist>	
+		</ul>
+
+		<div class="imgshow" id="imgshow">
+			<span></span>
+			<img src="" alt="">
+		</div>
+		<!-- 加载更多 -->
+		<div class="ui-jiazai tac"><a href="javascript:void(0);" onClick="load_more();">加载更多</a></div>
+        <div id="current_pagenum" style="display:none">2</div>
+    </if>
+        <div id="member_id" style="display:none">{$member_id}</div>
+		<script type="text/javascript" src="/weixin/Public/Common/js/jquery.min.js"></script>
+		<script src="/weixin/Public/Common/js/load_more.js" type="text/javascript"></script> 
+		<script>
+			$(".main-img").each(function(){
+				$(this).click(function(){
+					var iSrc = $(this).find('img').attr("src");
+					$(".imgshow img").attr("src",iSrc);
+					$(".imgshow").show();
+				})
+			});
+
+			$(".imgshow span").click(function(){
+				$(".imgshow").hide();
+			})
+
+			function load_more()
+            {
+            	loadmore('#current_pagenum','/weixin/index.php?m=Expert&c=User&a=my_bingli_append&member_id=' +$('#member_id').text(),'#member_list');
+            }
+		</script>
+		
+         <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+	</body>
+</html>

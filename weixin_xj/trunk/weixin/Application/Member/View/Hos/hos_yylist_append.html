@@ -1,0 +1,33 @@
+<volist name="hos_list" id="hos" >
+  <li>
+    <div class="feng"></div>
+    <a class="yylist_a" href="/weixin/index.php?m=Member&c=Hos&a=hos_detail&hos_id={$hos['HOS_ID']}">
+    <h2 class="mingcheng">{$hos['HOS_NAME']}<b>{$hos['JL']}km</b></h2>
+    <div class="hezuoHos"> <img src="{$hos['HOS_PIC']}"  alt="{$hos['HOS_NAME']}" class="g-left expert-img"/>
+      <p>等级：{$hos['LEVEL_NAME']}</p>
+      <p>类型：{$hos['TYPE_NAME']}</p>
+      <p>区域：{$hos['PROVINCE_NAME']}-{$hos['CITY_NAME']}<b>
+        <if condition="$hos['GM_NUM'] eq '0'">
+        <else />
+            {$hos['GM_NUM']}人购买
+        </if>
+      </b></p>
+    </div>
+    </a>
+    <div class="kt_service" style=" margin:0;">
+      <volist name="hos['HOS_SERVES']" id="serve">
+      <!-- 如果服务为空 选择 价格不显示 -->
+        <if condition="$serve['HAVE_SERVE'] eq 0">
+          <else />
+          <dl>
+            <a href="/weixin/index.php?m=Member&c=Hos&a=serve_detail&serve_id={$serve['SERVE_ID']}&hos_id={$hos['HOS_ID']}">
+            <dt>{$serve['SERVE_NAME']}</dt>
+            <dd><span class="fuwu fuwu{$serve['SERVE_ID']} on"></span></dd>
+            <dd>￥{$serve['SERVE_MONEY']}</dd>
+            </a>
+          </dl>
+        </if>
+      </volist>
+    </div>
+  </li>∮
+</volist>

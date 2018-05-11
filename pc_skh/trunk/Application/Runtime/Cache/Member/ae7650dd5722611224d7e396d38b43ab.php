@@ -1,0 +1,416 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>北京圣康华</title>
+  <!-- 公共样式 -->
+  <link rel="stylesheet" href="/Public/Common/css/header_ft.css">
+  <!-- 当前样式 -->
+  <link rel="stylesheet" href="/Public/Common/css/animate.css">
+  <link rel="stylesheet" href="/Public/Common/css/swiper.min.css">
+  <link rel="stylesheet" href="/Public/css/keyService/consultationCentre.css">
+</head>
+<body>
+  <!-- 头部start -->
+  
+  <!-- 头部start -->
+  <div class="header">
+      <div class="h_top">
+        <div class="w1200">
+          <div class="fl"><span>欢迎来到北京圣康华</span></div>
+          <div class="fr tr"><span>客服热线：010-62033293</span></div>
+        </div>
+      </div>
+      <div class="h_bottom clear">
+        <div class="w1200">
+          <a href="/" class="fl logo"><img src="/Public/Common/images/logo.png" alt=""></a>
+          <div class="fl">
+            <ul id="list">
+              <li class="tab_nav"><a href="/">首页</a></li>
+              <li class="tab_nav">
+                <a href="#">知名专家<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Focus/doc/type_id/11119"><li>特需专家</li></a>
+                  <a href="/Member/Focus/doc/type_id/11120"><li>会诊专家</li></a>
+                  <a href="/Member/Focus/doc/type_id/11121"><li>眼底病科</li></a>
+                  <a href="/Member/Focus/doc/type_id/11122"><li>白内障科</li></a>
+                  <a href="/Member/Focus/doc/type_id/11123"><li>眼外伤科</li></a>
+                  <a href="/Member/Focus/doc/type_id/11124"><li>神经眼科</li></a>
+                  <a href="/Member/Focus/doc/type_id/11125"><li>眼视光与功能视觉</li></a>
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">就诊服务<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Service/minSug"><li>糖网</li></a>
+                  <a href="/Member/Service/cataract"><li>白内障</li></a>
+                  <a href="/Member/Service/fundusDiseases"><li>眼底病</li></a>
+                  <a href="/Member/Service/optometry"><li>眼视光</li></a>
+                  <!-- <a href="#"><li>眼整形</li></a> -->
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">特色服务<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/KeyService/consultationCentre"><li>远程眼科会诊中心</li></a>
+                  <a href="/Member/KeyService/imgDiagnosis"><li>眼科影像诊断中心</li></a>
+                  <!-- <a href="#"><li>糖尿病眼病远程医疗服务中心</li></a>
+                  <a href="#"><li>视觉医疗质控管理服务中心</li></a> -->
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">聚焦圣康华<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Focus/intro"><li>圣康华简介</li></a>
+                  <a href="/Member/Focus/news"><li>新闻动态</li></a>
+                </ol>
+              </li>
+              <li class="tab_nav">
+                <a href="#">联系我们<i></i></a>
+                <ol class="tab_con">
+                  <a href="/Member/Contact/guide"><li>患者就医指南</li></a>
+                  <!-- <a href="#"><li>联系我们</li></a> -->
+                </ol>
+              </li>
+            </ul>
+          </div>
+          <div class="fr search_box">
+            <input class="search" type="text" name="" value="" placeholder="搜索医生服务">
+            <input type="button" name="" value="" class="searchButton">
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- 头部end -->
+
+  <!-- 头部end -->
+  <div class="banner">
+    <div class="w1200">
+      <div class="title"><em>Remote </em>Consultation Center</div>
+      <div class="desc">远程会诊中心</div>
+    </div>
+  </div>
+  <div class="con1 con">
+    <div class="w1120">
+      <h2>面向眼科医生的远<em>程会</em>诊与专业支持服务</h2>
+      <p class="title">北京圣康华眼科医院远程眼科会诊中心面向医疗机构和眼科医生服务，以远程会诊会议的方式为临床医生提供远程会诊帮助。北京圣康华眼科医院提供如下形式的远程会诊与专业支持服务。</p>
+      <div id="box1" class="box viewport-flip" title="点击翻面">
+        <p class="list flip list1">基于病历资料的远程会诊</p>
+        <p class="list flip list1 out">
+          <span>程序：临床医生提交会诊申请和病历材料，会诊中心组织相关专家或专家组对会诊病历材料进行审阅和会诊讨论，并反馈会诊意见。</span>
+          <span>病历资料的质量是基础：基于病历资料的远程会诊质量，依赖于病历资料采集的准确性和完整性，要求参与会诊活动的所有医务人员都能够准确地、全面地采集、理解相关病历资料，因此，要求对相关医生进行系统、准确的临床理论与临床技能培训，这是这种会诊活动的质量基础。</span>
+        </p>
+      </div>
+      <div id="box2" class="box viewport-flip" title="点击翻面">
+        <p class="list flip list2">视频会诊远程会议</p>
+        <p class="list flip list2 out">
+          <span>一般情况下，基于病历资料的远程会诊可以解决大部分远程会诊需要解决的问题。但是，在个别情况下，特别在需要开展远程临床教学、远程临床培训的情况下，视频会议会诊工作有其特殊的应用价值。</span>
+          <span>视频会议会诊工作需由参与视频会诊的各相关单位的会诊医生同时放下其他工作、同时参加会诊活动，因此，需要较为复杂的工作时间协调，是经济成本最高的远程会诊形式。根据会诊案例的病历资料质量及医疗工作需要，可考虑安排或不安排患者参与视频会议会诊过程，可视具体情况由参与会诊的医生及患者讨论决定。</span>
+        </p>
+      </div>
+      <div id="box3" class="box viewport-flip" title="点击翻面">
+        <p class="list flip list3">视频会诊远程会议</p>
+        <p class="list flip list3 out">
+          <span>对于无法通过以上远程会诊办法解决的医疗问题，临床医生可以与本院远程会诊中心联系，为患者提供转诊会诊医疗服务。</span>
+          <span>远程会诊中心会根据患者的医疗需要，为患者预约转诊会诊的专家或专家组。</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="con2 con">
+    <div class="w1200">
+      <h2>远程眼科会诊<em>中心的</em>主要业务领域</h2>
+      <p class="title">北京圣康华眼科医院会诊中心主要提供以下专业领域的远程会诊与专业支持帮助。</p>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt>
+                  <img src="/Public/images/keyService/consultationCentre/pic4.jpg" alt="">
+                  <img src="/Public/images/keyService/consultationCentre/pic8.jpg" alt="" class="text">
+                </dt>
+                <dd>
+                  <p class="desc">各种类型复杂白内障的治疗</p>
+                  <p class="item">1、各种复杂情况下的白内障的手术治疗：如合并青光眼、葡萄膜炎、眼底病或其他眼病的白内障的手术治疗；</p>
+                  <p class="item">2、各种外伤性白内障的手术治疗；</p>
+                  <p class="item">3、儿童白内障、先天性白内障的手术治疗与视觉康复治疗；</p>
+                  <p class="item">4、曾接受白内障手术，因各种原因未能植入人工晶体患者的手术修复和二期人工晶体植入；</p>
+                  <p class="item">5、为既往视网膜玻璃体手术后无晶体患者进行二期人工晶体植入；</p>
+                  <p class="item">6、对既往白内障手术并发症、合并症进行二次修复手术治疗；</p>
+                  <p class="item">7、各种既往手术未成功病例的挽救性治疗。</p>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt>
+                  <img src="/Public/images/keyService/consultationCentre/pic5.jpg" alt="">
+                  <img src="/Public/images/keyService/consultationCentre/pic9.jpg" alt="" class="text">
+                </dt>
+                <dd>
+                  <p class="desc">各种类型青光眼的诊断和治疗</p>
+                  <p class="item">1、各种青光眼的系统诊断、鉴别诊断和治疗；</p>
+                  <p class="item">2、曾接受抗青光眼手术、眼压仍不能满意控制的复杂疑难青光眼的再次手术治疗；</p>
+                  <p class="item">3、恶性青光眼的治疗；</p>
+                  <p class="item">4、各种青光眼手术合并症、并发症的手术治疗；</p>
+                  <p class="item">5、各种原发性、继发性闭角型青光眼的前房角重建手术治疗。</p>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt>
+                  <img src="/Public/images/keyService/consultationCentre/pic6.jpg" alt="">
+                  <img src="/Public/images/keyService/consultationCentre/pic10.jpg" alt="" class="text">
+                </dt>
+                <dd>
+                  <p class="desc">各种复杂情况下的视网膜玻璃体疾病（眼底病）的手术治疗</p>
+                  <p class="item">1、各种原因的视网膜脱离的手术治疗；</p>
+                  <p class="item">2、各种复杂疑难视网膜玻璃体疾病的手术治疗；</p>
+                  <p class="item">3、糖尿病视网膜病变的手术治疗；</p>
+                  <p class="item">4、曾接受视网膜、玻璃体手术的复杂疑难眼底病的再次手术治疗；</p>
+                  <p class="item">5、眼外伤的显微手术修复治疗。</p>
+                </dd>
+              </dl>
+            </div>
+            <div class="swiper-slide swiper-no-swiping">
+              <dl>
+                <dt>
+                  <img src="/Public/images/keyService/consultationCentre/pic7.jpg" alt="">
+                  <img src="/Public/images/keyService/consultationCentre/pic11.jpg" alt="" class="text">
+                </dt>
+                <dd>
+                  <p class="desc">需要新医疗技术服务的转诊或者其他医疗需求的医疗服务 </p>
+                  <p class="item">1、如慢性闭角型青光眼的房角恢复手术治疗；</p>
+                  <p class="item">2、如特需专家医疗服务。</p>
+                </dd>
+              </dl>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+  <div class="con3 con">
+    <div class="w920">
+      <h2>会诊邀请应<em>提交</em>的病历资料</h2>
+      <p class="title">无论采取何种会诊方式，均要求会诊申请医生在提出会诊申请的同时，向远程会诊中心提供准确、完整的会诊病历材料。</p>
+      <div class="content">
+        <p class="iTitle">会诊邀请单</p>
+        <p class="item">1. 患者信息：包括患者姓名、性别、年龄、联系 &nbsp;&nbsp;&nbsp;&nbsp;方式等。</p>
+        <p class="item">2. 病历摘要：重点描述患者的目前病况。</p>
+        <p class="item">3. 会诊目的：说明需要解决的问题。</p>
+        <p class="item">4. 医生信息：包括医生（邀请人）姓名、所在医 &nbsp;&nbsp;&nbsp;&nbsp;疗机构名称、联系方式等。</p>
+      </div>
+      <div class="content">
+        <p class="iTitle">病历资料</p>
+        <p class="item">1. 视力： 包括术前视力和术后视力情况；视力低于0.1 &nbsp;&nbsp;&nbsp;&nbsp;者，应有光感、光定位、红绿色觉的检查资料。</p>
+        <p class="item">2. 眼压记录。</p>
+        <p class="item">3. 就医时的眼科专科检查情况。</p>
+        <p class="item">4. 如果已经做完手术，应提供手术记录资料。</p>
+        <p class="item">5. 眼科影像检查资料：包括术前和术后检查资料；如已 &nbsp;&nbsp;&nbsp;进行手术，最好能有术后眼前节和眼底照相的资料。</p>
+        <p class="item">6. 其他病历资料：应特别说明患者是否患有系统性疾病 &nbsp;&nbsp;&nbsp;&nbsp;（如高血压、糖尿病等）及目前疾病的控制情况。 &nbsp;&nbsp;&nbsp;&nbsp;这些内容对于判断患者是否可以承受进一步眼科治 &nbsp;&nbsp;&nbsp;&nbsp;疗非常重要。</p>
+      </div>
+    </div>
+  </div>
+  <div class="con4 con">
+    <div class="w1200">
+      <h2>直接面向患者的远程会诊咨询服务</h2>
+      <p class="title">本项服务是直接面向患者的服务，服务的形式是为眼病患者提供病历资料分析和就医咨询服务。</p>
+      <img src="/Public/images/keyService/consultationCentre/img3.png" alt="">
+    </div>
+  </div>
+  <!-- 底部start -->
+  
+  <!-- 底部start -->
+    <div class="footer">
+      <div class="ft_top clear">
+        <div class="w1200">
+          <ul>
+            <li><a href="">诊疗项目</a></li>
+            <li><a href="/Member/Service/minSug">糖网</a></li>
+            <li><a href="/Member/Service/cataract">白内障</a></li>
+            <li><a href="/Member/Service/fundusDiseases">眼底病</a></li>
+            <li><a href="/Member/Service/optometry">眼视光</a></li>
+          </ul>
+          <ul>
+            <li><a href="">便捷服务</a></li>
+            <li><a href="/Member/Contact/guide/">来院路线</a></li>
+            <li><a href="http://pbt.zoosnet.net/LR/Chatpre.aspx?id=PBT44701575&lng=cn&p=%e9%a2%84%e7%ba%a6%e4%b8%93%e5%ae%b6">在线咨询</a></li>
+            <li><a href="http://pbt.zoosnet.net/LR/Chatpre.aspx?id=PBT44701575&lng=cn&p=%e9%a2%84%e7%ba%a6%e4%b8%93%e5%ae%b6">预约挂号</a></li>
+          </ul>
+          <ul>
+            <li><a href="">聚焦圣康华</a></li>
+            <li><a href="/Member/Focus/intro">圣康华简介</a></li>
+            <li><a href="/Member/Focus/news">媒体报道</a></li>
+          </ul>
+          <div class="text">
+            <p class="title">服务热线</p>
+            <strong>010-62033293</strong>
+            <p class="range">周一至周五 8:00-17:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="ft_bottom">Copyright © 2016 北京远程新华网络技术有限公司 版权所有 京ICP备14009444-1</div>
+    </div>
+    <div style="width:0; height:0px; overflow:hidden;"><script src="https://s19.cnzz.com/z_stat.php?id=1271236175&web_id=1271236175" language="JavaScript"></script><div>
+    <script language="javascript" src="http://pbt.zoosnet.net/JS/LsJS.aspx?siteid=PBT44701575&float=1&lng=cn"></script>
+  <!-- 底部end -->
+
+  <!-- 底部end -->
+  <script src="/Public/Common/js/jquery.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/header.js" charset="utf-8"></script>
+  <script src="/Public/Common/js/swiper.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  // // 在前面显示的元素，隐藏在后面的元素
+  // var eleBack1 = null, eleFront1 = null,
+  // // 纸牌元素们
+  // eleList1 = $(".list1");
+  //
+  // // 确定前面与后面元素
+  // var funBackOrFront1 = function() {
+  //   eleList1.each(function() {
+  //     if ($(this).hasClass("out")) {
+  //       eleBack1 = $(this);
+  //     } else {
+  //       eleFront1 = $(this);
+  //     }
+  //   });
+  // };
+  // funBackOrFront1();
+  //
+  // $("#box1").bind("click", function() {
+  //   // 切换的顺序如下
+  //   // 1. 当前在前显示的元素翻转90度隐藏, 动画时间225毫秒
+  //   // 2. 结束后，之前显示在后面的元素逆向90度翻转显示在前
+  //   // 3. 完成翻面效果
+  //   eleFront1.addClass("out").removeClass("in");
+  //   setTimeout(function() {
+  //     eleBack1.addClass("in").removeClass("out");
+  //     // 重新确定正反元素
+  //     funBackOrFront1();
+  //   }, 225);
+  //   return false;
+  // });
+  //
+  // var eleBack2 = null, eleFront2 = null,
+  // eleList2 = $(".list2");
+  // var funBackOrFront2 = function() {
+  //   eleList2.each(function() {
+  //     if ($(this).hasClass("out")) {
+  //       eleBack2 = $(this);
+  //     } else {
+  //       eleFront2 = $(this);
+  //     }
+  //   });
+  // };
+  // funBackOrFront2();
+  //
+  // $("#box2").bind("click", function() {
+  //   eleFront2.addClass("out").removeClass("in");
+  //   setTimeout(function() {
+  //     eleBack2.addClass("in").removeClass("out");
+  //     funBackOrFront2();
+  //   }, 225);
+  //   return false;
+  // });
+  //
+  // var eleBack3 = null, eleFront3 = null,
+  // eleList3 = $(".list3");
+  //
+  // var funBackOrFront3 = function() {
+  //   eleList3.each(function() {
+  //     if ($(this).hasClass("out")) {
+  //       eleBack3 = $(this);
+  //     } else {
+  //       eleFront3 = $(this);
+  //     }
+  //   });
+  // };
+  // funBackOrFront3();
+  //
+  // $("#box3").bind("click", function() {
+  //   eleFront3.addClass("out").removeClass("in");
+  //   setTimeout(function() {
+  //     eleBack3.addClass("in").removeClass("out");
+  //     funBackOrFront3();
+  //   }, 225);
+  //   return false;
+  // });
+$("#box1").bind("mouseenter", function() {
+  console.log($('.list')[0]);
+  $('.list1')[0].classList.remove('in');
+  $('.list1')[0].classList.add('out');
+  setTimeout(function(){
+    $('.list1')[1].classList.remove('out');
+    $('.list1')[1].classList.add('in');
+  },255)
+
+});
+
+$("#box1").bind("mouseleave", function() {
+  setTimeout(function(){
+    $('.list1')[0].classList.remove('out');
+    $('.list1')[0].classList.add('in');
+  }, 255)
+  $('.list1')[1].classList.remove('in');
+  $('.list1')[1].classList.add('out');
+});
+
+$("#box2").bind("mouseenter", function() {
+  console.log($('.list')[0]);
+  $('.list2')[0].classList.remove('in');
+  $('.list2')[0].classList.add('out');
+  setTimeout(function(){
+    $('.list2')[1].classList.remove('out');
+    $('.list2')[1].classList.add('in');
+  },255)
+
+});
+
+$("#box2").bind("mouseleave", function() {
+  setTimeout(function(){
+    $('.list2')[0].classList.remove('out');
+    $('.list2')[0].classList.add('in');
+  }, 255)
+  $('.list2')[1].classList.remove('in');
+  $('.list2')[1].classList.add('out');
+});
+
+$("#box3").bind("mouseenter", function() {
+  console.log($('.list')[0]);
+  $('.list3')[0].classList.remove('in');
+  $('.list3')[0].classList.add('out');
+  setTimeout(function(){
+    $('.list3')[1].classList.remove('out');
+    $('.list3')[1].classList.add('in');
+  },255)
+
+});
+
+$("#box3").bind("mouseleave", function() {
+  setTimeout(function(){
+    $('.list3')[0].classList.remove('out');
+    $('.list3')[0].classList.add('in');
+  }, 255)
+  $('.list3')[1].classList.remove('in');
+  $('.list3')[1].classList.add('out');
+});
+
+
+
+  var mySwiper = new Swiper ('.swiper-container', {
+    loop: true,
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+  })
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>开通电子处方</title>
+    <link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/ep.min.css">
+    <script>
+        document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/3 + 'px';
+    </script>
+</head>
+<body>
+    <header>
+        <img src="/weixin/Public/Expert/images/zhengcejiedu/ep.jpg" width="100%" />
+    </header>
+    <article>
+        <h2>如何申请开通电子处方功能？</h2>
+        <p>如果您有意向开通电子处方功能，请联系我们，我们会有专人联系您，帮您解决在申请过程和服务期间遇到的疑问。</p>
+         <if condition="$cf_status[0]['CF_CHECK_FLAG'] eq ''">
+            <a href="{:U('Expert/User/cfds')}">申通开通</a>
+        <else />
+            <a href="{:U('Expert/User/index')}">重新申通开通</a>
+        </if>
+      
+    </article>
+    <footer>
+        <h3>客服电话：400-656-2020</h3>
+        <h3>客服QQ： 1043962806</h3>
+    </footer>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+</html>

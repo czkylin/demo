@@ -1,0 +1,38 @@
+<volist name="member_list" id="member">
+	<a href="index.php?m=Expert&c=Jtys&a=consult_details&consult_id=0&member_id={$member.MEMBER_ID}">
+		<li>
+			<div class="list-touxiang">	  
+				<if condition="($member['MEMBER_SEX'] eq '未填写') && ($member['MEMBER_PIC'] eq '')" >
+	           		<img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png" />
+	            <elseif condition="($member['MEMBER_SEX'] eq '男') && ($member['MEMBER_PIC'] eq '')"/>
+	            	<img src="/weixin/Public/Expert/images/fenXiang/dfboy.png" />
+	            <elseif condition="($member['MEMBER_SEX'] eq '女') && ($member['MEMBER_PIC'] eq '')" />
+	            	<img src="/weixin/Public/Expert/images/fenXiang/dfgirl.png" />
+	            <else />
+					<img src="{$member['MEMBER_PIC']}" />
+				</if>
+				<span class="touxiang-vip"></span>
+			</div>
+			<div class="list-info1">
+				<div class="list-mes1">
+					<span>{$member['MEMBER_NAME']}</span>
+					<span> / </span>
+					<span>{$member['MEMBER_SEX']}</span>
+					<span> / </span>
+					<span>{$member.MEMBER_AGE}</span>
+				</div>
+				<div class="list-mes2">
+					<span>{$member.MEMBER_MOBILE}</span>
+				</div>
+			</div>
+			<div class="list-time">
+			<if condition="$member['CONSULT_DATE'] eq ''" >
+			<else />
+				<p>最后沟通时间:</p>
+				<p>{$member.CONSULT_DATE}</p>
+			</if>
+			</div>
+			<a class="bingli" href="{:U('Expert/User/my_bingli',array('member_id'=>$member['MEMBER_ID']))}">查看病例</a>
+		</li>
+	</a>∮
+</volist>

@@ -1,0 +1,64 @@
+/*select*/
+#select{
+	margin-bottom: 1.2rem;
+	border-bottom: 1px solid #e7e7e7;
+}
+#select div{
+	width: 33.33%; 
+	height: 1.8rem;
+	line-height: 1.8rem;
+	text-align: center;
+}
+#select span{
+	color: #333333;
+	font-size: 0.64rem;
+	border-bottom: 0.08rem solid #fff;
+}
+#select div.active span{
+	color: #ef4a65;
+	border-bottom-color: #ef4a65;
+}
+#wrap{
+	position: relative;
+}
+/*dazhen*/
+.dazhen{}
+.dazhen p{
+	font-size: 0.64rem;
+	color: #333;
+	text-align: center;
+	line-height: 1.4rem;
+	height: 1.4rem;
+}
+.dazhen input.search{
+	display: block;
+	width: 8.3rem;
+	border: none;
+	height: 1.2rem;
+	line-height: 1.2rem;
+	padding-left: 0.7rem;
+	font-size: 0.52rem;
+	color: #666;
+	margin: 0 auto 1.2rem;
+	text-indent: 0.5em;
+	border-bottom:1px solid #cccccc;
+	background: #fff url(/weixin/Public/Member/images/nurse/icon/add.png) no-repeat 0.15rem center; 
+	background-size: 0.4rem;
+}
+.map{
+	position: relative;
+}
+.link{
+	position: absolute;
+	bottom: 0.8rem;
+	left: 0.5rem;
+	display: block;
+	width: 14rem;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	text-align: center;
+	background: #ef4a65;
+	color: #fff;
+	font-size: 0.6rem;
+	border-radius: 0.12rem;
+}

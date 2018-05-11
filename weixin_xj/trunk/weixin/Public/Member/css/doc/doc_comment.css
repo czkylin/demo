@@ -1,0 +1,12 @@
+.comment-list ul{width: 100%;}
+.comment-list ul li{height: 70px; border-bottom: 1px solid #ccc;}
+.comment-list .touxiang{width: 2rem; height: 2rem; border-radius: 50px; float: left; margin-right: .3rem; margin-top: .3rem;}
+.comment-list .des{height: 62px; float: left; width:8.8rem; padding-top: 8px;}
+.comment-list .des .info{ height: 30px; line-height: 30px;}
+.comment-list .des .info span{font-size: 14px; color: #333; margin-right: 8px;}
+.comment-list .des .info b{font-weight: normal; line-height: 30px;  border-radius: 8px; padding: 0 8px; }
+.comment-list .des .info b.fcmy{color: #ff647c; border: 1px solid #ff647c;}
+.comment-list .des .info b.bmy{color: #ccc; border: 1px solid #ccc;}
+.comment-list .des .con{ height: 30px; line-height: 30px; font-size: 14px; display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.ui-jiazai{width: 100%; text-align: center; margin: 10px 0;}
+.ui-jiazai a{font-size: 14px; color: #C7C7C7; line-height: 28px;}

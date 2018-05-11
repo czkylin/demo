@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>知情告知书</title>
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/swiper.min.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/mbase.min.css">
+<link rel="stylesheet" href="/weixin/Public/Expert/css/zhengcejiedu/icon.css">
+<style>
+body { height: 100%; }
+</style>
+<style>
+        .tc_con {
+            text-align: center;
+            background: #fff;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 5px;
+            z-index: 99999;
+            height: 50%
+        }
+        
+        .tc_con img {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+        
+        .tc_con .cgimg {
+            width: 137px;
+            height: 104px;
+            margin-top: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        
+        .tc_con p {
+            margin: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #333333;
+            font-size: 14px;
+        }
+        
+        .tc_con p span {
+            color: #f8b900;
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .tc_con p b {
+            color: #0dab6e;
+            font-size: 14px;
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .cg1 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .cg1 img{vertical-align:top;}
+        
+        .tc_con .queding {
+            color: #666666;
+            font-size: 14px;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+            display: block;
+            line-height: 40px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .cg1 .text-center {
+            width: 100%;
+            height: 50%;
+        }
+        
+        .tt {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100000;
+            visibility: hidden;
+        }
+        
+        .tt.active {
+            display: box;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            visibility: visible;
+        }
+    </style>
+<script>
+    document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth / 3 + 'px';
+</script>
+</head>
+
+<body class="data">
+<article class="opacity" id="opacity"></article>
+<div style="position:fixed; left:0; right:0; top:0; bottom:0; display:none; background:#000; opacity:0.7; z-index:999" id="hui"></div>
+<div class="dl explain move" data-name="explain">
+            <article>
+                <h2>知情告知书</h2>
+                <div class="article">
+                            <p>1、本平台为信息中介服务平台，为您提供个人展示、信息服务、技术服务等。为了更好地为您服务，您需要确保向本平台提供的个人信息、执业信息等资料的真实性、合法性，并对其负全部责任。若任何第三方因信任该些信息而采取某些行为，并因此遭受损失或给其它方造成损失的，由该您承担所有法律责任并予以赔偿。本平台对此不承担责任。</p>
+                            <P>2、本平台在此提醒您，您在使用本平台的过程中，不得发布违法、违规、反动以及其他任何不适的言论、不得实施任何不适的行为，您需要审慎提供咨询意见，您的任何言论、行为不代表本平台意见，您需要为自己提供咨询意见的行为负责，本平台不承担由此引起的法律责任。</P>
+                            <P>3、本平台会提示用户，您依据提问者描述的症状而提供的建议性内容不能替代执业医师面对面的诊断，是否采纳该建议性内容由提问者自主决定，本平台不承担任何责任。</P>
+                            <P>4、您提供的“在线咨询”“电子处方”等服务均由申请人直接向您或其他医生用户提出的要求，您或其他医生用户根据其出诊时间、就诊安排等情况自行决定是否接受申请人的申请。本平台仅作为信息中介，为您和申请人提供平台技术服务，对该申请及您与申请人之间的行为不承担任何担保责任。</P>
+                            <P>5、本平台电子处方所开具的药品，均来自于第三方药店，因药品质量问题所产生的风险与责任，与该医生无关，医生用户与本平台对此不承担责任。</P>
+                            <P>6、上述事项需要特别告知您，无论您以任何方式登陆本平台或直接、间接使用本平台或其服务、信息等，视为您清楚无误明白、无保留同意前述事项，并接受本平台的有关协议、管理规则等。</P>
+                    </div>
+                <if condition="$xs neq '1'">
+                    <a href="{:U('Expert/User/band_phone')}" class="text-center">OK</a>
+                </if>  
+                </article>
+    </div>
+     <!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+        <div style="height:0px;overflow:hidden;"><?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1259145622).'" width="0" height="0"/>';?></div>
+</body>
+ 
+</html>

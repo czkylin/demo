@@ -1,0 +1,44 @@
+<html class="ui-mobile">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="cache-control" content="public">
+<meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+
+<!--分享页面样式调用-->
+
+<link href="/weixin/Public/Home/css/personalCenter.min.css" type="text/css" rel="stylesheet"/>
+<title>我的资料</title>
+</head>
+
+<body>
+<div id="J_Account_Info" class="gp GJ_Gp g-items gp-profile" style="padding-bottom: 10px;">
+        <ul>
+                <li class="avatar" >
+                        <label style=" margin-top:17px;">头像</label>
+                        <b class="jiantou"> <a href="/weixin/index.php?m=Home&c=User&a=edit_face&user_pic={$member_pic_encode}"> <img src="{$user['USER_PIC']}" width="50" height="50"> </a> </b> </li>
+                <li >
+                        <label>用户名</label>
+                        <span class="right" style="line-height:20px;">{$user['USER_NAME']}</span> </li>
+                <li >
+                        <label>姓名</label>
+                        <span class="right" style="line-height:20px;"><a href="/weixin/index.php?m=Home&c=User&a=edit_name&truename={$user['REAL_NAME']}">{$user['REAL_NAME']}</a></span> </li>
+                <li >
+                        <label>所属机构</label>
+                        <span class="right" style="line-height:20px;"><a href="/weixin/index.php?m=Home&c=User&a=edit_hos&hos_name={$user['HOS_NAME']}&hos_type={$user['HOS_TYPE']}">{$user['HOS_NAME']}</a></span> </li>
+        </ul>
+        <ul>
+                <li class="link">
+                        <label>手机绑定</label>
+                        <a href="#" class="g-arrow-r"> <span class="right yirenz">{$user['LINK_MOBILE']}</span> </a> </li>
+        </ul>
+        <p class="reg-time"><span>注册时间：{$user['CREATE_DATE']}</span></p>
+</div>
+<!--微信全国心脑远程联盟  cnzz统计代码，修改日期2016.07.29郑洁-->
+<div style="height:0px;overflow:hidden;">
+        <?php require_once 'cs.php';echo '<img src="'._cnzzTrackPageView(1260047007).'" width="0" height="0"/>';?>
+</div>
+</body>
+</html>
